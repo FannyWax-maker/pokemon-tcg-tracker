@@ -95,8 +95,8 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     let mounted = true;
     const tryLoadImage = async () => {
       const allPaths = imagePaths.flatMap(path => [
-        `/card-images/${path}.png`,
-        `/card-images/${path}.jpg`
+        `/pokemon-tcg-tracker/card-images/${path}.png`,
+        `/pokemon-tcg-tracker/card-images/${path}.jpg`
       ]);
       const loadPromises = allPaths.map(src =>
         new Promise((resolve, reject) => {
