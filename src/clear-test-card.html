@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clearing Test Card...</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 500px;
+        }
+        h1 { color: #2d3748; margin-bottom: 20px; }
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .success {
+            color: #22543d;
+            background: #c6f6d5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Clearing Test Card</h1>
+        <div class="spinner"></div>
+        <p>Removing test card and corrupted data...</p>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            localStorage.removeItem('pokemon_data_custom');
+            document.getElementById('result').innerHTML = '<div class="success"><strong>✓ Done!</strong><br>Test card removed. Redirecting to app...</div>';
+            setTimeout(() => {
+                window.location.href = '../index.html';
+            }, 2000);
+        }, 1000);
+    </script>
+</body>
+</html>

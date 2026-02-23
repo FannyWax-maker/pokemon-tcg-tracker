@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon TCG - Data Reset Tool</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .subtitle {
+            color: #718096;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .status-box {
+            background: #f7fafc;
+            border-left: 4px solid #4299e1;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box {
+            background: #fffaf0;
+            border-left: 4px solid #ed8936;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .stat {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .stat:last-child {
+            border-bottom: none;
+        }
+        
+        .stat-label {
+            font-weight: 600;
+            color: #4a5568;
+        }
+        
+        .stat-value {
+            color: #2d3748;
+            font-family: "SF Mono", Monaco, monospace;
+            font-size: 14px;
+        }
+        
+        .btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .btn:hover {
+            background: #5a67d8;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-danger {
+            background: #f56565;
+        }
+        
+        .btn-danger:hover {
+            background: #e53e3e;
+            box-shadow: 0 4px 12px rgba(245, 101, 101, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #2d3748;
+        }
+        
+        .btn-secondary:hover {
+            background: #cbd5e0;
+            box-shadow: 0 4px 12px rgba(203, 213, 224, 0.4);
+        }
+        
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        #result.success {
+            background: #c6f6d5;
+            color: #22543d;
+            border: 1px solid #9ae6b4;
+            display: block;
+        }
+        
+        #result.error {
+            background: #fed7d7;
+            color: #742a2a;
+            border: 1px solid #fc8181;
+            display: block;
+        }
+        
+        .info {
+            background: #bee3f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #2c5282;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Data Reset Tool</h1>
+        <p class="subtitle">Fix missing cards issue by resetting to default data</p>
+        
+        <div id="status" class="status-box">
+            <h3 style="margin-bottom: 15px; color: #2d3748;">Current Status</h3>
+            <div class="stat">
+                <span class="stat-label">Using custom data:</span>
+                <span class="stat-value" id="hasCustomData">Checking...</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Total cards:</span>
+                <span class="stat-value" id="totalCards">-</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">JP Exclusive cards:</span>
+                <span class="stat-value" id="jpCards">-</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">CN Exclusive cards:</span>
+                <span class="stat-value" id="cnCards">-</span>
+            </div>
+        </div>
+        
+        <div class="warning-box">
+            <strong>⚠️ Problem Detected</strong>
+            <p style="margin-top: 10px; line-height: 1.6;">
+                Your app is showing only 5 JP exclusive cards instead of 35. This happens when:
+            </p>
+            <ul style="margin-left: 20px; margin-top: 10px; line-height: 1.8;">
+                <li>Custom/modified data is saved in your browser</li>
+                <li>The data got corrupted during editing</li>
+                <li>Cards were accidentally deleted</li>
+            </ul>
+        </div>
+        
+        <div class="info">
+            <strong>💡 Solution:</strong> Clear the custom data to reset to the original 1,428 cards with all 35 JP and 33 CN exclusive cards.
+        </div>
+        
+        <button class="btn btn-danger" onclick="resetData()">
+            🔄 Reset to Default Data
+        </button>
+        
+        <button class="btn btn-secondary" onclick="window.location.reload()">
+            ↻ Refresh Status
+        </button>
+        
+        <button class="btn" onclick="window.location.href='/'">
+            ← Back to App
+        </button>
+        
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function checkStatus() {
+            const customData = localStorage.getItem('pokemon_data_custom');
+            const hasCustom = customData !== null;
+            
+            document.getElementById('hasCustomData').textContent = hasCustom ? 'Yes ⚠️' : 'No ✓';
+            
+            if (hasCustom) {
+                try {
+                    const data = JSON.parse(customData);
+                    const allCards = [];
+                    let jpCount = 0;
+                    let cnCount = 0;
+                    
+                    data.forEach(pokemon => {
+                        pokemon.cards.forEach(card => {
+                            const isPrimary = card.isPrimary !== false && !card.isSecondary;
+                            if (isPrimary) {
+                                allCards.push(card);
+                                if (card.exclusive === 'JP') jpCount++;
+                                if (card.exclusive === 'CN') cnCount++;
+                            }
+                        });
+                    });
+                    
+                    document.getElementById('totalCards').textContent = allCards.length;
+                    document.getElementById('jpCards').textContent = jpCount;
+                    document.getElementById('cnCards').textContent = cnCount;
+                    
+                    if (jpCount < 35 || cnCount < 33 || allCards.length < 1400) {
+                        document.querySelector('.warning-box').style.display = 'block';
+                    }
+                } catch (e) {
+                    document.getElementById('totalCards').textContent = 'Error parsing data';
+                    document.getElementById('jpCards').textContent = '-';
+                    document.getElementById('cnCards').textContent = '-';
+                }
+            } else {
+                document.getElementById('totalCards').textContent = '1,428 (default)';
+                document.getElementById('jpCards').textContent = '35 (default)';
+                document.getElementById('cnCards').textContent = '33 (default)';
+                document.querySelector('.warning-box').style.display = 'none';
+            }
+        }
+        
+        function resetData() {
+            if (confirm('This will delete your custom data and reset to the original 1,428 cards. Continue?')) {
+                try {
+                    localStorage.removeItem('pokemon_data_custom');
+                    showResult('✓ Data reset successfully! All 1,428 cards restored. Refresh the app to see changes.', 'success');
+                    setTimeout(() => {
+                        checkStatus();
+                    }, 1000);
+                } catch (e) {
+                    showResult('✗ Error resetting data: ' + e.message, 'error');
+                }
+            }
+        }
+        
+        function showResult(message, type) {
+            const result = document.getElementById('result');
+            result.textContent = message;
+            result.className = type;
+        }
+        
+        checkStatus();
+    </script>
+</body>
+</html>
