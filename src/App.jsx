@@ -45,7 +45,7 @@ export default function App() {
         })));
       }
       try {
-        const res = await fetch('https://corsproxy.io/?' + encodeURIComponent(APPS_SCRIPT_URL + '?pwd=PikaPika2026x&t=' + Date.now()));
+        const res = await fetch(APPS_SCRIPT_URL + '?t=' + Date.now());
         const data = await res.json();
         // Support both old format {cardId: lang} and new format {ownership:{...}, nonConforming:{...}}
         const ownership = data.ownership || data;
@@ -87,8 +87,8 @@ export default function App() {
     else delete ownership[cardId];
     localStorage.setItem('pokemon_ownership_cache', JSON.stringify(ownership));
     try {
-      const url = `${APPS_SCRIPT_URL}?pwd=PikaPika2026x&action=set&cardId=${encodeURIComponent(cardId)}&ownedLang=${encodeURIComponent(ownedLang || '')}`;
-      await fetch(url, {mode: 'no-cors'});
+      const url = `${APPS_SCRIPT_URL}?action=set&cardId=${encodeURIComponent(cardId)}&ownedLang=${encodeURIComponent(ownedLang || '')}`;
+      await fetch(url);
       setSyncStatus('saved');
       setTimeout(() => setSyncStatus(''), 2000);
     } catch (e) {
@@ -105,8 +105,8 @@ export default function App() {
     else delete nonConforming[cardId];
     localStorage.setItem('pokemon_nonconforming_cache', JSON.stringify(nonConforming));
     try {
-      const url = `${APPS_SCRIPT_URL}?pwd=PikaPika2026x&action=setConforming&cardId=${encodeURIComponent(cardId)}&nonConforming=${isNonConforming ? 'true' : ''}`;
-      await fetch(url, {mode: 'no-cors'});
+      const url = `${APPS_SCRIPT_URL}?action=setConforming&cardId=${encodeURIComponent(cardId)}&nonConforming=${isNonConforming ? 'true' : ''}`;
+      await fetch(url);
       setSyncStatus('saved');
       setTimeout(() => setSyncStatus(''), 2000);
     } catch (e) {
