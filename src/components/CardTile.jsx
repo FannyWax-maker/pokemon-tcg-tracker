@@ -261,16 +261,13 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           {/* Row 3: artist (always shown) */}
           <div className={`text-xs leading-tight truncate ${isOwned ? 'text-emerald-100' : 'text-gray-400'}`}>{card.artist}</div>
 
-          {/* Row 4: other pokemon if present */}
-          {hasOtherPokemon && (
-            <div className={`text-xs leading-tight truncate ${isOwned ? 'text-emerald-100' : 'text-blue-500'}`}>
-              {showAllPokemon ? (
-                <span>w/ {card.otherPokemon.join(', ')} <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(false); }} className={`font-bold underline ${isOwned ? 'text-emerald-100' : 'text-blue-400'}`}>less</button></span>
-              ) : (
-                <span className="truncate block">w/ {card.otherPokemon.slice(0, 2).join(', ')}{card.otherPokemon.length > 2 && <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(true); }} className={`ml-1 font-bold underline ${isOwned ? 'text-emerald-100' : 'text-blue-400'}`}>+{card.otherPokemon.length - 2} more</button>}</span>
-              )}
-            </div>
-          )}
+          {/* Row 4: other pokemon - always rendered for alignment */}
+          <div className={`text-xs leading-tight truncate min-h-[1rem] ${isOwned ? 'text-emerald-100' : 'text-blue-500'}`}>
+            {hasOtherPokemon && (showAllPokemon
+              ? <span>w/ {card.otherPokemon.join(', ')} <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(false); }} className={`font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>less</button></span>
+              : <span>w/ {card.otherPokemon.slice(0, 2).join(', ')}{card.otherPokemon.length > 2 && <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(true); }} className={`ml-1 font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>+{card.otherPokemon.length - 2} more</button>}</span>
+            )}
+          </div>
 
           {/* Language buttons — hidden when owned, show owned pill instead */}
           {!isSecondary && (

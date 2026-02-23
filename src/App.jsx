@@ -444,8 +444,8 @@ export default function App() {
     <div className={`min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-gradient-to-br from-gray-50 to-gray-100'}`}>
       {/* Header */}
       <div className={`shadow-sm sticky top-0 z-30 ${darkMode ? 'bg-gray-800 border-b border-gray-700' : 'bg-white border-b border-gray-200'}`}>
-        <div className="max-w-7xl mx-auto px-3 py-1.5 flex items-center gap-2">
-          <h1 className={`text-sm font-bold shrink-0 ${darkMode ? 'text-white' : 'text-gray-900'}`}>Pokémon TCG</h1>
+        <div className="max-w-7xl mx-auto px-3 py-1.5 flex flex-wrap items-center gap-2">
+          <h1 className={`text-sm font-bold shrink-0 hidden sm:block ${darkMode ? 'text-white' : 'text-gray-900'}`}>Pokémon TCG</h1>
           <div className="flex items-center gap-1 bg-emerald-500 text-white rounded-full px-2.5 py-0.5 text-xs font-semibold shrink-0">
             <span>{overallStats.ownedCards}/{overallStats.totalCards}</span>
             <span className="opacity-60">·</span>
