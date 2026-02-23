@@ -86,30 +86,27 @@ export default function PokemonCard({ pokemon, onClick }) {
         <div className="px-3 pb-2">
           {!noCardsAtAll ? (
             <>
-              <div className="relative w-full h-2 bg-black/30 rounded-full overflow-hidden">
+              <div className="relative w-full h-4 bg-black/30 rounded-full overflow-hidden">
                 <div 
                   className={`absolute top-0 left-0 h-full transition-all duration-500 rounded-full ${
                     onlyFeatured ? 'bg-purple-400' : completionPercent === 100 ? 'bg-gradient-to-r from-emerald-300 to-green-400' : 'bg-gradient-to-r from-emerald-400 to-emerald-500'
                   }`}
-                  style={{ width: `${completionPercent}%` }}
+                  style={{ width: `${Math.max(completionPercent, 0)}%` }}
                 ></div>
-              </div>
-              <div className="text-center mt-1">
-                <span className="text-white/90 text-xs font-medium">
-                  {completionPercent === 100 ? '✓ Complete' : `${ownedPrimaryCards}/${totalPrimaryCards}`}
-                  {hasSecondaryCards && <span className="text-purple-300 ml-1">+{secondaryCards.length} ref</span>}
-                </span>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-white text-[10px] font-bold drop-shadow">
+                    {completionPercent === 100 ? '✓' : `${ownedPrimaryCards}/${totalPrimaryCards}`}
+                    {hasSecondaryCards && <span className="text-purple-200 ml-1">+{secondaryCards.length}r</span>}
+                  </span>
+                </div>
               </div>
             </>
           ) : (
-            <>
-              <div className="relative w-full h-2 bg-black/30 rounded-full overflow-hidden">
-                <div className="absolute top-0 left-0 h-full w-0 bg-gray-500"></div>
+            <div className="relative w-full h-4 bg-black/30 rounded-full overflow-hidden">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-white/50 text-[10px]">no cards</span>
               </div>
-              <div className="text-center mt-1">
-                <span className="text-white/70 text-xs italic">0/0 (0%)</span>
-              </div>
-            </>
+            </div>
           )}
         </div>
       </div>

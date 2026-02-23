@@ -23,6 +23,7 @@ export default function App() {
   const [filterArtist, setFilterArtist] = useState('all');
   const [filterHideNoCards, setFilterHideNoCards] = useState(false);
   const [filterHideNonConforming, setFilterHideNonConforming] = useState(false);
+  const [filterOwned, setFilterOwned] = useState('all'); // 'all', 'owned', 'unowned'
   const [artistSortBy, setArtistSortBy] = useState('card_count'); // 'alpha', 'card_count'
   const [darkMode, setDarkMode] = useState(false);
   const [syncStatus, setSyncStatus] = useState('');
@@ -180,7 +181,7 @@ export default function App() {
     return { totalCards, ownedCards, completionPercent, langStats };
   }, [pokemonData]);
   
-  const hasActiveFilters = filterExclusive !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards || filterHideNonConforming;
+  const hasActiveFilters = filterExclusive !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards || filterHideNonConforming || filterOwned !== 'all';
   
   const activeFilterCount = [
     filterExclusive !== 'all',
@@ -191,6 +192,7 @@ export default function App() {
     filterArtist !== 'all',
     filterHideNoCards,
     filterHideNonConforming,
+    filterOwned !== 'all',
   ].filter(Boolean).length;
   
   const filteredData = useMemo(() => {
@@ -203,6 +205,13 @@ export default function App() {
         p.name.toLowerCase().includes(query) ||
         String(p.id).includes(query)
       );
+    }
+
+    // Owned/unowned filter
+    if (filterOwned === 'owned') {
+      filtered = filtered.filter(p => p.cards.some(c => c.isPrimary !== false && !c.isSecondary && c.ownedLang));
+    } else if (filterOwned === 'unowned') {
+      filtered = filtered.filter(p => p.cards.some(c => c.isPrimary !== false && !c.isSecondary && !c.ownedLang));
     }
 
     // Hide pokemon with no cards and no refs
@@ -291,7 +300,7 @@ export default function App() {
     });
 
     return { type: 'pokemon', data: filtered };
-  }, [searchQuery, pokemonData, filterExclusive, filterSet, filterCardType, filterMissingImages, filterChinese, filterArtist, filterHideNoCards, filterHideNonConforming, sortBy]);
+  }, [searchQuery, pokemonData, filterExclusive, filterSet, filterCardType, filterMissingImages, filterChinese, filterArtist, filterHideNoCards, filterHideNonConforming, sortBy, filterOwned]);
   
   // Flatten all cards for "All Cards View"
   const allCardsFlat = useMemo(() => {
@@ -425,6 +434,7 @@ export default function App() {
     setFilterArtist('all');
     setFilterHideNoCards(false);
     setFilterHideNonConforming(false);
+    setFilterOwned('all');
   };
   
   // Download current data
@@ -444,8 +454,8 @@ export default function App() {
     <div className={`min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-gradient-to-br from-gray-50 to-gray-100'}`}>
       {/* Header */}
       <div className={`shadow-sm sticky top-0 z-30 ${darkMode ? 'bg-gray-800 border-b border-gray-700' : 'bg-white border-b border-gray-200'}`}>
-        <div className="max-w-7xl mx-auto px-3 py-1.5 flex flex-wrap items-center gap-2">
-          <h1 className={`text-sm font-bold shrink-0 hidden sm:block ${darkMode ? 'text-white' : 'text-gray-900'}`}>Pokémon TCG</h1>
+        <div className="max-w-7xl mx-auto px-3 py-1.5 flex items-center gap-2">
+          <h1 className={`text-sm font-bold shrink-0 ${darkMode ? 'text-white' : 'text-gray-900'}`}>Pokémon TCG</h1>
           <div className="flex items-center gap-1 bg-emerald-500 text-white rounded-full px-2.5 py-0.5 text-xs font-semibold shrink-0">
             <span>{overallStats.ownedCards}/{overallStats.totalCards}</span>
             <span className="opacity-60">·</span>
@@ -523,6 +533,13 @@ export default function App() {
                     <option value="alpha">A → Z</option>
                   </select>
                 </div>
+              </div>
+              <div className="mt-2">
+                <select value={filterOwned} onChange={(e) => setFilterOwned(e.target.value)} className="w-full px-3 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                  <option value="all">All (Owned & Unowned)</option>
+                  <option value="owned">Owned only</option>
+                  <option value="unowned">Unowned only</option>
+                </select>
               </div>
               <div className="flex items-center justify-between mt-2">
                 <label className="flex items-center gap-2 cursor-pointer text-xs text-gray-600">
