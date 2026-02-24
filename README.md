@@ -4,7 +4,7 @@ A beautiful, modern web application to track your Pokémon Trading Card Game ful
 
 ## Features
 
-- **Visual Pokédex Grid**: Browse all 1,043 Pokémon with type-accurate gradient backgrounds
+- **Visual Pokédex Grid**: Browse all 1,025 Pokémon with type-accurate gradient backgrounds
 - **Detailed Card View**: See all cards for each Pokémon with prices, artists, and set information
 - **Language Tracking**: Track ownership across 4 languages (EN, JP, CN, KR) with permanent language locking
 - **Progress Tracking**: Visual indicators showing completion status for each Pokémon
