@@ -207,13 +207,6 @@ export default function App() {
       );
     }
 
-    // Owned/unowned filter
-    if (filterOwned === 'owned') {
-      filtered = filtered.filter(p => p.cards.some(c => c.isPrimary !== false && !c.isSecondary && c.ownedLang));
-    } else if (filterOwned === 'unowned') {
-      filtered = filtered.filter(p => p.cards.some(c => c.isPrimary !== false && !c.isSecondary && !c.ownedLang));
-    }
-
     // Hide pokemon with no cards and no refs
     if (filterHideNoCards) {
       filtered = filtered.filter(p => p.cards.length > 0);
@@ -336,6 +329,8 @@ export default function App() {
           }
           // Artist filter in cards view - skip cards not by this artist
           if (filterArtist !== 'all' && card.artist !== filterArtist) return;
+          if (filterOwned === 'owned' && !card.ownedLang) return;
+          if (filterOwned === 'unowned' && card.ownedLang) return;
           cards.push({ ...card, pokemonName: pokemon.name, pokemonId: pokemon.id });
         });
     });
