@@ -262,10 +262,10 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           <div className={`text-xs leading-tight truncate ${isOwned ? 'text-emerald-100' : 'text-gray-400'}`}>{card.artist}</div>
 
           {/* Row 4: other pokemon - always rendered for alignment */}
-          <div className={`text-xs leading-tight truncate min-h-[1rem] ${isOwned ? 'text-emerald-100' : 'text-blue-500'}`}>
+          <div className={`text-xs min-h-[1rem] leading-tight ${isOwned ? 'text-emerald-100' : 'text-blue-500'}`}>
             {hasOtherPokemon && (showAllPokemon
               ? <span>w/ {card.otherPokemon.join(', ')} <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(false); }} className={`font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>less</button></span>
-              : <span>w/ {card.otherPokemon.slice(0, 2).join(', ')}{card.otherPokemon.length > 2 && <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(true); }} className={`ml-1 font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>+{card.otherPokemon.length - 2} more</button>}</span>
+              : <span className="flex items-baseline gap-1"><span className="truncate">w/ {card.otherPokemon.slice(0, 2).join(', ')}</span>{card.otherPokemon.length > 2 && <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(true); }} className={`shrink-0 font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>+{card.otherPokemon.length - 2}</button>}</span>
             )}
           </div>
 

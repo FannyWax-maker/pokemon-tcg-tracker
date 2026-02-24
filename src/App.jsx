@@ -10,6 +10,9 @@ import setNamesImport from './data/set_names.json';
 export default function App() {
   const [pokemonData, setPokemonData] = useState(pokemonDataImport);
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchSuggestion, setSearchSuggestion] = useState(null);
+  const [autocompleteSuggestions, setAutocompleteSuggestions] = useState([]);
+  const [showAutocomplete, setShowAutocomplete] = useState(false);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
   const [filterExclusive, setFilterExclusive] = useState('all');
   const [filterSet, setFilterSet] = useState('all');
@@ -23,12 +26,30 @@ export default function App() {
   const [filterArtist, setFilterArtist] = useState('all');
   const [filterHideNoCards, setFilterHideNoCards] = useState(false);
   const [filterHideNonConforming, setFilterHideNonConforming] = useState(false);
-  const [filterOwned, setFilterOwned] = useState('all'); // 'all', 'owned', 'unowned'
   const [artistSortBy, setArtistSortBy] = useState('card_count'); // 'alpha', 'card_count'
   const [darkMode, setDarkMode] = useState(false);
   const [syncStatus, setSyncStatus] = useState('');
   
   const setNames = setNamesImport;
+
+  const getSpellSuggestion = (query, names) => {
+    if (!query || query.length < 3) return null;
+    const q = query.toLowerCase();
+    if (names.some(n => n.toLowerCase() === q)) return null;
+    if (names.some(n => n.toLowerCase().startsWith(q))) return null;
+    const lev = (a, b) => {
+      const dp = Array.from({length: a.length+1}, (_, i) => Array.from({length: b.length+1}, (_, j) => i===0?j:j===0?i:0));
+      for (let i=1;i<=a.length;i++) for (let j=1;j<=b.length;j++)
+        dp[i][j] = a[i-1]===b[j-1] ? dp[i-1][j-1] : 1+Math.min(dp[i-1][j],dp[i][j-1],dp[i-1][j-1]);
+      return dp[a.length][b.length];
+    };
+    let best=null, bestDist=999;
+    for (const name of names) {
+      const dist = lev(q, name.toLowerCase());
+      if (dist < bestDist && dist <= 3) { bestDist=dist; best=name; }
+    }
+    return best;
+  };
   
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyNHSpdwlW_WVu6zvkg_piGyrqNzJfrLCI6Z0OJ6S_wPrwP7-TvXX3aT3HvGGPHj5ENSw/exec';
 
@@ -181,7 +202,7 @@ export default function App() {
     return { totalCards, ownedCards, completionPercent, langStats };
   }, [pokemonData]);
   
-  const hasActiveFilters = filterExclusive !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards || filterHideNonConforming || filterOwned !== 'all';
+  const hasActiveFilters = filterExclusive !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards || filterHideNonConforming;
   
   const activeFilterCount = [
     filterExclusive !== 'all',
@@ -192,7 +213,6 @@ export default function App() {
     filterArtist !== 'all',
     filterHideNoCards,
     filterHideNonConforming,
-    filterOwned !== 'all',
   ].filter(Boolean).length;
   
   const filteredData = useMemo(() => {
@@ -293,14 +313,21 @@ export default function App() {
     });
 
     return { type: 'pokemon', data: filtered };
-  }, [searchQuery, pokemonData, filterExclusive, filterSet, filterCardType, filterMissingImages, filterChinese, filterArtist, filterHideNoCards, filterHideNonConforming, sortBy, filterOwned]);
+  }, [searchQuery, pokemonData, filterExclusive, filterSet, filterCardType, filterMissingImages, filterChinese, filterArtist, filterHideNoCards, filterHideNonConforming, sortBy]);
   
   // Flatten all cards for "All Cards View"
   const allCardsFlat = useMemo(() => {
     const cards = [];
     filteredData.data.forEach(pokemon => {
       pokemon.cards
-        .filter(c => !c.isSecondary && c.isPrimary !== false)
+        .filter(c => {
+          if (!c.isSecondary && c.isPrimary !== false) return true;
+          if (searchQuery.trim() && c.isSecondary) {
+            const q = searchQuery.trim().toLowerCase();
+            return pokemon.name.toLowerCase().includes(q);
+          }
+          return false;
+        })
         .forEach(card => {
           // Apply card-level filters for cards view
           if (filterChinese !== 'all') {
@@ -329,8 +356,6 @@ export default function App() {
           }
           // Artist filter in cards view - skip cards not by this artist
           if (filterArtist !== 'all' && card.artist !== filterArtist) return;
-          if (filterOwned === 'owned' && !card.ownedLang) return;
-          if (filterOwned === 'unowned' && card.ownedLang) return;
           cards.push({ ...card, pokemonName: pokemon.name, pokemonId: pokemon.id });
         });
     });
@@ -429,7 +454,6 @@ export default function App() {
     setFilterArtist('all');
     setFilterHideNoCards(false);
     setFilterHideNonConforming(false);
-    setFilterOwned('all');
   };
   
   // Download current data
@@ -462,9 +486,34 @@ export default function App() {
               type="text"
               placeholder="Search Pokémon..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => {
+                const val = e.target.value;
+                setSearchQuery(val);
+                const names = pokemonData.map(p => p.name);
+                setSearchSuggestion(getSpellSuggestion(val, names));
+                if (val.length >= 2) {
+                  const q = val.toLowerCase();
+                  const matches = names.filter(n => n.toLowerCase().includes(q) && n.toLowerCase() !== q).slice(0, 6);
+                  setAutocompleteSuggestions(matches);
+                  setShowAutocomplete(matches.length > 0);
+                } else {
+                  setAutocompleteSuggestions([]);
+                  setShowAutocomplete(false);
+                }
+              }}
+              onBlur={() => setTimeout(() => setShowAutocomplete(false), 150)}
+              onFocus={(e) => { if (e.target.value.length >= 2 && autocompleteSuggestions.length > 0) setShowAutocomplete(true); }}
               className={`w-full pl-8 pr-3 py-1.5 rounded-full border text-xs focus:outline-none focus:ring-2 focus:ring-emerald-400 ${darkMode ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' : 'border-gray-200 text-gray-700 bg-gray-50'}`}
             />
+            {showAutocomplete && (
+              <div className={`absolute top-full left-0 right-0 mt-1 rounded-lg shadow-lg z-50 overflow-hidden border ${darkMode ? 'bg-gray-700 border-gray-600' : 'bg-white border-gray-200'}`}>
+                {autocompleteSuggestions.map(name => (
+                  <button key={name} onMouseDown={() => { setSearchQuery(name); setShowAutocomplete(false); setSearchSuggestion(null); }} className={`w-full text-left px-3 py-1.5 text-xs hover:bg-emerald-50 ${darkMode ? 'text-white hover:bg-gray-600' : 'text-gray-700'}`}>
+                    {name}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
           <div className={`flex items-center rounded-full p-0.5 text-xs font-semibold shrink-0 ${darkMode ? 'bg-gray-700' : 'bg-gray-100'}`}>
             <button onClick={() => setViewMode('pokemon')} className={`px-2.5 py-1 rounded-full transition-colors ${viewMode === 'pokemon' ? 'bg-blue-500 text-white' : darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Grid</button>
@@ -528,13 +577,6 @@ export default function App() {
                     <option value="alpha">A → Z</option>
                   </select>
                 </div>
-              </div>
-              <div className="mt-2">
-                <select value={filterOwned} onChange={(e) => setFilterOwned(e.target.value)} className="w-full px-3 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                  <option value="all">All (Owned & Unowned)</option>
-                  <option value="owned">Owned only</option>
-                  <option value="unowned">Unowned only</option>
-                </select>
               </div>
               <div className="flex items-center justify-between mt-2">
                 <label className="flex items-center gap-2 cursor-pointer text-xs text-gray-600">
