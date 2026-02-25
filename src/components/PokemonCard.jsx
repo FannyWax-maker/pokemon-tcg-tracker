@@ -39,7 +39,7 @@ export default function PokemonCard({ pokemon, onClick }) {
   return (
     <div
       onClick={onClick}
-      className={`relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl ${
+      className={`relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl ${
         noCardsAtAll ? 'opacity-50' : ''
       } ${completionPercent === 100 && totalPrimaryCards > 0 ? 'ring-4 ring-emerald-400 ring-offset-2 ring-offset-transparent' : ownedPrimaryCards > 0 ? 'ring-2 ring-emerald-300 ring-offset-1' : ''}`}
       style={{
@@ -69,7 +69,8 @@ export default function PokemonCard({ pokemon, onClick }) {
         <img 
           src={spriteUrl} 
           alt={pokemon.name}
-          className={`w-32 h-32 object-contain drop-shadow-lg image-pixelated ${noCardsAtAll ? 'grayscale opacity-60' : ''}`}
+          className={`w-32 h-32 object-contain image-pixelated ${noCardsAtAll ? 'grayscale opacity-60' : ''}`}
+          style={{filter: noCardsAtAll ? 'grayscale(1) opacity(0.6)' : 'drop-shadow(0 6px 10px rgba(0,0,0,0.6)) drop-shadow(0 2px 4px rgba(0,0,0,0.4))'}}
         />
       </div>
       

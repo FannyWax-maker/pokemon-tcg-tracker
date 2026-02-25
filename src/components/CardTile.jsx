@@ -17,6 +17,11 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const hasOtherPokemon = card.otherPokemon && card.otherPokemon.length > 0;
   const isSecondary = card.isSecondary || !card.isPrimary;
   const [showZoom, setShowZoom] = React.useState(false);
+  const [zoomScale, setZoomScale] = React.useState(1);
+  React.useEffect(() => {
+    document.body.style.overflow = showZoom ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [showZoom]);
   const [showAllPokemon, setShowAllPokemon] = React.useState(false);
   const [showContextMenu, setShowContextMenu] = React.useState(false);
   const [contextMenuPos, setContextMenuPos] = React.useState({ x: 0, y: 0 });
@@ -247,16 +252,17 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           {/* Row 1: name + set/number */}
           <div className="flex items-baseline justify-between gap-1">
             <div className={`font-bold text-sm truncate ${isOwned ? 'text-white' : 'text-gray-900'}`}>{pokemonName}</div>
-            <div className={`font-mono text-[10px] shrink-0 ${isOwned ? 'text-emerald-100' : 'text-gray-400'}`}>{card.setCode} {card.number}</div>
+            <div className={`font-mono text-[10px] shrink-0 text-right leading-tight ${isOwned ? 'text-emerald-100' : 'text-gray-400'}`}>
+              <div>#{String(card.pokemonId || '').padStart(4, '0')}</div>
+              {card.enSetCode && <div><span className="text-blue-500 font-bold">EN</span> {card.enSetCode} {card.number}</div>}
+              {card.jpSetCode && <div><span className="text-red-500 font-bold">JP</span> {card.jpSetCode}</div>}
+              {card.cnSetCode && <div><span className="text-yellow-500 font-bold">CN</span> {card.cnSetCode}</div>}
+              {!card.enSetCode && !card.jpSetCode && !card.cnSetCode && <div>{card.setCode} {card.number}</div>}
+            </div>
           </div>
 
           {/* Row 2: card name */}
-          <div className={`text-xs leading-tight truncate ${isOwned ? 'text-emerald-100' : 'text-gray-500'}`}>
-            {(card.cardName || '')
-              .replace(', Japanese Exclusive', '').replace('Japanese Exclusive', '')
-              .replace(', Chinese Exclusive', '').replace('Chinese Exclusive', '')
-              .trim() || 'Full Art'}
-          </div>
+          {(() => { const n = (card.cardName||'').replace(', Japanese Exclusive','').replace('Japanese Exclusive','').replace(', Chinese Exclusive','').replace('Chinese Exclusive','').trim(); return n && n !== 'Full Art' ? <div className={`text-xs leading-tight truncate ${isOwned ? 'text-emerald-100' : 'text-gray-500'}`}>{n}</div> : null; })()}
 
           {/* Row 3: artist (always shown) */}
           <div className={`text-xs leading-tight truncate ${isOwned ? 'text-emerald-100' : 'text-gray-400'}`}>{card.artist}</div>
@@ -310,16 +316,17 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
       {/* Zoom Modal */}
       {showZoom && (
         <div
-          className="fixed inset-0 bg-black/90 flex items-start justify-center z-50 p-4 overflow-y-auto"
-          onClick={() => setShowZoom(false)}
+          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
+          onClick={() => { setShowZoom(false); setZoomScale(1); }}
+          onWheel={(e) => { e.preventDefault(); e.stopPropagation(); setZoomScale(s => Math.min(Math.max(s + (e.deltaY < 0 ? 0.15 : -0.15), 0.5), 4)); }}
         >
-          <div className="max-w-xl w-full my-auto relative" style={{marginTop: 'max(1rem, 5vh)', marginBottom: 'max(1rem, 5vh)'}}>
-            <img src={imageSrc} alt={`${pokemonName} ${card.cardName}`} className="w-full h-auto object-contain rounded-lg" />
-            <button
-              onClick={() => setShowZoom(false)}
-              className="absolute top-4 right-4 bg-white text-gray-900 rounded-full p-2 hover:bg-gray-100"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <div className="relative" onClick={e => e.stopPropagation()} style={{width: 'min(500px, 90vw)'}}>
+            <img src={imageSrc} alt={`${pokemonName} ${card.cardName}`} className="w-full h-auto object-contain rounded-lg"
+              style={{transform: `scale(${zoomScale})`, transformOrigin: 'center center', transition: 'transform 0.1s'}} />
+            <button onClick={() => { setShowZoom(false); setZoomScale(1); }}
+              className="absolute top-2 right-2 bg-white text-gray-900 rounded-full p-1.5 hover:bg-gray-100 shadow-lg"
+              style={{transform: `scale(${1/zoomScale})`, transformOrigin: 'top right'}}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
               </svg>

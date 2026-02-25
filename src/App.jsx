@@ -26,6 +26,7 @@ export default function App() {
   const [filterArtist, setFilterArtist] = useState('all');
   const [filterHideNoCards, setFilterHideNoCards] = useState(false);
   const [filterHideNonConforming, setFilterHideNonConforming] = useState(false);
+  const [filterOwned, setFilterOwned] = useState('all');
   const [artistSortBy, setArtistSortBy] = useState('card_count'); // 'alpha', 'card_count'
   const [darkMode, setDarkMode] = useState(false);
   const [syncStatus, setSyncStatus] = useState('');
@@ -202,7 +203,7 @@ export default function App() {
     return { totalCards, ownedCards, completionPercent, langStats };
   }, [pokemonData]);
   
-  const hasActiveFilters = filterExclusive !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards || filterHideNonConforming;
+  const hasActiveFilters = filterExclusive !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards || filterHideNonConforming || filterOwned !== 'all';
   
   const activeFilterCount = [
     filterExclusive !== 'all',
@@ -213,6 +214,7 @@ export default function App() {
     filterArtist !== 'all',
     filterHideNoCards,
     filterHideNonConforming,
+    filterOwned !== 'all',
   ].filter(Boolean).length;
   
   const filteredData = useMemo(() => {
@@ -356,6 +358,8 @@ export default function App() {
           }
           // Artist filter in cards view - skip cards not by this artist
           if (filterArtist !== 'all' && card.artist !== filterArtist) return;
+          if (filterOwned === 'owned' && !card.ownedLang) return;
+          if (filterOwned === 'unowned' && card.ownedLang) return;
           cards.push({ ...card, pokemonName: pokemon.name, pokemonId: pokemon.id });
         });
     });
@@ -366,7 +370,7 @@ export default function App() {
       cards.sort((a, b) => (a.otherPokemon || []).length - (b.otherPokemon || []).length);
     }
     return cards;
-  }, [filteredData, filterChinese, filterExclusive, filterSet, filterCardType, sortBy]);
+  }, [filteredData, filterChinese, filterExclusive, filterSet, filterCardType, sortBy, filterOwned, filterArtist]);
   
   // INLINE EDIT - Update card directly
   const handleInlineUpdateCard = (pokemonId, cardId, updates) => {
@@ -454,6 +458,7 @@ export default function App() {
     setFilterArtist('all');
     setFilterHideNoCards(false);
     setFilterHideNonConforming(false);
+    setFilterOwned('all');
   };
   
   // Download current data
@@ -576,6 +581,16 @@ export default function App() {
                     <option value="card_count">By count</option>
                     <option value="alpha">A → Z</option>
                   </select>
+                </div>
+              </div>
+              <div className="mt-2">
+                <div className={`flex rounded-lg overflow-hidden border text-xs font-semibold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
+                  {[['all','All'],['owned','Owned'],['unowned','Unowned']].map(([val, label]) => (
+                    <button key={val} onClick={() => setFilterOwned(val)}
+                      className={`flex-1 py-1.5 transition-colors ${filterOwned === val ? 'bg-emerald-500 text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-600 hover:bg-gray-50'}`}>
+                      {label}
+                    </button>
+                  ))}
                 </div>
               </div>
               <div className="flex items-center justify-between mt-2">
