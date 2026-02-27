@@ -1,4 +1,6 @@
 import React from 'react';
+import setNamesImport from '../data/set_names.json';
+const setNames = setNamesImport;
 
 // Global cache - images never reload after first load
 const imageCache = {};
@@ -12,7 +14,7 @@ const LANG_CONFIG = {
 
 const ALL_LANGS = ['EN', 'JP', 'CN', 'KR'];
 
-export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onNavigateToPokemon }) {
+export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onNavigateToPokemon }) {
   const isOwned = !!card.ownedLang;
   const hasOtherPokemon = card.otherPokemon && card.otherPokemon.length > 0;
   const isSecondary = card.isSecondary || !card.isPrimary;
@@ -26,6 +28,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const [showContextMenu, setShowContextMenu] = React.useState(false);
   const [contextMenuPos, setContextMenuPos] = React.useState({ x: 0, y: 0 });
   const isNonConforming = !!card.nonConforming;
+  const isFavorite = !!card.favorite;
 
   // Which langs are available for this card
   const availableLangs = card.availableLangs || [];
@@ -153,6 +156,15 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           >
             {isNonConforming ? '✓ Mark as conforming' : '✗ Mark as non-conforming'}
           </button>
+          <button
+            onClick={() => {
+              onToggleFavorite && onToggleFavorite(card.id, card.favorite);
+              setShowContextMenu(false);
+            }}
+            className={`w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center gap-2 ${isFavorite ? 'text-gray-500' : 'text-pink-500'}`}
+          >
+            {isFavorite ? '♡ Remove from favourites' : '♥ Add to favourites'}
+          </button>
         </div>
       )}
 
@@ -216,6 +228,13 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             </div>
           )}
 
+          {/* Favourite badge */}
+          {isFavorite && (
+            <div className="absolute top-2 right-2 text-pink-400 text-sm z-20 drop-shadow" style={{textShadow:'0 0 4px rgba(0,0,0,0.5)'}}>
+              ♥
+            </div>
+          )}
+
           {/* Exclusive Badge */}
           {card.exclusive && (
             <div className={`absolute top-2 right-2 px-2 py-1 rounded text-xs font-bold shadow-lg z-10 text-white ${
@@ -249,31 +268,62 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
         {/* Card Details */}
         <div className={`p-2 space-y-0.5 ${isOwned ? 'bg-emerald-500' : 'bg-white'}`}>
-          {/* Row 1: name + set/number */}
-          <div className="flex items-baseline justify-between gap-1">
-            <div className={`font-bold text-sm truncate ${isOwned ? 'text-white' : 'text-gray-900'}`}>{pokemonName}</div>
-            <div className={`font-mono text-[10px] shrink-0 text-right leading-tight ${isOwned ? 'text-emerald-100' : 'text-gray-400'}`}>
-              <div>#{String(card.pokemonId || '').padStart(4, '0')}</div>
-              {card.enSetCode && <div><span className="text-blue-500 font-bold">EN</span> {card.enSetCode} {card.number}</div>}
-              {card.jpSetCode && <div><span className="text-red-500 font-bold">JP</span> {card.jpSetCode}</div>}
-              {card.cnSetCode && <div><span className="text-yellow-500 font-bold">CN</span> {card.cnSetCode}</div>}
-              {!card.enSetCode && !card.jpSetCode && !card.cnSetCode && <div>{card.setCode} {card.number}</div>}
-            </div>
+
+
+          {/* Row 1: dex # + year — compact metadata line */}
+          <div className={`flex items-center justify-between text-[10px] font-mono ${isOwned ? 'text-emerald-200' : 'text-gray-400'}`}>
+            <span>#{String(card.pokemonId || '').padStart(4, '0')}</span>
+            <span>{(() => { const setEntry = setNames[card.enSetCode || card.setCode] || ''; const yrMatch = setEntry.match(/\d{4}(?:-\d{4})?$/); return yrMatch ? yrMatch[0] : ''; })()}</span>
           </div>
 
-          {/* Row 2: card name */}
-          {(() => { const n = (card.cardName||'').replace(', Japanese Exclusive','').replace('Japanese Exclusive','').replace(', Chinese Exclusive','').replace('Chinese Exclusive','').trim(); return n && n !== 'Full Art' ? <div className={`text-xs leading-tight truncate ${isOwned ? 'text-emerald-100' : 'text-gray-500'}`}>{n}</div> : null; })()}
+          {/* Row 2: Pokemon name — full width, wraps if needed */}
+          <div className={`font-bold text-sm leading-tight ${isOwned ? 'text-white' : 'text-gray-900'}`}>{pokemonName}</div>
 
-          {/* Row 3: artist (always shown) */}
-          <div className={`text-xs leading-tight truncate ${isOwned ? 'text-emerald-100' : 'text-gray-400'}`}>{card.artist}</div>
+          {/* Row 3: card name — always reserve space */}
+          <div className={`text-xs leading-tight min-h-[0.9rem] font-medium truncate ${isOwned ? 'text-emerald-100' : 'text-gray-600'}`}>
+            {(() => { const n = (card.cardName||'').replace(', Japanese Exclusive','').replace('Japanese Exclusive','').replace(', Chinese Exclusive','').replace('Chinese Exclusive','').trim(); const dn = (n && n !== 'Full Art') ? n : null; return dn || ' '; })()}
+          </div>
 
-          {/* Row 4: other pokemon - always rendered for alignment */}
-          <div className={`text-xs min-h-[1rem] leading-tight ${isOwned ? 'text-emerald-100' : 'text-blue-500'}`}>
-            {hasOtherPokemon && (showAllPokemon
+          {/* Row 4: EN */}
+          <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-start gap-1 ${isOwned ? 'text-emerald-200' : 'text-gray-500'}`}>
+            {card.enSetCode ? (
+              <>
+                <span className="text-blue-500 font-bold shrink-0">EN</span>
+                <span className="truncate">{card.enSetCode}{card.number ? ` ${card.number}` : ''}{setNames[card.enSetCode] ? ` - ${setNames[card.enSetCode].replace(/ \d{4}(-\d{4})?$/, '').replace(/ \d{4}-\d{4}.*/, '').trim()}` : ''}</span>
+              </>
+            ) : <><span className="text-blue-500 font-bold shrink-0 opacity-40">EN</span><span className={`${isOwned ? 'text-emerald-300' : 'text-gray-400'} italic`}>N/A</span></>}
+          </div>
+
+          {/* Row 5: JP */}
+          <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-start gap-1 ${isOwned ? 'text-emerald-200' : 'text-gray-500'}`}>
+            {card.jpSetCode ? (
+              <>
+                <span className="text-red-400 font-bold shrink-0">JP</span>
+                <span className="truncate">{card.jpSetCode}{setNames[card.jpSetCode] ? ` - ${setNames[card.jpSetCode].replace(/ \d{4}.*/, '').trim()}` : ''}</span>
+              </>
+            ) : <><span className="text-red-400 font-bold shrink-0 opacity-40">JP</span><span className={`${isOwned ? 'text-emerald-300' : 'text-gray-400'} italic`}>N/A</span></>}
+          </div>
+
+          {/* Row 6: CN */}
+          <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-start gap-1 ${isOwned ? 'text-emerald-200' : 'text-gray-500'}`}>
+            {card.cnSetCode ? (
+              <>
+                <span className="text-yellow-500 font-bold shrink-0">CN</span>
+                <span className="truncate">{card.cnSetCode}{setNames[card.cnSetCode] ? ` - ${setNames[card.cnSetCode].replace(/ \d{4}.*/, '').trim()}` : ''}</span>
+              </>
+            ) : <><span className="text-yellow-500 font-bold shrink-0 opacity-40">CN</span><span className={`${isOwned ? 'text-emerald-300' : 'text-gray-400'} italic`}>N/A</span></>}
+          </div>
+
+          {/* Row 7: other pokemon — always reserve space */}
+          <div className={`text-xs min-h-[0.9rem] leading-tight ${isOwned ? 'text-emerald-100' : 'text-blue-500'}`}>
+            {hasOtherPokemon ? (showAllPokemon
               ? <span>w/ {card.otherPokemon.join(', ')} <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(false); }} className={`font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>less</button></span>
               : <span className="flex items-baseline gap-1"><span className="truncate">w/ {card.otherPokemon.slice(0, 2).join(', ')}</span>{card.otherPokemon.length > 2 && <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(true); }} className={`shrink-0 font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>+{card.otherPokemon.length - 2}</button>}</span>
-            )}
+            ) : <span>&nbsp;</span>}
           </div>
+
+          {/* Row 8: artist — always reserve space */}
+          <div className={`text-xs leading-tight truncate min-h-[0.9rem] ${isOwned ? 'text-emerald-200' : 'text-gray-400'}`}>{card.artist || ' '}</div>
 
           {/* Language buttons — hidden when owned, show owned pill instead */}
           {!isSecondary && (

@@ -41,12 +41,13 @@ export default function PokemonCard({ pokemon, onClick }) {
       onClick={onClick}
       className={`relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl ${
         noCardsAtAll ? 'opacity-50' : ''
-      } ${completionPercent === 100 && totalPrimaryCards > 0 ? 'ring-4 ring-emerald-400 ring-offset-2 ring-offset-transparent' : ownedPrimaryCards > 0 ? 'ring-2 ring-emerald-300 ring-offset-1' : ''}`}
+      } ${completionPercent === 100 && totalPrimaryCards > 0 ? 'ring-4 ring-offset-2 ring-offset-transparent' : ownedPrimaryCards > 0 ? 'ring-2 ring-emerald-300 ring-offset-1' : ''}`}
       style={{
         background: noCardsAtAll ? '#9CA3AF' : 
                    onlyFeatured ? 'linear-gradient(135deg, #A78BFA 0%, #C4B5FD 100%)' : 
                    getPokemonGradient(pokemon.id),
-        aspectRatio: '0.82'
+        aspectRatio: '0.82',
+        ...(completionPercent === 100 && totalPrimaryCards > 0 ? { boxShadow: '0 0 0 4px #F59E0B, 0 0 16px 4px rgba(245,158,11,0.5)' } : {})
       }}
     >
       {/* Dex Number */}
@@ -90,13 +91,13 @@ export default function PokemonCard({ pokemon, onClick }) {
               <div className="relative w-full h-4 bg-black/30 rounded-full overflow-hidden">
                 <div 
                   className={`absolute top-0 left-0 h-full transition-all duration-500 rounded-full ${
-                    onlyFeatured ? 'bg-purple-400' : completionPercent === 100 ? 'bg-gradient-to-r from-emerald-300 to-green-400' : 'bg-gradient-to-r from-emerald-400 to-emerald-500'
+                    onlyFeatured ? 'bg-purple-400' : completionPercent === 100 ? 'bg-gradient-to-r from-yellow-400 to-amber-500' : 'bg-gradient-to-r from-emerald-400 to-emerald-500'
                   }`}
                   style={{ width: `${Math.max(completionPercent, 0)}%` }}
                 ></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <span className="text-white text-[10px] font-bold drop-shadow">
-                    {completionPercent === 100 ? '✓' : `${ownedPrimaryCards}/${totalPrimaryCards}`}
+                    {completionPercent === 100 ? `★ ${ownedPrimaryCards}/${totalPrimaryCards}` : `${ownedPrimaryCards}/${totalPrimaryCards}`}
                     {hasSecondaryCards && <span className="text-purple-200 ml-1">+{secondaryCards.length}r</span>}
                   </span>
                 </div>
