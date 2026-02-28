@@ -7171,21 +7171,6 @@
         "availableLangs": [],
         "isPrimary": true,
         "isSecondary": false
-      },
-      {
-        "id": "147__",
-        "pokemonId": 147,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
       }
     ]
   },
