@@ -49,9 +49,9 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
   const generateImagePaths = () => {
     const displayPokemon = isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName;
-    const setCode = (card.setCode || '').toLowerCase();
+    const setCode = (card.setCode || card.jpSetCode || card.cnSetCode || '').toLowerCase();
     const pokemon = displayPokemon.toLowerCase().replace(/\s+/g, '_').replace(/[.']/g, '');
-    const number = (card.number || '').toLowerCase();
+    const number = (card.setNumber || card.number || '').toLowerCase();
     const numberWithDash = number.replace(/\//g, '-');
     const numberOnly = number.split('/')[0];
     const numberAlreadyHasSet = numberOnly.toLowerCase().startsWith(setCode);

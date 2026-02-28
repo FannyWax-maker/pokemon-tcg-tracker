@@ -55,7 +55,7 @@ export default function App() {
     return best;
   };
   
-  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyNHSpdwlW_WVu6zvkg_piGyrqNzJfrLCI6Z0OJ6S_wPrwP7-TvXX3aT3HvGGPHj5ENSw/exec';
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyv3O3KDk83ussu2AGtKgCNruSRaAlXKwhfsDMRM9Gh3NsJXPrMDfqu8BeVcj27XHgK2Q/exec';
 
   useEffect(() => {
     const loadOwnership = async () => {
