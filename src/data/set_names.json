@@ -1,224 +1,890 @@
 {
-  "AOR": "Ancient Origins 2015",
-  "XY7": "Bandit Ring",
-  "csm1ac": "Storming Emergence - Set A",
-  "ASC": "Ascended Heroes 2026",
-  "m2a": "MEGA Dream ex",
-  "csm1bc": "Storming Emergence - Set B",
-  "ASR": "Astral Radiance 2022",
-  "s10D": "Time Gazer",
-  "csm1cc": "Storming Emergence - Set C",
-  "s10P": "Space Juggler",
-  "csm1.5c": "Battle Elite",
-  "s9a": "Battle Region",
-  "csm2ac": "Shining Together - Set A",
-  "BKP": "BREAKpoint 2016",
-  "XY9": "Rage of the Broken Heavens",
-  "csm2bc": "Shining Together - Set B",
-  "BKT": "BREAKthrough 2015",
-  "XY8": "Red Flash",
-  "csm2cc": "Shining Together - Set C",
-  "csm2.5c": "Striking Competition",
-  "BLK": "Black Bolt 2025",
-  "sv11B": "Black Bolt",
-  "cs1ac": "Dynamax Clash - Set A",
-  "BRS": "Brilliant Stars 2022",
-  "s9": "Star Birth",
-  "cs1bc": "Dynamax Clash - Set B",
-  "s8b": "VMAX Climax",
-  "cs1.5c": "Dynamax Tactics",
-  "SI": "Starter Decks 100",
-  "cs2ac": "Vivid Portrayals - Set A",
-  "BST": "Battle Styles 2021",
-  "s5I": "Single Strike Master",
-  "cs2bc": "Vivid Portrayals - Set B",
-  "s5R": "Rapid Strike Master",
-  "cs2.5c": "Brilliant Counterattack",
-  "BWP": "BW Black Star Promos",
-  "BW-P": "BW Promos",
-  "cs3ac": "Primordial Arts - Set A",
-  "CEC": "Cosmic Eclipse 2019",
-  "sm12": "Alter Genesis",
-  "cs3bc": "Primordial Arts - Set B",
-  "CEL": "Celebrations 2021",
-  "s8a": "25th Anniversary Collection",
-  "cs3.5c": "Scorching Skies",
-  "CES": "Celestial Storm 2018",
-  "sm7": "Sky-Splitting Charisma",
-  "cs4ac": "Nine Colors Gathering - Set A",
-  "CLG": "Call of Legends 2011",
-  "LL": "Lost Link",
-  "cs4bc": "Nine Colors Gathering - Set B",
-  "CPA": "Champion's Path 2020",
-  "sD": "V Starter Decks",
-  "cs4.5c": "Final Flame Dance",
-  "CRE": "Chilling Reign 2021",
-  "s6H": "Silver Lance",
-  "cs5ac": "Brave Stars - Set A",
-  "s6K": "Jet Black Spirit",
-  "cs5bc": "Brave Stars - Set B",
-  "s5a": "Matchless Fighters",
-  "cs5.5c": "Shadow of Glory",
-  "CRZ": "Crown Zenith 2023",
-  "s12a": "VSTAR Universe",
-  "cs6ac": "Dark Shadow of the Blue Sea - Set A",
-  "DAA": "Darkness Ablaze 2020",
-  "s3": "Infinity Zone",
-  "cs6bc": "Dark Shadow of the Blue Sea - Set B",
-  "s2a": "Explosive Walker",
-  "cs6.1c": "Brilliant Energy Promo Pack 3",
-  "sC": "Charizard VMAX Starter Set",
-  "cs6.5c": "Victory Stars",
-  "SCd": "Grimmsnarl VMAX Starter Set",
-  "csv1c": "Eternal Birth",
-  "DCR": "Double Crisis 2015",
-  "CP1": "Magma Gang VS Aqua Gang: Double Crisis",
-  "cbb1c": "Gem Pack Vol 1",
-  "DRI": "Destined Rivals 2025",
-  "sv9a": "Hot Air Arena",
-  "151c": "Collect 151 Journey, Hope, Surprise, Gathering",
-  "sv10": "Glory of the Rocket Gang",
-  "csv2c": "Miracle Journey",
-  "EVS": "Evolving Skies 2021",
-  "s7D": "Skyscraping Perfection",
-  "cbb2c": "Gem Pack Vol 2",
-  "s7R": "Blue Sky Stream",
-  "csv3c": "Fearless Terastal",
-  "s6a": "Eevee Heroes",
-  "csv4c": "Bonus Round",
-  "SP4": "VMAX Special Set Eevee Heroes",
-  "csv5c": "Dark Crystal Blaze",
-  "FCO": "Fates Collide 2016",
-  "XY10": "Awakening Psychic King",
-  "cbb3c": "Gem Pack Vol 3",
-  "FFI": "Furious Fists 2014",
-  "XY3": "Rising Fist",
-  "csv6c": "Paradox Veil",
-  "FLF": "Flashfire 2014",
-  "XY2": "Wild Blaze",
-  "csv7c": "Blade Awakened",
-  "FST": "Fusion Strike 2021",
-  "s8": "Fusion Arts",
-  "cbb4c": "Gem Pack Vol 4",
-  "csv8c": "Original Partner Card Set Vol 1 / 30th Anniversary 2026",
-  "SGG": "High-Class Deck Gengar VMAX",
-  "AC2a": "Dreams Come True Set A",
-  "SGI": "High-Class Deck Inteleon VMAX",
-  "GEN": "Generations 2016",
-  "CP3": "PokéKyun Collection",
-  "GRI": "Guardians Rising 2017",
-  "sm2K": "Islands Await You",
-  "sm2L": "Alolan Moonlight",
-  "sm1+": "Sun & Moon Plus",
-  "HIF": "Hidden Fates 2019",
-  "sm10b": "Sky Legend",
-  "smL": "Family Pokémon Card Game",
-  "SM8b": "GX Ultra Shiny",
-  "smK": "Brock & Misty Trainer Battle Decks",
-  "JTG": "Journey Together 2025",
-  "sv9": "Battle Partners",
-  "LOR": "Lost Origin 2022",
-  "s11": "Lost Abyss",
-  "s10a": "Dark Phantasma",
-  "LOT": "Lost Thunder 2018",
-  "sm8": "Super-Burst Impact",
-  "LTR": "Legendary Treasures 2013",
-  "EBB": "EX Battle Boost",
-  "MEG": "Mega Evolutions Base 2025",
-  "m1L": "Mega Brave",
-  "m1S": "Mega Symphonia",
-  "MEP": "ME Black Star Promos",
-  "ME-P": "ME Promos",
-  "MEW": "151 2023",
-  "sv2a": "Pokémon Card 151",
-  "N/A": "N/A 2023",
-  "MBG": "MEGA Starter Set Mega Gengar ex",
-  "sm12a": "TAG TEAM GX: Tag All Stars",
-  "UNP": "Unnumbered Promos",
-  "NVI": "Noble Victories 2011",
-  "BW2": "Red Collection",
-  "OBF": "Obsidian Flames 2023",
-  "sv3": "Ruler of the Black Flame",
-  "PAF": "Paldean Fates 2024",
-  "sv4a": "Shiny Treasure ex",
-  "PAL": "Paldea Evolved 2023",
-  "sv1a": "Triplet Beat",
-  "sv2P": "Snow Hazard",
-  "sv2D": "Clay Burst",
-  "PAR": "Paradox Rift 2023",
-  "sv3a": "Raging Surf",
-  "sv4K": "Ancient Roar",
-  "sv4M": "Future Flash",
-  "PFL": "Phantasmal Flames 2025",
-  "m2": "Inferno X",
-  "PGO": "Pokémon GO 2022",
-  "s10b": "Pokémon GO",
-  "PHF": "Phantom Forces 2014",
-  "XY4": "Phantom Gate",
-  "POR": "Perfect Order 2026",
-  "m3": "Nihil Zero",
-  "PRC": "Primal Clash 2015",
-  "XY5": "Tidal Storm",
-  "PRE": "Prismatic Evolutions 2025",
-  "sv8a": "Terastal Fest ex",
-  "RCL": "Rebel Clash 2020",
-  "s2": "Rebellion Crash",
-  "s1a": "VMAX Rising",
-  "ROS": "Roaring Skies 2015",
-  "XY6": "Emerald Break",
-  "SCR": "Stellar Crown 2024",
-  "sv7": "Stellar Miracle",
-  "SFA": "Shrouded Fable 2024",
-  "sv6a": "Night Wanderer",
-  "SHF": "Shining Fates 2021",
-  "s4a": "Shiny Star V",
-  "SIT": "Silver Tempest 2022",
-  "s12": "Paradigm Trigger",
-  "s11a": "Incandescent Arcana",
-  "SLG": "Shining Legends 2017",
-  "sm3+": "Shining Legends",
-  "SMP": "SM Black Star Promos",
-  "SM-P": "SM Promos",
-  "SSH": "Sword & Shield Base 2020",
-  "s1W": "Sword",
-  "s1H": "Shield",
-  "sA": "Starter Set V",
-  "SSP": "Surging Sparks 2024",
-  "sv7a": "Paradise Dragona",
-  "sv8": "Super Electric Breaker",
-  "STS": "Steam Siege 2016",
-  "XY11": "Cruel Traitor",
-  "SUM": "Sun & Moon Base 2017",
-  "sm1M": "Collection Moon",
-  "SVI": "Scarlet & Violet Base 2023",
-  "sv1S": "Scarlet ex",
-  "sv1V": "Violet ex",
-  "SVP": "S&V Black Star Promos",
-  "SV-P": "SV Promos",
-  "SWSH": "SWSH Black Star Promos",
-  "S-P": "Sword & Shield Promos",
-  "TEF": "Temporal Forces 2024",
-  "sv5K": "Wild Force",
-  "sv5M": "Cyber Judge",
-  "TEU": "Team Up 2019",
-  "sm9": "Tag Bolt",
-  "TWM": "Twilight Masquerade 2024",
-  "sv5a": "Crimson Haze",
-  "sv6": "Mask of Change",
-  "UNB": "Unbroken Bonds 2019",
-  "sm10": "Double Blaze",
-  "UNM": "Unified Minds 2019",
-  "sm10a": "GG End",
-  "smM": "Tag Team GX Starter Sets",
-  "sm11": "Miracle Twin",
-  "UPR": "Ultra Prism 2018",
-  "sm5S": "Ultra Sun",
-  "VIV": "Vivid Voltage 2020",
-  "s4": "Amazing Volt Tackle",
-  "s3a": "Legendary Heartbeat",
-  "WHT": "White Flare 2025",
-  "sv11W": "White Flare",
-  "XYP": "XY Black Star Promos",
-  "XY-P": "XY Promos",
-  "WCS23": "Pokemon Japanese World Championships"
+  "AOR": {
+    "name": "Ancient Origins",
+    "year": 2015
+  },
+  "XY7": {
+    "name": "Bandit Ring",
+    "year": null
+  },
+  "csm1ac": {
+    "name": "Storming Emergence - Set A",
+    "year": null
+  },
+  "ASC": {
+    "name": "Ascended Heroes",
+    "year": 2026
+  },
+  "m2a": {
+    "name": "MEGA Dream ex",
+    "year": null
+  },
+  "csm1bc": {
+    "name": "Storming Emergence - Set B",
+    "year": null
+  },
+  "ASR": {
+    "name": "Astral Radiance",
+    "year": 2022
+  },
+  "s10D": {
+    "name": "Time Gazer",
+    "year": null
+  },
+  "csm1cc": {
+    "name": "Storming Emergence - Set C",
+    "year": null
+  },
+  "s10P": {
+    "name": "Space Juggler",
+    "year": null
+  },
+  "csm1.5c": {
+    "name": "Battle Elite",
+    "year": null
+  },
+  "s9a": {
+    "name": "Battle Region",
+    "year": null
+  },
+  "csm2ac": {
+    "name": "Shining Synergy - Shower",
+    "year": null
+  },
+  "BKP": {
+    "name": "BREAKpoint",
+    "year": 2016
+  },
+  "XY9": {
+    "name": "Rage of the Broken Heavens",
+    "year": null
+  },
+  "csm2bc": {
+    "name": "Shining Synergy - Surpreme",
+    "year": null
+  },
+  "BKT": {
+    "name": "BREAKthrough",
+    "year": 2015
+  },
+  "XY8": {
+    "name": "Red Flash",
+    "year": null
+  },
+  "csm2cc": {
+    "name": "Shining Synergy - Summon",
+    "year": null
+  },
+  "csm2.5c": {
+    "name": "Striking Competition",
+    "year": null
+  },
+  "BLK": {
+    "name": "Black Bolt",
+    "year": 2025
+  },
+  "sv11B": {
+    "name": "Black Bolt",
+    "year": null
+  },
+  "cs1ac": {
+    "name": "Dynamax Clash - Thunder",
+    "year": null
+  },
+  "BRS": {
+    "name": "Brilliant Stars",
+    "year": 2022
+  },
+  "s9": {
+    "name": "Star Birth",
+    "year": null
+  },
+  "cs1bc": {
+    "name": "Dynamax Clash - Flame",
+    "year": null
+  },
+  "s8b": {
+    "name": "VMAX Climax",
+    "year": null
+  },
+  "cs1.5c": {
+    "name": "Dynamax Tactics",
+    "year": null
+  },
+  "SI": {
+    "name": "Starter Decks 100",
+    "year": null
+  },
+  "cs2ac": {
+    "name": "Vivid Portrayals - Obsidian",
+    "year": null
+  },
+  "BST": {
+    "name": "Battle Styles",
+    "year": 2021
+  },
+  "s5I": {
+    "name": "Single Strike Master",
+    "year": null
+  },
+  "cs2bc": {
+    "name": "Vivid Portrayals - Indigo",
+    "year": null
+  },
+  "s5R": {
+    "name": "Rapid Strike Master",
+    "year": null
+  },
+  "cs2.5c": {
+    "name": "Brilliant Counterattack",
+    "year": null
+  },
+  "BWP": {
+    "name": "BW Black Star Promos",
+    "year": null
+  },
+  "BW-P": {
+    "name": "BW Promos",
+    "year": null
+  },
+  "cs3ac": {
+    "name": "Primordial Arts - Overgrow",
+    "year": null
+  },
+  "CEC": {
+    "name": "Cosmic Eclipse",
+    "year": 2019
+  },
+  "sm12": {
+    "name": "Alter Genesis",
+    "year": null
+  },
+  "cs3bc": {
+    "name": "Primordial Arts - Torrent",
+    "year": null
+  },
+  "CEL": {
+    "name": "Celebrations",
+    "year": 2021
+  },
+  "s8a": {
+    "name": "25th Anniversary Collection",
+    "year": null
+  },
+  "cs3.5c": {
+    "name": "Scorching Skies",
+    "year": null
+  },
+  "CES": {
+    "name": "Celestial Storm",
+    "year": 2018
+  },
+  "sm7": {
+    "name": "Sky-Splitting Charisma",
+    "year": null
+  },
+  "cs4ac": {
+    "name": "Polychromatic Gathering - Friends",
+    "year": null
+  },
+  "CLG": {
+    "name": "Call of Legends",
+    "year": 2011
+  },
+  "LL": {
+    "name": "Lost Link",
+    "year": null
+  },
+  "cs4bc": {
+    "name": "Polychromatic Gathering - Origin",
+    "year": null
+  },
+  "CPA": {
+    "name": "Champion's Path",
+    "year": 2020
+  },
+  "sD": {
+    "name": "V Starter Decks",
+    "year": null
+  },
+  "cs4.5c": {
+    "name": "Flame Dance of the End",
+    "year": null
+  },
+  "CRE": {
+    "name": "Chilling Reign",
+    "year": 2021
+  },
+  "s6H": {
+    "name": "Silver Lance",
+    "year": null
+  },
+  "cs5ac": {
+    "name": "Gallant Galaxy - Charm",
+    "year": null
+  },
+  "s6K": {
+    "name": "Jet Black Spirit",
+    "year": null
+  },
+  "cs5bc": {
+    "name": "Gallant Galaxy - Brave",
+    "year": null
+  },
+  "s5a": {
+    "name": "Matchless Fighters",
+    "year": null
+  },
+  "cs5.5c": {
+    "name": "Overshadowed Radiance",
+    "year": null
+  },
+  "CRZ": {
+    "name": "Crown Zenith",
+    "year": 2023
+  },
+  "s12a": {
+    "name": "VSTAR Universe",
+    "year": null
+  },
+  "cs6ac": {
+    "name": "Marine Shadow - Roar",
+    "year": null
+  },
+  "DAA": {
+    "name": "Darkness Ablaze",
+    "year": 2020
+  },
+  "s3": {
+    "name": "Infinity Zone",
+    "year": null
+  },
+  "cs6bc": {
+    "name": "Marine Shadow - Banish",
+    "year": null
+  },
+  "s2a": {
+    "name": "Explosive Walker",
+    "year": null
+  },
+  "cs6.1c": {
+    "name": "Brilliant Energy Promo Pack 3",
+    "year": null
+  },
+  "sC": {
+    "name": "Charizard VMAX Starter Set",
+    "year": null
+  },
+  "cs6.5c": {
+    "name": "Victory Lodestar",
+    "year": null
+  },
+  "SCd": {
+    "name": "Grimmsnarl VMAX Starter Set",
+    "year": null
+  },
+  "csv1c": {
+    "name": "Eternal Birth",
+    "year": null
+  },
+  "DCR": {
+    "name": "Double Crisis",
+    "year": 2015
+  },
+  "CP1": {
+    "name": "Magma Gang VS Aqua Gang: Double Crisis",
+    "year": null
+  },
+  "cbb1c": {
+    "name": "Gem Pack Vol 1",
+    "year": null
+  },
+  "DRI": {
+    "name": "Destined Rivals",
+    "year": 2025
+  },
+  "sv9a": {
+    "name": "Hot Air Arena",
+    "year": null
+  },
+  "151c": {
+    "name": "Collect 151 Journey, Hope, Surprise, Gathering",
+    "year": null
+  },
+  "sv10": {
+    "name": "Glory of the Rocket Gang",
+    "year": null
+  },
+  "csv2c": {
+    "name": "Miracle Journey",
+    "year": null
+  },
+  "EVS": {
+    "name": "Evolving Skies",
+    "year": 2021
+  },
+  "s7D": {
+    "name": "Skyscraping Perfection",
+    "year": null
+  },
+  "cbb2c": {
+    "name": "Gem Pack Vol 2",
+    "year": null
+  },
+  "s7R": {
+    "name": "Blue Sky Stream",
+    "year": null
+  },
+  "csv3c": {
+    "name": "Fearless Terastal",
+    "year": null
+  },
+  "s6a": {
+    "name": "Eevee Heroes",
+    "year": null
+  },
+  "csv4c": {
+    "name": "Bonus Round",
+    "year": null
+  },
+  "SP4": {
+    "name": "VMAX Special Set Eevee Heroes",
+    "year": null
+  },
+  "csv5c": {
+    "name": "Dark Crystal Blaze",
+    "year": null
+  },
+  "FCO": {
+    "name": "Fates Collide",
+    "year": 2016
+  },
+  "XY10": {
+    "name": "Awakening Psychic King",
+    "year": null
+  },
+  "cbb3c": {
+    "name": "Gem Pack Vol 3",
+    "year": null
+  },
+  "FFI": {
+    "name": "Furious Fists",
+    "year": 2014
+  },
+  "XY3": {
+    "name": "Rising Fist",
+    "year": null
+  },
+  "csv6c": {
+    "name": "Paradox Veil",
+    "year": null
+  },
+  "FLF": {
+    "name": "Flashfire",
+    "year": 2014
+  },
+  "XY2": {
+    "name": "Wild Blaze",
+    "year": null
+  },
+  "csv7c": {
+    "name": "Blade Awakened",
+    "year": null
+  },
+  "FST": {
+    "name": "Fusion Strike",
+    "year": 2021
+  },
+  "s8": {
+    "name": "Fusion Arts",
+    "year": null
+  },
+  "cbb4c": {
+    "name": "Gem Pack Vol 4",
+    "year": null
+  },
+  "csv8c": {
+    "name": "Original Partner Card Set Vol 1 / 30th Anniversary 2026",
+    "year": null
+  },
+  "SGG": {
+    "name": "High-Class Deck Gengar VMAX",
+    "year": null
+  },
+  "AC2a": {
+    "name": "Dreams Come True Set A",
+    "year": null
+  },
+  "SGI": {
+    "name": "High-Class Deck Inteleon VMAX",
+    "year": null
+  },
+  "GEN": {
+    "name": "Generations",
+    "year": 2016
+  },
+  "CP3": {
+    "name": "PokéKyun Collection",
+    "year": null
+  },
+  "GRI": {
+    "name": "Guardians Rising",
+    "year": 2017
+  },
+  "sm2K": {
+    "name": "Islands Await You",
+    "year": null
+  },
+  "sm2L": {
+    "name": "Alolan Moonlight",
+    "year": null
+  },
+  "sm1+": {
+    "name": "Sun & Moon Plus",
+    "year": null
+  },
+  "HIF": {
+    "name": "Hidden Fates",
+    "year": 2019
+  },
+  "sm10b": {
+    "name": "Sky Legend",
+    "year": null
+  },
+  "smL": {
+    "name": "Family Pokémon Card Game",
+    "year": null
+  },
+  "SM8b": {
+    "name": "GX Ultra Shiny",
+    "year": null
+  },
+  "smK": {
+    "name": "Brock & Misty Trainer Battle Decks",
+    "year": null
+  },
+  "JTG": {
+    "name": "Journey Together",
+    "year": 2025
+  },
+  "sv9": {
+    "name": "Battle Partners",
+    "year": null
+  },
+  "LOR": {
+    "name": "Lost Origin",
+    "year": 2022
+  },
+  "s11": {
+    "name": "Lost Abyss",
+    "year": null
+  },
+  "s10a": {
+    "name": "Dark Phantasma",
+    "year": null
+  },
+  "LOT": {
+    "name": "Lost Thunder",
+    "year": 2018
+  },
+  "sm8": {
+    "name": "Super-Burst Impact",
+    "year": null
+  },
+  "LTR": {
+    "name": "Legendary Treasures",
+    "year": 2013
+  },
+  "EBB": {
+    "name": "EX Battle Boost",
+    "year": null
+  },
+  "MEG": {
+    "name": "Mega Evolutions Base",
+    "year": 2025
+  },
+  "m1L": {
+    "name": "Mega Brave",
+    "year": null
+  },
+  "m1S": {
+    "name": "Mega Symphonia",
+    "year": null
+  },
+  "MEP": {
+    "name": "ME Black Star Promos",
+    "year": null
+  },
+  "ME-P": {
+    "name": "ME Promos",
+    "year": null
+  },
+  "MEW": {
+    "name": 151,
+    "year": 2023
+  },
+  "sv2a": {
+    "name": "Pokémon Card 151",
+    "year": null
+  },
+  "N/A": {
+    "name": "N/A",
+    "year": 2023
+  },
+  "MBG": {
+    "name": "MEGA Starter Set Mega Gengar ex",
+    "year": null
+  },
+  "sm12a": {
+    "name": "TAG TEAM GX: Tag All Stars",
+    "year": null
+  },
+  "UNP": {
+    "name": "Unnumbered Promos",
+    "year": null
+  },
+  "NVI": {
+    "name": "Noble Victories",
+    "year": 2011
+  },
+  "BW2": {
+    "name": "Red Collection",
+    "year": null
+  },
+  "OBF": {
+    "name": "Obsidian Flames",
+    "year": 2023
+  },
+  "sv3": {
+    "name": "Ruler of the Black Flame",
+    "year": null
+  },
+  "PAF": {
+    "name": "Paldean Fates",
+    "year": 2024
+  },
+  "sv4a": {
+    "name": "Shiny Treasure ex",
+    "year": null
+  },
+  "PAL": {
+    "name": "Paldea Evolved",
+    "year": 2023
+  },
+  "sv1a": {
+    "name": "Triplet Beat",
+    "year": null
+  },
+  "sv2P": {
+    "name": "Snow Hazard",
+    "year": null
+  },
+  "sv2D": {
+    "name": "Clay Burst",
+    "year": null
+  },
+  "PAR": {
+    "name": "Paradox Rift",
+    "year": 2023
+  },
+  "sv3a": {
+    "name": "Raging Surf",
+    "year": null
+  },
+  "sv4K": {
+    "name": "Ancient Roar",
+    "year": null
+  },
+  "sv4M": {
+    "name": "Future Flash",
+    "year": null
+  },
+  "PFL": {
+    "name": "Phantasmal Flames",
+    "year": 2025
+  },
+  "m2": {
+    "name": "Inferno X",
+    "year": null
+  },
+  "PGO": {
+    "name": "Pokémon GO",
+    "year": 2022
+  },
+  "s10b": {
+    "name": "Pokémon GO",
+    "year": null
+  },
+  "PHF": {
+    "name": "Phantom Forces",
+    "year": 2014
+  },
+  "XY4": {
+    "name": "Phantom Gate",
+    "year": null
+  },
+  "POR": {
+    "name": "Perfect Order",
+    "year": 2026
+  },
+  "m3": {
+    "name": "Nihil Zero",
+    "year": null
+  },
+  "PRC": {
+    "name": "Primal Clash",
+    "year": 2015
+  },
+  "XY5": {
+    "name": "Tidal Storm",
+    "year": null
+  },
+  "PRE": {
+    "name": "Prismatic Evolutions",
+    "year": 2025
+  },
+  "sv8a": {
+    "name": "Terastal Fest ex",
+    "year": null
+  },
+  "RCL": {
+    "name": "Rebel Clash",
+    "year": 2020
+  },
+  "s2": {
+    "name": "Rebellion Crash",
+    "year": null
+  },
+  "s1a": {
+    "name": "VMAX Rising",
+    "year": null
+  },
+  "ROS": {
+    "name": "Roaring Skies",
+    "year": 2015
+  },
+  "XY6": {
+    "name": "Emerald Break",
+    "year": null
+  },
+  "SCR": {
+    "name": "Stellar Crown",
+    "year": 2024
+  },
+  "sv7": {
+    "name": "Stellar Miracle",
+    "year": null
+  },
+  "SFA": {
+    "name": "Shrouded Fable",
+    "year": 2024
+  },
+  "sv6a": {
+    "name": "Night Wanderer",
+    "year": null
+  },
+  "SHF": {
+    "name": "Shining Fates",
+    "year": 2021
+  },
+  "s4a": {
+    "name": "Shiny Star V",
+    "year": null
+  },
+  "SIT": {
+    "name": "Silver Tempest",
+    "year": 2022
+  },
+  "s12": {
+    "name": "Paradigm Trigger",
+    "year": null
+  },
+  "s11a": {
+    "name": "Incandescent Arcana",
+    "year": null
+  },
+  "SLG": {
+    "name": "Shining Legends",
+    "year": 2017
+  },
+  "sm3+": {
+    "name": "Shining Legends",
+    "year": null
+  },
+  "SMP": {
+    "name": "SM Black Star Promos",
+    "year": null
+  },
+  "SM-P": {
+    "name": "SM Promos",
+    "year": null
+  },
+  "SSH": {
+    "name": "Sword & Shield Base",
+    "year": 2020
+  },
+  "s1W": {
+    "name": "Sword",
+    "year": null
+  },
+  "s1H": {
+    "name": "Shield",
+    "year": null
+  },
+  "sA": {
+    "name": "Starter Set V",
+    "year": null
+  },
+  "SSP": {
+    "name": "Surging Sparks",
+    "year": 2024
+  },
+  "sv7a": {
+    "name": "Paradise Dragona",
+    "year": null
+  },
+  "sv8": {
+    "name": "Super Electric Breaker",
+    "year": null
+  },
+  "STS": {
+    "name": "Steam Siege",
+    "year": 2016
+  },
+  "XY11": {
+    "name": "Cruel Traitor",
+    "year": null
+  },
+  "SUM": {
+    "name": "Sun & Moon Base",
+    "year": 2017
+  },
+  "sm1M": {
+    "name": "Collection Moon",
+    "year": null
+  },
+  "SVI": {
+    "name": "Scarlet & Violet Base",
+    "year": 2023
+  },
+  "sv1S": {
+    "name": "Scarlet ex",
+    "year": null
+  },
+  "sv1V": {
+    "name": "Violet ex",
+    "year": null
+  },
+  "SVP": {
+    "name": "S&V Black Star Promos",
+    "year": null
+  },
+  "SV-P": {
+    "name": "SV Promos",
+    "year": null
+  },
+  "SWSH": {
+    "name": "SWSH Black Star Promos",
+    "year": null
+  },
+  "S-P": {
+    "name": "Sword & Shield Promos",
+    "year": null
+  },
+  "TEF": {
+    "name": "Temporal Forces",
+    "year": 2024
+  },
+  "sv5K": {
+    "name": "Wild Force",
+    "year": null
+  },
+  "sv5M": {
+    "name": "Cyber Judge",
+    "year": null
+  },
+  "TEU": {
+    "name": "Team Up",
+    "year": 2019
+  },
+  "sm9": {
+    "name": "Tag Bolt",
+    "year": null
+  },
+  "TWM": {
+    "name": "Twilight Masquerade",
+    "year": 2024
+  },
+  "sv5a": {
+    "name": "Crimson Haze",
+    "year": null
+  },
+  "sv6": {
+    "name": "Mask of Change",
+    "year": null
+  },
+  "UNB": {
+    "name": "Unbroken Bonds",
+    "year": 2019
+  },
+  "sm10": {
+    "name": "Double Blaze",
+    "year": null
+  },
+  "UNM": {
+    "name": "Unified Minds",
+    "year": 2019
+  },
+  "sm10a": {
+    "name": "GG End",
+    "year": null
+  },
+  "smM": {
+    "name": "Tag Team GX Starter Sets",
+    "year": null
+  },
+  "sm11": {
+    "name": "Miracle Twin",
+    "year": null
+  },
+  "UPR": {
+    "name": "Ultra Prism",
+    "year": 2018
+  },
+  "sm5S": {
+    "name": "Ultra Sun",
+    "year": null
+  },
+  "VIV": {
+    "name": "Vivid Voltage",
+    "year": 2020
+  },
+  "s4": {
+    "name": "Amazing Volt Tackle",
+    "year": null
+  },
+  "s3a": {
+    "name": "Legendary Heartbeat",
+    "year": null
+  },
+  "WHT": {
+    "name": "White Flare",
+    "year": 2025
+  },
+  "sv11W": {
+    "name": "White Flare",
+    "year": null
+  },
+  "XYP": {
+    "name": "XY Black Star Promos",
+    "year": null
+  },
+  "XY-P": {
+    "name": "XY Promos",
+    "year": null
+  },
+  "WCS23": {
+    "name": "Pokemon Japanese World Championships",
+    "year": null
+  }
 }
