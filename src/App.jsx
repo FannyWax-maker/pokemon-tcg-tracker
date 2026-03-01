@@ -801,7 +801,7 @@ export default function App() {
                             const owned = en.owned || jp.owned || cn.owned;
                             const pct = total > 0 ? Math.round((owned / total) * 100) : 0;
                             const complete = total > 0 && owned === total;
-                            const name = (typeof setNames[code] === 'object' ? setNames[code]?.name : (setNames[code] || 'Unknown')).split('\n')[0].replace(/ \d{4}(-\d{4})?$/, '');
+                            const name = (() => { const _s = setNames[code]; const _n = (typeof _s === 'object' ? (_s?.name || 'Unknown') : (_s || 'Unknown')); return _n.split('\n')[0].replace(/ \d{4}(-\d{4})?$/, ''); })();
                             return <option key={code} value={code}>{complete ? '✓ ' : ''}{code} - {name} ({owned}/{total}{!complete ? ` · ${pct}%` : ''})</option>;
                           });
                         }
