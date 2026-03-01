@@ -1096,14 +1096,14 @@
     ]
   },
   {
-    "id": 20,
+    "id": 19,
     "name": "Rattata",
     "gen": 1,
     "region": "Kanto",
     "cards": [
       {
-        "id": "20__",
-        "pokemonId": 20,
+        "id": "19__",
+        "pokemonId": 19,
         "setCode": null,
         "jpSetCode": null,
         "cnSetCode": null,
