@@ -273,11 +273,11 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           {/* Row 1: dex # + year — compact metadata line */}
           <div className={`flex items-center justify-between text-[10px] font-mono ${isOwned ? 'text-emerald-200' : 'text-gray-400'}`}>
             <span>#{String(card.pokemonId || '').padStart(4, '0')}</span>
-            <span>{(() => { try { const _se = setNames[card.enSetCode || card.setCode]; const n = typeof _se === 'object' ? (_se?.name || '') : (typeof _se === 'string' ? _se : ''); const yrMatch = n.match(/\d{4}(?:-\d{4})?$/); return yrMatch ? yrMatch[0] : (_se?.year || ''); } catch(e) { return ''; } })()}</span>
+            <span>{(() => { try { const _se = setNames[card.enSetCode || card.setCode]; const _n = typeof _se === 'object' ? (_se?.name || '') : (typeof _se === 'string' ? _se : ''); const yrMatch = _n.match(/\d{4}(?:-\d{4})?$/); return yrMatch ? yrMatch[0] : (_se?.year || ''); } catch(e) { return ''; } })()}</span>
           </div>
 
           {/* Row 2: Pokemon name — full width, wraps if needed */}
-          <div className={`font-bold text-sm leading-tight ${isOwned ? 'text-white' : 'text-gray-900'}`}>{pokemonName}</div>
+          <div className={`font-bold text-sm leading-tight ${isOwned ? 'text-white' : 'text-gray-900'}`}>{isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName}</div>
 
           {/* Row 3: card name — always reserve space */}
           <div className={`text-xs leading-tight min-h-[0.9rem] font-medium truncate ${isOwned ? 'text-emerald-100' : 'text-gray-600'}`}>
@@ -286,10 +286,10 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
           {/* Row 4: EN */}
           <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-start gap-1 ${isOwned ? 'text-emerald-200' : 'text-gray-500'}`}>
-            {card.enSetCode ? (
+            {(card.enSetCode || card.setCode) ? (
               <>
                 <span className="text-blue-500 font-bold shrink-0">EN</span>
-                <span className="truncate">{card.enSetCode}{card.number ? ` ${card.number}` : ''}{(() => { const _e = setNames[card.enSetCode]; const n = typeof _e === 'object' ? _e?.name : _e; return n ? ` - ${n.replace(/ \d{4}(-\d{4})?$/, '').trim()}` : ''; })()}</span>
+                <span className="truncate">{card.enSetCode || card.setCode}{card.number ? ` ${card.number}` : ''}{(() => { const _ec = card.enSetCode || card.setCode; const _e = setNames[_ec]; const n = typeof _e === 'object' ? _e?.name : _e; return n ? ` - ${String(n).replace(/ \d{4}(-\d{4})?$/, '').trim()}` : ''; })()}</span>
               </>
             ) : <><span className="text-blue-500 font-bold shrink-0 opacity-40">EN</span><span className={`${isOwned ? 'text-emerald-300' : 'text-gray-400'} italic`}>N/A</span></>}
           </div>

@@ -8,7 +8,29 @@ import pokemonDataImport from './data/pokemon_data.json';
 import setNamesImport from './data/set_names.json';
 
 export default function App() {
-  const [pokemonData, setPokemonData] = useState(pokemonDataImport);
+  const [pokemonData, setPokemonData] = useState(() => {
+    // Build a name->pokemon map for injecting secondary cards
+    const nameMap = {};
+    pokemonDataImport.forEach(p => { nameMap[p.name] = p; });
+    // For each card with otherPokemon, inject a reference copy into those pokemon
+    const enriched = pokemonDataImport.map(p => ({ ...p, cards: [...p.cards] }));
+    const enrichedMap = {};
+    enriched.forEach(p => { enrichedMap[p.name] = p; });
+    pokemonDataImport.forEach(p => {
+      p.cards.forEach(card => {
+        if (!card.otherPokemon || !card.otherPokemon.length) return;
+        card.otherPokemon.forEach(otherName => {
+          const other = enrichedMap[otherName];
+          if (!other) return;
+          const alreadyHas = other.cards.some(c => c.id === card.id);
+          if (!alreadyHas) {
+            other.cards.push({ ...card, isSecondary: true, isPrimary: false, primaryPokemon: p.name });
+          }
+        });
+      });
+    });
+    return enriched;
+  });
   const [searchQuery, setSearchQuery] = useState('');
   const [searchSuggestion, setSearchSuggestion] = useState(null);
   const [autocompleteSuggestions, setAutocompleteSuggestions] = useState([]);
@@ -279,7 +301,7 @@ export default function App() {
 
   // Calculate overall stats
   const overallStats = useMemo(() => {
-    const allCards = pokemonData.flatMap(p => p.cards.filter(c => !c.isSecondary && c.isPrimary !== false));
+    const allCards = pokemonData.flatMap(p => p.cards.filter(c => !c.isSecondary && c.isPrimary !== false && (c.setCode || c.jpSetCode || c.cnSetCode)));
     const totalCards = allCards.length;
     const ownedCards = allCards.filter(c => c.ownedLang).length;
     const completionPercent = totalCards > 0 ? (ownedCards / totalCards) * 100 : 0;
@@ -329,7 +351,7 @@ export default function App() {
 
     // Hide pokemon with no cards and no refs
     if (filterHideNoCards) {
-      filtered = filtered.filter(p => p.cards.length > 0);
+      filtered = filtered.filter(p => p.cards.some(c => !c.isSecondary && c.isPrimary !== false && c.setCode));
     }
 
     // Non-conforming filter
@@ -379,16 +401,16 @@ export default function App() {
             if (filterExclusive === 'none' && card.exclusive) return false;
           }
           if (filterSet !== 'all') {
-            const matchesSet = card.setCode === filterSet || card.enSetCode === filterSet ||
-              (filterSetLang === 'JP' && card.jpSetCode === filterSet) ||
-              (filterSetLang === 'CN' && card.cnSetCode === filterSet);
+            const matchesSet = card.setCode === filterSet || card.enSetCode === filterSet || card.jpSetCode === filterSet || card.cnSetCode === filterSet;
+
+
             if (!matchesSet) return false;
           }
           if (filterSetLang !== 'all' && filterSet === 'all') {
             const langs = card.availableLangs || [];
             if (filterSetLang === 'JP' && !card.jpSetCode) return false;
             if (filterSetLang === 'CN' && !card.cnSetCode) return false;
-            if (filterSetLang === 'EN' && !card.enSetCode) return false;
+            if (filterSetLang === 'EN' && !card.setCode) return false;
             if (filterSetLang === 'KR' && !langs.includes('KR')) return false;
           }
           if (filterCardType !== 'all') {
@@ -446,7 +468,7 @@ export default function App() {
     filteredData.data.forEach(pokemon => {
       pokemon.cards
         .filter(c => {
-          if (!c.isSecondary && c.isPrimary !== false) return true;
+          if (!c.isSecondary && c.isPrimary !== false && (c.setCode || c.jpSetCode || c.cnSetCode)) return true;
           if (searchQuery.trim() && c.isSecondary) {
             const q = searchQuery.trim().toLowerCase();
             return pokemon.name.toLowerCase().includes(q);
@@ -466,15 +488,15 @@ export default function App() {
             if (filterExclusive === 'none' && card.exclusive) return;
           }
           if (filterSet !== 'all') {
-            const matchesSet2 = card.setCode === filterSet || card.enSetCode === filterSet ||
-              (filterSetLang === 'JP' && card.jpSetCode === filterSet) ||
-              (filterSetLang === 'CN' && card.cnSetCode === filterSet);
+            const matchesSet2 = card.setCode === filterSet || card.enSetCode === filterSet || card.jpSetCode === filterSet || card.cnSetCode === filterSet;
+
+
             if (!matchesSet2) return;
           }
           if (filterSetLang !== 'all' && filterSet === 'all') {
             if (filterSetLang === 'JP' && !card.jpSetCode) return;
             if (filterSetLang === 'CN' && !card.cnSetCode) return;
-            if (filterSetLang === 'EN' && !card.enSetCode) return;
+            if (filterSetLang === 'EN' && !card.setCode) return;
             if (filterSetLang === 'KR' && !(card.availableLangs || []).includes('KR')) return;
           }
           if (filterCardType !== 'all') {
@@ -772,7 +794,7 @@ export default function App() {
                         const pct = s.total > 0 ? Math.round((s.owned / s.total) * 100) : 0;
                         const complete = s.total > 0 && s.owned === s.total;
                         const name = (typeof setNames[jpSet] === 'object' ? setNames[jpSet]?.name : setNames[jpSet]) || 'Unknown';
-                        return <option key={jpSet} value={jpSet}>{complete ? `✓ ` : ''}{jpSet} - {name.replace(/ \d{4}(-\d{4})?$/, '')} ({s.owned}/{s.total}{!complete ? ` · ${pct}%` : ''})</option>;
+                        return <option key={jpSet} value={jpSet}>{complete ? `✓ ` : ''}{jpSet} - {String(name || "").replace(/ \d{4}(-\d{4})?$/, '')} ({s.owned}/{s.total}{!complete ? ` · ${pct}%` : ''})</option>;
                       })
                     ) : filterSetLang === 'CN' ? (
                       // Show CN set codes
@@ -781,7 +803,7 @@ export default function App() {
                         const pct = s.total > 0 ? Math.round((s.owned / s.total) * 100) : 0;
                         const complete = s.total > 0 && s.owned === s.total;
                         const name = (typeof setNames[cnSet] === 'object' ? setNames[cnSet]?.name : setNames[cnSet]) || 'Unknown';
-                        return <option key={cnSet} value={cnSet}>{complete ? `✓ ` : ''}{cnSet} - {name.replace(/ \d{4}(-\d{4})?$/, '')} ({s.owned}/{s.total}{!complete ? ` · ${pct}%` : ''})</option>;
+                        return <option key={cnSet} value={cnSet}>{complete ? `✓ ` : ''}{cnSet} - {String(name || "").replace(/ \d{4}(-\d{4})?$/, '')} ({s.owned}/{s.total}{!complete ? ` · ${pct}%` : ''})</option>;
                       })
                     ) : (
                       // filterSetLang === 'all': merge EN + JP + CN sets; 'EN'/'KR': filter EN sets
@@ -801,7 +823,7 @@ export default function App() {
                             const owned = en.owned || jp.owned || cn.owned;
                             const pct = total > 0 ? Math.round((owned / total) * 100) : 0;
                             const complete = total > 0 && owned === total;
-                            const name = (() => { const _s = setNames[code]; const _n = (typeof _s === 'object' ? (_s?.name || 'Unknown') : (_s || 'Unknown')); return _n.split('\n')[0].replace(/ \d{4}(-\d{4})?$/, ''); })();
+                            const name = (() => { const _s = setNames[code]; const _n = (typeof _s === 'object' ? (_s?.name || 'Unknown') : (_s || 'Unknown')); return String(_n || "").split('\n')[0].replace(/ \d{4}(-\d{4})?$/, ''); })();
                             return <option key={code} value={code}>{complete ? '✓ ' : ''}{code} - {name} ({owned}/{total}{!complete ? ` · ${pct}%` : ''})</option>;
                           });
                         }
@@ -812,7 +834,7 @@ export default function App() {
                             const pct = s.total > 0 ? Math.round((s.owned / s.total) * 100) : 0;
                             const complete = s.total > 0 && s.owned === s.total;
                             const name = (typeof setNames[set] === 'object' ? setNames[set]?.name : setNames[set]) || 'Unknown';
-                            return <option key={set} value={set}>{complete ? '✓ ' : ''}{set} - {name.replace(/ \d{4}(-\d{4})?$/, '')} ({s.owned}/{s.total}{!complete ? ` · ${pct}%` : ''})</option>;
+                            return <option key={set} value={set}>{complete ? '✓ ' : ''}{set} - {String(name || "").replace(/ \d{4}(-\d{4})?$/, '')} ({s.owned}/{s.total}{!complete ? ` · ${pct}%` : ''})</option>;
                           });
                       })()
                     )}
