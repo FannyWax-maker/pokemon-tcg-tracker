@@ -38915,9 +38915,7 @@
         "artist": "Tomokazu Komiya",
         "cardName": null,
         "exclusive": null,
-        "otherPokemon": [
-          "Tomokazu Komiya"
-        ],
+        "otherPokemon": null,
         "availableLangs": [
           "EN",
           "JP",
