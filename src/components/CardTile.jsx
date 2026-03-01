@@ -273,7 +273,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           {/* Row 1: dex # + year — compact metadata line */}
           <div className={`flex items-center justify-between text-[10px] font-mono ${isOwned ? 'text-emerald-200' : 'text-gray-400'}`}>
             <span>#{String(card.pokemonId || '').padStart(4, '0')}</span>
-            <span>{(() => { const _se = setNames[card.enSetCode || card.setCode]; const setEntry = (typeof _se === 'object' ? _se?.name : _se) || ''; const yrMatch = setEntry.match(/\d{4}(?:-\d{4})?$/); return yrMatch ? yrMatch[0] : _se?.year || ''; })()}</span>
+            <span>{(() => { try { const _se = setNames[card.enSetCode || card.setCode]; const n = typeof _se === 'object' ? (_se?.name || '') : (typeof _se === 'string' ? _se : ''); const yrMatch = n.match(/\d{4}(?:-\d{4})?$/); return yrMatch ? yrMatch[0] : (_se?.year || ''); } catch(e) { return ''; } })()}</span>
           </div>
 
           {/* Row 2: Pokemon name — full width, wraps if needed */}
