@@ -3128,9 +3128,9 @@
         "isSecondary": false
       },
       {
-        "id": "52_xyp_278-xy-p",
+        "id": "52_xy-p_278-xy-p",
         "pokemonId": 52,
-        "setCode": "XYP",
+        "setCode": null,
         "jpSetCode": "XY-P",
         "cnSetCode": null,
         "setNumber": "278/XY-P",
@@ -3139,7 +3139,6 @@
         "exclusive": "JP",
         "otherPokemon": null,
         "availableLangs": [
-          "EN",
           "JP"
         ],
         "isPrimary": true,
