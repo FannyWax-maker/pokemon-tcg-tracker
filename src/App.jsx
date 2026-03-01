@@ -771,7 +771,7 @@ export default function App() {
                         const s = setStats.jp[jpSet];
                         const pct = s.total > 0 ? Math.round((s.owned / s.total) * 100) : 0;
                         const complete = s.total > 0 && s.owned === s.total;
-                        const name = setNames[jpSet] || 'Unknown';
+                        const name = (typeof setNames[jpSet] === 'object' ? setNames[jpSet]?.name : setNames[jpSet]) || 'Unknown';
                         return <option key={jpSet} value={jpSet}>{complete ? `✓ ` : ''}{jpSet} - {name.replace(/ \d{4}(-\d{4})?$/, '')} ({s.owned}/{s.total}{!complete ? ` · ${pct}%` : ''})</option>;
                       })
                     ) : filterSetLang === 'CN' ? (
@@ -780,7 +780,7 @@ export default function App() {
                         const s = setStats.cn[cnSet];
                         const pct = s.total > 0 ? Math.round((s.owned / s.total) * 100) : 0;
                         const complete = s.total > 0 && s.owned === s.total;
-                        const name = setNames[cnSet] || 'Unknown';
+                        const name = (typeof setNames[cnSet] === 'object' ? setNames[cnSet]?.name : setNames[cnSet]) || 'Unknown';
                         return <option key={cnSet} value={cnSet}>{complete ? `✓ ` : ''}{cnSet} - {name.replace(/ \d{4}(-\d{4})?$/, '')} ({s.owned}/{s.total}{!complete ? ` · ${pct}%` : ''})</option>;
                       })
                     ) : (
@@ -801,7 +801,7 @@ export default function App() {
                             const owned = en.owned || jp.owned || cn.owned;
                             const pct = total > 0 ? Math.round((owned / total) * 100) : 0;
                             const complete = total > 0 && owned === total;
-                            const name = (setNames[code] || 'Unknown').split('\n')[0].replace(/ \d{4}(-\d{4})?$/, '');
+                            const name = (typeof setNames[code] === 'object' ? setNames[code]?.name : (setNames[code] || 'Unknown')).split('\n')[0].replace(/ \d{4}(-\d{4})?$/, '');
                             return <option key={code} value={code}>{complete ? '✓ ' : ''}{code} - {name} ({owned}/{total}{!complete ? ` · ${pct}%` : ''})</option>;
                           });
                         }
@@ -811,7 +811,7 @@ export default function App() {
                             const s = setStats.en[set] || { total: 0, owned: 0 };
                             const pct = s.total > 0 ? Math.round((s.owned / s.total) * 100) : 0;
                             const complete = s.total > 0 && s.owned === s.total;
-                            const name = setNames[set] || 'Unknown';
+                            const name = (typeof setNames[set] === 'object' ? setNames[set]?.name : setNames[set]) || 'Unknown';
                             return <option key={set} value={set}>{complete ? '✓ ' : ''}{set} - {name.replace(/ \d{4}(-\d{4})?$/, '')} ({s.owned}/{s.total}{!complete ? ` · ${pct}%` : ''})</option>;
                           });
                       })()
