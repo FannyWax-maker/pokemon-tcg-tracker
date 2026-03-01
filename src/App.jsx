@@ -350,8 +350,10 @@ export default function App() {
     }
 
     // Hide pokemon with no cards and no refs
-    if (filterHideNoCards) {
-      filtered = filtered.filter(p => p.cards.some(c => !c.isSecondary && c.isPrimary !== false && c.setCode));
+    if (filterHideNoCards === 'hide' || filterHideNoCards === true) {
+      filtered = filtered.filter(p => p.cards.some(c => !c.isSecondary && c.isPrimary !== false && (c.setCode || c.jpSetCode || c.cnSetCode)));
+    } else if (filterHideNoCards === 'only') {
+      filtered = filtered.filter(p => !p.cards.some(c => !c.isSecondary && c.isPrimary !== false && (c.setCode || c.jpSetCode || c.cnSetCode)));
     }
 
     // Non-conforming filter
@@ -856,21 +858,29 @@ export default function App() {
                   </select>
                 </div>
               </div>
-              <div className="mt-2">
-                <div className={`flex rounded-lg overflow-hidden border text-xs font-semibold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
-                  {[['all','All'],['owned','Owned'],['unowned','Unowned']].map(([val, label]) => (
-                    <button key={val} onClick={() => setFilterOwned(val)}
-                      className={`flex-1 py-1.5 transition-colors ${filterOwned === val ? 'bg-emerald-500 text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-600 hover:bg-gray-50'}`}>
-                      {label}
-                    </button>
-                  ))}
+              <div className="flex items-center justify-between mt-2 gap-4 flex-wrap">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-gray-600">Owned:</span>
+                  <div className={`flex rounded-lg overflow-hidden border text-xs font-semibold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
+                    {[['all','All'],['owned','Owned'],['unowned','Unowned']].map(([val, label]) => (
+                      <button key={val} onClick={() => setFilterOwned(val)}
+                        className={`px-2.5 py-1 transition-colors ${filterOwned === val ? 'bg-emerald-500 text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-600 hover:bg-gray-50'}`}>
+                        {label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-center justify-between mt-2">
-                <label className="flex items-center gap-2 cursor-pointer text-xs text-gray-600">
-                  <input type="checkbox" checked={filterHideNoCards} onChange={(e) => setFilterHideNoCards(e.target.checked)} className="w-4 h-4 text-emerald-600 rounded" />
-                  Hide Pokémon with no cards
-                </label>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-gray-600">No cards:</span>
+                  <div className={`flex rounded-lg overflow-hidden border text-xs font-semibold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
+                    {[['show','Show'],['hide','Hide']].map(([val, label]) => (
+                      <button key={val} onClick={() => setFilterHideNoCards(val === 'hide')}
+                        className={`px-2.5 py-1 transition-colors ${(val === 'hide') === filterHideNoCards ? 'bg-emerald-500 text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-600 hover:bg-gray-50'}`}>
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
                 <div className="flex items-center gap-2">
                   <span className="text-xs text-gray-600">Non-conforming:</span>
                   <div className={`flex rounded-lg overflow-hidden border text-xs font-semibold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
@@ -882,11 +892,17 @@ export default function App() {
                     ))}
                   </div>
                 </div>
-                <button
-                  onClick={() => setFilterFavorites(f => !f)}
-                  className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold border transition-colors ${filterFavorites ? 'bg-pink-500 text-white border-pink-500' : darkMode ? 'bg-gray-700 text-gray-300 border-gray-600 hover:bg-gray-600' : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50'}`}>
-                  ♥ Favourites
-                </button>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-gray-600">Favourites:</span>
+                  <div className={`flex rounded-lg overflow-hidden border text-xs font-semibold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
+                    {[['all','All'],['only','Only']].map(([val, label]) => (
+                      <button key={val} onClick={() => setFilterFavorites(val === 'only')}
+                        className={`px-2.5 py-1 transition-colors ${(val === 'only') === filterFavorites ? 'bg-pink-500 text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-600 hover:bg-gray-50'}`}>
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
                 <div className="flex items-center gap-3">
                   <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="px-2 py-1 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500">
                     <option value="default">Sort: Dex Order</option>
