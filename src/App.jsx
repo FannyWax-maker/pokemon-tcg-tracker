@@ -237,7 +237,7 @@ export default function App() {
   
   // Pre-compute filter option counts
   const filterCounts = useMemo(() => {
-    const primary = pokemonData.flatMap(p => p.cards.filter(c => !c.isSecondary && c.isPrimary !== false));
+    const primary = pokemonData.flatMap(p => p.cards.filter(c => !c.isSecondary && c.isPrimary !== false && (c.setCode || c.jpSetCode || c.cnSetCode)));
     const jpCount = primary.filter(c => c.exclusive === 'JP').length;
     const cnExclCount = primary.filter(c => c.exclusive === 'CN').length;
     const noneCount = primary.filter(c => !c.exclusive).length;
