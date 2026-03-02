@@ -32,7 +32,7 @@
         "setNumber": "201/173",
         "artist": "Tokiya",
         "cardName": "Trainer, Red's Challenge",
-        "exclusive": "JP",
+        "exclusive": "JP/CN",
         "otherPokemon": null,
         "availableLangs": [
           "JP",
@@ -301,7 +301,7 @@
         "setNumber": "193/173",
         "artist": "Tokiya",
         "cardName": "Trainer, Blue's Tactics",
-        "exclusive": "JP",
+        "exclusive": "JP/CN",
         "otherPokemon": null,
         "availableLangs": [
           "JP",
@@ -728,7 +728,7 @@
         "setNumber": "196/173",
         "artist": "Tokiya",
         "cardName": "Trainer, Green's Exploration",
-        "exclusive": "JP",
+        "exclusive": "JP/CN",
         "otherPokemon": null,
         "availableLangs": [
           "JP",
@@ -19500,7 +19500,7 @@
         "setNumber": "Unnumbered Promo",
         "artist": "Mike Cressy",
         "cardName": "Ishihara GX",
-        "exclusive": null,
+        "exclusive": "JP",
         "otherPokemon": null,
         "availableLangs": [
           "JP"
@@ -28408,7 +28408,7 @@
         "setNumber": "179/173",
         "artist": "PLANETA Tsuji",
         "cardName": "Trevenant & Dusknoir GX,",
-        "exclusive": "JP",
+        "exclusive": "JP/CN",
         "otherPokemon": [
           "Dusknoir"
         ],
