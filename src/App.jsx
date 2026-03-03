@@ -703,7 +703,7 @@ export default function App() {
             </div>
             <div className={`flex items-center rounded-full p-0.5 text-xs font-semibold shrink-0 ${darkMode ? 'bg-gray-700' : 'bg-gray-100'}`}>
               <button onClick={() => setViewMode('pokemon')} className={`px-2.5 py-1 rounded-full transition-colors ${viewMode === 'pokemon' ? 'bg-blue-500 text-white' : darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Grid</button>
-              <button onClick={() => setViewMode('cards')} className={`px-2.5 py-1 rounded-full transition-colors ${viewMode === 'cards' ? 'bg-blue-500 text-white' : darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Cards</button>
+              <button onClick={() => { setViewMode('cards'); setFilterHideNoCards('all'); }} className={`px-2.5 py-1 rounded-full transition-colors ${viewMode === 'cards' ? 'bg-blue-500 text-white' : darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Cards</button>
             </div>
             {syncStatus && (
               <span className={`text-xs font-medium px-1.5 py-0.5 rounded-full shrink-0 ${syncStatus === 'saving' ? 'bg-yellow-100 text-yellow-700' : syncStatus === 'saved' ? 'bg-emerald-100 text-emerald-700' : 'bg-red-100 text-red-700'}`}>
