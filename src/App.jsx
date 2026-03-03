@@ -868,7 +868,7 @@ export default function App() {
                 </div>
               </div>
               <div className="flex items-center justify-between mt-2 gap-4 flex-wrap">
-                <div className="flex items-center gap-2">
+                {viewMode === 'cards' && <div className="flex items-center gap-2">
                   <span className="text-xs text-gray-600">Owned:</span>
                   <div className={`flex rounded-lg overflow-hidden border text-xs font-semibold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
                     {[['all','All'],['owned','Owned'],['unowned','Unowned']].map(([val, label]) => (
@@ -878,8 +878,8 @@ export default function App() {
                       </button>
                     ))}
                   </div>
-                </div>
-                <div className="flex items-center gap-2">
+                </div>}
+                {viewMode === 'pokemon' && <div className="flex items-center gap-2">
                   <span className="text-xs text-gray-600">No cards:</span>
                   <div className={`flex rounded-lg overflow-hidden border text-xs font-semibold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
                     {[['all','All'],['hide','Hide'],['only','Only'],['refs','Refs']].map(([val, label]) => (
@@ -889,8 +889,8 @@ export default function App() {
                       </button>
                     ))}
                   </div>
-                </div>
-                <div className="flex items-center gap-2">
+                </div>}
+                {viewMode === 'cards' && <div className="flex items-center gap-2">
                   <span className="text-xs text-gray-600">Non-conforming:</span>
                   <div className={`flex rounded-lg overflow-hidden border text-xs font-semibold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
                     {[['all','All'],['hide','Hide'],['only','Only']].map(([val, label]) => (
@@ -900,8 +900,8 @@ export default function App() {
                       </button>
                     ))}
                   </div>
-                </div>
-                <div className="flex items-center gap-2">
+                </div>}
+                {viewMode === 'cards' && <div className="flex items-center gap-2">
                   <span className="text-xs text-gray-600">Favourites:</span>
                   <div className={`flex rounded-lg overflow-hidden border text-xs font-semibold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
                     {[['all','All'],['hide','Hide'],['only','Only']].map(([val, label]) => (
@@ -911,7 +911,7 @@ export default function App() {
                       </button>
                     ))}
                   </div>
-                </div>
+                </div>}
                 <div className="flex items-center gap-3">
                   <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="px-2 py-1 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500">
                     <option value="default">Sort: Dex Order</option>
