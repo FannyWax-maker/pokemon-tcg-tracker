@@ -17546,17 +17546,20 @@
     "region": "Sinnoh",
     "cards": [
       {
-        "id": "434__",
+        "id": "434_sit_213-195",
         "pokemonId": 434,
-        "setCode": null,
-        "jpSetCode": null,
+        "setCode": "SIT",
+        "jpSetCode": "s12",
         "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
+        "setNumber": "213/195",
+        "artist": "Oswaldo KATO",
+        "cardName": "Trainer, Gapejaw Bog",
         "exclusive": null,
         "otherPokemon": null,
-        "availableLangs": [],
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
         "isPrimary": true,
         "isSecondary": false
       }
@@ -24954,6 +24957,24 @@
         "setNumber": "122/086",
         "artist": "Nabatame Kazutaka",
         "cardName": null,
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "622_lor_215-196",
+        "pokemonId": 622,
+        "setCode": "LOR",
+        "jpSetCode": "s11",
+        "cnSetCode": null,
+        "setNumber": "215/196",
+        "artist": "Oswaldo KATO",
+        "cardName": "Trainer, Collapsed Stadium",
         "exclusive": null,
         "otherPokemon": null,
         "availableLangs": [
@@ -38090,17 +38111,20 @@
     "region": "Paldea",
     "cards": [
       {
-        "id": "970__",
+        "id": "970_scr_174-142",
         "pokemonId": 970,
-        "setCode": null,
-        "jpSetCode": null,
+        "setCode": "SCR",
+        "jpSetCode": "sv7",
         "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
+        "setNumber": "174/142",
+        "artist": "MARINA Chikazawa",
+        "cardName": "Trainer, Area Zero Underdepths",
         "exclusive": null,
         "otherPokemon": null,
-        "availableLangs": [],
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
         "isPrimary": true,
         "isSecondary": false
       }
