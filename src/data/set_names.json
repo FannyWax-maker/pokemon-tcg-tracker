@@ -432,7 +432,7 @@
     "year": null
   },
   "CSMPoC": {
-    "name": "Fighting Modification Pack",
+    "name": "Battle Party Set - Fighting Modification Pack",
     "year": null
   },
   "GRI": {
@@ -443,12 +443,24 @@
     "name": "Islands Await You",
     "year": null
   },
+  "CSMPeC": {
+    "name": "Battle Party Set - Psychic Deck",
+    "year": null
+  },
   "sm2L": {
     "name": "Alolan Moonlight",
     "year": null
   },
+  "CSMPaC": {
+    "name": "Battle Party Set - Grass Deck",
+    "year": null
+  },
   "sm1+": {
     "name": "Sun & Moon Plus",
+    "year": null
+  },
+  "CSMPjC": {
+    "name": "Battle Party Set - Grass Modification Pack",
     "year": null
   },
   "HIF": {
@@ -457,6 +469,10 @@
   },
   "sm10b": {
     "name": "Sky Legend",
+    "year": null
+  },
+  "CSMPnC": {
+    "name": "Battle Party Set - Psychic Modification Pack",
     "year": null
   },
   "smL": {
