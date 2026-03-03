@@ -1440,7 +1440,7 @@
           "Zacian",
           "Inteleon",
           "Calyrex",
-          "Zoraark",
+          "Zoroark",
           "Urshifu"
         ],
         "availableLangs": [
@@ -1539,7 +1539,7 @@
           "Nidoran M",
           "Nidoran F",
           "Blastoise",
-          "Mr.Mime",
+          "Mr. Mime",
           "Slowpoke",
           "Jigglypuff",
           "Pidgey",
@@ -1644,9 +1644,7 @@
         "artist": "N/A",
         "cardName": "Pikachu & Ishihara GX",
         "exclusive": "JP",
-        "otherPokemon": [
-          "CellImage"
-        ],
+        "otherPokemon": null,
         "availableLangs": [
           "JP"
         ],
@@ -1878,7 +1876,7 @@
         "otherPokemon": [
           "Mew",
           "Oddish",
-          "Pidgey?"
+          "Pidgey"
         ],
         "availableLangs": [
           "CN"
@@ -1983,7 +1981,7 @@
         "otherPokemon": [
           "Dragonite",
           "Jigglypuff",
-          "Pysduck"
+          "Psyduck"
         ],
         "availableLangs": [
           "CN"
@@ -4522,7 +4520,7 @@
         "cardName": null,
         "exclusive": "CN",
         "otherPokemon": [
-          "Cleffa?"
+          "Cleffa"
         ],
         "availableLangs": [
           "CN"
@@ -5897,7 +5895,7 @@
           "Spheal",
           "Wingull",
           "Pelipper",
-          "WishiWashi"
+          "Wishiwashi"
         ],
         "availableLangs": [
           "EN",
@@ -6758,7 +6756,7 @@
           "Shieldon",
           "Bastiodon",
           "Rampardos",
-          "Tirouga",
+          "Tirtouga",
           "Omanyte",
           "Tropius",
           "Archeops"
@@ -7587,7 +7585,8 @@
         "cardName": null,
         "exclusive": null,
         "otherPokemon": [
-          "Nidoran",
+          "Nidoran M",
+          "Nidoran F",
           "Rookidee",
           "Cramorant",
           "Skwovet",
@@ -13156,9 +13155,7 @@
         "artist": "Saino Misaki",
         "cardName": "Mawile V",
         "exclusive": null,
-        "otherPokemon": [
-          "Flying Type"
-        ],
+        "otherPokemon": null,
         "availableLangs": [
           "EN",
           "JP",
@@ -16406,7 +16403,7 @@
         "cardName": "Empoleon V",
         "exclusive": null,
         "otherPokemon": [
-          "Meinfoo",
+          "Mienfoo",
           "Falinks"
         ],
         "availableLangs": [
@@ -16923,7 +16920,7 @@
   },
   {
     "id": 411,
-    "name": "Bastidon",
+    "name": "Bastiodon",
     "gen": 4,
     "region": "Sinnoh",
     "cards": [
@@ -22299,7 +22296,7 @@
           "Starly",
           "Pachirisu",
           "Rufflet",
-          "Hisuian Quilfish",
+          "Quilfish",
           "Overqwil",
           "Swinub",
           "Basculegion"
@@ -27039,7 +27036,7 @@
   },
   {
     "id": 669,
-    "name": "Flabebe",
+    "name": "Flabébé",
     "gen": 6,
     "region": "Kalos",
     "cards": [
@@ -28282,7 +28279,8 @@
         "cardName": "Hisuian Goodra",
         "exclusive": null,
         "otherPokemon": [
-          "Starl"
+          "Starly",
+          "Wurmple"
         ],
         "availableLangs": [
           "EN",
@@ -31271,6 +31269,29 @@
       {
         "id": "798__",
         "pokemonId": 798,
+        "setCode": null,
+        "jpSetCode": null,
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": null,
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [],
+        "isPrimary": true,
+        "isSecondary": false
+      }
+    ]
+  },
+  {
+    "id": 799,
+    "name": "Guzzlord",
+    "gen": 7,
+    "region": "Alola",
+    "cards": [
+      {
+        "id": "799__",
+        "pokemonId": 799,
         "setCode": null,
         "jpSetCode": null,
         "cnSetCode": null,
@@ -35927,7 +35948,7 @@
         "cardName": "Hisuian Sneasler V",
         "exclusive": null,
         "otherPokemon": [
-          "Hisuian Sneasel"
+          "Sneasel"
         ],
         "availableLangs": [
           "EN",
@@ -38435,7 +38456,7 @@
           "Applin",
           "Dedenne",
           "Foongus",
-          "Dunsparse",
+          "Dunsparce",
           "Diglett",
           "Scatterbug"
         ],
@@ -39148,7 +39169,7 @@
         "otherPokemon": [
           "Brute Bonnet",
           "Scream Tail",
-          "Fluttermane",
+          "Flutter Mane",
           "Iron Moth",
           "Sandy Shocks"
         ],
