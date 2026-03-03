@@ -46,9 +46,9 @@ export default function App() {
   const [filterChinese, setFilterChinese] = useState('all'); // 'all', 'has_cn', 'no_cn'
   const [sortBy, setSortBy] = useState('default'); // 'default', 'featured_desc', 'featured_asc'
   const [filterArtist, setFilterArtist] = useState('all');
-  const [filterHideNoCards, setFilterHideNoCards] = useState(false);
+  const [filterHideNoCards, setFilterHideNoCards] = useState('all');
   const [filterHideNonConforming, setFilterHideNonConforming] = useState('all'); // 'all', 'hide', 'only'
-  const [filterFavorites, setFilterFavorites] = useState(false);
+  const [filterFavorites, setFilterFavorites] = useState('all');
   const [filterOwned, setFilterOwned] = useState('all');
   const [filterGeneration, setFilterGeneration] = useState('all');
   const [artistSortBy, setArtistSortBy] = useState('card_count'); // 'alpha', 'card_count'
@@ -318,7 +318,7 @@ export default function App() {
     return { totalCards, ownedCards, completionPercent, langStats };
   }, [pokemonData]);
   
-  const hasActiveFilters = filterExclusive !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards || filterHideNonConforming !== 'all' || filterOwned !== 'all' || filterSetLang !== 'all' || filterGeneration !== 'all' || filterFavorites;
+  const hasActiveFilters = filterExclusive !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards !== 'all' || filterHideNonConforming !== 'all' || filterOwned !== 'all' || filterSetLang !== 'all' || filterGeneration !== 'all' || filterFavorites !== 'all';
   
   const activeFilterCount = [
     filterExclusive !== 'all',
@@ -372,10 +372,15 @@ export default function App() {
     }
 
     // Favorites filter
-    if (filterFavorites) {
+    if (filterFavorites === 'only') {
       filtered = filtered.map(p => ({
         ...p,
         cards: p.cards.filter(c => c.favorite)
+      })).filter(p => p.cards.length > 0);
+    } else if (filterFavorites === 'hide') {
+      filtered = filtered.map(p => ({
+        ...p,
+        cards: p.cards.filter(c => !c.favorite)
       })).filter(p => p.cards.length > 0);
     }
 
@@ -624,12 +629,12 @@ export default function App() {
     setFilterMissingImages(false);
     setFilterChinese('all');
     setFilterArtist('all');
-    setFilterHideNoCards(false);
+    setFilterHideNoCards('all');
     setFilterHideNonConforming('all');
     setFilterOwned('all');
     setFilterSetLang('all');
     setFilterGeneration('all');
-    setFilterFavorites(false);
+    setFilterFavorites('all');
   };
   
   // Download current data
@@ -875,9 +880,9 @@ export default function App() {
                 <div className="flex items-center gap-2">
                   <span className="text-xs text-gray-600">No cards:</span>
                   <div className={`flex rounded-lg overflow-hidden border text-xs font-semibold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
-                    {[['show','Show'],['hide','Hide']].map(([val, label]) => (
-                      <button key={val} onClick={() => setFilterHideNoCards(val === 'hide')}
-                        className={`px-2.5 py-1 transition-colors ${(val === 'hide') === filterHideNoCards ? 'bg-emerald-500 text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-600 hover:bg-gray-50'}`}>
+                    {[['all','All'],['hide','Hide'],['only','Only']].map(([val, label]) => (
+                      <button key={val} onClick={() => setFilterHideNoCards(val)}
+                        className={`px-2.5 py-1 transition-colors ${filterHideNoCards === val ? 'bg-emerald-500 text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-600 hover:bg-gray-50'}`}>
                         {label}
                       </button>
                     ))}
@@ -897,9 +902,9 @@ export default function App() {
                 <div className="flex items-center gap-2">
                   <span className="text-xs text-gray-600">Favourites:</span>
                   <div className={`flex rounded-lg overflow-hidden border text-xs font-semibold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
-                    {[['all','All'],['only','Only']].map(([val, label]) => (
-                      <button key={val} onClick={() => setFilterFavorites(val === 'only')}
-                        className={`px-2.5 py-1 transition-colors ${(val === 'only') === filterFavorites ? 'bg-pink-500 text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-600 hover:bg-gray-50'}`}>
+                    {[['all','All'],['hide','Hide'],['only','Only']].map(([val, label]) => (
+                      <button key={val} onClick={() => setFilterFavorites(val)}
+                        className={`px-2.5 py-1 transition-colors ${filterFavorites === val ? 'bg-pink-500 text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-600 hover:bg-gray-50'}`}>
                         {label}
                       </button>
                     ))}
