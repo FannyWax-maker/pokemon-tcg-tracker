@@ -355,7 +355,9 @@ export default function App() {
     if (filterHideNoCards === 'hide' || filterHideNoCards === true) {
       filtered = filtered.filter(p => p.cards.some(c => !c.isSecondary && c.isPrimary !== false && (c.setCode || c.jpSetCode || c.cnSetCode)));
     } else if (filterHideNoCards === 'only') {
-      filtered = filtered.filter(p => !p.cards.some(c => !c.isSecondary && c.isPrimary !== false && (c.setCode || c.jpSetCode || c.cnSetCode)));
+      filtered = filtered.filter(p => !p.cards.some(c => !c.isSecondary && c.isPrimary !== false && (c.setCode || c.jpSetCode || c.cnSetCode)) && !p.cards.some(c => c.isSecondary || c.isPrimary === false));
+    } else if (filterHideNoCards === 'refs') {
+      filtered = filtered.filter(p => !p.cards.some(c => !c.isSecondary && c.isPrimary !== false && (c.setCode || c.jpSetCode || c.cnSetCode)) && p.cards.some(c => c.isSecondary || c.isPrimary === false));
     }
 
     // Non-conforming filter
@@ -880,7 +882,7 @@ export default function App() {
                 <div className="flex items-center gap-2">
                   <span className="text-xs text-gray-600">No cards:</span>
                   <div className={`flex rounded-lg overflow-hidden border text-xs font-semibold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
-                    {[['all','All'],['hide','Hide'],['only','Only']].map(([val, label]) => (
+                    {[['all','All'],['hide','Hide'],['only','Only'],['refs','Refs']].map(([val, label]) => (
                       <button key={val} onClick={() => setFilterHideNoCards(val)}
                         className={`px-2.5 py-1 transition-colors ${filterHideNoCards === val ? 'bg-emerald-500 text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-600 hover:bg-gray-50'}`}>
                         {label}
