@@ -5027,7 +5027,7 @@
         "pokemonId": 109,
         "setCode": "CEC",
         "jpSetCode": "sm12",
-        "cnSetCode": null,
+        "cnSetCode": "CSMPeC",
         "setNumber": "243/236",
         "artist": "Hyogonosuke",
         "cardName": null,
@@ -5035,7 +5035,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -5691,6 +5692,25 @@
         "availableLangs": [
           "EN",
           "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "129_hif_",
+        "pokemonId": 129,
+        "setCode": "HIF",
+        "jpSetCode": "sm9",
+        "cnSetCode": "CSMPoC",
+        "setNumber": null,
+        "artist": null,
+        "cardName": "Trainer, Brooklet Hill",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -40019,6 +40039,190 @@
       {
         "id": "1026__",
         "pokemonId": 1026,
+        "setCode": null,
+        "jpSetCode": null,
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": null,
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [],
+        "isPrimary": true,
+        "isSecondary": false
+      }
+    ]
+  },
+  {
+    "id": 1027,
+    "name": "Browt 2",
+    "gen": 10,
+    "region": "Winds",
+    "cards": [
+      {
+        "id": "1027__",
+        "pokemonId": 1027,
+        "setCode": null,
+        "jpSetCode": null,
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": null,
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [],
+        "isPrimary": true,
+        "isSecondary": false
+      }
+    ]
+  },
+  {
+    "id": 1028,
+    "name": "Browt 3",
+    "gen": 10,
+    "region": "Winds",
+    "cards": [
+      {
+        "id": "1028__",
+        "pokemonId": 1028,
+        "setCode": null,
+        "jpSetCode": null,
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": null,
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [],
+        "isPrimary": true,
+        "isSecondary": false
+      }
+    ]
+  },
+  {
+    "id": 1029,
+    "name": "Pombon",
+    "gen": 10,
+    "region": "Winds",
+    "cards": [
+      {
+        "id": "1029__",
+        "pokemonId": 1029,
+        "setCode": null,
+        "jpSetCode": null,
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": null,
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [],
+        "isPrimary": true,
+        "isSecondary": false
+      }
+    ]
+  },
+  {
+    "id": 1030,
+    "name": "Pombon 2",
+    "gen": 10,
+    "region": "Winds",
+    "cards": [
+      {
+        "id": "1030__",
+        "pokemonId": 1030,
+        "setCode": null,
+        "jpSetCode": null,
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": null,
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [],
+        "isPrimary": true,
+        "isSecondary": false
+      }
+    ]
+  },
+  {
+    "id": 1031,
+    "name": "Pombon 3",
+    "gen": 10,
+    "region": "Winds",
+    "cards": [
+      {
+        "id": "1031__",
+        "pokemonId": 1031,
+        "setCode": null,
+        "jpSetCode": null,
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": null,
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [],
+        "isPrimary": true,
+        "isSecondary": false
+      }
+    ]
+  },
+  {
+    "id": 1032,
+    "name": "Gecqua",
+    "gen": 10,
+    "region": "Winds",
+    "cards": [
+      {
+        "id": "1032__",
+        "pokemonId": 1032,
+        "setCode": null,
+        "jpSetCode": null,
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": null,
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [],
+        "isPrimary": true,
+        "isSecondary": false
+      }
+    ]
+  },
+  {
+    "id": 1033,
+    "name": "Gecqua 2",
+    "gen": 10,
+    "region": "Winds",
+    "cards": [
+      {
+        "id": "1033__",
+        "pokemonId": 1033,
+        "setCode": null,
+        "jpSetCode": null,
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": null,
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [],
+        "isPrimary": true,
+        "isSecondary": false
+      }
+    ]
+  },
+  {
+    "id": 1034,
+    "name": "Gecqua 3",
+    "gen": 10,
+    "region": "Winds",
+    "cards": [
+      {
+        "id": "1034__",
+        "pokemonId": 1034,
         "setCode": null,
         "jpSetCode": null,
         "cnSetCode": null,
