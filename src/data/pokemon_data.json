@@ -4622,7 +4622,7 @@
         "pokemonId": 95,
         "setCode": "HIF",
         "jpSetCode": "smK",
-        "cnSetCode": null,
+        "cnSetCode": "brook",
         "setNumber": "036/68",
         "artist": "PLANETA Igarashi",
         "cardName": "Onix GX",
@@ -4630,7 +4630,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -5695,13 +5696,13 @@
         "isSecondary": false
       },
       {
-        "id": "129_hif_",
+        "id": "129_hif_sv88-sv94",
         "pokemonId": 129,
         "setCode": "HIF",
         "jpSetCode": "sm9",
         "cnSetCode": "CSMPoC",
-        "setNumber": null,
-        "artist": null,
+        "setNumber": "SV88/SV94",
+        "artist": "5ban Graphics",
         "cardName": "Trainer, Brooklet Hill",
         "exclusive": null,
         "otherPokemon": null,
@@ -25607,7 +25608,7 @@
         "pokemonId": 640,
         "setCode": "LOT",
         "jpSetCode": "sm8",
-        "cnSetCode": null,
+        "cnSetCode": "CSMPjC",
         "setNumber": "034/214",
         "artist": "5ban Graphics",
         "cardName": "Virizion GX",
@@ -25615,7 +25616,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -25736,7 +25738,7 @@
         "pokemonId": 642,
         "setCode": "SMP",
         "jpSetCode": "SM-P",
-        "cnSetCode": null,
+        "cnSetCode": "CSMPiC",
         "setNumber": "SM133",
         "artist": "5ban Graphics",
         "cardName": "Thundurus GX",
@@ -25744,7 +25746,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -30932,7 +30935,7 @@
         "pokemonId": 786,
         "setCode": "CEL",
         "jpSetCode": "s8a",
-        "cnSetCode": null,
+        "cnSetCode": "CSMPnC",
         "setNumber": "060/145",
         "artist": "5ban Graphics",
         "cardName": "Tapu Lele GX",
@@ -30940,7 +30943,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
