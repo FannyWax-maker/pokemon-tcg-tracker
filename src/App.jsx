@@ -213,22 +213,24 @@ export default function App() {
     const cnStats = {}; // keyed by cnSetCode
     pokemonData.forEach(p => {
       p.cards.filter(c => !c.isSecondary && c.isPrimary !== false).forEach(c => {
-        if (!c.setCode) return;
-        if (!stats[c.setCode]) stats[c.setCode] = { total: 0, owned: 0, langs: new Set() };
-        stats[c.setCode].total++;
-        if (c.ownedLang) stats[c.setCode].owned++;
-        (c.availableLangs || ['EN']).filter(Boolean).forEach(l => stats[c.setCode].langs.add(l));
+        // EN stats
+        if (c.setCode) {
+          if (!stats[c.setCode]) stats[c.setCode] = { total: 0, owned: 0, langs: new Set() };
+          stats[c.setCode].total++;
+          if (c.ownedLang) stats[c.setCode].owned++;
+          (c.availableLangs || ['EN']).filter(Boolean).forEach(l => stats[c.setCode].langs.add(l));
+        }
         // JP stats
         if (c.jpSetCode) {
           if (!jpStats[c.jpSetCode]) jpStats[c.jpSetCode] = { total: 0, owned: 0 };
           jpStats[c.jpSetCode].total++;
-          if (c.ownedLang === 'JP' || (c.exclusive === 'JP' && c.ownedLang)) jpStats[c.jpSetCode].owned++;
+          if (c.ownedLang === 'JP' || (c.exclusive?.includes('JP') && c.ownedLang)) jpStats[c.jpSetCode].owned++;
         }
         // CN stats
         if (c.cnSetCode) {
           if (!cnStats[c.cnSetCode]) cnStats[c.cnSetCode] = { total: 0, owned: 0 };
           cnStats[c.cnSetCode].total++;
-          if (c.ownedLang === 'CN' || (c.exclusive === 'CN' && c.ownedLang)) cnStats[c.cnSetCode].owned++;
+          if (c.ownedLang === 'CN' || (c.exclusive?.includes('CN') && c.ownedLang)) cnStats[c.cnSetCode].owned++;
         }
       });
     });
@@ -240,7 +242,7 @@ export default function App() {
     const primary = pokemonData.flatMap(p => p.cards.filter(c => !c.isSecondary && c.isPrimary !== false && (c.setCode || c.jpSetCode || c.cnSetCode)));
     const jpCount = primary.filter(c => c.exclusive === 'JP').length;
     const cnExclCount = primary.filter(c => c.exclusive === 'CN').length;
-    const noneCount = primary.filter(c => !c.exclusive).length;
+    const noneCount = primary.filter(c => c.exclusive).length;
     const hasCN = primary.filter(c => (c.availableLangs || []).includes('CN')).length;
     const noCN = primary.length - hasCN;
     const typeCount = (type) => {
@@ -400,7 +402,7 @@ export default function App() {
           if (filterExclusive !== 'all') {
             if (filterExclusive === 'jp' && card.exclusive !== 'JP') return false;
             if (filterExclusive === 'cn' && card.exclusive !== 'CN') return false;
-            if (filterExclusive === 'none' && card.exclusive) return false;
+            if (filterExclusive === 'none' && !card.exclusive) return false;
           }
           if (filterSet !== 'all') {
             const matchesSet = card.setCode === filterSet || card.enSetCode === filterSet || card.jpSetCode === filterSet || card.cnSetCode === filterSet;
@@ -487,7 +489,7 @@ export default function App() {
           if (filterExclusive !== 'all') {
             if (filterExclusive === 'jp' && card.exclusive !== 'JP') return;
             if (filterExclusive === 'cn' && card.exclusive !== 'CN') return;
-            if (filterExclusive === 'none' && card.exclusive) return;
+            if (filterExclusive === 'none' && !card.exclusive) return;
           }
           if (filterSet !== 'all') {
             const matchesSet2 = card.setCode === filterSet || card.enSetCode === filterSet || card.jpSetCode === filterSet || card.cnSetCode === filterSet;
@@ -747,7 +749,7 @@ export default function App() {
                   {[
                     [1,'Gen 1 · Kanto'],[2,'Gen 2 · Johto'],[3,'Gen 3 · Hoenn'],
                     [4,'Gen 4 · Sinnoh'],[5,'Gen 5 · Unova'],[6,'Gen 6 · Kalos'],
-                    [7,'Gen 7 · Alola'],[8,'Gen 8 · Galar'],[9,'Gen 9 · Paldea']
+                    [7,'Gen 7 · Alola'],[8,'Gen 8 · Galar'],[9,'Gen 9 · Paldea'],[10,'Gen 10 · Winds']
                   ].map(([g, label]) => {
                     const s = filterCounts.genStats[g] || { total: 0, owned: 0 };
                     const pct = s.total > 0 ? Math.round((s.owned / s.total) * 100) : 0;
@@ -759,7 +761,7 @@ export default function App() {
                   <option value="all">All Exclusives</option>
                   <option value="jp">JP Exclusive Only ({filterCounts.jpCount})</option>
                   <option value="cn">CN Exclusive Only ({filterCounts.cnExclCount})</option>
-                  <option value="none">Non-Exclusive Only ({filterCounts.noneCount})</option>
+                  <option value="none">Not in English Only ({filterCounts.noneCount})</option>
                 </select>
                 <select value={filterChinese} onChange={(e) => setFilterChinese(e.target.value)} className="px-3 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500">
                   <option value="all">All CN Status</option>
