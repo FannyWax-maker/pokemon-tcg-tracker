@@ -535,6 +535,18 @@ export default function App() {
       cards.sort((a, b) => (b.otherPokemon || []).length - (a.otherPokemon || []).length);
     } else if (sortBy === 'featured_asc') {
       cards.sort((a, b) => (a.otherPokemon || []).length - (b.otherPokemon || []).length);
+    } else if (sortBy === 'release_desc') {
+      cards.sort((a, b) => {
+        const ya = (setNames[a.setCode] || setNames[a.jpSetCode] || setNames[a.cnSetCode] || {}).year || 0;
+        const yb = (setNames[b.setCode] || setNames[b.jpSetCode] || setNames[b.cnSetCode] || {}).year || 0;
+        return yb - ya;
+      });
+    } else if (sortBy === 'release_asc') {
+      cards.sort((a, b) => {
+        const ya = (setNames[a.setCode] || setNames[a.jpSetCode] || setNames[a.cnSetCode] || {}).year || 9999;
+        const yb = (setNames[b.setCode] || setNames[b.jpSetCode] || setNames[b.cnSetCode] || {}).year || 9999;
+        return ya - yb;
+      });
     }
     return cards;
   }, [filteredData, filterChinese, filterExclusive, filterSet, filterCardType, sortBy, filterOwned, filterArtist]);
@@ -702,7 +714,7 @@ export default function App() {
             )}
             </div>
             <div className={`flex items-center rounded-full p-0.5 text-xs font-semibold shrink-0 ${darkMode ? 'bg-gray-700' : 'bg-gray-100'}`}>
-              <button onClick={() => setViewMode('pokemon')} className={`px-2.5 py-1 rounded-full transition-colors ${viewMode === 'pokemon' ? 'bg-blue-500 text-white' : darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Grid</button>
+              <button onClick={() => { setViewMode('pokemon'); if (['featured_desc','featured_asc','release_desc','release_asc'].includes(sortBy)) setSortBy('default'); }} className={`px-2.5 py-1 rounded-full transition-colors ${viewMode === 'pokemon' ? 'bg-blue-500 text-white' : darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Grid</button>
               <button onClick={() => { setViewMode('cards'); setFilterHideNoCards('all'); }} className={`px-2.5 py-1 rounded-full transition-colors ${viewMode === 'cards' ? 'bg-blue-500 text-white' : darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Cards</button>
             </div>
             {syncStatus && (
@@ -917,8 +929,10 @@ export default function App() {
                     <option value="default">Sort: Dex Order</option>
                     <option value="alpha_asc">Sort: A → Z</option>
                     <option value="alpha_desc">Sort: Z → A</option>
-                    <option value="featured_desc">Sort: Most featured first</option>
-                    <option value="featured_asc">Sort: Fewest featured first</option>
+                    {viewMode === 'cards' && <option value="featured_desc">Sort: Most featured first</option>}
+                    {viewMode === 'cards' && <option value="featured_asc">Sort: Fewest featured first</option>}
+                    {viewMode === 'cards' && <option value="release_desc">Sort: Newest first</option>}
+                    {viewMode === 'cards' && <option value="release_asc">Sort: Oldest first</option>}
                   </select>
                   {(hasActiveFilters || sortBy !== 'default') && (
                     <button onClick={() => { clearFilters(); setSortBy('default'); }} className="text-xs text-emerald-600 hover:text-emerald-700 font-semibold">Clear all</button>
