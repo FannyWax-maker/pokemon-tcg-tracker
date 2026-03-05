@@ -15,8 +15,11 @@ const LANG_CONFIG = {
 const ALL_LANGS = ['EN', 'JP', 'CN', 'KR'];
 
 const buildEbayUrl = (card, pokemonName, lang) => {
+  const rawName = card.cardName || '';
+  const isTrainerCard = rawName.startsWith('Trainer,') || rawName.startsWith('Trainer ,');
+  const cleanedName = isTrainerCard ? rawName.replace(/^Trainer\s*,\s*/, '').trim() : rawName;
   const skipNames = ['Full Art', 'Trainer', 'Item', 'Stadium', 'Supporter', 'Tool', 'Energy'];
-  const cardName = card.cardName && !skipNames.includes(card.cardName) ? card.cardName : null;
+  const cardName = cleanedName && !skipNames.includes(cleanedName) ? cleanedName : null;
   const searchName = cardName || pokemonName;
   const setCode = lang === 'JP' ? card.jpSetCode : lang === 'CN' ? card.cnSetCode : card.setCode;
   const setNumber = lang === 'EN' ? (card.setNumber || card.number || null) : null;
@@ -377,7 +380,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           )}
 
           {/* eBay search buttons */}
-          <div className="flex gap-1 pt-0.5">
+          <div className="flex gap-1 pt-2 border-t border-gray-100 mt-1">
             {ALL_LANGS.map(lang => {
               const hasLang = lang === 'EN' ? !!(card.enSetCode || card.setCode)
                 : lang === 'JP' ? !!card.jpSetCode
