@@ -15,12 +15,13 @@ const LANG_CONFIG = {
 const ALL_LANGS = ['EN', 'JP', 'CN', 'KR'];
 
 const buildEbayUrl = (card, pokemonName, lang) => {
-  const cardName = card.cardName && card.cardName !== 'Full Art' ? card.cardName : null;
+  const skipNames = ['Full Art', 'Trainer', 'Item', 'Stadium', 'Supporter', 'Tool', 'Energy'];
+  const cardName = card.cardName && !skipNames.includes(card.cardName) ? card.cardName : null;
   const searchName = cardName || pokemonName;
   const setCode = lang === 'JP' ? card.jpSetCode : lang === 'CN' ? card.cnSetCode : card.setCode;
-  const setNumber = card.setNumber || card.number || null;
+  const setNumber = lang === 'EN' ? (card.setNumber || card.number || null) : null;
   const langKeyword = lang === 'JP' ? 'japanese' : lang === 'CN' ? 'chinese' : lang === 'KR' ? 'korean' : '';
-  const query = [searchName, setCode, setNumber, 'pokemon card', langKeyword].filter(Boolean).join(' ');
+  const query = [searchName, setCode, setNumber, langKeyword].filter(Boolean).join(' ');
   return `https://www.ebay.co.uk/sch/i.html?_nkw=${encodeURIComponent(query)}&LH_Sold=1&LH_Complete=1&_sop=13`;
 };
 
