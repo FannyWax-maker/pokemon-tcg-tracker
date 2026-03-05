@@ -47,7 +47,7 @@ export default function App() {
   const [sortBy, setSortBy] = useState('default'); // 'default', 'featured_desc', 'featured_asc'
   const [filterArtist, setFilterArtist] = useState('all');
   const [filterHideNoCards, setFilterHideNoCards] = useState('all');
-  const [filterHideNonConforming, setFilterHideNonConforming] = useState('all'); // 'all', 'hide', 'only'
+  const [filterHideNonConforming, setFilterHideNonConforming] = useState('hide'); // 'all', 'hide', 'only'
   const [filterFavorites, setFilterFavorites] = useState('all');
   const [showOwnershipButtons, setShowOwnershipButtons] = useState(false);
   const [filterOwned, setFilterOwned] = useState('all');
