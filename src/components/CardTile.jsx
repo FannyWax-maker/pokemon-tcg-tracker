@@ -14,6 +14,16 @@ const LANG_CONFIG = {
 
 const ALL_LANGS = ['EN', 'JP', 'CN', 'KR'];
 
+const buildEbayUrl = (card, pokemonName, lang) => {
+  const name = card.cardName && card.cardName !== 'Full Art' ? `${pokemonName} ${card.cardName}` : pokemonName;
+  const setCode = lang === 'JP' ? card.jpSetCode : lang === 'CN' ? card.cnSetCode : card.setCode;
+  const langKeyword = lang === 'JP' ? 'japanese' : lang === 'CN' ? 'chinese' : lang === 'KR' ? 'korean' : '';
+  const query = [name, setCode, 'pokemon card', langKeyword].filter(Boolean).join(' ');
+  return `https://www.ebay.co.uk/sch/i.html?_nkw=${encodeURIComponent(query)}&LH_Sold=1&LH_Complete=1&_sop=13`;
+};
+
+
+
 export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onNavigateToPokemon }) {
   const isOwned = !!card.ownedLang;
   const hasOtherPokemon = card.otherPokemon && card.otherPokemon.length > 0;
@@ -270,10 +280,13 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
         <div className={`p-2 space-y-0.5 ${isOwned ? 'bg-emerald-500' : 'bg-white'}`}>
 
 
-          {/* Row 1: dex # + year — compact metadata line */}
+          {/* Row 1: dex # + year + price — compact metadata line */}
           <div className={`flex items-center justify-between text-[10px] font-mono ${isOwned ? 'text-emerald-200' : 'text-gray-400'}`}>
             <span>#{String(card.pokemonId || '').padStart(4, '0')}</span>
-            <span>{(() => { try { const _se = setNames[card.enSetCode || card.setCode]; const _n = typeof _se === 'object' ? (_se?.name || '') : (typeof _se === 'string' ? _se : ''); const yrMatch = _n.match(/\d{4}(?:-\d{4})?$/); return yrMatch ? yrMatch[0] : (_se?.year || ''); } catch(e) { return ''; } })()}</span>
+            <div className="flex items-center gap-1">
+              {card.priceGBP && <span className={`font-semibold ${isOwned ? 'text-emerald-100' : 'text-emerald-600'}`}>£{Number(card.priceGBP).toFixed(2)}</span>}
+              <span>{(() => { try { const _se = setNames[card.enSetCode || card.setCode]; const _n = typeof _se === 'object' ? (_se?.name || '') : (typeof _se === 'string' ? _se : ''); const yrMatch = _n.match(/\d{4}(?:-\d{4})?$/); return yrMatch ? yrMatch[0] : (_se?.year || ''); } catch(e) { return ''; } })()}</span>
+            </div>
           </div>
 
           {/* Row 2: Pokemon name — full width, wraps if needed */}
@@ -360,6 +373,34 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
               )}
             </div>
           )}
+
+          {/* eBay search buttons */}
+          <div className="flex gap-1 pt-0.5">
+            {ALL_LANGS.map(lang => {
+              const hasLang = lang === 'EN' ? !!(card.enSetCode || card.setCode)
+                : lang === 'JP' ? !!card.jpSetCode
+                : lang === 'CN' ? !!card.cnSetCode
+                : showKR;
+              const cfg = LANG_CONFIG[lang];
+              return (
+                <a
+                  key={lang}
+                  href={hasLang ? buildEbayUrl(card, isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName, lang) : undefined}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={e => e.stopPropagation()}
+                  title={hasLang ? `Search eBay sold listings (${lang})` : `Not available in ${lang}`}
+                  className={`flex-1 py-0.5 rounded text-[10px] font-bold text-center transition-all duration-150
+                    ${hasLang
+                      ? `${cfg.color} text-white opacity-70 hover:opacity-100`
+                      : 'bg-gray-200 text-gray-400 cursor-not-allowed opacity-30'
+                    }`}
+                >
+                  {cfg.flag}
+                </a>
+              );
+            })}
+          </div>
         </div>
       </div>
 
