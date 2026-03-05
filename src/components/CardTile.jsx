@@ -29,7 +29,7 @@ const buildEbayUrl = (card, pokemonName, lang) => {
 };
 
 
-export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onNavigateToPokemon }) {
+export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onNavigateToPokemon, showOwnershipButtons = false }) {
   const isOwned = !!card.ownedLang;
   const hasOtherPokemon = card.otherPokemon && card.otherPokemon.length > 0;
   const isSecondary = card.isSecondary || !card.isPrimary;
@@ -344,7 +344,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           <div className={`text-xs leading-tight truncate min-h-[0.9rem] ${isOwned ? 'text-emerald-200' : 'text-gray-400'}`}>{card.artist || ' '}</div>
 
           {/* Language buttons — hidden when owned, show owned pill instead */}
-          {!isSecondary && (
+          {!isSecondary && showOwnershipButtons && (
             <div className="pt-1">
               {isOwned ? (
                 <button

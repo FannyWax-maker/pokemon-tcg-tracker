@@ -49,6 +49,7 @@ export default function App() {
   const [filterHideNoCards, setFilterHideNoCards] = useState('all');
   const [filterHideNonConforming, setFilterHideNonConforming] = useState('all'); // 'all', 'hide', 'only'
   const [filterFavorites, setFilterFavorites] = useState('all');
+  const [showOwnershipButtons, setShowOwnershipButtons] = useState(false);
   const [filterOwned, setFilterOwned] = useState('all');
   const [filterGeneration, setFilterGeneration] = useState('all');
   const [artistSortBy, setArtistSortBy] = useState('card_count'); // 'alpha', 'card_count'
@@ -722,6 +723,11 @@ export default function App() {
                 {syncStatus === 'saving' ? '⏳' : syncStatus === 'saved' ? '✓' : '⚠'}
               </span>
             )}
+            {viewMode === 'cards' && (
+              <button onClick={() => setShowOwnershipButtons(v => !v)} title={showOwnershipButtons ? 'Lock ownership buttons' : 'Unlock ownership buttons'} className={`p-1.5 rounded-lg transition-colors shrink-0 ${showOwnershipButtons ? 'bg-emerald-500 text-white' : darkMode ? 'bg-gray-700 text-gray-400 hover:bg-gray-600' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>
+                {showOwnershipButtons ? '🔓' : '🔒'}
+              </button>
+            )}
             <button onClick={() => setDarkMode(!darkMode)} className={`p-1.5 rounded-lg transition-colors shrink-0 ${darkMode ? 'bg-gray-700 text-yellow-300 hover:bg-gray-600' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
               {darkMode ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
             </button>
@@ -996,6 +1002,7 @@ export default function App() {
                     onToggleNonConforming={handleToggleNonConforming}
                     onToggleFavorite={handleToggleFavorite}
                     onUpdateCard={handleInlineUpdateCard}
+                    showOwnershipButtons={showOwnershipButtons}
                   />
                 ))}
               </div>
@@ -1026,6 +1033,7 @@ export default function App() {
                   onToggleNonConforming={handleToggleNonConforming}
                     onToggleFavorite={handleToggleFavorite}
                   onUpdateCard={handleInlineUpdateCard}
+                  showOwnershipButtons={showOwnershipButtons}
                 />
               ))}
             </div>
