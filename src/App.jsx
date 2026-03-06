@@ -545,7 +545,11 @@ export default function App() {
           if (filterArtist !== 'all' && card.artist !== filterArtist) return;
           if (filterOwned === 'owned' && !card.ownedLang) return;
           if (filterOwned === 'unowned' && card.ownedLang) return;
-          cards.push({ ...card, pokemonName: pokemon.name, pokemonId: pokemon.id });
+          if (filterUnobtainable === 'only' && !card.unobtainable) return;
+          if (filterUnobtainable === 'hide' && card.unobtainable) return;
+          const cardEntry = { ...card, pokemonName: pokemon.name, pokemonId: pokemon.id };
+          if (filterMissingImages) cardEntry._filterMissingImages = true;
+          cards.push(cardEntry);
         });
     });
     // Sort cards view by featured pokemon count
@@ -566,10 +570,10 @@ export default function App() {
         return ya - yb;
       });
     } else if (sortBy === 'recently_added') {
-      cards.sort((a, b) => (b._rowIndex || 0) - (a._rowIndex || 0));
+      cards.sort((a, b) => (b.pokemonId || 0) - (a.pokemonId || 0));
     }
     return cards;
-  }, [filteredData, filterChinese, filterExclusive, filterSet, filterCardType, sortBy, filterOwned, filterArtist]);
+  }, [filteredData, filterChinese, filterExclusive, filterSet, filterCardType, sortBy, filterOwned, filterArtist, filterUnobtainable, filterMissingImages, filterSetLang]);
   
   // INLINE EDIT - Update card directly
   const handleInlineUpdateCard = (pokemonId, cardId, updates) => {
