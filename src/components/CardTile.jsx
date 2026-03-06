@@ -205,7 +205,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
         }}
         className={`flex flex-col rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 ${
         isSecondary ? 'opacity-75 ring-2 ring-purple-300' : ''
-      } ${isOwned ? 'ring-2 ring-red-400' : darkMode ? 'bg-gray-800 shadow-md' : 'bg-white shadow-md'}`}
+      } ${isOwned ? 'ring-2 ring-red-400' : 'bg-white shadow-md'}`}
         style={isOwned ? {boxShadow: '0 4px 20px rgba(239,68,68,0.25)'} : {}}>
 
         {/* Card Image */}
