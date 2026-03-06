@@ -100,9 +100,11 @@ export default function App() {
         const ownership = data.ownership || data;
         const nonConforming = data.nonConforming || {};
         const favorites = data.favorites || {};
+        const unobtainable = data.unobtainable || {};
         localStorage.setItem('pokemon_ownership_cache', JSON.stringify(ownership));
         localStorage.setItem('pokemon_nonconforming_cache', JSON.stringify(nonConforming));
         localStorage.setItem('pokemon_favorites_cache', JSON.stringify(favorites));
+        localStorage.setItem('pokemon_unobtainable_cache', JSON.stringify(unobtainable));
         setPokemonData(prev => prev.map(pokemon => ({
           ...pokemon,
           cards: pokemon.cards.map(card => ({
@@ -110,6 +112,7 @@ export default function App() {
             ownedLang: ownership[card.id] !== undefined ? ownership[card.id] : card.ownedLang,
             nonConforming: nonConforming[card.id] === true ? true : card.nonConforming || false,
             favorite: favorites[card.id] === true ? true : card.favorite || false,
+            unobtainable: unobtainable[card.id] === true ? true : card.unobtainable || false,
           }))
         })));
       } catch (e) {
@@ -133,6 +136,17 @@ export default function App() {
             cards: pokemon.cards.map(card => ({
               ...card,
               favorite: favorites[card.id] === true ? true : card.favorite || false,
+            }))
+          })));
+        }
+        const unobtCached = localStorage.getItem('pokemon_unobtainable_cache');
+        if (unobtCached) {
+          const unobtainable = JSON.parse(unobtCached);
+          setPokemonData(prev => prev.map(pokemon => ({
+            ...pokemon,
+            cards: pokemon.cards.map(card => ({
+              ...card,
+              unobtainable: unobtainable[card.id] === true ? true : card.unobtainable || false,
             }))
           })));
         }
@@ -615,6 +629,11 @@ export default function App() {
     }
   };
   
+  const saveUnobtainable = async (cardId, isUnobtainable) => {
+    const url = `${APPS_SCRIPT_URL}?action=setUnobtainable&cardId=${encodeURIComponent(cardId)}&unobtainable=${isUnobtainable ? 'true' : ''}`;
+    try { await fetch(url); } catch(e) { console.warn('Could not save unobtainable'); }
+  };
+
   const handleToggleNonConforming = (pokemonId, cardId, currentValue) => {
     const newValue = !currentValue;
     setPokemonData(prev => prev.map(pokemon => ({
@@ -635,6 +654,17 @@ export default function App() {
       )
     })));
     saveFavorite(cardId, newValue);
+  };
+
+  const handleToggleUnobtainable = (cardId, currentValue) => {
+    const newValue = !currentValue;
+    setPokemonData(prev => prev.map(pokemon => ({
+      ...pokemon,
+      cards: pokemon.cards.map(card =>
+        card.id === cardId ? { ...card, unobtainable: newValue } : card
+      )
+    })));
+    saveUnobtainable(cardId, newValue);
   };
 
   const clearFilters = () => {
@@ -1001,6 +1031,7 @@ export default function App() {
                     onOwnershipClick={handleCardOwnershipClick}
                     onToggleNonConforming={handleToggleNonConforming}
                     onToggleFavorite={handleToggleFavorite}
+                    onToggleUnobtainable={handleToggleUnobtainable}
                     onUpdateCard={handleInlineUpdateCard}
                     showOwnershipButtons={showOwnershipButtons}
                   />
@@ -1032,6 +1063,7 @@ export default function App() {
                   onOwnershipClick={handleCardOwnershipClick}
                   onToggleNonConforming={handleToggleNonConforming}
                     onToggleFavorite={handleToggleFavorite}
+                    onToggleUnobtainable={handleToggleUnobtainable}
                   onUpdateCard={handleInlineUpdateCard}
                   showOwnershipButtons={showOwnershipButtons}
                 />

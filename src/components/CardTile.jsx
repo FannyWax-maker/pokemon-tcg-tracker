@@ -25,11 +25,11 @@ const buildEbayUrl = (card, pokemonName, lang) => {
   const setNumber = lang === 'EN' ? (card.setNumber || card.number || null) : null;
   const langKeyword = lang === 'JP' ? 'japanese' : lang === 'CN' ? 'chinese' : lang === 'KR' ? 'korean' : '';
   const query = [searchName, setCode, setNumber, langKeyword].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim();
-  return `https://www.ebay.co.uk/sch/i.html?_nkw=${encodeURIComponent(query)}&LH_Sold=1&LH_Complete=1&_sop=13&_sadis=1`;
+  return `https://www.ebay.co.uk/sch/i.html?_nkw=${encodeURIComponent(query)}&LH_ItemLocation=3&_sop=15`;
 };
 
 
-export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onNavigateToPokemon, showOwnershipButtons = false }) {
+export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onNavigateToPokemon, showOwnershipButtons = false }) {
   const isOwned = !!card.ownedLang;
   const hasOtherPokemon = card.otherPokemon && card.otherPokemon.length > 0;
   const isSecondary = card.isSecondary || !card.isPrimary;
@@ -44,6 +44,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const [contextMenuPos, setContextMenuPos] = React.useState({ x: 0, y: 0 });
   const isNonConforming = !!card.nonConforming;
   const isFavorite = !!card.favorite;
+  const isUnobtainable = !!card.unobtainable;
 
   // Which langs are available for this card
   const availableLangs = card.availableLangs || [];
@@ -180,6 +181,15 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           >
             {isFavorite ? '♡ Remove from favourites' : '♥ Add to favourites'}
           </button>
+          <button
+            onClick={() => {
+              onToggleUnobtainable && onToggleUnobtainable(card.id, card.unobtainable);
+              setShowContextMenu(false);
+            }}
+            className={`w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center gap-2 ${isUnobtainable ? 'text-gray-500' : 'text-gray-700'}`}
+          >
+            {isUnobtainable ? '💀 Remove unobtainable' : '💀 Mark as unobtainable'}
+          </button>
         </div>
       )}
 
@@ -247,6 +257,13 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           {isFavorite && (
             <div className="absolute top-2 right-2 text-pink-400 text-sm z-20 drop-shadow" style={{textShadow:'0 0 4px rgba(0,0,0,0.5)'}}>
               ♥
+            </div>
+          )}
+
+          {/* Unobtainable badge */}
+          {isUnobtainable && (
+            <div className="absolute bottom-2 left-2 text-sm z-20 drop-shadow" style={{textShadow:'0 0 4px rgba(0,0,0,0.5)'}}>
+              💀
             </div>
           )}
 
