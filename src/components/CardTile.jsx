@@ -257,17 +257,17 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
               </div>
             )}
             {isNonConforming && (
-              <div className="text-lg leading-none drop-shadow" style={{textShadow:'0 0 6px rgba(0,0,0,0.8)'}}>
+              <div style={{fontSize:'1.6rem',lineHeight:1,textShadow:'0 0 6px rgba(0,0,0,0.9)'}}>
                 ✗
               </div>
             )}
             {isFavorite && (
-              <div className="text-lg leading-none text-pink-400 drop-shadow" style={{textShadow:'0 0 6px rgba(0,0,0,0.8)'}}>
+              <div style={{fontSize:'1.6rem',lineHeight:1,color:'#f472b6',textShadow:'0 0 6px rgba(0,0,0,0.9)'}}>
                 ♥
               </div>
             )}
             {isUnobtainable && (
-              <div className="text-lg leading-none drop-shadow" style={{textShadow:'0 0 6px rgba(0,0,0,0.8)'}}>
+              <div style={{fontSize:'1.6rem',lineHeight:1,textShadow:'0 0 6px rgba(0,0,0,0.9)'}}>
                 💀
               </div>
             )}
