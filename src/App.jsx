@@ -49,6 +49,7 @@ export default function App() {
   const [filterHideNoCards, setFilterHideNoCards] = useState('all');
   const [filterHideNonConforming, setFilterHideNonConforming] = useState('hide'); // 'all', 'hide', 'only'
   const [filterFavorites, setFilterFavorites] = useState('all');
+  const [filterUnobtainable, setFilterUnobtainable] = useState('all'); // 'all', 'hide', 'only'
   const [showOwnershipButtons, setShowOwnershipButtons] = useState(false);
   const [filterOwned, setFilterOwned] = useState('all');
   const [filterGeneration, setFilterGeneration] = useState('all');
@@ -333,7 +334,7 @@ export default function App() {
     return { totalCards, ownedCards, completionPercent, langStats };
   }, [pokemonData]);
   
-  const hasActiveFilters = filterExclusive !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards !== 'all' || filterHideNonConforming !== 'all' || filterOwned !== 'all' || filterSetLang !== 'all' || filterGeneration !== 'all' || filterFavorites !== 'all';
+  const hasActiveFilters = filterExclusive !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards !== 'all' || filterHideNonConforming !== 'all' || filterOwned !== 'all' || filterSetLang !== 'all' || filterGeneration !== 'all' || filterFavorites !== 'all' || filterUnobtainable !== 'all';
   
   const activeFilterCount = [
     filterExclusive !== 'all',
@@ -486,7 +487,7 @@ export default function App() {
     });
 
     return { type: 'pokemon', data: filtered };
-  }, [searchQuery, pokemonData, filterExclusive, filterSet, filterCardType, filterMissingImages, filterChinese, filterArtist, filterHideNoCards, filterHideNonConforming, filterGeneration, filterFavorites, sortBy]);
+  }, [searchQuery, pokemonData, filterExclusive, filterSet, filterCardType, filterMissingImages, filterChinese, filterArtist, filterHideNoCards, filterHideNonConforming, filterGeneration, filterFavorites, filterUnobtainable, sortBy]);
   
   // Flatten all cards for "All Cards View"
   const allCardsFlat = useMemo(() => {
@@ -680,6 +681,7 @@ export default function App() {
     setFilterSetLang('all');
     setFilterGeneration('all');
     setFilterFavorites('all');
+    setFilterUnobtainable('all');
   };
   
   // Download current data
@@ -955,6 +957,17 @@ export default function App() {
                     {[['all','All'],['hide','Hide'],['only','Only']].map(([val, label]) => (
                       <button key={val} onClick={() => setFilterFavorites(val)}
                         className={`px-2.5 py-1 transition-colors ${filterFavorites === val ? 'bg-pink-500 text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-600 hover:bg-gray-50'}`}>
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                </div>}
+                {viewMode === 'cards' && <div className="flex items-center gap-2">
+                  <span className="text-xs text-gray-600">Unobtainable:</span>
+                  <div className={`flex rounded-lg overflow-hidden border text-xs font-semibold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
+                    {[['all','All'],['hide','Hide'],['only','Only']].map(([val, label]) => (
+                      <button key={val} onClick={() => setFilterUnobtainable(val)}
+                        className={`px-2.5 py-1 transition-colors ${filterUnobtainable === val ? (val === 'only' ? 'bg-gray-700 text-white' : 'bg-emerald-500 text-white') : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-600 hover:bg-gray-50'}`}>
                         {label}
                       </button>
                     ))}

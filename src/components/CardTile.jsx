@@ -246,35 +246,32 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             </div>
           )}
 
-          {/* Non-conforming badge */}
-          {isNonConforming && (
-            <div className="absolute top-2 left-2 bg-gray-700/90 text-white px-1.5 py-0.5 rounded text-[10px] font-bold shadow z-20">
-              ✗
-            </div>
-          )}
-
-          {/* Favourite badge */}
-          {isFavorite && (
-            <div className="absolute top-2 right-2 text-pink-400 text-sm z-20 drop-shadow" style={{textShadow:'0 0 4px rgba(0,0,0,0.5)'}}>
-              ♥
-            </div>
-          )}
-
-          {/* Unobtainable badge */}
-          {isUnobtainable && (
-            <div className="absolute bottom-2 left-2 text-sm z-20 drop-shadow" style={{textShadow:'0 0 4px rgba(0,0,0,0.5)'}}>
-              💀
-            </div>
-          )}
-
-          {/* Exclusive Badge */}
-          {card.exclusive && (
-            <div className={`absolute top-2 right-2 px-2 py-1 rounded text-xs font-bold shadow-lg z-10 text-white ${
-              card.exclusive === 'JP' ? 'bg-red-500' : card.exclusive === 'CN' ? 'bg-yellow-500' : 'bg-purple-500'
-            }`}>
-              {card.exclusive === 'JP' ? '🇯🇵 JP' : card.exclusive === 'CN' ? '🇨🇳 CN' : card.exclusive}
-            </div>
-          )}
+          {/* Top-right badge cluster: exclusive + status badges */}
+          <div className="absolute top-2 right-2 flex items-center gap-1 z-20">
+            {card.exclusive && (
+              <div className={`px-2 py-0.5 rounded text-xs font-bold shadow-lg text-white ${
+                card.exclusive.includes('JP') && card.exclusive.includes('CN') ? 'bg-purple-500' :
+                card.exclusive.includes('JP') ? 'bg-red-500' : 'bg-yellow-500'
+              }`}>
+                {card.exclusive === 'JP' ? '🇯🇵 JP' : card.exclusive === 'CN' ? '🇨🇳 CN' : card.exclusive}
+              </div>
+            )}
+            {isNonConforming && (
+              <div className="text-lg leading-none drop-shadow" style={{textShadow:'0 0 6px rgba(0,0,0,0.8)'}}>
+                ✗
+              </div>
+            )}
+            {isFavorite && (
+              <div className="text-lg leading-none text-pink-400 drop-shadow" style={{textShadow:'0 0 6px rgba(0,0,0,0.8)'}}>
+                ♥
+              </div>
+            )}
+            {isUnobtainable && (
+              <div className="text-lg leading-none drop-shadow" style={{textShadow:'0 0 6px rgba(0,0,0,0.8)'}}>
+                💀
+              </div>
+            )}
+          </div>
 
           {/* Secondary: link to primary pokemon */}
           {isSecondary && card.primaryPokemon && onNavigateToPokemon && (
