@@ -57,6 +57,8 @@ export default function App() {
   const [filterSetLang, setFilterSetLang] = useState('all'); // 'all', 'EN', 'JP', 'CN', 'KR'
   const [darkMode, setDarkMode] = useState(false);
   const [syncStatus, setSyncStatus] = useState('');
+  const [tileSize, setTileSize] = useState('M'); // 'S', 'M', 'L'
+  const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
   
   const setNames = setNamesImport;
 
@@ -557,7 +559,10 @@ export default function App() {
         const yb = (setNames[b.setCode] || setNames[b.jpSetCode] || setNames[b.cnSetCode] || {}).year || 0;
         return yb - ya;
       });
-    } else if (sortBy === 'release_asc') {
+    } else if (sortBy === 'recently_added') {
+      // Sort by row index ascending (higher row = more recently added to sheet)
+      cards.sort((a, b) => (b._rowIndex || 0) - (a._rowIndex || 0));
+    }
       cards.sort((a, b) => {
         const ya = (setNames[a.setCode] || setNames[a.jpSetCode] || setNames[a.cnSetCode] || {}).year || 9999;
         const yb = (setNames[b.setCode] || setNames[b.jpSetCode] || setNames[b.cnSetCode] || {}).year || 9999;
@@ -697,17 +702,50 @@ export default function App() {
     alert('ðŸ“¥ Downloaded pokemon_data.json!\n\nReplace the file in src/data/ to make changes permanent.');
   };
   
+  // Tile size -> grid class mapping
+  const tileGridClass = {
+    S: 'grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2',
+    M: 'grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-3',
+    L: 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4',
+  };
+  const pokemonGridClass = {
+    S: 'grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2',
+    M: 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4',
+    L: 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-5',
+  };
+
   return (
-    <div className={`min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-gradient-to-br from-gray-50 to-gray-100'}`}>
-      {/* Header */}
-      <div className={`shadow-sm sticky top-0 z-30 ${darkMode ? 'bg-gray-800 border-b border-gray-700' : 'bg-white border-b border-gray-200'}`}>
-        <div className="max-w-7xl mx-auto px-3 py-1.5">
-          {/* Row 1: title + badge + controls */}
+    <div className={`min-h-screen font-sans ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}
+      style={{fontFamily: "'Segoe UI', system-ui, sans-serif"}}>
+
+      {/* ── HEADER ── */}
+      <div className={`sticky top-0 z-30 ${darkMode ? 'bg-gray-900 border-b border-gray-700' : 'bg-white border-b border-gray-200'}`}
+        style={{boxShadow: darkMode ? 'none' : '0 2px 12px rgba(0,0,0,0.07)'}}>
+
+        <div className="max-w-7xl mx-auto px-3 pt-2 pb-1.5">
+          {/* Row 1: Logo + badge + search + controls */}
           <div className="flex items-center gap-2">
-            <h1 className={`text-sm font-bold shrink-0 ${darkMode ? 'text-white' : 'text-gray-900'}`}>Pokémon TCG</h1>
-            <div className="flex items-center gap-1 bg-emerald-500 text-white rounded-full px-2.5 py-0.5 text-xs font-semibold shrink-0">
+            {/* Pokéball logo mark */}
+            <div className="shrink-0 flex items-center gap-1.5">
+              <div className="relative w-6 h-6" title="Pokémon TCG Tracker">
+                <svg viewBox="0 0 24 24" className="w-6 h-6">
+                  <circle cx="12" cy="12" r="11" fill={darkMode ? '#374151' : '#e5e7eb'} stroke={darkMode ? '#6b7280' : '#9ca3af'} strokeWidth="1"/>
+                  <path d="M1 12 Q1 1 12 1 Q23 1 23 12 Z" fill="#ef4444"/>
+                  <rect x="1" y="11" width="22" height="2" fill={darkMode ? '#6b7280' : '#6b7280'}/>
+                  <circle cx="12" cy="12" r="3.5" fill={darkMode ? '#374151' : 'white'} stroke={darkMode ? '#9ca3af' : '#6b7280'} strokeWidth="1.5"/>
+                  <circle cx="12" cy="12" r="1.5" fill={darkMode ? '#9ca3af' : '#9ca3af'}/>
+                </svg>
+              </div>
+              <h1 className={`text-sm font-black tracking-tight shrink-0 hidden sm:block ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                Pokémon TCG
+              </h1>
+            </div>
+
+            {/* Owned badge — acts as a progress pill */}
+            <div className="flex items-center gap-1 shrink-0 px-2.5 py-0.5 rounded-full text-xs font-bold"
+              style={{background: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)', color: 'white', boxShadow: '0 1px 4px rgba(239,68,68,0.4)'}}>
               <span>{overallStats.ownedCards}/{overallStats.totalCards}</span>
-              <span className="opacity-60">·</span>
+              <span className="opacity-70">·</span>
               <span>{Math.round(overallStats.completionPercent)}%</span>
             </div>
             {/* Search — hidden on mobile, shown on sm+ */}
@@ -746,24 +784,43 @@ export default function App() {
               </div>
             )}
             </div>
-            <div className={`flex items-center rounded-full p-0.5 text-xs font-semibold shrink-0 ${darkMode ? 'bg-gray-700' : 'bg-gray-100'}`}>
-              <button onClick={() => { setViewMode('pokemon'); if (['featured_desc','featured_asc','release_desc','release_asc'].includes(sortBy)) setSortBy('default'); }} className={`px-2.5 py-1 rounded-full transition-colors ${viewMode === 'pokemon' ? 'bg-blue-500 text-white' : darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Grid</button>
-              <button onClick={() => { setViewMode('cards'); setFilterHideNoCards('all'); }} className={`px-2.5 py-1 rounded-full transition-colors ${viewMode === 'cards' ? 'bg-blue-500 text-white' : darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Cards</button>
+            {/* View toggle */}
+            <div className={`flex items-center rounded-full p-0.5 text-xs font-bold shrink-0 ${darkMode ? 'bg-gray-700' : 'bg-gray-100'}`}>
+              <button onClick={() => { setViewMode('pokemon'); if (['featured_desc','featured_asc','release_desc','release_asc','recently_added'].includes(sortBy)) setSortBy('default'); }} className={`px-2.5 py-1 rounded-full transition-colors ${viewMode === 'pokemon' ? 'text-white' : darkMode ? 'text-gray-400' : 'text-gray-500'}`}
+                style={viewMode === 'pokemon' ? {background: 'linear-gradient(135deg, #3b82f6, #1d4ed8)'} : {}}>Grid</button>
+              <button onClick={() => { setViewMode('cards'); setFilterHideNoCards('all'); }} className={`px-2.5 py-1 rounded-full transition-colors ${viewMode === 'cards' ? 'text-white' : darkMode ? 'text-gray-400' : 'text-gray-500'}`}
+                style={viewMode === 'cards' ? {background: 'linear-gradient(135deg, #3b82f6, #1d4ed8)'} : {}}>Cards</button>
             </div>
+
+            {/* Tile size toggle */}
+            <div className={`flex items-center rounded-lg overflow-hidden text-xs font-bold shrink-0 border ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
+              {['S','M','L'].map(s => (
+                <button key={s} onClick={() => setTileSize(s)}
+                  className={`px-2 py-1 transition-colors ${tileSize === s ? 'text-white' : darkMode ? 'bg-gray-700 text-gray-400' : 'bg-white text-gray-500 hover:bg-gray-50'}`}
+                  style={tileSize === s ? {background: 'linear-gradient(135deg, #f59e0b, #d97706)'} : {}}>
+                  {s}
+                </button>
+              ))}
+            </div>
+
             {syncStatus && (
-              <span className={`text-xs font-medium px-1.5 py-0.5 rounded-full shrink-0 ${syncStatus === 'saving' ? 'bg-yellow-100 text-yellow-700' : syncStatus === 'saved' ? 'bg-emerald-100 text-emerald-700' : 'bg-red-100 text-red-700'}`}>
+              <span className={`text-xs font-bold px-1.5 py-0.5 rounded-full shrink-0 ${syncStatus === 'saving' ? 'bg-yellow-100 text-yellow-700' : syncStatus === 'saved' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
                 {syncStatus === 'saving' ? '⏳' : syncStatus === 'saved' ? '✓' : '⚠'}
               </span>
             )}
             {viewMode === 'cards' && (
-              <button onClick={() => setShowOwnershipButtons(v => !v)} title={showOwnershipButtons ? 'Lock ownership buttons' : 'Unlock ownership buttons'} className={`p-1.5 rounded-lg transition-colors shrink-0 ${showOwnershipButtons ? 'bg-emerald-500 text-white' : darkMode ? 'bg-gray-700 text-gray-400 hover:bg-gray-600' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>
+              <button onClick={() => setShowOwnershipButtons(v => !v)} title={showOwnershipButtons ? 'Lock ownership' : 'Unlock ownership'}
+                className={`p-1.5 rounded-lg transition-colors shrink-0 ${showOwnershipButtons ? 'text-white' : darkMode ? 'bg-gray-700 text-gray-400 hover:bg-gray-600' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}
+                style={showOwnershipButtons ? {background: 'linear-gradient(135deg, #22c55e, #16a34a)'} : {}}>
                 {showOwnershipButtons ? '🔓' : '🔒'}
               </button>
             )}
             <button onClick={() => setDarkMode(!darkMode)} className={`p-1.5 rounded-lg transition-colors shrink-0 ${darkMode ? 'bg-gray-700 text-yellow-300 hover:bg-gray-600' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
               {darkMode ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
             </button>
-            <button onClick={() => setShowFilters(!showFilters)} className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-colors shrink-0 ${hasActiveFilters ? 'bg-emerald-500 text-white' : darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
+            <button onClick={() => setShowFilters(!showFilters)}
+              className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-bold transition-colors shrink-0 ${hasActiveFilters ? 'text-white' : darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
+              style={hasActiveFilters ? {background: 'linear-gradient(135deg, #ef4444, #dc2626)'} : {}}>
               <Filter className="w-3.5 h-3.5" />
               {hasActiveFilters ? activeFilterCount : 'Filters'}
             </button>
@@ -797,85 +854,66 @@ export default function App() {
           </div>
         </div>
 
-          {/* Filter Panel */}
+        {/* Progress bar */}
+        <div className={`h-1.5 w-full ${darkMode ? 'bg-gray-700' : 'bg-gray-100'}`}>
+          <div className="h-full transition-all duration-700 ease-out"
+            style={{
+              width: `${overallStats.completionPercent}%`,
+              background: 'linear-gradient(90deg, #ef4444 0%, #f59e0b 50%, #22c55e 100%)',
+              boxShadow: '0 0 6px rgba(239,68,68,0.5)'
+            }}
+          />
+        </div>
+
+          {/* ── FILTER PANEL ── */}
           {showFilters && (
-            <div className="px-3 pb-3 border-t border-gray-100">
-              <div className="pt-3 grid grid-cols-2 md:grid-cols-3 gap-2">
-                <select value={filterGeneration} onChange={(e) => setFilterGeneration(e.target.value)} className="px-3 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                  <option value="all">All Generations</option>
-                  {[
-                    [1,'Gen 1 · Kanto'],[2,'Gen 2 · Johto'],[3,'Gen 3 · Hoenn'],
-                    [4,'Gen 4 · Sinnoh'],[5,'Gen 5 · Unova'],[6,'Gen 6 · Kalos'],
-                    [7,'Gen 7 · Alola'],[8,'Gen 8 · Galar'],[9,'Gen 9 · Paldea'],[10,'Gen 10 · Winds']
-                  ].map(([g, label]) => {
-                    const s = filterCounts.genStats[g] || { total: 0, owned: 0 };
-                    const pct = s.total > 0 ? Math.round((s.owned / s.total) * 100) : 0;
-                    const complete = s.total > 0 && s.owned === s.total;
-                    return <option key={g} value={String(g)}>{complete ? '★ ' : ''}{label} ({s.owned}/{s.total}{!complete ? ` · ${pct}%` : ''})</option>;
-                  })}
-                </select>
-                <select value={filterExclusive} onChange={(e) => setFilterExclusive(e.target.value)} className="px-3 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                  <option value="all">All Exclusives</option>
-                  <option value="jp">JP Exclusive Only ({filterCounts.jpCount})</option>
-                  <option value="cn">CN Exclusive Only ({filterCounts.cnExclCount})</option>
-                  <option value="none">Not in English Only ({filterCounts.noneCount})</option>
-                </select>
-                <select value={filterChinese} onChange={(e) => setFilterChinese(e.target.value)} className="px-3 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                  <option value="all">All CN Status</option>
-                  <option value="has_cn">Released in Chinese ({filterCounts.hasCN})</option>
-                  <option value="no_cn">Not in Chinese ({filterCounts.noCN})</option>
-                </select>
-                <select value={filterCardType} onChange={(e) => setFilterCardType(e.target.value)} className="px-3 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                  <option value="all">All Types</option>
-                  {[
-                    ['trainer','Trainer'],['v','V'],['vmax','VMAX'],['vstar','VSTAR'],
-                    ['gx','GX'],['mega','Mega'],['ex','EX / ex']
-                  ].map(([type, label]) => {
-                    const total = filterCounts.typeCount(type);
-                    const owned = filterCounts.typeOwned(type);
-                    const pct = total > 0 ? Math.round((owned / total) * 100) : 0;
-                    const complete = total > 0 && owned === total;
-                    return <option key={type} value={type}>{complete ? '★ ' : ''}{label} ({owned}/{total}{!complete ? ` · ${pct}%` : ''})</option>;
-                  })}
-                </select>
-                <div className="flex gap-1">
-                  <select value={filterSetLang} onChange={(e) => { setFilterSetLang(e.target.value); setFilterSet('all'); }} className="w-24 px-2 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                    <option value="all">All Lang</option>
-                    <option value="EN">🇬🇧 EN</option>
-                    <option value="JP">🇯🇵 JP</option>
-                    <option value="CN">🇨🇳 CN</option>
-                    <option value="KR">🇰🇷 KR</option>
+            <div className={`border-t ${darkMode ? 'border-gray-700 bg-gray-800' : 'border-gray-100 bg-gray-50'}`}>
+              <div className="max-w-7xl mx-auto px-3 py-3">
+
+                {/* Core filters — always visible */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-2">
+                  <select value={filterGeneration} onChange={(e) => setFilterGeneration(e.target.value)}
+                    className={`px-3 py-1.5 border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-red-400 font-medium ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-200 text-gray-700'}`}>
+                    <option value="all">All Generations</option>
+                    {[[1,'Gen 1 · Kanto'],[2,'Gen 2 · Johto'],[3,'Gen 3 · Hoenn'],[4,'Gen 4 · Sinnoh'],[5,'Gen 5 · Unova'],[6,'Gen 6 · Kalos'],[7,'Gen 7 · Alola'],[8,'Gen 8 · Galar'],[9,'Gen 9 · Paldea'],[10,'Gen 10 · Winds']].map(([g, label]) => {
+                      const s = filterCounts.genStats[g] || { total: 0, owned: 0 };
+                      const pct = s.total > 0 ? Math.round((s.owned / s.total) * 100) : 0;
+                      const complete = s.total > 0 && s.owned === s.total;
+                      return <option key={g} value={String(g)}>{complete ? '★ ' : ''}{label} ({s.owned}/{s.total}{!complete ? ` · ${pct}%` : ''})</option>;
+                    })}
                   </select>
-                  <select value={filterSet} onChange={(e) => setFilterSet(e.target.value)} className="flex-1 px-3 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                    <option value="all">All Sets</option>
-                    {filterSetLang === 'JP' ? (
-                      // Show JP set codes
-                      Object.keys(setStats.jp).sort().map(jpSet => {
-                        const s = setStats.jp[jpSet];
-                        const pct = s.total > 0 ? Math.round((s.owned / s.total) * 100) : 0;
-                        const complete = s.total > 0 && s.owned === s.total;
-                        const name = (typeof setNames[jpSet] === 'object' ? setNames[jpSet]?.name : setNames[jpSet]) || 'Unknown';
-                        return <option key={jpSet} value={jpSet}>{complete ? `✓ ` : ''}{jpSet} - {String(name || "").replace(/ \d{4}(-\d{4})?$/, '')} ({s.owned}/{s.total}{!complete ? ` · ${pct}%` : ''})</option>;
-                      })
-                    ) : filterSetLang === 'CN' ? (
-                      // Show CN set codes
-                      Object.keys(setStats.cn).sort().map(cnSet => {
-                        const s = setStats.cn[cnSet];
-                        const pct = s.total > 0 ? Math.round((s.owned / s.total) * 100) : 0;
-                        const complete = s.total > 0 && s.owned === s.total;
-                        const name = (typeof setNames[cnSet] === 'object' ? setNames[cnSet]?.name : setNames[cnSet]) || 'Unknown';
-                        return <option key={cnSet} value={cnSet}>{complete ? `✓ ` : ''}{cnSet} - {String(name || "").replace(/ \d{4}(-\d{4})?$/, '')} ({s.owned}/{s.total}{!complete ? ` · ${pct}%` : ''})</option>;
-                      })
-                    ) : (
-                      // filterSetLang === 'all': merge EN + JP + CN sets; 'EN'/'KR': filter EN sets
-                      (() => {
+
+                  <div className="flex gap-1">
+                    <select value={filterSetLang} onChange={(e) => { setFilterSetLang(e.target.value); setFilterSet('all'); }}
+                      className={`w-24 px-2 py-1.5 border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-red-400 font-medium ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-200 text-gray-700'}`}>
+                      <option value="all">All Lang</option>
+                      <option value="EN">🇬🇧 EN</option>
+                      <option value="JP">🇯🇵 JP</option>
+                      <option value="CN">🇨🇳 CN</option>
+                      <option value="KR">🇰🇷 KR</option>
+                    </select>
+                    <select value={filterSet} onChange={(e) => setFilterSet(e.target.value)}
+                      className={`flex-1 px-3 py-1.5 border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-red-400 font-medium ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-200 text-gray-700'}`}>
+                      <option value="all">All Sets</option>
+                      {filterSetLang === 'JP' ? (
+                        Object.keys(setStats.jp).sort().map(jpSet => {
+                          const s = setStats.jp[jpSet];
+                          const pct = s.total > 0 ? Math.round((s.owned / s.total) * 100) : 0;
+                          const complete = s.total > 0 && s.owned === s.total;
+                          const name = (typeof setNames[jpSet] === 'object' ? setNames[jpSet]?.name : setNames[jpSet]) || 'Unknown';
+                          return <option key={jpSet} value={jpSet}>{complete ? `✓ ` : ''}{jpSet} - {String(name || "").replace(/ \d{4}(-\d{4})?$/, '')} ({s.owned}/{s.total}{!complete ? ` · ${pct}%` : ''})</option>;
+                        })
+                      ) : filterSetLang === 'CN' ? (
+                        Object.keys(setStats.cn).sort().map(cnSet => {
+                          const s = setStats.cn[cnSet];
+                          const pct = s.total > 0 ? Math.round((s.owned / s.total) * 100) : 0;
+                          const complete = s.total > 0 && s.owned === s.total;
+                          const name = (typeof setNames[cnSet] === 'object' ? setNames[cnSet]?.name : setNames[cnSet]) || 'Unknown';
+                          return <option key={cnSet} value={cnSet}>{complete ? `✓ ` : ''}{cnSet} - {String(name || "").replace(/ \d{4}(-\d{4})?$/, '')} ({s.owned}/{s.total}{!complete ? ` · ${pct}%` : ''})</option>;
+                        })
+                      ) : (() => {
                         if (filterSetLang === 'all') {
-                          // Build unified set list from all codes
-                          const allCodes = new Set([
-                            ...Object.keys(setStats.en),
-                            ...Object.keys(setStats.jp),
-                            ...Object.keys(setStats.cn),
-                          ]);
+                          const allCodes = new Set([...Object.keys(setStats.en), ...Object.keys(setStats.jp), ...Object.keys(setStats.cn)]);
                           return Array.from(allCodes).sort().map(code => {
                             const en = setStats.en[code] || { total: 0, owned: 0 };
                             const jp = setStats.jp[code] || { total: 0, owned: 0 };
@@ -888,211 +926,242 @@ export default function App() {
                             return <option key={code} value={code}>{complete ? '✓ ' : ''}{code} - {name} ({owned}/{total}{!complete ? ` · ${pct}%` : ''})</option>;
                           });
                         }
-                        return allSets
-                          .filter(set => setStats.en[set]?.langs?.has(filterSetLang))
-                          .map(set => {
-                            const s = setStats.en[set] || { total: 0, owned: 0 };
-                            const pct = s.total > 0 ? Math.round((s.owned / s.total) * 100) : 0;
-                            const complete = s.total > 0 && s.owned === s.total;
-                            const name = (typeof setNames[set] === 'object' ? setNames[set]?.name : setNames[set]) || 'Unknown';
-                            return <option key={set} value={set}>{complete ? '✓ ' : ''}{set} - {String(name || "").replace(/ \d{4}(-\d{4})?$/, '')} ({s.owned}/{s.total}{!complete ? ` · ${pct}%` : ''})</option>;
-                          });
-                      })()
-                    )}
-                  </select>
-                </div>
-                <div className="col-span-2 md:col-span-1 flex gap-1">
-                  <select value={filterArtist} onChange={(e) => setFilterArtist(e.target.value)} className="flex-1 px-3 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                    <option value="all">All Artists</option>
-                    {sortedArtists.map(([artist, count]) => {
-                      const owned = filterCounts.artistOwned[artist] || 0;
-                      const pct = count > 0 ? Math.round((owned / count) * 100) : 0;
-                      const complete = count > 0 && owned === count;
-                      return <option key={artist} value={artist}>{complete ? '★ ' : ''}{artist} ({owned}/{count}{!complete ? ` · ${pct}%` : ''})</option>;
+                        return allSets.filter(set => setStats.en[set]?.langs?.has(filterSetLang)).map(set => {
+                          const s = setStats.en[set] || { total: 0, owned: 0 };
+                          const pct = s.total > 0 ? Math.round((s.owned / s.total) * 100) : 0;
+                          const complete = s.total > 0 && s.owned === s.total;
+                          const name = (typeof setNames[set] === 'object' ? setNames[set]?.name : setNames[set]) || 'Unknown';
+                          return <option key={set} value={set}>{complete ? '✓ ' : ''}{set} - {String(name || "").replace(/ \d{4}(-\d{4})?$/, '')} ({s.owned}/{s.total}{!complete ? ` · ${pct}%` : ''})</option>;
+                        });
+                      })()}
+                    </select>
+                  </div>
+
+                  <select value={filterCardType} onChange={(e) => setFilterCardType(e.target.value)}
+                    className={`px-3 py-1.5 border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-red-400 font-medium ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-200 text-gray-700'}`}>
+                    <option value="all">All Types</option>
+                    {[['trainer','Trainer'],['v','V'],['vmax','VMAX'],['vstar','VSTAR'],['gx','GX'],['mega','Mega'],['ex','EX / ex']].map(([type, label]) => {
+                      const total = filterCounts.typeCount(type);
+                      const owned = filterCounts.typeOwned(type);
+                      const pct = total > 0 ? Math.round((owned / total) * 100) : 0;
+                      const complete = total > 0 && owned === total;
+                      return <option key={type} value={type}>{complete ? '★ ' : ''}{label} ({owned}/{total}{!complete ? ` · ${pct}%` : ''})</option>;
                     })}
                   </select>
-                  <select value={artistSortBy} onChange={(e) => setArtistSortBy(e.target.value)} className="w-24 px-2 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                    <option value="card_count">By count</option>
-                    <option value="alpha">A → Z</option>
-                  </select>
+
+                  <div className="flex gap-1">
+                    <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}
+                      className={`flex-1 px-2 py-1.5 border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-red-400 font-medium ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-200 text-gray-700'}`}>
+                      <option value="default">Sort: Dex Order</option>
+                      <option value="alpha_asc">Sort: A → Z</option>
+                      <option value="alpha_desc">Sort: Z → A</option>
+                      {viewMode === 'cards' && <option value="featured_desc">Sort: Most featured</option>}
+                      {viewMode === 'cards' && <option value="featured_asc">Sort: Fewest featured</option>}
+                      {viewMode === 'cards' && <option value="release_desc">Sort: Newest first</option>}
+                      {viewMode === 'cards' && <option value="release_asc">Sort: Oldest first</option>}
+                      {viewMode === 'cards' && <option value="recently_added">Sort: Recently Added</option>}
+                    </select>
+                    {(hasActiveFilters || sortBy !== 'default') && (
+                      <button onClick={() => { clearFilters(); setSortBy('default'); }} className="text-xs font-bold px-2 py-1 rounded-lg bg-red-500 text-white hover:bg-red-600 shrink-0">✕</button>
+                    )}
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-center justify-between mt-2 gap-4 flex-wrap">
-                {viewMode === 'cards' && <div className="flex items-center gap-2">
-                  <span className="text-xs text-gray-600">Owned:</span>
-                  <div className={`flex rounded-lg overflow-hidden border text-xs font-semibold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
-                    {[['all','All'],['owned','Owned'],['unowned','Unowned']].map(([val, label]) => (
-                      <button key={val} onClick={() => setFilterOwned(val)}
-                        className={`px-2.5 py-1 transition-colors ${filterOwned === val ? 'bg-emerald-500 text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-600 hover:bg-gray-50'}`}>
-                        {label}
-                      </button>
-                    ))}
-                  </div>
-                </div>}
-                {viewMode === 'pokemon' && <div className="flex items-center gap-2">
-                  <span className="text-xs text-gray-600">No cards:</span>
-                  <div className={`flex rounded-lg overflow-hidden border text-xs font-semibold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
-                    {[['all','All'],['hide','Hide'],['only','Only'],['refs','Refs']].map(([val, label]) => (
-                      <button key={val} onClick={() => setFilterHideNoCards(val)}
-                        className={`px-2.5 py-1 transition-colors ${filterHideNoCards === val ? 'bg-emerald-500 text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-600 hover:bg-gray-50'}`}>
-                        {label}
-                      </button>
-                    ))}
-                  </div>
-                </div>}
-                {viewMode === 'cards' && <div className="flex items-center gap-2">
-                  <span className="text-xs text-gray-600">Non-conforming:</span>
-                  <div className={`flex rounded-lg overflow-hidden border text-xs font-semibold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
-                    {[['all','All'],['hide','Hide'],['only','Only']].map(([val, label]) => (
-                      <button key={val} onClick={() => setFilterHideNonConforming(val)}
-                        className={`px-2.5 py-1 transition-colors ${filterHideNonConforming === val ? (val === 'only' ? 'bg-red-500 text-white' : 'bg-emerald-500 text-white') : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-600 hover:bg-gray-50'}`}>
-                        {label}
-                      </button>
-                    ))}
-                  </div>
-                </div>}
-                {viewMode === 'cards' && <div className="flex items-center gap-2">
-                  <span className="text-xs text-gray-600">Favourites:</span>
-                  <div className={`flex rounded-lg overflow-hidden border text-xs font-semibold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
-                    {[['all','All'],['hide','Hide'],['only','Only']].map(([val, label]) => (
-                      <button key={val} onClick={() => setFilterFavorites(val)}
-                        className={`px-2.5 py-1 transition-colors ${filterFavorites === val ? 'bg-pink-500 text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-600 hover:bg-gray-50'}`}>
-                        {label}
-                      </button>
-                    ))}
-                  </div>
-                </div>}
-                {viewMode === 'cards' && <div className="flex items-center gap-2">
-                  <span className="text-xs text-gray-600">Unobtainable:</span>
-                  <div className={`flex rounded-lg overflow-hidden border text-xs font-semibold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
-                    {[['all','All'],['hide','Hide'],['only','Only']].map(([val, label]) => (
-                      <button key={val} onClick={() => setFilterUnobtainable(val)}
-                        className={`px-2.5 py-1 transition-colors ${filterUnobtainable === val ? (val === 'only' ? 'bg-gray-700 text-white' : 'bg-emerald-500 text-white') : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-600 hover:bg-gray-50'}`}>
-                        {label}
-                      </button>
-                    ))}
-                  </div>
-                </div>}
-                <div className="flex items-center gap-3">
-                  <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="px-2 py-1 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                    <option value="default">Sort: Dex Order</option>
-                    <option value="alpha_asc">Sort: A → Z</option>
-                    <option value="alpha_desc">Sort: Z → A</option>
-                    {viewMode === 'cards' && <option value="featured_desc">Sort: Most featured first</option>}
-                    {viewMode === 'cards' && <option value="featured_asc">Sort: Fewest featured first</option>}
-                    {viewMode === 'cards' && <option value="release_desc">Sort: Newest first</option>}
-                    {viewMode === 'cards' && <option value="release_asc">Sort: Oldest first</option>}
-                  </select>
-                  {(hasActiveFilters || sortBy !== 'default') && (
-                    <button onClick={() => { clearFilters(); setSortBy('default'); }} className="text-xs text-emerald-600 hover:text-emerald-700 font-semibold">Clear all</button>
+
+                {/* Quick toggles row */}
+                <div className="flex items-center flex-wrap gap-3 mb-2">
+                  {viewMode === 'cards' && (
+                    <div className="flex items-center gap-1.5">
+                      <span className={`text-xs font-semibold ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Owned</span>
+                      <div className={`flex rounded-lg overflow-hidden border text-xs font-bold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
+                        {[['all','All'],['owned','Owned'],['unowned','Unowned']].map(([val, label]) => (
+                          <button key={val} onClick={() => setFilterOwned(val)}
+                            className={`px-2.5 py-1 transition-colors ${filterOwned === val ? 'text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-500 hover:bg-gray-50'}`}
+                            style={filterOwned === val ? {background: 'linear-gradient(135deg, #22c55e, #16a34a)'} : {}}>
+                            {label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {viewMode === 'pokemon' && (
+                    <div className="flex items-center gap-1.5">
+                      <span className={`text-xs font-semibold ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>No cards</span>
+                      <div className={`flex rounded-lg overflow-hidden border text-xs font-bold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
+                        {[['all','All'],['hide','Hide'],['only','Only'],['refs','Refs']].map(([val, label]) => (
+                          <button key={val} onClick={() => setFilterHideNoCards(val)}
+                            className={`px-2.5 py-1 transition-colors ${filterHideNoCards === val ? 'text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-500 hover:bg-gray-50'}`}
+                            style={filterHideNoCards === val ? {background: 'linear-gradient(135deg, #22c55e, #16a34a)'} : {}}>
+                            {label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {viewMode === 'cards' && (
+                    <div className="flex items-center gap-1.5">
+                      <span className={`text-xs font-semibold ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Non-conform</span>
+                      <div className={`flex rounded-lg overflow-hidden border text-xs font-bold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
+                        {[['all','All'],['hide','Hide'],['only','Only']].map(([val, label]) => (
+                          <button key={val} onClick={() => setFilterHideNonConforming(val)}
+                            className={`px-2.5 py-1 transition-colors ${filterHideNonConforming === val ? 'text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-500 hover:bg-gray-50'}`}
+                            style={filterHideNonConforming === val ? {background: val === 'only' ? 'linear-gradient(135deg, #ef4444, #dc2626)' : 'linear-gradient(135deg, #22c55e, #16a34a)'} : {}}>
+                            {label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {viewMode === 'cards' && (
+                    <div className="flex items-center gap-1.5">
+                      <span className={`text-xs font-semibold ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Favourites</span>
+                      <div className={`flex rounded-lg overflow-hidden border text-xs font-bold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
+                        {[['all','All'],['hide','Hide'],['only','Only']].map(([val, label]) => (
+                          <button key={val} onClick={() => setFilterFavorites(val)}
+                            className={`px-2.5 py-1 transition-colors ${filterFavorites === val ? 'text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-500 hover:bg-gray-50'}`}
+                            style={filterFavorites === val ? {background: 'linear-gradient(135deg, #ec4899, #db2777)'} : {}}>
+                            {label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {viewMode === 'cards' && (
+                    <div className="flex items-center gap-1.5">
+                      <span className={`text-xs font-semibold ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Unobtainable</span>
+                      <div className={`flex rounded-lg overflow-hidden border text-xs font-bold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
+                        {[['all','All'],['hide','Hide'],['only','Only']].map(([val, label]) => (
+                          <button key={val} onClick={() => setFilterUnobtainable(val)}
+                            className={`px-2.5 py-1 transition-colors ${filterUnobtainable === val ? 'text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-500 hover:bg-gray-50'}`}
+                            style={filterUnobtainable === val ? {background: 'linear-gradient(135deg, #6b7280, #374151)'} : {}}>
+                            {label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
                   )}
                 </div>
+
+                {/* Advanced filters toggle */}
+                <button onClick={() => setShowAdvancedFilters(v => !v)}
+                  className={`flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-lg transition-colors ${showAdvancedFilters ? 'text-white' : darkMode ? 'bg-gray-700 text-gray-400 hover:bg-gray-600' : 'bg-gray-200 text-gray-600 hover:bg-gray-300'}`}
+                  style={showAdvancedFilters ? {background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)'} : {}}>
+                  {showAdvancedFilters ? '▲' : '▼'} Advanced filters {(filterExclusive !== 'all' || filterChinese !== 'all' || filterArtist !== 'all' || filterMissingImages) ? '●' : ''}
+                </button>
+
+                {/* Advanced filters panel */}
+                {showAdvancedFilters && (
+                  <div className={`mt-2 p-3 rounded-xl border ${darkMode ? 'bg-gray-900 border-gray-700' : 'bg-white border-gray-200'}`}>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mb-2">
+                      <select value={filterExclusive} onChange={(e) => setFilterExclusive(e.target.value)}
+                        className={`px-3 py-1.5 border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-purple-400 font-medium ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-200 text-gray-700'}`}>
+                        <option value="all">All Exclusives</option>
+                        <option value="jp">🇯🇵 JP Exclusive ({filterCounts.jpCount})</option>
+                        <option value="cn">🇨🇳 CN Exclusive ({filterCounts.cnExclCount})</option>
+                        <option value="none">Not in English ({filterCounts.noneCount})</option>
+                      </select>
+                      <select value={filterChinese} onChange={(e) => setFilterChinese(e.target.value)}
+                        className={`px-3 py-1.5 border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-purple-400 font-medium ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-200 text-gray-700'}`}>
+                        <option value="all">All CN Status</option>
+                        <option value="has_cn">🇨🇳 Has Chinese ({filterCounts.hasCN})</option>
+                        <option value="no_cn">Not in Chinese ({filterCounts.noCN})</option>
+                      </select>
+                      <div className="flex gap-1 col-span-2 md:col-span-1">
+                        <select value={filterArtist} onChange={(e) => setFilterArtist(e.target.value)}
+                          className={`flex-1 px-3 py-1.5 border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-purple-400 font-medium ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-200 text-gray-700'}`}>
+                          <option value="all">All Artists</option>
+                          {sortedArtists.map(([artist, count]) => {
+                            const owned = filterCounts.artistOwned[artist] || 0;
+                            const pct = count > 0 ? Math.round((owned / count) * 100) : 0;
+                            const complete = count > 0 && owned === count;
+                            return <option key={artist} value={artist}>{complete ? '★ ' : ''}{artist} ({owned}/{count}{!complete ? ` · ${pct}%` : ''})</option>;
+                          })}
+                        </select>
+                        <select value={artistSortBy} onChange={(e) => setArtistSortBy(e.target.value)}
+                          className={`w-24 px-2 py-1.5 border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-purple-400 font-medium ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-200 text-gray-700'}`}>
+                          <option value="card_count">By count</option>
+                          <option value="alpha">A → Z</option>
+                        </select>
+                      </div>
+                    </div>
+                    <label className={`flex items-center gap-2 text-xs font-semibold cursor-pointer ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+                      <input type="checkbox" checked={filterMissingImages} onChange={(e) => setFilterMissingImages(e.target.checked)} className="rounded" />
+                      Show only cards with missing images
+                    </label>
+                  </div>
+                )}
               </div>
             </div>
           )}
+
       </div>
 
-      {/* Content Grid */}
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="mb-4 text-sm text-gray-600 flex items-center justify-between">
+      {/* ── CONTENT ── */}
+      <div className="max-w-7xl mx-auto px-4 py-6">
+        <div className={`mb-4 text-xs font-semibold flex items-center justify-between ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
           <div className="flex items-center gap-2">
             {filteredData.type === 'pokemon' ? (
-              <>
-                <Grid className="w-4 h-4" />
-                <span>Showing {filteredData.data.length} Pokémon</span>
-              </>
+              <><Grid className="w-3.5 h-3.5" /><span>{filteredData.data.length} Pokémon</span></>
             ) : (
-              <>
-                <List className="w-4 h-4" />
-                <span>Showing {filteredData.data.length} Cards</span>
-              </>
+              <><List className="w-3.5 h-3.5" /><span>{filteredData.data.length} Cards</span></>
             )}
           </div>
           {hasActiveFilters && (
-            <span className="text-emerald-600 font-semibold text-xs">
-              {filterExclusive !== 'all' && `${filterExclusive.toUpperCase()} Exclusive`}
-              {filterExclusive !== 'all' && (filterSet !== 'all' || filterCardType !== 'all') && ' â€¢ '}
+            <span className="font-bold text-red-500 text-xs">
+              {filterExclusive !== 'all' && `${filterExclusive.toUpperCase()} Excl`}
+              {filterExclusive !== 'all' && (filterSet !== 'all' || filterCardType !== 'all') && ' · '}
               {filterCardType !== 'all' && `${filterCardType.toUpperCase()}`}
-              {filterCardType !== 'all' && filterSet !== 'all' && ' â€¢ '}
+              {filterCardType !== 'all' && filterSet !== 'all' && ' · '}
               {filterSet !== 'all' && `${filterSet}`}
             </span>
           )}
         </div>
-        
+
         {viewMode === 'pokemon' ? (
-          /* POKEMON VIEW */
           <>
             {filteredData.type === 'pokemon' && (
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+              <div className={`grid ${pokemonGridClass[tileSize]}`}>
                 {filteredData.data.map(pokemon => (
-                  <PokemonCard
-                    key={`${pokemon.id}-${pokemon.name}`}
-                    pokemon={pokemon}
-                    onClick={() => setSelectedPokemon(pokemon)}
-                  />
+                  <PokemonCard key={`${pokemon.id}-${pokemon.name}`} pokemon={pokemon} onClick={() => setSelectedPokemon(pokemon)} />
                 ))}
               </div>
             )}
-            
             {filteredData.type === 'cards' && (
-              <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-3">
+              <div className={`grid ${tileGridClass[tileSize]}`}>
                 {filteredData.data.map(card => (
-                  <CardTile
-                    key={card.id}
-                    card={card}
-                    pokemonName={card.pokemonName}
-                    onOwnershipClick={handleCardOwnershipClick}
-                    onToggleNonConforming={handleToggleNonConforming}
-                    onToggleFavorite={handleToggleFavorite}
-                    onToggleUnobtainable={handleToggleUnobtainable}
-                    onUpdateCard={handleInlineUpdateCard}
-                    showOwnershipButtons={showOwnershipButtons}
-                  />
+                  <CardTile key={card.id} card={card} pokemonName={card.pokemonName}
+                    onOwnershipClick={handleCardOwnershipClick} onToggleNonConforming={handleToggleNonConforming}
+                    onToggleFavorite={handleToggleFavorite} onToggleUnobtainable={handleToggleUnobtainable}
+                    onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={showOwnershipButtons} />
                 ))}
               </div>
             )}
           </>
         ) : (
-          /* ALL CARDS VIEW */
           <div>
-            <div className="flex items-center justify-between mb-4">
+            <div className={`flex items-center justify-between mb-4 text-xs font-semibold ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
               <div className="flex items-center gap-2">
-                <List className="w-4 h-4" />
-                <span className="text-sm text-gray-600">
-                  All Cards ({allCardsFlat.length})
-                </span>
+                <List className="w-3.5 h-3.5" />
+                <span>All Cards ({allCardsFlat.length})</span>
               </div>
-              <div className="text-sm text-gray-600">
-                {allCardsFlat.filter(c => c.ownedLang).length} owned
-              </div>
+              <div>{allCardsFlat.filter(c => c.ownedLang).length} owned</div>
             </div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4">
+            <div className={`grid ${tileGridClass[tileSize]}`}>
               {allCardsFlat.map((card, idx) => (
-                <CardTile
-                  key={`${card.pokemonId}-${card.id}-${idx}`}
-                  card={card}
-                  pokemonName={card.pokemonName}
-                  onOwnershipClick={handleCardOwnershipClick}
-                  onToggleNonConforming={handleToggleNonConforming}
-                    onToggleFavorite={handleToggleFavorite}
-                    onToggleUnobtainable={handleToggleUnobtainable}
-                  onUpdateCard={handleInlineUpdateCard}
-                  showOwnershipButtons={showOwnershipButtons}
-                />
+                <CardTile key={`${card.pokemonId}-${card.id}-${idx}`} card={card} pokemonName={card.pokemonName}
+                  onOwnershipClick={handleCardOwnershipClick} onToggleNonConforming={handleToggleNonConforming}
+                  onToggleFavorite={handleToggleFavorite} onToggleUnobtainable={handleToggleUnobtainable}
+                  onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={showOwnershipButtons} />
               ))}
             </div>
           </div>
         )}
-        
+
         {filteredData.data.length === 0 && viewMode === 'pokemon' && (
           <div className="text-center py-16">
-            <div className="text-gray-400 text-lg mb-2">No results found</div>
+            <div className="text-5xl mb-4">😴</div>
+            <div className={`text-lg font-bold mb-2 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>No results found</div>
             {hasActiveFilters && (
-              <button
-                onClick={clearFilters}
-                className="text-emerald-600 hover:text-emerald-700 font-semibold"
-              >
+              <button onClick={clearFilters} className="text-red-500 hover:text-red-600 font-bold text-sm">
                 Clear filters
               </button>
             )}

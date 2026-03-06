@@ -203,9 +203,10 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           setContextMenuPos({ x, y });
           setShowContextMenu(true);
         }}
-        className={`flex flex-col rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${
+        className={`flex flex-col rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 ${
         isSecondary ? 'opacity-75 ring-2 ring-purple-300' : ''
-      } ${isOwned ? 'ring-4 ring-emerald-500 shadow-emerald-200' : 'bg-white'}`}>
+      } ${isOwned ? 'ring-2 ring-red-400' : darkMode ? 'bg-gray-800 shadow-md' : 'bg-white shadow-md'}`}
+        style={isOwned ? {boxShadow: '0 4px 20px rgba(239,68,68,0.25)'} : {}}>
 
         {/* Card Image */}
         <div
@@ -296,14 +297,14 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
         </div>
 
         {/* Card Details */}
-        <div className={`p-2 space-y-0.5 ${isOwned ? 'bg-emerald-500' : 'bg-white'}`}>
+        <div className={`p-2 space-y-0.5`} style={isOwned ? {background: 'linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)'} : {background: 'white'}}>
 
 
           {/* Row 1: dex # + year + price — compact metadata line */}
-          <div className={`flex items-center justify-between text-[10px] font-mono ${isOwned ? 'text-emerald-200' : 'text-gray-400'}`}>
+          <div className={`flex items-center justify-between text-[10px] font-mono ${isOwned ? 'text-red-200' : 'text-gray-400'}`}>
             <span>#{String(card.pokemonId || '').padStart(4, '0')}</span>
             <div className="flex items-center gap-1">
-              {card.priceGBP && <span className={`font-semibold ${isOwned ? 'text-emerald-100' : 'text-emerald-600'}`}>£{Number(card.priceGBP).toFixed(2)}</span>}
+              {card.priceGBP && <span className={`font-semibold ${isOwned ? 'text-red-100' : 'text-emerald-600'}`}>£{Number(card.priceGBP).toFixed(2)}</span>}
               <span>{(() => { try { const _se = setNames[card.enSetCode || card.setCode]; const _n = typeof _se === 'object' ? (_se?.name || '') : (typeof _se === 'string' ? _se : ''); const yrMatch = _n.match(/\d{4}(?:-\d{4})?$/); return yrMatch ? yrMatch[0] : (_se?.year || ''); } catch(e) { return ''; } })()}</span>
             </div>
           </div>
@@ -312,42 +313,42 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           <div className={`font-bold text-sm leading-tight ${isOwned ? 'text-white' : 'text-gray-900'}`}>{isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName}</div>
 
           {/* Row 3: card name — always reserve space */}
-          <div className={`text-xs leading-tight min-h-[0.9rem] font-medium truncate ${isOwned ? 'text-emerald-100' : 'text-gray-600'}`}>
+          <div className={`text-xs leading-tight min-h-[0.9rem] font-medium truncate ${isOwned ? 'text-red-100' : 'text-gray-600'}`}>
             {(() => { const n = (card.cardName||'').replace(', Japanese Exclusive','').replace('Japanese Exclusive','').replace(', Chinese Exclusive','').replace('Chinese Exclusive','').trim(); const dn = (n && n !== 'Full Art') ? n : null; return dn || ' '; })()}
           </div>
 
           {/* Row 4: EN */}
-          <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-start gap-1 ${isOwned ? 'text-emerald-200' : 'text-gray-500'}`}>
+          <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-start gap-1 ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
             {(card.enSetCode || card.setCode) ? (
               <>
                 <span className="text-blue-500 font-bold shrink-0">EN</span>
                 <span className="truncate">{card.enSetCode || card.setCode}{card.number ? ` ${card.number}` : ''}{(() => { const _ec = card.enSetCode || card.setCode; const _e = setNames[_ec]; const n = typeof _e === 'object' ? _e?.name : _e; return n ? ` - ${String(n).replace(/ \d{4}(-\d{4})?$/, '').trim()}` : ''; })()}</span>
               </>
-            ) : <><span className="text-blue-500 font-bold shrink-0 opacity-40">EN</span><span className={`${isOwned ? 'text-emerald-300' : 'text-gray-400'} italic`}>N/A</span></>}
+            ) : <><span className="text-blue-500 font-bold shrink-0 opacity-40">EN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
           </div>
 
           {/* Row 5: JP */}
-          <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-start gap-1 ${isOwned ? 'text-emerald-200' : 'text-gray-500'}`}>
+          <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-start gap-1 ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
             {card.jpSetCode ? (
               <>
                 <span className="text-red-400 font-bold shrink-0">JP</span>
                 <span className="truncate">{card.jpSetCode}{(() => { const _j = setNames[card.jpSetCode]; const n = typeof _j === 'object' ? _j?.name : _j; return n ? ` - ${n.replace(/ \d{4}.*/, '').trim()}` : ''; })()}</span>
               </>
-            ) : <><span className="text-red-400 font-bold shrink-0 opacity-40">JP</span><span className={`${isOwned ? 'text-emerald-300' : 'text-gray-400'} italic`}>N/A</span></>}
+            ) : <><span className="text-red-400 font-bold shrink-0 opacity-40">JP</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
           </div>
 
           {/* Row 6: CN */}
-          <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-start gap-1 ${isOwned ? 'text-emerald-200' : 'text-gray-500'}`}>
+          <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-start gap-1 ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
             {card.cnSetCode ? (
               <>
                 <span className="text-yellow-500 font-bold shrink-0">CN</span>
                 <span className="truncate">{card.cnSetCode}{(() => { const _c = setNames[card.cnSetCode]; const n = typeof _c === 'object' ? _c?.name : _c; return n ? ` - ${n.replace(/ \d{4}.*/, '').trim()}` : ''; })()}</span>
               </>
-            ) : <><span className="text-yellow-500 font-bold shrink-0 opacity-40">CN</span><span className={`${isOwned ? 'text-emerald-300' : 'text-gray-400'} italic`}>N/A</span></>}
+            ) : <><span className="text-yellow-500 font-bold shrink-0 opacity-40">CN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
           </div>
 
           {/* Row 7: other pokemon — always reserve space */}
-          <div className={`text-xs min-h-[0.9rem] leading-tight ${isOwned ? 'text-emerald-100' : 'text-blue-500'}`}>
+          <div className={`text-xs min-h-[0.9rem] leading-tight ${isOwned ? 'text-red-100' : 'text-blue-500'}`}>
             {hasOtherPokemon ? (showAllPokemon
               ? <span>w/ {card.otherPokemon.join(', ')} <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(false); }} className={`font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>less</button></span>
               : <span className="flex items-baseline gap-1"><span className="truncate">w/ {card.otherPokemon.slice(0, 2).join(', ')}</span>{card.otherPokemon.length > 2 && <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(true); }} className={`shrink-0 font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>+{card.otherPokemon.length - 2}</button>}</span>
@@ -355,7 +356,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           </div>
 
           {/* Row 8: artist — always reserve space */}
-          <div className={`text-xs leading-tight truncate min-h-[0.9rem] ${isOwned ? 'text-emerald-200' : 'text-gray-400'}`}>{card.artist || ' '}</div>
+          <div className={`text-xs leading-tight truncate min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-400'}`}>{card.artist || ' '}</div>
 
           {/* Language buttons — hidden when owned, show owned pill instead */}
           {!isSecondary && showOwnershipButtons && (
@@ -394,7 +395,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           )}
 
           {/* eBay search buttons */}
-          <div className="flex gap-1 pt-2 border-t border-gray-100 mt-1">
+          <div className="flex gap-1 pt-2 border-t border-gray-100/30 mt-1">
             {ALL_LANGS.map(lang => {
               const hasLang = lang === 'EN' ? !!(card.enSetCode || card.setCode)
                 : lang === 'JP' ? !!card.jpSetCode
