@@ -559,15 +559,14 @@ export default function App() {
         const yb = (setNames[b.setCode] || setNames[b.jpSetCode] || setNames[b.cnSetCode] || {}).year || 0;
         return yb - ya;
       });
-    } else if (sortBy === 'recently_added') {
-      // Sort by row index ascending (higher row = more recently added to sheet)
-      cards.sort((a, b) => (b._rowIndex || 0) - (a._rowIndex || 0));
-    }
+    } else if (sortBy === 'release_asc') {
       cards.sort((a, b) => {
         const ya = (setNames[a.setCode] || setNames[a.jpSetCode] || setNames[a.cnSetCode] || {}).year || 9999;
         const yb = (setNames[b.setCode] || setNames[b.jpSetCode] || setNames[b.cnSetCode] || {}).year || 9999;
         return ya - yb;
       });
+    } else if (sortBy === 'recently_added') {
+      cards.sort((a, b) => (b._rowIndex || 0) - (a._rowIndex || 0));
     }
     return cards;
   }, [filteredData, filterChinese, filterExclusive, filterSet, filterCardType, sortBy, filterOwned, filterArtist]);
