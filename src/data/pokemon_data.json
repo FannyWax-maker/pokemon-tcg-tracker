@@ -899,23 +899,7 @@
     "name": "Metapod",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "11__",
-        "pokemonId": 11,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 12,
@@ -949,46 +933,14 @@
     "name": "Weedle",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "13__",
-        "pokemonId": 13,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 14,
     "name": "Kakuna",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "14__",
-        "pokemonId": 14,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 15,
@@ -1103,23 +1055,7 @@
     "name": "Rattata",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "19__",
-        "pokemonId": 19,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 20,
@@ -1245,23 +1181,7 @@
     "name": "Ekans",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "23__",
-        "pokemonId": 23,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 24,
@@ -2272,92 +2192,28 @@
     "name": "Sandshrew",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "27__",
-        "pokemonId": 27,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 28,
     "name": "Sandslash",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "28__",
-        "pokemonId": 28,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 29,
     "name": "Nidoran F",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "29__",
-        "pokemonId": 29,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 30,
     "name": "Nidorina",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "30__",
-        "pokemonId": 30,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 31,
@@ -2390,46 +2246,14 @@
     "name": "Nidoran M",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "32__",
-        "pokemonId": 32,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 33,
     "name": "Nidorino",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "33__",
-        "pokemonId": 33,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 34,
@@ -2749,69 +2573,21 @@
     "name": "Zubat",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "41__",
-        "pokemonId": 41,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 42,
     "name": "Golbat",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "42__",
-        "pokemonId": 42,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 43,
     "name": "Oddish",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "43__",
-        "pokemonId": 43,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 44,
@@ -2943,69 +2719,21 @@
     "name": "Venonat",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "48__",
-        "pokemonId": 48,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 49,
     "name": "Venomoth",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "49__",
-        "pokemonId": 49,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 50,
     "name": "Diglett",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "50__",
-        "pokemonId": 50,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 51,
@@ -3314,69 +3042,21 @@
     "name": "Golduck",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "55__",
-        "pokemonId": 55,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 56,
     "name": "Mankey",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "56__",
-        "pokemonId": 56,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 57,
     "name": "Primeape",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "57__",
-        "pokemonId": 57,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 58,
@@ -3452,23 +3132,7 @@
     "name": "Poliwag",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "60__",
-        "pokemonId": 60,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 61,
@@ -3501,69 +3165,21 @@
     "name": "Poliwrath",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "62__",
-        "pokemonId": 62,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 63,
     "name": "Abra",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "63__",
-        "pokemonId": 63,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 64,
     "name": "Kadabra",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "64__",
-        "pokemonId": 64,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 65,
@@ -3636,23 +3252,7 @@
     "name": "Machop",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "66__",
-        "pokemonId": 66,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 67,
@@ -3738,69 +3338,21 @@
     "name": "Bellsprout",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "69__",
-        "pokemonId": 69,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 70,
     "name": "Weepingbell",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "70__",
-        "pokemonId": 70,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 71,
     "name": "Victreebel",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "71__",
-        "pokemonId": 71,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 72,
@@ -3833,92 +3385,28 @@
     "name": "Tentacruel",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "73__",
-        "pokemonId": 73,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 74,
     "name": "Geodude",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "74__",
-        "pokemonId": 74,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 75,
     "name": "Graveler",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "75__",
-        "pokemonId": 75,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 76,
     "name": "Golem",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "76__",
-        "pokemonId": 76,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 77,
@@ -4065,23 +3553,7 @@
     "name": "Slowbro",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "80__",
-        "pokemonId": 80,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 81,
@@ -4141,46 +3613,14 @@
     "name": "Farfetch'd",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "83__",
-        "pokemonId": 83,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 84,
     "name": "DoDuo",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "84__",
-        "pokemonId": 84,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 85,
@@ -4215,23 +3655,7 @@
     "name": "Seel",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "86__",
-        "pokemonId": 86,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 87,
@@ -4264,23 +3688,7 @@
     "name": "Grimer",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "88__",
-        "pokemonId": 88,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 89,
@@ -4333,46 +3741,14 @@
     "name": "Shellder",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "90__",
-        "pokemonId": 90,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 91,
     "name": "Cloyster",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "91__",
-        "pokemonId": 91,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 92,
@@ -4669,46 +4045,14 @@
     "name": "Hypno",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "97__",
-        "pokemonId": 97,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 98,
     "name": "Krabby",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "98__",
-        "pokemonId": 98,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 99,
@@ -4925,69 +4269,21 @@
     "name": "Marowak",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "105__",
-        "pokemonId": 105,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 106,
     "name": "Hitmonlee",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "106__",
-        "pokemonId": 106,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 107,
     "name": "Hitmonchan",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "107__",
-        "pokemonId": 107,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 108,
@@ -5073,46 +4369,14 @@
     "name": "Rhyhorn",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "111__",
-        "pokemonId": 111,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 112,
     "name": "Rhydon",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "112__",
-        "pokemonId": 112,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 113,
@@ -5267,92 +4531,28 @@
     "name": "Seadra",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "117__",
-        "pokemonId": 117,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 118,
     "name": "Goldeen",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "118__",
-        "pokemonId": 118,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 119,
     "name": "Seaking",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "119__",
-        "pokemonId": 119,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 120,
     "name": "Staryu",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "120__",
-        "pokemonId": 120,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 121,
@@ -5466,23 +4666,7 @@
     "name": "Scyther",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "123__",
-        "pokemonId": 123,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 124,
@@ -5515,46 +4699,14 @@
     "name": "Electabuzz",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "125__",
-        "pokemonId": 125,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 126,
     "name": "Magmar",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "126__",
-        "pokemonId": 126,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 127,
@@ -6617,23 +5769,7 @@
     "name": "Porygon",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "137__",
-        "pokemonId": 137,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 138,
@@ -6696,46 +5832,14 @@
     "name": "Kabuto",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "140__",
-        "pokemonId": 140,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 141,
     "name": "Kabutops",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "141__",
-        "pokemonId": 141,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 142,
@@ -7177,23 +6281,7 @@
     "name": "Dratini",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "147__",
-        "pokemonId": 147,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 148,
@@ -7446,7 +6534,9 @@
         "cardName": "Mewtwo VSTAR",
         "exclusive": null,
         "otherPokemon": [
-          "Charizard"
+          "Charizard",
+          "Tangrowth",
+          "Geodude"
         ],
         "availableLangs": [
           "EN",
@@ -7766,46 +6856,14 @@
     "name": "Chikorita",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "152__",
-        "pokemonId": 152,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 153,
     "name": "Bayleef",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "153__",
-        "pokemonId": 153,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 154,
@@ -7868,23 +6926,7 @@
     "name": "Quilava",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "156__",
-        "pokemonId": 156,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 157,
@@ -7917,46 +6959,14 @@
     "name": "Totodile",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "158__",
-        "pokemonId": 158,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 159,
     "name": "Croconaw",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "159__",
-        "pokemonId": 159,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 160,
@@ -7989,23 +6999,7 @@
     "name": "Sentret",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "161__",
-        "pokemonId": 161,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 162,
@@ -8090,23 +7084,7 @@
     "name": "Ledyba",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "165__",
-        "pokemonId": 165,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 166,
@@ -8139,23 +7117,7 @@
     "name": "Spinarak",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "167__",
-        "pokemonId": 167,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 168,
@@ -8254,69 +7216,21 @@
     "name": "Chinchou",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "170__",
-        "pokemonId": 170,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 171,
     "name": "Lanturn",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "171__",
-        "pokemonId": 171,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 172,
     "name": "Pichu",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "172__",
-        "pokemonId": 172,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 173,
@@ -8409,23 +7323,7 @@
     "name": "Togetic",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "176__",
-        "pokemonId": 176,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 177,
@@ -8458,23 +7356,7 @@
     "name": "Xatu",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "178__",
-        "pokemonId": 178,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 179,
@@ -8742,23 +7624,7 @@
     "name": "Politoad",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "186__",
-        "pokemonId": 186,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 187,
@@ -8766,21 +7632,6 @@
     "gen": 2,
     "region": "Johto",
     "cards": [
-      {
-        "id": "187__",
-        "pokemonId": 187,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      },
       {
         "id": "187_paf_236-91",
         "pokemonId": 187,
@@ -8815,46 +7666,14 @@
     "name": "Skiploom",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "188__",
-        "pokemonId": 188,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 189,
     "name": "Jumpluff",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "189__",
-        "pokemonId": 189,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 190,
@@ -9632,69 +8451,21 @@
     "name": "Girafarig",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "203__",
-        "pokemonId": 203,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 204,
     "name": "Pineco",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "204__",
-        "pokemonId": 204,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 205,
     "name": "Forretress",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "205__",
-        "pokemonId": 205,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 206,
@@ -9727,23 +8498,7 @@
     "name": "Gligar",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "207__",
-        "pokemonId": 207,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 208,
@@ -9859,46 +8614,14 @@
     "name": "Granbull",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "210__",
-        "pokemonId": 210,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 211,
     "name": "Qwilfish",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "211__",
-        "pokemonId": 211,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 212,
@@ -10065,46 +8788,14 @@
     "name": "Teddiursa",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "216__",
-        "pokemonId": 216,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 217,
     "name": "Ursaring",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "217__",
-        "pokemonId": 217,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 218,
@@ -10210,69 +8901,21 @@
     "name": "Piloswine",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "221__",
-        "pokemonId": 221,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 222,
     "name": "Corsola",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "222__",
-        "pokemonId": 222,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 223,
     "name": "Remoraid",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "223__",
-        "pokemonId": 223,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 224,
@@ -10331,23 +8974,7 @@
     "name": "Mantine",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "226__",
-        "pokemonId": 226,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 227,
@@ -10578,69 +9205,21 @@
     "name": "Donphan",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "232__",
-        "pokemonId": 232,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 233,
     "name": "Porygon2",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "233__",
-        "pokemonId": 233,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 234,
     "name": "Stantler",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "234__",
-        "pokemonId": 234,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 235,
@@ -10673,23 +9252,7 @@
     "name": "Tyrogue",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "236__",
-        "pokemonId": 236,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 237,
@@ -10722,46 +9285,14 @@
     "name": "Smoochum",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "238__",
-        "pokemonId": 238,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 239,
     "name": "Elekid",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "239__",
-        "pokemonId": 239,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 240,
@@ -10851,7 +9382,10 @@
         "artist": "Saya Tsuruta",
         "cardName": "Blissey V",
         "exclusive": null,
-        "otherPokemon": null,
+        "otherPokemon": [
+          "Happiny",
+          "Chansey"
+        ],
         "availableLangs": [
           "EN",
           "JP",
@@ -11011,23 +9545,7 @@
     "name": "Pupitar",
     "gen": 2,
     "region": "Johto",
-    "cards": [
-      {
-        "id": "247__",
-        "pokemonId": 247,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 248,
@@ -11430,46 +9948,14 @@
     "name": "Treecko",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "252__",
-        "pokemonId": 252,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 253,
     "name": "Grovyle",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "253__",
-        "pokemonId": 253,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 254,
@@ -11547,23 +10033,7 @@
     "name": "Combusken",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "256__",
-        "pokemonId": 256,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 257,
@@ -11695,46 +10165,14 @@
     "name": "Mudkip",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "258__",
-        "pokemonId": 258,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 259,
     "name": "Marshtomp",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "259__",
-        "pokemonId": 259,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 260,
@@ -11855,23 +10293,7 @@
     "name": "Zigzagoon",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "263__",
-        "pokemonId": 263,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 264,
@@ -11904,46 +10326,14 @@
     "name": "Wurmple",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "265__",
-        "pokemonId": 265,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 266,
     "name": "Silcoon",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "266__",
-        "pokemonId": 266,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 267,
@@ -11976,23 +10366,7 @@
     "name": "Cascoon",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "268__",
-        "pokemonId": 268,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 269,
@@ -12043,46 +10417,14 @@
     "name": "Lotad",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "270__",
-        "pokemonId": 270,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 271,
     "name": "Lombre",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "271__",
-        "pokemonId": 271,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 272,
@@ -12133,46 +10475,14 @@
     "name": "Seedot",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "273__",
-        "pokemonId": 273,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 274,
     "name": "Nuzleaf",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "274__",
-        "pokemonId": 274,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 275,
@@ -12278,46 +10588,14 @@
     "name": "Wingull",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "278__",
-        "pokemonId": 278,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 279,
     "name": "Pelipper",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "279__",
-        "pokemonId": 279,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 280,
@@ -12608,7 +10886,9 @@
         "artist": "Jiro Sasumo",
         "cardName": "Gardevoir ex",
         "exclusive": null,
-        "otherPokemon": null,
+        "otherPokemon": [
+          "Ralts"
+        ],
         "availableLangs": [
           "EN",
           "JP",
@@ -12654,69 +10934,21 @@
     "name": "Masquerain",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "284__",
-        "pokemonId": 284,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 285,
     "name": "Shroomish",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "285__",
-        "pokemonId": 285,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 286,
     "name": "Breloom",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "286__",
-        "pokemonId": 286,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 287,
@@ -12749,23 +10981,7 @@
     "name": "Vigoroth",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "288__",
-        "pokemonId": 288,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 289,
@@ -12798,23 +11014,7 @@
     "name": "Nincada",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "290__",
-        "pokemonId": 290,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 291,
@@ -12873,23 +11073,7 @@
     "name": "Whismur",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "293__",
-        "pokemonId": 293,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 294,
@@ -12922,161 +11106,49 @@
     "name": "Exploud",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "295__",
-        "pokemonId": 295,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 296,
     "name": "Makuhita",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "296__",
-        "pokemonId": 296,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 297,
     "name": "Hariyama",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "297__",
-        "pokemonId": 297,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 298,
     "name": "Azurill",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "298__",
-        "pokemonId": 298,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 299,
     "name": "Nosepass",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "299__",
-        "pokemonId": 299,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 300,
     "name": "Skitty",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "300__",
-        "pokemonId": 300,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 301,
     "name": "Delcatty",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "301__",
-        "pokemonId": 301,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 302,
@@ -13172,23 +11244,7 @@
     "name": "Aron",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "304__",
-        "pokemonId": 304,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 305,
@@ -13411,23 +11467,7 @@
     "name": "Manectric",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "310__",
-        "pokemonId": 310,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 311,
@@ -13486,69 +11526,21 @@
     "name": "Volbeat",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "313__",
-        "pokemonId": 313,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 314,
     "name": "Illumise",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "314__",
-        "pokemonId": 314,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 315,
     "name": "Roselia",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "315__",
-        "pokemonId": 315,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 316,
@@ -13581,46 +11573,14 @@
     "name": "Swalot",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "317__",
-        "pokemonId": 317,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 318,
     "name": "Carvanha",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "318__",
-        "pokemonId": 318,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 319,
@@ -13628,21 +11588,6 @@
     "gen": 3,
     "region": "Hoenn",
     "cards": [
-      {
-        "id": "319__",
-        "pokemonId": 319,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      },
       {
         "id": "319_pfl_127-094",
         "pokemonId": 319,
@@ -13668,23 +11613,7 @@
     "name": "Wailmer",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "320__",
-        "pokemonId": 320,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 321,
@@ -13743,23 +11672,7 @@
     "name": "Camerupt",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "323__",
-        "pokemonId": 323,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 324,
@@ -13849,92 +11762,28 @@
     "name": "Spoink",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "325__",
-        "pokemonId": 325,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 326,
     "name": "Grumpig",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "326__",
-        "pokemonId": 326,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 327,
     "name": "Spinda",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "327__",
-        "pokemonId": 327,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 328,
     "name": "Trapinch",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "328__",
-        "pokemonId": 328,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 329,
@@ -14017,46 +11866,14 @@
     "name": "Cacnea",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "331__",
-        "pokemonId": 331,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 332,
     "name": "Cacturne",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "332__",
-        "pokemonId": 332,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 333,
@@ -14229,46 +12046,14 @@
     "name": "Zangoose",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "335__",
-        "pokemonId": 335,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 336,
     "name": "Seviper",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "336__",
-        "pokemonId": 336,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 337,
@@ -14335,23 +12120,7 @@
     "name": "Barboach",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "339__",
-        "pokemonId": 339,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 340,
@@ -14384,46 +12153,14 @@
     "name": "Corphish",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "341__",
-        "pokemonId": 341,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 342,
     "name": "Crawdaunt",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "342__",
-        "pokemonId": 342,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 343,
@@ -14456,23 +12193,7 @@
     "name": "Claydol",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "344__",
-        "pokemonId": 344,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 345,
@@ -14505,69 +12226,21 @@
     "name": "Cradily",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "346__",
-        "pokemonId": 346,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 347,
     "name": "Anorith",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "347__",
-        "pokemonId": 347,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 348,
     "name": "Armaldo",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "348__",
-        "pokemonId": 348,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 349,
@@ -14718,23 +12391,7 @@
     "name": "Shuppet",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "353__",
-        "pokemonId": 353,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 354,
@@ -14996,23 +12653,7 @@
     "name": "Wynaut",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "360__",
-        "pokemonId": 360,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 361,
@@ -15063,23 +12704,7 @@
     "name": "Glalie",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "362__",
-        "pokemonId": 362,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 363,
@@ -15112,46 +12737,14 @@
     "name": "Sealeo",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "364__",
-        "pokemonId": 364,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 365,
     "name": "Walrein",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "365__",
-        "pokemonId": 365,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 366,
@@ -15184,23 +12777,7 @@
     "name": "Huntail",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "367__",
-        "pokemonId": 367,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 368,
@@ -15265,69 +12842,21 @@
     "name": "Luvdisc",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "370__",
-        "pokemonId": 370,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 371,
     "name": "Bagon",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "371__",
-        "pokemonId": 371,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 372,
     "name": "Shelgon",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "372__",
-        "pokemonId": 372,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 373,
@@ -15423,23 +12952,7 @@
     "name": "Metang",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "375__",
-        "pokemonId": 375,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 376,
@@ -15572,46 +13085,14 @@
     "name": "Regice",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "378__",
-        "pokemonId": 378,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 379,
     "name": "Registeel",
     "gen": 3,
     "region": "Hoenn",
-    "cards": [
-      {
-        "id": "379__",
-        "pokemonId": 379,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 380,
@@ -16168,23 +13649,7 @@
     "name": "Torterra",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "389__",
-        "pokemonId": 389,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 390,
@@ -16216,23 +13681,7 @@
     "name": "Monferno",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "391__",
-        "pokemonId": 391,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 392,
@@ -16369,23 +13818,7 @@
     "name": "Prinplup",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "394__",
-        "pokemonId": 394,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 395,
@@ -16503,23 +13936,7 @@
     "name": "Staravia",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "397__",
-        "pokemonId": 397,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 398,
@@ -16625,23 +14042,7 @@
     "name": "Kricketot",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "401__",
-        "pokemonId": 401,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 402,
@@ -16666,7 +14067,7 @@
           "Stufful",
           "Emolga",
           "Wooloo",
-          "Buneary",
+          "Bunnelby",
           "Komala",
           "Golbat",
           "Rufflet"
@@ -16701,7 +14102,7 @@
   },
   {
     "id": 403,
-    "name": "Luxio",
+    "name": "Shinx",
     "gen": 4,
     "region": "Sinnoh",
     "cards": [
@@ -16736,23 +14137,7 @@
     "name": "Luxio",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "404__",
-        "pokemonId": 404,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 405,
@@ -16855,69 +14240,21 @@
     "name": "Cranidos",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "408__",
-        "pokemonId": 408,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 409,
     "name": "Rampardos",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "409__",
-        "pokemonId": 409,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 410,
     "name": "Shieldon",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "410__",
-        "pokemonId": 410,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 411,
@@ -16953,92 +14290,28 @@
     "name": "Burmy",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "412__",
-        "pokemonId": 412,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 413,
     "name": "Wormadam",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "413__",
-        "pokemonId": 413,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 414,
     "name": "Mothim",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "414__",
-        "pokemonId": 414,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 415,
     "name": "Combee",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "415__",
-        "pokemonId": 415,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 416,
@@ -17116,115 +14389,35 @@
     "name": "Buizel",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "418__",
-        "pokemonId": 418,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 419,
     "name": "Floatzel",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "419__",
-        "pokemonId": 419,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 420,
     "name": "Cherubi",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "420__",
-        "pokemonId": 420,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 421,
     "name": "Cherrim",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "421__",
-        "pokemonId": 421,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 422,
     "name": "Shellos",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "422__",
-        "pokemonId": 422,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 423,
@@ -17284,69 +14477,21 @@
     "name": "Drifloon",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "425__",
-        "pokemonId": 425,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 426,
     "name": "Drifblim",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "426__",
-        "pokemonId": 426,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 427,
     "name": "Buneary",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "427__",
-        "pokemonId": 427,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 428,
@@ -17459,7 +14604,9 @@
         "artist": "zig",
         "cardName": "Honchkrow V",
         "exclusive": null,
-        "otherPokemon": null,
+        "otherPokemon": [
+          "Murkrow"
+        ],
         "availableLangs": [
           "EN",
           "JP",
@@ -17475,69 +14622,21 @@
     "name": "Glameow",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "431__",
-        "pokemonId": 431,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 432,
     "name": "Purugly",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "432__",
-        "pokemonId": 432,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 433,
     "name": "Chingling",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "433__",
-        "pokemonId": 433,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 434,
@@ -17601,7 +14700,8 @@
         "exclusive": null,
         "otherPokemon": [
           "Paras",
-          "Diglett"
+          "Diglett",
+          "Stunky"
         ],
         "availableLangs": [
           "EN",
@@ -17699,46 +14799,14 @@
     "name": "Mime Jr",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "439__",
-        "pokemonId": 439,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 440,
     "name": "Happiny",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "440__",
-        "pokemonId": 440,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 441,
@@ -17833,46 +14901,14 @@
     "name": "Gible",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "443__",
-        "pokemonId": 443,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 444,
     "name": "Gabite",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "444__",
-        "pokemonId": 444,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 445,
@@ -18004,23 +15040,7 @@
     "name": "Munchlax",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "446__",
-        "pokemonId": 446,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 447,
@@ -18185,69 +15205,21 @@
     "name": "Hippopotas",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "449__",
-        "pokemonId": 449,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 450,
     "name": "Hippowdon",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "450__",
-        "pokemonId": 450,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 451,
     "name": "Skorupi",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "451__",
-        "pokemonId": 451,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 452,
@@ -18320,23 +15292,7 @@
     "name": "Croagunk",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "453__",
-        "pokemonId": 453,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 454,
@@ -18375,46 +15331,14 @@
     "name": "Carnivine",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "455__",
-        "pokemonId": 455,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 456,
     "name": "Finneon",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "456__",
-        "pokemonId": 456,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 457,
@@ -18622,23 +15546,7 @@
     "name": "Lickilicky",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "463__",
-        "pokemonId": 463,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 464,
@@ -18690,23 +15598,7 @@
     "name": "Tangrowth",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "465__",
-        "pokemonId": 465,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 466,
@@ -19123,23 +16015,7 @@
     "name": "Gliscor",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "472__",
-        "pokemonId": 472,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 473,
@@ -19536,23 +16412,7 @@
     "name": "Uxie",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "480__",
-        "pokemonId": 480,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 481,
@@ -19585,23 +16445,7 @@
     "name": "Azelf",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": [
-      {
-        "id": "482__",
-        "pokemonId": 482,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 483,
@@ -26518,69 +23362,21 @@
     "name": "Quilladin",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "651__",
-        "pokemonId": 651,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 652,
     "name": "Chesnaught",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "652__",
-        "pokemonId": 652,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 653,
     "name": "Fennekin",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "653__",
-        "pokemonId": 653,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 654,
@@ -26613,69 +23409,21 @@
     "name": "Delphox",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "655__",
-        "pokemonId": 655,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 656,
     "name": "Froakie",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "656__",
-        "pokemonId": 656,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 657,
     "name": "Frogadier",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "657__",
-        "pokemonId": 657,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 658,
@@ -26813,46 +23561,14 @@
     "name": "Diggersby",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "660__",
-        "pokemonId": 660,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 661,
     "name": "Fletchling",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "661__",
-        "pokemonId": 661,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 662,
@@ -27063,184 +23779,56 @@
     "name": "Flabébé",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "669__",
-        "pokemonId": 669,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 670,
     "name": "Floette",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "670__",
-        "pokemonId": 670,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 671,
     "name": "Florges",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "671__",
-        "pokemonId": 671,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 672,
     "name": "Skiddo",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "672__",
-        "pokemonId": 672,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 673,
     "name": "Gogoat",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "673__",
-        "pokemonId": 673,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 674,
     "name": "Pancham",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "674__",
-        "pokemonId": 674,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 675,
     "name": "Pangoro",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "675__",
-        "pokemonId": 675,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 676,
     "name": "Furfrou",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "676__",
-        "pokemonId": 676,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 677,
@@ -27273,46 +23861,14 @@
     "name": "Meowstic",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "678__",
-        "pokemonId": 678,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 679,
     "name": "Honedge",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "679__",
-        "pokemonId": 679,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 680,
@@ -27390,69 +23946,21 @@
     "name": "Spritzee",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "682__",
-        "pokemonId": 682,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 683,
     "name": "Aromatisse",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "683__",
-        "pokemonId": 683,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 684,
     "name": "Swirlix",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "684__",
-        "pokemonId": 684,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 685,
@@ -27485,23 +23993,7 @@
     "name": "Inkay",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "686__",
-        "pokemonId": 686,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 687,
@@ -27572,92 +24064,28 @@
     "name": "Binacle",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "688__",
-        "pokemonId": 688,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 689,
     "name": "Barbaracle",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "689__",
-        "pokemonId": 689,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 690,
     "name": "Skrelp",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "690__",
-        "pokemonId": 690,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 691,
     "name": "Dragalge",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "691__",
-        "pokemonId": 691,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 692,
@@ -27814,23 +24242,7 @@
     "name": "Tyrantrum",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "697__",
-        "pokemonId": 697,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 698,
@@ -28245,46 +24657,14 @@
     "name": "Goomy",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "704__",
-        "pokemonId": 704,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 705,
     "name": "Sliggoo",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "705__",
-        "pokemonId": 705,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 706,
@@ -28339,46 +24719,14 @@
     "name": "Klefki",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "707__",
-        "pokemonId": 707,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 708,
     "name": "Phantump",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "708__",
-        "pokemonId": 708,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 709,
@@ -28489,92 +24837,28 @@
     "name": "Pumpkaboo",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "710__",
-        "pokemonId": 710,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 711,
     "name": "Gourgeist",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "711__",
-        "pokemonId": 711,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 712,
     "name": "Bergmite",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "712__",
-        "pokemonId": 712,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 713,
     "name": "Avalugg",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "713__",
-        "pokemonId": 713,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 714,
@@ -28634,23 +24918,7 @@
     "name": "Xerneas",
     "gen": 6,
     "region": "Kalos",
-    "cards": [
-      {
-        "id": "716__",
-        "pokemonId": 716,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 717,
@@ -29028,23 +25296,7 @@
     "name": "Dartrix",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "723__",
-        "pokemonId": 723,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 724,
@@ -29122,23 +25374,7 @@
     "name": "Torracat",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "726__",
-        "pokemonId": 726,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 727,
@@ -29214,23 +25450,7 @@
     "name": "Brionne",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "729__",
-        "pokemonId": 729,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 730,
@@ -29263,92 +25483,28 @@
     "name": "Pikipek",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "731__",
-        "pokemonId": 731,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 732,
     "name": "Trumbeak",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "732__",
-        "pokemonId": 732,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 733,
     "name": "Toucannon",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "733__",
-        "pokemonId": 733,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 734,
     "name": "Yungoos",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "734__",
-        "pokemonId": 734,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 735,
@@ -29383,23 +25539,7 @@
     "name": "Grubbin",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "736__",
-        "pokemonId": 736,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 737,
@@ -29458,23 +25598,7 @@
     "name": "Crabrawler",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "739__",
-        "pokemonId": 739,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 740,
@@ -29741,23 +25865,7 @@
     "name": "Mareanie",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "747__",
-        "pokemonId": 747,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 748,
@@ -29790,23 +25898,7 @@
     "name": "Mudbray",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "749__",
-        "pokemonId": 749,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 750,
@@ -29841,69 +25933,21 @@
     "name": "Dewpider",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "751__",
-        "pokemonId": 751,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 752,
     "name": "Araquanid",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "752__",
-        "pokemonId": 752,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 753,
     "name": "Fomantis",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "753__",
-        "pokemonId": 753,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 754,
@@ -29936,23 +25980,7 @@
     "name": "Morelull",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "755__",
-        "pokemonId": 755,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 756,
@@ -29985,23 +26013,7 @@
     "name": "Salandit",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "757__",
-        "pokemonId": 757,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 758,
@@ -30086,46 +26098,14 @@
     "name": "Bounsweet",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "761__",
-        "pokemonId": 761,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 762,
     "name": "Steenee",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "762__",
-        "pokemonId": 762,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 763,
@@ -30363,46 +26343,14 @@
     "name": "Pyukumuku",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "771__",
-        "pokemonId": 771,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 772,
     "name": "Type Null",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "772__",
-        "pokemonId": 772,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 773,
@@ -30482,23 +26430,7 @@
     "name": "Komala",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "775__",
-        "pokemonId": 775,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 776,
@@ -30800,69 +26732,21 @@
     "name": "Jangmo-o",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "782__",
-        "pokemonId": 782,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 783,
     "name": "Hakamo-o",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "783__",
-        "pokemonId": 783,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 784,
     "name": "Kommo-o",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "784__",
-        "pokemonId": 784,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 785,
@@ -31003,69 +26887,21 @@
     "name": "Tapu Fini",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "788__",
-        "pokemonId": 788,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 789,
     "name": "Cosmog",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "789__",
-        "pokemonId": 789,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 790,
     "name": "Cosmoem",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "790__",
-        "pokemonId": 790,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 791,
@@ -31148,46 +26984,14 @@
     "name": "Nihilego",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "793__",
-        "pokemonId": 793,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 794,
     "name": "Buzzwole",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "794__",
-        "pokemonId": 794,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 795,
@@ -31244,92 +27048,28 @@
     "name": "Xurkitree",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "796__",
-        "pokemonId": 796,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 797,
     "name": "Celesteela",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "797__",
-        "pokemonId": 797,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 798,
     "name": "Kartana",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "798__",
-        "pokemonId": 798,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 799,
     "name": "Guzzlord",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "799__",
-        "pokemonId": 799,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 800,
@@ -31493,23 +27233,7 @@
     "name": "Poipole",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "803__",
-        "pokemonId": 803,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 804,
@@ -31517,21 +27241,6 @@
     "gen": 7,
     "region": "Alola",
     "cards": [
-      {
-        "id": "804__",
-        "pokemonId": 804,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      },
       {
         "id": "804_cec_224-236",
         "pokemonId": 804,
@@ -31586,23 +27295,7 @@
     "name": "Blacephalon",
     "gen": 7,
     "region": "Alola",
-    "cards": [
-      {
-        "id": "806__",
-        "pokemonId": 806,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 807,
@@ -31824,46 +27517,14 @@
     "name": "Grookey",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "810__",
-        "pokemonId": 810,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 811,
     "name": "Thwackey",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "811__",
-        "pokemonId": 811,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 812,
@@ -32103,46 +27764,14 @@
     "name": "Sobble",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "816__",
-        "pokemonId": 816,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 817,
     "name": "Drizzile",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "817__",
-        "pokemonId": 817,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 818,
@@ -32404,23 +28033,7 @@
     "name": "Corvisquire",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "822__",
-        "pokemonId": 822,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 823,
@@ -32489,23 +28102,7 @@
     "name": "Blipbug",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "824__",
-        "pokemonId": 824,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 825,
@@ -32621,23 +28218,7 @@
     "name": "Nickit",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "827__",
-        "pokemonId": 827,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 828,
@@ -32671,23 +28252,7 @@
     "name": "Gossifleur",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "829__",
-        "pokemonId": 829,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 830,
@@ -32747,46 +28312,14 @@
     "name": "Dubwool",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "832__",
-        "pokemonId": 832,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 833,
     "name": "Chewtle",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "833__",
-        "pokemonId": 833,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 834,
@@ -32947,46 +28480,14 @@
     "name": "Rolycoly",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "837__",
-        "pokemonId": 837,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 838,
     "name": "Carkol",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "838__",
-        "pokemonId": 838,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 839,
@@ -33135,23 +28636,7 @@
     "name": "Silicobra",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "843__",
-        "pokemonId": 843,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 844,
@@ -33288,69 +28773,21 @@
     "name": "Arrokuda",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "846__",
-        "pokemonId": 846,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 847,
     "name": "Barraskewda",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "847__",
-        "pokemonId": 847,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 848,
     "name": "Toxel",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "848__",
-        "pokemonId": 848,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 849,
@@ -33426,23 +28863,7 @@
     "name": "Sizzlipede",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "850__",
-        "pokemonId": 850,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 851,
@@ -33557,46 +28978,14 @@
     "name": "Grapploct",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "853__",
-        "pokemonId": 853,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 854,
     "name": "Sinistea",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "854__",
-        "pokemonId": 854,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 855,
@@ -33629,46 +29018,14 @@
     "name": "Hatenna",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "856__",
-        "pokemonId": 856,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 857,
     "name": "Hattrem",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "857__",
-        "pokemonId": 857,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 858,
@@ -33755,46 +29112,14 @@
     "name": "Impidimp",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "859__",
-        "pokemonId": 859,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 860,
     "name": "Morgrem",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "860__",
-        "pokemonId": 860,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 861,
@@ -33961,69 +29286,21 @@
     "name": "Sirfetchd",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "865__",
-        "pokemonId": 865,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 866,
     "name": "Mr Rime",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "866__",
-        "pokemonId": 866,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 867,
     "name": "Runerigus",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "867__",
-        "pokemonId": 867,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 868,
@@ -34224,23 +29501,7 @@
     "name": "Pincurchin",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "871__",
-        "pokemonId": 871,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 872,
@@ -34658,69 +29919,21 @@
     "name": "Arctozolt",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "881__",
-        "pokemonId": 881,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 882,
     "name": "Dracovish",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "882__",
-        "pokemonId": 882,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 883,
     "name": "Arctovish",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "883__",
-        "pokemonId": 883,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 884,
@@ -35188,23 +30401,7 @@
     "name": "Kubfu",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "891__",
-        "pokemonId": 891,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 892,
@@ -35569,46 +30766,14 @@
     "name": "Glastrier",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "896__",
-        "pokemonId": 896,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 897,
     "name": "Spectrier",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "897__",
-        "pokemonId": 897,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 898,
@@ -35938,23 +31103,7 @@
     "name": "Basculegion",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "902__",
-        "pokemonId": 902,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 903,
@@ -35989,23 +31138,7 @@
     "name": "Overqwil",
     "gen": 8,
     "region": "Galar",
-    "cards": [
-      {
-        "id": "904__",
-        "pokemonId": 904,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 905,
@@ -36396,23 +31529,7 @@
     "name": "Oinkologne",
     "gen": 9,
     "region": "Paldea",
-    "cards": [
-      {
-        "id": "916__",
-        "pokemonId": 916,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 917,
@@ -36521,23 +31638,7 @@
     "name": "Lokix",
     "gen": 9,
     "region": "Paldea",
-    "cards": [
-      {
-        "id": "920__",
-        "pokemonId": 920,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 921,
@@ -36593,23 +31694,7 @@
     "name": "Pawmo",
     "gen": 9,
     "region": "Paldea",
-    "cards": [
-      {
-        "id": "922__",
-        "pokemonId": 922,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 923,
@@ -36664,23 +31749,7 @@
     "name": "Tandemaus",
     "gen": 9,
     "region": "Paldea",
-    "cards": [
-      {
-        "id": "924__",
-        "pokemonId": 924,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 925,
@@ -36783,23 +31852,7 @@
     "name": "Smoliv",
     "gen": 9,
     "region": "Paldea",
-    "cards": [
-      {
-        "id": "928__",
-        "pokemonId": 928,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 929,
@@ -36833,23 +31886,7 @@
     "name": "Arboliva",
     "gen": 9,
     "region": "Paldea",
-    "cards": [
-      {
-        "id": "930__",
-        "pokemonId": 930,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 931,
@@ -36910,23 +31947,7 @@
     "name": "Naclstack",
     "gen": 9,
     "region": "Paldea",
-    "cards": [
-      {
-        "id": "933__",
-        "pokemonId": 933,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 934,
@@ -37266,23 +32287,7 @@
     "name": "Maschiff",
     "gen": 9,
     "region": "Paldea",
-    "cards": [
-      {
-        "id": "942__",
-        "pokemonId": 942,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 943,
@@ -37451,23 +32456,7 @@
     "name": "Brambleghast",
     "gen": 9,
     "region": "Paldea",
-    "cards": [
-      {
-        "id": "947__",
-        "pokemonId": 947,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 948,
@@ -37554,23 +32543,7 @@
     "name": "Capsakid",
     "gen": 9,
     "region": "Paldea",
-    "cards": [
-      {
-        "id": "951__",
-        "pokemonId": 951,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 952,
@@ -37603,23 +32576,7 @@
     "name": "Rellor",
     "gen": 9,
     "region": "Paldea",
-    "cards": [
-      {
-        "id": "953__",
-        "pokemonId": 953,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 954,
@@ -37652,23 +32609,7 @@
     "name": "Flittle",
     "gen": 9,
     "region": "Paldea",
-    "cards": [
-      {
-        "id": "955__",
-        "pokemonId": 955,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 956,
@@ -37870,23 +32811,7 @@
     "name": "Finizen",
     "gen": 9,
     "region": "Paldea",
-    "cards": [
-      {
-        "id": "963__",
-        "pokemonId": 963,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 964,
@@ -38086,23 +33011,7 @@
     "name": "Glimmet",
     "gen": 9,
     "region": "Paldea",
-    "cards": [
-      {
-        "id": "969__",
-        "pokemonId": 969,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 970,
@@ -38239,23 +33148,7 @@
     "name": "Cetoddle",
     "gen": 9,
     "region": "Paldea",
-    "cards": [
-      {
-        "id": "974__",
-        "pokemonId": 974,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 975,
@@ -40084,206 +34977,62 @@
     "name": "Browt",
     "gen": 10,
     "region": "Winds",
-    "cards": [
-      {
-        "id": "1026__",
-        "pokemonId": 1026,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 1027,
     "name": "Browt 2",
     "gen": 10,
     "region": "Winds",
-    "cards": [
-      {
-        "id": "1027__",
-        "pokemonId": 1027,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 1028,
     "name": "Browt 3",
     "gen": 10,
     "region": "Winds",
-    "cards": [
-      {
-        "id": "1028__",
-        "pokemonId": 1028,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 1029,
     "name": "Pombon",
     "gen": 10,
     "region": "Winds",
-    "cards": [
-      {
-        "id": "1029__",
-        "pokemonId": 1029,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 1030,
     "name": "Pombon 2",
     "gen": 10,
     "region": "Winds",
-    "cards": [
-      {
-        "id": "1030__",
-        "pokemonId": 1030,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 1031,
     "name": "Pombon 3",
     "gen": 10,
     "region": "Winds",
-    "cards": [
-      {
-        "id": "1031__",
-        "pokemonId": 1031,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 1032,
     "name": "Gecqua",
     "gen": 10,
     "region": "Winds",
-    "cards": [
-      {
-        "id": "1032__",
-        "pokemonId": 1032,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 1033,
     "name": "Gecqua 2",
     "gen": 10,
     "region": "Winds",
-    "cards": [
-      {
-        "id": "1033__",
-        "pokemonId": 1033,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 1034,
     "name": "Gecqua 3",
     "gen": 10,
     "region": "Winds",
-    "cards": [
-      {
-        "id": "1034__",
-        "pokemonId": 1034,
-        "setCode": null,
-        "jpSetCode": null,
-        "cnSetCode": null,
-        "setNumber": null,
-        "artist": null,
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": null,
-        "availableLangs": [],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   }
 ]
