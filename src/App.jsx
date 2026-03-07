@@ -651,6 +651,10 @@ export default function App() {
         card.id === cardId ? { ...card, nonConforming: newValue } : card
       )
     })));
+    setSelectedPokemon(prev => prev && prev.id === pokemonId ? ({
+      ...prev,
+      cards: prev.cards.map(card => card.id === cardId ? { ...card, nonConforming: newValue } : card)
+    }) : prev);
     saveNonConforming(cardId, newValue);
   };
 
@@ -662,6 +666,10 @@ export default function App() {
         card.id === cardId ? { ...card, favorite: newValue } : card
       )
     })));
+    setSelectedPokemon(prev => prev ? ({
+      ...prev,
+      cards: prev.cards.map(card => card.id === cardId ? { ...card, favorite: newValue } : card)
+    }) : prev);
     saveFavorite(cardId, newValue);
   };
 
@@ -673,6 +681,10 @@ export default function App() {
         card.id === cardId ? { ...card, unobtainable: newValue } : card
       )
     })));
+    setSelectedPokemon(prev => prev ? ({
+      ...prev,
+      cards: prev.cards.map(card => card.id === cardId ? { ...card, unobtainable: newValue } : card)
+    }) : prev);
     saveUnobtainable(cardId, newValue);
   };
 
