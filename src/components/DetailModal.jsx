@@ -92,9 +92,6 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
                 <div className="px-6 py-4 flex items-center justify-between">
                   {/* Left: nav + info */}
                   <div className="flex items-center gap-2">
-                    <button onClick={onClose} className="p-1.5 hover:bg-gray-100 rounded-lg transition-colors text-gray-500" title="Close">
-                      <ChevronLeft className="w-5 h-5" />
-                    </button>
                     <div className="flex items-center gap-1 border border-gray-200 rounded-lg overflow-hidden">
                       <button
                         onClick={onNavigatePrev}
@@ -171,7 +168,7 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
           </div>
           
           {/* Cards Grid - scrollable independently so header stays fixed */}
-          <div ref={scrollRef} className="p-6 overflow-y-auto flex-1">
+          <div ref={scrollRef} className="p-4 overflow-y-auto flex-1">
             {(() => {
               const hasRealCards = primaryCards.some(c => c.setCode || c.jpSetCode || c.cnSetCode);
               return !hasRealCards;
@@ -183,7 +180,7 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
                 {secondaryCards.length > 0 && (
                   <div className="w-full">
                     <p className="text-xs font-semibold text-purple-500 uppercase tracking-wider mb-3">Featured in {secondaryCards.length} other card{secondaryCards.length > 1 ? 's' : ''}</p>
-                    <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                    <div className="grid grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2">
                       {secondaryCards.map(card => (
                         <CardTile
                           key={card.id}
@@ -203,7 +200,7 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
                 )}
               </div>
             ) : (
-              <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+              <div className="grid grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2">
                 {pokemon.cards.map(card => (
                   <CardTile
                     key={card.id}
