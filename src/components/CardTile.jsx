@@ -112,8 +112,10 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   React.useEffect(() => {
     if (!inView) return;
     if (imageCache[cacheKey]) {
-      setImageSrc(imageCache[cacheKey].src);
-      setImageLoaded(!!imageCache[cacheKey].src);
+      const cached = imageCache[cacheKey];
+      setImageSrc(cached.src);
+      setImageLoaded(!!cached.src);
+      if (card._filterMissingImages && cached.src) setShouldHide(true);
       return;
     }
     let mounted = true;
@@ -136,11 +138,14 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
         if (mounted) {
           setImageSrc(successfulSrc);
           setImageLoaded(true);
-          if (card._filterMissingImages) setShouldHide(true);
+          if (card._filterMissingImages) setShouldHide(true); // has image = hide when filter is "show missing only"
         }
       } catch (e) {
         imageCache[cacheKey] = { src: null };
-        if (mounted) setImageLoaded(false);
+        if (mounted) {
+          setImageLoaded(false);
+          // Image missing — if filter is active, SHOW this card (don't hide it)
+        }
       }
     };
     tryLoadImage();

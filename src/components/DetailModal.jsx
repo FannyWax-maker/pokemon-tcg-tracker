@@ -74,65 +74,98 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
         className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-40 p-4 overflow-y-auto"
         onClick={handleBackdropClick}
       >
-        <div className="bg-white rounded-3xl shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="bg-white rounded-3xl shadow-2xl w-full max-h-[90vh] overflow-y-auto" style={{maxWidth: '80rem'}}>
           {/* Header */}
-          <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between z-10">
-            <div className="flex items-center gap-3">
-              <button
-                onClick={onClose}
-                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                onClick={onNavigatePrev}
-                disabled={!hasPrev}
-                className={`p-2 rounded-lg transition-colors font-bold text-lg ${hasPrev ? 'hover:bg-gray-100 text-gray-700' : 'text-gray-300 cursor-not-allowed'}`}
-                title="Previous Pokémon (←)"
-              >‹</button>
-              <button
-                onClick={onNavigateNext}
-                disabled={!hasNext}
-                className={`p-2 rounded-lg transition-colors font-bold text-lg ${hasNext ? 'hover:bg-gray-100 text-gray-700' : 'text-gray-300 cursor-not-allowed'}`}
-                title="Next Pokémon (→)"
-              >›</button>
-              <div>
-                <div className="flex items-center gap-3">
-                  <span className="text-sm text-gray-500">#{String(pokemon.id).padStart(4, '0')} · Gen {pokemon.gen}</span>
+          <div className="sticky top-0 z-10 rounded-t-3xl overflow-hidden">
+            {/* Gradient banner */}
+            <div style={{
+              background: ownedCards === totalCards && totalCards > 0
+                ? 'linear-gradient(135deg, #065f46 0%, #059669 50%, #34d399 100%)'
+                : ownedCards > 0
+                  ? 'linear-gradient(135deg, #92400e 0%, #d97706 50%, #fbbf24 100%)'
+                  : 'linear-gradient(135deg, #1e1b4b 0%, #3730a3 50%, #6366f1 100%)',
+              padding: '1px'
+            }}>
+              <div style={{background: 'rgba(255,255,255,0.97)', borderRadius: '0.75rem 0.75rem 0 0'}}>
+                <div className="px-6 py-4 flex items-center justify-between">
+                  {/* Left: nav + info */}
                   <div className="flex items-center gap-2">
-                  <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
-                    ownedCards === totalCards && totalCards > 0
-                      ? 'bg-emerald-100 text-emerald-700'
-                      : ownedCards > 0
-                        ? 'bg-amber-100 text-amber-700'
-                        : 'bg-gray-100 text-gray-500'
-                  }`}>
-                    {ownedCards === totalCards && totalCards > 0 ? '✓ Complete' : `${ownedCards} / ${totalCards}`}
-                  </span>
-                  {secondaryCards.length > 0 && (
-                    <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-purple-100 text-purple-700">
-                      ref {ownedSecondary}/{secondaryCards.length}
-                    </span>
-                  )}
+                    <button onClick={onClose} className="p-1.5 hover:bg-gray-100 rounded-lg transition-colors text-gray-500" title="Close">
+                      <ChevronLeft className="w-5 h-5" />
+                    </button>
+                    <div className="flex items-center gap-1 border border-gray-200 rounded-lg overflow-hidden">
+                      <button
+                        onClick={onNavigatePrev}
+                        disabled={!hasPrev}
+                        className={`px-2.5 py-1.5 text-base font-bold transition-colors ${hasPrev ? 'hover:bg-gray-100 text-gray-700' : 'text-gray-300 cursor-not-allowed'}`}
+                        title="Previous (←)"
+                      >‹</button>
+                      <span className="text-gray-300 text-sm">|</span>
+                      <button
+                        onClick={onNavigateNext}
+                        disabled={!hasNext}
+                        className={`px-2.5 py-1.5 text-base font-bold transition-colors ${hasNext ? 'hover:bg-gray-100 text-gray-700' : 'text-gray-300 cursor-not-allowed'}`}
+                        title="Next (→)"
+                      >›</button>
+                    </div>
+                    <div className="ml-2">
+                      <div className="flex items-center gap-2 mb-0.5">
+                        <span className="text-xs font-mono text-gray-400 tracking-widest">#{String(pokemon.id).padStart(4, '0')}</span>
+                        <span className="text-xs text-gray-300">·</span>
+                        <span className="text-xs text-gray-400">Gen {pokemon.gen}</span>
+                        <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
+                          ownedCards === totalCards && totalCards > 0
+                            ? 'bg-emerald-100 text-emerald-700'
+                            : ownedCards > 0
+                              ? 'bg-amber-100 text-amber-700'
+                              : 'bg-gray-100 text-gray-500'
+                        }`}>
+                          {ownedCards === totalCards && totalCards > 0 ? '★ Complete' : `${ownedCards} / ${totalCards}`}
+                        </span>
+                        {secondaryCards.length > 0 && (
+                          <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-purple-100 text-purple-700">
+                            ref {ownedSecondary}/{secondaryCards.length}
+                          </span>
+                        )}
+                      </div>
+                      <h2 className="text-2xl font-black text-gray-900 leading-tight tracking-tight">{pokemon.name}</h2>
+                    </div>
+                  </div>
+                  {/* Right: progress + close */}
+                  <div className="flex items-center gap-4">
+                    <div className="text-right hidden sm:block">
+                      <div className="text-xs text-gray-400 mb-1">Collection progress</div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-32 h-2 bg-gray-100 rounded-full overflow-hidden">
+                          <div
+                            className={`h-full rounded-full transition-all duration-700 ${ownedCards === totalCards && totalCards > 0 ? 'bg-emerald-500' : 'bg-amber-400'}`}
+                            style={{ width: `${totalCards > 0 ? (ownedCards / totalCards) * 100 : 0}%` }}
+                          />
+                        </div>
+                        <span className="text-xs font-bold text-gray-500">
+                          {totalCards > 0 ? Math.round((ownedCards / totalCards) * 100) : 0}%
+                        </span>
+                      </div>
+                    </div>
+                    <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-lg transition-colors text-gray-400 hover:text-gray-700">
+                      <X className="w-5 h-5" />
+                    </button>
                   </div>
                 </div>
-                <h2 className="text-2xl font-bold text-gray-900">{pokemon.name}</h2>
               </div>
             </div>
-            <button
-              onClick={onClose}
-              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-            >
-              <X className="w-6 h-6" />
-            </button>
-          </div>
-
-          {/* Progress Bar */}
-          <div className="w-full bg-gray-200 h-1.5 overflow-hidden">
-            <div
-              className={`h-full transition-all duration-500 ${ownedCards === totalCards && totalCards > 0 ? 'bg-emerald-500' : 'bg-amber-400'}`}
-              style={{ width: `${totalCards > 0 ? (ownedCards / totalCards) * 100 : 0}%` }}
-            />
+            {/* Coloured progress strip */}
+            <div className="w-full h-1" style={{background: '#e5e7eb'}}>
+              <div
+                className="h-full transition-all duration-700"
+                style={{
+                  width: `${totalCards > 0 ? (ownedCards / totalCards) * 100 : 0}%`,
+                  background: ownedCards === totalCards && totalCards > 0
+                    ? 'linear-gradient(90deg, #059669, #34d399)'
+                    : 'linear-gradient(90deg, #d97706, #fbbf24)'
+                }}
+              />
+            </div>
           </div>
           
           {/* Cards Grid */}
