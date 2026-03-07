@@ -621,7 +621,7 @@ export default function App() {
     
     
     console.log('âœ… Card updated and saved to browser');
-  };
+  });
   
   const handleUpdateCard = requireUnlock((pokemonId, cardId, language) => {
     setPokemonData(prev => prev.map(pokemon => {
@@ -644,7 +644,7 @@ export default function App() {
       }));
     }
     saveOwnership(cardId, language);
-  };
+  });
   
   const handleCardOwnershipClick = requireUnlock((card) => {
     if (card._directLang) {
@@ -657,14 +657,14 @@ export default function App() {
     } else {
       setLanguagePickerCard(card);
     }
-  };
+  });
   
   const handleLanguageConfirm = requireUnlock((language) => {
     if (languagePickerCard) {
       handleUpdateCard(languagePickerCard.pokemonId, languagePickerCard.id, language);
       setLanguagePickerCard(null);
     }
-  };
+  });
   
   const saveUnobtainable = async (cardId, isUnobtainable) => {
     const url = `${APPS_SCRIPT_URL}?action=setUnobtainable&cardId=${encodeURIComponent(cardId)}&unobtainable=${isUnobtainable ? 'true' : ''}`;
@@ -684,7 +684,7 @@ export default function App() {
       cards: prev.cards.map(card => card.id === cardId ? { ...card, nonConforming: newValue } : card)
     }) : prev);
     saveNonConforming(cardId, newValue);
-  };
+  });
 
   const handleToggleFavorite = requireUnlock((cardId, currentValue) => {
     const newValue = !currentValue;
@@ -699,7 +699,7 @@ export default function App() {
       cards: prev.cards.map(card => card.id === cardId ? { ...card, favorite: newValue } : card)
     }) : prev);
     saveFavorite(cardId, newValue);
-  };
+  });
 
   const handleToggleUnobtainable = requireUnlock((cardId, currentValue) => {
     const newValue = !currentValue;
@@ -714,7 +714,7 @@ export default function App() {
       cards: prev.cards.map(card => card.id === cardId ? { ...card, unobtainable: newValue } : card)
     }) : prev);
     saveUnobtainable(cardId, newValue);
-  };
+  });
 
   const clearFilters = () => {
     setFilterExclusive('all');
