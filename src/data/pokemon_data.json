@@ -4776,6 +4776,24 @@
         ],
         "isPrimary": true,
         "isSecondary": false
+      },
+      {
+        "id": "128_cri_",
+        "pokemonId": 128,
+        "setCode": "CRI",
+        "jpSetCode": "m4",
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": null,
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
       }
     ]
   },
@@ -7467,6 +7485,24 @@
           "EN",
           "JP",
           "CN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "181_cri_",
+        "pokemonId": 181,
+        "setCode": "CRI",
+        "jpSetCode": "m4",
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": null,
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -24507,6 +24543,24 @@
         "setNumber": "SWSH134",
         "artist": "Ryuta Fuse",
         "cardName": "Dark Sylveon V",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "700_sfa_094-064",
+        "pokemonId": 700,
+        "setCode": "SFA",
+        "jpSetCode": "SV6a",
+        "cnSetCode": null,
+        "setNumber": "094/064",
+        "artist": "burari",
+        "cardName": "Trainer, Cassiopeia",
         "exclusive": null,
         "otherPokemon": null,
         "availableLangs": [
