@@ -72,10 +72,11 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
   return (
     <>
       <div 
-        className="fixed inset-0 bg-black/70 backdrop-blur-md z-40 flex items-start justify-center" style={{padding: '2rem', overflowY: 'auto'}}
+        className="fixed inset-0 bg-black/70 backdrop-blur-md z-40 flex items-center justify-center"
+        style={{padding: '1.5rem'}}
         onClick={handleBackdropClick}
       >
-        <div className="bg-white rounded-3xl shadow-2xl w-full mx-auto flex flex-col" style={{maxWidth: '80rem', maxHeight: '90vh', minHeight: '200px'}}>
+        <div className="bg-white rounded-3xl shadow-2xl w-full mx-auto flex flex-col" style={{maxWidth: '80rem', height: '88vh'}}>
           {/* Header */}
           <div className="sticky top-0 z-10 rounded-t-3xl overflow-hidden">
             {/* Gradient banner */}
@@ -171,7 +172,10 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
           
           {/* Cards Grid - scrollable independently so header stays fixed */}
           <div ref={scrollRef} className="p-6 overflow-y-auto flex-1">
-            {primaryCards.length === 0 ? (
+            {(() => {
+              const hasRealCards = primaryCards.some(c => c.setCode || c.jpSetCode || c.cnSetCode);
+              return !hasRealCards;
+            })() ? (
               <div className="flex flex-col items-center justify-center py-16 text-center">
                 <div style={{fontSize: '4rem', marginBottom: '1rem', filter: 'grayscale(1) opacity(0.4)'}}>🃏</div>
                 <h3 className="text-xl font-bold text-gray-400 mb-2">No cards released yet</h3>

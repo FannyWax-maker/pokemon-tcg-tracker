@@ -231,7 +231,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           className="relative overflow-hidden flex items-center justify-center cursor-pointer"
           style={{
             background: 'linear-gradient(135deg, #E5E5E5 0%, #CCCCCC 100%)',
-            aspectRatio: '2.5/3.5'
+            aspectRatio: '2.5/3.0'
           }}
           onClick={() => imageLoaded && setShowZoom(true)}
         >
