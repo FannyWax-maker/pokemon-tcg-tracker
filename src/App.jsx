@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
-import { Search, Filter, Grid, List, Moon, Sun } from 'lucide-react';
+import { Search, Filter, Grid, List, Moon, Sun, Lock, Unlock } from 'lucide-react';
 import PokemonCard from './components/PokemonCard';
 import CardTile from './components/CardTile';
 import DetailModal from './components/DetailModal';
@@ -59,6 +59,34 @@ export default function App() {
   const [syncStatus, setSyncStatus] = useState('');
   const [tileSize, setTileSize] = useState('M'); // 'S', 'M', 'L'
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
+  const [isUnlocked, setIsUnlocked] = useState(false);
+  const [showLockModal, setShowLockModal] = useState(false);
+  const [lockInput, setLockInput] = useState('');
+  const [lockError, setLockError] = useState(false);
+
+  const PASSWORD_HASH = '7a19d28db440fefe6d9ffb4620db4e568c13bac3bf956b5a90884501d6681739';
+
+  const hashString = async (str) => {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+  };
+
+  const handleUnlockAttempt = async () => {
+    const hash = await hashString(lockInput);
+    if (hash === PASSWORD_HASH) {
+      setIsUnlocked(true);
+      setShowLockModal(false);
+      setLockInput('');
+      setLockError(false);
+    } else {
+      setLockError(true);
+    }
+  };
+
+  const requireUnlock = (fn) => (...args) => {
+    if (!isUnlocked) { setShowLockModal(true); return; }
+    return fn(...args);
+  };
   
   const setNames = setNamesImport;
 
@@ -576,7 +604,7 @@ export default function App() {
   }, [filteredData, filterChinese, filterExclusive, filterSet, filterCardType, sortBy, filterOwned, filterArtist, filterUnobtainable, filterMissingImages, filterSetLang]);
   
   // INLINE EDIT - Update card directly
-  const handleInlineUpdateCard = (pokemonId, cardId, updates) => {
+  const handleInlineUpdateCard = requireUnlock((pokemonId, cardId, updates) => {
     const updatedData = pokemonData.map(pokemon => {
       if (pokemon.id === pokemonId) {
         return {
@@ -595,7 +623,7 @@ export default function App() {
     console.log('âœ… Card updated and saved to browser');
   };
   
-  const handleUpdateCard = (pokemonId, cardId, language) => {
+  const handleUpdateCard = requireUnlock((pokemonId, cardId, language) => {
     setPokemonData(prev => prev.map(pokemon => {
       if (pokemon.id === pokemonId) {
         return {
@@ -618,7 +646,7 @@ export default function App() {
     saveOwnership(cardId, language);
   };
   
-  const handleCardOwnershipClick = (card) => {
+  const handleCardOwnershipClick = requireUnlock((card) => {
     if (card._directLang) {
       handleUpdateCard(card.pokemonId, card.id, card._directLang);
     } else if (card._action === 'unmark') {
@@ -631,7 +659,7 @@ export default function App() {
     }
   };
   
-  const handleLanguageConfirm = (language) => {
+  const handleLanguageConfirm = requireUnlock((language) => {
     if (languagePickerCard) {
       handleUpdateCard(languagePickerCard.pokemonId, languagePickerCard.id, language);
       setLanguagePickerCard(null);
@@ -643,7 +671,7 @@ export default function App() {
     try { await fetch(url); } catch(e) { console.warn('Could not save unobtainable'); }
   };
 
-  const handleToggleNonConforming = (pokemonId, cardId, currentValue) => {
+  const handleToggleNonConforming = requireUnlock((pokemonId, cardId, currentValue) => {
     const newValue = !currentValue;
     setPokemonData(prev => prev.map(pokemon => ({
       ...pokemon,
@@ -658,7 +686,7 @@ export default function App() {
     saveNonConforming(cardId, newValue);
   };
 
-  const handleToggleFavorite = (cardId, currentValue) => {
+  const handleToggleFavorite = requireUnlock((cardId, currentValue) => {
     const newValue = !currentValue;
     setPokemonData(prev => prev.map(pokemon => ({
       ...pokemon,
@@ -673,7 +701,7 @@ export default function App() {
     saveFavorite(cardId, newValue);
   };
 
-  const handleToggleUnobtainable = (cardId, currentValue) => {
+  const handleToggleUnobtainable = requireUnlock((cardId, currentValue) => {
     const newValue = !currentValue;
     setPokemonData(prev => prev.map(pokemon => ({
       ...pokemon,
@@ -832,6 +860,11 @@ export default function App() {
             )}
             <button onClick={() => setDarkMode(!darkMode)} className={`p-1.5 rounded-lg transition-colors shrink-0 ${darkMode ? 'bg-gray-700 text-yellow-300 hover:bg-gray-600' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
               {darkMode ? <Sun className="w-3.5 h-3.5" /> : <Moon className="w-3.5 h-3.5" />}
+            </button>
+            <button onClick={() => isUnlocked ? setIsUnlocked(false) : setShowLockModal(true)}
+              title={isUnlocked ? 'Lock collection' : 'Unlock to edit'}
+              className={`p-1.5 rounded-lg transition-colors shrink-0 ${isUnlocked ? 'bg-emerald-100 text-emerald-600 hover:bg-emerald-200' : darkMode ? 'bg-gray-700 text-gray-400 hover:bg-gray-600' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>
+              {isUnlocked ? <Unlock className="w-3.5 h-3.5" /> : <Lock className="w-3.5 h-3.5" />}
             </button>
             <button onClick={() => setShowFilters(!showFilters)}
               className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-bold transition-colors shrink-0 ${hasActiveFilters ? 'text-white' : darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
@@ -1220,6 +1253,34 @@ export default function App() {
           onConfirm={handleLanguageConfirm}
           onCancel={() => setLanguagePickerCard(null)}
         />
+      )}
+
+      {showLockModal && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center" onClick={(e) => { if (e.target === e.currentTarget) { setShowLockModal(false); setLockInput(''); setLockError(false); }}}>
+          <div className="bg-white rounded-2xl shadow-2xl p-6 w-80 flex flex-col gap-4">
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-emerald-100 rounded-xl"><Lock className="w-5 h-5 text-emerald-600" /></div>
+              <div>
+                <h3 className="font-black text-gray-900 text-base">Unlock Collection</h3>
+                <p className="text-xs text-gray-400">Enter password to enable editing</p>
+              </div>
+            </div>
+            <input
+              type="password"
+              autoFocus
+              value={lockInput}
+              onChange={(e) => { setLockInput(e.target.value); setLockError(false); }}
+              onKeyDown={(e) => { if (e.key === 'Enter') handleUnlockAttempt(); if (e.key === 'Escape') { setShowLockModal(false); setLockInput(''); setLockError(false); }}}
+              placeholder="Password"
+              className={`w-full border rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 ${lockError ? 'border-red-400 focus:ring-red-300' : 'border-gray-200 focus:ring-emerald-400'}`}
+            />
+            {lockError && <p className="text-xs text-red-500 -mt-2">Incorrect password</p>}
+            <div className="flex gap-2">
+              <button onClick={() => { setShowLockModal(false); setLockInput(''); setLockError(false); }} className="flex-1 px-3 py-2 rounded-xl border border-gray-200 text-sm text-gray-600 hover:bg-gray-50 font-semibold">Cancel</button>
+              <button onClick={handleUnlockAttempt} className="flex-1 px-3 py-2 rounded-xl bg-emerald-500 text-white text-sm font-bold hover:bg-emerald-600 transition-colors">Unlock</button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
