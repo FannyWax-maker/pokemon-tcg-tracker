@@ -37,6 +37,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const [zoomScale, setZoomScale] = React.useState(2.5);
   const [mousePos, setMousePos] = React.useState({ x: 0, y: 0 });
   const [imgRect, setImgRect] = React.useState(null);
+  const [overImage, setOverImage] = React.useState(false);
   const zoomImgRef = React.useRef(null);
   const LOUPE_SIZE = 180;
 
@@ -484,7 +485,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
       {showZoom && (
         <div
           className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
-          style={{ cursor: 'none' }}
+          style={{ cursor: overImage ? 'none' : 'default' }}
           onClick={() => { setShowZoom(false); setZoomScale(2.5); }}
           onMouseMove={handleZoomMouseMove}
           onWheel={handleZoomWheel}
@@ -496,6 +497,9 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
               src={imageSrc}
               alt={`${pokemonName} ${card.cardName}`}
               className="w-full h-auto object-contain rounded-lg"
+              style={{ cursor: 'none' }}
+              onMouseEnter={() => setOverImage(true)}
+              onMouseLeave={() => setOverImage(false)}
               onLoad={() => { if (zoomImgRef.current) setImgRect(zoomImgRef.current.getBoundingClientRect()); }}
             />
             <button
@@ -510,7 +514,8 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             </button>
           </div>
 
-          {/* Loupe — follows mouse */}
+          {/* Loupe — follows mouse, only when over image */}
+          {overImage && (
           <div
             style={{
               position: 'fixed',
@@ -532,6 +537,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
               <div style={{ position: 'absolute', width: 20, height: 1, background: 'rgba(255,255,255,0.5)' }} />
             </div>
           </div>
+          )}
 
           {/* Scroll hint */}
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/50 text-xs pointer-events-none">
