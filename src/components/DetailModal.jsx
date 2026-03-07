@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { X, ChevronLeft } from 'lucide-react';
 import CardTile from './CardTile';
 import LanguagePicker from './LanguagePicker';
@@ -10,8 +10,18 @@ const LANGUAGES = {
   KR: 'Korean'
 };
 
-export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNonConforming, onNavigateToPokemon, darkMode }) {
+export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onNavigateToPokemon, onNavigatePrev, onNavigateNext, hasPrev, hasNext, darkMode }) {
   const [languagePickerCard, setLanguagePickerCard] = useState(null);
+  
+  useEffect(() => {
+    const handler = (e) => {
+      if (e.key === 'ArrowLeft' && hasPrev) onNavigatePrev && onNavigatePrev();
+      if (e.key === 'ArrowRight' && hasNext) onNavigateNext && onNavigateNext();
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [hasPrev, hasNext, onNavigatePrev, onNavigateNext, onClose]);
   
   const primaryCards = pokemon.cards.filter(c => !c.isSecondary && c.isPrimary !== false);
   // Dedupe secondary cards by id (data sometimes has duplicates)
@@ -74,6 +84,18 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
+              <button
+                onClick={onNavigatePrev}
+                disabled={!hasPrev}
+                className={`p-2 rounded-lg transition-colors font-bold text-lg ${hasPrev ? 'hover:bg-gray-100 text-gray-700' : 'text-gray-300 cursor-not-allowed'}`}
+                title="Previous Pokémon (←)"
+              >‹</button>
+              <button
+                onClick={onNavigateNext}
+                disabled={!hasNext}
+                className={`p-2 rounded-lg transition-colors font-bold text-lg ${hasNext ? 'hover:bg-gray-100 text-gray-700' : 'text-gray-300 cursor-not-allowed'}`}
+                title="Next Pokémon (→)"
+              >›</button>
               <div>
                 <div className="flex items-center gap-3">
                   <span className="text-sm text-gray-500">#{String(pokemon.id).padStart(4, '0')} · Gen {pokemon.gen}</span>
@@ -123,7 +145,10 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
                   pokemonName={pokemon.name}
                   onOwnershipClick={handleOwnershipClick}
                   onToggleNonConforming={(pokemonId, cardId, current) => onToggleNonConforming && onToggleNonConforming(pokemon.id, cardId, current)}
+                  onToggleFavorite={onToggleFavorite}
+                  onToggleUnobtainable={onToggleUnobtainable}
                   onNavigateToPokemon={onNavigateToPokemon}
+                  showOwnershipButtons={true}
                 />
               ))}
             </div>
