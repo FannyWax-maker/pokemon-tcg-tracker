@@ -152,6 +152,19 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     return () => { mounted = false; };
   }, [inView, cacheKey]);
 
+  // Re-evaluate hide when filter flag changes
+  React.useEffect(() => {
+    if (!card._filterMissingImages) {
+      setShouldHide(false);
+      return;
+    }
+    // Filter is active: hide cards that HAVE an image (we want to show only MISSING)
+    if (imageCache[cacheKey] !== undefined) {
+      setShouldHide(!!imageCache[cacheKey].src);
+    }
+    // If not yet loaded, don't hide yet (will be set when image loads)
+  }, [card._filterMissingImages, cacheKey]);
+
   if (shouldHide) return null;
 
   return (

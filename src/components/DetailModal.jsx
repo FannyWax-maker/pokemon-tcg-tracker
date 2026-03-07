@@ -71,10 +71,10 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
   return (
     <>
       <div 
-        className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-40 p-4 overflow-y-auto"
+        className="fixed inset-0 bg-black/70 backdrop-blur-md z-40 overflow-y-auto" style={{paddingTop: '2rem', paddingBottom: '2rem'}}
         onClick={handleBackdropClick}
       >
-        <div className="bg-white rounded-3xl shadow-2xl w-full max-h-[90vh] overflow-y-auto" style={{maxWidth: '80rem'}}>
+        <div className="bg-white rounded-3xl shadow-2xl w-full mx-auto" style={{maxWidth: '80rem'}}>
           {/* Header */}
           <div className="sticky top-0 z-10 rounded-t-3xl overflow-hidden">
             {/* Gradient banner */}
@@ -170,21 +170,29 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
           
           {/* Cards Grid */}
           <div className="p-6">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {pokemon.cards.map(card => (
-                <CardTile
-                  key={card.id}
-                  card={card}
-                  pokemonName={pokemon.name}
-                  onOwnershipClick={handleOwnershipClick}
-                  onToggleNonConforming={(pokemonId, cardId, current) => onToggleNonConforming && onToggleNonConforming(pokemon.id, cardId, current)}
-                  onToggleFavorite={onToggleFavorite}
-                  onToggleUnobtainable={onToggleUnobtainable}
-                  onNavigateToPokemon={onNavigateToPokemon}
-                  showOwnershipButtons={true}
-                />
-              ))}
-            </div>
+            {pokemon.cards.length === 0 ? (
+              <div className="flex flex-col items-center justify-center py-16 text-center">
+                <div style={{fontSize: '4rem', marginBottom: '1rem', filter: 'grayscale(1) opacity(0.4)'}}>🃏</div>
+                <h3 className="text-xl font-bold text-gray-400 mb-2">No cards released yet</h3>
+                <p className="text-sm text-gray-400 max-w-xs">This Pokémon hasn't appeared on any TCG cards in the tracked sets.</p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {pokemon.cards.map(card => (
+                  <CardTile
+                    key={card.id}
+                    card={card}
+                    pokemonName={pokemon.name}
+                    onOwnershipClick={handleOwnershipClick}
+                    onToggleNonConforming={(pokemonId, cardId, current) => onToggleNonConforming && onToggleNonConforming(pokemon.id, cardId, current)}
+                    onToggleFavorite={onToggleFavorite}
+                    onToggleUnobtainable={onToggleUnobtainable}
+                    onNavigateToPokemon={onNavigateToPokemon}
+                    showOwnershipButtons={true}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
