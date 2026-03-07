@@ -910,5 +910,13 @@
   "WCS23": {
     "name": "Pokemon Japanese World Championships",
     "year": null
+  },
+  "CRI": {
+    "name": "Chaos Rising",
+    "year": 2026
+  },
+  "m4": {
+    "name": "Ninja Spinner",
+    "year": null
   }
 }
