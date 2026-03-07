@@ -176,13 +176,34 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
               const hasRealCards = primaryCards.some(c => c.setCode || c.jpSetCode || c.cnSetCode);
               return !hasRealCards;
             })() ? (
-              <div className="flex flex-col items-center justify-center py-16 text-center">
-                <div style={{fontSize: '4rem', marginBottom: '1rem', filter: 'grayscale(1) opacity(0.4)'}}>🃏</div>
-                <h3 className="text-xl font-bold text-gray-400 mb-2">No cards released yet</h3>
-                <p className="text-sm text-gray-400 max-w-xs">This Pokémon hasn't appeared on any TCG cards in the tracked sets.</p>
+              <div className="flex flex-col items-center justify-center py-10 text-center">
+                <div style={{fontSize: '3rem', marginBottom: '0.75rem', filter: 'grayscale(1) opacity(0.35)'}}>🃏</div>
+                <h3 className="text-lg font-bold text-gray-400 mb-1">No cards released yet</h3>
+                <p className="text-sm text-gray-400 max-w-xs mb-6">This Pokémon hasn't appeared as a featured card in the tracked sets.</p>
+                {secondaryCards.length > 0 && (
+                  <div className="w-full">
+                    <p className="text-xs font-semibold text-purple-500 uppercase tracking-wider mb-3">Featured in {secondaryCards.length} other card{secondaryCards.length > 1 ? 's' : ''}</p>
+                    <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                      {secondaryCards.map(card => (
+                        <CardTile
+                          key={card.id}
+                          card={card}
+                          pokemonName={pokemon.name}
+                          onOwnershipClick={handleOwnershipClick}
+                          onToggleNonConforming={(pokemonId, cardId, current) => onToggleNonConforming && onToggleNonConforming(pokemon.id, cardId, current)}
+                          onToggleFavorite={onToggleFavorite}
+                          onToggleUnobtainable={onToggleUnobtainable}
+                          onNavigateToPokemon={onNavigateToPokemon}
+                          showOwnershipButtons={true}
+                          scrollRoot={scrollRef.current}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
                 {pokemon.cards.map(card => (
                   <CardTile
                     key={card.id}
