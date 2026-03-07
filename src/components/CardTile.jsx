@@ -34,11 +34,49 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const hasOtherPokemon = card.otherPokemon && card.otherPokemon.length > 0;
   const isSecondary = card.isSecondary || !card.isPrimary;
   const [showZoom, setShowZoom] = React.useState(false);
-  const [zoomScale, setZoomScale] = React.useState(1);
+  const [zoomScale, setZoomScale] = React.useState(2.5);
+  const [mousePos, setMousePos] = React.useState({ x: 0, y: 0 });
+  const [imgRect, setImgRect] = React.useState(null);
+  const zoomImgRef = React.useRef(null);
+  const LOUPE_SIZE = 180;
+
   React.useEffect(() => {
     document.body.style.overflow = showZoom ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [showZoom]);
+
+  const handleZoomMouseMove = (e) => {
+    setMousePos({ x: e.clientX, y: e.clientY });
+    if (zoomImgRef.current) setImgRect(zoomImgRef.current.getBoundingClientRect());
+  };
+
+  const handleZoomWheel = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setZoomScale(s => Math.min(Math.max(s + (e.deltaY < 0 ? 0.25 : -0.25), 1.5), 8));
+  };
+
+  // Compute background-position for the loupe
+  const getLoupeStyle = () => {
+    if (!imgRect) return {};
+    const relX = mousePos.x - imgRect.left;
+    const relY = mousePos.y - imgRect.top;
+    // position within image as fraction
+    const fx = relX / imgRect.width;
+    const fy = relY / imgRect.height;
+    // scaled image size
+    const scaledW = imgRect.width * zoomScale;
+    const scaledH = imgRect.height * zoomScale;
+    // offset so the point under mouse is centered in loupe
+    const bgX = -(fx * scaledW - LOUPE_SIZE / 2);
+    const bgY = -(fy * scaledH - LOUPE_SIZE / 2);
+    return {
+      backgroundImage: `url(${imageSrc})`,
+      backgroundSize: `${scaledW}px ${scaledH}px`,
+      backgroundPosition: `${bgX}px ${bgY}px`,
+      backgroundRepeat: 'no-repeat',
+    };
+  };
   const [showAllPokemon, setShowAllPokemon] = React.useState(false);
   const [showContextMenu, setShowContextMenu] = React.useState(false);
   const [contextMenuPos, setContextMenuPos] = React.useState({ x: 0, y: 0 });
@@ -442,24 +480,62 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
         </div>
       </div>
 
-      {/* Zoom Modal */}
+      {/* Zoom Modal with Loupe */}
       {showZoom && (
         <div
           className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
-          onClick={() => { setShowZoom(false); setZoomScale(1); }}
-          onWheel={(e) => { e.preventDefault(); e.stopPropagation(); setZoomScale(s => Math.min(Math.max(s + (e.deltaY < 0 ? 0.15 : -0.15), 0.5), 4)); }}
+          style={{ cursor: 'none' }}
+          onClick={() => { setShowZoom(false); setZoomScale(2.5); }}
+          onMouseMove={handleZoomMouseMove}
+          onWheel={handleZoomWheel}
         >
-          <div className="relative" onClick={e => e.stopPropagation()} style={{width: 'min(500px, 90vw)'}}>
-            <img src={imageSrc} alt={`${pokemonName} ${card.cardName}`} className="w-full h-auto object-contain rounded-lg"
-              style={{transform: `scale(${zoomScale})`, transformOrigin: 'center center', transition: 'transform 0.1s'}} />
-            <button onClick={() => { setShowZoom(false); setZoomScale(1); }}
+          {/* Full card image (reference for rect + display) */}
+          <div className="relative" onClick={e => e.stopPropagation()} style={{ width: 'min(420px, 85vw)' }}>
+            <img
+              ref={zoomImgRef}
+              src={imageSrc}
+              alt={`${pokemonName} ${card.cardName}`}
+              className="w-full h-auto object-contain rounded-lg"
+              onLoad={() => { if (zoomImgRef.current) setImgRect(zoomImgRef.current.getBoundingClientRect()); }}
+            />
+            <button
+              onClick={() => { setShowZoom(false); setZoomScale(2.5); }}
               className="absolute top-2 right-2 bg-white text-gray-900 rounded-full p-1.5 hover:bg-gray-100 shadow-lg"
-              style={{transform: `scale(${1/zoomScale})`, transformOrigin: 'top right'}}>
+              style={{ cursor: 'pointer' }}
+            >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
               </svg>
             </button>
+          </div>
+
+          {/* Loupe — follows mouse */}
+          <div
+            style={{
+              position: 'fixed',
+              left: mousePos.x - LOUPE_SIZE / 2,
+              top: mousePos.y - LOUPE_SIZE / 2,
+              width: LOUPE_SIZE,
+              height: LOUPE_SIZE,
+              borderRadius: '50%',
+              border: '3px solid rgba(255,255,255,0.85)',
+              boxShadow: '0 0 0 2px rgba(0,0,0,0.4), 0 8px 32px rgba(0,0,0,0.7)',
+              pointerEvents: 'none',
+              overflow: 'hidden',
+              ...getLoupeStyle(),
+            }}
+          >
+            {/* Crosshair */}
+            <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>
+              <div style={{ position: 'absolute', width: 1, height: 20, background: 'rgba(255,255,255,0.5)' }} />
+              <div style={{ position: 'absolute', width: 20, height: 1, background: 'rgba(255,255,255,0.5)' }} />
+            </div>
+          </div>
+
+          {/* Scroll hint */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/50 text-xs pointer-events-none">
+            Scroll to zoom · {zoomScale.toFixed(1)}×
           </div>
         </div>
       )}
