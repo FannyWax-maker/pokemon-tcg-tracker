@@ -29,7 +29,7 @@ const buildEbayUrl = (card, pokemonName, lang) => {
 };
 
 
-export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onNavigateToPokemon, showOwnershipButtons = false }) {
+export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onNavigateToPokemon, showOwnershipButtons = false , scrollRoot }) {
   const isOwned = !!card.ownedLang;
   const hasOtherPokemon = card.otherPokemon && card.otherPokemon.length > 0;
   const isSecondary = card.isSecondary || !card.isPrimary;
@@ -103,11 +103,11 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) { setInView(true); observer.disconnect(); } },
-      { rootMargin: '200px' } // start loading 200px before visible
+      { root: scrollRoot || null, rootMargin: '100px' }
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [cacheKey]);
+  }, [cacheKey, scrollRoot]);
 
   React.useEffect(() => {
     if (!inView) return;
