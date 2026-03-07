@@ -1178,11 +1178,24 @@ export default function App() {
           darkMode={darkMode}
           pokemon={selectedPokemon}
           onToggleNonConforming={handleToggleNonConforming}
-                    onToggleFavorite={handleToggleFavorite}
+          onToggleFavorite={handleToggleFavorite}
+          onToggleUnobtainable={handleToggleUnobtainable}
           onNavigateToPokemon={(name) => {
             const target = pokemonData.find(p => p.name === name);
             if (target) setSelectedPokemon(target);
           }}
+          onNavigatePrev={() => {
+            const list = filteredData.data;
+            const idx = list.findIndex(p => p.id === selectedPokemon.id);
+            if (idx > 0) setSelectedPokemon(list[idx - 1]);
+          }}
+          onNavigateNext={() => {
+            const list = filteredData.data;
+            const idx = list.findIndex(p => p.id === selectedPokemon.id);
+            if (idx < list.length - 1) setSelectedPokemon(list[idx + 1]);
+          }}
+          hasPrev={(() => { const list = filteredData.data; const idx = list.findIndex(p => p.id === selectedPokemon.id); return idx > 0; })()}
+          hasNext={(() => { const list = filteredData.data; const idx = list.findIndex(p => p.id === selectedPokemon.id); return idx < filteredData.data.length - 1; })()}
           onClose={() => setSelectedPokemon(null)}
           onUpdateCard={handleUpdateCard}
         />
