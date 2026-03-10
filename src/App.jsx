@@ -488,7 +488,7 @@ export default function App() {
             }
             if (filterCardType === 'promo') {
               const _s = setNames[card.setCode || card.jpSetCode || card.cnSetCode];
-              const _sn = (typeof _s === 'object' ? _s?.name : _s) || '';
+              const _sn = String(typeof _s === 'object' ? (_s?.name || '') : (_s || ''));
               if (!_sn.toUpperCase().includes('PROMO')) return false;
             }
           }
@@ -574,7 +574,7 @@ export default function App() {
             else if (filterCardType === 'gx') matches = cu.includes('GX');
             else if (filterCardType === 'mega') matches = cu.includes('MEGA');
             else if (filterCardType === 'ex') matches = (cu.includes(' EX') || cn.includes(' ex')) && !cu.includes('EXCLUSIVE');
-            else if (filterCardType === 'promo') { const _s = setNames[card.setCode || card.jpSetCode || card.cnSetCode]; const _sn = (typeof _s === 'object' ? _s?.name : _s) || ''; matches = _sn.toUpperCase().includes('PROMO'); }
+            else if (filterCardType === 'promo') { const _s = setNames[card.setCode || card.jpSetCode || card.cnSetCode]; const _sn = String(typeof _s === 'object' ? (_s?.name || '') : (_s || '')); matches = _sn.toUpperCase().includes('PROMO'); }
             if (!matches) return;
           }
           // Artist filter in cards view - skip cards not by this artist
