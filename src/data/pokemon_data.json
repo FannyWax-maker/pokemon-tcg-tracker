@@ -42,17 +42,21 @@
         "isSecondary": false
       },
       {
-        "id": "1_csv8c_001-30th-p",
+        "id": "1_mep_37",
         "pokemonId": 1,
-        "setCode": null,
+        "setCode": "MEP",
         "jpSetCode": null,
         "cnSetCode": "csv8c",
-        "setNumber": "001/30th-P",
+        "setNumber": "37",
         "artist": "Saboteri",
         "cardName": null,
-        "exclusive": "CN",
-        "otherPokemon": null,
+        "exclusive": null,
+        "otherPokemon": [
+          "Pikachu",
+          "Clefairy"
+        ],
         "availableLangs": [
+          "EN",
           "CN"
         ],
         "isPrimary": true,
@@ -311,17 +315,22 @@
         "isSecondary": false
       },
       {
-        "id": "4_csv8c_002-30th-p",
+        "id": "4_mep_38",
         "pokemonId": 4,
-        "setCode": null,
+        "setCode": "MEP",
         "jpSetCode": null,
         "cnSetCode": "csv8c",
-        "setNumber": "002/30th-P",
+        "setNumber": "38",
         "artist": "Saboteri",
         "cardName": null,
-        "exclusive": "CN",
-        "otherPokemon": null,
+        "exclusive": null,
+        "otherPokemon": [
+          "Snorlax",
+          "Rhyhorn",
+          "Haunter"
+        ],
         "availableLangs": [
+          "EN",
           "CN"
         ],
         "isPrimary": true,
@@ -740,17 +749,18 @@
         "isSecondary": false
       },
       {
-        "id": "7_csv8c_003-30th-p",
+        "id": "7_mep_39",
         "pokemonId": 7,
-        "setCode": null,
+        "setCode": "MEP",
         "jpSetCode": null,
         "cnSetCode": "csv8c",
-        "setNumber": "003/30th-P",
+        "setNumber": "39",
         "artist": "Saboteri",
         "cardName": null,
-        "exclusive": "CN",
+        "exclusive": null,
         "otherPokemon": null,
         "availableLangs": [
+          "EN",
           "CN"
         ],
         "isPrimary": true,
@@ -13661,17 +13671,20 @@
         "isSecondary": false
       },
       {
-        "id": "387_csv8c_010-30th-p",
+        "id": "387_mep_40",
         "pokemonId": 387,
-        "setCode": null,
+        "setCode": "MEP",
         "jpSetCode": null,
         "cnSetCode": "csv8c",
-        "setNumber": "010/30th-P",
+        "setNumber": "40",
         "artist": "Saboteri",
         "cardName": null,
-        "exclusive": "CN",
-        "otherPokemon": null,
+        "exclusive": null,
+        "otherPokemon": [
+          "Drifloon"
+        ],
         "availableLangs": [
+          "EN",
           "CN"
         ],
         "isPrimary": true,
@@ -13722,17 +13735,18 @@
     "region": "Sinnoh",
     "cards": [
       {
-        "id": "390_csv8c_011-30th-p",
+        "id": "390_mep_41",
         "pokemonId": 390,
-        "setCode": null,
+        "setCode": "MEP",
         "jpSetCode": null,
         "cnSetCode": "csv8c",
-        "setNumber": "011/30th-P",
+        "setNumber": "41",
         "artist": "Saboteri",
         "cardName": null,
-        "exclusive": "CN",
+        "exclusive": null,
         "otherPokemon": null,
         "availableLangs": [
+          "EN",
           "CN"
         ],
         "isPrimary": true,
@@ -13841,17 +13855,20 @@
         "isSecondary": false
       },
       {
-        "id": "393_csv8c_012-30th-p",
+        "id": "393_mep_42",
         "pokemonId": 393,
-        "setCode": null,
+        "setCode": "MEP",
         "jpSetCode": null,
         "cnSetCode": "csv8c",
-        "setNumber": "012/30th-P",
+        "setNumber": "42",
         "artist": "Saboteri",
         "cardName": null,
-        "exclusive": "CN",
-        "otherPokemon": null,
+        "exclusive": null,
+        "otherPokemon": [
+          "Croagunk"
+        ],
         "availableLangs": [
+          "EN",
           "CN"
         ],
         "isPrimary": true,
@@ -23768,6 +23785,24 @@
         ],
         "isPrimary": true,
         "isSecondary": false
+      },
+      {
+        "id": "663_pre_175-131",
+        "pokemonId": 663,
+        "setCode": "PRE",
+        "jpSetCode": "sv8a",
+        "cnSetCode": null,
+        "setNumber": "175/131",
+        "artist": " Tomowaka",
+        "cardName": "Trainer, Lacey",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
       }
     ]
   },
@@ -25383,17 +25418,20 @@
         "isSecondary": false
       },
       {
-        "id": "722_csv8c_019-30th-p",
+        "id": "722_mep_43",
         "pokemonId": 722,
-        "setCode": null,
+        "setCode": "MEP",
         "jpSetCode": null,
         "cnSetCode": "csv8c",
-        "setNumber": "019/30th-P",
+        "setNumber": "43",
         "artist": "Saboteri",
         "cardName": null,
-        "exclusive": "CN",
-        "otherPokemon": null,
+        "exclusive": null,
+        "otherPokemon": [
+          "Rotom"
+        ],
         "availableLangs": [
+          "EN",
           "CN"
         ],
         "isPrimary": true,
@@ -25501,17 +25539,20 @@
     "region": "Alola",
     "cards": [
       {
-        "id": "725_csv8c_020-30th-p",
+        "id": "725_mep_44",
         "pokemonId": 725,
-        "setCode": null,
+        "setCode": "MEP",
         "jpSetCode": null,
         "cnSetCode": "csv8c",
-        "setNumber": "020/30th-P",
+        "setNumber": "44",
         "artist": "Saboteri",
         "cardName": null,
-        "exclusive": "CN",
-        "otherPokemon": null,
+        "exclusive": null,
+        "otherPokemon": [
+          "Tauros"
+        ],
         "availableLangs": [
+          "EN",
           "CN"
         ],
         "isPrimary": true,
@@ -25597,17 +25638,22 @@
     "region": "Alola",
     "cards": [
       {
-        "id": "728_csv8c_021-30th-p",
+        "id": "728_mep_45",
         "pokemonId": 728,
-        "setCode": null,
+        "setCode": "MEP",
         "jpSetCode": null,
         "cnSetCode": "csv8c",
-        "setNumber": "021/30th-P",
+        "setNumber": "45",
         "artist": "Saboteri",
         "cardName": null,
-        "exclusive": "CN",
-        "otherPokemon": null,
+        "exclusive": null,
+        "otherPokemon": [
+          "Magikarp",
+          "Wailord",
+          "Huntail"
+        ],
         "availableLangs": [
+          "EN",
           "CN"
         ],
         "isPrimary": true,
@@ -32509,6 +32555,24 @@
         "setNumber": "232/191",
         "artist": "GIDORA",
         "cardName": "Trainer, Drayton",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "942_scr_172-142",
+        "pokemonId": 942,
+        "setCode": "SCR",
+        "jpSetCode": "sv7",
+        "cnSetCode": null,
+        "setNumber": "172/142",
+        "artist": "Souichirou Gunjima",
+        "cardName": "Trainer, Lacey",
         "exclusive": null,
         "otherPokemon": null,
         "availableLangs": [
