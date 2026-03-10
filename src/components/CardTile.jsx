@@ -25,7 +25,7 @@ const buildEbayUrl = (card, pokemonName, lang) => {
   const setNumber = lang === 'EN' ? (card.setNumber || card.number || null) : null;
   const langKeyword = lang === 'JP' ? 'japanese' : lang === 'CN' ? 'chinese' : lang === 'KR' ? 'korean' : '';
   const query = [searchName, setCode, setNumber, langKeyword].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim();
-  return `https://www.ebay.co.uk/sch/i.html?_nkw=${encodeURIComponent(query)}&LH_ItemLocation=3&_sop=15`;
+  return `https://www.ebay.co.uk/sch/i.html?_nkw=${encodeURIComponent(query)}&LH_ItemLocation=3&_sop=12`;
 };
 
 
