@@ -5,6 +5,36 @@ const setNames = setNamesImport;
 // Global cache - images never reload after first load
 const imageCache = {};
 
+// Global request queue - limits concurrent image fetches to avoid GitHub Pages 429
+const MAX_CONCURRENT = 6;
+let activeRequests = 0;
+const requestQueue = [];
+
+const enqueueImageLoad = (fn) => {
+  return new Promise((resolve, reject) => {
+    const run = async () => {
+      activeRequests++;
+      try {
+        const result = await fn();
+        resolve(result);
+      } catch (e) {
+        reject(e);
+      } finally {
+        activeRequests--;
+        if (requestQueue.length > 0) {
+          const next = requestQueue.shift();
+          next();
+        }
+      }
+    };
+    if (activeRequests < MAX_CONCURRENT) {
+      run();
+    } else {
+      requestQueue.push(run);
+    }
+  });
+};
+
 const LANG_CONFIG = {
   EN: { flag: '🇬🇧', color: 'bg-blue-500 hover:bg-blue-600', owned: 'bg-blue-500' },
   JP: { flag: '🇯🇵', color: 'bg-red-500 hover:bg-red-600', owned: 'bg-red-500' },
@@ -62,13 +92,10 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     if (!imgRect) return {};
     const relX = mousePos.x - imgRect.left;
     const relY = mousePos.y - imgRect.top;
-    // position within image as fraction
     const fx = relX / imgRect.width;
     const fy = relY / imgRect.height;
-    // scaled image size
     const scaledW = imgRect.width * zoomScale;
     const scaledH = imgRect.height * zoomScale;
-    // offset so the point under mouse is centered in loupe
     const bgX = -(fx * scaledW - LOUPE_SIZE / 2);
     const bgY = -(fy * scaledH - LOUPE_SIZE / 2);
     return {
@@ -94,10 +121,8 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const handleLangClick = (lang) => {
     if (isSecondary) return;
     if (card.ownedLang === lang) {
-      // Already owned in this lang - unmark
       onOwnershipClick({ ...card, _action: 'unmark' });
     } else {
-      // Mark as owned in this lang directly
       onOwnershipClick({ ...card, _directLang: lang });
     }
   };
@@ -132,12 +157,12 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const [imageLoaded, setImageLoaded] = React.useState(!!cached?.src);
   const [imageSrc, setImageSrc] = React.useState(cached?.src || null);
   const [shouldHide, setShouldHide] = React.useState(false);
-  const [inView, setInView] = React.useState(!!cached); // if cached, no need to wait
+  const [inView, setInView] = React.useState(!!cached);
   const containerRef = React.useRef(null);
 
   // Intersection observer - only start loading when card enters viewport
   React.useEffect(() => {
-    if (cached) return; // already cached, skip observer
+    if (cached) return;
     const el = containerRef.current;
     if (!el) return;
     const observer = new IntersectionObserver(
@@ -158,12 +183,15 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
       return;
     }
     let mounted = true;
+
     const tryLoadImage = async () => {
+      // Try paths sequentially through the queue - prevents burst of 200+ requests when fast-scrolling
       const allPaths = imagePaths.flatMap(path => [
         `/pokemon-tcg-tracker/card-images/${path}.png`,
         `/pokemon-tcg-tracker/card-images/${path}.jpg`
       ]);
-      const loadPromises = allPaths.map(src =>
+
+      const tryPath = (src) => enqueueImageLoad(() =>
         new Promise((resolve, reject) => {
           const img = new Image();
           img.onload = () => resolve(src);
@@ -171,22 +199,25 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           img.src = src;
         })
       );
-      try {
-        const successfulSrc = await Promise.any(loadPromises);
-        imageCache[cacheKey] = { src: successfulSrc };
-        if (mounted) {
-          setImageSrc(successfulSrc);
-          setImageLoaded(true);
-          if (card._filterMissingImages) setShouldHide(true); // has image = hide when filter is "show missing only"
-        }
-      } catch (e) {
-        imageCache[cacheKey] = { src: null };
-        if (mounted) {
-          setImageLoaded(false);
-          // Image missing — if filter is active, SHOW this card (don't hide it)
+
+      let found = null;
+      for (const src of allPaths) {
+        if (!mounted) return;
+        try {
+          found = await tryPath(src);
+          break;
+        } catch (_) {
+          // try next path
         }
       }
+
+      if (!mounted) return;
+      imageCache[cacheKey] = { src: found };
+      setImageSrc(found);
+      setImageLoaded(!!found);
+      if (card._filterMissingImages && found) setShouldHide(true);
     };
+
     tryLoadImage();
     return () => { mounted = false; };
   }, [inView, cacheKey]);
@@ -197,11 +228,9 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
       setShouldHide(false);
       return;
     }
-    // Filter is active: hide cards that HAVE an image (we want to show only MISSING)
     if (imageCache[cacheKey] !== undefined) {
       setShouldHide(!!imageCache[cacheKey].src);
     }
-    // If not yet loaded, don't hide yet (will be set when image loads)
   }, [card._filterMissingImages, cacheKey]);
 
   if (shouldHide) return null;
@@ -254,7 +283,6 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
         ref={containerRef}
         onContextMenu={(e) => {
           e.preventDefault();
-          // Clamp to window bounds
           const x = Math.min(e.clientX, window.innerWidth - 200);
           const y = Math.min(e.clientY, window.innerHeight - 80);
           setContextMenuPos({ x, y });
@@ -371,7 +399,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
           {/* Row 3: card name — always reserve space */}
           <div className={`text-xs leading-tight min-h-[0.9rem] font-medium truncate ${isOwned ? 'text-red-100' : 'text-gray-600'}`}>
-            {(() => { const n = (card.cardName||'').replace(', Japanese Exclusive','').replace('Japanese Exclusive','').replace(', Chinese Exclusive','').replace('Chinese Exclusive','').trim(); const dn = (n && n !== 'Full Art') ? n : null; return dn || ' '; })()}
+            {(() => { const n = (card.cardName||'').replace(', Japanese Exclusive','').replace('Japanese Exclusive','').replace(', Chinese Exclusive','').replace('Chinese Exclusive','').trim(); const dn = (n && n !== 'Full Art') ? n : null; return dn || ' '; })()}
           </div>
 
           {/* Row 4: EN */}
@@ -413,7 +441,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           </div>
 
           {/* Row 8: artist — always reserve space */}
-          <div className={`text-xs leading-tight truncate min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-400'}`}>{card.artist || ' '}</div>
+          <div className={`text-xs leading-tight truncate min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-400'}`}>{card.artist || ' '}</div>
 
           {/* Language buttons — hidden when owned, show owned pill instead */}
           {!isSecondary && showOwnershipButtons && (
