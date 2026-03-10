@@ -301,7 +301,7 @@ export default function App() {
         if (type === 'gx') return n.includes('GX');
         if (type === 'mega') return n.includes('MEGA');
         if (type === 'ex') return n.includes('EX');
-        const sn_p = typeof setNames[c.setCode || c.jpSetCode || c.cnSetCode] === 'object' ? (setNames[c.setCode || c.jpSetCode || c.cnSetCode]?.name || '') : (setNames[c.setCode || c.jpSetCode || c.cnSetCode] || ''); if (type === 'promo') return sn_p.toUpperCase().includes('PROMO');
+        if (type === 'promo') { const _ps = setNames[c.setCode || c.jpSetCode || c.cnSetCode]; const _pn = String(typeof _ps === 'object' ? (_ps?.name || '') : (_ps || '')); return _pn.toUpperCase().includes('PROMO'); }
         return false;
       }).length;
     };
@@ -316,7 +316,7 @@ export default function App() {
         if (type === 'gx') return n.includes('GX');
         if (type === 'mega') return n.includes('MEGA');
         if (type === 'ex') return n.includes('EX');
-        const sn_p = typeof setNames[c.setCode || c.jpSetCode || c.cnSetCode] === 'object' ? (setNames[c.setCode || c.jpSetCode || c.cnSetCode]?.name || '') : (setNames[c.setCode || c.jpSetCode || c.cnSetCode] || ''); if (type === 'promo') return sn_p.toUpperCase().includes('PROMO');
+        if (type === 'promo') { const _ps = setNames[c.setCode || c.jpSetCode || c.cnSetCode]; const _pn = String(typeof _ps === 'object' ? (_ps?.name || '') : (_ps || '')); return _pn.toUpperCase().includes('PROMO'); }
         return false;
       }).length;
     };
