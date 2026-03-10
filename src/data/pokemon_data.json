@@ -621,7 +621,9 @@
         "cardName": "Charizard VSTAR",
         "exclusive": null,
         "otherPokemon": [
-          "Mewtwo"
+          "Mewtwo",
+          "Tangrowth",
+          "Diglett"
         ],
         "availableLangs": [
           "EN",
@@ -2519,6 +2521,27 @@
         ],
         "isPrimary": true,
         "isSecondary": false
+      },
+      {
+        "id": "39_crz_147-159",
+        "pokemonId": 39,
+        "setCode": "CRZ",
+        "jpSetCode": "s12a",
+        "cnSetCode": null,
+        "setNumber": "147/159",
+        "artist": "Megumi Mizutani",
+        "cardName": "Trainer, Elesa's Sparkle",
+        "exclusive": null,
+        "otherPokemon": [
+          "Charizard",
+          "Pikachu"
+        ],
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
       }
     ]
   },
@@ -3998,7 +4021,7 @@
         "pokemonId": 95,
         "setCode": "HIF",
         "jpSetCode": "smK",
-        "cnSetCode": "brook",
+        "cnSetCode": null,
         "setNumber": "036/68",
         "artist": "PLANETA Igarashi",
         "cardName": "Onix GX",
@@ -4006,8 +4029,7 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP",
-          "CN"
+          "JP"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -5878,6 +5900,7 @@
         "otherPokemon": [
           "Shieldon",
           "Bastiodon",
+          "Cranidos",
           "Rampardos",
           "Tirtouga",
           "Omanyte",
@@ -6554,7 +6577,8 @@
         "otherPokemon": [
           "Charizard",
           "Tangrowth",
-          "Geodude"
+          "Geodude",
+          "Diglett"
         ],
         "availableLangs": [
           "EN",
@@ -7525,7 +7549,11 @@
         "artist": "Yoriyuki Ikegami",
         "cardName": "Trainer, Gardenia's Vigor",
         "exclusive": null,
-        "otherPokemon": null,
+        "otherPokemon": [
+          "Cherubi",
+          "Cherrim",
+          "Ivysaur"
+        ],
         "availableLangs": [
           "EN",
           "JP"
@@ -13964,6 +13992,24 @@
         ],
         "isPrimary": true,
         "isSecondary": false
+      },
+      {
+        "id": "396_pfl_129-094",
+        "pokemonId": 396,
+        "setCode": "PFL",
+        "jpSetCode": "m2",
+        "cnSetCode": null,
+        "setNumber": "129/094",
+        "artist": "Atsushi Furusawa",
+        "cardName": "Trainer, Dawn",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
       }
     ]
   },
@@ -16412,11 +16458,7 @@
         "artist": "Yoshimi Miyoshi",
         "cardName": "Rotom ex",
         "exclusive": null,
-        "otherPokemon": [
-          "Mow Rotom",
-          "Wash Rotom",
-          "Heat Rotom"
-        ],
+        "otherPokemon": null,
         "availableLangs": [
           "EN",
           "JP"
@@ -16436,6 +16478,53 @@
         "exclusive": "JP",
         "otherPokemon": null,
         "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "479_pal_269-193",
+        "pokemonId": 479,
+        "setCode": "PAL",
+        "jpSetCode": "sv2d",
+        "cnSetCode": null,
+        "setNumber": "269/193",
+        "artist": "kirisAki",
+        "cardName": "Trainer, Iono",
+        "exclusive": null,
+        "otherPokemon": [
+          "Magnemite",
+          "Tandemaus",
+          "Pikachu",
+          "Eevee",
+          "Sylveon",
+          "Polteageist",
+          "Mimikyu",
+          "Fidough"
+        ],
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "479_asc_257-217",
+        "pokemonId": 479,
+        "setCode": "ASC",
+        "jpSetCode": "m2a",
+        "cnSetCode": null,
+        "setNumber": "257/217",
+        "artist": "Naoki Saito",
+        "cardName": "Trainer, Canari",
+        "exclusive": null,
+        "otherPokemon": [
+          "Eelektrik"
+        ],
+        "availableLangs": [
+          "EN",
           "JP"
         ],
         "isPrimary": true,
@@ -18936,7 +19025,8 @@
         "exclusive": null,
         "otherPokemon": [
           "Sewaddle",
-          "Swadloon"
+          "Swadloon",
+          "Taillow"
         ],
         "availableLangs": [
           "EN",
@@ -21114,7 +21204,11 @@
         "artist": "kantaro",
         "cardName": "Trainer, Canari",
         "exclusive": null,
-        "otherPokemon": null,
+        "otherPokemon": [
+          "Rotom",
+          "Eelektrik",
+          "Eelektross"
+        ],
         "availableLangs": [
           "EN",
           "JP"
@@ -24711,7 +24805,29 @@
     "name": "Goomy",
     "gen": 6,
     "region": "Kalos",
-    "cards": []
+    "cards": [
+      {
+        "id": "704_por_",
+        "pokemonId": 704,
+        "setCode": "POR",
+        "jpSetCode": "m3",
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": "Souichirou Gunjima",
+        "cardName": "Trainer, Jacinthe",
+        "exclusive": null,
+        "otherPokemon": [
+          "Clefable",
+          "Carbink"
+        ],
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      }
+    ]
   },
   {
     "id": 705,
@@ -27024,6 +27140,28 @@
         "cardName": "Lunala-GX",
         "exclusive": null,
         "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "792_pre_142-131",
+        "pokemonId": 792,
+        "setCode": "PRE",
+        "jpSetCode": "sv8a",
+        "cnSetCode": null,
+        "setNumber": "142/131",
+        "artist": "hncl",
+        "cardName": "Trainer, Raifort",
+        "exclusive": null,
+        "otherPokemon": [
+          "Articuno",
+          "Marshadow",
+          "Tapu Koko"
+        ],
         "availableLangs": [
           "EN",
           "JP"
@@ -29574,7 +29712,9 @@
         "cardName": "Trainer, Melony",
         "exclusive": null,
         "otherPokemon": [
-          "Eiscue"
+          "Eiscue",
+          "Snom",
+          "Frosmoth"
         ],
         "availableLangs": [
           "EN",
@@ -32341,7 +32481,44 @@
     "name": "Maschiff",
     "gen": 9,
     "region": "Paldea",
-    "cards": []
+    "cards": [
+      {
+        "id": "942_ssp_244-191",
+        "pokemonId": 942,
+        "setCode": "SSP",
+        "jpSetCode": "sv7a",
+        "cnSetCode": null,
+        "setNumber": "244/191",
+        "artist": "DOM",
+        "cardName": "Trainer, Drayton",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "942_ssp_232-191",
+        "pokemonId": 942,
+        "setCode": "SSP",
+        "jpSetCode": "sv7a",
+        "cnSetCode": null,
+        "setNumber": "232/191",
+        "artist": "GIDORA",
+        "cardName": "Trainer, Drayton",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      }
+    ]
   },
   {
     "id": 943,
