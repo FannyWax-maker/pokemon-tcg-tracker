@@ -301,6 +301,7 @@ export default function App() {
         if (type === 'gx') return n.includes('GX');
         if (type === 'mega') return n.includes('MEGA');
         if (type === 'ex') return n.includes('EX');
+        const sn_p = typeof setNames[c.setCode || c.jpSetCode || c.cnSetCode] === 'object' ? (setNames[c.setCode || c.jpSetCode || c.cnSetCode]?.name || '') : (setNames[c.setCode || c.jpSetCode || c.cnSetCode] || ''); if (type === 'promo') return sn_p.toUpperCase().includes('PROMO');
         return false;
       }).length;
     };
@@ -315,6 +316,7 @@ export default function App() {
         if (type === 'gx') return n.includes('GX');
         if (type === 'mega') return n.includes('MEGA');
         if (type === 'ex') return n.includes('EX');
+        const sn_p = typeof setNames[c.setCode || c.jpSetCode || c.cnSetCode] === 'object' ? (setNames[c.setCode || c.jpSetCode || c.cnSetCode]?.name || '') : (setNames[c.setCode || c.jpSetCode || c.cnSetCode] || ''); if (type === 'promo') return sn_p.toUpperCase().includes('PROMO');
         return false;
       }).length;
     };
@@ -484,6 +486,11 @@ export default function App() {
             if (filterCardType === 'ex') {
               if (!(cu.includes(' EX') || cn.includes(' ex')) || cu.includes('EXCLUSIVE')) return false;
             }
+            if (filterCardType === 'promo') {
+              const _s = setNames[card.setCode || card.jpSetCode || card.cnSetCode];
+              const _sn = (typeof _s === 'object' ? _s?.name : _s) || '';
+              if (!_sn.toUpperCase().includes('PROMO')) return false;
+            }
           }
           return true;
         });
@@ -567,6 +574,7 @@ export default function App() {
             else if (filterCardType === 'gx') matches = cu.includes('GX');
             else if (filterCardType === 'mega') matches = cu.includes('MEGA');
             else if (filterCardType === 'ex') matches = (cu.includes(' EX') || cn.includes(' ex')) && !cu.includes('EXCLUSIVE');
+            else if (filterCardType === 'promo') { const _s = setNames[card.setCode || card.jpSetCode || card.cnSetCode]; const _sn = (typeof _s === 'object' ? _s?.name : _s) || ''; matches = _sn.toUpperCase().includes('PROMO'); }
             if (!matches) return;
           }
           // Artist filter in cards view - skip cards not by this artist
@@ -988,7 +996,7 @@ export default function App() {
                   <select value={filterCardType} onChange={(e) => setFilterCardType(e.target.value)}
                     className={`px-3 py-1.5 border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-red-400 font-medium ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-200 text-gray-700'}`}>
                     <option value="all">All Types</option>
-                    {[['trainer','Trainer'],['v','V'],['vmax','VMAX'],['vstar','VSTAR'],['gx','GX'],['mega','Mega'],['ex','EX / ex']].map(([type, label]) => {
+                    {[['trainer','Trainer'],['v','V'],['vmax','VMAX'],['vstar','VSTAR'],['gx','GX'],['mega','Mega'],['ex','EX / ex'],['promo','Promo']].map(([type, label]) => {
                       const total = filterCounts.typeCount(type);
                       const owned = filterCounts.typeOwned(type);
                       const pct = total > 0 ? Math.round((owned / total) * 100) : 0;
