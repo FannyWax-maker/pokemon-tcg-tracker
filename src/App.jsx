@@ -411,7 +411,7 @@ export default function App() {
       filtered = filtered.map(p => ({
         ...p,
         cards: p.cards.filter(c => !c.nonConforming)
-      })).filter(p => p.cards.some(c => !c.isSecondary && c.isPrimary !== false) || p.cards.some(c => c.isSecondary || c.isPrimary === false));
+      })).filter(p => p.cards.some(c => !c.isSecondary && c.isPrimary !== false) || p.cards.some(c => c.isSecondary || c.isPrimary === false) || p.cards.length === 0);
     } else if (filterHideNonConforming === 'only') {
       filtered = filtered.map(p => ({
         ...p,
