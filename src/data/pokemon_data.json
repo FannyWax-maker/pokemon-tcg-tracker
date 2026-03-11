@@ -533,7 +533,7 @@
         "pokemonId": 6,
         "setCode": "PAF",
         "jpSetCode": "sv4a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "234/91",
         "artist": "AKIRA EGAWA",
         "cardName": "Charizard ex",
@@ -541,7 +541,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -2286,7 +2287,7 @@
         "pokemonId": 34,
         "setCode": "MEW",
         "jpSetCode": "sv2a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "174/165",
         "artist": "Misaki Hashimoto",
         "cardName": null,
@@ -2294,7 +2295,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -3025,7 +3027,7 @@
         "pokemonId": 54,
         "setCode": "MEW",
         "jpSetCode": "sv2a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "175/165",
         "artist": "Whisker",
         "cardName": null,
@@ -3033,7 +3035,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -6885,7 +6888,7 @@
         "pokemonId": 151,
         "setCode": "SVP",
         "jpSetCode": "SV-P",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "053",
         "artist": "Natsumi Yoshida",
         "cardName": "Mew ex",
@@ -6893,7 +6896,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -7617,7 +7621,7 @@
         "pokemonId": 183,
         "setCode": "PAL",
         "jpSetCode": "sv2P",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "204/193",
         "artist": "Atsuya Uki",
         "cardName": null,
@@ -7631,7 +7635,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -7776,7 +7781,7 @@
         "pokemonId": 190,
         "setCode": "PAR",
         "jpSetCode": "sv4M",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "211/182",
         "artist": "Yuka Morii",
         "cardName": null,
@@ -7784,7 +7789,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -8657,7 +8663,7 @@
         "pokemonId": 208,
         "setCode": "PAR",
         "jpSetCode": "sv4M",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "208/182",
         "artist": "nisimono",
         "cardName": null,
@@ -8668,7 +8674,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -9396,7 +9403,7 @@
         "pokemonId": 240,
         "setCode": "PAR",
         "jpSetCode": "sv4K",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "186/182",
         "artist": "Mina Nakai",
         "cardName": null,
@@ -9404,7 +9411,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -9616,7 +9624,7 @@
         "pokemonId": 246,
         "setCode": "OBF",
         "jpSetCode": "sv3",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "203/197",
         "artist": "Miki Tanaka",
         "cardName": null,
@@ -9624,7 +9632,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -11178,7 +11187,7 @@
         "pokemonId": 294,
         "setCode": "PAR",
         "jpSetCode": "sv4K",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "212/182",
         "artist": "NC Empire",
         "cardName": null,
@@ -11186,7 +11195,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -12776,7 +12786,7 @@
         "pokemonId": 361,
         "setCode": "PAR",
         "jpSetCode": "sv3a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "188/182",
         "artist": "Narumi Sato",
         "cardName": null,
@@ -12784,7 +12794,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -13399,7 +13410,7 @@
         "pokemonId": 383,
         "setCode": "PAR",
         "jpSetCode": "sv3a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "199/182",
         "artist": "Nurikabe",
         "cardName": null,
@@ -13407,7 +13418,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -15519,7 +15531,7 @@
         "pokemonId": 458,
         "setCode": "PAR",
         "jpSetCode": "sv3a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "189/182",
         "artist": "rika",
         "cardName": null,
@@ -15527,7 +15539,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -16191,7 +16204,7 @@
         "pokemonId": 474,
         "setCode": "PAR",
         "jpSetCode": "sv4M",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "214/182",
         "artist": "GOSSAN",
         "cardName": null,
@@ -16199,7 +16212,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -19621,7 +19635,7 @@
         "pokemonId": 558,
         "setCode": "PAR",
         "jpSetCode": "sv4K",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "183/182",
         "artist": "OKUBO",
         "cardName": null,
@@ -19629,7 +19643,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -20613,7 +20628,7 @@
         "pokemonId": 583,
         "setCode": "PAR",
         "jpSetCode": "sv4M",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "190/182",
         "artist": "Taiga Kayama",
         "cardName": null,
@@ -20621,7 +20636,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -21116,7 +21132,7 @@
         "pokemonId": 598,
         "setCode": "PAR",
         "jpSetCode": "sv3a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "209/182",
         "artist": "Kurata So",
         "cardName": null,
@@ -21124,7 +21140,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -21896,7 +21913,7 @@
         "pokemonId": 620,
         "setCode": "PAR",
         "jpSetCode": "sv4K",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "200/182",
         "artist": "Taira Akitsu",
         "cardName": null,
@@ -21904,7 +21921,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -23624,7 +23642,7 @@
         "pokemonId": 658,
         "setCode": "SVP",
         "jpSetCode": "SV-P",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "132",
         "artist": "SIE NANAHARA",
         "cardName": "Greninja ex",
@@ -23632,7 +23650,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -24094,7 +24113,7 @@
         "pokemonId": 681,
         "setCode": "PAR",
         "jpSetCode": "sv3a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "210/182",
         "artist": "Takumi Wada",
         "cardName": null,
@@ -24102,7 +24121,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -28146,7 +28166,7 @@
         "pokemonId": 819,
         "setCode": "SVI",
         "jpSetCode": "sv1V",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "222/198",
         "artist": "Teeziro",
         "cardName": null,
@@ -28154,7 +28174,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -28377,7 +28398,7 @@
         "pokemonId": 825,
         "setCode": "PAR",
         "jpSetCode": "sv4M",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "184/182",
         "artist": "Tetsu Kayama",
         "cardName": null,
@@ -28385,7 +28406,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -32789,7 +32811,7 @@
         "pokemonId": 948,
         "setCode": "SVI",
         "jpSetCode": "sv1V",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "201/198",
         "artist": "Akira Komayama",
         "cardName": null,
@@ -32797,7 +32819,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -32909,7 +32932,7 @@
         "pokemonId": 954,
         "setCode": "PAL",
         "jpSetCode": "sv2P",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "215/193",
         "artist": "Nagimiso",
         "cardName": null,
@@ -32917,7 +32940,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -33166,7 +33190,7 @@
         "pokemonId": 964,
         "setCode": "PAF",
         "jpSetCode": "sv4a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "225/91",
         "artist": "akagi",
         "cardName": null,
@@ -33176,7 +33200,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -33285,7 +33310,7 @@
         "pokemonId": 967,
         "setCode": "PAR",
         "jpSetCode": "sv3a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "215/182",
         "artist": "Mina Nakai",
         "cardName": null,
@@ -33293,7 +33318,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -33797,7 +33823,7 @@
         "pokemonId": 985,
         "setCode": "SVP",
         "jpSetCode": "sv4K",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "065",
         "artist": "GIDORA",
         "cardName": null,
@@ -33805,7 +33831,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -33975,7 +34002,7 @@
         "pokemonId": 991,
         "setCode": "SVP",
         "jpSetCode": "SV-P",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "066",
         "artist": "Teeziro",
         "cardName": null,
@@ -33983,7 +34010,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -34001,7 +34029,7 @@
         "pokemonId": 992,
         "setCode": "PAR",
         "jpSetCode": "sv4M",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL2C",
         "setNumber": "248/182",
         "artist": "Toshinao Aoki",
         "cardName": "Iron Hands ex\n",
@@ -34009,7 +34037,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
