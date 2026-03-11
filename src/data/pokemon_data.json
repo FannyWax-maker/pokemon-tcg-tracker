@@ -286,7 +286,7 @@
         "pokemonId": 4,
         "setCode": "MEW",
         "jpSetCode": "sv2a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "168/165",
         "artist": "miki kudo",
         "cardName": null,
@@ -294,7 +294,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -900,7 +901,7 @@
         "pokemonId": 10,
         "setCode": "MEW",
         "jpSetCode": "sv2a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "172/165",
         "artist": "Teeziro",
         "cardName": null,
@@ -908,7 +909,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -4484,7 +4486,7 @@
         "pokemonId": 114,
         "setCode": "MEW",
         "jpSetCode": "sv2a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "178/165",
         "artist": "Oswaldo KATO",
         "cardName": null,
@@ -4492,7 +4494,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
