@@ -10,7 +10,7 @@
         "pokemonId": 1,
         "setCode": "MEW",
         "jpSetCode": "sv2a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "166/165",
         "artist": "Yoriyuki Ikegami",
         "cardName": null,
@@ -18,7 +18,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -113,7 +114,7 @@
         "pokemonId": 2,
         "setCode": "MEW",
         "jpSetCode": "sv2a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "167/165",
         "artist": "Yoriyuki Ikegami",
         "cardName": null,
@@ -121,7 +122,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -157,7 +159,7 @@
         "pokemonId": 3,
         "setCode": "MEW",
         "jpSetCode": "sv2a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "198/165",
         "artist": "Yoriyuki Ikegami",
         "cardName": "Venusaur ex",
@@ -165,7 +167,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -369,7 +372,7 @@
         "pokemonId": 5,
         "setCode": "MEW",
         "jpSetCode": "sv2a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "169/165",
         "artist": "miki kudo",
         "cardName": null,
@@ -377,7 +380,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -472,7 +476,7 @@
         "pokemonId": 6,
         "setCode": "MEW",
         "jpSetCode": "sv2a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "199/165",
         "artist": "miki kudo",
         "cardName": "Charizard ex",
@@ -480,7 +484,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -717,7 +722,7 @@
         "pokemonId": 7,
         "setCode": "MEW",
         "jpSetCode": "sv2a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "170/165",
         "artist": "Mitsuhiro Arita",
         "cardName": null,
@@ -725,7 +730,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -799,7 +805,7 @@
         "pokemonId": 8,
         "setCode": "MEW",
         "jpSetCode": "sv2a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "171/165",
         "artist": "Mitsuhiro Arita",
         "cardName": null,
@@ -807,7 +813,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -825,7 +832,7 @@
         "pokemonId": 9,
         "setCode": "MEW",
         "jpSetCode": "sv2a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "200/165",
         "artist": "Mitsuhiro Arita",
         "cardName": "Blastoise ex",
@@ -833,7 +840,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -3178,7 +3186,7 @@
         "pokemonId": 61,
         "setCode": "MEW",
         "jpSetCode": "sv2a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "176/165",
         "artist": "Gemi",
         "cardName": null,
@@ -3186,7 +3194,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -4057,7 +4066,7 @@
         "pokemonId": 96,
         "setCode": "SVI",
         "jpSetCode": "sv1V",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "210/198",
         "artist": "Tomokazu Komiya",
         "cardName": null,
@@ -4065,7 +4074,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -4678,7 +4688,7 @@
         "pokemonId": 122,
         "setCode": "MEW",
         "jpSetCode": "sv2a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "179/165",
         "artist": "OKACHEKE",
         "cardName": null,
@@ -4686,7 +4696,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -5832,7 +5843,7 @@
         "pokemonId": 138,
         "setCode": "MEW",
         "jpSetCode": "sv2a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "180/165",
         "artist": "Yano Keiji",
         "cardName": null,
@@ -5843,7 +5854,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -5994,7 +6006,7 @@
         "pokemonId": 143,
         "setCode": "SVP",
         "jpSetCode": "SV-P",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "051",
         "artist": "GOSSAN",
         "cardName": null,
@@ -6005,7 +6017,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -6345,7 +6358,7 @@
         "pokemonId": 148,
         "setCode": "MEW",
         "jpSetCode": "sv2a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "181/165",
         "artist": "rika",
         "cardName": null,
@@ -6353,7 +6366,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -6678,7 +6692,7 @@
         "pokemonId": 150,
         "setCode": "SVP",
         "jpSetCode": "sv2a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "052",
         "artist": "Bun Toujo",
         "cardName": null,
@@ -6686,7 +6700,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -7678,7 +7693,7 @@
         "pokemonId": 185,
         "setCode": "PAL",
         "jpSetCode": "sv2P",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "219/193",
         "artist": "Narumi Sato",
         "cardName": null,
@@ -7686,7 +7701,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -7882,7 +7898,7 @@
         "pokemonId": 194,
         "setCode": "PAL",
         "jpSetCode": "sv1a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "221/193",
         "artist": "Miki Tanaka",
         "cardName": "Paldean Wooper",
@@ -7890,7 +7906,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -10854,7 +10871,7 @@
         "pokemonId": 282,
         "setCode": "PAF",
         "jpSetCode": "sv4a",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "233/91",
         "artist": "Kuroimori",
         "cardName": "Gardevoir ex",
@@ -10865,7 +10882,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -13997,7 +14015,7 @@
         "pokemonId": 396,
         "setCode": "SVI",
         "jpSetCode": "sv1S",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "221/198",
         "artist": "Saino Misaki",
         "cardName": null,
@@ -14005,7 +14023,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -15188,7 +15207,7 @@
         "pokemonId": 447,
         "setCode": "SVI",
         "jpSetCode": "sv1S",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "215/198",
         "artist": "Nelnal",
         "cardName": null,
@@ -15199,7 +15218,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -19377,7 +19397,7 @@
         "pokemonId": 551,
         "setCode": "SVI",
         "jpSetCode": "sv1S",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "216/198",
         "artist": "Nurikabe",
         "cardName": null,
@@ -19387,7 +19407,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -20339,7 +20360,7 @@
         "pokemonId": 575,
         "setCode": "PAL",
         "jpSetCode": "sv2P",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "213/193",
         "artist": "SIE NANAHARA",
         "cardName": null,
@@ -20347,7 +20368,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -24263,7 +24285,7 @@
         "pokemonId": 692,
         "setCode": "SVI",
         "jpSetCode": "sv1V",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "205/198",
         "artist": "Shinya Komatsu",
         "cardName": null,
@@ -24273,7 +24295,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -28251,7 +28274,7 @@
         "pokemonId": 821,
         "setCode": "PAL",
         "jpSetCode": "sv2P",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "225/193",
         "artist": "GOSSAN",
         "cardName": null,
@@ -28259,7 +28282,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -32045,7 +32069,7 @@
         "pokemonId": 926,
         "setCode": "SVI",
         "jpSetCode": "sv1S",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "213/198",
         "artist": "Tika Matsuno",
         "cardName": null,
@@ -32053,7 +32077,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -33086,7 +33111,7 @@
         "pokemonId": 962,
         "setCode": "SVI",
         "jpSetCode": "sv1V",
-        "cnSetCode": null,
+        "cnSetCode": "CSVL1C",
         "setNumber": "219/198",
         "artist": "Shibuzoh.",
         "cardName": null,
@@ -33094,7 +33119,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
