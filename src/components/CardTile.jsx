@@ -21,7 +21,7 @@ const usePriceData = (card) => {
     const number = (card.number || card.setNumber || '').split('/')[0];
     if (!setCode || !number) { priceCache[card.id] = false; setPrice(false); return; }
     const url = `${APPS_SCRIPT_URL}?action=getPrice&cardId=${encodeURIComponent(card.id)}&setCode=${encodeURIComponent(setCode)}&number=${encodeURIComponent(number)}`;
-    fetch(url)
+    fetch(url, { redirect: 'follow', mode: 'cors' })
       .then(r => r.json())
       .then(data => {
         const gbp = data?.price ? parseFloat(data.price).toFixed(2) : false;
