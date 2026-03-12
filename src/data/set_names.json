@@ -503,6 +503,10 @@
     "name": "Battle Partners",
     "year": null
   },
+  "CS4.1C": {
+    "name": "Brilliant Energy",
+    "year": null
+  },
   "LOR": {
     "name": "Lost Origin",
     "year": 2022
@@ -511,8 +515,20 @@
     "name": "Lost Abyss",
     "year": null
   },
+  "CSZC": {
+    "name": "Special Holo Cards",
+    "year": null
+  },
+  "CSYC": {
+    "name": "PokeBall Gift Cards",
+    "year": null
+  },
   "s10a": {
     "name": "Dark Phantasma",
+    "year": null
+  },
+  "CSMC": {
+    "name": "Charizard Display Frame Cards",
     "year": null
   },
   "LOT": {
