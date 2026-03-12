@@ -459,7 +459,7 @@
         "pokemonId": 6,
         "setCode": "LOR",
         "jpSetCode": "s8b",
-        "cnSetCode": null,
+        "cnSetCode": "CSMC",
         "setNumber": "TG003/30",
         "artist": "GIDORA",
         "cardName": null,
@@ -467,7 +467,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -1355,7 +1356,7 @@
         "pokemonId": 25,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": null,
+        "cnSetCode": "CSYC",
         "setNumber": "GG030/70",
         "artist": "Kouki Saitou",
         "cardName": null,
@@ -1363,7 +1364,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -1416,7 +1418,7 @@
         "pokemonId": 25,
         "setCode": "LOR",
         "jpSetCode": "s10a",
-        "cnSetCode": null,
+        "cnSetCode": "CSMC",
         "setNumber": "TG005/30",
         "artist": "Atsushi Furusawa",
         "cardName": null,
@@ -1424,7 +1426,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -1434,7 +1437,7 @@
         "pokemonId": 25,
         "setCode": "LOR",
         "jpSetCode": "s8b",
-        "cnSetCode": null,
+        "cnSetCode": "CS4.1C",
         "setNumber": "TG016/30",
         "artist": "Ryota Murayama",
         "cardName": "Pikachu V",
@@ -1442,7 +1445,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -1452,7 +1456,7 @@
         "pokemonId": 25,
         "setCode": "LOR",
         "jpSetCode": "s8b",
-        "cnSetCode": null,
+        "cnSetCode": "CS4.1C",
         "setNumber": "TG017/30",
         "artist": "Souichirou Gunjima",
         "cardName": "Pikachu VMAX",
@@ -1460,7 +1464,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -2718,7 +2723,7 @@
         "pokemonId": 46,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": null,
+        "cnSetCode": "CSYC",
         "setNumber": "GG032/70",
         "artist": "Kouki Saitou",
         "cardName": null,
@@ -2726,7 +2731,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -5193,7 +5199,7 @@
         "pokemonId": 132,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": null,
+        "cnSetCode": "CSZC",
         "setNumber": "GG022/70",
         "artist": "Miki Tanaka",
         "cardName": null,
@@ -5203,7 +5209,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -7443,7 +7450,7 @@
         "pokemonId": 179,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": null,
+        "cnSetCode": "CSYC",
         "setNumber": "GG034/70",
         "artist": "Kouki Saitou",
         "cardName": null,
@@ -7451,7 +7458,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -7576,7 +7584,7 @@
         "pokemonId": 182,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": null,
+        "cnSetCode": "cs6.5c",
         "setNumber": "GG061/70",
         "artist": "Yoriyuki Ikegami",
         "cardName": "Trainer, Gardenia's Vigor",
@@ -7588,7 +7596,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -8463,7 +8472,7 @@
         "pokemonId": 201,
         "setCode": "SIT",
         "jpSetCode": "s12",
-        "cnSetCode": null,
+        "cnSetCode": "cs6.5c",
         "setNumber": "177/195",
         "artist": "Toshinao Aoki",
         "cardName": "Unown V",
@@ -8471,7 +8480,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -10314,7 +10324,7 @@
         "pokemonId": 261,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": null,
+        "cnSetCode": "CSYC",
         "setNumber": "GG033/70",
         "artist": "Kouki Saitou",
         "cardName": null,
@@ -10322,7 +10332,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -10409,7 +10420,7 @@
         "pokemonId": 264,
         "setCode": "SHF",
         "jpSetCode": "s4a",
-        "cnSetCode": null,
+        "cnSetCode": "CS4.1C",
         "setNumber": "069/72",
         "artist": "Megumi Mizutani",
         "cardName": "Trainer, Piers",
@@ -10417,7 +10428,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -11991,7 +12003,7 @@
         "pokemonId": 333,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": null,
+        "cnSetCode": "CSYC",
         "setNumber": "GG027/70",
         "artist": "Kouki Saitou",
         "cardName": null,
@@ -11999,7 +12011,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -12596,7 +12609,7 @@
         "pokemonId": 355,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": null,
+        "cnSetCode": "CSYC",
         "setNumber": "GG028/70",
         "artist": "Kouki Saitou",
         "cardName": null,
@@ -12604,7 +12617,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -13690,7 +13704,7 @@
         "pokemonId": 387,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": null,
+        "cnSetCode": "CSYC",
         "setNumber": "GG031/70",
         "artist": "Kouki Saitou",
         "cardName": null,
@@ -13698,7 +13712,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -14108,7 +14123,7 @@
         "pokemonId": 399,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": null,
+        "cnSetCode": "CSYC",
         "setNumber": "GG029/70",
         "artist": "Kouki Saitou",
         "cardName": null,
@@ -14116,7 +14131,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -14188,7 +14204,7 @@
         "pokemonId": 402,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": null,
+        "cnSetCode": "CSZC",
         "setNumber": "GG002/70",
         "artist": "Nurikabe",
         "cardName": null,
@@ -14207,7 +14223,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -15186,7 +15203,7 @@
         "pokemonId": 447,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": null,
+        "cnSetCode": "CSYC",
         "setNumber": "GG026/70",
         "artist": "Kouki Saitou",
         "cardName": null,
@@ -15194,7 +15211,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -16471,7 +16489,7 @@
         "pokemonId": 479,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": null,
+        "cnSetCode": "cs6.5c",
         "setNumber": "GG065/70",
         "artist": "GIDORA",
         "cardName": "Trainer, Raihan",
@@ -16479,7 +16497,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -16489,7 +16508,7 @@
         "pokemonId": 479,
         "setCode": "LOR",
         "jpSetCode": "s11",
-        "cnSetCode": null,
+        "cnSetCode": "cs6.5c",
         "setNumber": "177/196",
         "artist": "Yuu Nishida",
         "cardName": "Rotom V",
@@ -16497,7 +16516,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -22005,7 +22025,7 @@
         "pokemonId": 622,
         "setCode": "LOR",
         "jpSetCode": "s11",
-        "cnSetCode": null,
+        "cnSetCode": "cs6.5c",
         "setNumber": "215/196",
         "artist": "Oswaldo KATO",
         "cardName": "Trainer, Collapsed Stadium",
@@ -22013,7 +22033,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -24737,7 +24758,9 @@
         "artist": "burari",
         "cardName": "Trainer, Cassiopeia",
         "exclusive": null,
-        "otherPokemon": null,
+        "otherPokemon": [
+          "Rotom"
+        ],
         "availableLangs": [
           "EN",
           "JP"
@@ -28446,7 +28469,7 @@
         "pokemonId": 826,
         "setCode": "LOR",
         "jpSetCode": "s8b",
-        "cnSetCode": null,
+        "cnSetCode": "CS4.1C",
         "setNumber": "TG012/30",
         "artist": "Nisota Niso",
         "cardName": "Orbeetle V",
@@ -28454,7 +28477,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -28464,7 +28488,7 @@
         "pokemonId": 826,
         "setCode": "LOR",
         "jpSetCode": "s8b",
-        "cnSetCode": null,
+        "cnSetCode": "CS4.1C",
         "setNumber": "TG013/30",
         "artist": "Teeziro",
         "cardName": "Orbeetle VMAX",
@@ -28474,7 +28498,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -29201,7 +29226,7 @@
         "pokemonId": 851,
         "setCode": "LOR",
         "jpSetCode": "s8b",
-        "cnSetCode": null,
+        "cnSetCode": "CS4.1C",
         "setNumber": "TG014/30",
         "artist": "Yuya Oka",
         "cardName": "Centiskorch V",
@@ -29209,7 +29234,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -29219,7 +29245,7 @@
         "pokemonId": 851,
         "setCode": "LOR",
         "jpSetCode": "s8b",
-        "cnSetCode": null,
+        "cnSetCode": "CS4.1C",
         "setNumber": "TG015/30",
         "artist": "Oswaldo KATO",
         "cardName": "Centiskorch VMAX",
@@ -29227,7 +29253,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -29361,7 +29388,7 @@
         "pokemonId": 858,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": null,
+        "cnSetCode": "cs6.5c",
         "setNumber": "GG047/70",
         "artist": "sui",
         "cardName": "Hatterene VMAX",
@@ -29369,7 +29396,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -29801,7 +29829,7 @@
         "pokemonId": 872,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": null,
+        "cnSetCode": "cs6.5c",
         "setNumber": "GG064/70",
         "artist": "Saino Misaki",
         "cardName": "Trainer, Melony",
@@ -29813,7 +29841,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -30455,7 +30484,7 @@
         "pokemonId": 888,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": null,
+        "cnSetCode": "CS4.1C",
         "setNumber": "GG048/70",
         "artist": "Hataya",
         "cardName": "Zacian V",
@@ -30463,7 +30492,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -31015,7 +31045,7 @@
         "pokemonId": 895,
         "setCode": "SIT",
         "jpSetCode": "s12",
-        "cnSetCode": null,
+        "cnSetCode": "cs6.5c",
         "setNumber": "184/195",
         "artist": "Hataya",
         "cardName": "Regidrago V",
@@ -31025,7 +31055,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
