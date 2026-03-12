@@ -539,12 +539,20 @@
     "name": "Super-Burst Impact",
     "year": null
   },
+  "CP": {
+    "name": "Chinese Promo Card",
+    "year": null
+  },
   "LTR": {
     "name": "Legendary Treasures",
     "year": 2013
   },
   "EBB": {
     "name": "EX Battle Boost",
+    "year": null
+  },
+  "CSGC": {
+    "name": "Eevee Display Frame Box",
     "year": null
   },
   "MEG": {
