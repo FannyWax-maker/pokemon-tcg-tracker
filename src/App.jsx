@@ -47,7 +47,7 @@ export default function App() {
   const [sortBy, setSortBy] = useState('default'); // 'default', 'featured_desc', 'featured_asc'
   const [filterArtist, setFilterArtist] = useState('all');
   const [filterHideNoCards, setFilterHideNoCards] = useState('all');
-  const [filterHideNonConforming, setFilterHideNonConforming] = useState('hide'); // 'all', 'hide', 'only'
+  const [filterHideNonConforming, setFilterHideNonConforming] = useState('all'); // 'all', 'hide', 'only'
   const [filterFavorites, setFilterFavorites] = useState('all');
   const [filterUnobtainable, setFilterUnobtainable] = useState('all'); // 'all', 'hide', 'only'
   const [showOwnershipButtons, setShowOwnershipButtons] = useState(false);
@@ -837,9 +837,9 @@ export default function App() {
             </div>
             {/* View toggle */}
             <div className={`flex items-center rounded-full p-0.5 text-xs font-bold shrink-0 ${darkMode ? 'bg-gray-700' : 'bg-gray-100'}`}>
-              <button onClick={() => { setViewMode('pokemon'); if (['featured_desc','featured_asc','release_desc','release_asc','recently_added'].includes(sortBy)) setSortBy('default'); }} className={`px-2.5 py-1 rounded-full transition-colors ${viewMode === 'pokemon' ? 'text-white' : darkMode ? 'text-gray-400' : 'text-gray-500'}`}
+              <button onClick={() => { setViewMode('pokemon'); setFilterHideNonConforming('all'); if (['featured_desc','featured_asc','release_desc','release_asc','recently_added'].includes(sortBy)) setSortBy('default'); }} className={`px-2.5 py-1 rounded-full transition-colors ${viewMode === 'pokemon' ? 'text-white' : darkMode ? 'text-gray-400' : 'text-gray-500'}`}
                 style={viewMode === 'pokemon' ? {background: 'linear-gradient(135deg, #3b82f6, #1d4ed8)'} : {}}>Grid</button>
-              <button onClick={() => { setViewMode('cards'); setFilterHideNoCards('all'); }} className={`px-2.5 py-1 rounded-full transition-colors ${viewMode === 'cards' ? 'text-white' : darkMode ? 'text-gray-400' : 'text-gray-500'}`}
+              <button onClick={() => { setViewMode('cards'); setFilterHideNoCards('all'); setFilterHideNonConforming('hide'); }} className={`px-2.5 py-1 rounded-full transition-colors ${viewMode === 'cards' ? 'text-white' : darkMode ? 'text-gray-400' : 'text-gray-500'}`}
                 style={viewMode === 'cards' ? {background: 'linear-gradient(135deg, #3b82f6, #1d4ed8)'} : {}}>Cards</button>
             </div>
 
