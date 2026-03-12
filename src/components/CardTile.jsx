@@ -5,6 +5,36 @@ const setNames = setNamesImport;
 // Global cache - images never reload after first load
 const imageCache = {};
 
+// Price cache - keyed by card id
+const priceCache = {};
+
+const usePriceData = (card) => {
+  const [price, setPrice] = React.useState(priceCache[card.id] ?? null);
+
+  React.useEffect(() => {
+    if (priceCache[card.id] !== undefined) { setPrice(priceCache[card.id]); return; }
+    const setCode = (card.enSetCode || card.setCode || '').toLowerCase();
+    const number = (card.number || card.setNumber || '').split('/')[0];
+    // Only fetch for EN cards with set + number
+    if (!setCode || !number) { priceCache[card.id] = false; setPrice(false); return; }
+    const url = `https://api.pokemontcg.io/v2/cards?q=set.id:${encodeURIComponent(setCode)}+number:${encodeURIComponent(number)}&select=tcgplayer`;
+    fetch(url)
+      .then(r => r.json())
+      .then(data => {
+        const tcgData = data?.data?.[0]?.tcgplayer?.prices;
+        if (!tcgData) { priceCache[card.id] = false; setPrice(false); return; }
+        const tier = tcgData.holofoil || tcgData.reverseHolofoil || tcgData.normal || tcgData['1stEditionHolofoil'] || Object.values(tcgData)[0];
+        const usd = tier?.market || tier?.mid || null;
+        const gbp = usd ? (usd * 0.79).toFixed(2) : false;
+        priceCache[card.id] = gbp;
+        setPrice(gbp);
+      })
+      .catch(() => { priceCache[card.id] = false; setPrice(false); });
+  }, [card.id, card.setCode, card.enSetCode, card.number, card.setNumber]);
+
+  return price;
+};
+
 // Global request queue - limits concurrent image fetches to avoid GitHub Pages 429
 const MAX_CONCURRENT = 6;
 let activeRequests = 0;
@@ -111,6 +141,8 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const isNonConforming = !!card.nonConforming;
   const isFavorite = !!card.favorite;
   const isUnobtainable = !!card.unobtainable;
+  const isEnCard = !!(card.enSetCode || card.setCode);
+  const priceGBP = usePriceData(card);
 
   // Which langs are available for this card
   const availableLangs = card.availableLangs || [];
@@ -442,6 +474,24 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
           {/* Row 8: artist — always reserve space */}
           <div className={`text-xs leading-tight truncate min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-400'}`}>{card.artist || ' '}</div>
+
+          {/* Row 9: price */}
+          <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-center gap-1 ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
+            {isEnCard ? (
+              priceGBP === null
+                ? <span className="opacity-40 italic">£ ···</span>
+                : priceGBP === false
+                  ? <span className="opacity-30 italic">No price</span>
+                  : <span className={`font-bold ${isOwned ? 'text-green-200' : 'text-emerald-600'}`}>≈ £{priceGBP}</span>
+            ) : (
+              <a
+                href={buildEbayUrl(card, isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName, card.jpSetCode ? 'JP' : 'CN')}
+                target="_blank" rel="noopener noreferrer"
+                onClick={e => e.stopPropagation()}
+                className={`underline hover:opacity-80 ${isOwned ? 'text-red-100' : 'text-blue-500'}`}
+              >eBay price ↗</a>
+            )}
+          </div>
 
           {/* Language buttons — hidden when owned, show owned pill instead */}
           {!isSecondary && showOwnershipButtons && (
