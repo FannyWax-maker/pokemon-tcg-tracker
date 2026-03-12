@@ -37,8 +37,8 @@ const usePriceData = (card) => {
     const apiId = SET_CODE_TO_API_ID[rawCode];
     const number = (card.number || card.setNumber || '').split('/')[0];
     if (!apiId || !number) { priceCache[card.id] = false; setPrice(false); return; }
-    const url = `https://api.pokemontcg.io/v2/cards?q=set.id:${apiId}%20number:${number}&select=tcgplayer,name`;
-    fetch(url)
+    const url = `https://api.pokemontcg.io/v2/cards?q=set.id:${apiId}+number:${encodeURIComponent(number)}&select=tcgplayer`;
+    fetch(url, { headers: { 'X-Api-Key': '6c224d7d-394b-4ec3-9638-3b0a0ccec9e0' } })
       .then(r => r.json())
       .then(data => {
         const tcgData = data?.data?.[0]?.tcgplayer?.prices;
