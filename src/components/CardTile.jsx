@@ -8,25 +8,7 @@ const imageCache = {};
 // Price cache - keyed by card id
 const priceCache = {};
 
-// Maps your set codes -> Pokémon TCG API set IDs
-const SET_CODE_TO_API_ID = {
-  // Scarlet & Violet
-  SVP:'svp', SVI:'sv1', PAL:'sv2', OBF:'sv3', MEW:'sv3pt5', PAR:'sv4', PAF:'sv4pt5',
-  TEF:'sv5', TWM:'sv6', SFA:'sv6pt5', SCR:'sv7', SSP:'sv8', PRE:'sv8pt5',
-  // Sword & Shield
-  SSH:'swsh1', RCL:'swsh2', DAA:'swsh3', CPA:'swsh3pt5', VIV:'swsh4', SHF:'swsh45',
-  BST:'swsh5', CRE:'swsh6', EVS:'swsh7', CEL:'cel25', FST:'swsh8', BRS:'swsh9',
-  ASR:'swsh10', PGO:'pgo', LOR:'swsh11', SIT:'swsh12', CRZ:'swsh12pt5',
-  // Sun & Moon
-  SUM:'sm1', GRI:'sm2', BUS:'sm3', SLG:'sm35', CIN:'sm4', UPR:'sm5', FLI:'sm6',
-  CES:'sm7', DRM:'sm75', LOT:'sm8', TEU:'sm9', DET:'det1', UNB:'sm10', UNM:'sm11',
-  HIF:'hif', CEC:'sm12', HIM:'sm12a',
-  // XY
-  XY:'xy1', FLF:'xy2', FFI:'xy3', PHF:'xy4', PRC:'xy5', DCR:'dc1', ROS:'xy6',
-  AOR:'xy7', BKT:'xy8', BKP:'xy9', FCO:'xy10', STS:'xy11', EVO:'xy12',
-  // Mega / older promos
-  MEG:'xy8', // Mega Evolutions Base maps to BREAKthrough - adjust if needed
-};
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyNHSpdwlW_WVu6zvkg_piGyrqNzJfrLCI6Z0OJ6S_wPrwP7-TvXX3aT3HvGGPHj5ENSw/exec';
 
 const usePriceData = (card) => {
   const [price, setPrice] = React.useState(priceCache[card.id] ?? null);
@@ -35,19 +17,14 @@ const usePriceData = (card) => {
   React.useEffect(() => {
     if (!hovered) return;
     if (priceCache[card.id] !== undefined) { setPrice(priceCache[card.id]); return; }
-    const rawCode = (card.enSetCode || card.setCode || '').toUpperCase();
-    const apiId = SET_CODE_TO_API_ID[rawCode];
+    const setCode = (card.enSetCode || card.setCode || '').toUpperCase();
     const number = (card.number || card.setNumber || '').split('/')[0];
-    if (!apiId || !number) { priceCache[card.id] = false; setPrice(false); return; }
-    const url = `https://api.pokemontcg.io/v2/cards?q=set.id:${apiId}%20number:${number}&select=tcgplayer`;
-    fetch(url, { headers: { 'X-Api-Key': '6c224d7d-394b-4ec3-9638-3b0a0ccec9e0' } })
+    if (!setCode || !number) { priceCache[card.id] = false; setPrice(false); return; }
+    const url = `${APPS_SCRIPT_URL}?action=getPrice&cardId=${encodeURIComponent(card.id)}&setCode=${encodeURIComponent(setCode)}&number=${encodeURIComponent(number)}`;
+    fetch(url)
       .then(r => r.json())
       .then(data => {
-        const tcgData = data?.data?.[0]?.tcgplayer?.prices;
-        if (!tcgData) { priceCache[card.id] = false; setPrice(false); return; }
-        const tier = tcgData.holofoil || tcgData.reverseHolofoil || tcgData.normal || tcgData['1stEditionHolofoil'] || Object.values(tcgData)[0];
-        const usd = tier?.market || tier?.mid || null;
-        const gbp = usd ? (usd * 0.79).toFixed(2) : false;
+        const gbp = data?.price ? parseFloat(data.price).toFixed(2) : false;
         priceCache[card.id] = gbp;
         setPrice(gbp);
       })
