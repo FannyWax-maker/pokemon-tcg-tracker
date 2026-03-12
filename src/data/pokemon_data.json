@@ -68,7 +68,7 @@
         "pokemonId": 1,
         "setCode": "SCR",
         "jpSetCode": "sv7",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "143/142",
         "artist": "Orca",
         "cardName": null,
@@ -78,7 +78,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -345,7 +346,7 @@
         "pokemonId": 4,
         "setCode": "SVP",
         "jpSetCode": "SV-P",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "44",
         "artist": "MINAMINAMI Take",
         "cardName": null,
@@ -355,7 +356,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -614,7 +616,7 @@
         "pokemonId": 6,
         "setCode": "SWSH",
         "jpSetCode": "S-P",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "SWSH261",
         "artist": "Shiburingaru",
         "cardName": "Charizard VMAX",
@@ -622,7 +624,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -632,7 +635,7 @@
         "pokemonId": 6,
         "setCode": "SWSH",
         "jpSetCode": "S-P",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "SWSH262",
         "artist": "KIYOTAKA OSHIYAMA",
         "cardName": "Charizard VSTAR",
@@ -644,7 +647,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -780,7 +784,7 @@
         "pokemonId": 7,
         "setCode": "SCR",
         "jpSetCode": "sv7",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "148/142",
         "artist": "Saboteri",
         "cardName": null,
@@ -790,7 +794,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -1375,7 +1380,7 @@
         "pokemonId": 25,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "160/159",
         "artist": "You Iribi",
         "cardName": null,
@@ -1390,7 +1395,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -1763,16 +1769,17 @@
         "pokemonId": 25,
         "setCode": null,
         "jpSetCode": "SV-P",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "098/SV-P",
         "artist": "MINAMINAMI Take",
         "cardName": "Detective Pikachu",
-        "exclusive": "JP",
+        "exclusive": "JP/CN",
         "otherPokemon": [
           "Growlithe"
         ],
         "availableLangs": [
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -5247,7 +5254,7 @@
         "pokemonId": 133,
         "setCode": "BRS",
         "jpSetCode": "s8b",
-        "cnSetCode": null,
+        "cnSetCode": "CSGC",
         "setNumber": "TG011/30",
         "artist": "PLANETA Mochizuki",
         "cardName": null,
@@ -5255,7 +5262,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -5376,7 +5384,7 @@
         "pokemonId": 133,
         "setCode": "SVP",
         "jpSetCode": "SV-P",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "173",
         "artist": "Makura Tami",
         "cardName": null,
@@ -5387,7 +5395,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -5481,7 +5490,7 @@
         "pokemonId": 134,
         "setCode": "BRS",
         "jpSetCode": "s8b",
-        "cnSetCode": null,
+        "cnSetCode": "CSGC",
         "setNumber": "TG002/30",
         "artist": "Jiro Sasumo",
         "cardName": null,
@@ -5489,7 +5498,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -5589,7 +5599,7 @@
         "pokemonId": 135,
         "setCode": "BRS",
         "jpSetCode": "s8b",
-        "cnSetCode": null,
+        "cnSetCode": "CSGC",
         "setNumber": "TG004/30",
         "artist": "PLANETA Mochizuki",
         "cardName": null,
@@ -5597,7 +5607,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -5707,7 +5718,7 @@
         "pokemonId": 136,
         "setCode": "BRS",
         "jpSetCode": "s8b",
-        "cnSetCode": null,
+        "cnSetCode": "CSGC",
         "setNumber": "TG001/30",
         "artist": "You Iribi",
         "cardName": null,
@@ -5715,7 +5726,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -6606,7 +6618,7 @@
         "pokemonId": 150,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "GG044/70",
         "artist": "GOSSAN",
         "cardName": "Mewtwo VSTAR",
@@ -6619,7 +6631,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -16365,7 +16378,7 @@
         "pokemonId": 477,
         "setCode": "BRS",
         "jpSetCode": "s8b",
-        "cnSetCode": null,
+        "cnSetCode": "CSGC",
         "setNumber": "TG006/30",
         "artist": "Megumi Higuchi",
         "cardName": null,
@@ -16373,7 +16386,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -17217,7 +17231,7 @@
         "pokemonId": 493,
         "setCode": "CEC",
         "jpSetCode": "sm12",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "221/236",
         "artist": "Kouki Saitou",
         "cardName": "Arceus & Dialga & Palkia GX",
@@ -17228,7 +17242,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -24735,7 +24750,7 @@
         "pokemonId": 700,
         "setCode": "SWSH",
         "jpSetCode": "S-P",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "SWSH134",
         "artist": "Ryuta Fuse",
         "cardName": "Dark Sylveon V",
@@ -24743,7 +24758,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -26456,7 +26472,7 @@
         "pokemonId": 765,
         "setCode": "BRS",
         "jpSetCode": "s8b",
-        "cnSetCode": null,
+        "cnSetCode": "CSGC",
         "setNumber": "TG012/30",
         "artist": "Akira Komayama",
         "cardName": null,
@@ -26464,7 +26480,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -28883,7 +28900,7 @@
         "pokemonId": 841,
         "setCode": "ASR",
         "jpSetCode": "s8b",
-        "cnSetCode": null,
+        "cnSetCode": "CSGC",
         "setNumber": "TG002/30",
         "artist": "Misaki Hashimoto",
         "cardName": null,
@@ -28891,7 +28908,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -29878,7 +29896,7 @@
         "pokemonId": 873,
         "setCode": "ASR",
         "jpSetCode": "s8b",
-        "cnSetCode": null,
+        "cnSetCode": "CSGC",
         "setNumber": "TG04/30",
         "artist": "aoki",
         "cardName": null,
@@ -29886,7 +29904,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -34606,7 +34625,7 @@
         "pokemonId": 1007,
         "setCode": "SVP",
         "jpSetCode": "SV-P",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "014",
         "artist": "Mina Nakai",
         "cardName": null,
@@ -34614,7 +34633,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -34653,7 +34673,7 @@
         "pokemonId": 1008,
         "setCode": "SVP",
         "jpSetCode": "SV-P",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "13",
         "artist": "Akira Komayama",
         "cardName": null,
@@ -34661,7 +34681,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
