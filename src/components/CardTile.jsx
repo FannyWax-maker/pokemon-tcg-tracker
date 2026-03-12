@@ -30,14 +30,16 @@ const SET_CODE_TO_API_ID = {
 
 const usePriceData = (card) => {
   const [price, setPrice] = React.useState(priceCache[card.id] ?? null);
+  const [hovered, setHovered] = React.useState(false);
 
   React.useEffect(() => {
+    if (!hovered) return;
     if (priceCache[card.id] !== undefined) { setPrice(priceCache[card.id]); return; }
     const rawCode = (card.enSetCode || card.setCode || '').toUpperCase();
     const apiId = SET_CODE_TO_API_ID[rawCode];
     const number = (card.number || card.setNumber || '').split('/')[0];
     if (!apiId || !number) { priceCache[card.id] = false; setPrice(false); return; }
-    const url = `https://api.pokemontcg.io/v2/cards?q=set.id:${apiId}+number:${encodeURIComponent(number)}&select=tcgplayer`;
+    const url = `https://api.pokemontcg.io/v2/cards?q=set.id:${apiId}%20number:${number}&select=tcgplayer`;
     fetch(url, { headers: { 'X-Api-Key': '6c224d7d-394b-4ec3-9638-3b0a0ccec9e0' } })
       .then(r => r.json())
       .then(data => {
@@ -50,9 +52,9 @@ const usePriceData = (card) => {
         setPrice(gbp);
       })
       .catch(() => { priceCache[card.id] = false; setPrice(false); });
-  }, [card.id, card.setCode, card.enSetCode, card.number, card.setNumber]);
+  }, [hovered, card.id, card.setCode, card.enSetCode, card.number, card.setNumber]);
 
-  return price;
+  return [price, setHovered];
 };
 
 // Global request queue - limits concurrent image fetches to avoid GitHub Pages 429
@@ -162,7 +164,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const isFavorite = !!card.favorite;
   const isUnobtainable = !!card.unobtainable;
   const isEnCard = !!(card.enSetCode || card.setCode);
-  const priceGBP = usePriceData(card);
+  const [priceGBP, setPriceHovered] = usePriceData(card);
 
   // Which langs are available for this card
   const availableLangs = card.availableLangs || [];
@@ -343,6 +345,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
         className={`flex flex-col rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 ${
         isSecondary ? 'opacity-75 ring-2 ring-purple-300' : ''
       } ${isOwned ? 'ring-2 ring-red-400' : 'bg-white shadow-md'}`}
+        onMouseEnter={() => setPriceHovered(true)}
         style={isOwned ? {boxShadow: '0 4px 20px rgba(239,68,68,0.25)'} : {}}>
 
         {/* Card Image */}
