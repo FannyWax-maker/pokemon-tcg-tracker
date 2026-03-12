@@ -5,34 +5,7 @@ const setNames = setNamesImport;
 // Global cache - images never reload after first load
 const imageCache = {};
 
-// Price cache - keyed by card id
-const priceCache = {};
 
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyNHSpdwlW_WVu6zvkg_piGyrqNzJfrLCI6Z0OJ6S_wPrwP7-TvXX3aT3HvGGPHj5ENSw/exec';
-
-const usePriceData = (card) => {
-  const [price, setPrice] = React.useState(priceCache[card.id] ?? null);
-  const [hovered, setHovered] = React.useState(false);
-
-  React.useEffect(() => {
-    if (!hovered) return;
-    if (priceCache[card.id] !== undefined) { setPrice(priceCache[card.id]); return; }
-    const setCode = (card.enSetCode || card.setCode || '').toUpperCase();
-    const number = (card.number || card.setNumber || '').split('/')[0];
-    if (!setCode || !number) { priceCache[card.id] = false; setPrice(false); return; }
-    const url = `${APPS_SCRIPT_URL}?action=getPrice&cardId=${encodeURIComponent(card.id)}&setCode=${encodeURIComponent(setCode)}&number=${encodeURIComponent(number)}`;
-    fetch(url, { redirect: 'follow', mode: 'cors' })
-      .then(r => r.json())
-      .then(data => {
-        const gbp = data?.price ? parseFloat(data.price).toFixed(2) : false;
-        priceCache[card.id] = gbp;
-        setPrice(gbp);
-      })
-      .catch(() => { priceCache[card.id] = false; setPrice(false); });
-  }, [hovered, card.id, card.setCode, card.enSetCode, card.number, card.setNumber]);
-
-  return [price, setHovered];
-};
 
 // Global request queue - limits concurrent image fetches to avoid GitHub Pages 429
 const MAX_CONCURRENT = 6;
@@ -140,8 +113,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const isNonConforming = !!card.nonConforming;
   const isFavorite = !!card.favorite;
   const isUnobtainable = !!card.unobtainable;
-  const isEnCard = !!(card.enSetCode || card.setCode);
-  const [priceGBP, setPriceHovered] = usePriceData(card);
+
 
   // Which langs are available for this card
   const availableLangs = card.availableLangs || [];
@@ -322,7 +294,6 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
         className={`flex flex-col rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 ${
         isSecondary ? 'opacity-75 ring-2 ring-purple-300' : ''
       } ${isOwned ? 'ring-2 ring-red-400' : 'bg-white shadow-md'}`}
-        onMouseEnter={() => setPriceHovered(true)}
         style={isOwned ? {boxShadow: '0 4px 20px rgba(239,68,68,0.25)'} : {}}>
 
         {/* Card Image */}
@@ -421,7 +392,6 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           <div className={`flex items-center justify-between text-[10px] font-mono ${isOwned ? 'text-red-200' : 'text-gray-400'}`}>
             <span>#{String(card.pokemonId || '').padStart(4, '0')}</span>
             <div className="flex items-center gap-1">
-              {card.priceGBP && <span className={`font-semibold ${isOwned ? 'text-red-100' : 'text-emerald-600'}`}>£{Number(card.priceGBP).toFixed(2)}</span>}
               <span>{(() => { try { const _se = setNames[card.enSetCode || card.setCode]; const _n = typeof _se === 'object' ? (_se?.name || '') : (typeof _se === 'string' ? _se : ''); const yrMatch = _n.match(/\d{4}(?:-\d{4})?$/); return yrMatch ? yrMatch[0] : (_se?.year || ''); } catch(e) { return ''; } })()}</span>
             </div>
           </div>
@@ -474,24 +444,6 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
           {/* Row 8: artist — always reserve space */}
           <div className={`text-xs leading-tight truncate min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-400'}`}>{card.artist || ' '}</div>
-
-          {/* Row 9: price */}
-          <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-center gap-1 ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
-            {isEnCard ? (
-              priceGBP === null
-                ? <span className="opacity-40 italic">£ ···</span>
-                : priceGBP === false
-                  ? <span className="opacity-30 italic">No price</span>
-                  : <span className={`font-bold ${isOwned ? 'text-green-200' : 'text-emerald-600'}`}>≈ £{priceGBP}</span>
-            ) : (
-              <a
-                href={buildEbayUrl(card, isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName, card.jpSetCode ? 'JP' : 'CN')}
-                target="_blank" rel="noopener noreferrer"
-                onClick={e => e.stopPropagation()}
-                className={`underline hover:opacity-80 ${isOwned ? 'text-red-100' : 'text-blue-500'}`}
-              >eBay price ↗</a>
-            )}
-          </div>
 
           {/* Language buttons — hidden when owned, show owned pill instead */}
           {!isSecondary && showOwnershipButtons && (
