@@ -1091,43 +1091,13 @@
     "year": 2026,
     "month": 3
   },
-  "CSMPoC": {
-    "name": "Fighting Modification Pack",
-    "series": "",
-    "year": 2024,
-    "month": 1
-  },
-  "CSMPaC": {
-    "name": "Battle Party Set - Grass Deck",
-    "series": "",
-    "year": 2023,
-    "month": 4
-  },
-  "CSMPjC": {
-    "name": "Battle Party Set - Grass Modification Pack",
-    "series": "",
-    "year": 2024,
-    "month": 1
-  },
-  "CSMPeC": {
-    "name": "Battle Party Set - Psychic Deck",
-    "series": "",
-    "year": 2023,
-    "month": 4
-  },
-  "CSMPnC": {
-    "name": "Battle Party Set - Psychic Modification Pack",
-    "series": "",
-    "year": 2024,
-    "month": 1
-  },
   "cs6.1c": {
     "name": "Brilliant Energy Promo Pack 3",
     "series": "Sword & Shield",
     "year": null,
     "month": null
   },
-  "CSGC": {
+  "csGC": {
     "name": "Eevee Display Frame Box",
     "series": "Sword & Shield",
     "year": null,
@@ -1144,12 +1114,6 @@
     "series": "Scarlet & Violet",
     "year": null,
     "month": null
-  },
-  "AC2a": {
-    "name": "Dreams Come True Set A",
-    "series": "Sun & Moon",
-    "year": 2019,
-    "month": 12
   },
   "csm1ac": {
     "name": "Storming Emergence - Set A",
@@ -1223,6 +1187,18 @@
     "year": 2023,
     "month": 3
   },
+  "CSMPaC": {
+    "name": "Battle Party Set - Grass Deck",
+    "series": "",
+    "year": 2023,
+    "month": 4
+  },
+  "CSMPeC": {
+    "name": "Battle Party Set - Psychic Deck",
+    "series": "",
+    "year": 2023,
+    "month": 4
+  },
   "cs1bc": {
     "name": "Dynamax Clash - Flame",
     "series": "Sword & Shield",
@@ -1289,6 +1265,24 @@
     "year": 2024,
     "month": 1
   },
+  "CSMPoC": {
+    "name": "Fighting Modification Pack",
+    "series": "",
+    "year": 2024,
+    "month": 1
+  },
+  "CSMPjC": {
+    "name": "Battle Party Set - Grass Modification Pack",
+    "series": "",
+    "year": 2024,
+    "month": 1
+  },
+  "CSMPnC": {
+    "name": "Battle Party Set - Psychic Modification Pack",
+    "series": "",
+    "year": 2024,
+    "month": 1
+  },
   "cs4ac": {
     "name": "Polychromatic Gathering - Friends",
     "series": "Sword & Shield",
@@ -1297,6 +1291,12 @@
   },
   "cs4bc": {
     "name": "Polychromatic Gathering - Origin",
+    "series": "Sword & Shield",
+    "year": 2024,
+    "month": 3
+  },
+  "CS4.1C": {
+    "name": "Radiant Energy First Round",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 3
@@ -1445,6 +1445,12 @@
     "year": 2025,
     "month": 9
   },
+  "SVPC": {
+    "name": "First Partner Promo Pack",
+    "series": "Scarlet & Violet",
+    "year": 2025,
+    "month": 10
+  },
   "csVL2C": {
     "name": "Travel Special Pack",
     "series": "Scarlet & Violet",
@@ -1474,12 +1480,6 @@
     "series": "",
     "year": null,
     "month": null
-  },
-  "CS4.1C": {
-    "name": "Radiant Energy First Round",
-    "series": "Sword & Shield",
-    "year": 2024,
-    "month": 3
   },
   "CP": {
     "name": "Chinese Promo Card",
