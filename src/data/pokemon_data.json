@@ -68,7 +68,7 @@
         "pokemonId": 1,
         "setCode": "SCR",
         "jpSetCode": "sv7",
-        "cnSetCode": "CP",
+        "cnSetCode": "SVPC",
         "setNumber": "143/142",
         "artist": "Orca",
         "cardName": null,
@@ -346,7 +346,7 @@
         "pokemonId": 4,
         "setCode": "SVP",
         "jpSetCode": "SV-P",
-        "cnSetCode": "CP",
+        "cnSetCode": "SVPC",
         "setNumber": "44",
         "artist": "MINAMINAMI Take",
         "cardName": null,
@@ -784,7 +784,7 @@
         "pokemonId": 7,
         "setCode": "SCR",
         "jpSetCode": "sv7",
-        "cnSetCode": "CP",
+        "cnSetCode": "SVPC",
         "setNumber": "148/142",
         "artist": "Saboteri",
         "cardName": null,
@@ -4407,6 +4407,24 @@
         ],
         "isPrimary": true,
         "isSecondary": false
+      },
+      {
+        "id": "109_cri_",
+        "pokemonId": 109,
+        "setCode": "CRI",
+        "jpSetCode": "m4",
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": "Trainer, Roxie’s Performance",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
       }
     ]
   },
@@ -6431,7 +6449,7 @@
         "pokemonId": 149,
         "setCode": "ASC",
         "jpSetCode": "m2a",
-        "cnSetCode": "m2a F",
+        "cnSetCode": null,
         "setNumber": "290/217",
         "artist": "DOM",
         "cardName": "Mega Dragonite ex",
@@ -6442,8 +6460,7 @@
         ],
         "availableLangs": [
           "EN",
-          "JP",
-          "CN"
+          "JP"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -7323,6 +7340,24 @@
           "EN",
           "JP",
           "CN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "169_cri_",
+        "pokemonId": 169,
+        "setCode": "CRI",
+        "jpSetCode": "m4",
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": null,
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -12359,7 +12394,26 @@
     "name": "Claydol",
     "gen": 3,
     "region": "Hoenn",
-    "cards": []
+    "cards": [
+      {
+        "id": "344_cri_",
+        "pokemonId": 344,
+        "setCode": "CRI",
+        "jpSetCode": "m4",
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": null,
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      }
+    ]
   },
   {
     "id": 345,
@@ -13101,6 +13155,24 @@
     "region": "Hoenn",
     "cards": [
       {
+        "id": "374_cri_",
+        "pokemonId": 374,
+        "setCode": "CRI",
+        "jpSetCode": "m4",
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": "Trainer, Prism Tower",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
         "id": "374_svp_207",
         "pokemonId": 374,
         "setCode": "SVP",
@@ -13125,7 +13197,26 @@
     "name": "Metang",
     "gen": 3,
     "region": "Hoenn",
-    "cards": []
+    "cards": [
+      {
+        "id": "375_cri_",
+        "pokemonId": 375,
+        "setCode": "CRI",
+        "jpSetCode": "m4",
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": null,
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      }
+    ]
   },
   {
     "id": 376,
@@ -17953,6 +18044,24 @@
         ],
         "isPrimary": true,
         "isSecondary": false
+      },
+      {
+        "id": "505_cri_",
+        "pokemonId": 505,
+        "setCode": "CRI",
+        "jpSetCode": "m4",
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": null,
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
       }
     ]
   },
@@ -20394,6 +20503,24 @@
         "setNumber": "153/086",
         "artist": "tono",
         "cardName": null,
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "573_cri_",
+        "pokemonId": 573,
+        "setCode": "CRI",
+        "jpSetCode": "m4",
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": "Cinccino ex",
         "exclusive": null,
         "otherPokemon": null,
         "availableLangs": [
@@ -23632,6 +23759,24 @@
         ],
         "isPrimary": true,
         "isSecondary": false
+      },
+      {
+        "id": "650_cri_",
+        "pokemonId": 650,
+        "setCode": "CRI",
+        "jpSetCode": "m4",
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": null,
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
       }
     ]
   },
@@ -23654,7 +23799,26 @@
     "name": "Fennekin",
     "gen": 6,
     "region": "Kalos",
-    "cards": []
+    "cards": [
+      {
+        "id": "653_mep_",
+        "pokemonId": 653,
+        "setCode": "MEP",
+        "jpSetCode": "m4",
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": null,
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      }
+    ]
   },
   {
     "id": 654,
@@ -23695,14 +23859,52 @@
     "name": "Froakie",
     "gen": 6,
     "region": "Kalos",
-    "cards": []
+    "cards": [
+      {
+        "id": "656_cri_",
+        "pokemonId": 656,
+        "setCode": "CRI",
+        "jpSetCode": "m4",
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": null,
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      }
+    ]
   },
   {
     "id": 657,
     "name": "Frogadier",
     "gen": 6,
     "region": "Kalos",
-    "cards": []
+    "cards": [
+      {
+        "id": "657_cri_",
+        "pokemonId": 657,
+        "setCode": "CRI",
+        "jpSetCode": "m4",
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": null,
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      }
+    ]
   },
   {
     "id": 658,
@@ -23786,6 +23988,24 @@
           "EN",
           "JP",
           "CN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "658_cri_",
+        "pokemonId": 658,
+        "setCode": "CRI",
+        "jpSetCode": "m4",
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": "Mega Greninja ex",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -24084,7 +24304,44 @@
     "name": "Floette",
     "gen": 6,
     "region": "Kalos",
-    "cards": []
+    "cards": [
+      {
+        "id": "670_cri_1",
+        "pokemonId": 670,
+        "setCode": "CRI",
+        "jpSetCode": "m4",
+        "cnSetCode": null,
+        "setNumber": "1",
+        "artist": null,
+        "cardName": "Mega Floette ex",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "670_cri_2",
+        "pokemonId": 670,
+        "setCode": "CRI",
+        "jpSetCode": "m4",
+        "cnSetCode": null,
+        "setNumber": "2",
+        "artist": null,
+        "cardName": "Trainer, AZ’s Tranquility",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      }
+    ]
   },
   {
     "id": 671,
@@ -24384,7 +24641,26 @@
     "name": "Dragalge",
     "gen": 6,
     "region": "Kalos",
-    "cards": []
+    "cards": [
+      {
+        "id": "691_cri_",
+        "pokemonId": 691,
+        "setCode": "CRI",
+        "jpSetCode": "m4",
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": "Mega Dragalge ex",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      }
+    ]
   },
   {
     "id": 692,
@@ -25009,7 +25285,26 @@
     "name": "Sliggoo",
     "gen": 6,
     "region": "Kalos",
-    "cards": []
+    "cards": [
+      {
+        "id": "705_cri_",
+        "pokemonId": 705,
+        "setCode": "CRI",
+        "jpSetCode": "m4",
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": null,
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      }
+    ]
   },
   {
     "id": 706,
@@ -25264,7 +25559,26 @@
     "name": "Xerneas",
     "gen": 6,
     "region": "Kalos",
-    "cards": []
+    "cards": [
+      {
+        "id": "716_cri_",
+        "pokemonId": 716,
+        "setCode": "CRI",
+        "jpSetCode": "m4",
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": null,
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      }
+    ]
   },
   {
     "id": 717,
@@ -26594,6 +26908,24 @@
           "EN",
           "JP",
           "CN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "767_cri_",
+        "pokemonId": 767,
+        "setCode": "CRI",
+        "jpSetCode": "m4",
+        "cnSetCode": null,
+        "setNumber": null,
+        "artist": null,
+        "cardName": "Trainer, Surfing Beach",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
         ],
         "isPrimary": true,
         "isSecondary": false
