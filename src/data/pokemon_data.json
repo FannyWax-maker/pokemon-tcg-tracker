@@ -2690,7 +2690,7 @@
         "pokemonId": 45,
         "setCode": "CEC",
         "jpSetCode": "sm12",
-        "cnSetCode": null,
+        "cnSetCode": "csm2DC",
         "setNumber": "004/236",
         "artist": "Kagemaru Himeno",
         "cardName": "Vileplume GX",
@@ -2698,7 +2698,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -2708,7 +2709,7 @@
         "pokemonId": 45,
         "setCode": "CEC",
         "jpSetCode": "sm12",
-        "cnSetCode": null,
+        "cnSetCode": "csm2DC",
         "setNumber": "211/236",
         "artist": "Kagemaru Himeno",
         "cardName": "Vileplume GX",
@@ -2716,7 +2717,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -4065,7 +4067,7 @@
         "pokemonId": 95,
         "setCode": "HIF",
         "jpSetCode": "smK",
-        "cnSetCode": null,
+        "cnSetCode": "csm2DC",
         "setNumber": "036/68",
         "artist": "PLANETA Igarashi",
         "cardName": "Onix GX",
@@ -4073,7 +4075,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -4132,7 +4135,7 @@
         "pokemonId": 99,
         "setCode": "BRS",
         "jpSetCode": "SI",
-        "cnSetCode": null,
+        "cnSetCode": "cs4DaC",
         "setNumber": "028/172",
         "artist": "PLANETA Mochizuki",
         "cardName": "Kingler V",
@@ -4140,7 +4143,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -4150,7 +4154,7 @@
         "pokemonId": 99,
         "setCode": "BRS",
         "jpSetCode": "SI",
-        "cnSetCode": null,
+        "cnSetCode": "cs4DaC",
         "setNumber": "029/172",
         "artist": "5ban Graphics",
         "cardName": "Kingler VMAX",
@@ -4158,7 +4162,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -8001,7 +8006,7 @@
         "pokemonId": 196,
         "setCode": "UNM",
         "jpSetCode": "smM",
-        "cnSetCode": null,
+        "cnSetCode": "csm2DC",
         "setNumber": "072/236",
         "artist": "Mitsuhiro Arita",
         "cardName": "Espeon & Deoxys GX",
@@ -8011,7 +8016,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -11460,7 +11466,7 @@
         "pokemonId": 306,
         "setCode": "BRS",
         "jpSetCode": "SI",
-        "cnSetCode": null,
+        "cnSetCode": "cs4DaC",
         "setNumber": "097/172",
         "artist": "5ban Graphics",
         "cardName": "Aggron VMAX",
@@ -11468,7 +11474,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -25095,7 +25102,7 @@
         "pokemonId": 709,
         "setCode": "EVS",
         "jpSetCode": "s7R",
-        "cnSetCode": null,
+        "cnSetCode": "cs4DaC",
         "setNumber": "013/203",
         "artist": "MUGENUP",
         "cardName": "Trevenant V",
@@ -25103,7 +25110,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -27111,7 +27119,7 @@
         "pokemonId": 785,
         "setCode": "BST",
         "jpSetCode": "s5I",
-        "cnSetCode": null,
+        "cnSetCode": "cs4DaC",
         "setNumber": "050/163",
         "artist": "AKIRA EGAWA",
         "cardName": "Tapu Koko V",
@@ -27119,7 +27127,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -28305,7 +28314,7 @@
         "pokemonId": 820,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": null,
+        "cnSetCode": "cs4DaC",
         "setNumber": "120/159",
         "artist": "Saki Hayashiro",
         "cardName": "Greedent V",
@@ -28313,7 +28322,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -28423,7 +28433,7 @@
         "pokemonId": 823,
         "setCode": "BST",
         "jpSetCode": "s8b",
-        "cnSetCode": null,
+        "cnSetCode": "cs4DaC",
         "setNumber": "110/163",
         "artist": "PLANETA Mochizuki",
         "cardName": "Corviknight VMAX",
@@ -28431,7 +28441,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -28822,7 +28833,7 @@
         "pokemonId": 836,
         "setCode": "FST",
         "jpSetCode": "s8",
-        "cnSetCode": null,
+        "cnSetCode": "cs4DaC",
         "setNumber": "103/264",
         "artist": "Shin Nagasawa",
         "cardName": "Boltund V",
@@ -28830,7 +28841,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -28840,7 +28852,7 @@
         "pokemonId": 836,
         "setCode": "SWSH",
         "jpSetCode": "S-P",
-        "cnSetCode": null,
+        "cnSetCode": "cs4DaC",
         "setNumber": "SWSH219",
         "artist": "Ayaka Yoshida",
         "cardName": "Boltund V",
@@ -28848,7 +28860,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -32592,7 +32605,7 @@
         "pokemonId": 939,
         "setCode": "OBF",
         "jpSetCode": "sv3",
-        "cnSetCode": null,
+        "cnSetCode": "csv2c",
         "setNumber": "201/197",
         "artist": "KEIICHIRO ITO",
         "cardName": null,
@@ -32600,7 +32613,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -34229,7 +34243,7 @@
         "pokemonId": 994,
         "setCode": "PAR",
         "jpSetCode": "sv4M",
-        "cnSetCode": null,
+        "cnSetCode": "csV6C",
         "setNumber": "187/182",
         "artist": "Takeshi Nakamura",
         "cardName": null,
@@ -34237,7 +34251,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
