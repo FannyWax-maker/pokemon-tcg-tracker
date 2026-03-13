@@ -392,7 +392,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           <div className={`flex items-center justify-between text-[10px] font-mono ${isOwned ? 'text-red-200' : 'text-gray-400'}`}>
             <span>#{String(card.pokemonId || '').padStart(4, '0')}</span>
             <div className="flex items-center gap-1">
-              <span>{(() => { try { const _se = setNames[card.enSetCode || card.setCode]; const _n = typeof _se === 'object' ? (_se?.name || '') : (typeof _se === 'string' ? _se : ''); const yrMatch = _n.match(/\d{4}(?:-\d{4})?$/); return yrMatch ? yrMatch[0] : (_se?.year || ''); } catch(e) { return ''; } })()}</span>
+              <span>{(() => { try { const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const sd = setNames[card.enSetCode || card.setCode] || setNames[card.jpSetCode] || setNames[card.cnSetCode] || {}; if (!sd.year) return ''; return sd.month ? `${MONTHS[sd.month - 1]} ${sd.year}` : String(sd.year); } catch(e) { return ''; } })()}</span>
             </div>
           </div>
 
