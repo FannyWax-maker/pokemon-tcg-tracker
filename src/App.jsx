@@ -937,9 +937,9 @@ export default function App() {
                     })}
                   </select>
 
-                  <div className="flex gap-1">
+                  <div className="flex gap-1 min-w-0">
                     <select value={filterSetLang} onChange={(e) => { setFilterSetLang(e.target.value); setFilterSet('all'); }}
-                      className={`w-24 px-2 py-1.5 border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-red-400 font-medium ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-200 text-gray-700'}`}>
+                      className={`w-24 shrink-0 px-2 py-1.5 border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-red-400 font-medium ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-200 text-gray-700'}`}>
                       <option value="all">All Lang</option>
                       <option value="EN">🇬🇧 EN</option>
                       <option value="JP">🇯🇵 JP</option>
@@ -947,45 +947,48 @@ export default function App() {
                       <option value="KR">🇰🇷 KR</option>
                     </select>
                     <select value={filterSet} onChange={(e) => setFilterSet(e.target.value)}
-                      className={`flex-1 px-3 py-1.5 border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-red-400 font-medium ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-200 text-gray-700'}`}>
+                      className={`flex-1 min-w-0 px-3 py-1.5 border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-red-400 font-medium ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-200 text-gray-700'}`}>
                       <option value="all">All Sets</option>
-                      {filterSetLang === 'JP' ? (
-                        Object.keys(setStats.jp).sort().map(jpSet => {
-                          const s = setStats.jp[jpSet];
-                          const pct = s.total > 0 ? Math.round((s.owned / s.total) * 100) : 0;
-                          const complete = s.total > 0 && s.owned === s.total;
-                          const name = (typeof setNames[jpSet] === 'object' ? setNames[jpSet]?.name : setNames[jpSet]) || 'Unknown';
-                          return <option key={jpSet} value={jpSet}>{complete ? `✓ ` : ''}{jpSet} - {String(name || "").replace(/ \d{4}(-\d{4})?$/, '')} ({s.owned}/{s.total}{!complete ? ` · ${pct}%` : ''})</option>;
-                        })
-                      ) : filterSetLang === 'CN' ? (
-                        Object.keys(setStats.cn).sort().map(cnSet => {
-                          const s = setStats.cn[cnSet];
-                          const pct = s.total > 0 ? Math.round((s.owned / s.total) * 100) : 0;
-                          const complete = s.total > 0 && s.owned === s.total;
-                          const name = (typeof setNames[cnSet] === 'object' ? setNames[cnSet]?.name : setNames[cnSet]) || 'Unknown';
-                          return <option key={cnSet} value={cnSet}>{complete ? `✓ ` : ''}{cnSet} - {String(name || "").replace(/ \d{4}(-\d{4})?$/, '')} ({s.owned}/{s.total}{!complete ? ` · ${pct}%` : ''})</option>;
-                        })
-                      ) : (() => {
+                      {(() => {
+                        const getScore = (code) => { const s = setNames[code]; return s?.year ? s.year * 100 + (s.month || 0) : 0; };
+                        const fmtOption = (code, name, owned, total) => {
+                          const pct = total > 0 ? Math.round((owned / total) * 100) : 0;
+                          const complete = total > 0 && owned === total;
+                          const sd = setNames[code];
+                          const yr = typeof sd === 'object' ? sd?.year : null;
+                          const cleanName = String(name || '').replace(/ \d{4}(-\d{4})?$/, '').trim();
+                          return <option key={code} value={code}>{complete ? '✓ ' : ''}{code} - {cleanName}{yr ? ` · ${yr}` : ''} ({owned}/{total}{!complete ? ` · ${pct}%` : ''})</option>;
+                        };
+                        if (filterSetLang === 'JP') {
+                          return Object.keys(setStats.jp).sort((a,b) => getScore(b)-getScore(a)).map(code => {
+                            const s = setStats.jp[code];
+                            const name = (typeof setNames[code] === 'object' ? setNames[code]?.name : setNames[code]) || 'Unknown';
+                            return fmtOption(code, name, s.owned, s.total);
+                          });
+                        }
+                        if (filterSetLang === 'CN') {
+                          return Object.keys(setStats.cn).sort((a,b) => getScore(b)-getScore(a)).map(code => {
+                            const s = setStats.cn[code];
+                            const name = (typeof setNames[code] === 'object' ? setNames[code]?.name : setNames[code]) || 'Unknown';
+                            return fmtOption(code, name, s.owned, s.total);
+                          });
+                        }
                         if (filterSetLang === 'all') {
                           const allCodes = new Set([...Object.keys(setStats.en), ...Object.keys(setStats.jp), ...Object.keys(setStats.cn)]);
-                          return Array.from(allCodes).sort().map(code => {
+                          return Array.from(allCodes).sort((a,b) => getScore(b)-getScore(a)).map(code => {
                             const en = setStats.en[code] || { total: 0, owned: 0 };
                             const jp = setStats.jp[code] || { total: 0, owned: 0 };
                             const cn = setStats.cn[code] || { total: 0, owned: 0 };
                             const total = en.total || jp.total || cn.total;
                             const owned = en.owned || jp.owned || cn.owned;
-                            const pct = total > 0 ? Math.round((owned / total) * 100) : 0;
-                            const complete = total > 0 && owned === total;
-                            const name = (() => { const _s = setNames[code]; const _n = (typeof _s === 'object' ? (_s?.name || 'Unknown') : (_s || 'Unknown')); return String(_n || "").split('\n')[0].replace(/ \d{4}(-\d{4})?$/, ''); })();
-                            return <option key={code} value={code}>{complete ? '✓ ' : ''}{code} - {name} ({owned}/{total}{!complete ? ` · ${pct}%` : ''})</option>;
+                            const _s = setNames[code]; const name = (typeof _s === 'object' ? (_s?.name || 'Unknown') : (_s || 'Unknown'));
+                            return fmtOption(code, name, owned, total);
                           });
                         }
-                        return allSets.filter(set => setStats.en[set]?.langs?.has(filterSetLang)).map(set => {
-                          const s = setStats.en[set] || { total: 0, owned: 0 };
-                          const pct = s.total > 0 ? Math.round((s.owned / s.total) * 100) : 0;
-                          const complete = s.total > 0 && s.owned === s.total;
-                          const name = (typeof setNames[set] === 'object' ? setNames[set]?.name : setNames[set]) || 'Unknown';
-                          return <option key={set} value={set}>{complete ? '✓ ' : ''}{set} - {String(name || "").replace(/ \d{4}(-\d{4})?$/, '')} ({s.owned}/{s.total}{!complete ? ` · ${pct}%` : ''})</option>;
+                        return allSets.filter(set => setStats.en[set]?.langs?.has(filterSetLang)).sort((a,b) => getScore(b)-getScore(a)).map(code => {
+                          const s = setStats.en[code] || { total: 0, owned: 0 };
+                          const name = (typeof setNames[code] === 'object' ? setNames[code]?.name : setNames[code]) || 'Unknown';
+                          return fmtOption(code, name, s.owned, s.total);
                         });
                       })()}
                     </select>
