@@ -595,15 +595,13 @@ export default function App() {
       cards.sort((a, b) => (a.otherPokemon || []).length - (b.otherPokemon || []).length);
     } else if (sortBy === 'release_desc') {
       cards.sort((a, b) => {
-        const ya = (setNames[a.setCode] || setNames[a.jpSetCode] || setNames[a.cnSetCode] || {}).year || 0;
-        const yb = (setNames[b.setCode] || setNames[b.jpSetCode] || setNames[b.cnSetCode] || {}).year || 0;
-        return yb - ya;
+        const score = (c) => { const d = setNames[c.setCode] || setNames[c.jpSetCode] || setNames[c.cnSetCode] || {}; return (d.year||0)*100+(d.month||0); };
+        return score(b) - score(a);
       });
     } else if (sortBy === 'release_asc') {
       cards.sort((a, b) => {
-        const ya = (setNames[a.setCode] || setNames[a.jpSetCode] || setNames[a.cnSetCode] || {}).year || 9999;
-        const yb = (setNames[b.setCode] || setNames[b.jpSetCode] || setNames[b.cnSetCode] || {}).year || 9999;
-        return ya - yb;
+        const score = (c) => { const d = setNames[c.setCode] || setNames[c.jpSetCode] || setNames[c.cnSetCode] || {}; return (d.year||9999)*100+(d.month||99); };
+        return score(a) - score(b);
       });
     } else if (sortBy === 'recently_added') {
       cards.sort((a, b) => (b.pokemonId || 0) - (a.pokemonId || 0));
