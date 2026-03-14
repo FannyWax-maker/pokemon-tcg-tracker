@@ -83,6 +83,11 @@ export default function App() {
   };
 
   const setNames = setNamesImport;
+  const setNamesLC = useMemo(() => {
+    const out = {};
+    Object.entries(setNames).forEach(([k, v]) => { out[k.toLowerCase()] = v; });
+    return out;
+  }, []);
 
   const getSpellSuggestion = (query, names) => {
     if (!query || query.length < 3) return null;
@@ -253,7 +258,7 @@ export default function App() {
       if (type === 'gx') return n.includes('GX');
       if (type === 'mega') return n.includes('MEGA');
       if (type === 'ex') return n.includes('EX');
-      if (type === 'promo') { const _ps = setNames[c.setCode || c.jpSetCode || c.cnSetCode]; const _pn = String(typeof _ps === 'object' ? (_ps?.name || '') : (_ps || '')); return _pn.toUpperCase().includes('PROMO'); }
+      if (type === 'promo') { const _ps = setNamesLC[(c.setCode || c.jpSetCode || c.cnSetCode||"").toLowerCase()]; const _pn = String(typeof _ps === 'object' ? (_ps?.name || '') : (_ps || '')); return _pn.toUpperCase().includes('PROMO'); }
       return false;
     }).length;
     const typeOwned = (type) => primary.filter(c => {
@@ -266,7 +271,7 @@ export default function App() {
       if (type === 'gx') return n.includes('GX');
       if (type === 'mega') return n.includes('MEGA');
       if (type === 'ex') return n.includes('EX');
-      if (type === 'promo') { const _ps = setNames[c.setCode || c.jpSetCode || c.cnSetCode]; const _pn = String(typeof _ps === 'object' ? (_ps?.name || '') : (_ps || '')); return _pn.toUpperCase().includes('PROMO'); }
+      if (type === 'promo') { const _ps = setNamesLC[(c.setCode || c.jpSetCode || c.cnSetCode||"").toLowerCase()]; const _pn = String(typeof _ps === 'object' ? (_ps?.name || '') : (_ps || '')); return _pn.toUpperCase().includes('PROMO'); }
       return false;
     }).length;
     const genStats = {};
@@ -351,7 +356,7 @@ export default function App() {
           if (filterCardType === 'gx' && !cu.includes('GX')) return false;
           if (filterCardType === 'mega' && !cu.includes('MEGA')) return false;
           if (filterCardType === 'ex') { if (!(cu.includes(' EX') || cn.includes(' ex')) || cu.includes('EXCLUSIVE')) return false; }
-          if (filterCardType === 'promo') { const _s = setNames[card.setCode || card.jpSetCode || card.cnSetCode]; const _sn = String(typeof _s === 'object' ? (_s?.name || '') : (_s || '')); if (!_sn.toUpperCase().includes('PROMO')) return false; }
+          if (filterCardType === 'promo') { const _s = setNamesLC[(card.setCode || card.jpSetCode || card.cnSetCode||"").toLowerCase()]; const _sn = String(typeof _s === 'object' ? (_s?.name || '') : (_s || '')); if (!_sn.toUpperCase().includes('PROMO')) return false; }
         }
         return true;
       }));
@@ -390,7 +395,7 @@ export default function App() {
           else if (filterCardType === 'gx') matches = cu.includes('GX');
           else if (filterCardType === 'mega') matches = cu.includes('MEGA');
           else if (filterCardType === 'ex') matches = (cu.includes(' EX') || cn.includes(' ex')) && !cu.includes('EXCLUSIVE');
-          else if (filterCardType === 'promo') { const _s = setNames[card.setCode || card.jpSetCode || card.cnSetCode]; const _sn = String(typeof _s === 'object' ? (_s?.name || '') : (_s || '')); matches = _sn.toUpperCase().includes('PROMO'); }
+          else if (filterCardType === 'promo') { const _s = setNamesLC[(card.setCode || card.jpSetCode || card.cnSetCode||"").toLowerCase()]; const _sn = String(typeof _s === 'object' ? (_s?.name || '') : (_s || '')); matches = _sn.toUpperCase().includes('PROMO'); }
           if (!matches) return;
         }
         if (filterArtist !== 'all' && card.artist !== filterArtist) return;
@@ -405,8 +410,8 @@ export default function App() {
     });
     if (sortBy === 'featured_desc') { cards.sort((a, b) => (b.otherPokemon || []).length - (a.otherPokemon || []).length); }
     else if (sortBy === 'featured_asc') { cards.sort((a, b) => (a.otherPokemon || []).length - (b.otherPokemon || []).length); }
-    else if (sortBy === 'release_desc') { cards.sort((a, b) => { const score = (c) => { const d = setNames[c.setCode] || setNames[c.jpSetCode] || setNames[c.cnSetCode] || {}; return (d.year||0)*100+(d.month||0); }; return score(b) - score(a); }); }
-    else if (sortBy === 'release_asc') { cards.sort((a, b) => { const score = (c) => { const d = setNames[c.setCode] || setNames[c.jpSetCode] || setNames[c.cnSetCode] || {}; return (d.year||9999)*100+(d.month||99); }; return score(a) - score(b); }); }
+    else if (sortBy === 'release_desc') { cards.sort((a, b) => { const score = (c) => { const d = setNamesLC[(c.setCode||"").toLowerCase()] || setNamesLC[(c.jpSetCode||"").toLowerCase()] || setNamesLC[(c.cnSetCode||"").toLowerCase()] || {}; return (d.year||0)*100+(d.month||0); }; return score(b) - score(a); }); }
+    else if (sortBy === 'release_asc') { cards.sort((a, b) => { const score = (c) => { const d = setNamesLC[(c.setCode||"").toLowerCase()] || setNamesLC[(c.jpSetCode||"").toLowerCase()] || setNamesLC[(c.cnSetCode||"").toLowerCase()] || {}; return (d.year||9999)*100+(d.month||99); }; return score(a) - score(b); }); }
     else if (sortBy === 'recently_added') { cards.sort((a, b) => (b.pokemonId || 0) - (a.pokemonId || 0)); }
     return cards;
   }, [filteredData, filterChinese, filterExclusive, filterSet, filterCardType, sortBy, filterOwned, filterArtist, filterUnobtainable, filterMissingImages, filterSetLang]);
@@ -612,28 +617,28 @@ export default function App() {
                     className={`flex-1 min-w-0 px-3 py-1.5 border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-red-400 font-medium ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-200 text-gray-700'}`}>
                     <option value="all">All Sets</option>
                     {(() => {
-                      const getScore = (code) => { const s = setNames[code]; return s?.year ? s.year * 100 + (s.month || 0) : 0; };
+                      const getScore = (code) => { const s = setNamesLC[(code||"").toLowerCase()]; return s?.year ? s.year * 100 + (s.month || 0) : 0; };
                       const sortCodes = (arr) => setListSort === 'alpha' ? arr.sort((a,b) => a.localeCompare(b)) : arr.sort((a,b) => getScore(b)-getScore(a));
                       const fmtOption = (code, name, owned, total) => {
                         const pct = total > 0 ? Math.round((owned / total) * 100) : 0;
                         const complete = total > 0 && owned === total;
-                        const sd = setNames[code];
+                        const sd = setNamesLC[(code||"").toLowerCase()];
                         const yr = typeof sd === 'object' ? sd?.year : null;
                         const cleanName = String(name || '').replace(/ \d{4}(-\d{4})?$/, '').trim();
                         return <option key={code} value={code}>{complete ? '✓ ' : ''}{code} - {cleanName}{yr ? ` · ${yr}` : ''} ({owned}/{total}{!complete ? ` · ${pct}%` : ''})</option>;
                       };
-                      if (filterSetLang === 'JP') return sortCodes(Object.keys(setStats.jp)).map(code => { const s = setStats.jp[code]; const name = (typeof setNames[code] === 'object' ? setNames[code]?.name : setNames[code]) || 'Unknown'; return fmtOption(code, name, s.owned, s.total); });
-                      if (filterSetLang === 'CN') return sortCodes(Object.keys(setStats.cn)).map(code => { const s = setStats.cn[code]; const name = (typeof setNames[code] === 'object' ? setNames[code]?.name : setNames[code]) || 'Unknown'; return fmtOption(code, name, s.owned, s.total); });
+                      if (filterSetLang === 'JP') return sortCodes(Object.keys(setStats.jp)).map(code => { const s = setStats.jp[code]; const name = (typeof setNamesLC[(code||"").toLowerCase()] === 'object' ? setNamesLC[(code||"").toLowerCase()]?.name : setNamesLC[(code||"").toLowerCase()]) || 'Unknown'; return fmtOption(code, name, s.owned, s.total); });
+                      if (filterSetLang === 'CN') return sortCodes(Object.keys(setStats.cn)).map(code => { const s = setStats.cn[code]; const name = (typeof setNamesLC[(code||"").toLowerCase()] === 'object' ? setNamesLC[(code||"").toLowerCase()]?.name : setNamesLC[(code||"").toLowerCase()]) || 'Unknown'; return fmtOption(code, name, s.owned, s.total); });
                       if (filterSetLang === 'all') {
                         const allCodes = new Set([...Object.keys(setStats.en), ...Object.keys(setStats.jp), ...Object.keys(setStats.cn)]);
                         return sortCodes(Array.from(allCodes)).map(code => {
                           const en = setStats.en[code] || { total: 0, owned: 0 }; const jp = setStats.jp[code] || { total: 0, owned: 0 }; const cn = setStats.cn[code] || { total: 0, owned: 0 };
                           const total = en.total || jp.total || cn.total; const owned = en.owned || jp.owned || cn.owned;
-                          const _s = setNames[code]; const name = (typeof _s === 'object' ? (_s?.name || 'Unknown') : (_s || 'Unknown'));
+                          const _s = setNamesLC[(code||"").toLowerCase()]; const name = (typeof _s === 'object' ? (_s?.name || 'Unknown') : (_s || 'Unknown'));
                           return fmtOption(code, name, owned, total);
                         });
                       }
-                      return sortCodes(allSets.filter(set => setStats.en[set]?.langs?.has(filterSetLang))).map(code => { const s = setStats.en[code] || { total: 0, owned: 0 }; const name = (typeof setNames[code] === 'object' ? setNames[code]?.name : setNames[code]) || 'Unknown'; return fmtOption(code, name, s.owned, s.total); });
+                      return sortCodes(allSets.filter(set => setStats.en[set]?.langs?.has(filterSetLang))).map(code => { const s = setStats.en[code] || { total: 0, owned: 0 }; const name = (typeof setNamesLC[(code||"").toLowerCase()] === 'object' ? setNamesLC[(code||"").toLowerCase()]?.name : setNamesLC[(code||"").toLowerCase()]) || 'Unknown'; return fmtOption(code, name, s.owned, s.total); });
                     })()}
                   </select>
                 </div>
