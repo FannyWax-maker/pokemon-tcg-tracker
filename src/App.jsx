@@ -30,27 +30,13 @@ export default function App() {
   const [filterOwned, setFilterOwned] = useState('all');
   const [filterGeneration, setFilterGeneration] = useState('all');
   const [artistSortBy, setArtistSortBy] = useState('card_count'); // 'alpha', 'card_count'
+  const [setListSort, setSetListSort] = useState('release'); // 'release', 'alpha'
   const [filterSetLang, setFilterSetLang] = useState('all'); // 'all', 'EN', 'JP', 'CN', 'KR'
   const [darkMode, setDarkMode] = useState(false);
   const [syncStatus, setSyncStatus] = useState('');
   
   const setNames = setNamesImport;
 
-  // Helper: get display name from setNames entry (handles both string and {name,year} formats)
-  const getSetName = (code) => {
-    const entry = setNames[code];
-    if (!entry) return 'Unknown';
-    if (typeof entry === 'string') return entry.split('\n')[0].replace(/ \d{4}(-\d{4})?$/, '');
-    return entry.name || 'Unknown';
-  };
-  const getSetYear = (code) => {
-    const entry = setNames[code];
-    if (!entry) return null;
-    if (typeof entry === 'string') { const m = entry.match(/(\d{4})$/); return m ? parseInt(m[1]) : null; }
-    return entry.year || null;
-  };
-
-  const [setSortBy, setSetSortBy] = useState('alpha'); // 'alpha', 'year_asc', 'year_desc'
 
   const getSpellSuggestion = (query, names) => {
     if (!query || query.length < 3) return null;
@@ -774,53 +760,68 @@ export default function App() {
                     return <option key={type} value={type}>{complete ? '★ ' : ''}{label} ({owned}/{total}{!complete ? ` · ${pct}%` : ''})</option>;
                   })}
                 </select>
-                <div className="flex gap-1">
-                  <select value={filterSetLang} onChange={(e) => { setFilterSetLang(e.target.value); setFilterSet('all'); }} className="w-24 px-2 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                    <option value="all">All Lang</option>
-                    <option value="EN">🇬🇧 EN</option>
-                    <option value="JP">🇯🇵 JP</option>
-                    <option value="CN">🇨🇳 CN</option>
-                    <option value="KR">🇰🇷 KR</option>
-                  </select>
-                  <select value={setSortBy} onChange={(e) => setSetSortBy(e.target.value)} className="w-28 px-2 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                    <option value="alpha">A → Z</option>
-                    <option value="year_asc">Oldest first</option>
-                    <option value="year_desc">Newest first</option>
-                  </select>
-                  <select value={filterSet} onChange={(e) => setFilterSet(e.target.value)} className="flex-1 px-3 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                    <option value="all">All Sets</option>
-                    {(() => {
-                      // Get codes for the selected language
-                      let codes;
-                      if (filterSetLang === 'JP') codes = Object.keys(setStats.jp);
-                      else if (filterSetLang === 'CN') codes = Object.keys(setStats.cn);
-                      else if (filterSetLang === 'all') {
-                        codes = Array.from(new Set([...Object.keys(setStats.en), ...Object.keys(setStats.jp), ...Object.keys(setStats.cn)]));
-                      } else {
-                        codes = allSets.filter(s => setStats.en[s]?.langs?.has(filterSetLang));
-                      }
-                      // Sort
-                      codes = codes.slice().sort((a, b) => {
-                        if (setSortBy === 'alpha') return a.localeCompare(b);
-                        const ya = getSetYear(a) || 0;
-                        const yb = getSetYear(b) || 0;
-                        return setSortBy === 'year_asc' ? ya - yb : yb - ya;
-                      });
-                      return codes.map(code => {
-                        const en = setStats.en[code] || { total: 0, owned: 0 };
-                        const jp = setStats.jp[code] || { total: 0, owned: 0 };
-                        const cn = setStats.cn[code] || { total: 0, owned: 0 };
-                        const total = en.total || jp.total || cn.total;
-                        const owned = en.owned || jp.owned || cn.owned;
-                        const pct = total > 0 ? Math.round((owned / total) * 100) : 0;
-                        const complete = total > 0 && owned === total;
-                        const name = getSetName(code);
-                        const year = getSetYear(code);
-                        return <option key={code} value={code}>{complete ? '✓ ' : ''}{code} - {name}{year ? ` ${year}` : ''} ({owned}/{total}{!complete ? ` · ${pct}%` : ''})</option>;
-                      });
-                    })()}
-                  </select>
-                </div>
+                  <div className="flex gap-1 min-w-0">
+                    <select value={filterSetLang} onChange={(e) => { setFilterSetLang(e.target.value); setFilterSet('all'); }}
+                      className={`w-24 shrink-0 px-2 py-1.5 border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-red-400 font-medium ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-200 text-gray-700'}`}>
+                      <option value="all">All Lang</option>
+                      <option value="EN">🇬🇧 EN</option>
+                      <option value="JP">🇯🇵 JP</option>
+                      <option value="CN">🇨🇳 CN</option>
+                      <option value="KR">🇰🇷 KR</option>
+                    </select>
+                    <button onClick={() => setSetListSort(s => s === 'release' ? 'alpha' : 'release')}
+                      title={setListSort === 'release' ? 'Sorted by release date — click for A→Z' : 'Sorted A→Z — click for release date'}
+                      className={`shrink-0 px-2 py-1.5 border rounded-lg text-xs font-bold transition-colors ${darkMode ? 'bg-gray-700 border-gray-600 text-gray-300 hover:bg-gray-600' : 'bg-white border-gray-200 text-gray-500 hover:bg-gray-50'}`}>
+                      {setListSort === 'release' ? '📅' : 'A→Z'}
+                    </button>
+                    <select value={filterSet} onChange={(e) => setFilterSet(e.target.value)}
+                      className={`flex-1 min-w-0 px-3 py-1.5 border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-red-400 font-medium ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-200 text-gray-700'}`}>
+                      <option value="all">All Sets</option>
+                      {(() => {
+                        const getScore = (code) => { const s = setNames[code]; return s?.year ? s.year * 100 + (s.month || 0) : 0; };
+                        const sortCodes = (arr) => setListSort === 'alpha' ? arr.sort((a,b) => a.localeCompare(b)) : arr.sort((a,b) => getScore(b)-getScore(a));
+                        const fmtOption = (code, name, owned, total) => {
+                          const pct = total > 0 ? Math.round((owned / total) * 100) : 0;
+                          const complete = total > 0 && owned === total;
+                          const sd = setNames[code];
+                          const yr = typeof sd === 'object' ? sd?.year : null;
+                          const cleanName = String(name || '').replace(/ \d{4}(-\d{4})?$/, '').trim();
+                          return <option key={code} value={code}>{complete ? '✓ ' : ''}{code} - {cleanName}{yr ? ` · ${yr}` : ''} ({owned}/{total}{!complete ? ` · ${pct}%` : ''})</option>;
+                        };
+                        if (filterSetLang === 'JP') {
+                          return sortCodes(Object.keys(setStats.jp)).map(code => {
+                            const s = setStats.jp[code];
+                            const name = (typeof setNames[code] === 'object' ? setNames[code]?.name : setNames[code]) || 'Unknown';
+                            return fmtOption(code, name, s.owned, s.total);
+                          });
+                        }
+                        if (filterSetLang === 'CN') {
+                          return sortCodes(Object.keys(setStats.cn)).map(code => {
+                            const s = setStats.cn[code];
+                            const name = (typeof setNames[code] === 'object' ? setNames[code]?.name : setNames[code]) || 'Unknown';
+                            return fmtOption(code, name, s.owned, s.total);
+                          });
+                        }
+                        if (filterSetLang === 'all') {
+                          const allCodes = new Set([...Object.keys(setStats.en), ...Object.keys(setStats.jp), ...Object.keys(setStats.cn)]);
+                          return sortCodes(Array.from(allCodes)).map(code => {
+                            const en = setStats.en[code] || { total: 0, owned: 0 };
+                            const jp = setStats.jp[code] || { total: 0, owned: 0 };
+                            const cn = setStats.cn[code] || { total: 0, owned: 0 };
+                            const total = en.total || jp.total || cn.total;
+                            const owned = en.owned || jp.owned || cn.owned;
+                            const _s = setNames[code]; const name = (typeof _s === 'object' ? (_s?.name || 'Unknown') : (_s || 'Unknown'));
+                            return fmtOption(code, name, owned, total);
+                          });
+                        }
+                        return sortCodes(allSets.filter(set => setStats.en[set]?.langs?.has(filterSetLang))).map(code => {
+                          const s = setStats.en[code] || { total: 0, owned: 0 };
+                          const name = (typeof setNames[code] === 'object' ? setNames[code]?.name : setNames[code]) || 'Unknown';
+                          return fmtOption(code, name, s.owned, s.total);
+                        });
+                      })()}
+                    </select>
+                  </div>
                 <div className="col-span-2 md:col-span-1 flex gap-1">
                   <select value={filterArtist} onChange={(e) => setFilterArtist(e.target.value)} className="flex-1 px-3 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500">
                     <option value="all">All Artists</option>
