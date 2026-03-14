@@ -4368,7 +4368,7 @@
         "pokemonId": 108,
         "setCode": "TEF",
         "jpSetCode": "sv5M",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "180/162",
         "artist": "Orca",
         "cardName": null,
@@ -4376,7 +4376,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -4812,7 +4813,7 @@
         "pokemonId": 127,
         "setCode": "TWM",
         "jpSetCode": "sv5a",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "168/167",
         "artist": "Yukihiro Tada",
         "cardName": null,
@@ -4820,7 +4821,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -5496,7 +5498,7 @@
         "pokemonId": 133,
         "setCode": "TWM",
         "jpSetCode": "sv5a",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "188/167",
         "artist": "Narumi Sato",
         "cardName": null,
@@ -5504,7 +5506,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -7971,7 +7974,7 @@
         "pokemonId": 194,
         "setCode": "PFL",
         "jpSetCode": "m2",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "102/094",
         "artist": "OKACHEKE",
         "cardName": "Paldean Wooper",
@@ -7979,7 +7982,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -11921,7 +11925,7 @@
         "pokemonId": 324,
         "setCode": "TWM",
         "jpSetCode": "sv5a",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "172/167",
         "artist": "Masa",
         "cardName": null,
@@ -11929,7 +11933,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -13043,7 +13048,7 @@
         "pokemonId": 369,
         "setCode": "TEF",
         "jpSetCode": "sv5K",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "173/162",
         "artist": "Mitsuhiro Arita",
         "cardName": null,
@@ -13057,7 +13062,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -13897,7 +13903,7 @@
         "pokemonId": 388,
         "setCode": "TEF",
         "jpSetCode": "sv5K",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "164/162",
         "artist": "Oswaldo KATO",
         "cardName": null,
@@ -13908,7 +13914,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -13966,7 +13973,7 @@
         "pokemonId": 392,
         "setCode": "TWM",
         "jpSetCode": "sv5a",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "173/167",
         "artist": "Krgc",
         "cardName": null,
@@ -13974,7 +13981,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -15116,7 +15124,7 @@
         "pokemonId": 441,
         "setCode": "TEF",
         "jpSetCode": "sv5K",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "181/162",
         "artist": "Scav",
         "cardName": null,
@@ -15124,7 +15132,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -16481,7 +16490,7 @@
         "pokemonId": 476,
         "setCode": "TWM",
         "jpSetCode": "sv5a",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "182/167",
         "artist": "Kariya",
         "cardName": null,
@@ -16495,7 +16504,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -16559,7 +16569,7 @@
         "pokemonId": 478,
         "setCode": "TWM",
         "jpSetCode": "sv6",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "174/167",
         "artist": "matazo",
         "cardName": null,
@@ -16567,7 +16577,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -17119,7 +17130,7 @@
         "pokemonId": 489,
         "setCode": "TWM",
         "jpSetCode": "sv5a",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "175/167",
         "artist": "takashi shiraishi",
         "cardName": null,
@@ -17130,7 +17141,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -18855,7 +18867,7 @@
         "pokemonId": 530,
         "setCode": "TEF",
         "jpSetCode": "sv5M",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "174/162",
         "artist": "Saboteri",
         "cardName": null,
@@ -18863,7 +18875,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -20451,7 +20464,7 @@
         "pokemonId": 572,
         "setCode": "TEF",
         "jpSetCode": "sv5K",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "182/162",
         "artist": "Shibuzoh.",
         "cardName": null,
@@ -20459,7 +20472,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -20477,7 +20491,7 @@
         "pokemonId": 573,
         "setCode": "TEF",
         "jpSetCode": "sv5K",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "183/162",
         "artist": "Shibuzoh.",
         "cardName": null,
@@ -20489,7 +20503,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -20893,7 +20908,7 @@
         "pokemonId": 585,
         "setCode": "TEF",
         "jpSetCode": "sv5M",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "165/162",
         "artist": "Susumu Maeya",
         "cardName": null,
@@ -20901,7 +20916,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -20939,7 +20955,7 @@
         "pokemonId": 586,
         "setCode": "TEF",
         "jpSetCode": "sv5M",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "166/162",
         "artist": "Susumu Maeya",
         "cardName": null,
@@ -20947,7 +20963,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -24754,7 +24771,7 @@
         "pokemonId": 695,
         "setCode": "TWM",
         "jpSetCode": "sv5a",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "177/167",
         "artist": "Tonji Matsuno",
         "cardName": null,
@@ -24762,7 +24779,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -26018,7 +26036,7 @@
         "pokemonId": 725,
         "setCode": "TEF",
         "jpSetCode": "sv5M",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "167/162",
         "artist": "Makura Tami",
         "cardName": null,
@@ -26028,7 +26046,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -26224,7 +26243,7 @@
         "pokemonId": 737,
         "setCode": "TEF",
         "jpSetCode": "sv5M",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "169/162",
         "artist": "Mina Nakai",
         "cardName": null,
@@ -26232,7 +26251,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -26373,7 +26393,7 @@
         "pokemonId": 742,
         "setCode": "TEF",
         "jpSetCode": "sv5M",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "172/162",
         "artist": "REND",
         "cardName": null,
@@ -26383,7 +26403,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -26584,7 +26605,7 @@
         "pokemonId": 750,
         "setCode": "TEF",
         "jpSetCode": "sv5K",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "175/162",
         "artist": "MINAMINAMI Take",
         "cardName": null,
@@ -26594,7 +26615,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -28167,7 +28189,7 @@
         "pokemonId": 808,
         "setCode": "TEF",
         "jpSetCode": "sv5M",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "179/162",
         "artist": "Masa",
         "cardName": null,
@@ -28175,7 +28197,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -29421,7 +29444,7 @@
         "pokemonId": 845,
         "setCode": "TWM",
         "jpSetCode": "sv5a",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "176/167",
         "artist": "Fujimoto Gold",
         "cardName": null,
@@ -29432,7 +29455,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -30269,7 +30293,7 @@
         "pokemonId": 872,
         "setCode": "TEF",
         "jpSetCode": "sv5K",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "168/162",
         "artist": "N-DESIGN Inc.",
         "cardName": null,
@@ -30277,7 +30301,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -31892,7 +31917,7 @@
         "pokemonId": 905,
         "setCode": "TWM",
         "jpSetCode": "sv5a",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "180/167",
         "artist": "GOTO minori",
         "cardName": null,
@@ -31900,7 +31925,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -34334,7 +34360,7 @@
         "pokemonId": 987,
         "setCode": "SVP",
         "jpSetCode": "SV-P",
-        "cnSetCode": null,
+        "cnSetCode": "cbb4c",
         "setNumber": "097",
         "artist": "Takumi Wada",
         "cardName": null,
@@ -34342,7 +34368,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
