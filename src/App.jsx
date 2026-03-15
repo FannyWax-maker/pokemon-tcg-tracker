@@ -346,7 +346,7 @@ export default function App() {
         if (filterChinese !== 'all') { const hasCN = (card.availableLangs || []).includes('CN'); if (filterChinese === 'has_cn' && !hasCN) return false; if (filterChinese === 'no_cn' && hasCN) return false; }
         if (filterExclusive !== 'all') { if (filterExclusive === 'jp' && card.exclusive !== 'JP') return false; if (filterExclusive === 'cn' && card.exclusive !== 'CN') return false; if (filterExclusive === 'none' && !card.exclusive) return false; }
         if (filterSet !== 'all') { const matchesSet = card.setCode === filterSet || card.enSetCode === filterSet || card.jpSetCode === filterSet || card.cnSetCode === filterSet; if (!matchesSet) return false; }
-        if (filterSetLang !== 'all' && filterSet === 'all') { const langs = card.availableLangs || []; if (filterSetLang === 'JP' && !card.jpSetCode) return false; if (filterSetLang === 'CN' && !card.cnSetCode) return false; if (filterSetLang === 'EN' && !card.setCode) return false; if (filterSetLang === 'KR' && !langs.includes('KR')) return false; }
+        if (filterSetLang !== 'all' && filterSet === 'all') { const langs = card.availableLangs || []; if (filterSetLang === 'JP' && !card.jpSetCode) return false; if (filterSetLang === 'CN' && !card.cnSetCode) return false; if (filterSetLang === 'EN' && !card.setCode) return false; }
         if (filterCardType !== 'all') {
           const cn = String(card.cardName || '').trim(); const cu = cn.toUpperCase();
           if (filterCardType === 'trainer' && !cu.includes('TRAINER')) return false;
@@ -385,7 +385,7 @@ export default function App() {
         if (filterChinese !== 'all') { const hasCN = (card.availableLangs || []).includes('CN'); if (filterChinese === 'has_cn' && !hasCN) return; if (filterChinese === 'no_cn' && hasCN) return; }
         if (filterExclusive !== 'all') { if (filterExclusive === 'jp' && card.exclusive !== 'JP') return; if (filterExclusive === 'cn' && card.exclusive !== 'CN') return; if (filterExclusive === 'none' && !card.exclusive) return; }
         if (filterSet !== 'all') { const matchesSet2 = card.setCode === filterSet || card.enSetCode === filterSet || card.jpSetCode === filterSet || card.cnSetCode === filterSet; if (!matchesSet2) return; }
-        if (filterSetLang !== 'all' && filterSet === 'all') { if (filterSetLang === 'JP' && !card.jpSetCode) return; if (filterSetLang === 'CN' && !card.cnSetCode) return; if (filterSetLang === 'EN' && !card.setCode) return; if (filterSetLang === 'KR' && !(card.availableLangs || []).includes('KR')) return; }
+        if (filterSetLang !== 'all' && filterSet === 'all') { if (filterSetLang === 'JP' && !card.jpSetCode) return; if (filterSetLang === 'CN' && !card.cnSetCode) return; if (filterSetLang === 'EN' && !card.setCode) return; }
         if (filterCardType !== 'all') {
           const cn = String(card.cardName || '').trim(); const cu = cn.toUpperCase(); let matches = false;
           if (filterCardType === 'trainer') matches = cu.includes('TRAINER');
@@ -412,7 +412,6 @@ export default function App() {
     else if (sortBy === 'featured_asc') { cards.sort((a, b) => (a.otherPokemon || []).length - (b.otherPokemon || []).length); }
     else if (sortBy === 'release_desc') { cards.sort((a, b) => { const score = (c) => { const d = setNamesLC[(c.setCode||"").toLowerCase()] || setNamesLC[(c.jpSetCode||"").toLowerCase()] || setNamesLC[(c.cnSetCode||"").toLowerCase()] || {}; return (d.year||0)*100+(d.month||0); }; return score(b) - score(a); }); }
     else if (sortBy === 'release_asc') { cards.sort((a, b) => { const score = (c) => { const d = setNamesLC[(c.setCode||"").toLowerCase()] || setNamesLC[(c.jpSetCode||"").toLowerCase()] || setNamesLC[(c.cnSetCode||"").toLowerCase()] || {}; return (d.year||9999)*100+(d.month||99); }; return score(a) - score(b); }); }
-    else if (sortBy === 'recently_added') { cards.sort((a, b) => (b.pokemonId || 0) - (a.pokemonId || 0)); }
     return cards;
   }, [filteredData, filterChinese, filterExclusive, filterSet, filterCardType, sortBy, filterOwned, filterArtist, filterUnobtainable, filterMissingImages, filterSetLang]);
 
@@ -528,7 +527,7 @@ export default function App() {
               )}
             </div>
             <div className={`flex items-center rounded-full p-0.5 text-xs font-bold shrink-0 ${darkMode ? 'bg-gray-700' : 'bg-gray-100'}`}>
-              <button onClick={() => { setViewMode('pokemon'); setFilterHideNonConforming('all'); if (['featured_desc','featured_asc','release_desc','release_asc','recently_added'].includes(sortBy)) setSortBy('default'); }}
+              <button onClick={() => { setViewMode('pokemon'); setFilterHideNonConforming('all'); if (['featured_desc','featured_asc','release_desc','release_asc'].includes(sortBy)) setSortBy('default'); }}
                 className={`px-2.5 py-1 rounded-full transition-colors ${viewMode === 'pokemon' ? 'text-white' : darkMode ? 'text-gray-400' : 'text-gray-500'}`}
                 style={viewMode === 'pokemon' ? {background: 'linear-gradient(135deg, #3b82f6, #1d4ed8)'} : {}}>Grid</button>
               <button onClick={() => { setViewMode('cards'); setFilterHideNoCards('all'); setFilterHideNonConforming('hide'); }}
@@ -600,14 +599,15 @@ export default function App() {
                 </select>
 
                 <div className="flex gap-1 min-w-0">
-                  <select value={filterSetLang} onChange={(e) => { setFilterSetLang(e.target.value); setFilterSet('all'); }}
-                    className={`w-24 shrink-0 px-2 py-1.5 border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-red-400 font-medium ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-200 text-gray-700'}`}>
-                    <option value="all">All Lang</option>
-                    <option value="EN">🇬🇧 EN</option>
-                    <option value="JP">🇯🇵 JP</option>
-                    <option value="CN">🇨🇳 CN</option>
-                    <option value="KR">🇰🇷 KR</option>
-                  </select>
+                  <div className={`flex rounded-lg overflow-hidden border shrink-0 text-xs font-bold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
+                    {[['all','All'],['EN','EN'],['JP','JP'],['CN','CN']].map(([val, label]) => (
+                      <button key={val} onClick={() => { setFilterSetLang(val); setFilterSet('all'); }}
+                        className={`px-2.5 py-1.5 transition-colors ${filterSetLang === val ? 'text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-500 hover:bg-gray-50'}`}
+                        style={filterSetLang === val ? {background: val === 'all' ? 'linear-gradient(135deg, #6b7280, #4b5563)' : val === 'EN' ? 'linear-gradient(135deg, #3b82f6, #1d4ed8)' : val === 'JP' ? 'linear-gradient(135deg, #ef4444, #dc2626)' : 'linear-gradient(135deg, #f59e0b, #d97706)'} : {}}>
+                        {label}
+                      </button>
+                    ))}
+                  </div>
                   <button onClick={() => setSetListSort(s => s === 'release' ? 'alpha' : 'release')}
                     title={setListSort === 'release' ? 'Sorted by release date — click for A→Z' : 'Sorted A→Z — click for release date'}
                     className={`shrink-0 px-2 py-1.5 border rounded-lg text-xs font-bold transition-colors ${darkMode ? 'bg-gray-700 border-gray-600 text-gray-300 hover:bg-gray-600' : 'bg-white border-gray-200 text-gray-500 hover:bg-gray-50'}`}>
@@ -663,7 +663,6 @@ export default function App() {
                     {viewMode === 'cards' && <option value="featured_asc">Sort: Fewest featured</option>}
                     {viewMode === 'cards' && <option value="release_desc">Sort: Newest first</option>}
                     {viewMode === 'cards' && <option value="release_asc">Sort: Oldest first</option>}
-                    {viewMode === 'cards' && <option value="recently_added">Sort: Recently Added</option>}
                   </select>
                   {(hasActiveFilters || sortBy !== 'default') && (
                     <button onClick={() => { clearFilters(); setSortBy('default'); }} className="text-xs font-bold px-2 py-1 rounded-lg bg-red-500 text-white hover:bg-red-600 shrink-0">✕</button>
