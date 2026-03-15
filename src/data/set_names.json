@@ -1091,11 +1091,11 @@
     "year": 2026,
     "month": 3
   },
-  "cs6.1c": {
+  "cs6.1C": {
     "name": "Brilliant Energy Promo Pack 3",
     "series": "Sword & Shield",
-    "year": null,
-    "month": null
+    "year": 2024,
+    "month": 9
   },
   "csGC": {
     "name": "Eevee Display Frame Box",
@@ -1103,31 +1103,31 @@
     "year": null,
     "month": null
   },
-  "csv5c": {
-    "name": "Dark Crystal Blaze",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "csv1c": {
+  "csv1C": {
     "name": "Eternal Birth",
     "series": "Scarlet & Violet",
     "year": null,
     "month": null
   },
-  "csm1ac": {
+  "csv5C": {
+    "name": "Dark Crystal Blaze",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "csm1AC": {
     "name": "Storming Emergence - Set A",
     "series": "Sun & Moon",
     "year": 2022,
     "month": 10
   },
-  "csm1bc": {
+  "csm1BC": {
     "name": "Storming Emergence - Set B",
     "series": "Sun & Moon",
     "year": 2022,
     "month": 10
   },
-  "csm1cc": {
+  "csm1CC": {
     "name": "Storming Emergence - Set C",
     "series": "Sun & Moon",
     "year": 2022,
@@ -1139,7 +1139,7 @@
     "year": 2022,
     "month": 10
   },
-  "csm1.5c": {
+  "csm1.5C": {
     "name": "Battle Elite",
     "series": "Sun & Moon",
     "year": 2022,
@@ -1147,24 +1147,24 @@
   },
   "csmYC": {
     "name": "Eevee-GX Box Sets",
-    "series": "",
+    "series": "Sun & Moon",
     "year": 2023,
     "month": 1
   },
-  "csm2ac": {
+  "csm2AC": {
     "name": "Shining Synergy - Shower",
     "series": "Sun & Moon",
     "year": 2023,
     "month": 1
   },
-  "csm2cc": {
-    "name": "Shining Synergy - Summon",
+  "csm2BC": {
+    "name": "Shining Synergy - Surpreme",
     "series": "Sun & Moon",
     "year": 2023,
     "month": 1
   },
-  "csm2bc": {
-    "name": "Shining Synergy - Surpreme",
+  "csm2CC": {
+    "name": "Shining Synergy - Summon",
     "series": "Sun & Moon",
     "year": 2023,
     "month": 1
@@ -1175,61 +1175,67 @@
     "year": 2023,
     "month": 1
   },
+  "CSMPiC": {
+    "name": "C-Battle Party Reward Pack",
+    "series": "Sun & Moon",
+    "year": 2023,
+    "month": 2
+  },
+  "csm2.5C": {
+    "name": "Striking Competition",
+    "series": "Sun & Moon",
+    "year": 2023,
+    "month": 3
+  },
   "csmAC": {
     "name": "Arceus & Dialga & Palkia GX Premium Deck Building Box",
     "series": "Sun & Moon",
     "year": 2023,
     "month": 3
   },
-  "csm2.5c": {
-    "name": "Striking Competition",
-    "series": "Sun & Moon",
-    "year": 2023,
-    "month": 3
-  },
   "CSMPaC": {
     "name": "Battle Party Set - Grass Deck",
-    "series": "",
+    "series": "Sun & Moon",
     "year": 2023,
     "month": 4
   },
   "CSMPeC": {
     "name": "Battle Party Set - Psychic Deck",
-    "series": "",
+    "series": "Sun & Moon",
     "year": 2023,
     "month": 4
   },
-  "cs1bc": {
-    "name": "Dynamax Clash - Flame",
-    "series": "Sword & Shield",
-    "year": 2023,
-    "month": 5
-  },
-  "cs1ac": {
+  "cs1AC": {
     "name": "Dynamax Clash - Thunder",
     "series": "Sword & Shield",
     "year": 2023,
     "month": 5
   },
-  "cs1.5c": {
+  "cs1BC": {
+    "name": "Dynamax Clash - Flame",
+    "series": "Sword & Shield",
+    "year": 2023,
+    "month": 5
+  },
+  "cs1.5C": {
     "name": "Dynamax Tactics",
     "series": "Sword & Shield",
     "year": 2023,
     "month": 6
   },
-  "cs2bc": {
-    "name": "Vivid Portrayals - Indigo",
-    "series": "Sword & Shield",
-    "year": 2023,
-    "month": 8
-  },
-  "cs2ac": {
+  "cs2AC": {
     "name": "Vivid Portrayals - Obsidian",
     "series": "Sword & Shield",
     "year": 2023,
     "month": 8
   },
-  "cs2.5c": {
+  "cs2BC": {
+    "name": "Vivid Portrayals - Indigo",
+    "series": "Sword & Shield",
+    "year": 2023,
+    "month": 8
+  },
+  "cs2.5C": {
     "name": "Brilliant Counterattack",
     "series": "Sword & Shield",
     "year": 2023,
@@ -1237,17 +1243,17 @@
   },
   "cs2DaC": {
     "name": "Family Pokémon Trading Card Game",
-    "series": "",
+    "series": "Sword & Shield",
     "year": 2023,
     "month": 11
   },
-  "cs3ac": {
+  "cs3AC": {
     "name": "Primordial Arts - Overgrow",
     "series": "Sword & Shield",
     "year": 2023,
     "month": 11
   },
-  "cs3bc": {
+  "cs3BC": {
     "name": "Primordial Arts - Torrent",
     "series": "Sword & Shield",
     "year": 2023,
@@ -1255,123 +1261,123 @@
   },
   "csDC": {
     "name": "Pokémon Ball Gift Box: Legendary Pikachu Celebration",
-    "series": "",
+    "series": "Sword & Shield",
     "year": 2023,
     "month": 12
   },
-  "cs3.5c": {
+  "cs3.5C": {
     "name": "Scorching Skies",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 1
   },
-  "CSMPoC": {
-    "name": "Fighting Modification Pack",
-    "series": "",
-    "year": 2024,
-    "month": 1
-  },
   "CSMPjC": {
     "name": "Battle Party Set - Grass Modification Pack",
-    "series": "",
+    "series": "Sword & Shield",
     "year": 2024,
     "month": 1
   },
   "CSMPnC": {
     "name": "Battle Party Set - Psychic Modification Pack",
-    "series": "",
+    "series": "Sword & Shield",
     "year": 2024,
     "month": 1
   },
-  "cs4ac": {
+  "cs4AC": {
     "name": "Polychromatic Gathering - Friends",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 3
   },
-  "cs4bc": {
+  "cs4BC": {
     "name": "Polychromatic Gathering - Origin",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 3
   },
-  "CS4.1C": {
+  "cs4.1C": {
     "name": "Radiant Energy First Round",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 3
   },
-  "csHC": {
-    "name": "Eevee Advanced Gift Box",
-    "series": "",
+  "cs4.5C": {
+    "name": "Flame Dance of the End",
+    "series": "Sword & Shield",
     "year": 2024,
     "month": 4
   },
-  "cs4.5c": {
-    "name": "Flame Dance of the End",
+  "csHC": {
+    "name": "Eevee Advanced Gift Box",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 4
   },
   "cs4DaC": {
     "name": "Start Deck 100",
-    "series": "",
+    "series": "Sword & Shield",
     "year": 2024,
     "month": 5
   },
-  "csNC": {
-    "name": "Brave Stars Deck Building Gift Box",
-    "series": "",
-    "year": 2024,
-    "month": 6
-  },
-  "cs5bc": {
-    "name": "Gallant Galaxy - Brave",
+  "cs5AC": {
+    "name": "Gallant Galaxy - Charm",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 6
   },
-  "cs5ac": {
-    "name": "Gallant Galaxy - Charm",
+  "cs5BC": {
+    "name": "Gallant Galaxy - Brave",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 6
   },
   "csMC": {
     "name": "Pokémon Card Display Sets Volume 2",
-    "series": "",
+    "series": "Sword & Shield",
+    "year": 2024,
+    "month": 6
+  },
+  "csNC": {
+    "name": "Brave Stars Deck Building Gift Box",
+    "series": "Sword & Shield",
     "year": 2024,
     "month": 6
   },
   "csJC": {
     "name": "Pokémon Ball Gift Box: Art Illustration Celebration Scene",
-    "series": "",
+    "series": "Sword & Shield",
     "year": 2024,
     "month": 6
   },
-  "cs5.5c": {
+  "cs5.5C": {
     "name": "Overshadowed Radiance",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 8
   },
-  "cs6bc": {
-    "name": "Marine Shadow - Banish",
+  "cs6AC": {
+    "name": "Marine Shadow - Roar",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 9
   },
-  "cs6ac": {
-    "name": "Marine Shadow - Roar",
+  "cs6BC": {
+    "name": "Marine Shadow - Banish",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 9
   },
   "csUC": {
     "name": "Pokémon Card Display Sets Volume 3",
-    "series": "",
+    "series": "Sword & Shield",
     "year": 2024,
     "month": 10
+  },
+  "cs6.5C": {
+    "name": "Victory Lodestar",
+    "series": "Sword & Shield",
+    "year": 2024,
+    "month": 11
   },
   "CSZC": {
     "name": "Special Holo Cards",
@@ -1379,69 +1385,63 @@
     "year": 2024,
     "month": 11
   },
-  "cs6.5c": {
-    "name": "Victory Lodestar",
-    "series": "Sword & Shield",
-    "year": 2024,
-    "month": 11
-  },
   "CSYC": {
     "name": "PokeBall Gift Cards",
-    "series": "",
+    "series": "Sword & Shield",
     "year": 2024,
     "month": 12
   },
-  "csv7c": {
-    "name": "Blade Awakened",
-    "series": "",
-    "year": 2025,
-    "month": 1
-  },
-  "151c": {
+  "151C": {
     "name": "Collect 151 Journey, Hope, Surprise, Gathering",
     "series": "Scarlet & Violet",
     "year": 2025,
     "month": 1
   },
-  "cbb1c": {
+  "cbb1C": {
     "name": "Gem Pack Vol 1",
     "series": "Scarlet & Violet",
     "year": 2025,
     "month": 1
   },
-  "csv2c": {
+  "csv7C": {
+    "name": "Blade Awakened",
+    "series": "Scarlet & Violet",
+    "year": 2025,
+    "month": 1
+  },
+  "csv2C": {
     "name": "Miracle Journey",
     "series": "Scarlet & Violet",
     "year": 2025,
     "month": 3
   },
-  "csv3c": {
-    "name": "Fearless Terastal",
-    "series": "Scarlet & Violet",
-    "year": 2025,
-    "month": 5
-  },
-  "cbb2c": {
+  "cbb2C": {
     "name": "Gem Pack Vol 2",
     "series": "Scarlet & Violet",
     "year": 2025,
     "month": 5
   },
-  "CSVL1C": {
+  "csv3C": {
+    "name": "Fearless Terastal",
+    "series": "Scarlet & Violet",
+    "year": 2025,
+    "month": 5
+  },
+  "csVL1C": {
     "name": "Departure Special Pack",
     "series": "Scarlet & Violet",
     "year": 2025,
     "month": 6
   },
-  "csv4c": {
+  "csv4C": {
     "name": "Bonus Round",
     "series": "Scarlet & Violet",
     "year": 2025,
     "month": 7
   },
-  "cbb3c": {
+  "cbb3C": {
     "name": "Gem Pack Vol 3",
-    "series": "",
+    "series": "Scarlet & Violet",
     "year": 2025,
     "month": 9
   },
@@ -1451,35 +1451,29 @@
     "year": 2025,
     "month": 10
   },
+  "csv6C": {
+    "name": "True Mystery/Arcane Truth",
+    "series": "Scarlet & Violet",
+    "year": 2025,
+    "month": 11
+  },
   "csVL2C": {
     "name": "Travel Special Pack",
     "series": "Scarlet & Violet",
     "year": 2025,
     "month": 11
   },
-  "csv6c": {
-    "name": "True Mystery/Arcane Truth",
-    "series": "",
-    "year": 2025,
-    "month": 11
+  "cbb4C": {
+    "name": "Gem Pack Vol 4",
+    "series": "Scarlet & Violet",
+    "year": 2026,
+    "month": 2
   },
-  "Csv8c": {
+  "csv8C": {
     "name": "Brilliant Fantasy",
     "series": "Scarlet & Violet",
     "year": 2026,
     "month": 3
-  },
-  "CSMPiC": {
-    "name": "C-Battle Party Reward Pack",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "cbb4c": {
-    "name": "Gem Pack Vol 4",
-    "series": "",
-    "year": null,
-    "month": null
   },
   "CP": {
     "name": "Chinese Promo Card",
