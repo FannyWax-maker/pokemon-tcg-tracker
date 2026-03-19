@@ -352,7 +352,8 @@
         "cardName": null,
         "exclusive": null,
         "otherPokemon": [
-          "Pidgey"
+          "Pidgey",
+          "Glameow"
         ],
         "availableLangs": [
           "EN",
@@ -518,7 +519,7 @@
         "pokemonId": 6,
         "setCode": "OBF",
         "jpSetCode": "sv3",
-        "cnSetCode": "csv5c",
+        "cnSetCode": "csv5C",
         "setNumber": "223/197",
         "artist": "AKIRA EGAWA",
         "cardName": "Charizard ex",
@@ -790,7 +791,8 @@
         "cardName": null,
         "exclusive": null,
         "otherPokemon": [
-          "Pidgey"
+          "Pidgey",
+          "Corsola"
         ],
         "availableLangs": [
           "EN",
@@ -2104,6 +2106,28 @@
         "isSecondary": false
       },
       {
+        "id": "25_cel_005-025",
+        "pokemonId": 25,
+        "setCode": "CEL",
+        "jpSetCode": "s8a",
+        "cnSetCode": "csDC",
+        "setNumber": "005/025",
+        "artist": "Mitsuhiro Arita",
+        "cardName": null,
+        "exclusive": null,
+        "otherPokemon": [
+          "Caterpie",
+          "Parasect"
+        ],
+        "availableLangs": [
+          "EN",
+          "JP",
+          "CN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
         "id": "25_151c_172-151",
         "pokemonId": 25,
         "setCode": null,
@@ -2517,7 +2541,7 @@
         "pokemonId": 38,
         "setCode": "OBF",
         "jpSetCode": "sv3",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "199/197",
         "artist": "SIE NANAHARA",
         "cardName": null,
@@ -2525,7 +2549,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -2565,7 +2590,7 @@
         "pokemonId": 39,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": null,
+        "cnSetCode": "cs5.1C",
         "setNumber": "147/159",
         "artist": "Megumi Mizutani",
         "cardName": "Trainer, Elesa's Sparkle",
@@ -2576,7 +2601,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -2661,7 +2687,7 @@
         "pokemonId": 44,
         "setCode": "OBF",
         "jpSetCode": "sv3",
-        "cnSetCode": "csv5c",
+        "cnSetCode": "csv5C",
         "setNumber": "198/197",
         "artist": "Masako Tomii",
         "cardName": null,
@@ -2763,7 +2789,7 @@
         "pokemonId": 47,
         "setCode": "LOR",
         "jpSetCode": "s10a",
-        "cnSetCode": null,
+        "cnSetCode": "csUC",
         "setNumber": "TG001/30",
         "artist": "Oswaldo KATO",
         "cardName": null,
@@ -2771,7 +2797,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -2968,7 +2995,7 @@
         "pokemonId": 53,
         "setCode": "MEW",
         "jpSetCode": "sv2a",
-        "cnSetCode": "csv1c",
+        "cnSetCode": "csv1C",
         "setNumber": "204/165",
         "artist": "Hideki Ishikawa",
         "cardName": "Trainer, Giovanni's Charisma",
@@ -3035,7 +3062,9 @@
         "artist": "REND",
         "cardName": null,
         "exclusive": null,
-        "otherPokemon": null,
+        "otherPokemon": [
+          "Wingull"
+        ],
         "availableLangs": [
           "EN",
           "JP"
@@ -3114,7 +3143,26 @@
     "name": "Mankey",
     "gen": 1,
     "region": "Kanto",
-    "cards": []
+    "cards": [
+      {
+        "id": "56_cec_268-236",
+        "pokemonId": 56,
+        "setCode": "CEC",
+        "jpSetCode": "sm11a",
+        "cnSetCode": null,
+        "setNumber": "268/236",
+        "artist": "5ban Graphics",
+        "cardName": "Trainer, Martial Arts Dojo",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      }
+    ]
   },
   {
     "id": 57,
@@ -4194,6 +4242,24 @@
         ],
         "isPrimary": true,
         "isSecondary": false
+      },
+      {
+        "id": "100_cec_269-236",
+        "pokemonId": 100,
+        "setCode": "CEC",
+        "jpSetCode": "sm11b",
+        "cnSetCode": null,
+        "setNumber": "269/236",
+        "artist": "aky CG Works",
+        "cardName": "Trainer, Power Plant",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
       }
     ]
   },
@@ -4657,7 +4723,7 @@
         "pokemonId": 121,
         "setCode": "ASR",
         "jpSetCode": "s9a",
-        "cnSetCode": "cs6.1c",
+        "cnSetCode": "cs6.1C",
         "setNumber": "TG013/30",
         "artist": "Akira Komayama",
         "cardName": "Starmie V",
@@ -4945,7 +5011,7 @@
         "pokemonId": 129,
         "setCode": "PAL",
         "jpSetCode": "sv1a",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "203/193",
         "artist": "Shinji Kanda",
         "cardName": null,
@@ -4955,7 +5021,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -5287,7 +5354,7 @@
         "pokemonId": 133,
         "setCode": "BRS",
         "jpSetCode": "s8b",
-        "cnSetCode": "CSGC",
+        "cnSetCode": "csGC",
         "setNumber": "TG011/30",
         "artist": "PLANETA Mochizuki",
         "cardName": null,
@@ -5525,7 +5592,7 @@
         "pokemonId": 134,
         "setCode": "BRS",
         "jpSetCode": "s8b",
-        "cnSetCode": "CSGC",
+        "cnSetCode": "csGC",
         "setNumber": "TG002/30",
         "artist": "Jiro Sasumo",
         "cardName": null,
@@ -5635,7 +5702,7 @@
         "pokemonId": 135,
         "setCode": "BRS",
         "jpSetCode": "s8b",
-        "cnSetCode": "CSGC",
+        "cnSetCode": "csGC",
         "setNumber": "TG004/30",
         "artist": "PLANETA Mochizuki",
         "cardName": null,
@@ -5756,7 +5823,7 @@
         "pokemonId": 136,
         "setCode": "BRS",
         "jpSetCode": "s8b",
-        "cnSetCode": "CSGC",
+        "cnSetCode": "csGC",
         "setNumber": "TG001/30",
         "artist": "You Iribi",
         "cardName": null,
@@ -5856,7 +5923,9 @@
         "artist": "Souichirou Gunjima",
         "cardName": "Flareon V",
         "exclusive": null,
-        "otherPokemon": null,
+        "otherPokemon": [
+          "Eevee"
+        ],
         "availableLangs": [
           "EN",
           "JP",
@@ -7246,6 +7315,25 @@
         ],
         "isPrimary": true,
         "isSecondary": false
+      },
+      {
+        "id": "166_hif_sv87-sv94",
+        "pokemonId": 166,
+        "setCode": "HIF",
+        "jpSetCode": "sm9a",
+        "cnSetCode": "csm1BC",
+        "setNumber": "SV87/SV94",
+        "artist": "5ban Graphics",
+        "cardName": "Trainer, Aether Paradise Conservation Area",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP",
+          "CN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
       }
     ]
   },
@@ -7315,7 +7403,7 @@
         "pokemonId": 169,
         "setCode": "LOR",
         "jpSetCode": "s8b",
-        "cnSetCode": null,
+        "cnSetCode": "cs5.1C",
         "setNumber": "TG020/30",
         "artist": "GOSSAN",
         "cardName": "Crobat V",
@@ -7323,7 +7411,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -7399,7 +7488,7 @@
         "pokemonId": 173,
         "setCode": "OBF",
         "jpSetCode": "sv3",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "202/197",
         "artist": "Hyogonosuke",
         "cardName": null,
@@ -7407,7 +7496,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -7820,7 +7910,7 @@
         "pokemonId": 187,
         "setCode": "PAF",
         "jpSetCode": "sv4a",
-        "cnSetCode": "csv5c",
+        "cnSetCode": "csv5C",
         "setNumber": "236/91",
         "artist": "Taiga Kayama",
         "cardName": "Trainer, Clive",
@@ -8428,6 +8518,24 @@
         ],
         "isPrimary": true,
         "isSecondary": false
+      },
+      {
+        "id": "198_asr_214-189",
+        "pokemonId": 198,
+        "setCode": "ASR",
+        "jpSetCode": "s10p",
+        "cnSetCode": null,
+        "setNumber": "214/189",
+        "artist": "Oswaldo KATO",
+        "cardName": "Trainer, Temple of Sinnoh",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
       }
     ]
   },
@@ -8881,7 +8989,7 @@
         "pokemonId": 212,
         "setCode": "OBF",
         "jpSetCode": "sv3",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "205/197",
         "artist": "Oku",
         "cardName": null,
@@ -8889,7 +8997,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -8933,7 +9042,7 @@
         "pokemonId": 214,
         "setCode": "PAL",
         "jpSetCode": "sv2D",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "194/193",
         "artist": "Kurata So",
         "cardName": null,
@@ -8941,7 +9050,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -9204,7 +9314,7 @@
         "pokemonId": 228,
         "setCode": "OBF",
         "jpSetCode": "sv3",
-        "cnSetCode": "csv5c",
+        "cnSetCode": "csv5C",
         "setNumber": "204/197",
         "artist": "KYUPIYAMA",
         "cardName": null,
@@ -9815,7 +9925,7 @@
         "pokemonId": 248,
         "setCode": "PAL",
         "jpSetCode": "sv2D",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "222/193",
         "artist": "Nurikabe",
         "cardName": null,
@@ -9825,7 +9935,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -11424,7 +11535,7 @@
         "pokemonId": 303,
         "setCode": "SIT",
         "jpSetCode": "s11a",
-        "cnSetCode": "cs6.1c",
+        "cnSetCode": "cs6.1C",
         "setNumber": "TG017/30",
         "artist": "Saino Misaki",
         "cardName": "Mawile V",
@@ -11944,7 +12055,7 @@
         "pokemonId": 324,
         "setCode": "PAR",
         "jpSetCode": "sv4K",
-        "cnSetCode": "csv5c",
+        "cnSetCode": "csv5C",
         "setNumber": "254/182",
         "artist": "rika",
         "cardName": "Trainer, Mela",
@@ -12108,7 +12219,7 @@
         "pokemonId": 333,
         "setCode": "PAR",
         "jpSetCode": "sv4M",
-        "cnSetCode": "csv5c",
+        "cnSetCode": "csv5C",
         "setNumber": "213/182",
         "artist": "Jiro Sasumo",
         "cardName": null,
@@ -12137,7 +12248,7 @@
         "pokemonId": 334,
         "setCode": "PAR",
         "jpSetCode": "sv4M",
-        "cnSetCode": "csv5c",
+        "cnSetCode": "csv5C",
         "setNumber": "253/182",
         "artist": "Jiro Sasumo",
         "cardName": "Altaria ex",
@@ -14230,6 +14341,24 @@
         ],
         "isPrimary": true,
         "isSecondary": false
+      },
+      {
+        "id": "396_hif_sv89-sv94",
+        "pokemonId": 396,
+        "setCode": "HIF",
+        "jpSetCode": "sm9b",
+        "cnSetCode": null,
+        "setNumber": "SV89/SV94",
+        "artist": "5ban Graphics",
+        "cardName": "Trainer, Mt. Coronet",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
       }
     ]
   },
@@ -14302,6 +14431,26 @@
         "cardName": null,
         "exclusive": null,
         "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "399_asr_212-189",
+        "pokemonId": 399,
+        "setCode": "ASR",
+        "jpSetCode": "s9a",
+        "cnSetCode": null,
+        "setNumber": "212/189",
+        "artist": "Oswaldo KATO",
+        "cardName": "Trainer, Jubilife Village",
+        "exclusive": null,
+        "otherPokemon": [
+          "Weezing"
+        ],
         "availableLangs": [
           "EN",
           "JP"
@@ -14647,7 +14796,7 @@
         "pokemonId": 416,
         "setCode": "OBF",
         "jpSetCode": "sv3",
-        "cnSetCode": "csv5c",
+        "cnSetCode": "csv5C",
         "setNumber": "212/197",
         "artist": "5ban Graphics",
         "cardName": "Vespiquen ex",
@@ -15286,7 +15435,7 @@
         "pokemonId": 445,
         "setCode": "ASR",
         "jpSetCode": "s9a",
-        "cnSetCode": "cs6.1c",
+        "cnSetCode": "cs6.1C",
         "setNumber": "TG023/30",
         "artist": "Taira Akitsu",
         "cardName": "Garchomp V",
@@ -15326,7 +15475,7 @@
         "pokemonId": 445,
         "setCode": "PAR",
         "jpSetCode": "sv3a",
-        "cnSetCode": "csv5c",
+        "cnSetCode": "csv5C",
         "setNumber": "245/182",
         "artist": "Oswaldo KATO",
         "cardName": "Garchomp ex",
@@ -16427,7 +16576,7 @@
         "pokemonId": 475,
         "setCode": "LOR",
         "jpSetCode": "s10a",
-        "cnSetCode": null,
+        "cnSetCode": "cs5.1C",
         "setNumber": "TG019/30",
         "artist": "Souichirou Gunjima",
         "cardName": "Gallade V",
@@ -16435,7 +16584,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -16523,7 +16673,7 @@
         "pokemonId": 477,
         "setCode": "BRS",
         "jpSetCode": "s8b",
-        "cnSetCode": "CSGC",
+        "cnSetCode": "csGC",
         "setNumber": "TG006/30",
         "artist": "Megumi Higuchi",
         "cardName": null,
@@ -16856,7 +17006,7 @@
         "pokemonId": 483,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": "cs6.1c",
+        "cnSetCode": "cs6.1C",
         "setNumber": "GG068/70",
         "artist": "AKIRA EGAWA",
         "cardName": "Origin Forme Dialga VSTAR",
@@ -16920,7 +17070,7 @@
         "pokemonId": 484,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": "cs6.1c",
+        "cnSetCode": "cs6.1C",
         "setNumber": "GG067/70",
         "artist": "AKIRA EGAWA",
         "cardName": "Origin Forme Palkia VSTAR",
@@ -17058,7 +17208,7 @@
         "pokemonId": 487,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": "cs6.1c",
+        "cnSetCode": "cs6.1C",
         "setNumber": "GG069/70",
         "artist": "AKIRA EGAWA",
         "cardName": "Giratina VSTAR",
@@ -17401,7 +17551,7 @@
         "pokemonId": 493,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": "cs6.1c",
+        "cnSetCode": "cs6.1C",
         "setNumber": "GG070/70",
         "artist": "AKIRA EGAWA",
         "cardName": "Arceus VSTAR",
@@ -17420,7 +17570,7 @@
         "pokemonId": 493,
         "setCode": "SWSH",
         "jpSetCode": "S-P",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "SWSH204",
         "artist": "Atsushi Furusawa",
         "cardName": "Arceus V",
@@ -17434,7 +17584,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -17740,7 +17891,7 @@
         "pokemonId": 497,
         "setCode": "SIT",
         "jpSetCode": "s11a",
-        "cnSetCode": null,
+        "cnSetCode": "cs5.1C",
         "setNumber": "TG013/30",
         "artist": "Teeziro",
         "cardName": "Serperior V",
@@ -17748,7 +17899,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -21262,7 +21414,7 @@
         "pokemonId": 595,
         "setCode": "PAR",
         "jpSetCode": "sv3a",
-        "cnSetCode": "csv5c",
+        "cnSetCode": "csv5C",
         "setNumber": "196/182",
         "artist": "Atsushi Furusawa",
         "cardName": null,
@@ -24098,7 +24250,7 @@
         "pokemonId": 662,
         "setCode": "PAL",
         "jpSetCode": "sv2D",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "199/193",
         "artist": "Atsushi Furusawa",
         "cardName": null,
@@ -24106,7 +24258,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -25629,7 +25782,7 @@
         "pokemonId": 717,
         "setCode": "PAR",
         "jpSetCode": "sv3a",
-        "cnSetCode": "csv5c",
+        "cnSetCode": "csv5C",
         "setNumber": "205/182",
         "artist": "Masako Tomii",
         "cardName": null,
@@ -25745,7 +25898,7 @@
         "pokemonId": 720,
         "setCode": "CRZ",
         "jpSetCode": "s12a",
-        "cnSetCode": null,
+        "cnSetCode": "cs5.1C",
         "setNumber": "GG053/70",
         "artist": "OKACHEKE",
         "cardName": "Hoopa V",
@@ -25753,7 +25906,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -26866,7 +27020,7 @@
         "pokemonId": 765,
         "setCode": "BRS",
         "jpSetCode": "s8b",
-        "cnSetCode": "CSGC",
+        "cnSetCode": "csGC",
         "setNumber": "TG012/30",
         "artist": "Akira Komayama",
         "cardName": null,
@@ -27123,7 +27277,7 @@
         "pokemonId": 774,
         "setCode": "PAR",
         "jpSetCode": "sv3a",
-        "cnSetCode": "csv5c",
+        "cnSetCode": "csv5C",
         "setNumber": "201/182",
         "artist": "313",
         "cardName": null,
@@ -29151,7 +29305,7 @@
         "pokemonId": 836,
         "setCode": "BRS",
         "jpSetCode": "s8b",
-        "cnSetCode": null,
+        "cnSetCode": "cs5.1C",
         "setNumber": "TG013/30",
         "artist": "GIDORA",
         "cardName": "Boltund V",
@@ -29159,7 +29313,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -29319,7 +29474,7 @@
         "pokemonId": 841,
         "setCode": "ASR",
         "jpSetCode": "s8b",
-        "cnSetCode": "CSGC",
+        "cnSetCode": "csGC",
         "setNumber": "TG002/30",
         "artist": "Misaki Hashimoto",
         "cardName": null,
@@ -30306,6 +30461,24 @@
         ],
         "isPrimary": true,
         "isSecondary": false
+      },
+      {
+        "id": "872_asr_213-189",
+        "pokemonId": 872,
+        "setCode": "ASR",
+        "jpSetCode": "s10d",
+        "cnSetCode": null,
+        "setNumber": "213/189",
+        "artist": "Oswaldo KATO",
+        "cardName": "Trainer, Path to the Peak",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
       }
     ]
   },
@@ -30320,7 +30493,7 @@
         "pokemonId": 873,
         "setCode": "ASR",
         "jpSetCode": "s8b",
-        "cnSetCode": "CSGC",
+        "cnSetCode": "csGC",
         "setNumber": "TG04/30",
         "artist": "aoki",
         "cardName": null,
@@ -30374,7 +30547,7 @@
         "pokemonId": 875,
         "setCode": "PAL",
         "jpSetCode": "sv2P",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "205/193",
         "artist": "Nelnal",
         "cardName": null,
@@ -30382,7 +30555,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -30392,7 +30566,7 @@
         "pokemonId": 875,
         "setCode": "OBF",
         "jpSetCode": "sv3",
-        "cnSetCode": "csv5c",
+        "cnSetCode": "csv5C",
         "setNumber": "222/197",
         "artist": "Toshinao Aoki",
         "cardName": "Eiscue ex",
@@ -30575,7 +30749,7 @@
         "pokemonId": 879,
         "setCode": "OBF",
         "jpSetCode": "sv3",
-        "cnSetCode": "csv5c",
+        "cnSetCode": "csv5C",
         "setNumber": "227/197",
         "artist": "Ryota Murayama",
         "cardName": "Trainer, Poppy",
@@ -31936,7 +32110,7 @@
         "pokemonId": 905,
         "setCode": "LOR",
         "jpSetCode": "s10a",
-        "cnSetCode": "cs6.1c",
+        "cnSetCode": "cs6.1C",
         "setNumber": "TG018/30",
         "artist": "AKIRA EGAWA",
         "cardName": "Enamorus V",
@@ -32256,7 +32430,7 @@
         "pokemonId": 915,
         "setCode": "OBF",
         "jpSetCode": "sv3",
-        "cnSetCode": "csv5c",
+        "cnSetCode": "csv5C",
         "setNumber": "209/197",
         "artist": "Narumi Sato",
         "cardName": null,
@@ -32309,7 +32483,7 @@
         "pokemonId": 917,
         "setCode": "SVI",
         "jpSetCode": "sv1V",
-        "cnSetCode": "csv1c",
+        "cnSetCode": "csv1C",
         "setNumber": "199/198",
         "artist": "Miki Tanaka",
         "cardName": null,
@@ -32356,7 +32530,7 @@
         "pokemonId": 918,
         "setCode": "SVI",
         "jpSetCode": "sv1V",
-        "cnSetCode": "csv1c",
+        "cnSetCode": "csv1C",
         "setNumber": "243/198",
         "artist": "Miki Tanaka",
         "cardName": "Spidops ex",
@@ -32529,7 +32703,7 @@
         "pokemonId": 925,
         "setCode": "PAL",
         "jpSetCode": "sv2D",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "226/193",
         "artist": "Mizue",
         "cardName": null,
@@ -32537,7 +32711,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -32633,7 +32808,7 @@
         "pokemonId": 929,
         "setCode": "SVI",
         "jpSetCode": "sv1S",
-        "cnSetCode": "csv1c",
+        "cnSetCode": "csv1C",
         "setNumber": "200/198",
         "artist": "Oswaldo KATO",
         "cardName": null,
@@ -32812,7 +32987,7 @@
         "pokemonId": 936,
         "setCode": "SVI",
         "jpSetCode": "sv1S",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "203/198",
         "artist": "Nagimiso",
         "cardName": null,
@@ -32820,7 +32995,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -33233,7 +33409,7 @@
         "pokemonId": 945,
         "setCode": "PAL",
         "jpSetCode": "sv2D",
-        "cnSetCode": "csv1c",
+        "cnSetCode": "csv1C",
         "setNumber": "223/193",
         "artist": "Oswaldo KATO",
         "cardName": null,
@@ -33321,7 +33497,7 @@
         "pokemonId": 949,
         "setCode": "PAR",
         "jpSetCode": "sv4M",
-        "cnSetCode": "csv5c",
+        "cnSetCode": "csv5C",
         "setNumber": "185/182",
         "artist": "KEIICHIRO ITO",
         "cardName": null,
@@ -33382,7 +33558,7 @@
         "pokemonId": 952,
         "setCode": "SVI",
         "jpSetCode": "sv1V",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "202/198",
         "artist": "KIYOTAKA OSHIYAMA",
         "cardName": null,
@@ -33390,7 +33566,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -33476,7 +33653,7 @@
         "pokemonId": 957,
         "setCode": "PAL",
         "jpSetCode": "sv2D",
-        "cnSetCode": "csv1c",
+        "cnSetCode": "csv1C",
         "setNumber": "216/193",
         "artist": "Tika Matsuno",
         "cardName": null,
@@ -33503,7 +33680,7 @@
         "pokemonId": 958,
         "setCode": "PAL",
         "jpSetCode": "sv2D",
-        "cnSetCode": "csv1c",
+        "cnSetCode": "csv1C",
         "setNumber": "217/193",
         "artist": "Tika Matsuno",
         "cardName": null,
@@ -33530,7 +33707,7 @@
         "pokemonId": 959,
         "setCode": "PAL",
         "jpSetCode": "sv2D",
-        "cnSetCode": "csv1c",
+        "cnSetCode": "csv1C",
         "setNumber": "262/193",
         "artist": "Tika Matsuno",
         "cardName": "Tinkaton ex\n",
@@ -33557,7 +33734,7 @@
         "pokemonId": 960,
         "setCode": "SVI",
         "jpSetCode": "sv1S",
-        "cnSetCode": "csv1c",
+        "cnSetCode": "csv1C",
         "setNumber": "206/198",
         "artist": "You Iribi",
         "cardName": null,
@@ -33591,7 +33768,7 @@
         "pokemonId": 961,
         "setCode": "PAF",
         "jpSetCode": "sv4a",
-        "cnSetCode": "csv1c",
+        "cnSetCode": "csv1C",
         "setNumber": "224/91",
         "artist": "Tetsu Kayama",
         "cardName": null,
@@ -34046,7 +34223,7 @@
         "pokemonId": 977,
         "setCode": "SVI",
         "jpSetCode": "sv1S",
-        "cnSetCode": "csv1c",
+        "cnSetCode": "csv1C",
         "setNumber": "207/198",
         "artist": "AKIRA EGAWA",
         "cardName": null,
@@ -34232,7 +34409,7 @@
         "pokemonId": 983,
         "setCode": "SVI",
         "jpSetCode": "sv1S",
-        "cnSetCode": null,
+        "cnSetCode": "CP",
         "setNumber": "220/198",
         "artist": "Shin Nagasawa",
         "cardName": null,
@@ -34243,7 +34420,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -34279,7 +34457,7 @@
         "pokemonId": 984,
         "setCode": "SVI",
         "jpSetCode": "sv1S",
-        "cnSetCode": "csv1c",
+        "cnSetCode": "csv1C",
         "setNumber": "246/198",
         "artist": "Pani Kobayashi",
         "cardName": "Great Tusk ex",
@@ -34459,7 +34637,7 @@
         "pokemonId": 990,
         "setCode": "SVI",
         "jpSetCode": "sv1V",
-        "cnSetCode": "csv1c",
+        "cnSetCode": "csv1C",
         "setNumber": "248/198",
         "artist": "KEIICHIRO ITO",
         "cardName": "Iron Treads ex",
@@ -35036,7 +35214,7 @@
         "pokemonId": 1007,
         "setCode": "SVI",
         "jpSetCode": "sv1S",
-        "cnSetCode": "csv1c",
+        "cnSetCode": "csv1C",
         "setNumber": "247/198",
         "artist": "Ryota Murayama",
         "cardName": "Koraidon ex",
@@ -35084,7 +35262,7 @@
         "pokemonId": 1008,
         "setCode": "SVI",
         "jpSetCode": "sv1V",
-        "cnSetCode": "csv1c",
+        "cnSetCode": "csv1C",
         "setNumber": "244/198",
         "artist": "kantaro",
         "cardName": "Miraidon ex",
