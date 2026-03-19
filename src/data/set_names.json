@@ -1091,27 +1091,15 @@
     "year": 2026,
     "month": 3
   },
-  "cs6.1C": {
-    "name": "Brilliant Energy Promo Pack 3",
-    "series": "Sword & Shield",
-    "year": 2024,
-    "month": 9
+  "sm9b": {
+    "name": "Full Metal Wall",
+    "series": "Sun & Moon",
+    "year": 2021,
+    "month": 2
   },
   "csGC": {
     "name": "Eevee Display Frame Box",
     "series": "Sword & Shield",
-    "year": null,
-    "month": null
-  },
-  "csv1C": {
-    "name": "Eternal Birth",
-    "series": "Scarlet & Violet",
-    "year": null,
-    "month": null
-  },
-  "csv5C": {
-    "name": "Dark Crystal Blaze",
-    "series": "Scarlet & Violet",
     "year": null,
     "month": null
   },
@@ -1355,6 +1343,12 @@
     "year": 2024,
     "month": 8
   },
+  "cs6.1C": {
+    "name": "Brilliant Energy Promo Pack 3",
+    "series": "Sword & Shield",
+    "year": 2024,
+    "month": 9
+  },
   "cs6AC": {
     "name": "Marine Shadow - Roar",
     "series": "Sword & Shield",
@@ -1390,6 +1384,12 @@
     "series": "Sword & Shield",
     "year": 2024,
     "month": 12
+  },
+  "csv1C": {
+    "name": "Eternal Beginnings",
+    "series": "Scarlet & Violet",
+    "year": 2025,
+    "month": 1
   },
   "151C": {
     "name": "Collect 151 Journey, Hope, Surprise, Gathering",
@@ -1427,7 +1427,7 @@
     "year": 2025,
     "month": 5
   },
-  "csVL1C": {
+  "csvL1C": {
     "name": "Departure Special Pack",
     "series": "Scarlet & Violet",
     "year": 2025,
@@ -1438,6 +1438,12 @@
     "series": "Scarlet & Violet",
     "year": 2025,
     "month": 7
+  },
+  "csv5C": {
+    "name": "Dark Crystal Blaze",
+    "series": "Scarlet & Violet",
+    "year": 2025,
+    "month": 9
   },
   "cbb3C": {
     "name": "Gem Pack Vol 3",
@@ -1457,7 +1463,7 @@
     "year": 2025,
     "month": 11
   },
-  "csVL2C": {
+  "csvL2C": {
     "name": "Travel Special Pack",
     "series": "Scarlet & Violet",
     "year": 2025,
@@ -1478,6 +1484,12 @@
   "CP": {
     "name": "Chinese Promo Card",
     "series": "",
+    "year": null,
+    "month": null
+  },
+  "cs5.1C": {
+    "name": "Promo Pack",
+    "series": "Sword & Shield",
     "year": null,
     "month": null
   }
