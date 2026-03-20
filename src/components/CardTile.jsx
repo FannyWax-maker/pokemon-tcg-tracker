@@ -41,10 +41,13 @@ const LANG_CONFIG = {
   EN: { flag: '🇬🇧', color: 'bg-blue-500 hover:bg-blue-600', owned: 'bg-blue-500' },
   JP: { flag: '🇯🇵', color: 'bg-red-500 hover:bg-red-600', owned: 'bg-red-500' },
   CN: { flag: '🇨🇳', color: 'bg-yellow-500 hover:bg-yellow-600', owned: 'bg-yellow-500' },
-  KR: { flag: '🇰🇷', color: 'bg-indigo-500 hover:bg-indigo-600', owned: 'bg-indigo-500' },
+  TC: { flag: '🇹🇼', color: 'bg-teal-500 hover:bg-teal-600', owned: 'bg-teal-500' },
+  KR: { flag: '🇰🇷', color: 'bg-purple-500 hover:bg-purple-600', owned: 'bg-purple-500' },
 };
 
-const ALL_LANGS = ['EN', 'JP', 'CN', 'KR'];
+const ALL_LANGS = ['EN', 'JP', 'CN', 'TC', 'KR'];
+const EBAY_ROW1 = ['EN', 'JP', 'CN'];
+const EBAY_ROW2 = ['TC', 'KR'];
 
 const buildEbayUrl = (card, pokemonName, lang) => {
   const rawName = card.cardName || '';
@@ -53,9 +56,9 @@ const buildEbayUrl = (card, pokemonName, lang) => {
   const skipNames = ['Full Art', 'Trainer', 'Item', 'Stadium', 'Supporter', 'Tool', 'Energy'];
   const cardName = cleanedName && !skipNames.includes(cleanedName) ? cleanedName : null;
   const searchName = cardName || pokemonName;
-  const setCode = lang === 'JP' ? card.jpSetCode : lang === 'CN' ? card.cnSetCode : card.setCode;
-  const setNumber = lang === 'EN' ? (card.setNumber || card.number || null) : null;
-  const langKeyword = lang === 'JP' ? 'japanese' : lang === 'CN' ? 'chinese' : lang === 'KR' ? 'korean' : '';
+  const setCode = lang === 'JP' ? card.jpSetCode : lang === 'CN' ? card.cnSetCode : lang === 'TC' ? card.tcSetCode : lang === 'KR' ? card.krSetCode : card.setCode;
+  const setNumber = lang === 'EN' ? (card.number || card.setNumber || null) : lang === 'JP' ? (card.jpNumber || null) : lang === 'CN' ? (card.cnNumber || null) : lang === 'TC' ? (card.tcNumber || null) : lang === 'KR' ? (card.krNumber || null) : null;
+  const langKeyword = lang === 'JP' ? 'japanese' : lang === 'CN' ? 'chinese' : lang === 'TC' ? 'taiwanese' : lang === 'KR' ? 'korean' : '';
   const query = [searchName, setCode, setNumber, langKeyword].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim();
   return `https://www.ebay.co.uk/sch/i.html?_nkw=${encodeURIComponent(query)}&LH_ItemLocation=3&_sop=12`;
 };
@@ -479,7 +482,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
               ) : (
                 <div className="flex gap-1">
                   {ALL_LANGS.map(lang => {
-                    const isAvailable = availableLangs.includes(lang) || (lang === 'KR' && showKR);
+                    const isAvailable = availableLangs.includes(lang);
                     const cfg = LANG_CONFIG[lang];
                     return (
                       <button
@@ -501,32 +504,37 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             </div>
           )}
 
-          {/* eBay search buttons */}
-          <div className="flex gap-1 pt-2 border-t border-gray-100/30 mt-1">
-            {ALL_LANGS.map(lang => {
-              const hasLang = lang === 'EN' ? !!(card.enSetCode || card.setCode)
-                : lang === 'JP' ? !!card.jpSetCode
-                : lang === 'CN' ? !!card.cnSetCode
-                : showKR;
-              const cfg = LANG_CONFIG[lang];
-              return (
-                <a
-                  key={lang}
-                  href={hasLang ? buildEbayUrl(card, isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName, lang) : undefined}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={e => e.stopPropagation()}
-                  title={hasLang ? `Search eBay sold listings (${lang})` : `Not available in ${lang}`}
-                  className={`flex-1 py-0.5 rounded text-[10px] font-bold text-center transition-all duration-150
-                    ${hasLang
-                      ? `${cfg.color} text-white opacity-70 hover:opacity-100`
-                      : 'bg-gray-200 text-gray-400 cursor-not-allowed opacity-30'
-                    }`}
-                >
-                  {cfg.flag}
-                </a>
-              );
-            })}
+          {/* eBay search buttons — 2 rows to avoid cramping */}
+          <div className="flex flex-col gap-0.5 pt-2 border-t border-gray-100/30 mt-1">
+            {[EBAY_ROW1, EBAY_ROW2].map((row, rowIdx) => (
+              <div key={rowIdx} className="flex gap-1">
+                {row.map(lang => {
+                  const hasLang = lang === 'EN' ? !!(card.enSetCode || card.setCode)
+                    : lang === 'JP' ? !!card.jpSetCode
+                    : lang === 'CN' ? !!card.cnSetCode
+                    : lang === 'TC' ? !!card.tcSetCode
+                    : !!card.krSetCode;
+                  const cfg = LANG_CONFIG[lang];
+                  return (
+                    <a
+                      key={lang}
+                      href={hasLang ? buildEbayUrl(card, isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName, lang) : undefined}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={e => e.stopPropagation()}
+                      title={hasLang ? `Search eBay sold listings (${lang})` : `Not available in ${lang}`}
+                      className={`flex-1 py-0.5 rounded text-[10px] font-bold text-center transition-all duration-150
+                        ${hasLang
+                          ? `${cfg.color} text-white opacity-70 hover:opacity-100`
+                          : 'bg-gray-200 text-gray-400 cursor-not-allowed opacity-30'
+                        }`}
+                    >
+                      {cfg.flag}
+                    </a>
+                  );
+                })}
+              </div>
+            ))}
           </div>
         </div>
       </div>
