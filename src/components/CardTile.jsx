@@ -509,7 +509,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             {[EBAY_ROW1, EBAY_ROW2].map((row, rowIdx) => (
               <div key={rowIdx} className="flex gap-1">
                 {row.map(lang => {
-                  const hasLang = lang === 'EN' ? !!(card.enSetCode || card.setCode)
+                  const hasSetCode = lang === 'EN' ? !!(card.enSetCode || card.setCode)
                     : lang === 'JP' ? !!card.jpSetCode
                     : lang === 'CN' ? !!card.cnSetCode
                     : lang === 'TC' ? !!card.tcSetCode
@@ -518,15 +518,15 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                   return (
                     <a
                       key={lang}
-                      href={hasLang ? buildEbayUrl(card, isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName, lang) : undefined}
+                      href={buildEbayUrl(card, isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName, lang)}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={e => e.stopPropagation()}
-                      title={hasLang ? `Search eBay sold listings (${lang})` : `Not available in ${lang}`}
-                      className={`flex-1 py-0.5 rounded text-[10px] font-bold text-center transition-all duration-150
-                        ${hasLang
-                          ? `${cfg.color} text-white opacity-70 hover:opacity-100`
-                          : 'bg-gray-200 text-gray-400 cursor-not-allowed opacity-30'
+                      title={hasSetCode ? `Search eBay (${lang})` : `Search eBay (${lang}) — no set code yet`}
+                      className={`flex-1 py-0.5 rounded text-[10px] font-bold text-center transition-all duration-150 text-white
+                        ${hasSetCode
+                          ? `${cfg.color} opacity-70 hover:opacity-100`
+                          : `${cfg.color} opacity-30 hover:opacity-60`
                         }`}
                     >
                       {cfg.flag}
