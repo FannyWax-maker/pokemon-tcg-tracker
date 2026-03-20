@@ -409,7 +409,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             {(card.enSetCode || card.setCode) ? (
               <>
                 <span className="text-blue-500 font-bold shrink-0">EN</span>
-                <span className="truncate">{card.enSetCode || card.setCode}{card.number ? ` ${card.number}` : ''}{(() => { const _ec = card.enSetCode || card.setCode; const _e = setNames[_ec]; const n = typeof _e === 'object' ? _e?.name : _e; return n ? ` - ${String(n).replace(/ \d{4}(-\d{4})?$/, '').trim()}` : ''; })()}</span>
+                <span className="truncate">{card.enSetCode || card.setCode}{(card.number || card.enNumber) ? ` ${card.number || card.enNumber}` : ''}{(() => { const _ec = card.enSetCode || card.setCode; const _e = setNames[_ec]; const n = typeof _e === 'object' ? _e?.name : _e; return n ? ` - ${String(n).replace(/ \d{4}(-\d{4})?$/, '').trim()}` : ''; })()}</span>
               </>
             ) : <><span className="text-blue-500 font-bold shrink-0 opacity-40">EN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
           </div>
@@ -419,7 +419,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             {card.jpSetCode ? (
               <>
                 <span className="text-red-400 font-bold shrink-0">JP</span>
-                <span className="truncate">{card.jpSetCode}{(() => { const _j = setNames[card.jpSetCode]; const n = typeof _j === 'object' ? _j?.name : _j; return n ? ` - ${n.replace(/ \d{4}.*/, '').trim()}` : ''; })()}</span>
+                <span className="truncate">{card.jpSetCode}{card.jpNumber ? ` ${card.jpNumber}` : ''}{(() => { const _j = setNames[card.jpSetCode]; const n = typeof _j === 'object' ? _j?.name : _j; return n ? ` - ${n.replace(/ \d{4}.*/, '').trim()}` : ''; })()}</span>
               </>
             ) : <><span className="text-red-400 font-bold shrink-0 opacity-40">JP</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
           </div>
@@ -429,12 +429,32 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             {card.cnSetCode ? (
               <>
                 <span className="text-yellow-500 font-bold shrink-0">CN</span>
-                <span className="truncate">{card.cnSetCode}{(() => { const _c = setNames[card.cnSetCode]; const n = typeof _c === 'object' ? _c?.name : _c; return n ? ` - ${n.replace(/ \d{4}.*/, '').trim()}` : ''; })()}</span>
+                <span className="truncate">{card.cnSetCode}{card.cnNumber ? ` ${card.cnNumber}` : ''}{(() => { const _c = setNames[card.cnSetCode]; const n = typeof _c === 'object' ? _c?.name : _c; return n ? ` - ${n.replace(/ \d{4}.*/, '').trim()}` : ''; })()}</span>
               </>
             ) : <><span className="text-yellow-500 font-bold shrink-0 opacity-40">CN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
           </div>
 
-          {/* Row 7: other pokemon — always reserve space */}
+          {/* Row 7: TC */}
+          <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-start gap-1 ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
+            {card.tcSetCode ? (
+              <>
+                <span className="text-teal-500 font-bold shrink-0">TC</span>
+                <span className="truncate">{card.tcSetCode}{card.tcNumber ? ` ${card.tcNumber}` : ''}{(() => { const _t = setNames[card.tcSetCode]; const n = typeof _t === 'object' ? _t?.name : _t; return n ? ` - ${n.replace(/ \d{4}.*/, '').trim()}` : ''; })()}</span>
+              </>
+            ) : <><span className="text-teal-500 font-bold shrink-0 opacity-40">TC</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
+          </div>
+
+          {/* Row 8: KR */}
+          <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-start gap-1 ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
+            {card.krSetCode ? (
+              <>
+                <span className="text-purple-500 font-bold shrink-0">KR</span>
+                <span className="truncate">{card.krSetCode}{card.krNumber ? ` ${card.krNumber}` : ''}{(() => { const _k = setNames[card.krSetCode]; const n = typeof _k === 'object' ? _k?.name : _k; return n ? ` - ${n.replace(/ \d{4}.*/, '').trim()}` : ''; })()}</span>
+              </>
+            ) : <><span className="text-purple-500 font-bold shrink-0 opacity-40">KR</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
+          </div>
+
+          {/* Row 9: other pokemon — always reserve space */}
           <div className={`text-xs min-h-[0.9rem] leading-tight ${isOwned ? 'text-red-100' : 'text-blue-500'}`}>
             {hasOtherPokemon ? (showAllPokemon
               ? <span>w/ {card.otherPokemon.join(', ')} <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(false); }} className={`font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>less</button></span>
@@ -442,7 +462,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             ) : <span>&nbsp;</span>}
           </div>
 
-          {/* Row 8: artist — always reserve space */}
+          {/* Row 10: artist — always reserve space */}
           <div className={`text-xs leading-tight truncate min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-400'}`}>{card.artist || ' '}</div>
 
           {/* Language buttons — hidden when owned, show owned pill instead */}
