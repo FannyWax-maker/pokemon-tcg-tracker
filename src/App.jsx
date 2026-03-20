@@ -58,6 +58,7 @@ export default function App() {
   const [syncStatus, setSyncStatus] = useState('');
   const [tileSize, setTileSize] = useState('M');
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
+  const [filterMissingLang, setFilterMissingLang] = useState('none');
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [showLockModal, setShowLockModal] = useState(false);
   const [lockInput, setLockInput] = useState('');
@@ -319,8 +320,8 @@ export default function App() {
     return { totalCards, ownedCards, completionPercent, langStats };
   }, [pokemonData]);
 
-  const hasActiveFilters = filterExclusive !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards !== 'all' || filterHideNonConforming !== 'all' || filterOwned !== 'all' || filterSetLang !== 'all' || filterGeneration !== 'all' || filterFavorites !== 'all' || filterUnobtainable !== 'all';
-  const activeFilterCount = [filterExclusive !== 'all', filterSet !== 'all', filterCardType !== 'all', filterMissingImages, filterChinese !== 'all', filterArtist !== 'all', filterHideNoCards !== 'all', filterHideNonConforming !== 'all', filterOwned !== 'all', filterGeneration !== 'all'].filter(Boolean).length;
+  const hasActiveFilters = filterExclusive !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards !== 'all' || filterHideNonConforming !== 'all' || filterOwned !== 'all' || filterSetLang !== 'all' || filterGeneration !== 'all' || filterFavorites !== 'all' || filterUnobtainable !== 'all' || filterMissingLang !== 'none';
+  const activeFilterCount = [filterExclusive !== 'all', filterSet !== 'all', filterCardType !== 'all', filterMissingImages, filterChinese !== 'all', filterArtist !== 'all', filterHideNoCards !== 'all', filterHideNonConforming !== 'all', filterOwned !== 'all', filterGeneration !== 'all', filterMissingLang !== 'none'].filter(Boolean).length;
 
   const filteredData = useMemo(() => {
     let filtered = pokemonData;
@@ -413,6 +414,10 @@ export default function App() {
         if (filterOwned === 'unowned' && card.ownedLang) return;
         if (filterUnobtainable === 'only' && !card.unobtainable) return;
         if (filterUnobtainable === 'hide' && card.unobtainable) return;
+        if (filterMissingLang !== 'none') {
+          const missingMap = { EN: !(card.enSetCode || card.setCode), JP: !card.jpSetCode, CN: !card.cnSetCode, TC: !card.tcSetCode, KR: !card.krSetCode };
+          if (!missingMap[filterMissingLang]) return;
+        }
         const cardEntry = { ...card, pokemonName: pokemon.name, pokemonId: pokemon.id };
         if (filterMissingImages) cardEntry._filterMissingImages = true;
         cards.push(cardEntry);
@@ -423,7 +428,7 @@ export default function App() {
     else if (sortBy === 'release_desc') { cards.sort((a, b) => { const score = (c) => { const d = setNamesLC[(c.setCode||"").toLowerCase()] || setNamesLC[(c.jpSetCode||"").toLowerCase()] || setNamesLC[(c.cnSetCode||"").toLowerCase()] || {}; return (d.year||0)*100+(d.month||0); }; return score(b) - score(a); }); }
     else if (sortBy === 'release_asc') { cards.sort((a, b) => { const score = (c) => { const d = setNamesLC[(c.setCode||"").toLowerCase()] || setNamesLC[(c.jpSetCode||"").toLowerCase()] || setNamesLC[(c.cnSetCode||"").toLowerCase()] || {}; return (d.year||9999)*100+(d.month||99); }; return score(a) - score(b); }); }
     return cards;
-  }, [filteredData, filterChinese, filterExclusive, filterSet, filterCardType, sortBy, filterOwned, filterArtist, filterUnobtainable, filterMissingImages, filterSetLang]);
+  }, [filteredData, filterChinese, filterExclusive, filterSet, filterCardType, sortBy, filterOwned, filterArtist, filterUnobtainable, filterMissingImages, filterSetLang, filterMissingLang]);
 
   const handleInlineUpdateCard = requireUnlock((pokemonId, cardId, updates) => {
     setPokemonData(pokemonData.map(pokemon => {
@@ -482,7 +487,7 @@ export default function App() {
   const clearFilters = () => {
     setFilterExclusive('all'); setFilterSet('all'); setFilterCardType('all'); setFilterMissingImages(false);
     setFilterChinese('all'); setFilterArtist('all'); setFilterHideNoCards('all'); setFilterHideNonConforming('all');
-    setFilterOwned('all'); setFilterSetLang('all'); setFilterGeneration('all'); setFilterFavorites('all'); setFilterUnobtainable('all');
+    setFilterOwned('all'); setFilterSetLang('all'); setFilterGeneration('all'); setFilterFavorites('all'); setFilterUnobtainable('all'); setFilterMissingLang('none');
   };
 
   const tileGridClass = { S: 'grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2', M: 'grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-3', L: 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4' };
@@ -789,6 +794,21 @@ export default function App() {
                     <input type="checkbox" checked={filterMissingImages} onChange={(e) => setFilterMissingImages(e.target.checked)} className="rounded" />
                     Show only cards with missing images
                   </label>
+                  {viewMode === 'cards' && (
+                    <div className={`flex items-center gap-2 mt-2 text-xs font-semibold ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+                      <span>Missing lang:</span>
+                      <div className={`flex rounded-lg overflow-hidden border text-xs font-bold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
+                        {[['none','Off'],['EN','EN'],['JP','JP'],['CN','CN'],['TC','TC'],['KR','KR']].map(([val, label]) => (
+                          <button key={val} onClick={() => setFilterMissingLang(val)}
+                            className={`px-2.5 py-1 transition-colors ${filterMissingLang === val ? 'text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-500 hover:bg-gray-50'}`}
+                            style={filterMissingLang === val ? {background: val === 'none' ? 'linear-gradient(135deg, #6b7280, #4b5563)' : val === 'EN' ? 'linear-gradient(135deg, #3b82f6, #1d4ed8)' : val === 'JP' ? 'linear-gradient(135deg, #ef4444, #dc2626)' : val === 'CN' ? 'linear-gradient(135deg, #f59e0b, #d97706)' : val === 'TC' ? 'linear-gradient(135deg, #10b981, #059669)' : 'linear-gradient(135deg, #8b5cf6, #7c3aed)'} : {}}>
+                            {label}
+                          </button>
+                        ))}
+                      </div>
+                      {filterMissingLang !== 'none' && <span className={`text-xs ${darkMode ? 'text-gray-500' : 'text-gray-400'}`}>({allCardsFlat.length} cards missing {filterMissingLang})</span>}
+                    </div>
+                  )}
                 </div>
               )}
             </div>
