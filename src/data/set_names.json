@@ -428,146 +428,146 @@
   "BW2": {
     "name": "Red Collection",
     "series": "Black & White",
-    "year": 2011,
-    "month": 7
+    "year": null,
+    "month": null
   },
   "EBB": {
     "name": "EX Battle Boost",
     "series": "Black & White",
-    "year": 2013,
-    "month": 7
+    "year": null,
+    "month": null
   },
   "XY2": {
     "name": "Wild Blaze",
     "series": "XY",
-    "year": 2014,
-    "month": 3
+    "year": null,
+    "month": null
   },
   "XY3": {
     "name": "Rising Fist",
     "series": "XY",
-    "year": 2014,
-    "month": 6
+    "year": null,
+    "month": null
   },
   "XY4": {
     "name": "Phantom Gate",
     "series": "XY",
-    "year": 2014,
-    "month": 9
+    "year": null,
+    "month": null
   },
   "XY5": {
-    "name": "Tidal Storm",
+    "name": "Gaia Volcano / Tidal Storm",
     "series": "XY",
-    "year": 2014,
-    "month": 12
+    "year": null,
+    "month": null
   },
   "CP1": {
-    "name": "Magma Gang VS Aqua Gang: Double Crisis",
+    "name": "Team Magma vs Team Aqua: Double Crisis",
     "series": "XY",
-    "year": 2015,
-    "month": 1
+    "year": null,
+    "month": null
   },
   "XY6": {
     "name": "Emerald Break",
     "series": "XY",
-    "year": 2015,
-    "month": 3
+    "year": null,
+    "month": null
   },
   "XY7": {
     "name": "Bandit Ring",
     "series": "XY",
-    "year": 2015,
-    "month": 6
+    "year": null,
+    "month": null
   },
   "XY8": {
-    "name": "Red Flash",
+    "name": "Blue Shock / Red Flash",
     "series": "XY",
-    "year": 2015,
-    "month": 9
+    "year": null,
+    "month": null
   },
   "XY9": {
     "name": "Rage of the Broken Heavens",
     "series": "XY",
-    "year": 2015,
-    "month": 12
+    "year": null,
+    "month": null
   },
   "CP3": {
     "name": "PokéKyun Collection",
     "series": "XY",
-    "year": 2016,
-    "month": 1
+    "year": null,
+    "month": null
   },
   "XY10": {
     "name": "Awakening Psychic King",
     "series": "XY",
-    "year": 2016,
-    "month": 3
+    "year": null,
+    "month": null
   },
   "XY11": {
-    "name": "Cruel Traitor",
+    "name": "Fever-Burst Fighter / Cruel Traitor",
     "series": "XY",
-    "year": 2016,
-    "month": 6
+    "year": null,
+    "month": null
   },
   "SM1M": {
-    "name": "Collection Moon",
+    "name": "Moon Collection",
     "series": "Sun & Moon",
-    "year": 2016,
-    "month": 12
+    "year": null,
+    "month": null
   },
   "SM1+": {
     "name": "Sun & Moon Plus",
     "series": "Sun & Moon",
-    "year": 2017,
-    "month": 1
+    "year": null,
+    "month": null
   },
   "SM2K": {
     "name": "Islands Await You",
     "series": "Sun & Moon",
-    "year": 2017,
-    "month": 3
+    "year": null,
+    "month": null
   },
   "SM2L": {
     "name": "Alolan Moonlight",
     "series": "Sun & Moon",
-    "year": 2017,
-    "month": 3
+    "year": null,
+    "month": null
   },
   "SM3+": {
     "name": "Shining Legends",
     "series": "Sun & Moon",
-    "year": 2017,
-    "month": 7
+    "year": null,
+    "month": null
   },
   "SM5S": {
     "name": "Ultra Sun",
     "series": "Sun & Moon",
-    "year": 2017,
-    "month": 12
+    "year": null,
+    "month": null
   },
   "SM7": {
     "name": "Sky-Splitting Charisma",
     "series": "Sun & Moon",
-    "year": 2018,
-    "month": 6
+    "year": null,
+    "month": null
   },
   "SM8": {
     "name": "Super-Burst Impact",
     "series": "Sun & Moon",
-    "year": 2018,
-    "month": 9
+    "year": null,
+    "month": null
   },
   "SM8B": {
     "name": "GX Ultra Shiny",
     "series": "Sun & Moon",
-    "year": 2018,
-    "month": 11
+    "year": null,
+    "month": null
   },
   "SM9": {
     "name": "Tag Bolt",
     "series": "Sun & Moon",
-    "year": 2018,
-    "month": 12
+    "year": null,
+    "month": null
   },
   "SMK": {
     "name": "Tag Bolt - Brock & Misty Trainer Battle Decks",
@@ -578,20 +578,20 @@
   "SM10": {
     "name": "Double Blaze",
     "series": "Sun & Moon",
-    "year": 2019,
-    "month": 3
+    "year": null,
+    "month": null
   },
   "SM10A": {
     "name": "GG End",
     "series": "Sun & Moon",
-    "year": 2019,
-    "month": 4
+    "year": null,
+    "month": null
   },
   "SM10B": {
     "name": "Sky Legend",
     "series": "Sun & Moon",
-    "year": 2019,
-    "month": 4
+    "year": null,
+    "month": null
   },
   "SMM": {
     "name": "Tag Team GX Starter Sets",
@@ -602,50 +602,50 @@
   "SM11": {
     "name": "Miracle Twin",
     "series": "Sun & Moon",
-    "year": 2019,
-    "month": 5
+    "year": null,
+    "month": null
   },
   "SM12": {
     "name": "Alter Genesis",
     "series": "Sun & Moon",
-    "year": 2019,
-    "month": 9
+    "year": null,
+    "month": null
   },
   "SM12A": {
     "name": "TAG TEAM GX: Tag All Stars",
     "series": "Sun & Moon",
-    "year": 2019,
-    "month": 10
+    "year": null,
+    "month": null
   },
   "SA": {
     "name": "Starter Set V",
     "series": "Sword & Shield",
-    "year": 2019,
-    "month": 11
+    "year": null,
+    "month": null
   },
   "S1W": {
     "name": "Sword",
     "series": "Sword & Shield",
-    "year": 2019,
-    "month": 12
+    "year": null,
+    "month": null
   },
   "S1H": {
     "name": "Shield",
     "series": "Sword & Shield",
-    "year": 2019,
-    "month": 12
+    "year": null,
+    "month": null
   },
   "S1A": {
     "name": "VMAX Rising",
     "series": "Sword & Shield",
-    "year": 2020,
-    "month": 2
+    "year": null,
+    "month": null
   },
   "S2": {
     "name": "Rebellion Crash",
     "series": "Sword & Shield",
-    "year": 2020,
-    "month": 3
+    "year": null,
+    "month": null
   },
   "SC": {
     "name": "Charizard VMAX Starter Set",
@@ -662,20 +662,20 @@
   "S2A": {
     "name": "Explosive Walker",
     "series": "Sword & Shield",
-    "year": 2020,
-    "month": 4
+    "year": null,
+    "month": null
   },
   "S3": {
     "name": "Infinity Zone",
     "series": "Sword & Shield",
-    "year": 2020,
-    "month": 6
+    "year": null,
+    "month": null
   },
   "S3A": {
     "name": "Legendary Heartbeat",
     "series": "Sword & Shield",
-    "year": 2020,
-    "month": 7
+    "year": null,
+    "month": null
   },
   "SD": {
     "name": "Infinity Zone - V Starter Decks",
@@ -686,50 +686,50 @@
   "S4": {
     "name": "Amazing Volt Tackle",
     "series": "Sword & Shield",
-    "year": 2020,
-    "month": 9
+    "year": null,
+    "month": null
   },
   "S4A": {
     "name": "Shiny Star V",
     "series": "Sword & Shield",
-    "year": 2020,
-    "month": 11
+    "year": null,
+    "month": null
   },
   "S5I": {
     "name": "Single Strike Master",
     "series": "Sword & Shield",
-    "year": 2021,
-    "month": 1
+    "year": null,
+    "month": null
   },
   "S5R": {
     "name": "Rapid Strike Master",
     "series": "Sword & Shield",
-    "year": 2021,
-    "month": 1
+    "year": null,
+    "month": null
   },
   "S5A": {
     "name": "Matchless Fighters",
     "series": "Sword & Shield",
-    "year": 2021,
-    "month": 3
+    "year": null,
+    "month": null
   },
   "S6H": {
     "name": "Silver Lance",
     "series": "Sword & Shield",
-    "year": 2021,
-    "month": 4
+    "year": null,
+    "month": null
   },
   "S6K": {
     "name": "Jet Black Spirit",
     "series": "Sword & Shield",
-    "year": 2021,
-    "month": 4
+    "year": null,
+    "month": null
   },
   "S6A": {
     "name": "Eevee Heroes",
     "series": "Sword & Shield",
-    "year": 2021,
-    "month": 5
+    "year": null,
+    "month": null
   },
   "SP4": {
     "name": "VMAX Special Set Eevee Heroes",
@@ -752,140 +752,140 @@
   "S7D": {
     "name": "Skyscraping Perfection",
     "series": "Sword & Shield",
-    "year": 2021,
-    "month": 7
+    "year": null,
+    "month": null
   },
   "S7R": {
     "name": "Blue Sky Stream",
     "series": "Sword & Shield",
-    "year": 2021,
-    "month": 7
+    "year": null,
+    "month": null
   },
   "S8": {
     "name": "Fusion Arts",
     "series": "Sword & Shield",
-    "year": 2021,
-    "month": 9
+    "year": null,
+    "month": null
   },
   "S8A": {
     "name": "25th Anniversary Collection",
     "series": "Sword & Shield",
-    "year": 2021,
-    "month": 10
+    "year": null,
+    "month": null
   },
   "S8B": {
     "name": "VMAX Climax",
     "series": "Sword & Shield",
-    "year": 2021,
-    "month": 12
+    "year": null,
+    "month": null
   },
   "SI": {
-    "name": "Starter Decks 100",
+    "name": "Start Deck 100",
     "series": "Sword & Shield",
-    "year": 2021,
-    "month": 12
+    "year": null,
+    "month": null
   },
   "S9": {
     "name": "Star Birth",
     "series": "Sword & Shield",
-    "year": 2022,
-    "month": 1
+    "year": null,
+    "month": null
   },
   "S9A": {
     "name": "Battle Region",
     "series": "Sword & Shield",
-    "year": 2022,
-    "month": 2
+    "year": null,
+    "month": null
   },
   "S10D": {
     "name": "Time Gazer",
     "series": "Sword & Shield",
-    "year": 2022,
-    "month": 4
+    "year": null,
+    "month": null
   },
   "S10P": {
     "name": "Space Juggler",
     "series": "Sword & Shield",
-    "year": 2022,
-    "month": 4
+    "year": null,
+    "month": null
   },
   "S10A": {
     "name": "Dark Phantasma",
     "series": "Sword & Shield",
-    "year": 2022,
-    "month": 5
+    "year": null,
+    "month": null
   },
   "S10B": {
     "name": "Pokémon GO",
     "series": "Sword & Shield",
-    "year": 2022,
-    "month": 6
+    "year": null,
+    "month": null
   },
   "S11": {
     "name": "Lost Abyss",
     "series": "Sword & Shield",
-    "year": 2022,
-    "month": 7
+    "year": null,
+    "month": null
   },
   "S11A": {
     "name": "Incandescent Arcana",
     "series": "Sword & Shield",
-    "year": 2022,
-    "month": 9
+    "year": null,
+    "month": null
   },
   "S12": {
     "name": "Paradigm Trigger",
     "series": "Sword & Shield",
-    "year": 2022,
-    "month": 10
+    "year": null,
+    "month": null
   },
   "S12A": {
     "name": "VSTAR Universe",
     "series": "Sword & Shield",
-    "year": 2022,
-    "month": 12
+    "year": null,
+    "month": null
   },
   "SV1S": {
     "name": "Scarlet ex",
     "series": "Scarlet & Violet",
-    "year": 2023,
-    "month": 1
+    "year": null,
+    "month": null
   },
   "SV1V": {
     "name": "Violet ex",
     "series": "Scarlet & Violet",
-    "year": 2023,
-    "month": 1
+    "year": null,
+    "month": null
   },
   "SV1A": {
     "name": "Triplet Beat",
     "series": "Scarlet & Violet",
-    "year": 2023,
-    "month": 3
+    "year": null,
+    "month": null
   },
   "SV2P": {
     "name": "Snow Hazard",
     "series": "Scarlet & Violet",
-    "year": 2023,
-    "month": 4
+    "year": null,
+    "month": null
   },
   "SV2D": {
     "name": "Clay Burst",
     "series": "Scarlet & Violet",
-    "year": 2023,
-    "month": 4
+    "year": null,
+    "month": null
   },
   "SV2A": {
     "name": "Pokémon Card 151",
     "series": "Scarlet & Violet",
-    "year": 2023,
-    "month": 6
+    "year": null,
+    "month": null
   },
   "SV3": {
     "name": "Ruler of the Black Flame",
     "series": "Scarlet & Violet",
-    "year": 2023,
-    "month": 7
+    "year": null,
+    "month": null
   },
   "WCS23": {
     "name": "Pokemon Japanese World Championships",
@@ -896,122 +896,122 @@
   "SV3A": {
     "name": "Raging Surf",
     "series": "Scarlet & Violet",
-    "year": 2023,
-    "month": 9
+    "year": null,
+    "month": null
   },
   "SV4K": {
     "name": "Ancient Roar",
     "series": "Scarlet & Violet",
-    "year": 2023,
-    "month": 10
+    "year": null,
+    "month": null
   },
   "SV4M": {
     "name": "Future Flash",
     "series": "Scarlet & Violet",
-    "year": 2023,
-    "month": 10
+    "year": null,
+    "month": null
   },
   "SV4A": {
     "name": "Shiny Treasure ex",
     "series": "Scarlet & Violet",
-    "year": 2023,
-    "month": 12
+    "year": null,
+    "month": null
   },
   "SV5K": {
     "name": "Wild Force",
     "series": "Scarlet & Violet",
-    "year": 2024,
-    "month": 1
+    "year": null,
+    "month": null
   },
   "SV5M": {
     "name": "Cyber Judge",
     "series": "Scarlet & Violet",
-    "year": 2024,
-    "month": 1
+    "year": null,
+    "month": null
   },
   "SV5A": {
     "name": "Crimson Haze",
     "series": "Scarlet & Violet",
-    "year": 2024,
-    "month": 3
+    "year": null,
+    "month": null
   },
   "SV6": {
-    "name": "Transformation Mask",
+    "name": "Mask of Change",
     "series": "Scarlet & Violet",
-    "year": 2024,
-    "month": 4
+    "year": null,
+    "month": null
   },
   "SV6A": {
     "name": "Night Wanderer",
     "series": "Scarlet & Violet",
-    "year": 2024,
-    "month": 6
+    "year": null,
+    "month": null
   },
   "SV7": {
     "name": "Stellar Miracle",
     "series": "Scarlet & Violet",
-    "year": 2024,
-    "month": 7
+    "year": null,
+    "month": null
   },
   "SV7A": {
     "name": "Paradise Dragona",
     "series": "Scarlet & Violet",
-    "year": 2024,
-    "month": 9
+    "year": null,
+    "month": null
   },
   "SV8": {
     "name": "Super Electric Breaker",
     "series": "Scarlet & Violet",
-    "year": 2024,
-    "month": 10
+    "year": null,
+    "month": null
   },
   "SV8A": {
     "name": "Terastal Fest ex",
     "series": "Scarlet & Violet",
-    "year": 2024,
-    "month": 12
+    "year": null,
+    "month": null
   },
   "SV9": {
     "name": "Battle Partners",
     "series": "Scarlet & Violet",
-    "year": 2025,
-    "month": 1
+    "year": null,
+    "month": null
   },
   "SV9A": {
-    "name": "Hot Air Arena",
+    "name": "Heat Wave Arena",
     "series": "Scarlet & Violet",
-    "year": 2025,
-    "month": 3
+    "year": null,
+    "month": null
   },
   "SV10": {
     "name": "Glory of the Rocket Gang",
     "series": "Scarlet & Violet",
-    "year": 2025,
-    "month": 4
+    "year": null,
+    "month": null
   },
   "SV11B": {
     "name": "Black Bolt",
     "series": "Scarlet & Violet",
-    "year": 2025,
-    "month": 6
+    "year": null,
+    "month": null
   },
   "SV11W": {
     "name": "White Flare",
     "series": "Scarlet & Violet",
-    "year": 2025,
-    "month": 6
+    "year": null,
+    "month": null
   },
   "M1L": {
     "name": "Mega Brave",
     "series": "Mega Evolution",
-    "year": 2025,
-    "month": 8
+    "year": null,
+    "month": null
   },
   "M1S": {
     "name": "Mega Symphonia",
     "series": "Mega Evolution",
-    "year": 2025,
-    "month": 8
+    "year": null,
+    "month": null
   },
   "MBG": {
     "name": "MEGA Starter Set Mega Gengar ex",
@@ -1022,20 +1022,20 @@
   "M2": {
     "name": "Inferno X",
     "series": "Mega Evolution",
-    "year": 2025,
-    "month": 9
+    "year": null,
+    "month": null
   },
   "M2A": {
     "name": "MEGA Dream ex",
     "series": "Mega Evolution",
-    "year": 2025,
-    "month": 11
+    "year": null,
+    "month": null
   },
   "M3": {
     "name": "Nihil Zero",
     "series": "Mega Evolution",
-    "year": 2026,
-    "month": 1
+    "year": null,
+    "month": null
   },
   "ME-P": {
     "name": "ME Promos",
@@ -1088,8 +1088,8 @@
   "M4": {
     "name": "Ninja Spinner",
     "series": "Mega Evolution",
-    "year": 2026,
-    "month": 3
+    "year": null,
+    "month": null
   },
   "SM9B": {
     "name": "Full Metal Wall",
@@ -1490,6 +1490,378 @@
   "CS5.1C": {
     "name": "Promo Pack",
     "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "AC1A": {
+    "name": "Crossing the Sky - Set A",
+    "series": "Sun & Moon",
+    "year": null,
+    "month": null
+  },
+  "AC1B": {
+    "name": "Crossing the Sky - Set B",
+    "series": "Sun & Moon",
+    "year": null,
+    "month": null
+  },
+  "AC2A": {
+    "name": "Dreams Come True - Set A",
+    "series": "Sun & Moon",
+    "year": null,
+    "month": null
+  },
+  "AC2B": {
+    "name": "Dreams Come True - Set B",
+    "series": "Sun & Moon",
+    "year": null,
+    "month": null
+  },
+  "S4F": {
+    "name": "Amazing Volt Tackle",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "S4AF": {
+    "name": "Shiny Star V",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "S5IF": {
+    "name": "Single Strike Master",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "S5RF": {
+    "name": "Rapid Strike Master",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "S5AF": {
+    "name": "Matchless Fighters",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "S6HF": {
+    "name": "Silver Lance",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "S6KF": {
+    "name": "Jet Black Spirit",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "S6AF": {
+    "name": "Eevee Heroes",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "S7DF": {
+    "name": "Skyscraping Perfection",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "S7RF": {
+    "name": "Blue Sky Stream",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "S8F": {
+    "name": "Fusion Arts",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "S8AF": {
+    "name": "25th Anniversary Collection",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "S8BF": {
+    "name": "VMAX Climax",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "S9F": {
+    "name": "Star Birth",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "S9AF": {
+    "name": "Battle Region",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "S10DF": {
+    "name": "Time Gazer",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "S10PF": {
+    "name": "Space Juggler",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "S10AF": {
+    "name": "Dark Phantasma",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "S10BF": {
+    "name": "Pokémon GO",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "S11F": {
+    "name": "Lost Abyss",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "S11AF": {
+    "name": "Incandescent Arcana",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "S12F": {
+    "name": "Paradigm Trigger",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "S12AF": {
+    "name": "VSTAR Universe",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "SV1SF": {
+    "name": "Scarlet ex",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "SV1VF": {
+    "name": "Violet ex",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "SV1AF": {
+    "name": "Triplet Beat",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "SV2PF": {
+    "name": "Snow Hazard",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "SV2DF": {
+    "name": "Clay Burst",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "SV2AF": {
+    "name": "Pokémon Card 151",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "SV3F": {
+    "name": "Ruler of the Black Flame",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "SV3AF": {
+    "name": "Raging Surf",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "SV4KF": {
+    "name": "Ancient Roar",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "SV4MF": {
+    "name": "Future Flash",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "SV4AF": {
+    "name": "Shiny Treasure ex",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "SV5KF": {
+    "name": "Wild Force",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "SV5MF": {
+    "name": "Cyber Judge",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "SV5AF": {
+    "name": "Crimson Haze",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "SV6F": {
+    "name": "Transformation Mask",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "SV6AF": {
+    "name": "Night Wanderer",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "SV7F": {
+    "name": "Stellar Miracle",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "SV7AF": {
+    "name": "Paradise Dragona",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "SV8F": {
+    "name": "Super Electric Breaker",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "SV8AF": {
+    "name": "Terastal Fest ex",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "SV9F": {
+    "name": "Battle Partners",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "SV9AF": {
+    "name": "Hot Air Arena",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "SV10F": {
+    "name": "Glory of the Rocket Gang",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "SV11BF": {
+    "name": "Black Bolt",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "SV11WF": {
+    "name": "White Flare",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
+  "M1LF": {
+    "name": "Mega Brave",
+    "series": "Mega Evolution",
+    "year": null,
+    "month": null
+  },
+  "M1SF": {
+    "name": "Mega Symphonia",
+    "series": "Mega Evolution",
+    "year": null,
+    "month": null
+  },
+  "M2F": {
+    "name": "Inferno X",
+    "series": "Mega Evolution",
+    "year": null,
+    "month": null
+  },
+  "M2AF": {
+    "name": "MEGA Dream ex",
+    "series": "Mega Evolution",
+    "year": null,
+    "month": null
+  },
+  "M3F": {
+    "name": "Nihil Zero",
+    "series": "Mega Evolution",
+    "year": null,
+    "month": null
+  },
+  "M4F": {
+    "name": "Ninja Spinner",
+    "series": "Mega Evolution",
+    "year": null,
+    "month": null
+  },
+  "TC-P": {
+    "name": "Traditional Chinese Promo Cards",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "XY1": {
+    "name": "X Collection / Y Collection",
+    "series": "XY",
+    "year": null,
+    "month": null
+  },
+  "SM1S": {
+    "name": "Sun Collection",
+    "series": "Sun & Moon",
+    "year": null,
+    "month": null
+  },
+  "KR-P": {
+    "name": "Korean Black Star Promos",
+    "series": "",
     "year": null,
     "month": null
   }
