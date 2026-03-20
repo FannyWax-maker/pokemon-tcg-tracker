@@ -509,223 +509,223 @@
     "year": 2016,
     "month": 6
   },
-  "sm1M": {
+  "SM1M": {
     "name": "Collection Moon",
     "series": "Sun & Moon",
     "year": 2016,
     "month": 12
   },
-  "sm1+": {
+  "SM1+": {
     "name": "Sun & Moon Plus",
     "series": "Sun & Moon",
     "year": 2017,
     "month": 1
   },
-  "sm2K": {
+  "SM2K": {
     "name": "Islands Await You",
     "series": "Sun & Moon",
     "year": 2017,
     "month": 3
   },
-  "sm2L": {
+  "SM2L": {
     "name": "Alolan Moonlight",
     "series": "Sun & Moon",
     "year": 2017,
     "month": 3
   },
-  "sm3+": {
+  "SM3+": {
     "name": "Shining Legends",
     "series": "Sun & Moon",
     "year": 2017,
     "month": 7
   },
-  "sm5S": {
+  "SM5S": {
     "name": "Ultra Sun",
     "series": "Sun & Moon",
     "year": 2017,
     "month": 12
   },
-  "sm7": {
+  "SM7": {
     "name": "Sky-Splitting Charisma",
     "series": "Sun & Moon",
     "year": 2018,
     "month": 6
   },
-  "sm8": {
+  "SM8": {
     "name": "Super-Burst Impact",
     "series": "Sun & Moon",
     "year": 2018,
     "month": 9
   },
-  "sm8b": {
+  "SM8B": {
     "name": "GX Ultra Shiny",
     "series": "Sun & Moon",
     "year": 2018,
     "month": 11
   },
-  "sm9": {
+  "SM9": {
     "name": "Tag Bolt",
     "series": "Sun & Moon",
     "year": 2018,
     "month": 12
   },
-  "smK": {
+  "SMK": {
     "name": "Tag Bolt - Brock & Misty Trainer Battle Decks",
     "series": "Sun & Moon",
     "year": 2019,
     "month": 1
   },
-  "sm10": {
+  "SM10": {
     "name": "Double Blaze",
     "series": "Sun & Moon",
     "year": 2019,
     "month": 3
   },
-  "sm10a": {
+  "SM10A": {
     "name": "GG End",
     "series": "Sun & Moon",
     "year": 2019,
     "month": 4
   },
-  "sm10b": {
+  "SM10B": {
     "name": "Sky Legend",
     "series": "Sun & Moon",
     "year": 2019,
     "month": 4
   },
-  "smM": {
+  "SMM": {
     "name": "Tag Team GX Starter Sets",
     "series": "Sun & Moon",
     "year": 2019,
     "month": 5
   },
-  "sm11": {
+  "SM11": {
     "name": "Miracle Twin",
     "series": "Sun & Moon",
     "year": 2019,
     "month": 5
   },
-  "sm12": {
+  "SM12": {
     "name": "Alter Genesis",
     "series": "Sun & Moon",
     "year": 2019,
     "month": 9
   },
-  "sm12a": {
+  "SM12A": {
     "name": "TAG TEAM GX: Tag All Stars",
     "series": "Sun & Moon",
     "year": 2019,
     "month": 10
   },
-  "sA": {
+  "SA": {
     "name": "Starter Set V",
     "series": "Sword & Shield",
     "year": 2019,
     "month": 11
   },
-  "s1W": {
+  "S1W": {
     "name": "Sword",
     "series": "Sword & Shield",
     "year": 2019,
     "month": 12
   },
-  "s1H": {
+  "S1H": {
     "name": "Shield",
     "series": "Sword & Shield",
     "year": 2019,
     "month": 12
   },
-  "s1a": {
+  "S1A": {
     "name": "VMAX Rising",
     "series": "Sword & Shield",
     "year": 2020,
     "month": 2
   },
-  "s2": {
+  "S2": {
     "name": "Rebellion Crash",
     "series": "Sword & Shield",
     "year": 2020,
     "month": 3
   },
-  "sC": {
+  "SC": {
     "name": "Charizard VMAX Starter Set",
     "series": "Sword & Shield",
     "year": 2020,
     "month": 3
   },
-  "SCd": {
+  "SCD": {
     "name": "Grimmsnarl VMAX Starter Set",
     "series": "Sword & Shield",
     "year": 2020,
     "month": 3
   },
-  "s2a": {
+  "S2A": {
     "name": "Explosive Walker",
     "series": "Sword & Shield",
     "year": 2020,
     "month": 4
   },
-  "s3": {
+  "S3": {
     "name": "Infinity Zone",
     "series": "Sword & Shield",
     "year": 2020,
     "month": 6
   },
-  "s3a": {
+  "S3A": {
     "name": "Legendary Heartbeat",
     "series": "Sword & Shield",
     "year": 2020,
     "month": 7
   },
-  "sD": {
+  "SD": {
     "name": "Infinity Zone - V Starter Decks",
     "series": "Sword & Shield",
     "year": 2020,
     "month": 7
   },
-  "s4": {
+  "S4": {
     "name": "Amazing Volt Tackle",
     "series": "Sword & Shield",
     "year": 2020,
     "month": 9
   },
-  "s4a": {
+  "S4A": {
     "name": "Shiny Star V",
     "series": "Sword & Shield",
     "year": 2020,
     "month": 11
   },
-  "s5I": {
+  "S5I": {
     "name": "Single Strike Master",
     "series": "Sword & Shield",
     "year": 2021,
     "month": 1
   },
-  "s5R": {
+  "S5R": {
     "name": "Rapid Strike Master",
     "series": "Sword & Shield",
     "year": 2021,
     "month": 1
   },
-  "s5a": {
+  "S5A": {
     "name": "Matchless Fighters",
     "series": "Sword & Shield",
     "year": 2021,
     "month": 3
   },
-  "s6H": {
+  "S6H": {
     "name": "Silver Lance",
     "series": "Sword & Shield",
     "year": 2021,
     "month": 4
   },
-  "s6K": {
+  "S6K": {
     "name": "Jet Black Spirit",
     "series": "Sword & Shield",
     "year": 2021,
     "month": 4
   },
-  "s6a": {
+  "S6A": {
     "name": "Eevee Heroes",
     "series": "Sword & Shield",
     "year": 2021,
@@ -749,31 +749,31 @@
     "year": 2021,
     "month": 5
   },
-  "s7D": {
+  "S7D": {
     "name": "Skyscraping Perfection",
     "series": "Sword & Shield",
     "year": 2021,
     "month": 7
   },
-  "s7R": {
+  "S7R": {
     "name": "Blue Sky Stream",
     "series": "Sword & Shield",
     "year": 2021,
     "month": 7
   },
-  "s8": {
+  "S8": {
     "name": "Fusion Arts",
     "series": "Sword & Shield",
     "year": 2021,
     "month": 9
   },
-  "s8a": {
+  "S8A": {
     "name": "25th Anniversary Collection",
     "series": "Sword & Shield",
     "year": 2021,
     "month": 10
   },
-  "s8b": {
+  "S8B": {
     "name": "VMAX Climax",
     "series": "Sword & Shield",
     "year": 2021,
@@ -785,103 +785,103 @@
     "year": 2021,
     "month": 12
   },
-  "s9": {
+  "S9": {
     "name": "Star Birth",
     "series": "Sword & Shield",
     "year": 2022,
     "month": 1
   },
-  "s9a": {
+  "S9A": {
     "name": "Battle Region",
     "series": "Sword & Shield",
     "year": 2022,
     "month": 2
   },
-  "s10D": {
+  "S10D": {
     "name": "Time Gazer",
     "series": "Sword & Shield",
     "year": 2022,
     "month": 4
   },
-  "s10P": {
+  "S10P": {
     "name": "Space Juggler",
     "series": "Sword & Shield",
     "year": 2022,
     "month": 4
   },
-  "s10a": {
+  "S10A": {
     "name": "Dark Phantasma",
     "series": "Sword & Shield",
     "year": 2022,
     "month": 5
   },
-  "s10b": {
+  "S10B": {
     "name": "Pokémon GO",
     "series": "Sword & Shield",
     "year": 2022,
     "month": 6
   },
-  "s11": {
+  "S11": {
     "name": "Lost Abyss",
     "series": "Sword & Shield",
     "year": 2022,
     "month": 7
   },
-  "s11a": {
+  "S11A": {
     "name": "Incandescent Arcana",
     "series": "Sword & Shield",
     "year": 2022,
     "month": 9
   },
-  "s12": {
+  "S12": {
     "name": "Paradigm Trigger",
     "series": "Sword & Shield",
     "year": 2022,
     "month": 10
   },
-  "s12a": {
+  "S12A": {
     "name": "VSTAR Universe",
     "series": "Sword & Shield",
     "year": 2022,
     "month": 12
   },
-  "sv1S": {
+  "SV1S": {
     "name": "Scarlet ex",
     "series": "Scarlet & Violet",
     "year": 2023,
     "month": 1
   },
-  "sv1V": {
+  "SV1V": {
     "name": "Violet ex",
     "series": "Scarlet & Violet",
     "year": 2023,
     "month": 1
   },
-  "sv1a": {
+  "SV1A": {
     "name": "Triplet Beat",
     "series": "Scarlet & Violet",
     "year": 2023,
     "month": 3
   },
-  "sv2P": {
+  "SV2P": {
     "name": "Snow Hazard",
     "series": "Scarlet & Violet",
     "year": 2023,
     "month": 4
   },
-  "sv2D": {
+  "SV2D": {
     "name": "Clay Burst",
     "series": "Scarlet & Violet",
     "year": 2023,
     "month": 4
   },
-  "sv2a": {
+  "SV2A": {
     "name": "Pokémon Card 151",
     "series": "Scarlet & Violet",
     "year": 2023,
     "month": 6
   },
-  "sv3": {
+  "SV3": {
     "name": "Ruler of the Black Flame",
     "series": "Scarlet & Violet",
     "year": 2023,
@@ -893,121 +893,121 @@
     "year": 2023,
     "month": 8
   },
-  "sv3a": {
+  "SV3A": {
     "name": "Raging Surf",
     "series": "Scarlet & Violet",
     "year": 2023,
     "month": 9
   },
-  "sv4K": {
+  "SV4K": {
     "name": "Ancient Roar",
     "series": "Scarlet & Violet",
     "year": 2023,
     "month": 10
   },
-  "sv4M": {
+  "SV4M": {
     "name": "Future Flash",
     "series": "Scarlet & Violet",
     "year": 2023,
     "month": 10
   },
-  "sv4a": {
+  "SV4A": {
     "name": "Shiny Treasure ex",
     "series": "Scarlet & Violet",
     "year": 2023,
     "month": 12
   },
-  "sv5K": {
+  "SV5K": {
     "name": "Wild Force",
     "series": "Scarlet & Violet",
     "year": 2024,
     "month": 1
   },
-  "sv5M": {
+  "SV5M": {
     "name": "Cyber Judge",
     "series": "Scarlet & Violet",
     "year": 2024,
     "month": 1
   },
-  "sv5a": {
+  "SV5A": {
     "name": "Crimson Haze",
     "series": "Scarlet & Violet",
     "year": 2024,
     "month": 3
   },
-  "sv6": {
+  "SV6": {
     "name": "Transformation Mask",
     "series": "Scarlet & Violet",
     "year": 2024,
     "month": 4
   },
-  "sv6a": {
+  "SV6A": {
     "name": "Night Wanderer",
     "series": "Scarlet & Violet",
     "year": 2024,
     "month": 6
   },
-  "sv7": {
+  "SV7": {
     "name": "Stellar Miracle",
     "series": "Scarlet & Violet",
     "year": 2024,
     "month": 7
   },
-  "sv7a": {
+  "SV7A": {
     "name": "Paradise Dragona",
     "series": "Scarlet & Violet",
     "year": 2024,
     "month": 9
   },
-  "sv8": {
+  "SV8": {
     "name": "Super Electric Breaker",
     "series": "Scarlet & Violet",
     "year": 2024,
     "month": 10
   },
-  "sv8a": {
+  "SV8A": {
     "name": "Terastal Fest ex",
     "series": "Scarlet & Violet",
     "year": 2024,
     "month": 12
   },
-  "sv9": {
+  "SV9": {
     "name": "Battle Partners",
     "series": "Scarlet & Violet",
     "year": 2025,
     "month": 1
   },
-  "sv9a": {
+  "SV9A": {
     "name": "Hot Air Arena",
     "series": "Scarlet & Violet",
     "year": 2025,
     "month": 3
   },
-  "sv10": {
+  "SV10": {
     "name": "Glory of the Rocket Gang",
     "series": "Scarlet & Violet",
     "year": 2025,
     "month": 4
   },
-  "sv11B": {
+  "SV11B": {
     "name": "Black Bolt",
     "series": "Scarlet & Violet",
     "year": 2025,
     "month": 6
   },
-  "sv11W": {
+  "SV11W": {
     "name": "White Flare",
     "series": "Scarlet & Violet",
     "year": 2025,
     "month": 6
   },
-  "m1L": {
+  "M1L": {
     "name": "Mega Brave",
     "series": "Mega Evolution",
     "year": 2025,
     "month": 8
   },
-  "m1S": {
+  "M1S": {
     "name": "Mega Symphonia",
     "series": "Mega Evolution",
     "year": 2025,
@@ -1019,19 +1019,19 @@
     "year": 2025,
     "month": 9
   },
-  "m2": {
+  "M2": {
     "name": "Inferno X",
     "series": "Mega Evolution",
     "year": 2025,
     "month": 9
   },
-  "m2a": {
+  "M2A": {
     "name": "MEGA Dream ex",
     "series": "Mega Evolution",
     "year": 2025,
     "month": 11
   },
-  "m3": {
+  "M3": {
     "name": "Nihil Zero",
     "series": "Mega Evolution",
     "year": 2026,
@@ -1061,7 +1061,7 @@
     "year": null,
     "month": null
   },
-  "smL": {
+  "SML": {
     "name": "Family Pokémon Card Game",
     "series": "Sun & Moon",
     "year": null,
@@ -1085,289 +1085,289 @@
     "year": null,
     "month": null
   },
-  "m4": {
+  "M4": {
     "name": "Ninja Spinner",
     "series": "Mega Evolution",
     "year": 2026,
     "month": 3
   },
-  "sm9b": {
+  "SM9B": {
     "name": "Full Metal Wall",
     "series": "Sun & Moon",
     "year": 2021,
     "month": 2
   },
-  "csGC": {
+  "CSGC": {
     "name": "Eevee Display Frame Box",
     "series": "Sword & Shield",
     "year": null,
     "month": null
   },
-  "csm1AC": {
+  "CSM1AC": {
     "name": "Storming Emergence - Set A",
     "series": "Sun & Moon",
     "year": 2022,
     "month": 10
   },
-  "csm1BC": {
+  "CSM1BC": {
     "name": "Storming Emergence - Set B",
     "series": "Sun & Moon",
     "year": 2022,
     "month": 10
   },
-  "csm1CC": {
+  "CSM1CC": {
     "name": "Storming Emergence - Set C",
     "series": "Sun & Moon",
     "year": 2022,
     "month": 10
   },
-  "csm1DC": {
+  "CSM1DC": {
     "name": "Storming Emergence GX Starter Deck",
     "series": "Sun & Moon",
     "year": 2022,
     "month": 10
   },
-  "csm1.5C": {
+  "CSM1.5C": {
     "name": "Battle Elite",
     "series": "Sun & Moon",
     "year": 2022,
     "month": 12
   },
-  "csmYC": {
+  "CSMYC": {
     "name": "Eevee-GX Box Sets",
     "series": "Sun & Moon",
     "year": 2023,
     "month": 1
   },
-  "csm2AC": {
+  "CSM2AC": {
     "name": "Shining Synergy - Shower",
     "series": "Sun & Moon",
     "year": 2023,
     "month": 1
   },
-  "csm2BC": {
+  "CSM2BC": {
     "name": "Shining Synergy - Surpreme",
     "series": "Sun & Moon",
     "year": 2023,
     "month": 1
   },
-  "csm2CC": {
+  "CSM2CC": {
     "name": "Shining Synergy - Summon",
     "series": "Sun & Moon",
     "year": 2023,
     "month": 1
   },
-  "csm2DC": {
+  "CSM2DC": {
     "name": "Shining Synergy GX Starter Deck",
     "series": "Sun & Moon",
     "year": 2023,
     "month": 1
   },
-  "CSMPiC": {
+  "CSMPIC": {
     "name": "C-Battle Party Reward Pack",
     "series": "Sun & Moon",
     "year": 2023,
     "month": 2
   },
-  "csm2.5C": {
+  "CSM2.5C": {
     "name": "Striking Competition",
     "series": "Sun & Moon",
     "year": 2023,
     "month": 3
   },
-  "csmAC": {
+  "CSMAC": {
     "name": "Arceus & Dialga & Palkia GX Premium Deck Building Box",
     "series": "Sun & Moon",
     "year": 2023,
     "month": 3
   },
-  "CSMPaC": {
+  "CSMPAC": {
     "name": "Battle Party Set - Grass Deck",
     "series": "Sun & Moon",
     "year": 2023,
     "month": 4
   },
-  "CSMPeC": {
+  "CSMPEC": {
     "name": "Battle Party Set - Psychic Deck",
     "series": "Sun & Moon",
     "year": 2023,
     "month": 4
   },
-  "cs1AC": {
+  "CS1AC": {
     "name": "Dynamax Clash - Thunder",
     "series": "Sword & Shield",
     "year": 2023,
     "month": 5
   },
-  "cs1BC": {
+  "CS1BC": {
     "name": "Dynamax Clash - Flame",
     "series": "Sword & Shield",
     "year": 2023,
     "month": 5
   },
-  "cs1.5C": {
+  "CS1.5C": {
     "name": "Dynamax Tactics",
     "series": "Sword & Shield",
     "year": 2023,
     "month": 6
   },
-  "cs2AC": {
+  "CS2AC": {
     "name": "Vivid Portrayals - Obsidian",
     "series": "Sword & Shield",
     "year": 2023,
     "month": 8
   },
-  "cs2BC": {
+  "CS2BC": {
     "name": "Vivid Portrayals - Indigo",
     "series": "Sword & Shield",
     "year": 2023,
     "month": 8
   },
-  "cs2.5C": {
+  "CS2.5C": {
     "name": "Brilliant Counterattack",
     "series": "Sword & Shield",
     "year": 2023,
     "month": 9
   },
-  "cs2DaC": {
+  "CS2DAC": {
     "name": "Family Pokémon Trading Card Game",
     "series": "Sword & Shield",
     "year": 2023,
     "month": 11
   },
-  "cs3AC": {
+  "CS3AC": {
     "name": "Primordial Arts - Overgrow",
     "series": "Sword & Shield",
     "year": 2023,
     "month": 11
   },
-  "cs3BC": {
+  "CS3BC": {
     "name": "Primordial Arts - Torrent",
     "series": "Sword & Shield",
     "year": 2023,
     "month": 11
   },
-  "csDC": {
+  "CSDC": {
     "name": "Pokémon Ball Gift Box: Legendary Pikachu Celebration",
     "series": "Sword & Shield",
     "year": 2023,
     "month": 12
   },
-  "cs3.5C": {
+  "CS3.5C": {
     "name": "Scorching Skies",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 1
   },
-  "CSMPjC": {
+  "CSMPJC": {
     "name": "Battle Party Set - Grass Modification Pack",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 1
   },
-  "CSMPnC": {
+  "CSMPNC": {
     "name": "Battle Party Set - Psychic Modification Pack",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 1
   },
-  "cs4AC": {
+  "CS4AC": {
     "name": "Polychromatic Gathering - Friends",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 3
   },
-  "cs4BC": {
+  "CS4BC": {
     "name": "Polychromatic Gathering - Origin",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 3
   },
-  "cs4.1C": {
+  "CS4.1C": {
     "name": "Radiant Energy First Round",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 3
   },
-  "cs4.5C": {
+  "CS4.5C": {
     "name": "Flame Dance of the End",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 4
   },
-  "csHC": {
+  "CSHC": {
     "name": "Eevee Advanced Gift Box",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 4
   },
-  "cs4DaC": {
+  "CS4DAC": {
     "name": "Start Deck 100",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 5
   },
-  "cs5AC": {
+  "CS5AC": {
     "name": "Gallant Galaxy - Charm",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 6
   },
-  "cs5BC": {
+  "CS5BC": {
     "name": "Gallant Galaxy - Brave",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 6
   },
-  "csMC": {
+  "CSMC": {
     "name": "Pokémon Card Display Sets Volume 2",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 6
   },
-  "csNC": {
+  "CSNC": {
     "name": "Brave Stars Deck Building Gift Box",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 6
   },
-  "csJC": {
+  "CSJC": {
     "name": "Pokémon Ball Gift Box: Art Illustration Celebration Scene",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 6
   },
-  "cs5.5C": {
+  "CS5.5C": {
     "name": "Overshadowed Radiance",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 8
   },
-  "cs6.1C": {
+  "CS6.1C": {
     "name": "Brilliant Energy Promo Pack 3",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 9
   },
-  "cs6AC": {
+  "CS6AC": {
     "name": "Marine Shadow - Roar",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 9
   },
-  "cs6BC": {
+  "CS6BC": {
     "name": "Marine Shadow - Banish",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 9
   },
-  "csUC": {
+  "CSUC": {
     "name": "Pokémon Card Display Sets Volume 3",
     "series": "Sword & Shield",
     "year": 2024,
     "month": 10
   },
-  "cs6.5C": {
+  "CS6.5C": {
     "name": "Victory Lodestar",
     "series": "Sword & Shield",
     "year": 2024,
@@ -1385,7 +1385,7 @@
     "year": 2024,
     "month": 12
   },
-  "csv1C": {
+  "CSV1C": {
     "name": "Eternal Beginnings",
     "series": "Scarlet & Violet",
     "year": 2025,
@@ -1397,55 +1397,55 @@
     "year": 2025,
     "month": 1
   },
-  "cbb1C": {
+  "CBB1C": {
     "name": "Gem Pack Vol 1",
     "series": "Scarlet & Violet",
     "year": 2025,
     "month": 1
   },
-  "csv7C": {
+  "CSV7C": {
     "name": "Blade Awakened",
     "series": "Scarlet & Violet",
     "year": 2025,
     "month": 1
   },
-  "csv2C": {
+  "CSV2C": {
     "name": "Miracle Journey",
     "series": "Scarlet & Violet",
     "year": 2025,
     "month": 3
   },
-  "cbb2C": {
+  "CBB2C": {
     "name": "Gem Pack Vol 2",
     "series": "Scarlet & Violet",
     "year": 2025,
     "month": 5
   },
-  "csv3C": {
+  "CSV3C": {
     "name": "Fearless Terastal",
     "series": "Scarlet & Violet",
     "year": 2025,
     "month": 5
   },
-  "csvL1C": {
+  "CSVL1C": {
     "name": "Departure Special Pack",
     "series": "Scarlet & Violet",
     "year": 2025,
     "month": 6
   },
-  "csv4C": {
+  "CSV4C": {
     "name": "Bonus Round",
     "series": "Scarlet & Violet",
     "year": 2025,
     "month": 7
   },
-  "csv5C": {
+  "CSV5C": {
     "name": "Dark Crystal Blaze",
     "series": "Scarlet & Violet",
     "year": 2025,
     "month": 9
   },
-  "cbb3C": {
+  "CBB3C": {
     "name": "Gem Pack Vol 3",
     "series": "Scarlet & Violet",
     "year": 2025,
@@ -1457,25 +1457,25 @@
     "year": 2025,
     "month": 10
   },
-  "csv6C": {
+  "CSV6C": {
     "name": "True Mystery/Arcane Truth",
     "series": "Scarlet & Violet",
     "year": 2025,
     "month": 11
   },
-  "csvL2C": {
+  "CSVL2C": {
     "name": "Travel Special Pack",
     "series": "Scarlet & Violet",
     "year": 2025,
     "month": 11
   },
-  "cbb4C": {
+  "CBB4C": {
     "name": "Gem Pack Vol 4",
     "series": "Scarlet & Violet",
     "year": 2026,
     "month": 2
   },
-  "csv8C": {
+  "CSV8C": {
     "name": "Brilliant Fantasy",
     "series": "Scarlet & Violet",
     "year": 2026,
@@ -1487,7 +1487,7 @@
     "year": null,
     "month": null
   },
-  "cs5.1C": {
+  "CS5.1C": {
     "name": "Promo Pack",
     "series": "Sword & Shield",
     "year": null,
