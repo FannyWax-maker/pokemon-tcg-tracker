@@ -3,6 +3,7 @@ import { Search, Filter, Grid, List, Moon, Sun, Lock, Unlock } from 'lucide-reac
 import PokemonCard from './components/PokemonCard';
 import CardTile from './components/CardTile';
 import DetailModal from './components/DetailModal';
+import ReviewModal from './components/ReviewModal';
 import LanguagePicker from './components/LanguagePicker';
 import pokemonDataImport from './data/pokemon_data.json';
 import setNamesImport from './data/set_names.json';
@@ -39,13 +40,13 @@ export default function App() {
   const [filterCardType, setFilterCardType] = useState('all');
   const [showFilters, setShowFilters] = useState(false);
   const [languagePickerCard, setLanguagePickerCard] = useState(null);
-  const [viewMode, setViewMode] = useState('cards');
+  const [viewMode, setViewMode] = useState('pokemon');
   const [filterMissingImages, setFilterMissingImages] = useState(false);
   const [filterChinese, setFilterChinese] = useState('all');
   const [sortBy, setSortBy] = useState('default');
   const [filterArtist, setFilterArtist] = useState('all');
   const [filterHideNoCards, setFilterHideNoCards] = useState('all');
-  const [filterHideNonConforming, setFilterHideNonConforming] = useState('hide');
+  const [filterHideNonConforming, setFilterHideNonConforming] = useState('all');
   const [filterFavorites, setFilterFavorites] = useState('all');
   const [filterUnobtainable, setFilterUnobtainable] = useState('all');
   const [showOwnershipButtons, setShowOwnershipButtons] = useState(false);
@@ -58,11 +59,12 @@ export default function App() {
   const [syncStatus, setSyncStatus] = useState('');
   const [tileSize, setTileSize] = useState('M');
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
-  const [filterMissingLang, setFilterMissingLang] = useState('none');
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [showLockModal, setShowLockModal] = useState(false);
   const [lockInput, setLockInput] = useState('');
   const [lockError, setLockError] = useState(false);
+  const [reviewData, setReviewData] = useState({});
+  const [reviewCard, setReviewCard] = useState(null);
 
   const PASSWORD_HASH = '7a19d28db440fefe6d9ffb4620db4e568c13bac3bf956b5a90884501d6681739';
 
@@ -131,10 +133,18 @@ export default function App() {
         const nonConforming = data.nonConforming || {};
         const favorites = data.favorites || {};
         const unobtainable = data.unobtainable || {};
+        const categories = data.categories || {};
         localStorage.setItem('pokemon_ownership_cache', JSON.stringify(ownership));
         localStorage.setItem('pokemon_nonconforming_cache', JSON.stringify(nonConforming));
         localStorage.setItem('pokemon_favorites_cache', JSON.stringify(favorites));
         localStorage.setItem('pokemon_unobtainable_cache', JSON.stringify(unobtainable));
+        if (Object.keys(categories).length) {
+          localStorage.setItem('pokemon_review_cache', JSON.stringify(categories));
+          setReviewData(categories);
+        } else {
+          const revCached = localStorage.getItem('pokemon_review_cache');
+          if (revCached) setReviewData(JSON.parse(revCached));
+        }
         setPokemonData(prev => prev.map(pokemon => ({
           ...pokemon,
           cards: pokemon.cards.map(card => ({
@@ -171,6 +181,8 @@ export default function App() {
             cards: pokemon.cards.map(card => ({ ...card, unobtainable: unobtainable[card.id] === true ? true : card.unobtainable || false }))
           })));
         }
+        const revCached = localStorage.getItem('pokemon_review_cache');
+        if (revCached) setReviewData(JSON.parse(revCached));
       }
     };
     loadOwnership();
@@ -208,6 +220,19 @@ export default function App() {
     localStorage.setItem('pokemon_favorites_cache', JSON.stringify(favorites));
     try {
       await fetch(`${APPS_SCRIPT_URL}?action=setFavorite&cardId=${encodeURIComponent(cardId)}&favorite=${isFavorite ? 'true' : ''}`);
+      setSyncStatus('saved'); setTimeout(() => setSyncStatus(''), 2000);
+    } catch (e) { setSyncStatus('error'); setTimeout(() => setSyncStatus(''), 3000); }
+  };
+
+  const saveReviewData = async (cardId, data) => {
+    setSyncStatus('saving');
+    const cached = localStorage.getItem('pokemon_review_cache');
+    const all = cached ? JSON.parse(cached) : {};
+    all[cardId] = data;
+    localStorage.setItem('pokemon_review_cache', JSON.stringify(all));
+    setReviewData(prev => ({ ...prev, [cardId]: data }));
+    try {
+      await fetch(`${APPS_SCRIPT_URL}?action=setReview&cardId=${encodeURIComponent(cardId)}&data=${encodeURIComponent(JSON.stringify(data))}`);
       setSyncStatus('saved'); setTimeout(() => setSyncStatus(''), 2000);
     } catch (e) { setSyncStatus('error'); setTimeout(() => setSyncStatus(''), 3000); }
   };
@@ -320,8 +345,8 @@ export default function App() {
     return { totalCards, ownedCards, completionPercent, langStats };
   }, [pokemonData]);
 
-  const hasActiveFilters = filterExclusive !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards !== 'all' || filterHideNonConforming !== 'all' || filterOwned !== 'all' || filterSetLang !== 'all' || filterGeneration !== 'all' || filterFavorites !== 'all' || filterUnobtainable !== 'all' || filterMissingLang !== 'none';
-  const activeFilterCount = [filterExclusive !== 'all', filterSet !== 'all', filterCardType !== 'all', filterMissingImages, filterChinese !== 'all', filterArtist !== 'all', filterHideNoCards !== 'all', filterHideNonConforming !== 'all', filterOwned !== 'all', filterGeneration !== 'all', filterMissingLang !== 'none'].filter(Boolean).length;
+  const hasActiveFilters = filterExclusive !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards !== 'all' || filterHideNonConforming !== 'all' || filterOwned !== 'all' || filterSetLang !== 'all' || filterGeneration !== 'all' || filterFavorites !== 'all' || filterUnobtainable !== 'all';
+  const activeFilterCount = [filterExclusive !== 'all', filterSet !== 'all', filterCardType !== 'all', filterMissingImages, filterChinese !== 'all', filterArtist !== 'all', filterHideNoCards !== 'all', filterHideNonConforming !== 'all', filterOwned !== 'all', filterGeneration !== 'all'].filter(Boolean).length;
 
   const filteredData = useMemo(() => {
     let filtered = pokemonData;
@@ -414,10 +439,6 @@ export default function App() {
         if (filterOwned === 'unowned' && card.ownedLang) return;
         if (filterUnobtainable === 'only' && !card.unobtainable) return;
         if (filterUnobtainable === 'hide' && card.unobtainable) return;
-        if (filterMissingLang !== 'none') {
-          const missingMap = { EN: !(card.enSetCode || card.setCode), JP: !card.jpSetCode, CN: !card.cnSetCode, TC: !card.tcSetCode, KR: !card.krSetCode };
-          if (!missingMap[filterMissingLang]) return;
-        }
         const cardEntry = { ...card, pokemonName: pokemon.name, pokemonId: pokemon.id };
         if (filterMissingImages) cardEntry._filterMissingImages = true;
         cards.push(cardEntry);
@@ -428,7 +449,7 @@ export default function App() {
     else if (sortBy === 'release_desc') { cards.sort((a, b) => { const score = (c) => { const d = setNamesLC[(c.setCode||"").toLowerCase()] || setNamesLC[(c.jpSetCode||"").toLowerCase()] || setNamesLC[(c.cnSetCode||"").toLowerCase()] || {}; return (d.year||0)*100+(d.month||0); }; return score(b) - score(a); }); }
     else if (sortBy === 'release_asc') { cards.sort((a, b) => { const score = (c) => { const d = setNamesLC[(c.setCode||"").toLowerCase()] || setNamesLC[(c.jpSetCode||"").toLowerCase()] || setNamesLC[(c.cnSetCode||"").toLowerCase()] || {}; return (d.year||9999)*100+(d.month||99); }; return score(a) - score(b); }); }
     return cards;
-  }, [filteredData, filterChinese, filterExclusive, filterSet, filterCardType, sortBy, filterOwned, filterArtist, filterUnobtainable, filterMissingImages, filterSetLang, filterMissingLang]);
+  }, [filteredData, filterChinese, filterExclusive, filterSet, filterCardType, sortBy, filterOwned, filterArtist, filterUnobtainable, filterMissingImages, filterSetLang]);
 
   const handleInlineUpdateCard = requireUnlock((pokemonId, cardId, updates) => {
     setPokemonData(pokemonData.map(pokemon => {
@@ -487,7 +508,7 @@ export default function App() {
   const clearFilters = () => {
     setFilterExclusive('all'); setFilterSet('all'); setFilterCardType('all'); setFilterMissingImages(false);
     setFilterChinese('all'); setFilterArtist('all'); setFilterHideNoCards('all'); setFilterHideNonConforming('all');
-    setFilterOwned('all'); setFilterSetLang('all'); setFilterGeneration('all'); setFilterFavorites('all'); setFilterUnobtainable('all'); setFilterMissingLang('none');
+    setFilterOwned('all'); setFilterSetLang('all'); setFilterGeneration('all'); setFilterFavorites('all'); setFilterUnobtainable('all');
   };
 
   const tileGridClass = { S: 'grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2', M: 'grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-3', L: 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4' };
@@ -548,6 +569,9 @@ export default function App() {
               <button onClick={() => { setViewMode('cards'); setFilterHideNoCards('all'); setFilterHideNonConforming('hide'); }}
                 className={`px-2.5 py-1 rounded-full transition-colors ${viewMode === 'cards' ? 'text-white' : darkMode ? 'text-gray-400' : 'text-gray-500'}`}
                 style={viewMode === 'cards' ? {background: 'linear-gradient(135deg, #3b82f6, #1d4ed8)'} : {}}>Cards</button>
+              <button onClick={() => { setViewMode('review'); setFilterHideNoCards('hide'); setFilterHideNonConforming('all'); }}
+                className={`px-2.5 py-1 rounded-full transition-colors ${viewMode === 'review' ? 'text-white' : darkMode ? 'text-gray-400' : 'text-gray-500'}`}
+                style={viewMode === 'review' ? {background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)'} : {}}>Review</button>
             </div>
             <div className={`flex items-center rounded-lg overflow-hidden text-xs font-bold shrink-0 border ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
               {['S','M','L'].map(s => (
@@ -794,21 +818,6 @@ export default function App() {
                     <input type="checkbox" checked={filterMissingImages} onChange={(e) => setFilterMissingImages(e.target.checked)} className="rounded" />
                     Show only cards with missing images
                   </label>
-                  {viewMode === 'cards' && (
-                    <div className={`flex items-center gap-2 mt-2 text-xs font-semibold ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
-                      <span>Missing lang:</span>
-                      <div className={`flex rounded-lg overflow-hidden border text-xs font-bold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
-                        {[['none','Off'],['EN','EN'],['JP','JP'],['CN','CN'],['TC','TC'],['KR','KR']].map(([val, label]) => (
-                          <button key={val} onClick={() => setFilterMissingLang(val)}
-                            className={`px-2.5 py-1 transition-colors ${filterMissingLang === val ? 'text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-500 hover:bg-gray-50'}`}
-                            style={filterMissingLang === val ? {background: val === 'none' ? 'linear-gradient(135deg, #6b7280, #4b5563)' : val === 'EN' ? 'linear-gradient(135deg, #3b82f6, #1d4ed8)' : val === 'JP' ? 'linear-gradient(135deg, #ef4444, #dc2626)' : val === 'CN' ? 'linear-gradient(135deg, #f59e0b, #d97706)' : val === 'TC' ? 'linear-gradient(135deg, #10b981, #059669)' : 'linear-gradient(135deg, #8b5cf6, #7c3aed)'} : {}}>
-                            {label}
-                          </button>
-                        ))}
-                      </div>
-                      {filterMissingLang !== 'none' && <span className={`text-xs ${darkMode ? 'text-gray-500' : 'text-gray-400'}`}>({allCardsFlat.length} cards missing {filterMissingLang})</span>}
-                    </div>
-                  )}
                 </div>
               )}
             </div>
@@ -838,6 +847,49 @@ export default function App() {
             {filteredData.data.map(pokemon => (
               <PokemonCard key={`${pokemon.id}-${pokemon.name}`} pokemon={pokemon} onClick={() => setSelectedPokemon(pokemon)} />
             ))}
+          </div>
+        ) : viewMode === 'review' ? (
+          <div>
+            <div className={`flex items-center justify-between mb-4 text-xs font-semibold ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+              <div className="flex items-center gap-2">
+                <span style={{fontSize:'0.85rem'}}>🔬</span>
+                <span>Review Mode — {allCardsFlat.length} cards · {allCardsFlat.filter(c => reviewData[c.id]).length} reviewed</span>
+              </div>
+              <div className={`px-2 py-1 rounded-lg text-xs font-bold ${darkMode ? 'bg-gray-700 text-purple-300' : 'bg-purple-50 text-purple-600'}`}>
+                Click any card to tag it
+              </div>
+            </div>
+            <div className={`grid ${tileGridClass[tileSize]}`}>
+              {allCardsFlat.map((card, idx) => {
+                const rd = reviewData[card.id];
+                const isReviewed = !!rd;
+                return (
+                  <div key={`${card.pokemonId}-${card.id}-${idx}`} className="relative cursor-pointer" onClick={() => setReviewCard({ ...card, pokemonName: card.pokemonName })}>
+                    <CardTile card={card} pokemonName={card.pokemonName}
+                      onOwnershipClick={handleCardOwnershipClick} onToggleNonConforming={handleToggleNonConforming}
+                      onToggleFavorite={handleToggleFavorite} onToggleUnobtainable={handleToggleUnobtainable}
+                      onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={false} />
+                    {/* Review badge overlay */}
+                    <div className="absolute top-1 left-1 z-20 pointer-events-none">
+                      {isReviewed ? (
+                        <div className="flex flex-wrap gap-0.5">
+                          {(rd.categories || []).slice(0, 2).map(cat => (
+                            <span key={cat} className="px-1.5 py-0.5 rounded text-[9px] font-bold text-white shadow" style={{background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)'}}>
+                              {cat.split(' ')[0]}
+                            </span>
+                          ))}
+                          {(rd.categories || []).length > 2 && (
+                            <span className="px-1.5 py-0.5 rounded text-[9px] font-bold text-white shadow bg-purple-400">+{rd.categories.length - 2}</span>
+                          )}
+                        </div>
+                      ) : (
+                        <span className="w-2 h-2 rounded-full bg-gray-400 block opacity-50" />
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         ) : (
           <div>
@@ -905,6 +957,26 @@ export default function App() {
           </div>
         </div>
       )}
+      {reviewCard && (
+        <ReviewModal
+          card={reviewCard}
+          reviewData={reviewData[reviewCard.id] || {}}
+          onSave={(data) => { saveReviewData(reviewCard.id, data); }}
+          onClose={() => setReviewCard(null)}
+          onPrev={() => {
+            const idx = allCardsFlat.findIndex(c => c.id === reviewCard.id);
+            if (idx > 0) setReviewCard({ ...allCardsFlat[idx - 1], pokemonName: allCardsFlat[idx - 1].pokemonName });
+          }}
+          onNext={() => {
+            const idx = allCardsFlat.findIndex(c => c.id === reviewCard.id);
+            if (idx < allCardsFlat.length - 1) setReviewCard({ ...allCardsFlat[idx + 1], pokemonName: allCardsFlat[idx + 1].pokemonName });
+          }}
+          hasPrev={allCardsFlat.findIndex(c => c.id === reviewCard.id) > 0}
+          hasNext={allCardsFlat.findIndex(c => c.id === reviewCard.id) < allCardsFlat.length - 1}
+          darkMode={darkMode}
+        />
+      )}
+
     </div>
   );
 }
