@@ -41,13 +41,10 @@ const LANG_CONFIG = {
   EN: { flag: '🇬🇧', color: 'bg-blue-500 hover:bg-blue-600', owned: 'bg-blue-500' },
   JP: { flag: '🇯🇵', color: 'bg-red-500 hover:bg-red-600', owned: 'bg-red-500' },
   CN: { flag: '🇨🇳', color: 'bg-yellow-500 hover:bg-yellow-600', owned: 'bg-yellow-500' },
-  TC: { flag: '🇹🇼', color: 'bg-teal-500 hover:bg-teal-600', owned: 'bg-teal-500' },
-  KR: { flag: '🇰🇷', color: 'bg-purple-500 hover:bg-purple-600', owned: 'bg-purple-500' },
+  KR: { flag: '🇰🇷', color: 'bg-indigo-500 hover:bg-indigo-600', owned: 'bg-indigo-500' },
 };
 
-const ALL_LANGS = ['EN', 'JP', 'CN', 'TC', 'KR'];
-const EBAY_ROW1 = ['EN', 'JP', 'CN'];
-const EBAY_ROW2 = ['TC', 'KR'];
+const ALL_LANGS = ['EN', 'JP', 'CN', 'KR'];
 
 const buildEbayUrl = (card, pokemonName, lang) => {
   const rawName = card.cardName || '';
@@ -56,9 +53,9 @@ const buildEbayUrl = (card, pokemonName, lang) => {
   const skipNames = ['Full Art', 'Trainer', 'Item', 'Stadium', 'Supporter', 'Tool', 'Energy'];
   const cardName = cleanedName && !skipNames.includes(cleanedName) ? cleanedName : null;
   const searchName = cardName || pokemonName;
-  const setCode = lang === 'JP' ? card.jpSetCode : lang === 'CN' ? card.cnSetCode : lang === 'TC' ? card.tcSetCode : lang === 'KR' ? card.krSetCode : card.setCode;
-  const setNumber = lang === 'EN' ? (card.number || card.setNumber || null) : lang === 'JP' ? (card.jpNumber || null) : lang === 'CN' ? (card.cnNumber || null) : lang === 'TC' ? (card.tcNumber || null) : lang === 'KR' ? (card.krNumber || null) : null;
-  const langKeyword = lang === 'JP' ? 'japanese' : lang === 'CN' ? 'chinese' : lang === 'TC' ? 'taiwanese' : lang === 'KR' ? 'korean' : '';
+  const setCode = lang === 'JP' ? card.jpSetCode : lang === 'CN' ? card.cnSetCode : card.setCode;
+  const setNumber = lang === 'EN' ? (card.setNumber || card.number || null) : null;
+  const langKeyword = lang === 'JP' ? 'japanese' : lang === 'CN' ? 'chinese' : lang === 'KR' ? 'korean' : '';
   const query = [searchName, setCode, setNumber, langKeyword].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim();
   return `https://www.ebay.co.uk/sch/i.html?_nkw=${encodeURIComponent(query)}&LH_ItemLocation=3&_sop=12`;
 };
@@ -110,6 +107,36 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
       backgroundRepeat: 'no-repeat',
     };
   };
+  // Coord picker state
+  const [pickerMode, setPickerMode] = React.useState(false);
+  const [pickerCircles, setPickerCircles] = React.useState([]);
+  const [pickerRadius, setPickerRadius] = React.useState(0.08);
+  const [pickerSelected, setPickerSelected] = React.useState(null); // index of selected circle
+  const [copied, setCopied] = React.useState(false);
+
+  const handlePickerClick = (e) => {
+    if (!pickerMode || !zoomImgRef.current) return;
+    e.stopPropagation();
+    const rect = zoomImgRef.current.getBoundingClientRect();
+    const x = parseFloat(((e.clientX - rect.left) / rect.width).toFixed(3));
+    const y = parseFloat(((e.clientY - rect.top) / rect.height).toFixed(3));
+    const newCircle = { name: '', x, y, r: pickerRadius };
+    setPickerCircles(prev => [...prev, newCircle]);
+    setPickerSelected(pickerCircles.length);
+  };
+
+  const pickerJson = JSON.stringify(
+    pickerCircles.map(c => ({ name: c.name, x: c.x, y: c.y, r: c.r })),
+    null, 2
+  );
+
+  const handleCopyJson = () => {
+    navigator.clipboard.writeText(`"otherPokemonCoords": ${pickerJson}`).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
   const [showAllPokemon, setShowAllPokemon] = React.useState(false);
   const [showContextMenu, setShowContextMenu] = React.useState(false);
   const [contextMenuPos, setContextMenuPos] = React.useState({ x: 0, y: 0 });
@@ -412,7 +439,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             {(card.enSetCode || card.setCode) ? (
               <>
                 <span className="text-blue-500 font-bold shrink-0">EN</span>
-                <span className="truncate">{card.enSetCode || card.setCode}{(card.number || card.enNumber) ? ` ${card.number || card.enNumber}` : ''}{(() => { const _ec = card.enSetCode || card.setCode; const _e = setNames[_ec]; const n = typeof _e === 'object' ? _e?.name : _e; return n ? ` - ${String(n).replace(/ \d{4}(-\d{4})?$/, '').trim()}` : ''; })()}</span>
+                <span className="truncate">{card.enSetCode || card.setCode}{card.number ? ` ${card.number}` : ''}{(() => { const _ec = card.enSetCode || card.setCode; const _e = setNames[_ec]; const n = typeof _e === 'object' ? _e?.name : _e; return n ? ` - ${String(n).replace(/ \d{4}(-\d{4})?$/, '').trim()}` : ''; })()}</span>
               </>
             ) : <><span className="text-blue-500 font-bold shrink-0 opacity-40">EN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
           </div>
@@ -422,7 +449,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             {card.jpSetCode ? (
               <>
                 <span className="text-red-400 font-bold shrink-0">JP</span>
-                <span className="truncate">{card.jpSetCode}{card.jpNumber ? ` ${card.jpNumber}` : ''}{(() => { const _j = setNames[card.jpSetCode]; const n = typeof _j === 'object' ? _j?.name : _j; return n ? ` - ${n.replace(/ \d{4}.*/, '').trim()}` : ''; })()}</span>
+                <span className="truncate">{card.jpSetCode}{(() => { const _j = setNames[card.jpSetCode]; const n = typeof _j === 'object' ? _j?.name : _j; return n ? ` - ${n.replace(/ \d{4}.*/, '').trim()}` : ''; })()}</span>
               </>
             ) : <><span className="text-red-400 font-bold shrink-0 opacity-40">JP</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
           </div>
@@ -432,32 +459,12 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             {card.cnSetCode ? (
               <>
                 <span className="text-yellow-500 font-bold shrink-0">CN</span>
-                <span className="truncate">{card.cnSetCode}{card.cnNumber ? ` ${card.cnNumber}` : ''}{(() => { const _c = setNames[card.cnSetCode]; const n = typeof _c === 'object' ? _c?.name : _c; return n ? ` - ${n.replace(/ \d{4}.*/, '').trim()}` : ''; })()}</span>
+                <span className="truncate">{card.cnSetCode}{(() => { const _c = setNames[card.cnSetCode]; const n = typeof _c === 'object' ? _c?.name : _c; return n ? ` - ${n.replace(/ \d{4}.*/, '').trim()}` : ''; })()}</span>
               </>
             ) : <><span className="text-yellow-500 font-bold shrink-0 opacity-40">CN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
           </div>
 
-          {/* Row 7: TC */}
-          <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-start gap-1 ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
-            {card.tcSetCode ? (
-              <>
-                <span className="text-teal-500 font-bold shrink-0">TC</span>
-                <span className="truncate">{card.tcSetCode}{card.tcNumber ? ` ${card.tcNumber}` : ''}{(() => { const _t = setNames[card.tcSetCode]; const n = typeof _t === 'object' ? _t?.name : _t; return n ? ` - ${n.replace(/ \d{4}.*/, '').trim()}` : ''; })()}</span>
-              </>
-            ) : <><span className="text-teal-500 font-bold shrink-0 opacity-40">TC</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
-          </div>
-
-          {/* Row 8: KR */}
-          <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-start gap-1 ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
-            {card.krSetCode ? (
-              <>
-                <span className="text-purple-500 font-bold shrink-0">KR</span>
-                <span className="truncate">{card.krSetCode}{card.krNumber ? ` ${card.krNumber}` : ''}{(() => { const _k = setNames[card.krSetCode]; const n = typeof _k === 'object' ? _k?.name : _k; return n ? ` - ${n.replace(/ \d{4}.*/, '').trim()}` : ''; })()}</span>
-              </>
-            ) : <><span className="text-purple-500 font-bold shrink-0 opacity-40">KR</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
-          </div>
-
-          {/* Row 9: other pokemon — always reserve space */}
+          {/* Row 7: other pokemon — always reserve space */}
           <div className={`text-xs min-h-[0.9rem] leading-tight ${isOwned ? 'text-red-100' : 'text-blue-500'}`}>
             {hasOtherPokemon ? (showAllPokemon
               ? <span>w/ {card.otherPokemon.join(', ')} <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(false); }} className={`font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>less</button></span>
@@ -465,7 +472,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             ) : <span>&nbsp;</span>}
           </div>
 
-          {/* Row 10: artist — always reserve space */}
+          {/* Row 8: artist — always reserve space */}
           <div className={`text-xs leading-tight truncate min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-400'}`}>{card.artist || ' '}</div>
 
           {/* Language buttons — hidden when owned, show owned pill instead */}
@@ -482,7 +489,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
               ) : (
                 <div className="flex gap-1">
                   {ALL_LANGS.map(lang => {
-                    const isAvailable = availableLangs.includes(lang);
+                    const isAvailable = availableLangs.includes(lang) || (lang === 'KR' && showKR);
                     const cfg = LANG_CONFIG[lang];
                     return (
                       <button
@@ -504,103 +511,208 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             </div>
           )}
 
-          {/* eBay search buttons — 2 rows to avoid cramping */}
-          <div className="flex flex-col gap-0.5 pt-2 border-t border-gray-100/30 mt-1">
-            {[EBAY_ROW1, EBAY_ROW2].map((row, rowIdx) => (
-              <div key={rowIdx} className="flex gap-1">
-                {row.map(lang => {
-                  const hasSetCode = lang === 'EN' ? !!(card.enSetCode || card.setCode)
-                    : lang === 'JP' ? !!card.jpSetCode
-                    : lang === 'CN' ? !!card.cnSetCode
-                    : lang === 'TC' ? !!card.tcSetCode
-                    : !!card.krSetCode;
-                  const cfg = LANG_CONFIG[lang];
-                  return (
-                    <a
-                      key={lang}
-                      href={buildEbayUrl(card, isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName, lang)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={e => e.stopPropagation()}
-                      title={hasSetCode ? `Search eBay (${lang})` : `Search eBay (${lang}) — no set code yet`}
-                      className={`flex-1 py-0.5 rounded text-[10px] font-bold text-center transition-all duration-150 text-white
-                        ${hasSetCode
-                          ? `${cfg.color} opacity-70 hover:opacity-100`
-                          : `${cfg.color} opacity-30 hover:opacity-60`
-                        }`}
-                    >
-                      {cfg.flag}
-                    </a>
-                  );
-                })}
-              </div>
-            ))}
+          {/* eBay search buttons */}
+          <div className="flex gap-1 pt-2 border-t border-gray-100/30 mt-1">
+            {ALL_LANGS.map(lang => {
+              const hasLang = lang === 'EN' ? !!(card.enSetCode || card.setCode)
+                : lang === 'JP' ? !!card.jpSetCode
+                : lang === 'CN' ? !!card.cnSetCode
+                : showKR;
+              const cfg = LANG_CONFIG[lang];
+              return (
+                <a
+                  key={lang}
+                  href={hasLang ? buildEbayUrl(card, isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName, lang) : undefined}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={e => e.stopPropagation()}
+                  title={hasLang ? `Search eBay sold listings (${lang})` : `Not available in ${lang}`}
+                  className={`flex-1 py-0.5 rounded text-[10px] font-bold text-center transition-all duration-150
+                    ${hasLang
+                      ? `${cfg.color} text-white opacity-70 hover:opacity-100`
+                      : 'bg-gray-200 text-gray-400 cursor-not-allowed opacity-30'
+                    }`}
+                >
+                  {cfg.flag}
+                </a>
+              );
+            })}
           </div>
         </div>
       </div>
 
-      {/* Zoom Modal with Loupe */}
+      {/* Zoom Modal with Loupe + Coord Picker */}
       {showZoom && (
         <div
           className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
-          style={{ cursor: overImage ? 'none' : 'default' }}
-          onClick={() => { setShowZoom(false); setZoomScale(2.5); }}
+          style={{ cursor: pickerMode ? 'crosshair' : overImage ? 'none' : 'default' }}
+          onClick={() => { if (!pickerMode) { setShowZoom(false); setZoomScale(2.5); setPickerMode(false); setPickerCircles([]); setPickerSelected(null); }}}
           onMouseMove={handleZoomMouseMove}
           onWheel={handleZoomWheel}
         >
-          {/* Full card image (reference for rect + display) */}
-          <div className="relative" onClick={e => e.stopPropagation()} style={{ width: 'min(420px, 85vw)' }}>
-            <img
-              ref={zoomImgRef}
-              src={imageSrc}
-              alt={`${pokemonName} ${card.cardName}`}
-              className="w-full h-auto object-contain rounded-lg"
-              style={{ cursor: 'none' }}
-              onMouseEnter={() => setOverImage(true)}
-              onMouseLeave={() => setOverImage(false)}
-              onLoad={() => { if (zoomImgRef.current) setImgRect(zoomImgRef.current.getBoundingClientRect()); }}
-            />
-            <button
-              onClick={() => { setShowZoom(false); setZoomScale(2.5); }}
-              className="absolute top-2 right-2 bg-white text-gray-900 rounded-full p-1.5 hover:bg-gray-100 shadow-lg"
-              style={{ cursor: 'pointer' }}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            </button>
-          </div>
+          <div className="flex items-start gap-4" onClick={e => e.stopPropagation()}>
 
-          {/* Loupe — follows mouse, only when over image */}
-          {overImage && (
-          <div
-            style={{
-              position: 'fixed',
-              left: mousePos.x - LOUPE_SIZE / 2,
-              top: mousePos.y - LOUPE_SIZE / 2,
-              width: LOUPE_SIZE,
-              height: LOUPE_SIZE,
-              borderRadius: '50%',
-              border: '3px solid rgba(255,255,255,0.85)',
-              boxShadow: '0 0 0 2px rgba(0,0,0,0.4), 0 8px 32px rgba(0,0,0,0.7)',
-              pointerEvents: 'none',
-              overflow: 'hidden',
-              ...getLoupeStyle(),
-            }}
-          >
-            {/* Crosshair */}
-            <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>
-              <div style={{ position: 'absolute', width: 1, height: 20, background: 'rgba(255,255,255,0.5)' }} />
-              <div style={{ position: 'absolute', width: 20, height: 1, background: 'rgba(255,255,255,0.5)' }} />
+            {/* Card image column */}
+            <div className="relative" style={{ width: 'min(420px, 55vw)' }}>
+              <img
+                ref={zoomImgRef}
+                src={imageSrc}
+                alt={`${pokemonName} ${card.cardName}`}
+                className="w-full h-auto object-contain rounded-lg"
+                style={{ cursor: pickerMode ? 'crosshair' : 'none', display: 'block' }}
+                onMouseEnter={() => setOverImage(true)}
+                onMouseLeave={() => setOverImage(false)}
+                onLoad={() => { if (zoomImgRef.current) setImgRect(zoomImgRef.current.getBoundingClientRect()); }}
+                onClick={pickerMode ? handlePickerClick : undefined}
+              />
+
+              {/* SVG overlay for picker circles */}
+              {pickerMode && pickerCircles.length > 0 && zoomImgRef.current && (() => {
+                const rect = zoomImgRef.current.getBoundingClientRect();
+                const containerRect = zoomImgRef.current.parentElement.getBoundingClientRect();
+                return (
+                  <svg
+                    style={{ position: 'absolute', top: rect.top - containerRect.top, left: rect.left - containerRect.left, width: rect.width, height: rect.height, pointerEvents: 'none' }}
+                    viewBox={`0 0 ${rect.width} ${rect.height}`}
+                  >
+                    {pickerCircles.map((c, i) => {
+                      const cx = c.x * rect.width;
+                      const cy = c.y * rect.height;
+                      const r = c.r * rect.width;
+                      const isSelected = pickerSelected === i;
+                      return (
+                        <g key={i}>
+                          <circle cx={cx} cy={cy} r={r} fill="none" stroke={isSelected ? '#facc15' : '#ef4444'} strokeWidth={isSelected ? 3 : 2} strokeDasharray={isSelected ? '6 3' : 'none'} />
+                          <text x={cx} y={cy - r - 4} textAnchor="middle" fill={isSelected ? '#facc15' : 'white'} fontSize="11" fontWeight="bold" style={{textShadow: '0 1px 3px black'}}>
+                            {c.name || `#${i + 1}`}
+                          </text>
+                        </g>
+                      );
+                    })}
+                  </svg>
+                );
+              })()}
+
+              {/* Close button */}
+              <button
+                onClick={() => { setShowZoom(false); setZoomScale(2.5); setPickerMode(false); setPickerCircles([]); setPickerSelected(null); }}
+                className="absolute top-2 right-2 bg-white text-gray-900 rounded-full p-1.5 hover:bg-gray-100 shadow-lg"
+                style={{ cursor: 'pointer' }}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+
+            {/* Right panel */}
+            <div style={{ width: '220px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+
+              {/* Picker toggle */}
+              <button
+                onClick={() => { setPickerMode(v => !v); setPickerSelected(null); }}
+                style={{
+                  padding: '8px 14px', borderRadius: '10px', fontWeight: 'bold', fontSize: '13px', cursor: 'pointer', border: 'none',
+                  background: pickerMode ? '#facc15' : '#374151', color: pickerMode ? '#1a1a1a' : 'white'
+                }}
+              >
+                {pickerMode ? '🎯 Picker ON — click card' : '🎯 Coord Picker'}
+              </button>
+
+              {pickerMode && (
+                <>
+                  {/* Radius slider */}
+                  <div style={{ background: '#1f2937', borderRadius: '10px', padding: '10px' }}>
+                    <div style={{ color: '#9ca3af', fontSize: '11px', marginBottom: '4px' }}>Circle radius: <strong style={{color:'white'}}>{pickerRadius.toFixed(3)}</strong></div>
+                    <input type="range" min="0.03" max="0.25" step="0.005" value={pickerRadius}
+                      onChange={e => {
+                        const v = parseFloat(e.target.value);
+                        setPickerRadius(v);
+                        if (pickerSelected !== null) {
+                          setPickerCircles(prev => prev.map((c, i) => i === pickerSelected ? { ...c, r: v } : c));
+                        }
+                      }}
+                      style={{ width: '100%', cursor: 'pointer' }}
+                    />
+                    <div style={{ color: '#6b7280', fontSize: '10px', marginTop: '2px' }}>Adjusts new circles + selected circle</div>
+                  </div>
+
+                  {/* Circle list */}
+                  {pickerCircles.length > 0 && (
+                    <div style={{ background: '#1f2937', borderRadius: '10px', padding: '10px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                      <div style={{ color: '#9ca3af', fontSize: '11px', marginBottom: '2px' }}>Placed circles</div>
+                      {pickerCircles.map((c, i) => (
+                        <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '4px' }}
+                          onClick={() => { setPickerSelected(i); setPickerRadius(c.r); }}>
+                          <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: pickerSelected === i ? '#facc15' : '#ef4444', flexShrink: 0 }} />
+                          <input
+                            value={c.name}
+                            placeholder={`Pokémon #${i+1}`}
+                            onChange={e => setPickerCircles(prev => prev.map((cc, ii) => ii === i ? { ...cc, name: e.target.value } : cc))}
+                            onClick={e => { e.stopPropagation(); setPickerSelected(i); setPickerRadius(c.r); }}
+                            style={{ flex: 1, background: '#374151', border: pickerSelected === i ? '1px solid #facc15' : '1px solid #4b5563', borderRadius: '6px', padding: '3px 6px', color: 'white', fontSize: '11px', outline: 'none' }}
+                          />
+                          <button onClick={e => { e.stopPropagation(); setPickerCircles(prev => prev.filter((_, ii) => ii !== i)); if (pickerSelected === i) setPickerSelected(null); }}
+                            style={{ background: 'none', border: 'none', color: '#6b7280', cursor: 'pointer', fontSize: '14px', lineHeight: 1, padding: '0 2px' }}>✕</button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* JSON output + copy */}
+                  {pickerCircles.length > 0 && (
+                    <div style={{ background: '#111827', borderRadius: '10px', padding: '10px' }}>
+                      <pre style={{ color: '#86efac', fontSize: '10px', whiteSpace: 'pre-wrap', wordBreak: 'break-all', margin: 0, maxHeight: '140px', overflowY: 'auto' }}>
+                        {`"otherPokemonCoords": ${pickerJson}`}
+                      </pre>
+                      <button onClick={handleCopyJson}
+                        style={{ marginTop: '8px', width: '100%', padding: '6px', borderRadius: '8px', border: 'none', background: copied ? '#059669' : '#2563eb', color: 'white', fontWeight: 'bold', fontSize: '12px', cursor: 'pointer' }}>
+                        {copied ? '✓ Copied!' : 'Copy JSON'}
+                      </button>
+                    </div>
+                  )}
+                </>
+              )}
+
+              {/* Scroll hint when not in picker mode */}
+              {!pickerMode && (
+                <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '12px', textAlign: 'center' }}>
+                  Scroll to zoom · {zoomScale.toFixed(1)}×
+                </div>
+              )}
             </div>
           </div>
+
+          {/* Loupe — only when not in picker mode */}
+          {!pickerMode && overImage && (
+            <div
+              style={{
+                position: 'fixed',
+                left: mousePos.x - LOUPE_SIZE / 2,
+                top: mousePos.y - LOUPE_SIZE / 2,
+                width: LOUPE_SIZE,
+                height: LOUPE_SIZE,
+                borderRadius: '50%',
+                border: '3px solid rgba(255,255,255,0.85)',
+                boxShadow: '0 0 0 2px rgba(0,0,0,0.4), 0 8px 32px rgba(0,0,0,0.7)',
+                pointerEvents: 'none',
+                overflow: 'hidden',
+                ...getLoupeStyle(),
+              }}
+            >
+              <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>
+                <div style={{ position: 'absolute', width: 1, height: 20, background: 'rgba(255,255,255,0.5)' }} />
+                <div style={{ position: 'absolute', width: 20, height: 1, background: 'rgba(255,255,255,0.5)' }} />
+              </div>
+            </div>
           )}
 
-          {/* Scroll hint */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/50 text-xs pointer-events-none">
-            Scroll to zoom · {zoomScale.toFixed(1)}×
-          </div>
+          {!pickerMode && (
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/50 text-xs pointer-events-none">
+              Scroll to zoom · {zoomScale.toFixed(1)}×
+            </div>
+          )}
         </div>
       )}
     </>
