@@ -736,7 +736,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             </div>
 
             {/* Right panel */}
-            <div style={{ width: '230px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <div style={{ width: '230px', display: 'flex', flexDirection: 'column', gap: '10px', maxHeight: '90vh', overflowY: 'auto', paddingRight: '4px' }}>
 
               {/* Highlight toggle — only show if coords exist for this card */}
               {pokemonCoordsImport[card.id] && (
