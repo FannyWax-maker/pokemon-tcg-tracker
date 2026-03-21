@@ -749,6 +749,39 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 </button>
               )}
 
+              {/* otherPokemon checklist — shows what needs tagging */}
+              {card.otherPokemon && card.otherPokemon.length > 0 && (
+                <div style={{ background: '#1f2937', borderRadius: '10px', padding: '10px' }}>
+                  <div style={{ color: '#9ca3af', fontSize: '11px', marginBottom: '6px', fontWeight: 'bold' }}>
+                    Featured Pokémon ({card.otherPokemon.length})
+                  </div>
+                  {card.otherPokemon.map(name => {
+                    const tagged = pickerCircles.some(c => c.name.toLowerCase() === name.toLowerCase());
+                    const saved = (pokemonCoordsImport[card.id] || []).some(c => c.name.toLowerCase() === name.toLowerCase());
+                    return (
+                      <div key={name} style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '3px 0' }}>
+                        <div style={{
+                          width: '14px', height: '14px', borderRadius: '50%', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '9px', fontWeight: 'bold',
+                          background: tagged ? '#22c55e' : saved ? '#3b82f6' : '#374151',
+                          border: tagged ? 'none' : saved ? 'none' : '1px solid #6b7280',
+                          color: 'white'
+                        }}>
+                          {tagged ? '✓' : saved ? '✓' : ''}
+                        </div>
+                        <span style={{ fontSize: '11px', color: tagged ? '#86efac' : saved ? '#93c5fd' : '#9ca3af' }}>{name}</span>
+                        {saved && !tagged && <span style={{ fontSize: '9px', color: '#6b7280', marginLeft: 'auto' }}>saved</span>}
+                      </div>
+                    );
+                  })}
+                  {pickerCircles.filter(c => c.name && !card.otherPokemon.some(n => n.toLowerCase() === c.name.toLowerCase())).map(c => (
+                    <div key={c.name} style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '3px 0' }}>
+                      <div style={{ width: '14px', height: '14px', borderRadius: '50%', flexShrink: 0, background: '#f59e0b', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '9px', color: 'white' }}>?</div>
+                      <span style={{ fontSize: '11px', color: '#fbbf24' }}>{c.name} <span style={{ color: '#6b7280' }}>(not in list)</span></span>
+                    </div>
+                  ))}
+                </div>
+              )}
+
               {/* Picker toggle */}
               <button
                 onClick={() => { setPickerMode(v => !v); setPickerSelected(null); setAutocompleteFor(null); }}
