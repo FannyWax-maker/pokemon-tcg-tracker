@@ -1829,6 +1829,7 @@
           "Zacian",
           "Inteleon",
           "Calyrex",
+          "Spectrier",
           "Zoroark",
           "Urshifu"
         ],
@@ -6948,7 +6949,10 @@
         "artist": "PLANETA Mochizuki",
         "cardName": null,
         "exclusive": null,
-        "otherPokemon": null,
+        "otherPokemon": [
+          "Nidorino",
+          "Nidorina"
+        ],
         "availableLangs": [
           "EN",
           "JP",
@@ -8187,7 +8191,9 @@
         "artist": "kirisAki",
         "cardName": "Galarian Zapdos V",
         "exclusive": null,
-        "otherPokemon": null,
+        "otherPokemon": [
+          "Rotom"
+        ],
         "availableLangs": [
           "EN",
           "JP",
@@ -11309,7 +11315,8 @@
         "exclusive": null,
         "otherPokemon": [
           "Sneasel",
-          "Drowzee"
+          "Drowzee",
+          "Persian"
         ],
         "availableLangs": [
           "EN",
@@ -13685,7 +13692,9 @@
         "artist": "GOSSAN",
         "cardName": null,
         "exclusive": null,
-        "otherPokemon": null,
+        "otherPokemon": [
+          "Voltorb"
+        ],
         "availableLangs": [
           "EN",
           "JP",
@@ -18409,7 +18418,9 @@
         "artist": "DOM",
         "cardName": "Trainer, Grusha",
         "exclusive": null,
-        "otherPokemon": null,
+        "otherPokemon": [
+          "Glaceon"
+        ],
         "availableLangs": [
           "EN",
           "JP",
@@ -20023,7 +20034,8 @@
           "Abomasnow",
           "Manectric",
           "Kangaskhan",
-          "Mawile"
+          "Mawile",
+          "Venusaur"
         ],
         "availableLangs": [
           "EN",
@@ -20370,7 +20382,9 @@
         "artist": "rika",
         "cardName": null,
         "exclusive": null,
-        "otherPokemon": null,
+        "otherPokemon": [
+          "Staryu"
+        ],
         "availableLangs": [
           "EN",
           "JP",
@@ -25335,7 +25349,7 @@
           "Starly",
           "Pachirisu",
           "Rufflet",
-          "Quilfish",
+          "Qwilfish",
           "Overqwil",
           "Swinub",
           "Basculegion"
@@ -29820,7 +29834,8 @@
         "otherPokemon": [
           "Scorbunny",
           "Rockruff",
-          "Qwilfish"
+          "Qwilfish",
+          "Shuppet"
         ],
         "availableLangs": [
           "EN",
@@ -31296,7 +31311,9 @@
         "artist": "Atsushi Furusawa",
         "cardName": null,
         "exclusive": null,
-        "otherPokemon": null,
+        "otherPokemon": [
+          "Fletchling"
+        ],
         "availableLangs": [
           "EN",
           "JP",
@@ -38110,7 +38127,11 @@
         "exclusive": null,
         "otherPokemon": [
           "Stufful",
-          "Mudkip"
+          "Mudkip",
+          "Yamper",
+          "Cubchoo",
+          "Capsakid",
+          "Scraggy"
         ],
         "availableLangs": [
           "EN",
@@ -41084,7 +41105,10 @@
         "artist": "Oswaldo KATO",
         "cardName": "Ice Rider Calyrex VMAX",
         "exclusive": null,
-        "otherPokemon": null,
+        "otherPokemon": [
+          "Snorunt",
+          "Sealeo"
+        ],
         "availableLangs": [
           "EN",
           "JP",
@@ -41142,7 +41166,7 @@
         "krNumber": null,
         "setNumber": "TG06/30",
         "artist": "kirisAki",
-        "cardName": null,
+        "cardName": "Stantler, Ursaling",
         "exclusive": null,
         "otherPokemon": null,
         "availableLangs": [
@@ -41295,8 +41319,8 @@
         "pokemonId": 903,
         "setCode": "ASR",
         "number": "175/189",
-        "jpSetCode": null,
-        "jpNumber": null,
+        "jpSetCode": "S10P",
+        "jpNumber": "75/67",
         "cnSetCode": "CS6AC",
         "cnNumber": null,
         "tcSetCode": null,
@@ -41312,6 +41336,7 @@
         ],
         "availableLangs": [
           "EN",
+          "JP",
           "CN"
         ],
         "isPrimary": true,
@@ -43647,7 +43672,11 @@
         "artist": "Souichirou Gunjima",
         "cardName": null,
         "exclusive": null,
-        "otherPokemon": null,
+        "otherPokemon": [
+          "Glalie",
+          "Swablu",
+          "Goomy"
+        ],
         "availableLangs": [
           "EN",
           "JP",
