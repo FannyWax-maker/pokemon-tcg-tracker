@@ -707,7 +707,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                         const v = parseFloat(e.target.value);
                         setPickerRadius(v);
                         if (pickerSelected !== null) {
-                          setPickerCircles(prev => prev.map((c, i) => i === pickerSelected ? { ...c, r: v } : c));
+                          setPickerCircles(prev => prev.map((c, i) => i === pickerSelected.ci ? { ...c, r: v } : c));
                         }
                       }}
                       style={{ width: '100%', cursor: 'pointer' }}
