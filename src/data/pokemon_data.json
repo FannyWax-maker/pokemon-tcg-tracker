@@ -954,6 +954,30 @@
         ],
         "isPrimary": true,
         "isSecondary": false
+      },
+      {
+        "id": "6_p25_005-007",
+        "pokemonId": 6,
+        "setCode": "P25",
+        "number": "005/007",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "005/007",
+        "artist": "nagimiso",
+        "cardName": "J Balvin V",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
       }
     ]
   },
@@ -1261,6 +1285,32 @@
           "EN",
           "JP",
           "CN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "12_p25_007-004",
+        "pokemonId": 12,
+        "setCode": "P25",
+        "number": "007/004",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "007/004",
+        "artist": "Naoki Saito",
+        "cardName": "Post Malone V",
+        "exclusive": null,
+        "otherPokemon": [
+          "Dragonite"
+        ],
+        "availableLangs": [
+          "EN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -2816,6 +2866,54 @@
         "availableLangs": [
           "EN",
           "JP",
+          "CN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "25_p25_010-025",
+        "pokemonId": 25,
+        "setCode": "P25",
+        "number": "010/025",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "010/025",
+        "artist": "Yuu Nishida",
+        "cardName": "Katy Perry V",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "25_cbb5c_0107-07",
+        "pokemonId": 25,
+        "setCode": null,
+        "number": null,
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": "CBB5C",
+        "cnNumber": "0107/07",
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "0107/07",
+        "artist": "Keita Hagiwari",
+        "cardName": null,
+        "exclusive": "CN",
+        "otherPokemon": null,
+        "availableLangs": [
           "CN"
         ],
         "isPrimary": true,
@@ -4870,36 +4968,7 @@
     "name": "Dodrio",
     "gen": 1,
     "region": "Kanto",
-    "cards": [
-      {
-        "id": "85_swsh_swsh283",
-        "pokemonId": 85,
-        "setCode": "SWSH",
-        "number": "SWSH283",
-        "jpSetCode": "S-P",
-        "jpNumber": null,
-        "cnSetCode": "CSJC",
-        "cnNumber": null,
-        "tcSetCode": null,
-        "tcNumber": null,
-        "krSetCode": null,
-        "krNumber": null,
-        "setNumber": "SWSH283",
-        "artist": "Rianti Hidayat",
-        "cardName": null,
-        "exclusive": null,
-        "otherPokemon": [
-          "Zapdos"
-        ],
-        "availableLangs": [
-          "EN",
-          "JP",
-          "CN"
-        ],
-        "isPrimary": true,
-        "isSecondary": false
-      }
-    ]
+    "cards": []
   },
   {
     "id": 86,
@@ -8248,6 +8317,34 @@
         "otherPokemon": [
           "Articuno",
           "Moltres"
+        ],
+        "availableLangs": [
+          "EN",
+          "JP",
+          "CN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "145_swsh_swsh283",
+        "pokemonId": 145,
+        "setCode": "SWSH",
+        "number": "SWSH283",
+        "jpSetCode": "S-P",
+        "jpNumber": null,
+        "cnSetCode": "CSJC",
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "SWSH283",
+        "artist": "Rianti Hidayat",
+        "cardName": "Galarian Zapdos",
+        "exclusive": null,
+        "otherPokemon": [
+          "Dodrio"
         ],
         "availableLangs": [
           "EN",
@@ -41500,6 +41597,30 @@
         ],
         "isPrimary": true,
         "isSecondary": false
+      },
+      {
+        "id": "907_cbb5c_2207-07",
+        "pokemonId": 907,
+        "setCode": null,
+        "number": null,
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": "CBB5C",
+        "cnNumber": "2207/07",
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "2207/07",
+        "artist": "Lyu Yifei",
+        "cardName": null,
+        "exclusive": "CN",
+        "otherPokemon": null,
+        "availableLangs": [
+          "CN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
       }
     ]
   },
@@ -41621,6 +41742,30 @@
         "availableLangs": [
           "EN",
           "JP",
+          "CN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "910_cbb5c_2307-07",
+        "pokemonId": 910,
+        "setCode": null,
+        "number": null,
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": "CBB5C",
+        "cnNumber": "2307/07",
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "2307/07",
+        "artist": "Kouki Yanagihara",
+        "cardName": null,
+        "exclusive": "CN",
+        "otherPokemon": null,
+        "availableLangs": [
           "CN"
         ],
         "isPrimary": true,
@@ -41747,6 +41892,30 @@
         "availableLangs": [
           "EN",
           "JP",
+          "CN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "913_cbb5c_2407-07",
+        "pokemonId": 913,
+        "setCode": null,
+        "number": null,
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": "CBB5C",
+        "cnNumber": "2407/07",
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "2407/07",
+        "artist": "Rei Yamazaki",
+        "cardName": null,
+        "exclusive": "CN",
+        "otherPokemon": null,
+        "availableLangs": [
           "CN"
         ],
         "isPrimary": true,
