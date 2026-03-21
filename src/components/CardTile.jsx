@@ -436,6 +436,15 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             </div>
           )}
 
+          {/* Untagged featured Pokémon indicator */}
+          {card.otherPokemon && card.otherPokemon.length > 0 && !pokemonCoordsImport[card.id] && (
+            <div className="absolute top-2 left-2 z-20" title="Featured Pokémon not yet tagged with coords">
+              <div style={{ background: 'rgba(0,0,0,0.65)', borderRadius: '999px', padding: '2px 6px', fontSize: '10px', fontWeight: 'bold', color: '#fbbf24', backdropFilter: 'blur(2px)', border: '1px solid rgba(251,191,36,0.5)' }}>
+                🎯 {card.otherPokemon.length}
+              </div>
+            </div>
+          )}
+
           {/* Top-right badge cluster: exclusive + status badges */}
           <div className="absolute top-2 right-2 flex items-center gap-1 z-20">
             {card.exclusive && (
