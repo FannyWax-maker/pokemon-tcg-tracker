@@ -856,7 +856,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                                   </div>
                                 )}
                               </div>
-                              <input type="number" min="1" max="9" value={c.count}
+                              <input type="number" min="1" max="20" value={c.count}
                                 onChange={e => {
                                   const v = Math.max(1, parseInt(e.target.value) || 1);
                                   setPickerCircles(prev => prev.map((cc, i) => i === ci
