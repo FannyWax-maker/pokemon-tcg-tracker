@@ -39,13 +39,13 @@ export default function App() {
   const [filterCardType, setFilterCardType] = useState('all');
   const [showFilters, setShowFilters] = useState(false);
   const [languagePickerCard, setLanguagePickerCard] = useState(null);
-  const [viewMode, setViewMode] = useState('pokemon');
+  const [viewMode, setViewMode] = useState('cards');
   const [filterMissingImages, setFilterMissingImages] = useState(false);
   const [filterChinese, setFilterChinese] = useState('all');
   const [sortBy, setSortBy] = useState('default');
   const [filterArtist, setFilterArtist] = useState('all');
   const [filterHideNoCards, setFilterHideNoCards] = useState('all');
-  const [filterHideNonConforming, setFilterHideNonConforming] = useState('all');
+  const [filterHideNonConforming, setFilterHideNonConforming] = useState('hide');
   const [filterFavorites, setFilterFavorites] = useState('all');
   const [filterUnobtainable, setFilterUnobtainable] = useState('all');
   const [showOwnershipButtons, setShowOwnershipButtons] = useState(false);
