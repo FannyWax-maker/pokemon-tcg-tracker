@@ -1,6 +1,7 @@
 import React from 'react';
 import setNamesImport from '../data/set_names.json';
 import pokemonDataImport from '../data/pokemon_data.json';
+import pokemonCoordsImport from '../data/pokemon_coords.json';
 const setNames = setNamesImport;
 const ALL_POKEMON_NAMES = pokemonDataImport.map(p => p.name);
 
@@ -68,6 +69,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const hasOtherPokemon = card.otherPokemon && card.otherPokemon.length > 0;
   const isSecondary = card.isSecondary || !card.isPrimary;
   const [showZoom, setShowZoom] = React.useState(false);
+  const [showHighlight, setShowHighlight] = React.useState(false);
   const [zoomScale, setZoomScale] = React.useState(2.5);
   const [mousePos, setMousePos] = React.useState({ x: 0, y: 0 });
   const [imgRect, setImgRect] = React.useState(null);
@@ -615,7 +617,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
         <div
           className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
           style={{ cursor: pickerMode ? 'crosshair' : overImage ? 'none' : 'default' }}
-          onClick={() => { if (!pickerMode) { setShowZoom(false); setZoomScale(2.5); setPickerMode(false); setPickerCircles([]); setPickerSelected(null); }}}
+          onClick={() => { if (!pickerMode) { setShowZoom(false); setZoomScale(2.5); setPickerMode(false); setPickerCircles([]); setPickerSelected(null); setShowHighlight(false); }}}
           onMouseMove={handleZoomMouseMove}
           onWheel={handleZoomWheel}
         >
@@ -635,6 +637,51 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 onClick={pickerMode ? handlePickerImageClick : undefined}
                 draggable={false}
               />
+
+              {/* Highlight overlay — dims card and draws circles around featured Pokémon */}
+              {showHighlight && (() => {
+                const coords = pokemonCoordsImport[card.id] || [];
+                if (!coords.length || !zoomImgRef.current) return null;
+                const rect = zoomImgRef.current.getBoundingClientRect();
+                const containerRect = zoomImgRef.current.parentElement.getBoundingClientRect();
+                const w = rect.width;
+                const h = rect.height;
+                // Build SVG clipPath circles
+                const allPositions = coords.flatMap(entry =>
+                  entry.positions
+                    ? entry.positions.map(p => ({ ...p, name: entry.name }))
+                    : [{ x: entry.x, y: entry.y, r: entry.r, name: entry.name }]
+                );
+                return (
+                  <svg
+                    style={{ position: 'absolute', top: rect.top - containerRect.top, left: rect.left - containerRect.left, width: w, height: h, pointerEvents: 'none', borderRadius: '8px', overflow: 'hidden' }}
+                    viewBox={`0 0 ${w} ${h}`}
+                  >
+                    <defs>
+                      <mask id="highlight-mask">
+                        <rect width={w} height={h} fill="white" />
+                        {allPositions.map((p, i) => (
+                          <circle key={i} cx={p.x * w} cy={p.y * h} r={p.r * w} fill="black" />
+                        ))}
+                      </mask>
+                    </defs>
+                    {/* Dark overlay everywhere except circles */}
+                    <rect width={w} height={h} fill="rgba(0,0,0,0.6)" mask="url(#highlight-mask)" />
+                    {/* Circle outlines + labels */}
+                    {allPositions.map((p, i) => (
+                      <g key={i}>
+                        <circle cx={p.x * w} cy={p.y * h} r={p.r * w}
+                          fill="none" stroke="rgba(255,255,255,0.9)" strokeWidth="2.5" />
+                        <text x={p.x * w} y={p.y * h - p.r * w - 5}
+                          textAnchor="middle" fill="white" fontSize="12" fontWeight="bold"
+                          style={{ textShadow: '0 1px 4px black' }}>
+                          {p.name}
+                        </text>
+                      </g>
+                    ))}
+                  </svg>
+                );
+              })()}
 
               {/* SVG overlay — draggable circles */}
               {pickerMode && pickerCircles.length > 0 && zoomImgRef.current && (() => {
@@ -677,7 +724,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
               {/* Close button */}
               <button
-                onClick={() => { setShowZoom(false); setZoomScale(2.5); setPickerMode(false); setPickerCircles([]); setPickerSelected(null); }}
+                onClick={() => { setShowZoom(false); setZoomScale(2.5); setPickerMode(false); setPickerCircles([]); setPickerSelected(null); setShowHighlight(false); }}
                 className="absolute top-2 right-2 bg-white text-gray-900 rounded-full p-1.5 hover:bg-gray-100 shadow-lg"
                 style={{ cursor: 'pointer' }}
               >
@@ -690,6 +737,17 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
             {/* Right panel */}
             <div style={{ width: '230px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+
+              {/* Highlight toggle — only show if coords exist for this card */}
+              {pokemonCoordsImport[card.id] && (
+                <button
+                  onClick={() => setShowHighlight(v => !v)}
+                  style={{ padding: '8px 14px', borderRadius: '10px', fontWeight: 'bold', fontSize: '13px', cursor: 'pointer', border: 'none',
+                    background: showHighlight ? '#ef4444' : '#374151', color: 'white' }}
+                >
+                  {showHighlight ? '👁 Hide Pokémon' : '👁 Show Pokémon'}
+                </button>
+              )}
 
               {/* Picker toggle */}
               <button
