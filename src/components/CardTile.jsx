@@ -110,14 +110,15 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     };
   };
   // Coord picker state
+  // Each entry: { name, r, count, positions: [{x,y}, ...] }
   const [pickerMode, setPickerMode] = React.useState(false);
   const [pickerCircles, setPickerCircles] = React.useState([]);
   const [pickerRadius, setPickerRadius] = React.useState(0.08);
-  const [pickerSelected, setPickerSelected] = React.useState(null);
+  const [pickerSelected, setPickerSelected] = React.useState(null); // { ci, pi }
   const [copied, setCopied] = React.useState(false);
-  const [autocompleteFor, setAutocompleteFor] = React.useState(null); // index
+  const [autocompleteFor, setAutocompleteFor] = React.useState(null);
   const [autocompleteQuery, setAutocompleteQuery] = React.useState('');
-  const dragState = React.useRef(null); // { index, startX, startY, origX, origY }
+  const dragState = React.useRef(null);
 
   const getAutocompleteSuggestions = (query) => {
     if (!query || query.length < 2) return [];
@@ -127,26 +128,41 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
   const handlePickerImageClick = (e) => {
     if (!pickerMode || !zoomImgRef.current) return;
-    if (dragState.current?.didDrag) return; // don't place on drag-end
+    if (dragState.current?.didDrag) return;
     e.stopPropagation();
     const rect = zoomImgRef.current.getBoundingClientRect();
     const x = parseFloat(((e.clientX - rect.left) / rect.width).toFixed(3));
     const y = parseFloat(((e.clientY - rect.top) / rect.height).toFixed(3));
-    const newCircle = { name: '', x, y, r: pickerRadius, count: 1 };
+    // If selected circle still needs more positions placed, add to it
+    if (pickerSelected !== null) {
+      const { ci } = pickerSelected;
+      const c = pickerCircles[ci];
+      if (c && c.positions.length < c.count) {
+        setPickerCircles(prev => prev.map((cc, i) => i === ci
+          ? { ...cc, positions: [...cc.positions, { x, y }] }
+          : cc));
+        setPickerSelected({ ci, pi: c.positions.length });
+        return;
+      }
+    }
+    // New circle entry
+    const newCircle = { name: '', r: pickerRadius, count: 1, positions: [{ x, y }] };
     setPickerCircles(prev => {
-      setPickerSelected(prev.length);
+      const newIdx = prev.length;
+      setPickerSelected({ ci: newIdx, pi: 0 });
       return [...prev, newCircle];
     });
     setAutocompleteFor(null);
   };
 
-  // Drag handlers — attached to the SVG circles
-  const handleCircleMouseDown = (e, i) => {
+  // Drag a specific position: ci=circle index, pi=position index
+  const handleCircleMouseDown = (e, ci, pi) => {
     e.stopPropagation();
     e.preventDefault();
-    setPickerSelected(i);
-    setPickerRadius(pickerCircles[i].r);
-    dragState.current = { index: i, startX: e.clientX, startY: e.clientY, origX: pickerCircles[i].x, origY: pickerCircles[i].y, didDrag: false };
+    setPickerSelected({ ci, pi });
+    setPickerRadius(pickerCircles[ci].r);
+    const pos = pickerCircles[ci].positions[pi];
+    dragState.current = { ci, pi, startX: e.clientX, startY: e.clientY, origX: pos.x, origY: pos.y, didDrag: false };
     const rect = zoomImgRef.current?.getBoundingClientRect();
     const onMove = (me) => {
       if (!rect) return;
@@ -155,7 +171,9 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
       if (Math.abs(dx) > 0.005 || Math.abs(dy) > 0.005) dragState.current.didDrag = true;
       const nx = parseFloat(Math.min(1, Math.max(0, dragState.current.origX + dx)).toFixed(3));
       const ny = parseFloat(Math.min(1, Math.max(0, dragState.current.origY + dy)).toFixed(3));
-      setPickerCircles(prev => prev.map((c, ii) => ii === i ? { ...c, x: nx, y: ny } : c));
+      setPickerCircles(prev => prev.map((c, i) => i === ci
+        ? { ...c, positions: c.positions.map((p, j) => j === pi ? { x: nx, y: ny } : p) }
+        : c));
     };
     const onUp = () => {
       window.removeEventListener('mousemove', onMove);
@@ -166,8 +184,13 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     window.addEventListener('mouseup', onUp);
   };
 
+  // JSON: single position inline; multiple -> positions array
   const pickerJson = JSON.stringify(
-    pickerCircles.map(c => ({ name: c.name, x: c.x, y: c.y, r: c.r, ...(c.count > 1 ? { count: c.count } : {}) })),
+    pickerCircles.map(c => {
+      const base = { name: c.name, r: c.r };
+      if (c.positions.length === 1) return { ...base, x: c.positions[0].x, y: c.positions[0].y };
+      return { ...base, positions: c.positions };
+    }),
     null, 2
   );
 
@@ -619,29 +642,30 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                     style={{ position: 'absolute', top: rect.top - containerRect.top, left: rect.left - containerRect.left, width: rect.width, height: rect.height, pointerEvents: 'none', overflow: 'visible' }}
                     viewBox={`0 0 ${rect.width} ${rect.height}`}
                   >
-                    {pickerCircles.map((c, i) => {
-                      const cx = c.x * rect.width;
-                      const cy = c.y * rect.height;
-                      const r = c.r * rect.width;
-                      const isSelected = pickerSelected === i;
-                      const label = c.name ? (c.count > 1 ? `${c.name} ×${c.count}` : c.name) : `#${i + 1}`;
-                      return (
-                        <g key={i} style={{ pointerEvents: 'all', cursor: 'grab' }}
-                          onMouseDown={(e) => handleCircleMouseDown(e, i)}>
-                          {/* Invisible hit area */}
-                          <circle cx={cx} cy={cy} r={r + 8} fill="transparent" />
-                          <circle cx={cx} cy={cy} r={r} fill="none"
-                            stroke={isSelected ? '#facc15' : '#ef4444'}
-                            strokeWidth={isSelected ? 3 : 2}
-                            strokeDasharray={isSelected ? '6 3' : 'none'} />
-                          <text x={cx} y={cy - r - 4} textAnchor="middle" fill={isSelected ? '#facc15' : 'white'}
-                            fontSize="11" fontWeight="bold"
-                            style={{ textShadow: '0 1px 3px black', pointerEvents: 'none' }}>
-                            {label}
-                          </text>
-                        </g>
-                      );
-                    })}
+                    {pickerCircles.flatMap((c, ci) =>
+                      c.positions.map((pos, pi) => {
+                        const cx = pos.x * rect.width;
+                        const cy = pos.y * rect.height;
+                        const r = c.r * rect.width;
+                        const isSelected = pickerSelected?.ci === ci && pickerSelected?.pi === pi;
+                        const label = c.name || `#${ci + 1}`;
+                        return (
+                          <g key={`${ci}-${pi}`} style={{ pointerEvents: 'all', cursor: 'grab' }}
+                            onMouseDown={(e) => handleCircleMouseDown(e, ci, pi)}>
+                            <circle cx={cx} cy={cy} r={r + 8} fill="transparent" />
+                            <circle cx={cx} cy={cy} r={r} fill="none"
+                              stroke="#ef4444"
+                              strokeWidth={isSelected ? 3 : 2}
+                              strokeDasharray={isSelected ? '5 3' : 'none'} />
+                            <text x={cx} y={cy - r - 4} textAnchor="middle" fill="white"
+                              fontSize="11" fontWeight="bold"
+                              style={{ textShadow: '0 1px 3px black', pointerEvents: 'none' }}>
+                              {label}
+                            </text>
+                          </g>
+                        );
+                      })
+                    )}
                   </svg>
                 );
               })()}
@@ -695,27 +719,28 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                   {pickerCircles.length > 0 && (
                     <div style={{ background: '#1f2937', borderRadius: '10px', padding: '10px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                       <div style={{ color: '#9ca3af', fontSize: '11px' }}>Placed circles</div>
-                      {pickerCircles.map((c, i) => {
-                        const suggestions = autocompleteFor === i ? getAutocompleteSuggestions(autocompleteQuery) : [];
+                      {pickerCircles.map((c, ci) => {
+                        const isCircleSelected = pickerSelected?.ci === ci;
+                        const suggestions = autocompleteFor === ci ? getAutocompleteSuggestions(autocompleteQuery) : [];
+                        const needsMore = c.positions.length < c.count;
                         return (
-                          <div key={i} onClick={() => { setPickerSelected(i); setPickerRadius(c.r); }}
+                          <div key={ci} onClick={() => { setPickerSelected({ ci, pi: 0 }); setPickerRadius(c.r); }}
                             style={{ display: 'flex', flexDirection: 'column', gap: '4px', padding: '6px', borderRadius: '8px',
-                              background: pickerSelected === i ? '#374151' : 'transparent',
-                              border: pickerSelected === i ? '1px solid #facc15' : '1px solid transparent', cursor: 'pointer' }}>
+                              background: isCircleSelected ? '#374151' : 'transparent',
+                              border: isCircleSelected ? '1px solid #ef4444' : '1px solid transparent', cursor: 'pointer' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                              <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: pickerSelected === i ? '#facc15' : '#ef4444', flexShrink: 0 }} />
-                              {/* Name input with autocomplete */}
+                              <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ef4444', flexShrink: 0 }} />
                               <div style={{ flex: 1, position: 'relative' }}>
                                 <input
                                   value={c.name}
-                                  placeholder={`Pokémon #${i + 1}`}
+                                  placeholder={`Pokémon #${ci + 1}`}
                                   onChange={e => {
                                     const v = e.target.value;
-                                    setPickerCircles(prev => prev.map((cc, ii) => ii === i ? { ...cc, name: v } : cc));
-                                    setAutocompleteFor(i);
+                                    setPickerCircles(prev => prev.map((cc, i) => i === ci ? { ...cc, name: v } : cc));
+                                    setAutocompleteFor(ci);
                                     setAutocompleteQuery(v);
                                   }}
-                                  onFocus={() => { setAutocompleteFor(i); setAutocompleteQuery(c.name); setPickerSelected(i); setPickerRadius(c.r); }}
+                                  onFocus={() => { setAutocompleteFor(ci); setAutocompleteQuery(c.name); setPickerSelected({ ci, pi: 0 }); setPickerRadius(c.r); }}
                                   onBlur={() => setTimeout(() => setAutocompleteFor(null), 150)}
                                   onClick={e => e.stopPropagation()}
                                   style={{ width: '100%', background: '#1f2937', border: '1px solid #4b5563', borderRadius: '6px',
@@ -727,7 +752,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                                     {suggestions.map(name => (
                                       <div key={name}
                                         onMouseDown={() => {
-                                          setPickerCircles(prev => prev.map((cc, ii) => ii === i ? { ...cc, name } : cc));
+                                          setPickerCircles(prev => prev.map((cc, i) => i === ci ? { ...cc, name } : cc));
                                           setAutocompleteFor(null);
                                         }}
                                         style={{ padding: '4px 8px', fontSize: '11px', color: 'white', cursor: 'pointer' }}
@@ -738,17 +763,26 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                                   </div>
                                 )}
                               </div>
-                              {/* Count field */}
-                              <input type="number" min="1" max="9" value={c.count || 1}
-                                onChange={e => { const v = Math.max(1, parseInt(e.target.value) || 1); setPickerCircles(prev => prev.map((cc, ii) => ii === i ? { ...cc, count: v } : cc)); }}
+                              <input type="number" min="1" max="9" value={c.count}
+                                onChange={e => {
+                                  const v = Math.max(1, parseInt(e.target.value) || 1);
+                                  setPickerCircles(prev => prev.map((cc, i) => i === ci
+                                    ? { ...cc, count: v, positions: cc.positions.slice(0, v) }
+                                    : cc));
+                                }}
                                 onClick={e => e.stopPropagation()}
-                                title="Count of this Pokémon in the image"
+                                title="How many times this Pokémon appears"
                                 style={{ width: '36px', background: '#1f2937', border: '1px solid #4b5563', borderRadius: '6px',
                                   padding: '3px 4px', color: 'white', fontSize: '11px', outline: 'none', textAlign: 'center' }}
                               />
-                              <button onClick={e => { e.stopPropagation(); setPickerCircles(prev => prev.filter((_, ii) => ii !== i)); if (pickerSelected === i) setPickerSelected(null); }}
+                              <button onClick={e => { e.stopPropagation(); setPickerCircles(prev => prev.filter((_, i) => i !== ci)); if (isCircleSelected) setPickerSelected(null); }}
                                 style={{ background: 'none', border: 'none', color: '#6b7280', cursor: 'pointer', fontSize: '14px', lineHeight: 1, padding: '0 2px' }}>✕</button>
                             </div>
+                            {isCircleSelected && needsMore && (
+                              <div style={{ fontSize: '10px', color: '#fbbf24', paddingLeft: '12px' }}>
+                                Click card to place position {c.positions.length + 1} of {c.count}
+                              </div>
+                            )}
                           </div>
                         );
                       })}
