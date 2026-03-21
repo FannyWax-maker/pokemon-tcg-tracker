@@ -419,6 +419,12 @@
     "year": null,
     "month": null
   },
+  "P25": {
+    "name": "P25 Music",
+    "series": "Sword & Shield",
+    "year": 2021,
+    "month": 10
+  },
   "LL": {
     "name": "Lost Link",
     "series": "HeartGold & SoulSilver",
@@ -1492,6 +1498,12 @@
     "series": "Sword & Shield",
     "year": null,
     "month": null
+  },
+  "CBB5C": {
+    "name": "Gem Pack Vol 5",
+    "series": "",
+    "year": 2026,
+    "month": 4
   },
   "AC1A": {
     "name": "Crossing the Sky - Set A",
