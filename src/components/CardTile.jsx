@@ -1,6 +1,8 @@
 import React from 'react';
 import setNamesImport from '../data/set_names.json';
+import pokemonDataImport from '../data/pokemon_data.json';
 const setNames = setNamesImport;
+const ALL_POKEMON_NAMES = pokemonDataImport.map(p => p.name);
 
 // Global cache - images never reload after first load
 const imageCache = {};
@@ -111,27 +113,67 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const [pickerMode, setPickerMode] = React.useState(false);
   const [pickerCircles, setPickerCircles] = React.useState([]);
   const [pickerRadius, setPickerRadius] = React.useState(0.08);
-  const [pickerSelected, setPickerSelected] = React.useState(null); // index of selected circle
+  const [pickerSelected, setPickerSelected] = React.useState(null);
   const [copied, setCopied] = React.useState(false);
+  const [autocompleteFor, setAutocompleteFor] = React.useState(null); // index
+  const [autocompleteQuery, setAutocompleteQuery] = React.useState('');
+  const dragState = React.useRef(null); // { index, startX, startY, origX, origY }
 
-  const handlePickerClick = (e) => {
+  const getAutocompleteSuggestions = (query) => {
+    if (!query || query.length < 2) return [];
+    const q = query.toLowerCase();
+    return ALL_POKEMON_NAMES.filter(n => n.toLowerCase().includes(q)).slice(0, 6);
+  };
+
+  const handlePickerImageClick = (e) => {
     if (!pickerMode || !zoomImgRef.current) return;
+    if (dragState.current?.didDrag) return; // don't place on drag-end
     e.stopPropagation();
     const rect = zoomImgRef.current.getBoundingClientRect();
     const x = parseFloat(((e.clientX - rect.left) / rect.width).toFixed(3));
     const y = parseFloat(((e.clientY - rect.top) / rect.height).toFixed(3));
-    const newCircle = { name: '', x, y, r: pickerRadius };
-    setPickerCircles(prev => [...prev, newCircle]);
-    setPickerSelected(pickerCircles.length);
+    const newCircle = { name: '', x, y, r: pickerRadius, count: 1 };
+    setPickerCircles(prev => {
+      setPickerSelected(prev.length);
+      return [...prev, newCircle];
+    });
+    setAutocompleteFor(null);
+  };
+
+  // Drag handlers — attached to the SVG circles
+  const handleCircleMouseDown = (e, i) => {
+    e.stopPropagation();
+    e.preventDefault();
+    setPickerSelected(i);
+    setPickerRadius(pickerCircles[i].r);
+    dragState.current = { index: i, startX: e.clientX, startY: e.clientY, origX: pickerCircles[i].x, origY: pickerCircles[i].y, didDrag: false };
+    const rect = zoomImgRef.current?.getBoundingClientRect();
+    const onMove = (me) => {
+      if (!rect) return;
+      const dx = (me.clientX - dragState.current.startX) / rect.width;
+      const dy = (me.clientY - dragState.current.startY) / rect.height;
+      if (Math.abs(dx) > 0.005 || Math.abs(dy) > 0.005) dragState.current.didDrag = true;
+      const nx = parseFloat(Math.min(1, Math.max(0, dragState.current.origX + dx)).toFixed(3));
+      const ny = parseFloat(Math.min(1, Math.max(0, dragState.current.origY + dy)).toFixed(3));
+      setPickerCircles(prev => prev.map((c, ii) => ii === i ? { ...c, x: nx, y: ny } : c));
+    };
+    const onUp = () => {
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseup', onUp);
+    };
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
   };
 
   const pickerJson = JSON.stringify(
-    pickerCircles.map(c => ({ name: c.name, x: c.x, y: c.y, r: c.r })),
+    pickerCircles.map(c => ({ name: c.name, x: c.x, y: c.y, r: c.r, ...(c.count > 1 ? { count: c.count } : {}) })),
     null, 2
   );
 
   const handleCopyJson = () => {
-    navigator.clipboard.writeText(`"otherPokemonCoords": ${pickerJson}`).then(() => {
+    const cardId = card.id;
+    const output = `// Card ID: ${cardId}\n"otherPokemonCoords": ${pickerJson}`;
+    navigator.clipboard.writeText(output).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     });
@@ -559,20 +601,21 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 src={imageSrc}
                 alt={`${pokemonName} ${card.cardName}`}
                 className="w-full h-auto object-contain rounded-lg"
-                style={{ cursor: pickerMode ? 'crosshair' : 'none', display: 'block' }}
+                style={{ cursor: pickerMode ? 'crosshair' : 'none', display: 'block', userSelect: 'none' }}
                 onMouseEnter={() => setOverImage(true)}
                 onMouseLeave={() => setOverImage(false)}
                 onLoad={() => { if (zoomImgRef.current) setImgRect(zoomImgRef.current.getBoundingClientRect()); }}
-                onClick={pickerMode ? handlePickerClick : undefined}
+                onClick={pickerMode ? handlePickerImageClick : undefined}
+                draggable={false}
               />
 
-              {/* SVG overlay for picker circles */}
+              {/* SVG overlay — draggable circles */}
               {pickerMode && pickerCircles.length > 0 && zoomImgRef.current && (() => {
                 const rect = zoomImgRef.current.getBoundingClientRect();
                 const containerRect = zoomImgRef.current.parentElement.getBoundingClientRect();
                 return (
                   <svg
-                    style={{ position: 'absolute', top: rect.top - containerRect.top, left: rect.left - containerRect.left, width: rect.width, height: rect.height, pointerEvents: 'none' }}
+                    style={{ position: 'absolute', top: rect.top - containerRect.top, left: rect.left - containerRect.left, width: rect.width, height: rect.height, pointerEvents: 'none', overflow: 'visible' }}
                     viewBox={`0 0 ${rect.width} ${rect.height}`}
                   >
                     {pickerCircles.map((c, i) => {
@@ -580,11 +623,20 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                       const cy = c.y * rect.height;
                       const r = c.r * rect.width;
                       const isSelected = pickerSelected === i;
+                      const label = c.name ? (c.count > 1 ? `${c.name} ×${c.count}` : c.name) : `#${i + 1}`;
                       return (
-                        <g key={i}>
-                          <circle cx={cx} cy={cy} r={r} fill="none" stroke={isSelected ? '#facc15' : '#ef4444'} strokeWidth={isSelected ? 3 : 2} strokeDasharray={isSelected ? '6 3' : 'none'} />
-                          <text x={cx} y={cy - r - 4} textAnchor="middle" fill={isSelected ? '#facc15' : 'white'} fontSize="11" fontWeight="bold" style={{textShadow: '0 1px 3px black'}}>
-                            {c.name || `#${i + 1}`}
+                        <g key={i} style={{ pointerEvents: 'all', cursor: 'grab' }}
+                          onMouseDown={(e) => handleCircleMouseDown(e, i)}>
+                          {/* Invisible hit area */}
+                          <circle cx={cx} cy={cy} r={r + 8} fill="transparent" />
+                          <circle cx={cx} cy={cy} r={r} fill="none"
+                            stroke={isSelected ? '#facc15' : '#ef4444'}
+                            strokeWidth={isSelected ? 3 : 2}
+                            strokeDasharray={isSelected ? '6 3' : 'none'} />
+                          <text x={cx} y={cy - r - 4} textAnchor="middle" fill={isSelected ? '#facc15' : 'white'}
+                            fontSize="11" fontWeight="bold"
+                            style={{ textShadow: '0 1px 3px black', pointerEvents: 'none' }}>
+                            {label}
                           </text>
                         </g>
                       );
@@ -607,15 +659,13 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             </div>
 
             {/* Right panel */}
-            <div style={{ width: '220px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <div style={{ width: '230px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
 
               {/* Picker toggle */}
               <button
-                onClick={() => { setPickerMode(v => !v); setPickerSelected(null); }}
-                style={{
-                  padding: '8px 14px', borderRadius: '10px', fontWeight: 'bold', fontSize: '13px', cursor: 'pointer', border: 'none',
-                  background: pickerMode ? '#facc15' : '#374151', color: pickerMode ? '#1a1a1a' : 'white'
-                }}
+                onClick={() => { setPickerMode(v => !v); setPickerSelected(null); setAutocompleteFor(null); }}
+                style={{ padding: '8px 14px', borderRadius: '10px', fontWeight: 'bold', fontSize: '13px', cursor: 'pointer', border: 'none',
+                  background: pickerMode ? '#facc15' : '#374151', color: pickerMode ? '#1a1a1a' : 'white' }}
               >
                 {pickerMode ? '🎯 Picker ON — click card' : '🎯 Coord Picker'}
               </button>
@@ -624,7 +674,9 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 <>
                   {/* Radius slider */}
                   <div style={{ background: '#1f2937', borderRadius: '10px', padding: '10px' }}>
-                    <div style={{ color: '#9ca3af', fontSize: '11px', marginBottom: '4px' }}>Circle radius: <strong style={{color:'white'}}>{pickerRadius.toFixed(3)}</strong></div>
+                    <div style={{ color: '#9ca3af', fontSize: '11px', marginBottom: '4px' }}>
+                      Circle radius: <strong style={{ color: 'white' }}>{pickerRadius.toFixed(3)}</strong>
+                    </div>
                     <input type="range" min="0.03" max="0.25" step="0.005" value={pickerRadius}
                       onChange={e => {
                         const v = parseFloat(e.target.value);
@@ -635,39 +687,83 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                       }}
                       style={{ width: '100%', cursor: 'pointer' }}
                     />
-                    <div style={{ color: '#6b7280', fontSize: '10px', marginTop: '2px' }}>Adjusts new circles + selected circle</div>
+                    <div style={{ color: '#6b7280', fontSize: '10px', marginTop: '2px' }}>Drag circles to reposition · slider resizes selected</div>
                   </div>
 
                   {/* Circle list */}
                   {pickerCircles.length > 0 && (
-                    <div style={{ background: '#1f2937', borderRadius: '10px', padding: '10px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                      <div style={{ color: '#9ca3af', fontSize: '11px', marginBottom: '2px' }}>Placed circles</div>
-                      {pickerCircles.map((c, i) => (
-                        <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '4px' }}
-                          onClick={() => { setPickerSelected(i); setPickerRadius(c.r); }}>
-                          <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: pickerSelected === i ? '#facc15' : '#ef4444', flexShrink: 0 }} />
-                          <input
-                            value={c.name}
-                            placeholder={`Pokémon #${i+1}`}
-                            onChange={e => setPickerCircles(prev => prev.map((cc, ii) => ii === i ? { ...cc, name: e.target.value } : cc))}
-                            onClick={e => { e.stopPropagation(); setPickerSelected(i); setPickerRadius(c.r); }}
-                            style={{ flex: 1, background: '#374151', border: pickerSelected === i ? '1px solid #facc15' : '1px solid #4b5563', borderRadius: '6px', padding: '3px 6px', color: 'white', fontSize: '11px', outline: 'none' }}
-                          />
-                          <button onClick={e => { e.stopPropagation(); setPickerCircles(prev => prev.filter((_, ii) => ii !== i)); if (pickerSelected === i) setPickerSelected(null); }}
-                            style={{ background: 'none', border: 'none', color: '#6b7280', cursor: 'pointer', fontSize: '14px', lineHeight: 1, padding: '0 2px' }}>✕</button>
-                        </div>
-                      ))}
+                    <div style={{ background: '#1f2937', borderRadius: '10px', padding: '10px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      <div style={{ color: '#9ca3af', fontSize: '11px' }}>Placed circles</div>
+                      {pickerCircles.map((c, i) => {
+                        const suggestions = autocompleteFor === i ? getAutocompleteSuggestions(autocompleteQuery) : [];
+                        return (
+                          <div key={i} onClick={() => { setPickerSelected(i); setPickerRadius(c.r); }}
+                            style={{ display: 'flex', flexDirection: 'column', gap: '4px', padding: '6px', borderRadius: '8px',
+                              background: pickerSelected === i ? '#374151' : 'transparent',
+                              border: pickerSelected === i ? '1px solid #facc15' : '1px solid transparent', cursor: 'pointer' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                              <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: pickerSelected === i ? '#facc15' : '#ef4444', flexShrink: 0 }} />
+                              {/* Name input with autocomplete */}
+                              <div style={{ flex: 1, position: 'relative' }}>
+                                <input
+                                  value={c.name}
+                                  placeholder={`Pokémon #${i + 1}`}
+                                  onChange={e => {
+                                    const v = e.target.value;
+                                    setPickerCircles(prev => prev.map((cc, ii) => ii === i ? { ...cc, name: v } : cc));
+                                    setAutocompleteFor(i);
+                                    setAutocompleteQuery(v);
+                                  }}
+                                  onFocus={() => { setAutocompleteFor(i); setAutocompleteQuery(c.name); setPickerSelected(i); setPickerRadius(c.r); }}
+                                  onBlur={() => setTimeout(() => setAutocompleteFor(null), 150)}
+                                  onClick={e => e.stopPropagation()}
+                                  style={{ width: '100%', background: '#1f2937', border: '1px solid #4b5563', borderRadius: '6px',
+                                    padding: '3px 6px', color: 'white', fontSize: '11px', outline: 'none', boxSizing: 'border-box' }}
+                                />
+                                {suggestions.length > 0 && (
+                                  <div style={{ position: 'absolute', top: '100%', left: 0, right: 0, background: '#1f2937', border: '1px solid #4b5563',
+                                    borderRadius: '6px', zIndex: 100, overflow: 'hidden', marginTop: '2px' }}>
+                                    {suggestions.map(name => (
+                                      <div key={name}
+                                        onMouseDown={() => {
+                                          setPickerCircles(prev => prev.map((cc, ii) => ii === i ? { ...cc, name } : cc));
+                                          setAutocompleteFor(null);
+                                        }}
+                                        style={{ padding: '4px 8px', fontSize: '11px', color: 'white', cursor: 'pointer' }}
+                                        onMouseEnter={e => e.currentTarget.style.background = '#374151'}
+                                        onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+                                      >{name}</div>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                              {/* Count field */}
+                              <input type="number" min="1" max="9" value={c.count || 1}
+                                onChange={e => { const v = Math.max(1, parseInt(e.target.value) || 1); setPickerCircles(prev => prev.map((cc, ii) => ii === i ? { ...cc, count: v } : cc)); }}
+                                onClick={e => e.stopPropagation()}
+                                title="Count of this Pokémon in the image"
+                                style={{ width: '36px', background: '#1f2937', border: '1px solid #4b5563', borderRadius: '6px',
+                                  padding: '3px 4px', color: 'white', fontSize: '11px', outline: 'none', textAlign: 'center' }}
+                              />
+                              <button onClick={e => { e.stopPropagation(); setPickerCircles(prev => prev.filter((_, ii) => ii !== i)); if (pickerSelected === i) setPickerSelected(null); }}
+                                style={{ background: 'none', border: 'none', color: '#6b7280', cursor: 'pointer', fontSize: '14px', lineHeight: 1, padding: '0 2px' }}>✕</button>
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
                   )}
 
                   {/* JSON output + copy */}
                   {pickerCircles.length > 0 && (
                     <div style={{ background: '#111827', borderRadius: '10px', padding: '10px' }}>
+                      <div style={{ color: '#6b7280', fontSize: '10px', marginBottom: '4px' }}>Card ID: <span style={{ color: '#93c5fd' }}>{card.id}</span></div>
                       <pre style={{ color: '#86efac', fontSize: '10px', whiteSpace: 'pre-wrap', wordBreak: 'break-all', margin: 0, maxHeight: '140px', overflowY: 'auto' }}>
                         {`"otherPokemonCoords": ${pickerJson}`}
                       </pre>
                       <button onClick={handleCopyJson}
-                        style={{ marginTop: '8px', width: '100%', padding: '6px', borderRadius: '8px', border: 'none', background: copied ? '#059669' : '#2563eb', color: 'white', fontWeight: 'bold', fontSize: '12px', cursor: 'pointer' }}>
+                        style={{ marginTop: '8px', width: '100%', padding: '6px', borderRadius: '8px', border: 'none',
+                          background: copied ? '#059669' : '#2563eb', color: 'white', fontWeight: 'bold', fontSize: '12px', cursor: 'pointer' }}>
                         {copied ? '✓ Copied!' : 'Copy JSON'}
                       </button>
                     </div>
@@ -675,7 +771,6 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 </>
               )}
 
-              {/* Scroll hint when not in picker mode */}
               {!pickerMode && (
                 <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '12px', textAlign: 'center' }}>
                   Scroll to zoom · {zoomScale.toFixed(1)}×
@@ -686,21 +781,12 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
           {/* Loupe — only when not in picker mode */}
           {!pickerMode && overImage && (
-            <div
-              style={{
-                position: 'fixed',
-                left: mousePos.x - LOUPE_SIZE / 2,
-                top: mousePos.y - LOUPE_SIZE / 2,
-                width: LOUPE_SIZE,
-                height: LOUPE_SIZE,
-                borderRadius: '50%',
-                border: '3px solid rgba(255,255,255,0.85)',
-                boxShadow: '0 0 0 2px rgba(0,0,0,0.4), 0 8px 32px rgba(0,0,0,0.7)',
-                pointerEvents: 'none',
-                overflow: 'hidden',
-                ...getLoupeStyle(),
-              }}
-            >
+            <div style={{
+              position: 'fixed', left: mousePos.x - LOUPE_SIZE / 2, top: mousePos.y - LOUPE_SIZE / 2,
+              width: LOUPE_SIZE, height: LOUPE_SIZE, borderRadius: '50%',
+              border: '3px solid rgba(255,255,255,0.85)', boxShadow: '0 0 0 2px rgba(0,0,0,0.4), 0 8px 32px rgba(0,0,0,0.7)',
+              pointerEvents: 'none', overflow: 'hidden', ...getLoupeStyle(),
+            }}>
               <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>
                 <div style={{ position: 'absolute', width: 1, height: 20, background: 'rgba(255,255,255,0.5)' }} />
                 <div style={{ position: 'absolute', width: 20, height: 1, background: 'rgba(255,255,255,0.5)' }} />
