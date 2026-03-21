@@ -110,7 +110,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     };
   };
   // Coord picker state
-  // Each entry: { name, r, count, positions: [{x,y}, ...] }
+  // Each entry: { name, count, positions: [{x,y,r}, ...] }
   const [pickerMode, setPickerMode] = React.useState(false);
   const [pickerCircles, setPickerCircles] = React.useState([]);
   const [pickerRadius, setPickerRadius] = React.useState(0.08);
@@ -139,14 +139,14 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
       const c = pickerCircles[ci];
       if (c && c.positions.length < c.count) {
         setPickerCircles(prev => prev.map((cc, i) => i === ci
-          ? { ...cc, positions: [...cc.positions, { x, y }] }
+          ? { ...cc, positions: [...cc.positions, { x, y, r: pickerRadius }] }
           : cc));
         setPickerSelected({ ci, pi: c.positions.length });
         return;
       }
     }
     // New circle entry
-    const newCircle = { name: '', r: pickerRadius, count: 1, positions: [{ x, y }] };
+    const newCircle = { name: '', count: 1, positions: [{ x, y, r: pickerRadius }] };
     setPickerCircles(prev => {
       const newIdx = prev.length;
       setPickerSelected({ ci: newIdx, pi: 0 });
@@ -160,8 +160,9 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     e.stopPropagation();
     e.preventDefault();
     setPickerSelected({ ci, pi });
-    setPickerRadius(pickerCircles[ci].r);
+    setPickerRadius(pickerCircles[ci].positions[pi]?.r ?? pickerCircles[ci].positions[0]?.r ?? 0.08);
     const pos = pickerCircles[ci].positions[pi];
+    setPickerRadius(pos.r ?? 0.08);
     dragState.current = { ci, pi, startX: e.clientX, startY: e.clientY, origX: pos.x, origY: pos.y, didDrag: false };
     const rect = zoomImgRef.current?.getBoundingClientRect();
     const onMove = (me) => {
@@ -172,7 +173,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
       const nx = parseFloat(Math.min(1, Math.max(0, dragState.current.origX + dx)).toFixed(3));
       const ny = parseFloat(Math.min(1, Math.max(0, dragState.current.origY + dy)).toFixed(3));
       setPickerCircles(prev => prev.map((c, i) => i === ci
-        ? { ...c, positions: c.positions.map((p, j) => j === pi ? { x: nx, y: ny } : p) }
+        ? { ...c, positions: c.positions.map((p, j) => j === pi ? { ...p, x: nx, y: ny } : p) }
         : c));
     };
     const onUp = () => {
@@ -187,9 +188,9 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   // JSON: single position inline; multiple -> positions array
   const pickerJson = JSON.stringify(
     pickerCircles.map(c => {
-      const base = { name: c.name, r: c.r };
-      if (c.positions.length === 1) return { ...base, x: c.positions[0].x, y: c.positions[0].y };
-      return { ...base, positions: c.positions };
+      const base = { name: c.name };
+      if (c.positions.length === 1) return { ...base, x: c.positions[0].x, y: c.positions[0].y, r: c.positions[0].r };
+      return { ...base, positions: c.positions.map(p => ({ x: p.x, y: p.y, r: p.r })) };
     }),
     null, 2
   );
@@ -646,7 +647,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                       c.positions.map((pos, pi) => {
                         const cx = pos.x * rect.width;
                         const cy = pos.y * rect.height;
-                        const r = c.r * rect.width;
+                        const r = pos.r * rect.width;
                         const isSelected = pickerSelected?.ci === ci && pickerSelected?.pi === pi;
                         const label = c.name || `#${ci + 1}`;
                         return (
@@ -707,7 +708,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                         const v = parseFloat(e.target.value);
                         setPickerRadius(v);
                         if (pickerSelected !== null) {
-                          setPickerCircles(prev => prev.map((c, i) => i === pickerSelected.ci ? { ...c, r: v } : c));
+                          setPickerCircles(prev => prev.map((c, i) => i === pickerSelected.ci ? { ...c, positions: c.positions.map((p, j) => j === pickerSelected.pi ? { ...p, r: v } : p) } : c));
                         }
                       }}
                       style={{ width: '100%', cursor: 'pointer' }}
@@ -724,7 +725,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                         const suggestions = autocompleteFor === ci ? getAutocompleteSuggestions(autocompleteQuery) : [];
                         const needsMore = c.positions.length < c.count;
                         return (
-                          <div key={ci} onClick={() => { setPickerSelected({ ci, pi: 0 }); setPickerRadius(c.r); }}
+                          <div key={ci} onClick={() => { setPickerSelected({ ci, pi: 0 }); setPickerRadius(c.positions[0]?.r ?? 0.08); }}
                             style={{ display: 'flex', flexDirection: 'column', gap: '4px', padding: '6px', borderRadius: '8px',
                               background: isCircleSelected ? '#374151' : 'transparent',
                               border: isCircleSelected ? '1px solid #ef4444' : '1px solid transparent', cursor: 'pointer' }}>
@@ -740,7 +741,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                                     setAutocompleteFor(ci);
                                     setAutocompleteQuery(v);
                                   }}
-                                  onFocus={() => { setAutocompleteFor(ci); setAutocompleteQuery(c.name); setPickerSelected({ ci, pi: 0 }); setPickerRadius(c.r); }}
+                                  onFocus={() => { setAutocompleteFor(ci); setAutocompleteQuery(c.name); setPickerSelected({ ci, pi: 0 }); setPickerRadius(c.positions[0]?.r ?? 0.08); }}
                                   onBlur={() => setTimeout(() => setAutocompleteFor(null), 150)}
                                   onClick={e => e.stopPropagation()}
                                   style={{ width: '100%', background: '#1f2937', border: '1px solid #4b5563', borderRadius: '6px',
