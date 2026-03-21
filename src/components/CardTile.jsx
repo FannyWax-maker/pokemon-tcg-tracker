@@ -140,11 +140,10 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
       const { ci } = pickerSelected;
       const c = pickerCirclesRef.current[ci];
       if (c && c.positions.length < c.count) {
-        const newPi = c.positions.length;
         setPickerCircles(prev => prev.map((cc, i) => i === ci
           ? { ...cc, positions: [...cc.positions, { x, y, r: pickerRadius }] }
           : cc));
-        setPickerSelected({ ci, pi: newPi });
+        setPickerSelected({ ci, pi: c.positions.length });
         return;
       }
     }
@@ -641,12 +640,13 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
               {pickerMode && pickerCircles.length > 0 && zoomImgRef.current && (() => {
                 const rect = zoomImgRef.current.getBoundingClientRect();
                 const containerRect = zoomImgRef.current.parentElement.getBoundingClientRect();
+                const needsPlacement = pickerSelected !== null && (() => { const sc = pickerCircles[pickerSelected.ci]; return sc && sc.positions.length < sc.count; })();
                 return (
                   <svg
                     style={{ position: 'absolute', top: rect.top - containerRect.top, left: rect.left - containerRect.left, width: rect.width, height: rect.height, pointerEvents: 'none', overflow: 'visible' }}
                     viewBox={`0 0 ${rect.width} ${rect.height}`}
                   >
-                    {(() => { const needsPlacement = pickerSelected !== null && (() => { const sc = pickerCircles[pickerSelected.ci]; return sc && sc.positions.length < sc.count; })(); return pickerCircles.flatMap((c, ci) =>
+                    {pickerCircles.flatMap((c, ci) =>
                       c.positions.map((pos, pi) => {
                         const cx = pos.x * rect.width;
                         const cy = pos.y * rect.height;
@@ -670,7 +670,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                           </g>
                         );
                       })
-                    )}); })()}
+                    )}
                   </svg>
                 );
               })()}
