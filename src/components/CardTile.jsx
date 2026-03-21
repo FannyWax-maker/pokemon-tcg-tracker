@@ -160,6 +160,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     const onUp = () => {
       window.removeEventListener('mousemove', onMove);
       window.removeEventListener('mouseup', onUp);
+      setTimeout(() => { dragState.current = null; }, 0);
     };
     window.addEventListener('mousemove', onMove);
     window.addEventListener('mouseup', onUp);
