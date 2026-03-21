@@ -119,6 +119,8 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const [autocompleteFor, setAutocompleteFor] = React.useState(null);
   const [autocompleteQuery, setAutocompleteQuery] = React.useState('');
   const dragState = React.useRef(null);
+  const pickerCirclesRef = React.useRef([]);
+  React.useEffect(() => { pickerCirclesRef.current = pickerCircles; }, [pickerCircles]);
 
   const getAutocompleteSuggestions = (query) => {
     if (!query || query.length < 2) return [];
@@ -136,12 +138,13 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     // If selected circle still needs more positions placed, add to it
     if (pickerSelected !== null) {
       const { ci } = pickerSelected;
-      const c = pickerCircles[ci];
+      const c = pickerCirclesRef.current[ci];
       if (c && c.positions.length < c.count) {
+        const newPi = c.positions.length;
         setPickerCircles(prev => prev.map((cc, i) => i === ci
           ? { ...cc, positions: [...cc.positions, { x, y, r: pickerRadius }] }
           : cc));
-        setPickerSelected({ ci, pi: c.positions.length });
+        setPickerSelected({ ci, pi: newPi });
         return;
       }
     }
@@ -643,7 +646,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                     style={{ position: 'absolute', top: rect.top - containerRect.top, left: rect.left - containerRect.left, width: rect.width, height: rect.height, pointerEvents: 'none', overflow: 'visible' }}
                     viewBox={`0 0 ${rect.width} ${rect.height}`}
                   >
-                    {pickerCircles.flatMap((c, ci) =>
+                    {(() => { const needsPlacement = pickerSelected !== null && (() => { const sc = pickerCircles[pickerSelected.ci]; return sc && sc.positions.length < sc.count; })(); return pickerCircles.flatMap((c, ci) =>
                       c.positions.map((pos, pi) => {
                         const cx = pos.x * rect.width;
                         const cy = pos.y * rect.height;
@@ -651,8 +654,9 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                         const isSelected = pickerSelected?.ci === ci && pickerSelected?.pi === pi;
                         const label = c.name || `#${ci + 1}`;
                         return (
-                          <g key={`${ci}-${pi}`} style={{ pointerEvents: 'all', cursor: 'grab' }}
-                            onMouseDown={(e) => handleCircleMouseDown(e, ci, pi)}>
+                          <g key={`${ci}-${pi}`}
+                            style={{ pointerEvents: needsPlacement ? 'none' : 'all', cursor: needsPlacement ? 'crosshair' : 'grab' }}
+                            onMouseDown={needsPlacement ? undefined : (e) => handleCircleMouseDown(e, ci, pi)}>
                             <circle cx={cx} cy={cy} r={r + 8} fill="transparent" />
                             <circle cx={cx} cy={cy} r={r} fill="none"
                               stroke="#ef4444"
@@ -666,7 +670,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                           </g>
                         );
                       })
-                    )}
+                    )}); })()}
                   </svg>
                 );
               })()}
