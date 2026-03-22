@@ -1,52 +1,88 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 
 const CATEGORIES = {
-  'Scene': {
-    color: '#10b981',
-    icon: '🌿',
-    subTags: ['Outdoors', 'In nature', 'Urban', 'Cave / Indoor', 'Weather', 'Water']
-  },
-  'Action Scene': {
-    color: '#ef4444',
-    icon: '⚡',
-    subTags: ['Charging move', 'Fighting Pokémon', 'Mid-flight', 'Group battle']
-  },
-  'Action Posed': {
-    color: '#f59e0b',
-    icon: '🔥',
-    subTags: ['Solo', 'Minimal background', 'White background']
-  },
-  'Portrait': {
-    color: '#3b82f6',
-    icon: '🎨',
-    subTags: ['Close-up', 'Centred', 'Background absent', 'Background secondary']
-  },
-  'Trainer': {
-    color: '#8b5cf6',
-    icon: '🧑',
-    subTags: ['Primary subject', 'Co-subject', 'Solo', 'With Pokémon']
-  },
+  'Scene':        { color: '#10b981', icon: '🌿', subTags: ['Outdoors', 'In nature', 'Urban', 'Cave / Indoor', 'Weather', 'Water'] },
+  'Action Scene': { color: '#ef4444', icon: '⚡', subTags: ['Charging move', 'Fighting Pokémon', 'Mid-flight', 'Group battle'] },
+  'Action Posed': { color: '#f59e0b', icon: '🔥', subTags: ['Solo', 'Minimal background', 'White background'] },
+  'Portrait':     { color: '#3b82f6', icon: '🎨', subTags: ['Close-up', 'Centred', 'Background absent', 'Background secondary'] },
+  'Trainer':      { color: '#8b5cf6', icon: '🧑', subTags: ['Primary subject', 'Co-subject', 'Solo', 'With Pokémon'] },
 };
 
 const ACTIVITIES = [
-  'Flying', 'Running', 'Swimming', 'Jumping', 'Climbing',
-  'Attacking', 'Charging move', 'Defending', 'Fighting',
-  'Sleeping', 'Resting', 'Sitting',
-  'Playing', 'With trainer', 'With other Pokémon',
-  'Roaring', 'Crying', 'Surprised',
-  'Standing', 'Walking', 'Floating',
+  'Flying','Running','Swimming','Jumping','Climbing',
+  'Attacking','Charging move','Defending','Fighting',
+  'Sleeping','Resting','Sitting',
+  'Playing','With trainer','With other Pokémon',
+  'Roaring','Crying','Surprised',
+  'Standing','Walking','Floating',
 ];
 
 const ART_STYLES = [
-  'Realistic', 'Stylised', 'Cartoon', 'Chibi',
-  'Watercolour', 'Graphic / Geometric', 'Sketch / Lineart', 'CGI / 3D', 'Retro',
+  'Realistic','Stylised','Cartoon','Chibi',
+  'Watercolour','Graphic / Geometric','Sketch / Lineart','CGI / 3D','Retro',
 ];
 
-const DISTANCE_STEPS = ['Close-up', 'Near', 'Mid', 'Far', 'Distant'];
+const DISTANCE_STEPS   = ['Close-up', 'Near', 'Mid', 'Far', 'Distant'];
 const PROMINENCE_STEPS = ['Featured', 'Present', 'Background', 'Incidental'];
 
-// Reuse image cache from CardTile pattern
+const ENV_LABELS = [
+  { score: 0, label: 'Blank / void',  desc: 'No background at all' },
+  { score: 1, label: 'Minimal',       desc: 'Colour wash or gradient only' },
+  { score: 2, label: 'Abstract',      desc: 'Background unclear or indistinct' },
+  { score: 3, label: 'Partial',       desc: 'Some environmental elements' },
+  { score: 4, label: 'Rich & clear',  desc: 'Fully identifiable environment' },
+];
+
+const ENV_MULTIPLIER = [0.1, 0.25, 0.5, 0.8, 1.0];
+const MAX_RAW = 13;
+
+// ── Conformance formula ──────────────────────────────────────────────────────
+export function calcConformance(data) {
+  const env        = data.environmentScore ?? null;
+  const trainer    = data.trainerPresence  ?? 'none';
+  const pokCount   = data.pokemonCount     ?? 1;
+  const connecting = data.connectingCard   ?? false;
+  const contact    = data.contactWithEnv   ?? false;
+  const living     = data.nonPokemonLiving ?? false;
+  const unaware    = data.unawareOfViewer  ?? false;
+
+  if (env === null) return null;
+
+  // Additional Pokémon diminishing returns
+  const additional = Math.max(0, pokCount - 1);
+  let pokPoints = 0;
+  for (let i = 0; i < additional; i++) {
+    if      (i === 0) pokPoints += 3;
+    else if (i === 1) pokPoints += 2;
+    else if (i === 2) pokPoints += 1;
+    else              pokPoints += 0.5;
+  }
+
+  // Trainer gated by environment
+  let trainerPoints = 0;
+  if      (env >= 4 && trainer === 'interacting') trainerPoints = 3;
+  else if (env >= 3 && trainer === 'interacting') trainerPoints = 2;
+  else if (env >= 3 && trainer === 'present')     trainerPoints = 1;
+
+  const connectingPoints = connecting ? 1 : 0;
+  const contactPoints    = (contact && env >= 3) ? 1 : 0;
+  const livingPoints     = living  ? 1 : 0;
+  const unawarePoints    = unaware ? 1 : 0;
+
+  const raw = pokPoints + trainerPoints + connectingPoints + contactPoints + livingPoints + unawarePoints;
+  return Math.min(100, Math.round((raw * ENV_MULTIPLIER[env]) / MAX_RAW * 100));
+}
+
+export function conformanceColor(pct) {
+  if (pct === null || pct === undefined) return '#9ca3af';
+  if (pct >= 80) return '#f59e0b';
+  if (pct >= 60) return '#22c55e';
+  if (pct >= 35) return '#f59e0b';
+  return '#ef4444';
+}
+
+// ── Image loading ────────────────────────────────────────────────────────────
 const imageCache = {};
 const MAX_CONCURRENT = 6;
 let activeRequests = 0;
@@ -68,41 +104,39 @@ const generateImagePaths = (card, pokemonName) => {
   const displayPokemon = card.isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName;
   const setCode = (card.setCode || card.jpSetCode || card.cnSetCode || '').toLowerCase();
   const pokemon = displayPokemon.toLowerCase().replace(/\s+/g, '_').replace(/[.']/g, '');
-  const number = (card.setNumber || card.number || '').toLowerCase();
-  const numberWithDash = number.replace(/\//g, '-');
-  const numberOnly = number.split('/')[0];
-  const numberAlreadyHasSet = numberOnly.toLowerCase().startsWith(setCode);
+  const number  = (card.setNumber || card.number || '').toLowerCase();
+  const numDash = number.replace(/\//g, '-');
+  const numOnly = number.split('/')[0];
+  const hasSet  = numOnly.toLowerCase().startsWith(setCode);
   const paths = [];
-  if (numberAlreadyHasSet) {
-    paths.push(`.${numberWithDash}.${pokemon}_`);
-    paths.push(`.${numberOnly}.${pokemon}_`);
+  if (hasSet) {
+    paths.push(`.${numDash}.${pokemon}_`);
+    paths.push(`.${numOnly}.${pokemon}_`);
   } else {
-    paths.push(`${setCode}.${numberWithDash}.${pokemon}_`);
-    paths.push(`${setCode}.${numberOnly}.${pokemon}_`);
-    paths.push(`${setCode}.${numberWithDash}.${pokemon}`);
-    paths.push(`${setCode}.${numberOnly}.${pokemon}`);
-    paths.push(`.${numberWithDash}.${pokemon}_`);
-    paths.push(`.${numberOnly}.${pokemon}_`);
+    paths.push(`${setCode}.${numDash}.${pokemon}_`);
+    paths.push(`${setCode}.${numOnly}.${pokemon}_`);
+    paths.push(`${setCode}.${numDash}.${pokemon}`);
+    paths.push(`${setCode}.${numOnly}.${pokemon}`);
+    paths.push(`.${numDash}.${pokemon}_`);
+    paths.push(`.${numOnly}.${pokemon}_`);
   }
-  paths.push(`${setCode.toUpperCase()}_${numberOnly}_R_EN_LG`);
+  paths.push(`${setCode.toUpperCase()}_${numOnly}_R_EN_LG`);
   return [...new Set(paths)];
 };
 
 function useCardImage(card, pokemonName) {
   const cacheKey = card.id;
-  const cached = imageCache[cacheKey];
-  const [imageSrc, setImageSrc] = useState(cached?.src || null);
-
+  const [imageSrc, setImageSrc] = useState(imageCache[cacheKey]?.src || null);
   useEffect(() => {
     if (imageCache[cacheKey]) { setImageSrc(imageCache[cacheKey].src); return; }
     let mounted = true;
-    const paths = generateImagePaths(card, pokemonName);
+    const paths    = generateImagePaths(card, pokemonName);
     const allPaths = paths.flatMap(p => [
       `/pokemon-tcg-tracker/card-images/${p}.png`,
       `/pokemon-tcg-tracker/card-images/${p}.jpg`,
     ]);
-    const tryPath = (src) => enqueueImageLoad(() => new Promise((resolve, reject) => {
-      const img = new Image(); img.onload = () => resolve(src); img.onerror = reject; img.src = src;
+    const tryPath = (src) => enqueueImageLoad(() => new Promise((res, rej) => {
+      const img = new Image(); img.onload = () => res(src); img.onerror = rej; img.src = src;
     }));
     (async () => {
       let found = null;
@@ -116,20 +150,17 @@ function useCardImage(card, pokemonName) {
     })();
     return () => { mounted = false; };
   }, [cacheKey]);
-
   return imageSrc;
 }
 
+// ── Small UI atoms ────────────────────────────────────────────────────────────
 function Toggle({ label, active, onClick, color }) {
   return (
-    <button
-      onClick={onClick}
+    <button onClick={onClick}
       className="px-2.5 py-1 rounded-full text-xs font-bold transition-all duration-150 border"
       style={active
         ? { background: color, color: 'white', borderColor: color, boxShadow: `0 0 0 2px ${color}40` }
-        : { background: 'transparent', color: '#6b7280', borderColor: '#e5e7eb' }
-      }
-    >
+        : { background: 'transparent', color: '#6b7280', borderColor: '#e5e7eb' }}>
       {label}
     </button>
   );
@@ -139,15 +170,11 @@ function StepSlider({ steps, value, onChange, color }) {
   return (
     <div className="flex gap-1">
       {steps.map((step, i) => (
-        <button
-          key={step}
-          onClick={() => onChange(i === value ? null : i)}
+        <button key={step} onClick={() => onChange(i === value ? null : i)}
           className="flex-1 py-1.5 rounded-lg text-[10px] font-bold transition-all border"
           style={value === i
             ? { background: color, color: 'white', borderColor: color }
-            : { background: '#f9fafb', color: '#9ca3af', borderColor: '#e5e7eb' }
-          }
-        >
+            : { background: '#f9fafb', color: '#9ca3af', borderColor: '#e5e7eb' }}>
           {step}
         </button>
       ))}
@@ -155,159 +182,176 @@ function StepSlider({ steps, value, onChange, color }) {
   );
 }
 
-export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev, onNext, hasPrev, hasNext, darkMode }) {
+function YesNo({ value, onChange }) {
+  return (
+    <div className="flex rounded-lg overflow-hidden border border-gray-200 text-xs font-bold shrink-0">
+      {[true, false].map(v => (
+        <button key={String(v)} onClick={() => onChange(value === v ? null : v)}
+          className="px-3 py-1.5 transition-colors"
+          style={value === v
+            ? { background: v ? '#22c55e' : '#ef4444', color: 'white' }
+            : { background: '#f9fafb', color: '#9ca3af' }}>
+          {v ? 'Yes' : 'No'}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function ConformanceMeter({ pct }) {
+  if (pct === null) return (
+    <div className="text-center py-1">
+      <div className="text-2xl font-black text-gray-400 opacity-40">—</div>
+      <div className="text-[10px] text-gray-500 mt-0.5">Set environment to score</div>
+    </div>
+  );
+  const color = conformanceColor(pct);
+  const label = pct >= 80 ? '★ Highly conforming' : pct >= 60 ? 'Conforming' : pct >= 35 ? 'Partial' : 'Non-conforming';
+  return (
+    <div className="text-center">
+      <div className="text-4xl font-black leading-none" style={{ color }}>{pct}%</div>
+      <div className="text-[11px] font-bold mt-1" style={{ color }}>{label}</div>
+      <div className="mt-2 h-2 bg-white/20 rounded-full overflow-hidden">
+        <div className="h-full rounded-full transition-all duration-500" style={{ width: `${pct}%`, background: color }} />
+      </div>
+    </div>
+  );
+}
+
+// ── Main export ───────────────────────────────────────────────────────────────
+export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev, onNext, hasPrev, hasNext }) {
   const pokemonName = card.pokemonName || '';
-  const imageSrc = useCardImage(card, pokemonName);
+  const imageSrc    = useCardImage(card, pokemonName);
 
-  // Local state — initialised from saved reviewData
-  const [categories, setCategories] = useState(reviewData.categories || []);
-  const [subTags, setSubTags] = useState(reviewData.subTags || {});
-  const [activities, setActivities] = useState(reviewData.activities || []);
-  const [activityCustom, setActivityCustom] = useState(reviewData.activityCustom || '');
-  const [artStyles, setArtStyles] = useState(reviewData.artStyles || []);
-  const [illustrationCoverage, setIllustrationCoverage] = useState(reviewData.illustrationCoverage ?? 70);
-  const [subjectDistance, setSubjectDistance] = useState(reviewData.subjectDistance ?? null);
-  const [pokemonCount, setPokemonCount] = useState(reviewData.pokemonCount ?? 1);
-  const [pokemonProminence, setPokemonProminence] = useState(reviewData.pokemonProminence ?? null);
+  // Descriptive (no scoring)
+  const [categories,           setCategories]           = useState(reviewData.categories           || []);
+  const [subTags,               setSubTags]               = useState(reviewData.subTags               || {});
+  const [activities,            setActivities]            = useState(reviewData.activities            || []);
+  const [activityCustom,        setActivityCustom]        = useState(reviewData.activityCustom        || '');
+  const [artStyles,             setArtStyles]             = useState(reviewData.artStyles             || []);
+  const [illustrationCoverage,  setIllustrationCoverage]  = useState(reviewData.illustrationCoverage  ?? 70);
+  const [subjectDistance,       setSubjectDistance]       = useState(reviewData.subjectDistance       ?? null);
+  const [pokemonProminence,     setPokemonProminence]     = useState(reviewData.pokemonProminence     ?? null);
+
+  // Conformance inputs
+  const [environmentScore, setEnvironmentScore] = useState(reviewData.environmentScore ?? null);
+  const [trainerPresence,  setTrainerPresence]  = useState(reviewData.trainerPresence  ?? 'none');
+  const [pokemonCount,     setPokemonCount]     = useState(reviewData.pokemonCount     ?? 1);
+  const [connectingCard,   setConnectingCard]   = useState(reviewData.connectingCard   ?? null);
+  const [contactWithEnv,   setContactWithEnv]   = useState(reviewData.contactWithEnv   ?? null);
+  const [nonPokemonLiving, setNonPokemonLiving] = useState(reviewData.nonPokemonLiving ?? null);
+  const [unawareOfViewer,  setUnawareOfViewer]  = useState(reviewData.unawareOfViewer  ?? null);
+
   const [isDirty, setIsDirty] = useState(false);
+  const dirty = () => setIsDirty(true);
 
-  // Reset state when card changes
   useEffect(() => {
-    setCategories(reviewData.categories || []);
-    setSubTags(reviewData.subTags || {});
-    setActivities(reviewData.activities || []);
-    setActivityCustom(reviewData.activityCustom || '');
-    setArtStyles(reviewData.artStyles || []);
+    setCategories(reviewData.categories           || []);
+    setSubTags(reviewData.subTags                 || {});
+    setActivities(reviewData.activities           || []);
+    setActivityCustom(reviewData.activityCustom   || '');
+    setArtStyles(reviewData.artStyles             || []);
     setIllustrationCoverage(reviewData.illustrationCoverage ?? 70);
     setSubjectDistance(reviewData.subjectDistance ?? null);
-    setPokemonCount(reviewData.pokemonCount ?? 1);
     setPokemonProminence(reviewData.pokemonProminence ?? null);
+    setEnvironmentScore(reviewData.environmentScore ?? null);
+    setTrainerPresence(reviewData.trainerPresence   ?? 'none');
+    setPokemonCount(reviewData.pokemonCount         ?? 1);
+    setConnectingCard(reviewData.connectingCard     ?? null);
+    setContactWithEnv(reviewData.contactWithEnv     ?? null);
+    setNonPokemonLiving(reviewData.nonPokemonLiving ?? null);
+    setUnawareOfViewer(reviewData.unawareOfViewer   ?? null);
     setIsDirty(false);
   }, [card.id]);
 
-  const markDirty = () => setIsDirty(true);
+  const conformancePct = calcConformance({
+    environmentScore, trainerPresence, pokemonCount,
+    connectingCard, contactWithEnv, nonPokemonLiving, unawareOfViewer,
+  });
 
   const toggleCategory = (cat) => {
     setCategories(prev => {
-      const next = prev.includes(cat) ? prev.filter(c => c !== cat) : [...prev, cat];
-      // Clear subtags for removed category
-      if (prev.includes(cat)) {
-        setSubTags(st => { const n = { ...st }; delete n[cat]; return n; });
-      }
-      return next;
+      if (prev.includes(cat)) { setSubTags(st => { const n={...st}; delete n[cat]; return n; }); return prev.filter(c=>c!==cat); }
+      return [...prev, cat];
     });
-    markDirty();
+    dirty();
   };
-
   const toggleSubTag = (cat, tag) => {
-    setSubTags(prev => {
-      const existing = prev[cat] || [];
-      const next = existing.includes(tag) ? existing.filter(t => t !== tag) : [...existing, tag];
-      return { ...prev, [cat]: next };
-    });
-    markDirty();
+    setSubTags(prev => { const ex=prev[cat]||[]; return {...prev,[cat]:ex.includes(tag)?ex.filter(t=>t!==tag):[...ex,tag]}; });
+    dirty();
   };
 
-  const toggleActivity = (act) => {
-    setActivities(prev => prev.includes(act) ? prev.filter(a => a !== act) : [...prev, act]);
-    markDirty();
-  };
-
-  const toggleArtStyle = (style) => {
-    setArtStyles(prev => prev.includes(style) ? prev.filter(s => s !== style) : [...prev, style]);
-    markDirty();
-  };
-
-  const buildSaveData = () => ({
-    categories, subTags, activities,
-    activityCustom: activityCustom.trim(),
-    artStyles, illustrationCoverage, subjectDistance,
-    pokemonCount, pokemonProminence,
+  const buildData = () => ({
+    categories, subTags, activities, activityCustom: activityCustom.trim(),
+    artStyles, illustrationCoverage, subjectDistance, pokemonProminence,
+    environmentScore, trainerPresence, pokemonCount,
+    connectingCard, contactWithEnv, nonPokemonLiving, unawareOfViewer,
+    conformancePct,
     reviewedAt: new Date().toISOString(),
   });
 
-  const handleSave = () => {
-    onSave(buildSaveData());
-    setIsDirty(false);
-  };
+  const handleSave        = () => { onSave(buildData()); setIsDirty(false); };
+  const handleSaveAndNext = () => { onSave(buildData()); setIsDirty(false); onNext(); };
 
-  const handleSaveAndNext = () => {
-    onSave(buildSaveData());
-    setIsDirty(false);
-    onNext();
-  };
-
-  // Keyboard nav
   useEffect(() => {
-    const handler = (e) => {
+    const h = (e) => {
       if (e.target.tagName === 'INPUT') return;
-      if (e.key === 'Escape') onClose();
-      if (e.key === 'ArrowLeft' && hasPrev) { if (isDirty) handleSave(); onPrev(); }
+      if (e.key === 'Escape')      onClose();
+      if (e.key === 'ArrowLeft'  && hasPrev) { if (isDirty) handleSave(); onPrev(); }
       if (e.key === 'ArrowRight' && hasNext) { if (isDirty) handleSave(); onNext(); }
     };
-    window.addEventListener('keydown', handler);
-    return () => window.removeEventListener('keydown', handler);
-  }, [hasPrev, hasNext, isDirty, categories, subTags, activities, artStyles, illustrationCoverage, subjectDistance, pokemonCount, pokemonProminence, activityCustom]);
-
-  const isReviewed = reviewData && Object.keys(reviewData).length > 0;
+    window.addEventListener('keydown', h);
+    return () => window.removeEventListener('keydown', h);
+  }, [hasPrev, hasNext, isDirty, environmentScore, trainerPresence, pokemonCount,
+      connectingCard, contactWithEnv, nonPokemonLiving, unawareOfViewer,
+      categories, subTags, activities, artStyles, illustrationCoverage,
+      subjectDistance, pokemonProminence, activityCustom]);
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
-      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
-    >
-      <div
-        className="relative bg-white rounded-3xl shadow-2xl flex overflow-hidden"
-        style={{ width: 'min(920px, 95vw)', height: 'min(90vh, 700px)' }}
-      >
-        {/* LEFT — card image */}
-        <div className="relative flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 shrink-0"
-          style={{ width: '260px' }}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="relative bg-white rounded-3xl shadow-2xl flex overflow-hidden"
+        style={{ width: 'min(960px, 96vw)', height: 'min(90vh, 720px)' }}>
 
-          {/* Nav arrows */}
+        {/* LEFT — image + score */}
+        <div className="relative flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 shrink-0 py-6"
+          style={{ width: '240px' }}>
+
           <button onClick={() => { if (isDirty) handleSave(); onPrev(); }} disabled={!hasPrev}
-            className={`absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold transition-all z-10
-              ${hasPrev ? 'bg-white/20 hover:bg-white/30 text-white' : 'text-white/20 cursor-not-allowed'}`}>
-            ‹
-          </button>
+            className={`absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold z-10 transition-all
+              ${hasPrev ? 'bg-white/20 hover:bg-white/30 text-white' : 'text-white/20 cursor-not-allowed'}`}>‹</button>
           <button onClick={() => { if (isDirty) handleSave(); onNext(); }} disabled={!hasNext}
-            className={`absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold transition-all z-10
-              ${hasNext ? 'bg-white/20 hover:bg-white/30 text-white' : 'text-white/20 cursor-not-allowed'}`}>
-            ›
-          </button>
+            className={`absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold z-10 transition-all
+              ${hasNext ? 'bg-white/20 hover:bg-white/30 text-white' : 'text-white/20 cursor-not-allowed'}`}>›</button>
 
-          {imageSrc ? (
-            <img src={imageSrc} alt={`${pokemonName} ${card.cardName}`}
-              className="object-contain rounded-xl shadow-2xl"
-              style={{ maxHeight: '420px', maxWidth: '200px' }} />
-          ) : (
-            <div className="w-40 h-56 rounded-xl bg-gray-700 flex items-center justify-center">
-              <span className="text-4xl opacity-30">🃏</span>
+          {imageSrc
+            ? <img src={imageSrc} alt={pokemonName} className="object-contain rounded-xl shadow-2xl" style={{ maxHeight: '320px', maxWidth: '185px' }} />
+            : <div className="w-36 h-52 rounded-xl bg-gray-700 flex items-center justify-center"><span className="text-4xl opacity-30">🃏</span></div>
+          }
+
+          <div className="mt-3 text-center px-3 w-full">
+            <div className="text-white font-black text-sm leading-tight">{pokemonName}</div>
+            <div className="text-gray-400 text-xs mt-0.5 truncate">{card.cardName}</div>
+            <div className="text-gray-500 text-xs">{card.setCode || card.jpSetCode} {card.number}</div>
+          </div>
+
+          <div className="mt-3 px-4 w-full">
+            <div className="bg-black/40 rounded-2xl p-3">
+              <ConformanceMeter pct={conformancePct} />
             </div>
-          )}
-
-          <div className="mt-4 text-center px-4">
-            <div className="text-white font-black text-base leading-tight">{pokemonName}</div>
-            <div className="text-gray-400 text-xs mt-0.5">{card.cardName}</div>
-            <div className="text-gray-500 text-xs mt-0.5">{card.setCode || card.jpSetCode} {card.number}</div>
-            {isReviewed && (
-              <div className="mt-2 px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 text-[10px] font-bold inline-block">
-                ✓ Reviewed
-              </div>
-            )}
           </div>
 
-          <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1 text-[10px] text-gray-500">
-            <span>← → to navigate</span>
-          </div>
+          <div className="absolute bottom-2 text-[9px] text-gray-600">← → navigate · auto-saves</div>
         </div>
 
         {/* RIGHT — controls */}
         <div className="flex-1 flex flex-col min-h-0">
+
           {/* Header */}
           <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100 shrink-0">
             <div className="flex items-center gap-2">
-              <span className="text-sm font-black text-gray-900" style={{background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>
+              <span className="text-sm font-black"
+                style={{background:'linear-gradient(135deg,#8b5cf6,#7c3aed)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'}}>
                 Review Mode
               </span>
               {isDirty && <span className="text-[10px] font-bold text-amber-500 bg-amber-50 px-2 py-0.5 rounded-full">Unsaved</span>}
@@ -317,10 +361,93 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
             </button>
           </div>
 
-          {/* Scrollable content */}
           <div className="flex-1 overflow-y-auto px-5 py-4 space-y-5">
 
-            {/* CATEGORIES */}
+            {/* ── CONFORMANCE ── */}
+            <section className="rounded-2xl border-2 border-purple-100 bg-purple-50/40 p-4 space-y-4">
+              <h3 className="text-[10px] font-black uppercase tracking-widest text-purple-500">Conformance Score</h3>
+
+              {/* Environment — gatekeeper */}
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-bold text-gray-700">Background environment</span>
+                  <span className="text-[10px] font-bold text-purple-400">multiplies all other scores</span>
+                </div>
+                <div className="flex gap-1.5">
+                  {ENV_LABELS.map(({ score, label, desc }) => (
+                    <button key={score} onClick={() => { setEnvironmentScore(environmentScore === score ? null : score); dirty(); }}
+                      title={desc}
+                      className="flex-1 py-2 rounded-xl text-[10px] font-bold border-2 transition-all text-center"
+                      style={environmentScore === score
+                        ? { background: 'linear-gradient(135deg,#8b5cf6,#7c3aed)', color: 'white', borderColor: '#7c3aed' }
+                        : { background: 'white', color: '#9ca3af', borderColor: '#e9d5ff' }}>
+                      <div className="text-sm font-black leading-none mb-0.5">{score}</div>
+                      <div className="leading-tight text-[9px]">{label.split(' ')[0]}</div>
+                    </button>
+                  ))}
+                </div>
+                <div className="text-[9px] text-gray-400 mt-1 text-center">
+                  {environmentScore !== null ? ENV_LABELS[environmentScore].desc : 'Tap a score — this multiplies everything else'}
+                </div>
+              </div>
+
+              {/* Trainer */}
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <div className="text-xs font-bold text-gray-700">Trainer in card</div>
+                  {environmentScore !== null && environmentScore < 3 && trainerPresence !== 'none' && (
+                    <div className="text-[9px] text-amber-500 font-bold">⚠ Env &lt; 3 — scores 0</div>
+                  )}
+                </div>
+                <div className="flex rounded-lg overflow-hidden border border-gray-200 text-xs font-bold shrink-0">
+                  {[['none','None'],['present','Present'],['interacting','Interacting']].map(([val,label]) => (
+                    <button key={val} onClick={() => { setTrainerPresence(val); dirty(); }}
+                      className="px-2.5 py-1.5 transition-colors"
+                      style={trainerPresence === val
+                        ? { background: val === 'interacting' ? '#8b5cf6' : val === 'present' ? '#a78bfa' : '#e5e7eb', color: val === 'none' ? '#6b7280' : 'white' }
+                        : { background: '#f9fafb', color: '#9ca3af' }}>
+                      {label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Pokémon count */}
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <div className="text-xs font-bold text-gray-700">Pokémon in artwork</div>
+                  <div className="text-[9px] text-gray-400">2nd +3 · 3rd +2 · 4th +1 · diminishing</div>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <button onClick={() => { setPokemonCount(c => Math.max(1,c-1)); dirty(); }}
+                    className="w-7 h-7 rounded-full border border-gray-200 text-gray-600 hover:bg-gray-100 font-bold flex items-center justify-center">−</button>
+                  <input type="number" min="1" max="20" value={pokemonCount}
+                    onChange={(e) => { setPokemonCount(Math.max(1,parseInt(e.target.value)||1)); dirty(); }}
+                    className="w-12 text-center border border-gray-200 rounded-lg py-1 text-sm font-black text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-300" />
+                  <button onClick={() => { setPokemonCount(c => c+1); dirty(); }}
+                    className="w-7 h-7 rounded-full border border-gray-200 text-gray-600 hover:bg-gray-100 font-bold flex items-center justify-center">+</button>
+                </div>
+              </div>
+
+              {/* Boolean flags */}
+              {[
+                { label: 'Has a connecting card',        key: 'connectingCard',   val: connectingCard,   set: setConnectingCard },
+                { label: 'Pokémon touching environment', key: 'contactWithEnv',   val: contactWithEnv,   set: setContactWithEnv,
+                  warning: environmentScore !== null && environmentScore < 3 ? 'Needs env ≥ 3 to score' : null },
+                { label: 'Non-Pokémon living things',    key: 'nonPokemonLiving', val: nonPokemonLiving, set: setNonPokemonLiving },
+                { label: 'Pokémon unaware of viewer',    key: 'unawareOfViewer',  val: unawareOfViewer,  set: setUnawareOfViewer },
+              ].map(({ label, key, val, set, warning }) => (
+                <div key={key} className="flex items-center justify-between gap-3">
+                  <div>
+                    <div className="text-xs font-bold text-gray-700">{label}</div>
+                    {warning && <div className="text-[9px] text-amber-500 font-bold">⚠ {warning}</div>}
+                  </div>
+                  <YesNo value={val} onChange={(v) => { set(v); dirty(); }} />
+                </div>
+              ))}
+            </section>
+
+            {/* ── DESCRIPTIVE TAGS ── */}
             <section>
               <h3 className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Category</h3>
               <div className="flex flex-wrap gap-1.5 mb-2">
@@ -329,131 +456,93 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
                     className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border transition-all"
                     style={categories.includes(cat)
                       ? { background: cfg.color, color: 'white', borderColor: cfg.color, boxShadow: `0 0 0 2px ${cfg.color}40` }
-                      : { background: 'transparent', color: '#6b7280', borderColor: '#e5e7eb' }
-                    }>
+                      : { background: 'transparent', color: '#6b7280', borderColor: '#e5e7eb' }}>
                     <span>{cfg.icon}</span> {cat}
                   </button>
                 ))}
               </div>
-              {/* Sub-tags for selected categories */}
               {categories.map(cat => CATEGORIES[cat] && (
                 <div key={cat} className="mt-2 pl-3 border-l-2" style={{ borderColor: CATEGORIES[cat].color }}>
                   <div className="text-[10px] font-bold mb-1.5" style={{ color: CATEGORIES[cat].color }}>{cat} · sub-tags</div>
                   <div className="flex flex-wrap gap-1">
                     {CATEGORIES[cat].subTags.map(tag => (
-                      <Toggle key={tag} label={tag}
-                        active={(subTags[cat] || []).includes(tag)}
-                        onClick={() => toggleSubTag(cat, tag)}
-                        color={CATEGORIES[cat].color} />
+                      <Toggle key={tag} label={tag} active={(subTags[cat]||[]).includes(tag)}
+                        onClick={() => toggleSubTag(cat, tag)} color={CATEGORIES[cat].color} />
                     ))}
                   </div>
                 </div>
               ))}
             </section>
 
-            {/* ART STYLE */}
             <section>
               <h3 className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Art Style</h3>
               <div className="flex flex-wrap gap-1.5">
                 {ART_STYLES.map(style => (
                   <Toggle key={style} label={style}
                     active={artStyles.includes(style)}
-                    onClick={() => toggleArtStyle(style)}
+                    onClick={() => { setArtStyles(prev => prev.includes(style) ? prev.filter(s=>s!==style) : [...prev,style]); dirty(); }}
                     color="#6366f1" />
                 ))}
               </div>
             </section>
 
-            {/* ACTIVITY */}
             <section>
               <h3 className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Pokémon Activity</h3>
               <div className="flex flex-wrap gap-1.5 mb-2">
                 {ACTIVITIES.map(act => (
                   <Toggle key={act} label={act}
                     active={activities.includes(act)}
-                    onClick={() => toggleActivity(act)}
+                    onClick={() => { setActivities(prev => prev.includes(act) ? prev.filter(a=>a!==act) : [...prev,act]); dirty(); }}
                     color="#f59e0b" />
                 ))}
               </div>
-              <input
-                type="text"
-                value={activityCustom}
-                onChange={(e) => { setActivityCustom(e.target.value); markDirty(); }}
+              <input type="text" value={activityCustom}
+                onChange={(e) => { setActivityCustom(e.target.value); dirty(); }}
                 placeholder="Other activity..."
-                className="w-full border border-gray-200 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-amber-300 text-gray-700"
-              />
+                className="w-full border border-gray-200 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-amber-300 text-gray-700" />
             </section>
 
-            {/* SLIDERS */}
             <section>
               <h3 className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-3">Artwork Metrics</h3>
-
-              {/* Illustration coverage */}
               <div className="mb-4">
                 <div className="flex items-center justify-between mb-1.5">
                   <span className="text-xs font-semibold text-gray-600">Illustration coverage</span>
                   <span className="text-xs font-black text-purple-600">{illustrationCoverage}%</span>
                 </div>
-                <div className="relative">
-                  <input type="range" min="0" max="100" step="5"
-                    value={illustrationCoverage}
-                    onChange={(e) => { setIllustrationCoverage(Number(e.target.value)); markDirty(); }}
-                    className="w-full h-2 rounded-full appearance-none cursor-pointer"
-                    style={{ accentColor: '#8b5cf6' }}
-                  />
-                  <div className="flex justify-between text-[9px] text-gray-400 mt-0.5">
-                    <span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span>
-                  </div>
+                <input type="range" min="0" max="100" step="5" value={illustrationCoverage}
+                  onChange={(e) => { setIllustrationCoverage(Number(e.target.value)); dirty(); }}
+                  className="w-full h-2 rounded-full appearance-none cursor-pointer" style={{ accentColor: '#8b5cf6' }} />
+                <div className="flex justify-between text-[9px] text-gray-400 mt-0.5">
+                  <span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span>
                 </div>
               </div>
-
-              {/* Subject distance */}
               <div className="mb-4">
                 <div className="flex items-center justify-between mb-1.5">
                   <span className="text-xs font-semibold text-gray-600">Subject distance</span>
-                  <span className="text-xs font-black text-blue-600">
-                    {subjectDistance !== null ? DISTANCE_STEPS[subjectDistance] : 'Not set'}
-                  </span>
+                  <span className="text-xs font-black text-blue-600">{subjectDistance !== null ? DISTANCE_STEPS[subjectDistance] : 'Not set'}</span>
                 </div>
-                <StepSlider steps={DISTANCE_STEPS} value={subjectDistance} onChange={(v) => { setSubjectDistance(v); markDirty(); }} color="#3b82f6" />
+                <StepSlider steps={DISTANCE_STEPS} value={subjectDistance} onChange={(v) => { setSubjectDistance(v); dirty(); }} color="#3b82f6" />
               </div>
-
-              {/* Pokemon prominence */}
-              <div className="mb-4">
+              <div>
                 <div className="flex items-center justify-between mb-1.5">
                   <span className="text-xs font-semibold text-gray-600">Pokémon prominence</span>
-                  <span className="text-xs font-black text-emerald-600">
-                    {pokemonProminence !== null ? PROMINENCE_STEPS[pokemonProminence] : 'Not set'}
-                  </span>
+                  <span className="text-xs font-black text-emerald-600">{pokemonProminence !== null ? PROMINENCE_STEPS[pokemonProminence] : 'Not set'}</span>
                 </div>
-                <StepSlider steps={PROMINENCE_STEPS} value={pokemonProminence} onChange={(v) => { setPokemonProminence(v); markDirty(); }} color="#10b981" />
-              </div>
-
-              {/* Pokemon count */}
-              <div className="flex items-center gap-3">
-                <span className="text-xs font-semibold text-gray-600 shrink-0">Pokémon in artwork</span>
-                <div className="flex items-center gap-2 ml-auto">
-                  <button onClick={() => { setPokemonCount(c => Math.max(1, c - 1)); markDirty(); }}
-                    className="w-7 h-7 rounded-full border border-gray-200 text-gray-600 hover:bg-gray-100 font-bold text-sm flex items-center justify-center">−</button>
-                  <input type="number" min="1" max="20" value={pokemonCount}
-                    onChange={(e) => { setPokemonCount(Math.max(1, parseInt(e.target.value) || 1)); markDirty(); }}
-                    className="w-12 text-center border border-gray-200 rounded-lg py-1 text-sm font-black text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-300" />
-                  <button onClick={() => { setPokemonCount(c => c + 1); markDirty(); }}
-                    className="w-7 h-7 rounded-full border border-gray-200 text-gray-600 hover:bg-gray-100 font-bold text-sm flex items-center justify-center">+</button>
-                </div>
+                <StepSlider steps={PROMINENCE_STEPS} value={pokemonProminence} onChange={(v) => { setPokemonProminence(v); dirty(); }} color="#10b981" />
               </div>
             </section>
+
           </div>
 
-          {/* Footer buttons */}
+          {/* Footer */}
           <div className="shrink-0 px-5 py-3 border-t border-gray-100 flex gap-2">
             <button onClick={handleSave}
-              className="flex-1 py-2 rounded-xl text-sm font-bold transition-colors border border-purple-200 text-purple-700 hover:bg-purple-50">
+              className="flex-1 py-2 rounded-xl text-sm font-bold border border-purple-200 text-purple-700 hover:bg-purple-50 transition-colors">
               Save
             </button>
             <button onClick={handleSaveAndNext} disabled={!hasNext}
               className="flex-1 py-2 rounded-xl text-sm font-bold text-white transition-all disabled:opacity-40"
-              style={{ background: hasNext ? 'linear-gradient(135deg, #8b5cf6, #7c3aed)' : '#e5e7eb' }}>
+              style={{ background: hasNext ? 'linear-gradient(135deg,#8b5cf6,#7c3aed)' : '#e5e7eb' }}>
               Save & Next →
             </button>
           </div>

@@ -3,7 +3,7 @@ import { Search, Filter, Grid, List, Moon, Sun, Lock, Unlock } from 'lucide-reac
 import PokemonCard from './components/PokemonCard';
 import CardTile from './components/CardTile';
 import DetailModal from './components/DetailModal';
-import ReviewModal from './components/ReviewModal';
+import ReviewModal, { calcConformance, conformanceColor } from './components/ReviewModal';
 import LanguagePicker from './components/LanguagePicker';
 import pokemonDataImport from './data/pokemon_data.json';
 import setNamesImport from './data/set_names.json';
@@ -871,19 +871,26 @@ export default function App() {
                       onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={false} />
                     {/* Review badge overlay */}
                     <div className="absolute top-1 left-1 z-20 pointer-events-none">
-                      {isReviewed ? (
-                        <div className="flex flex-wrap gap-0.5">
-                          {(rd.categories || []).slice(0, 2).map(cat => (
-                            <span key={cat} className="px-1.5 py-0.5 rounded text-[9px] font-bold text-white shadow" style={{background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)'}}>
-                              {cat.split(' ')[0]}
-                            </span>
-                          ))}
-                          {(rd.categories || []).length > 2 && (
-                            <span className="px-1.5 py-0.5 rounded text-[9px] font-bold text-white shadow bg-purple-400">+{rd.categories.length - 2}</span>
-                          )}
-                        </div>
-                      ) : (
-                        <span className="w-2 h-2 rounded-full bg-gray-400 block opacity-50" />
+                      {isReviewed ? (() => {
+                        const pct = rd.conformancePct ?? null;
+                        const color = conformanceColor(pct);
+                        return (
+                          <div className="flex flex-col gap-0.5">
+                            {pct !== null && (
+                              <span className="px-1.5 py-0.5 rounded text-[9px] font-black text-white shadow"
+                                style={{ background: color }}>
+                                {pct}%
+                              </span>
+                            )}
+                            {(rd.categories || []).slice(0, 1).map(cat => (
+                              <span key={cat} className="px-1.5 py-0.5 rounded text-[9px] font-bold text-white shadow bg-purple-500">
+                                {cat.split(' ')[0]}
+                              </span>
+                            ))}
+                          </div>
+                        );
+                      })() : (
+                        <span className="w-2 h-2 rounded-full bg-gray-400 block opacity-40" />
                       )}
                     </div>
                   </div>
