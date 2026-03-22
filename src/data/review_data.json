@@ -1,1 +1,26 @@
-{}
+{
+  "1_mew_166-165": {
+    "environmentScore": 4,
+    "trainerPresence": "none",
+    "pokemonCount": 1,
+    "connectingCard": true,
+    "nonPokemonLiving": true,
+    "unawareOfViewer": true,
+    "tjayRating": 8,
+    "stephRating": 7,
+    "conformancePct": 76,
+    "reviewedAt": "2026-03-22T22:18:36.489Z"
+  },
+  "1_sm12a_201-173": {
+    "environmentScore": 2,
+    "trainerPresence": "present",
+    "pokemonCount": 0,
+    "connectingCard": false,
+    "nonPokemonLiving": false,
+    "unawareOfViewer": false,
+    "tjayRating": 5,
+    "stephRating": 4,
+    "conformancePct": 32,
+    "reviewedAt": "2026-03-22T22:19:20.489Z"
+  }
+}

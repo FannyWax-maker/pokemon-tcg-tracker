@@ -457,6 +457,8 @@ export default function App() {
     else if (sortBy === 'featured_asc') { cards.sort((a, b) => (a.otherPokemon || []).length - (b.otherPokemon || []).length); }
     else if (sortBy === 'release_desc') { cards.sort((a, b) => { const score = (c) => { const d = setNamesLC[(c.setCode||"").toLowerCase()] || setNamesLC[(c.jpSetCode||"").toLowerCase()] || setNamesLC[(c.cnSetCode||"").toLowerCase()] || {}; return (d.year||0)*100+(d.month||0); }; return score(b) - score(a); }); }
     else if (sortBy === 'release_asc') { cards.sort((a, b) => { const score = (c) => { const d = setNamesLC[(c.setCode||"").toLowerCase()] || setNamesLC[(c.jpSetCode||"").toLowerCase()] || setNamesLC[(c.cnSetCode||"").toLowerCase()] || {}; return (d.year||9999)*100+(d.month||99); }; return score(a) - score(b); }); }
+    else if (sortBy === 'conformance_desc') { cards.sort((a, b) => { const pa = reviewData[a.id]?.conformancePct ?? -1; const pb = reviewData[b.id]?.conformancePct ?? -1; return pb - pa; }); }
+    else if (sortBy === 'conformance_asc')  { cards.sort((a, b) => { const pa = reviewData[a.id]?.conformancePct ?? 101; const pb = reviewData[b.id]?.conformancePct ?? 101; return pa - pb; }); }
     return cards;
   }, [filteredData, filterChinese, filterExclusive, filterSet, filterCardType, sortBy, filterOwned, filterArtist, filterUnobtainable, filterMissingImages, filterSetLang]);
 
@@ -713,6 +715,10 @@ export default function App() {
                     {viewMode === 'cards' && <option value="featured_asc">Sort: Fewest featured</option>}
                     {viewMode === 'cards' && <option value="release_desc">Sort: Newest first</option>}
                     {viewMode === 'cards' && <option value="release_asc">Sort: Oldest first</option>}
+                    {viewMode === 'cards' && <option value="conformance_desc">Sort: Highest conformance</option>}
+                    {viewMode === 'cards' && <option value="conformance_asc">Sort: Lowest conformance</option>}
+                    {viewMode === 'review' && <option value="conformance_desc">Sort: Highest conformance</option>}
+                    {viewMode === 'review' && <option value="conformance_asc">Sort: Lowest conformance</option>}
                   </select>
                   {(hasActiveFilters || sortBy !== 'default') && (
                     <button onClick={() => { clearFilters(); setSortBy('default'); }} className="text-xs font-bold px-2 py-1 rounded-lg bg-red-500 text-white hover:bg-red-600 shrink-0">✕</button>
