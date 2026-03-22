@@ -7,6 +7,7 @@ import ReviewModal, { calcConformance, conformanceColor } from './components/Rev
 import LanguagePicker from './components/LanguagePicker';
 import pokemonDataImport from './data/pokemon_data.json';
 import setNamesImport from './data/set_names.json';
+import reviewDataImport from './data/review_data.json';
 
 export default function App() {
   const [pokemonData, setPokemonData] = useState(() => {
@@ -63,7 +64,15 @@ export default function App() {
   const [showLockModal, setShowLockModal] = useState(false);
   const [lockInput, setLockInput] = useState('');
   const [lockError, setLockError] = useState(false);
-  const [reviewData, setReviewData] = useState({});
+  const [reviewData, setReviewData] = useState(() => {
+    // Seed from committed JSON file, then overlay any localStorage edits on top
+    const base = reviewDataImport || {};
+    try {
+      const cached = localStorage.getItem('pokemon_review_cache');
+      if (cached) return { ...base, ...JSON.parse(cached) };
+    } catch (_) {}
+    return base;
+  });
   const [reviewCard, setReviewCard] = useState(null);
 
   const PASSWORD_HASH = '7a19d28db440fefe6d9ffb4620db4e568c13bac3bf956b5a90884501d6681739';

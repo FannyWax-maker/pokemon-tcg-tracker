@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 
 const ENV_LABELS = [
+  { score: 0, label: 'Blank / void',  desc: 'No background at all' },
   { score: 1, label: 'Minimal',       desc: 'Colour wash or gradient only' },
   { score: 2, label: 'Abstract',      desc: 'Background unclear or indistinct' },
   { score: 3, label: 'Partial',       desc: 'Some environmental elements' },
@@ -28,7 +29,7 @@ export function calcConformance(data) {
   const envScore = ENV_BASE[env];
 
   // Additional Pokémon — diminishing returns
-  const additional = Math.max(0, pokCount);
+  const additional = Math.max(0, pokCount - 1);
   let pokBonus = 0;
   for (let i = 0; i < additional; i++) {
     if      (i === 0) pokBonus += 8;
@@ -188,7 +189,7 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
   // Conformance inputs only
   const [environmentScore, setEnvironmentScore] = useState(reviewData.environmentScore ?? null);
   const [trainerPresence,  setTrainerPresence]  = useState(reviewData.trainerPresence  ?? 'none');
-  const [pokemonCount,     setPokemonCount]     = useState(reviewData.pokemonCount     ?? 0);
+  const [pokemonCount,     setPokemonCount]     = useState(reviewData.pokemonCount     ?? 1);
   const [connectingCard,   setConnectingCard]   = useState(reviewData.connectingCard   ?? null);
   const [nonPokemonLiving, setNonPokemonLiving] = useState(reviewData.nonPokemonLiving ?? null);
   const [unawareOfViewer,  setUnawareOfViewer]  = useState(reviewData.unawareOfViewer  ?? null);
@@ -200,11 +201,13 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
   useEffect(() => {
     setEnvironmentScore(reviewData.environmentScore ?? null);
     setTrainerPresence(reviewData.trainerPresence   ?? 'none');
-    setPokemonCount(reviewData.pokemonCount         ?? 0);
+    setPokemonCount(reviewData.pokemonCount         ?? 1);
     setConnectingCard(reviewData.connectingCard     ?? null);
     setNonPokemonLiving(reviewData.nonPokemonLiving ?? null);
     setUnawareOfViewer(reviewData.unawareOfViewer   ?? null);
     setStarRating(reviewData.starRating             ?? null);
+    setSavedData(Object.keys(reviewData).length > 0 ? reviewData : null);
+    setCopied(false);
     setIsDirty(false);
   }, [card.id]);
 
@@ -213,6 +216,9 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
     connectingCard, nonPokemonLiving, unawareOfViewer, starRating,
   });
 
+  const [savedData,  setSavedData]  = useState(Object.keys(reviewData).length > 0 ? reviewData : null);
+  const [copied,     setCopied]     = useState(false);
+
   const buildData = () => ({
     environmentScore, trainerPresence, pokemonCount,
     connectingCard, nonPokemonLiving, unawareOfViewer, starRating,
@@ -220,8 +226,28 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
     reviewedAt: new Date().toISOString(),
   });
 
-  const handleSave        = () => { onSave(buildData()); setIsDirty(false); };
-  const handleSaveAndNext = () => { onSave(buildData()); setIsDirty(false); onNext(); };
+  const handleSave = () => {
+    const data = buildData();
+    onSave(data);
+    setSavedData(data);
+    setIsDirty(false);
+  };
+  const handleSaveAndNext = () => {
+    const data = buildData();
+    onSave(data);
+    setSavedData(data);
+    setIsDirty(false);
+    onNext();
+  };
+
+  const handleCopyJson = () => {
+    if (!savedData) return;
+    const json = JSON.stringify({ [card.id]: savedData }, null, 2);
+    navigator.clipboard.writeText(json).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
 
   useEffect(() => {
     const h = (e) => {
@@ -338,19 +364,18 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
                 </div>
               </div>
 
-              {/* Additional Pokémon count */}
+              {/* Pokémon count */}
               <div className="flex items-center justify-between gap-3">
                 <div>
-                  <div className="text-xs font-bold text-gray-700">Additional Pokémon</div>
-                  <div className="text-[9px] text-gray-400">1st +8 · 2nd +5 · 3rd +3 · diminishing</div>
+                  <div className="text-xs font-bold text-gray-700">Pokémon in artwork</div>
+                  <div className="text-[9px] text-gray-400">2nd +8 · 3rd +5 · 4th +3 · diminishing</div>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
-                  <button onClick={() => { setPokemonCount(c => Math.max(0,c-1)); dirty(); }}
+                  <button onClick={() => { setPokemonCount(c => Math.max(1,c-1)); dirty(); }}
                     className="w-7 h-7 rounded-full border border-gray-200 text-gray-600 hover:bg-gray-100 font-bold flex items-center justify-center">−</button>
-                  <input type="number" min="0" max="20" value={pokemonCount}
-                    onChange={(e) => { setPokemonCount(Math.max(0,parseInt(e.target.value)||0)); dirty(); }}
-                    className="w-12 text-center border border-gray-200 rounded-lg py-1 text-sm font-black text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-300 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                  />
+                  <input type="number" min="1" max="20" value={pokemonCount}
+                    onChange={(e) => { setPokemonCount(Math.max(1,parseInt(e.target.value)||1)); dirty(); }}
+                    className="w-12 text-center border border-gray-200 rounded-lg py-1 text-sm font-black text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-300" />
                   <button onClick={() => { setPokemonCount(c => c+1); dirty(); }}
                     className="w-7 h-7 rounded-full border border-gray-200 text-gray-600 hover:bg-gray-100 font-bold flex items-center justify-center">+</button>
                 </div>
@@ -405,16 +430,33 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
           </div>
 
           {/* Footer */}
-          <div className="shrink-0 px-5 py-3 border-t border-gray-100 flex gap-2">
-            <button onClick={handleSave}
-              className="flex-1 py-2 rounded-xl text-sm font-bold border border-purple-200 text-purple-700 hover:bg-purple-50 transition-colors">
-              Save
-            </button>
-            <button onClick={handleSaveAndNext} disabled={!hasNext}
-              className="flex-1 py-2 rounded-xl text-sm font-bold text-white transition-all disabled:opacity-40"
-              style={{ background: hasNext ? 'linear-gradient(135deg,#8b5cf6,#7c3aed)' : '#e5e7eb' }}>
-              Save & Next →
-            </button>
+          <div className="shrink-0 px-5 py-3 border-t border-gray-100 space-y-2">
+            <div className="flex gap-2">
+              <button onClick={handleSave}
+                className="flex-1 py-2 rounded-xl text-sm font-bold border border-purple-200 text-purple-700 hover:bg-purple-50 transition-colors">
+                Save
+              </button>
+              <button onClick={handleSaveAndNext} disabled={!hasNext}
+                className="flex-1 py-2 rounded-xl text-sm font-bold text-white transition-all disabled:opacity-40"
+                style={{ background: hasNext ? 'linear-gradient(135deg,#8b5cf6,#7c3aed)' : '#e5e7eb' }}>
+                Save & Next →
+              </button>
+            </div>
+            {savedData && (
+              <div className={`rounded-xl border p-3 space-y-2 transition-colors ${copied ? 'bg-green-50 border-green-200' : 'bg-gray-50 border-gray-200'}`}>
+                <div className="flex items-center justify-between">
+                  <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Card ID: {card.id}</div>
+                  <button onClick={handleCopyJson}
+                    className="px-3 py-1 rounded-lg text-xs font-black text-white transition-all"
+                    style={{ background: copied ? 'linear-gradient(135deg,#22c55e,#16a34a)' : 'linear-gradient(135deg,#3b82f6,#1d4ed8)' }}>
+                    {copied ? '✓ Copied!' : 'Copy JSON'}
+                  </button>
+                </div>
+                <pre className="text-[9px] text-gray-500 font-mono leading-tight overflow-x-auto max-h-24 whitespace-pre-wrap break-all">
+                  {JSON.stringify(savedData, null, 2)}
+                </pre>
+              </div>
+            )}
           </div>
         </div>
       </div>
