@@ -1,31 +1,6 @@
 import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 
-const CATEGORIES = {
-  'Scene':        { color: '#10b981', icon: '🌿', subTags: ['Outdoors', 'In nature', 'Urban', 'Cave / Indoor', 'Weather', 'Water'] },
-  'Action Scene': { color: '#ef4444', icon: '⚡', subTags: ['Charging move', 'Fighting Pokémon', 'Mid-flight', 'Group battle'] },
-  'Action Posed': { color: '#f59e0b', icon: '🔥', subTags: ['Solo', 'Minimal background', 'White background'] },
-  'Portrait':     { color: '#3b82f6', icon: '🎨', subTags: ['Close-up', 'Centred', 'Background absent', 'Background secondary'] },
-  'Trainer':      { color: '#8b5cf6', icon: '🧑', subTags: ['Primary subject', 'Co-subject', 'Solo', 'With Pokémon'] },
-};
-
-const ACTIVITIES = [
-  'Flying','Running','Swimming','Jumping','Climbing',
-  'Attacking','Charging move','Defending','Fighting',
-  'Sleeping','Resting','Sitting',
-  'Playing','With trainer','With other Pokémon',
-  'Roaring','Crying','Surprised',
-  'Standing','Walking','Floating',
-];
-
-const ART_STYLES = [
-  'Realistic','Stylised','Cartoon','Chibi',
-  'Watercolour','Graphic / Geometric','Sketch / Lineart','CGI / 3D','Retro',
-];
-
-const DISTANCE_STEPS   = ['Close-up', 'Near', 'Mid', 'Far', 'Distant'];
-const PROMINENCE_STEPS = ['Featured', 'Present', 'Background', 'Incidental'];
-
 const ENV_LABELS = [
   { score: 0, label: 'Blank / void',  desc: 'No background at all' },
   { score: 1, label: 'Minimal',       desc: 'Colour wash or gradient only' },
@@ -34,8 +9,9 @@ const ENV_LABELS = [
   { score: 4, label: 'Rich & clear',  desc: 'Fully identifiable environment' },
 ];
 
-const ENV_MULTIPLIER = [0.1, 0.25, 0.5, 0.8, 1.0];
-const MAX_RAW = 13;
+// Environment is worth 50% of total score, everything else shares the other 50%
+// ENV_BASE: base score just from environment (0–50)
+const ENV_BASE = [0, 8, 20, 38, 50];
 
 // ── Conformance formula ──────────────────────────────────────────────────────
 export function calcConformance(data) {
@@ -49,29 +25,33 @@ export function calcConformance(data) {
 
   if (env === null) return null;
 
-  // Additional Pokémon diminishing returns
+  // Environment base (0–50 pts)
+  const envScore = ENV_BASE[env];
+
+  // Additional Pokémon — diminishing returns, each adds to bonus pool (max ~15 pts)
   const additional = Math.max(0, pokCount - 1);
-  let pokPoints = 0;
+  let pokBonus = 0;
   for (let i = 0; i < additional; i++) {
-    if      (i === 0) pokPoints += 3;
-    else if (i === 1) pokPoints += 2;
-    else if (i === 2) pokPoints += 1;
-    else              pokPoints += 0.5;
+    if      (i === 0) pokBonus += 8;
+    else if (i === 1) pokBonus += 5;
+    else if (i === 2) pokBonus += 3;
+    else              pokBonus += 1;
   }
 
-  // Trainer gated by environment
-  let trainerPoints = 0;
-  if      (env >= 4 && trainer === 'interacting') trainerPoints = 3;
-  else if (env >= 3 && trainer === 'interacting') trainerPoints = 2;
-  else if (env >= 3 && trainer === 'present')     trainerPoints = 1;
+  // Trainer gated by environment (max 12 pts)
+  let trainerBonus = 0;
+  if      (env >= 4 && trainer === 'interacting') trainerBonus = 12;
+  else if (env >= 3 && trainer === 'interacting') trainerBonus = 8;
+  else if (env >= 3 && trainer === 'present')     trainerBonus = 4;
 
-  const connectingPoints = connecting ? 1 : 0;
-  const contactPoints    = (contact && env >= 3) ? 1 : 0;
-  const livingPoints     = living  ? 1 : 0;
-  const unawarePoints    = unaware ? 1 : 0;
+  // Boolean bonuses (each ~5–8 pts, scaled so all four = ~25 pts on a rich env card)
+  const connectingBonus = connecting            ? 6  : 0;
+  const contactBonus    = (contact && env >= 3) ? 8  : 0;
+  const livingBonus     = living                ? 7  : 0;
+  const unawareBonus    = unaware               ? 6  : 0;
 
-  const raw = pokPoints + trainerPoints + connectingPoints + contactPoints + livingPoints + unawarePoints;
-  return Math.min(100, Math.round((raw * ENV_MULTIPLIER[env]) / MAX_RAW * 100));
+  const total = envScore + pokBonus + trainerBonus + connectingBonus + contactBonus + livingBonus + unawareBonus;
+  return Math.min(100, Math.round(total));
 }
 
 export function conformanceColor(pct) {
@@ -154,33 +134,6 @@ function useCardImage(card, pokemonName) {
 }
 
 // ── Small UI atoms ────────────────────────────────────────────────────────────
-function Toggle({ label, active, onClick, color }) {
-  return (
-    <button onClick={onClick}
-      className="px-2.5 py-1 rounded-full text-xs font-bold transition-all duration-150 border"
-      style={active
-        ? { background: color, color: 'white', borderColor: color, boxShadow: `0 0 0 2px ${color}40` }
-        : { background: 'transparent', color: '#6b7280', borderColor: '#e5e7eb' }}>
-      {label}
-    </button>
-  );
-}
-
-function StepSlider({ steps, value, onChange, color }) {
-  return (
-    <div className="flex gap-1">
-      {steps.map((step, i) => (
-        <button key={step} onClick={() => onChange(i === value ? null : i)}
-          className="flex-1 py-1.5 rounded-lg text-[10px] font-bold transition-all border"
-          style={value === i
-            ? { background: color, color: 'white', borderColor: color }
-            : { background: '#f9fafb', color: '#9ca3af', borderColor: '#e5e7eb' }}>
-          {step}
-        </button>
-      ))}
-    </div>
-  );
-}
 
 function YesNo({ value, onChange }) {
   return (
@@ -223,17 +176,7 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
   const pokemonName = card.pokemonName || '';
   const imageSrc    = useCardImage(card, pokemonName);
 
-  // Descriptive (no scoring)
-  const [categories,           setCategories]           = useState(reviewData.categories           || []);
-  const [subTags,               setSubTags]               = useState(reviewData.subTags               || {});
-  const [activities,            setActivities]            = useState(reviewData.activities            || []);
-  const [activityCustom,        setActivityCustom]        = useState(reviewData.activityCustom        || '');
-  const [artStyles,             setArtStyles]             = useState(reviewData.artStyles             || []);
-  const [illustrationCoverage,  setIllustrationCoverage]  = useState(reviewData.illustrationCoverage  ?? 70);
-  const [subjectDistance,       setSubjectDistance]       = useState(reviewData.subjectDistance       ?? null);
-  const [pokemonProminence,     setPokemonProminence]     = useState(reviewData.pokemonProminence     ?? null);
-
-  // Conformance inputs
+  // Conformance inputs only
   const [environmentScore, setEnvironmentScore] = useState(reviewData.environmentScore ?? null);
   const [trainerPresence,  setTrainerPresence]  = useState(reviewData.trainerPresence  ?? 'none');
   const [pokemonCount,     setPokemonCount]     = useState(reviewData.pokemonCount     ?? 1);
@@ -246,14 +189,6 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
   const dirty = () => setIsDirty(true);
 
   useEffect(() => {
-    setCategories(reviewData.categories           || []);
-    setSubTags(reviewData.subTags                 || {});
-    setActivities(reviewData.activities           || []);
-    setActivityCustom(reviewData.activityCustom   || '');
-    setArtStyles(reviewData.artStyles             || []);
-    setIllustrationCoverage(reviewData.illustrationCoverage ?? 70);
-    setSubjectDistance(reviewData.subjectDistance ?? null);
-    setPokemonProminence(reviewData.pokemonProminence ?? null);
     setEnvironmentScore(reviewData.environmentScore ?? null);
     setTrainerPresence(reviewData.trainerPresence   ?? 'none');
     setPokemonCount(reviewData.pokemonCount         ?? 1);
@@ -269,21 +204,7 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
     connectingCard, contactWithEnv, nonPokemonLiving, unawareOfViewer,
   });
 
-  const toggleCategory = (cat) => {
-    setCategories(prev => {
-      if (prev.includes(cat)) { setSubTags(st => { const n={...st}; delete n[cat]; return n; }); return prev.filter(c=>c!==cat); }
-      return [...prev, cat];
-    });
-    dirty();
-  };
-  const toggleSubTag = (cat, tag) => {
-    setSubTags(prev => { const ex=prev[cat]||[]; return {...prev,[cat]:ex.includes(tag)?ex.filter(t=>t!==tag):[...ex,tag]}; });
-    dirty();
-  };
-
   const buildData = () => ({
-    categories, subTags, activities, activityCustom: activityCustom.trim(),
-    artStyles, illustrationCoverage, subjectDistance, pokemonProminence,
     environmentScore, trainerPresence, pokemonCount,
     connectingCard, contactWithEnv, nonPokemonLiving, unawareOfViewer,
     conformancePct,
@@ -303,9 +224,7 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
   }, [hasPrev, hasNext, isDirty, environmentScore, trainerPresence, pokemonCount,
-      connectingCard, contactWithEnv, nonPokemonLiving, unawareOfViewer,
-      categories, subTags, activities, artStyles, illustrationCoverage,
-      subjectDistance, pokemonProminence, activityCustom]);
+      connectingCard, contactWithEnv, nonPokemonLiving, unawareOfViewer]);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
@@ -445,91 +364,6 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
                   <YesNo value={val} onChange={(v) => { set(v); dirty(); }} />
                 </div>
               ))}
-            </section>
-
-            {/* ── DESCRIPTIVE TAGS ── */}
-            <section>
-              <h3 className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Category</h3>
-              <div className="flex flex-wrap gap-1.5 mb-2">
-                {Object.entries(CATEGORIES).map(([cat, cfg]) => (
-                  <button key={cat} onClick={() => toggleCategory(cat)}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border transition-all"
-                    style={categories.includes(cat)
-                      ? { background: cfg.color, color: 'white', borderColor: cfg.color, boxShadow: `0 0 0 2px ${cfg.color}40` }
-                      : { background: 'transparent', color: '#6b7280', borderColor: '#e5e7eb' }}>
-                    <span>{cfg.icon}</span> {cat}
-                  </button>
-                ))}
-              </div>
-              {categories.map(cat => CATEGORIES[cat] && (
-                <div key={cat} className="mt-2 pl-3 border-l-2" style={{ borderColor: CATEGORIES[cat].color }}>
-                  <div className="text-[10px] font-bold mb-1.5" style={{ color: CATEGORIES[cat].color }}>{cat} · sub-tags</div>
-                  <div className="flex flex-wrap gap-1">
-                    {CATEGORIES[cat].subTags.map(tag => (
-                      <Toggle key={tag} label={tag} active={(subTags[cat]||[]).includes(tag)}
-                        onClick={() => toggleSubTag(cat, tag)} color={CATEGORIES[cat].color} />
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </section>
-
-            <section>
-              <h3 className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Art Style</h3>
-              <div className="flex flex-wrap gap-1.5">
-                {ART_STYLES.map(style => (
-                  <Toggle key={style} label={style}
-                    active={artStyles.includes(style)}
-                    onClick={() => { setArtStyles(prev => prev.includes(style) ? prev.filter(s=>s!==style) : [...prev,style]); dirty(); }}
-                    color="#6366f1" />
-                ))}
-              </div>
-            </section>
-
-            <section>
-              <h3 className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Pokémon Activity</h3>
-              <div className="flex flex-wrap gap-1.5 mb-2">
-                {ACTIVITIES.map(act => (
-                  <Toggle key={act} label={act}
-                    active={activities.includes(act)}
-                    onClick={() => { setActivities(prev => prev.includes(act) ? prev.filter(a=>a!==act) : [...prev,act]); dirty(); }}
-                    color="#f59e0b" />
-                ))}
-              </div>
-              <input type="text" value={activityCustom}
-                onChange={(e) => { setActivityCustom(e.target.value); dirty(); }}
-                placeholder="Other activity..."
-                className="w-full border border-gray-200 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-amber-300 text-gray-700" />
-            </section>
-
-            <section>
-              <h3 className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-3">Artwork Metrics</h3>
-              <div className="mb-4">
-                <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-xs font-semibold text-gray-600">Illustration coverage</span>
-                  <span className="text-xs font-black text-purple-600">{illustrationCoverage}%</span>
-                </div>
-                <input type="range" min="0" max="100" step="5" value={illustrationCoverage}
-                  onChange={(e) => { setIllustrationCoverage(Number(e.target.value)); dirty(); }}
-                  className="w-full h-2 rounded-full appearance-none cursor-pointer" style={{ accentColor: '#8b5cf6' }} />
-                <div className="flex justify-between text-[9px] text-gray-400 mt-0.5">
-                  <span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span>
-                </div>
-              </div>
-              <div className="mb-4">
-                <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-xs font-semibold text-gray-600">Subject distance</span>
-                  <span className="text-xs font-black text-blue-600">{subjectDistance !== null ? DISTANCE_STEPS[subjectDistance] : 'Not set'}</span>
-                </div>
-                <StepSlider steps={DISTANCE_STEPS} value={subjectDistance} onChange={(v) => { setSubjectDistance(v); dirty(); }} color="#3b82f6" />
-              </div>
-              <div>
-                <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-xs font-semibold text-gray-600">Pokémon prominence</span>
-                  <span className="text-xs font-black text-emerald-600">{pokemonProminence !== null ? PROMINENCE_STEPS[pokemonProminence] : 'Not set'}</span>
-                </div>
-                <StepSlider steps={PROMINENCE_STEPS} value={pokemonProminence} onChange={(v) => { setPokemonProminence(v); dirty(); }} color="#10b981" />
-              </div>
             </section>
 
           </div>

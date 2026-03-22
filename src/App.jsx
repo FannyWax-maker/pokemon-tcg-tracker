@@ -40,7 +40,7 @@ export default function App() {
   const [filterCardType, setFilterCardType] = useState('all');
   const [showFilters, setShowFilters] = useState(false);
   const [languagePickerCard, setLanguagePickerCard] = useState(null);
-  const [viewMode, setViewMode] = useState('pokemon');
+  const [viewMode, setViewMode] = useState('cards');
   const [filterMissingImages, setFilterMissingImages] = useState(false);
   const [filterChinese, setFilterChinese] = useState('all');
   const [sortBy, setSortBy] = useState('default');
