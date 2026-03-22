@@ -29,7 +29,7 @@ export function calcConformance(data) {
   const envScore = ENV_BASE[env];
 
   // Additional Pokémon — diminishing returns
-  const additional = Math.max(0, pokCount - 1);
+  const additional = Math.max(0, pokCount);
   let pokBonus = 0;
   for (let i = 0; i < additional; i++) {
     if      (i === 0) pokBonus += 8;
@@ -40,7 +40,7 @@ export function calcConformance(data) {
 
   // Trainer — always scores, no env gate
   let trainerBonus = 0;
-  if      (trainer === 'interacting') trainerBonus = 8;
+  if      (trainer === 'interacting') trainerBonus = 15;
   else if (trainer === 'present')     trainerBonus = 4;
 
   // Boolean bonuses
@@ -189,7 +189,7 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
   // Conformance inputs only
   const [environmentScore, setEnvironmentScore] = useState(reviewData.environmentScore ?? null);
   const [trainerPresence,  setTrainerPresence]  = useState(reviewData.trainerPresence  ?? 'none');
-  const [pokemonCount,     setPokemonCount]     = useState(reviewData.pokemonCount     ?? 1);
+  const [pokemonCount,     setPokemonCount]     = useState(reviewData.pokemonCount     ?? 0);
   const [connectingCard,   setConnectingCard]   = useState(reviewData.connectingCard   ?? null);
   const [nonPokemonLiving, setNonPokemonLiving] = useState(reviewData.nonPokemonLiving ?? null);
   const [unawareOfViewer,  setUnawareOfViewer]  = useState(reviewData.unawareOfViewer  ?? null);
@@ -201,7 +201,7 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
   useEffect(() => {
     setEnvironmentScore(reviewData.environmentScore ?? null);
     setTrainerPresence(reviewData.trainerPresence   ?? 'none');
-    setPokemonCount(reviewData.pokemonCount         ?? 1);
+    setPokemonCount(reviewData.pokemonCount         ?? 0);
     setConnectingCard(reviewData.connectingCard     ?? null);
     setNonPokemonLiving(reviewData.nonPokemonLiving ?? null);
     setUnawareOfViewer(reviewData.unawareOfViewer   ?? null);
@@ -226,19 +226,7 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
     reviewedAt: new Date().toISOString(),
   });
 
-  const handleSave = () => {
-    const data = buildData();
-    onSave(data);
-    setSavedData(data);
-    setIsDirty(false);
-  };
-  const handleSaveAndNext = () => {
-    const data = buildData();
-    onSave(data);
-    setSavedData(data);
-    setIsDirty(false);
-    onNext();
-  };
+  const handleClose = () => { if (isDirty) { const data = buildData(); onSave(data); setSavedData(data); setIsDirty(false); } onClose(); };
 
   const handleCopyJson = () => {
     if (!savedData) return;
@@ -252,9 +240,9 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
   useEffect(() => {
     const h = (e) => {
       if (e.target.tagName === 'INPUT') return;
-      if (e.key === 'Escape')      onClose();
-      if (e.key === 'ArrowLeft'  && hasPrev) { if (isDirty) handleSave(); onPrev(); }
-      if (e.key === 'ArrowRight' && hasNext) { if (isDirty) handleSave(); onNext(); }
+      if (e.key === 'Escape') handleClose();
+      if (e.key === 'ArrowLeft'  && hasPrev) { if (isDirty) { const d = buildData(); onSave(d); setSavedData(d); } onPrev(); }
+      if (e.key === 'ArrowRight' && hasNext) { if (isDirty) { const d = buildData(); onSave(d); setSavedData(d); } onNext(); }
     };
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
@@ -263,24 +251,24 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
-      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      onClick={(e) => { if (e.target === e.currentTarget) handleClose(); }}>
       <div className="relative bg-white rounded-3xl shadow-2xl flex overflow-hidden"
-        style={{ width: 'min(960px, 96vw)', height: 'min(90vh, 720px)' }}>
+        style={{ width: 'min(960px, 96vw)', height: 'min(88vh, 680px)' }}>
 
         {/* LEFT — image + score */}
         <div className="relative flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 shrink-0 py-6"
           style={{ width: '240px' }}>
 
-          <button onClick={() => { if (isDirty) handleSave(); onPrev(); }} disabled={!hasPrev}
+          <button onClick={() => { if (isDirty) { const d = buildData(); onSave(d); setSavedData(d); setIsDirty(false); } onPrev(); }} disabled={!hasPrev}
             className={`absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold z-10 transition-all
               ${hasPrev ? 'bg-white/20 hover:bg-white/30 text-white' : 'text-white/20 cursor-not-allowed'}`}>‹</button>
-          <button onClick={() => { if (isDirty) handleSave(); onNext(); }} disabled={!hasNext}
+          <button onClick={() => { if (isDirty) { const d = buildData(); onSave(d); setSavedData(d); setIsDirty(false); } onNext(); }} disabled={!hasNext}
             className={`absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold z-10 transition-all
               ${hasNext ? 'bg-white/20 hover:bg-white/30 text-white' : 'text-white/20 cursor-not-allowed'}`}>›</button>
 
           {imageSrc
-            ? <img src={imageSrc} alt={pokemonName} className="object-contain rounded-xl shadow-2xl" style={{ maxHeight: '320px', maxWidth: '185px' }} />
-            : <div className="w-36 h-52 rounded-xl bg-gray-700 flex items-center justify-center"><span className="text-4xl opacity-30">🃏</span></div>
+            ? <img src={imageSrc} alt={pokemonName} className="object-contain rounded-xl shadow-2xl" style={{ maxHeight: '280px', maxWidth: '170px' }} />
+            : <div className="w-32 h-44 rounded-xl bg-gray-700 flex items-center justify-center"><span className="text-4xl opacity-30">🃏</span></div>
           }
 
           <div className="mt-3 text-center px-3 w-full">
@@ -310,15 +298,13 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
               </span>
               {isDirty && <span className="text-[10px] font-bold text-amber-500 bg-amber-50 px-2 py-0.5 rounded-full">Unsaved</span>}
             </div>
-            <button onClick={onClose} className="p-1.5 hover:bg-gray-100 rounded-lg text-gray-400 hover:text-gray-700 transition-colors">
+            <button onClick={handleClose} className="p-1.5 hover:bg-gray-100 rounded-lg text-gray-400 hover:text-gray-700 transition-colors">
               <X className="w-4 h-4" />
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto px-5 py-4 space-y-5">
-
-            {/* ── CONFORMANCE ── */}
-            <section className="rounded-2xl border-2 border-purple-100 bg-purple-50/40 p-4 space-y-4">
+          <div className="flex-1 overflow-y-auto px-4 py-3">
+            <section className="rounded-2xl border-2 border-purple-100 bg-purple-50/40 p-3 space-y-3">
               <h3 className="text-[10px] font-black uppercase tracking-widest text-purple-500">Conformance Score</h3>
 
               {/* Environment — gatekeeper */}
@@ -349,7 +335,7 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
               <div className="flex items-center justify-between gap-3">
                 <div>
                   <div className="text-xs font-bold text-gray-700">Trainer in card</div>
-                  <div className="text-[9px] text-gray-400">Present +4 · Interacting with Pokémon +8</div>
+                  <div className="text-[9px] text-gray-400">Present +4 · Interacting with Pokémon +15</div>
                 </div>
                 <div className="flex rounded-lg overflow-hidden border border-gray-200 text-xs font-bold shrink-0">
                   {[['none','None'],['present','Present'],['interacting','Interacting']].map(([val,label]) => (
@@ -364,18 +350,18 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
                 </div>
               </div>
 
-              {/* Pokémon count */}
+              {/* Additional Pokémon count */}
               <div className="flex items-center justify-between gap-3">
                 <div>
-                  <div className="text-xs font-bold text-gray-700">Pokémon in artwork</div>
-                  <div className="text-[9px] text-gray-400">2nd +8 · 3rd +5 · 4th +3 · diminishing</div>
+                  <div className="text-xs font-bold text-gray-700">Additional Pokémon in artwork</div>
+                  <div className="text-[9px] text-gray-400">1st +8 · 2nd +5 · 3rd +3 · diminishing</div>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
-                  <button onClick={() => { setPokemonCount(c => Math.max(1,c-1)); dirty(); }}
+                  <button onClick={() => { setPokemonCount(c => Math.max(0,c-1)); dirty(); }}
                     className="w-7 h-7 rounded-full border border-gray-200 text-gray-600 hover:bg-gray-100 font-bold flex items-center justify-center">−</button>
-                  <input type="number" min="1" max="20" value={pokemonCount}
-                    onChange={(e) => { setPokemonCount(Math.max(1,parseInt(e.target.value)||1)); dirty(); }}
-                    className="w-12 text-center border border-gray-200 rounded-lg py-1 text-sm font-black text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-300" />
+                  <input type="number" min="0" max="20" value={pokemonCount}
+                    onChange={(e) => { setPokemonCount(Math.max(0,parseInt(e.target.value)||0)); dirty(); }}
+                    className="w-12 text-center border border-gray-200 rounded-lg py-1 text-sm font-black text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-300 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
                   <button onClick={() => { setPokemonCount(c => c+1); dirty(); }}
                     className="w-7 h-7 rounded-full border border-gray-200 text-gray-600 hover:bg-gray-100 font-bold flex items-center justify-center">+</button>
                 </div>
@@ -429,20 +415,9 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
 
           </div>
 
-          {/* Footer */}
-          <div className="shrink-0 px-5 py-3 border-t border-gray-100 space-y-2">
-            <div className="flex gap-2">
-              <button onClick={handleSave}
-                className="flex-1 py-2 rounded-xl text-sm font-bold border border-purple-200 text-purple-700 hover:bg-purple-50 transition-colors">
-                Save
-              </button>
-              <button onClick={handleSaveAndNext} disabled={!hasNext}
-                className="flex-1 py-2 rounded-xl text-sm font-bold text-white transition-all disabled:opacity-40"
-                style={{ background: hasNext ? 'linear-gradient(135deg,#8b5cf6,#7c3aed)' : '#e5e7eb' }}>
-                Save & Next →
-              </button>
-            </div>
-            {savedData && (
+          {/* Footer — Copy JSON only */}
+          <div className="shrink-0 px-4 py-3 border-t border-gray-100">
+            {savedData ? (
               <div className={`rounded-xl border p-3 space-y-2 transition-colors ${copied ? 'bg-green-50 border-green-200' : 'bg-gray-50 border-gray-200'}`}>
                 <div className="flex items-center justify-between">
                   <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Card ID: {card.id}</div>
@@ -452,10 +427,12 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
                     {copied ? '✓ Copied!' : 'Copy JSON'}
                   </button>
                 </div>
-                <pre className="text-[9px] text-gray-500 font-mono leading-tight overflow-x-auto max-h-24 whitespace-pre-wrap break-all">
+                <pre className="text-[9px] text-gray-500 font-mono leading-tight overflow-x-auto max-h-20 whitespace-pre-wrap break-all">
                   {JSON.stringify(savedData, null, 2)}
                 </pre>
               </div>
+            ) : (
+              <div className="text-[10px] text-gray-400 text-center py-1">Changes auto-save when navigating or closing</div>
             )}
           </div>
         </div>
