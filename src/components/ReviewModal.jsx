@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 
 const ENV_LABELS = [
-  { score: 0, label: 'Blank / void',  desc: 'No background at all' },
-  { score: 1, label: 'Minimal',       desc: 'Colour wash or gradient only' },
-  { score: 2, label: 'Abstract',      desc: 'Background unclear or indistinct' },
-  { score: 3, label: 'Partial',       desc: 'Some environmental elements' },
-  { score: 4, label: 'Rich & clear',  desc: 'Fully identifiable environment' },
+  { score: 1, label: 'Minimal',      desc: 'Colour wash or gradient only' },
+  { score: 2, label: 'Abstract',     desc: 'Background unclear or indistinct' },
+  { score: 3, label: 'Partial',      desc: 'Some environmental elements' },
+  { score: 4, label: 'Rich & clear', desc: 'Fully identifiable environment' },
 ];
+const ENV_LABEL_MAP = Object.fromEntries(ENV_LABELS.map(e => [e.score, e]));
 
 // Environment is worth 50% of total score, everything else shares the other 50%
 // ENV_BASE: base score just from environment (0–50)
@@ -341,7 +341,7 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
                   ))}
                 </div>
                 <div className="text-[9px] text-gray-400 mt-1 text-center">
-                  {environmentScore !== null ? ENV_LABELS[environmentScore].desc : 'Tap a score — this multiplies everything else'}
+                  {environmentScore !== null ? (ENV_LABEL_MAP[environmentScore]?.desc ?? '') : 'Tap a score — this multiplies everything else'}
                 </div>
               </div>
 
