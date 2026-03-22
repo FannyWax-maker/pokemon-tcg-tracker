@@ -19,16 +19,16 @@ export function calcConformance(data) {
   const trainer    = data.trainerPresence  ?? 'none';
   const pokCount   = data.pokemonCount     ?? 1;
   const connecting = data.connectingCard   ?? false;
-  const contact    = data.contactWithEnv   ?? false;
   const living     = data.nonPokemonLiving ?? false;
-  const unaware    = data.unawareOfViewer  ?? false;
+  const unaware    = data.unawareOfViewer  ?? null;
+  const starRating = data.starRating       ?? null;
 
   if (env === null) return null;
 
   // Environment base (0–50 pts)
   const envScore = ENV_BASE[env];
 
-  // Additional Pokémon — diminishing returns, each adds to bonus pool (max ~15 pts)
+  // Additional Pokémon — diminishing returns
   const additional = Math.max(0, pokCount - 1);
   let pokBonus = 0;
   for (let i = 0; i < additional; i++) {
@@ -38,20 +38,29 @@ export function calcConformance(data) {
     else              pokBonus += 1;
   }
 
-  // Trainer gated by environment (max 12 pts)
+  // Trainer — always scores, no env gate
   let trainerBonus = 0;
-  if      (env >= 4 && trainer === 'interacting') trainerBonus = 12;
-  else if (env >= 3 && trainer === 'interacting') trainerBonus = 8;
-  else if (env >= 3 && trainer === 'present')     trainerBonus = 4;
+  if      (trainer === 'interacting') trainerBonus = 8;
+  else if (trainer === 'present')     trainerBonus = 4;
 
-  // Boolean bonuses (each ~5–8 pts, scaled so all four = ~25 pts on a rich env card)
-  const connectingBonus = connecting            ? 6  : 0;
-  const contactBonus    = (contact && env >= 3) ? 8  : 0;
-  const livingBonus     = living                ? 7  : 0;
-  const unawareBonus    = unaware               ? 6  : 0;
+  // Boolean bonuses
+  const connectingBonus = connecting ? 6 : 0;
+  const livingBonus     = living     ? 7 : 0;
 
-  const total = envScore + pokBonus + trainerBonus + connectingBonus + contactBonus + livingBonus + unawareBonus;
-  return Math.min(100, Math.round(total));
+  // Unaware — Yes = +6, No = -5, null = 0
+  const unawareBonus = unaware === true ? 6 : unaware === false ? -5 : 0;
+
+  const formulaScore = Math.min(100, Math.max(0, Math.round(
+    envScore + pokBonus + trainerBonus + connectingBonus + livingBonus + unawareBonus
+  )));
+
+  // Star rating blend — 50/50 weighted average if set
+  if (starRating !== null) {
+    const starScore = Math.round((starRating / 10) * 100);
+    return Math.min(100, Math.round((formulaScore + starScore) / 2));
+  }
+
+  return formulaScore;
 }
 
 export function conformanceColor(pct) {
@@ -151,7 +160,7 @@ function YesNo({ value, onChange }) {
   );
 }
 
-function ConformanceMeter({ pct }) {
+function ConformanceMeter({ pct, hasStarRating }) {
   if (pct === null) return (
     <div className="text-center py-1">
       <div className="text-2xl font-black text-gray-400 opacity-40">—</div>
@@ -164,6 +173,7 @@ function ConformanceMeter({ pct }) {
     <div className="text-center">
       <div className="text-4xl font-black leading-none" style={{ color }}>{pct}%</div>
       <div className="text-[11px] font-bold mt-1" style={{ color }}>{label}</div>
+      {hasStarRating && <div className="text-[9px] text-gray-400 mt-0.5">formula + rating blended</div>}
       <div className="mt-2 h-2 bg-white/20 rounded-full overflow-hidden">
         <div className="h-full rounded-full transition-all duration-500" style={{ width: `${pct}%`, background: color }} />
       </div>
@@ -181,9 +191,9 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
   const [trainerPresence,  setTrainerPresence]  = useState(reviewData.trainerPresence  ?? 'none');
   const [pokemonCount,     setPokemonCount]     = useState(reviewData.pokemonCount     ?? 1);
   const [connectingCard,   setConnectingCard]   = useState(reviewData.connectingCard   ?? null);
-  const [contactWithEnv,   setContactWithEnv]   = useState(reviewData.contactWithEnv   ?? null);
   const [nonPokemonLiving, setNonPokemonLiving] = useState(reviewData.nonPokemonLiving ?? null);
   const [unawareOfViewer,  setUnawareOfViewer]  = useState(reviewData.unawareOfViewer  ?? null);
+  const [starRating,       setStarRating]       = useState(reviewData.starRating       ?? null);
 
   const [isDirty, setIsDirty] = useState(false);
   const dirty = () => setIsDirty(true);
@@ -193,20 +203,20 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
     setTrainerPresence(reviewData.trainerPresence   ?? 'none');
     setPokemonCount(reviewData.pokemonCount         ?? 1);
     setConnectingCard(reviewData.connectingCard     ?? null);
-    setContactWithEnv(reviewData.contactWithEnv     ?? null);
     setNonPokemonLiving(reviewData.nonPokemonLiving ?? null);
     setUnawareOfViewer(reviewData.unawareOfViewer   ?? null);
+    setStarRating(reviewData.starRating             ?? null);
     setIsDirty(false);
   }, [card.id]);
 
   const conformancePct = calcConformance({
     environmentScore, trainerPresence, pokemonCount,
-    connectingCard, contactWithEnv, nonPokemonLiving, unawareOfViewer,
+    connectingCard, nonPokemonLiving, unawareOfViewer, starRating,
   });
 
   const buildData = () => ({
     environmentScore, trainerPresence, pokemonCount,
-    connectingCard, contactWithEnv, nonPokemonLiving, unawareOfViewer,
+    connectingCard, nonPokemonLiving, unawareOfViewer, starRating,
     conformancePct,
     reviewedAt: new Date().toISOString(),
   });
@@ -224,7 +234,7 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
   }, [hasPrev, hasNext, isDirty, environmentScore, trainerPresence, pokemonCount,
-      connectingCard, contactWithEnv, nonPokemonLiving, unawareOfViewer]);
+      connectingCard, nonPokemonLiving, unawareOfViewer, starRating]);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
@@ -256,7 +266,7 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
 
           <div className="mt-3 px-4 w-full">
             <div className="bg-black/40 rounded-2xl p-3">
-              <ConformanceMeter pct={conformancePct} />
+              <ConformanceMeter pct={conformancePct} hasStarRating={starRating !== null} />
             </div>
           </div>
 
@@ -314,9 +324,7 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
               <div className="flex items-center justify-between gap-3">
                 <div>
                   <div className="text-xs font-bold text-gray-700">Trainer in card</div>
-                  {environmentScore !== null && environmentScore < 3 && trainerPresence !== 'none' && (
-                    <div className="text-[9px] text-amber-500 font-bold">⚠ Env &lt; 3 — scores 0</div>
-                  )}
+                  <div className="text-[9px] text-gray-400">Present +4 · Interacting with Pokémon +8</div>
                 </div>
                 <div className="flex rounded-lg overflow-hidden border border-gray-200 text-xs font-bold shrink-0">
                   {[['none','None'],['present','Present'],['interacting','Interacting']].map(([val,label]) => (
@@ -335,7 +343,7 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
               <div className="flex items-center justify-between gap-3">
                 <div>
                   <div className="text-xs font-bold text-gray-700">Pokémon in artwork</div>
-                  <div className="text-[9px] text-gray-400">2nd +3 · 3rd +2 · 4th +1 · diminishing</div>
+                  <div className="text-[9px] text-gray-400">2nd +8 · 3rd +5 · 4th +3 · diminishing</div>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
                   <button onClick={() => { setPokemonCount(c => Math.max(1,c-1)); dirty(); }}
@@ -350,20 +358,48 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
 
               {/* Boolean flags */}
               {[
-                { label: 'Has a connecting card',        key: 'connectingCard',   val: connectingCard,   set: setConnectingCard },
-                { label: 'Pokémon touching environment', key: 'contactWithEnv',   val: contactWithEnv,   set: setContactWithEnv,
-                  warning: environmentScore !== null && environmentScore < 3 ? 'Needs env ≥ 3 to score' : null },
-                { label: 'Non-Pokémon living things',    key: 'nonPokemonLiving', val: nonPokemonLiving, set: setNonPokemonLiving },
-                { label: 'Pokémon unaware of viewer',    key: 'unawareOfViewer',  val: unawareOfViewer,  set: setUnawareOfViewer },
-              ].map(({ label, key, val, set, warning }) => (
+                { label: 'Has a connecting card',              hint: '+6',       key: 'connectingCard',   val: connectingCard,   set: setConnectingCard },
+                { label: 'Non-Pokémon living things',          hint: '+7',       key: 'nonPokemonLiving', val: nonPokemonLiving, set: setNonPokemonLiving },
+                { label: 'Pokémon unaware / not facing camera',hint: 'Yes +6 · No −5', key: 'unawareOfViewer',  val: unawareOfViewer,  set: setUnawareOfViewer },
+              ].map(({ label, hint, key, val, set }) => (
                 <div key={key} className="flex items-center justify-between gap-3">
                   <div>
                     <div className="text-xs font-bold text-gray-700">{label}</div>
-                    {warning && <div className="text-[9px] text-amber-500 font-bold">⚠ {warning}</div>}
+                    <div className="text-[9px] text-gray-400">{hint}</div>
                   </div>
                   <YesNo value={val} onChange={(v) => { set(v); dirty(); }} />
                 </div>
               ))}
+
+              {/* Star rating */}
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <div>
+                    <div className="text-xs font-bold text-gray-700">Personal rating</div>
+                    <div className="text-[9px] text-gray-400">Blended 50/50 with calculated score</div>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    {starRating !== null && (
+                      <span className="text-xs font-black text-amber-500">{starRating}/10</span>
+                    )}
+                    {starRating !== null && (
+                      <button onClick={() => { setStarRating(null); dirty(); }}
+                        className="text-[9px] text-gray-400 hover:text-gray-600 px-1">✕</button>
+                    )}
+                  </div>
+                </div>
+                <div className="flex gap-1">
+                  {[1,2,3,4,5,6,7,8,9,10].map(n => (
+                    <button key={n} onClick={() => { setStarRating(starRating === n ? null : n); dirty(); }}
+                      className="flex-1 py-1.5 rounded-lg text-[10px] font-black transition-all border"
+                      style={starRating !== null && n <= starRating
+                        ? { background: 'linear-gradient(135deg,#f59e0b,#d97706)', color: 'white', borderColor: '#d97706' }
+                        : { background: '#f9fafb', color: '#d1d5db', borderColor: '#e5e7eb' }}>
+                      {n}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </section>
 
           </div>
