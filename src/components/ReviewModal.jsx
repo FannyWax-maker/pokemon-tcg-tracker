@@ -17,18 +17,17 @@ const ENV_BASE = [0, 8, 20, 38, 50];
 export function calcConformance(data) {
   const env        = data.environmentScore ?? null;
   const trainer    = data.trainerPresence  ?? 'none';
-  const pokCount   = data.pokemonCount     ?? 1;
+  const pokCount   = data.pokemonCount     ?? 0;
   const connecting = data.connectingCard   ?? false;
   const living     = data.nonPokemonLiving ?? false;
   const unaware    = data.unawareOfViewer  ?? null;
-  const starRating = data.starRating       ?? null;
+  const tjayRating  = data.tjayRating  ?? null;
+  const stephRating = data.stephRating ?? null;
 
   if (env === null) return null;
 
-  // Environment base (0–50 pts)
   const envScore = ENV_BASE[env];
 
-  // Additional Pokémon — diminishing returns
   const additional = Math.max(0, pokCount);
   let pokBonus = 0;
   for (let i = 0; i < additional; i++) {
@@ -38,26 +37,24 @@ export function calcConformance(data) {
     else              pokBonus += 1;
   }
 
-  // Trainer — always scores, no env gate
   let trainerBonus = 0;
   if      (trainer === 'interacting') trainerBonus = 15;
   else if (trainer === 'present')     trainerBonus = 4;
 
-  // Boolean bonuses
   const connectingBonus = connecting ? 6 : 0;
   const livingBonus     = living     ? 7 : 0;
-
-  // Unaware — Yes = +6, No = -5, null = 0
-  const unawareBonus = unaware === true ? 6 : unaware === false ? -5 : 0;
+  const unawareBonus    = unaware === true ? 6 : unaware === false ? -5 : 0;
 
   const formulaScore = Math.min(100, Math.max(0, Math.round(
     envScore + pokBonus + trainerBonus + connectingBonus + livingBonus + unawareBonus
   )));
 
-  // Star rating blend — 50/50 weighted average if set
-  if (starRating !== null) {
-    const starScore = Math.round((starRating / 10) * 100);
-    return Math.min(100, Math.round((formulaScore + starScore) / 2));
+  // Personal ratings — average available ratings, then blend 50/50 with formula
+  const ratings = [tjayRating, stephRating].filter(r => r !== null);
+  if (ratings.length > 0) {
+    const avgRating = ratings.reduce((a, b) => a + b, 0) / ratings.length;
+    const ratingScore = Math.round((avgRating / 10) * 100);
+    return Math.min(100, Math.round((formulaScore + ratingScore) / 2));
   }
 
   return formulaScore;
@@ -160,7 +157,7 @@ function YesNo({ value, onChange }) {
   );
 }
 
-function ConformanceMeter({ pct, hasStarRating }) {
+function ConformanceMeter({ pct, tjayRating, stephRating }) {
   if (pct === null) return (
     <div className="text-center py-1">
       <div className="text-2xl font-black text-gray-400 opacity-40">—</div>
@@ -169,11 +166,16 @@ function ConformanceMeter({ pct, hasStarRating }) {
   );
   const color = conformanceColor(pct);
   const label = pct >= 80 ? '★ Highly conforming' : pct >= 60 ? 'Conforming' : pct >= 35 ? 'Partial' : 'Non-conforming';
+  const hasRatings = tjayRating !== null || stephRating !== null;
   return (
     <div className="text-center">
       <div className="text-4xl font-black leading-none" style={{ color }}>{pct}%</div>
       <div className="text-[11px] font-bold mt-1" style={{ color }}>{label}</div>
-      {hasStarRating && <div className="text-[9px] text-gray-400 mt-0.5">formula + rating blended</div>}
+      {hasRatings && (
+        <div className="text-[9px] text-gray-400 mt-0.5">
+          {[tjayRating !== null && `Tjay ${tjayRating}/10`, stephRating !== null && `Steph ${stephRating}/10`].filter(Boolean).join(' · ')}
+        </div>
+      )}
       <div className="mt-2 h-2 bg-white/20 rounded-full overflow-hidden">
         <div className="h-full rounded-full transition-all duration-500" style={{ width: `${pct}%`, background: color }} />
       </div>
@@ -193,7 +195,8 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
   const [connectingCard,   setConnectingCard]   = useState(reviewData.connectingCard   ?? null);
   const [nonPokemonLiving, setNonPokemonLiving] = useState(reviewData.nonPokemonLiving ?? null);
   const [unawareOfViewer,  setUnawareOfViewer]  = useState(reviewData.unawareOfViewer  ?? null);
-  const [starRating,       setStarRating]       = useState(reviewData.starRating       ?? null);
+  const [tjayRating,       setTjayRating]       = useState(reviewData.tjayRating       ?? null);
+  const [stephRating,      setStephRating]      = useState(reviewData.stephRating      ?? null);
 
   const [isDirty, setIsDirty] = useState(false);
   const dirty = () => setIsDirty(true);
@@ -205,7 +208,8 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
     setConnectingCard(reviewData.connectingCard     ?? null);
     setNonPokemonLiving(reviewData.nonPokemonLiving ?? null);
     setUnawareOfViewer(reviewData.unawareOfViewer   ?? null);
-    setStarRating(reviewData.starRating             ?? null);
+    setTjayRating(reviewData.tjayRating             ?? null);
+    setStephRating(reviewData.stephRating           ?? null);
     setSavedData(Object.keys(reviewData).length > 0 ? reviewData : null);
     setCopied(false);
     setIsDirty(false);
@@ -213,7 +217,7 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
 
   const conformancePct = calcConformance({
     environmentScore, trainerPresence, pokemonCount,
-    connectingCard, nonPokemonLiving, unawareOfViewer, starRating,
+    connectingCard, nonPokemonLiving, unawareOfViewer, tjayRating, stephRating,
   });
 
   const [savedData,  setSavedData]  = useState(Object.keys(reviewData).length > 0 ? reviewData : null);
@@ -221,7 +225,7 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
 
   const buildData = () => ({
     environmentScore, trainerPresence, pokemonCount,
-    connectingCard, nonPokemonLiving, unawareOfViewer, starRating,
+    connectingCard, nonPokemonLiving, unawareOfViewer, tjayRating, stephRating,
     conformancePct,
     reviewedAt: new Date().toISOString(),
   });
@@ -247,7 +251,7 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
   }, [hasPrev, hasNext, isDirty, environmentScore, trainerPresence, pokemonCount,
-      connectingCard, nonPokemonLiving, unawareOfViewer, starRating]);
+      connectingCard, nonPokemonLiving, unawareOfViewer, tjayRating, stephRating]);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
@@ -279,7 +283,7 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
 
           <div className="mt-3 px-4 w-full">
             <div className="bg-black/40 rounded-2xl p-3">
-              <ConformanceMeter pct={conformancePct} hasStarRating={starRating !== null} />
+              <ConformanceMeter pct={conformancePct} tjayRating={tjayRating} stephRating={stephRating} />
             </div>
           </div>
 
@@ -382,57 +386,46 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
                 </div>
               ))}
 
-              {/* Star rating */}
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <div>
-                    <div className="text-xs font-bold text-gray-700">Personal rating</div>
-                    <div className="text-[9px] text-gray-400">Blended 50/50 with calculated score</div>
+              {/* Personal ratings */}
+              {[
+                { name: 'Tjay', val: tjayRating, set: setTjayRating, color: '#3b82f6' },
+                { name: 'Steph', val: stephRating, set: setStephRating, color: '#ec4899' },
+              ].map(({ name, val, set, color }) => (
+                <div key={name}>
+                  <div className="flex items-center justify-between mb-1">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-bold text-gray-700">{name}'s rating</span>
+                      {val !== null && <span className="text-[10px] font-black" style={{ color }}>{val}/10</span>}
+                    </div>
+                    {val !== null && (
+                      <button onClick={() => { set(null); dirty(); }} className="text-[9px] text-gray-400 hover:text-gray-600">✕</button>
+                    )}
                   </div>
-                  <div className="flex items-center gap-1.5">
-                    {starRating !== null && (
-                      <span className="text-xs font-black text-amber-500">{starRating}/10</span>
-                    )}
-                    {starRating !== null && (
-                      <button onClick={() => { setStarRating(null); dirty(); }}
-                        className="text-[9px] text-gray-400 hover:text-gray-600 px-1">✕</button>
-                    )}
+                  <div className="flex gap-1">
+                    {[1,2,3,4,5,6,7,8,9,10].map(n => (
+                      <button key={n} onClick={() => { set(val === n ? null : n); dirty(); }}
+                        className="flex-1 py-1 rounded-lg text-[10px] font-black transition-all border"
+                        style={val !== null && n <= val
+                          ? { background: color, color: 'white', borderColor: color }
+                          : { background: '#f9fafb', color: '#d1d5db', borderColor: '#e5e7eb' }}>
+                        {n}
+                      </button>
+                    ))}
                   </div>
                 </div>
-                <div className="flex gap-1">
-                  {[1,2,3,4,5,6,7,8,9,10].map(n => (
-                    <button key={n} onClick={() => { setStarRating(starRating === n ? null : n); dirty(); }}
-                      className="flex-1 py-1.5 rounded-lg text-[10px] font-black transition-all border"
-                      style={starRating !== null && n <= starRating
-                        ? { background: 'linear-gradient(135deg,#f59e0b,#d97706)', color: 'white', borderColor: '#d97706' }
-                        : { background: '#f9fafb', color: '#d1d5db', borderColor: '#e5e7eb' }}>
-                      {n}
-                    </button>
-                  ))}
-                </div>
-              </div>
+              ))}
             </section>
-
           </div>
 
-          {/* Footer — Copy JSON only */}
-          <div className="shrink-0 px-4 py-3 border-t border-gray-100">
-            {savedData ? (
-              <div className={`rounded-xl border p-3 space-y-2 transition-colors ${copied ? 'bg-green-50 border-green-200' : 'bg-gray-50 border-gray-200'}`}>
-                <div className="flex items-center justify-between">
-                  <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Card ID: {card.id}</div>
-                  <button onClick={handleCopyJson}
-                    className="px-3 py-1 rounded-lg text-xs font-black text-white transition-all"
-                    style={{ background: copied ? 'linear-gradient(135deg,#22c55e,#16a34a)' : 'linear-gradient(135deg,#3b82f6,#1d4ed8)' }}>
-                    {copied ? '✓ Copied!' : 'Copy JSON'}
-                  </button>
-                </div>
-                <pre className="text-[9px] text-gray-500 font-mono leading-tight overflow-x-auto max-h-20 whitespace-pre-wrap break-all">
-                  {JSON.stringify(savedData, null, 2)}
-                </pre>
-              </div>
-            ) : (
-              <div className="text-[10px] text-gray-400 text-center py-1">Changes auto-save when navigating or closing</div>
+          {/* Footer — Copy JSON button only */}
+          <div className="shrink-0 px-4 py-2 border-t border-gray-100 flex items-center justify-between">
+            <div className="text-[10px] text-gray-400">Auto-saves on navigate / close</div>
+            {savedData && (
+              <button onClick={handleCopyJson}
+                className="px-4 py-1.5 rounded-lg text-xs font-black text-white transition-all"
+                style={{ background: copied ? 'linear-gradient(135deg,#22c55e,#16a34a)' : 'linear-gradient(135deg,#3b82f6,#1d4ed8)' }}>
+                {copied ? '✓ Copied!' : `Copy JSON · ${card.id}`}
+              </button>
             )}
           </div>
         </div>
