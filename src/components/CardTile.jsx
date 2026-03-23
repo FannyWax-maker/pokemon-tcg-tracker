@@ -634,28 +634,66 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
             {/* Left checklist panel */}
             {card.otherPokemon && card.otherPokemon.length > 0 && (
-              <div style={{ width: '160px', flexShrink: 0, background: '#1f2937', borderRadius: '10px', padding: '10px', maxHeight: '90vh', overflowY: 'auto' }}>
-                <div style={{ color: '#9ca3af', fontSize: '11px', marginBottom: '6px', fontWeight: 'bold' }}>
+              <div style={{ width: '180px', flexShrink: 0, background: '#1f2937', borderRadius: '10px', padding: '10px', maxHeight: '90vh', overflowY: 'auto' }}>
+                <div style={{ color: '#9ca3af', fontSize: '11px', marginBottom: '8px', fontWeight: 'bold' }}>
                   Featured ({card.otherPokemon.length})
                 </div>
                 {card.otherPokemon.map(name => {
                   const tagged = pickerCircles.some(c => c.name.toLowerCase() === name.toLowerCase());
                   const saved = (pokemonCoordsImport[card.id] || []).some(c => c.name.toLowerCase() === name.toLowerCase());
+                  // Find all positions for this pokemon in saved coords
+                  const coordEntry = (pokemonCoordsImport[card.id] || []).find(c => c.name.toLowerCase() === name.toLowerCase());
+                  const positions = coordEntry
+                    ? (coordEntry.positions || [{ x: coordEntry.x, y: coordEntry.y, r: coordEntry.r }])
+                    : [];
+                  const THUMB = 44; // circle thumbnail px
                   return (
-                    <div key={name} style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '3px 0' }}>
-                      <div style={{
-                        width: '14px', height: '14px', borderRadius: '50%', flexShrink: 0,
-                        display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '9px', fontWeight: 'bold',
-                        background: tagged ? '#22c55e' : saved ? '#3b82f6' : '#374151',
-                        border: tagged || saved ? 'none' : '1px solid #6b7280', color: 'white'
-                      }}>{tagged || saved ? '✓' : ''}</div>
-                      <span style={{ fontSize: '11px', color: tagged ? '#86efac' : saved ? '#93c5fd' : '#9ca3af', lineHeight: 1.3 }}>{name}</span>
+                    <div key={name} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '4px 0', borderBottom: '1px solid #374151' }}>
+                      {/* Circle crop thumbnail(s) — use first position */}
+                      {positions.length > 0 && imageSrc ? (
+                        <div style={{ display: 'flex', gap: '3px', flexShrink: 0 }}>
+                          {positions.slice(0, 2).map((pos, pi) => {
+                            // We render the card image clipped to the circle region
+                            // bg-size = THUMB / (r*2) * 100% of natural img
+                            // We need: the circle centre at pos.x,pos.y with radius pos.r (all fractions of card width)
+                            // Card aspect ratio ~2.5/3.5
+                            const cardAspect = 2.5 / 3.5;
+                            // In the zoomed card, width is the reference dimension for r
+                            // bg-size: scale so the circle diameter fills the thumb
+                            const scale = THUMB / (pos.r * 2); // scale factor: px per unit-width
+                            const bgW = scale; // background-size width in px (1 card-width = scale px)
+                            const bgH = scale / cardAspect; // height follows aspect ratio
+                            const bgX = -(pos.x * bgW - THUMB / 2);
+                            const bgY = -(pos.y * bgH - THUMB / 2);
+                            return (
+                              <div key={pi} style={{
+                                width: THUMB, height: THUMB, borderRadius: '50%', flexShrink: 0,
+                                backgroundImage: `url(${imageSrc})`,
+                                backgroundSize: `${bgW}px ${bgH}px`,
+                                backgroundPosition: `${bgX}px ${bgY}px`,
+                                backgroundRepeat: 'no-repeat',
+                                border: '2px solid rgba(255,255,255,0.25)',
+                                boxShadow: '0 2px 8px rgba(0,0,0,0.6)',
+                              }} />
+                            );
+                          })}
+                        </div>
+                      ) : (
+                        <div style={{
+                          width: THUMB, height: THUMB, borderRadius: '50%', flexShrink: 0,
+                          background: tagged ? '#22c55e' : saved ? '#3b82f6' : '#374151',
+                          border: tagged || saved ? 'none' : '1px solid #6b7280',
+                          display: 'flex', alignItems: 'center', justifyContent: 'center',
+                          fontSize: '9px', fontWeight: 'bold', color: 'white'
+                        }}>{tagged || saved ? '✓' : '?'}</div>
+                      )}
+                      <span style={{ fontSize: '11px', color: positions.length > 0 ? 'white' : tagged ? '#86efac' : saved ? '#93c5fd' : '#6b7280', lineHeight: 1.3, wordBreak: 'break-word' }}>{name}</span>
                     </div>
                   );
                 })}
                 {pickerCircles.filter(c => c.name && !card.otherPokemon.some(n => n.toLowerCase() === c.name.toLowerCase())).map(c => (
-                  <div key={c.name} style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '3px 0' }}>
-                    <div style={{ width: '14px', height: '14px', borderRadius: '50%', flexShrink: 0, background: '#f59e0b', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '9px', color: 'white' }}>?</div>
+                  <div key={c.name} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '4px 0' }}>
+                    <div style={{ width: 44, height: 44, borderRadius: '50%', flexShrink: 0, background: '#f59e0b', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '9px', color: 'white' }}>?</div>
                     <span style={{ fontSize: '11px', color: '#fbbf24' }}>{c.name} <span style={{ color: '#6b7280', fontSize: '9px' }}>(not in list)</span></span>
                   </div>
                 ))}
