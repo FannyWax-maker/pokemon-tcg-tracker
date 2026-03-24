@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useCallback } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { usePrices } from './hooks/usePrices';
 import { Search, Filter, Grid, List, Moon, Sun, Lock, Unlock } from 'lucide-react';
 import PokemonCard from './components/PokemonCard';
@@ -64,7 +64,7 @@ export default function App() {
   const [tileSize, setTileSize] = useState('M');
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
   const [isUnlocked, setIsUnlocked] = useState(false);
-  const { getPriceForCard, loadSetPrices } = usePrices();
+  const { getPriceForCard } = usePrices();
   const [showLockModal, setShowLockModal] = useState(false);
   const [lockInput, setLockInput] = useState('');
   const [lockError, setLockError] = useState(false);

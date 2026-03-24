@@ -1,97 +1,78 @@
 // usePrices.js
 // Fetches EN market prices from TCGCSV (tcgcsv.com) — free, no auth, no CORS issues.
 // Caches per set in localStorage with a 24h TTL.
-// Returns getPriceForCard(card) → { normal, holofoil } | null
+// getPriceForCard(card) triggers a background fetch on first call for a set,
+// then returns the price once loaded (subsequent renders show the value).
 
-import { useRef, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 
-const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
+const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
 const BASE = 'https://tcgcsv.com/tcgplayer/3';
-const CATEGORY_ID = 3; // Pokemon
 
-// Map your EN set codes → TCGCSV abbreviation
-// Direct matches (your code === TCGCSV abbreviation) need no entry here.
-// Only remaps needed.
 const SET_CODE_REMAP = {
-  // SWSH era — TCGCSV uses SWSH01-SWSH12
   SSH:  'SWSH01', RCL: 'SWSH02', DAA: 'SWSH03', VIV: 'SWSH04',
   BST:  'SWSH05', CRE: 'SWSH06', EVS: 'SWSH07', FST: 'SWSH08',
   BRS:  'SWSH09', ASR: 'SWSH10', LOR: 'SWSH11', SIT: 'SWSH12',
   CPA:  'CHP',    CEL: 'CLB',    SWSH: 'SWSD',
-  // SM era — TCGCSV uses SM01-SM12
-  SUM:  'SM01',   GRI: 'SM02',   SLG: 'SHL',   UPR: 'SM05',
+  SUM:  'SM01',   GRI: 'SM02',   SLG: 'SHL',    UPR: 'SM05',
   LOT:  'SM8',    TEU: 'SM9',    UNB: 'SM10',   UNM: 'SM11',
-  CEC:  'SM12',
-  // Call of Legends uses 'CL' in TCGCSV
-  CLG:  'CL',
+  CEC:  'SM12',   CLG: 'CL',
 };
 
-// In-memory cache for this session (avoids re-parsing JSON each lookup)
-const priceCache = {}; // setCode → { products: Map<number,name>, prices: Map<number,{normal,holofoil}> }
-const inFlight = {}; // setCode → Promise
+const priceCache = {};
+const inFlight = {};
+const failed = new Set();
 
-function lsKey(abbreviation) { return `tcgcsv_prices_${abbreviation}`; }
+function lsKey(abbr) { return `tcgcsv_v1_${abbr}`; }
 
-function loadFromLS(abbreviation) {
+function loadFromLS(abbr) {
   try {
-    const raw = localStorage.getItem(lsKey(abbreviation));
+    const raw = localStorage.getItem(lsKey(abbr));
     if (!raw) return null;
     const { ts, data } = JSON.parse(raw);
-    if (Date.now() - ts > CACHE_TTL_MS) { localStorage.removeItem(lsKey(abbreviation)); return null; }
-    return data; // { products: [[id, number], ...], prices: [[id, normal, holofoil], ...] }
+    if (Date.now() - ts > CACHE_TTL_MS) { localStorage.removeItem(lsKey(abbr)); return null; }
+    return data;
   } catch { return null; }
 }
 
-function saveToLS(abbreviation, data) {
-  try { localStorage.setItem(lsKey(abbreviation), JSON.stringify({ ts: Date.now(), data })); } catch {}
+function saveToLS(abbr, data) {
+  try { localStorage.setItem(lsKey(abbr), JSON.stringify({ ts: Date.now(), data })); } catch {}
 }
 
-// Build in-memory price lookup from stored/fetched data
-function buildPriceMap(data) {
-  // products: [[productId, cardNumber], ...]
-  // prices:   [[productId, normal, holofoil], ...]
-  const productToNumber = new Map(data.products); // productId → cardNumber (e.g. "139/195")
-  const priceByProduct = new Map(data.prices.map(([id, n, h]) => [id, { normal: n, holofoil: h }]));
-  // Build number → price (prefer Normal, fallback Holofoil)
+function buildMap(data) {
+  const pidToNumber = new Map(data.products);
+  const pidToPrice = new Map(data.prices.map(([id, n, h]) => [id, { normal: n, holofoil: h }]));
   const byNumber = new Map();
-  for (const [pid, number] of productToNumber) {
+  for (const [pid, number] of pidToNumber) {
     if (!number) continue;
-    const p = priceByProduct.get(pid);
+    const p = pidToPrice.get(pid);
     if (!p) continue;
-    const key = number.toLowerCase();
-    if (!byNumber.has(key)) byNumber.set(key, p);
+    byNumber.set(number.toLowerCase(), p);
   }
-  return byNumber; // Map<cardNumber, {normal, holofoil}>
+  return byNumber;
 }
 
-async function fetchSetPrices(abbreviation) {
-  // 1. Fetch groups to find groupId for this abbreviation
+async function fetchAndCache(abbr) {
   const groupsRes = await fetch(`${BASE}/groups`);
   if (!groupsRes.ok) throw new Error('groups fetch failed');
   const groups = await groupsRes.json();
-  const group = groups.results.find(g => g.abbreviation === abbreviation);
-  if (!group) throw new Error(`No group for abbreviation: ${abbreviation}`);
-  const groupId = group.groupId;
+  const group = groups.results.find(g => g.abbreviation === abbr);
+  if (!group) throw new Error(`No TCGCSV group for: ${abbr}`);
 
-  // 2. Fetch products and prices in parallel
   const [prodRes, priceRes] = await Promise.all([
-    fetch(`${BASE}/${groupId}/products`),
-    fetch(`${BASE}/${groupId}/prices`),
+    fetch(`${BASE}/${group.groupId}/products`),
+    fetch(`${BASE}/${group.groupId}/prices`),
   ]);
   if (!prodRes.ok || !priceRes.ok) throw new Error('products/prices fetch failed');
   const [prodJson, priceJson] = await Promise.all([prodRes.json(), priceRes.json()]);
 
-  // 3. Extract card number from extendedData
   const products = prodJson.results
     .map(p => {
       const numField = (p.extendedData || []).find(e => e.name === 'Number');
-      const number = numField ? numField.value : null;
-      return [p.productId, number];
+      return [p.productId, numField ? numField.value : null];
     })
-    .filter(([, n]) => n); // only cards with a number
+    .filter(([, n]) => n);
 
-  // 4. Build price table: productId → { normal, holofoil }
-  // subTypeName can be: Normal, Holofoil, Reverse Holofoil, etc.
   const priceMap = {};
   for (const p of priceJson.results) {
     if (!priceMap[p.productId]) priceMap[p.productId] = {};
@@ -99,63 +80,49 @@ async function fetchSetPrices(abbreviation) {
     if (sub === 'normal') priceMap[p.productId].normal = p.marketPrice;
     else if (sub === 'holofoil') priceMap[p.productId].holofoil = p.marketPrice;
   }
-
   const prices = Object.entries(priceMap).map(([id, v]) => [Number(id), v.normal ?? null, v.holofoil ?? null]);
+
   const data = { products, prices };
-  saveToLS(abbreviation, data);
-  return data;
+  saveToLS(abbr, data);
+  return buildMap(data);
 }
 
-async function ensureSetLoaded(abbreviation) {
-  if (priceCache[abbreviation]) return priceCache[abbreviation];
-  
-  const stored = loadFromLS(abbreviation);
+function ensureLoaded(abbr, onLoaded) {
+  if (priceCache[abbr] || failed.has(abbr)) return;
+  const stored = loadFromLS(abbr);
   if (stored) {
-    priceCache[abbreviation] = buildPriceMap(stored);
-    return priceCache[abbreviation];
+    priceCache[abbr] = buildMap(stored);
+    onLoaded();
+    return;
   }
-
-  // Deduplicate concurrent fetches for same set
-  if (!inFlight[abbreviation]) {
-    inFlight[abbreviation] = fetchSetPrices(abbreviation)
-      .then(data => {
-        priceCache[abbreviation] = buildPriceMap(data);
-        delete inFlight[abbreviation];
-        return priceCache[abbreviation];
+  if (!inFlight[abbr]) {
+    inFlight[abbr] = fetchAndCache(abbr)
+      .then(map => {
+        priceCache[abbr] = map;
+        delete inFlight[abbr];
+        onLoaded();
       })
-      .catch(err => {
-        delete inFlight[abbreviation];
-        throw err;
+      .catch(() => {
+        failed.add(abbr);
+        delete inFlight[abbr];
       });
   }
-  return inFlight[abbreviation];
 }
 
 export function usePrices() {
-  const loadingRef = useRef(new Set());
+  const [, setTick] = useState(0);
+  const forceUpdate = useCallback(() => setTick(t => t + 1), []);
 
-  // Trigger background load for a set; resolves silently, triggers re-render via forceUpdate
-  const loadSetPrices = useCallback(async (setCode) => {
-    const abbreviation = SET_CODE_REMAP[setCode] || setCode;
-    if (priceCache[abbreviation] || loadingRef.current.has(abbreviation)) return;
-    loadingRef.current.add(abbreviation);
-    try {
-      await ensureSetLoaded(abbreviation);
-    } catch (e) {
-      // Fail silently — prices are optional
-    }
-  }, []);
-
-  // Synchronous lookup — returns null if not yet loaded
   const getPriceForCard = useCallback((card) => {
-    if (!card.setCode) return null; // JP/CN/TC/KR-exclusive, no EN data
-    const abbreviation = SET_CODE_REMAP[card.setCode] || card.setCode;
-    const byNumber = priceCache[abbreviation];
+    if (!card.setCode) return null;
+    const abbr = SET_CODE_REMAP[card.setCode] || card.setCode;
+    ensureLoaded(abbr, forceUpdate);
+    const byNumber = priceCache[abbr];
     if (!byNumber) return null;
     const number = (card.number || card.setNumber || '').toLowerCase();
     if (!number) return null;
     return byNumber.get(number) || null;
-  }, []);
+  }, [forceUpdate]);
 
-  return { getPriceForCard, loadSetPrices };
+  return { getPriceForCard };
 }
