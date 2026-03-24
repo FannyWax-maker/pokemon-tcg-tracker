@@ -64,7 +64,7 @@ const buildEbayUrl = (card, pokemonName, lang) => {
 };
 
 
-export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onToggleExpensive, onToggleVeryExpensive, onNavigateToPokemon, showOwnershipButtons = false , scrollRoot }) {
+export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onToggleExpensive, onToggleVeryExpensive, onNavigateToPokemon, showOwnershipButtons = false , scrollRoot, getPriceForCard }) {
   const isOwned = !!card.ownedLang;
   const hasOtherPokemon = card.otherPokemon && card.otherPokemon.length > 0;
   const isSecondary = card.isSecondary || !card.isPrimary;
@@ -216,6 +216,8 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const isUnobtainable = !!card.unobtainable;
   const isExpensive = !!card.expensive;
   const isVeryExpensive = !!card.veryExpensive;
+  const price = getPriceForCard ? getPriceForCard(card) : null;
+  const priceValue = price ? (price.normal ?? price.holofoil ?? null) : null;
 
 
   // Which langs are available for this card
@@ -532,6 +534,11 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           <div className={`flex items-center justify-between text-[10px] font-mono ${isOwned ? 'text-red-200' : 'text-gray-400'}`}>
             <span>#{String(card.pokemonId || '').padStart(4, '0')}</span>
             <div className="flex items-center gap-1">
+              {priceValue !== null && (
+                <span className={`text-[9px] font-bold px-1 py-0.5 rounded ${isOwned ? 'bg-red-700 text-red-100' : 'bg-emerald-100 text-emerald-700'}`}>
+                  ${priceValue.toFixed(2)}
+                </span>
+              )}
               <span>{(() => { try { const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const sd = setNames[card.enSetCode || card.setCode] || setNames[card.jpSetCode] || setNames[card.cnSetCode] || {}; if (!sd.year) return ''; return sd.month ? `${MONTHS[sd.month - 1]} ${sd.year}` : String(sd.year); } catch(e) { return ''; } })()}</span>
             </div>
           </div>

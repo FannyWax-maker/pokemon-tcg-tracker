@@ -1,4 +1,5 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
+import { usePrices } from './hooks/usePrices';
 import { Search, Filter, Grid, List, Moon, Sun, Lock, Unlock } from 'lucide-react';
 import PokemonCard from './components/PokemonCard';
 import CardTile from './components/CardTile';
@@ -63,6 +64,7 @@ export default function App() {
   const [tileSize, setTileSize] = useState('M');
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
   const [isUnlocked, setIsUnlocked] = useState(false);
+  const { getPriceForCard, loadSetPrices } = usePrices();
   const [showLockModal, setShowLockModal] = useState(false);
   const [lockInput, setLockInput] = useState('');
   const [lockError, setLockError] = useState(false);
@@ -966,7 +968,7 @@ export default function App() {
                       onOwnershipClick={handleCardOwnershipClick} onToggleNonConforming={handleToggleNonConforming}
                       onToggleFavorite={handleToggleFavorite} onToggleUnobtainable={handleToggleUnobtainable}
                       onToggleExpensive={handleToggleExpensive} onToggleVeryExpensive={handleToggleVeryExpensive}
-                      onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={false} />
+                      onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={false} getPriceForCard={getPriceForCard} />
                     {/* Review badge overlay */}
                     <div className="absolute top-1 left-1 z-20 pointer-events-none">
                       {isReviewed ? (() => {
@@ -1008,7 +1010,7 @@ export default function App() {
                   onOwnershipClick={handleCardOwnershipClick} onToggleNonConforming={handleToggleNonConforming}
                   onToggleFavorite={handleToggleFavorite} onToggleUnobtainable={handleToggleUnobtainable}
                   onToggleExpensive={handleToggleExpensive} onToggleVeryExpensive={handleToggleVeryExpensive}
-                  onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={showOwnershipButtons} />
+                  onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={showOwnershipButtons} getPriceForCard={getPriceForCard} />
               ))}
             </div>
           </div>
@@ -1032,7 +1034,7 @@ export default function App() {
           onNavigateNext={() => { const list = filteredData.data; const idx = list.findIndex(p => p.id === selectedPokemon.id); if (idx < list.length - 1) setSelectedPokemon(list[idx + 1]); }}
           hasPrev={(() => { const list = filteredData.data; const idx = list.findIndex(p => p.id === selectedPokemon.id); return idx > 0; })()}
           hasNext={(() => { const list = filteredData.data; const idx = list.findIndex(p => p.id === selectedPokemon.id); return idx < filteredData.data.length - 1; })()}
-          onClose={() => setSelectedPokemon(null)} onUpdateCard={handleUpdateCard} />
+          onClose={() => setSelectedPokemon(null)} onUpdateCard={handleUpdateCard} getPriceForCard={getPriceForCard} />
       )}
 
       {languagePickerCard && (
