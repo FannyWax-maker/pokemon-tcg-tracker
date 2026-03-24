@@ -217,7 +217,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const isExpensive = !!card.expensive;
   const isVeryExpensive = !!card.veryExpensive;
   const price = getPriceForCard ? getPriceForCard(card) : null;
-  const priceValue = price ? (price.normal ?? price.holofoil ?? null) : null;
+  const priceValue = price ? price.gbp : null;
 
 
   // Which langs are available for this card
@@ -536,7 +536,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             <div className="flex items-center gap-1">
               {priceValue !== null && (
                 <span className={`text-[9px] font-bold px-1 py-0.5 rounded ${isOwned ? 'bg-red-700 text-red-100' : 'bg-emerald-100 text-emerald-700'}`}>
-                  ${priceValue.toFixed(2)}
+                  £{priceValue.toFixed(2)}
                 </span>
               )}
               <span>{(() => { try { const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const sd = setNames[card.enSetCode || card.setCode] || setNames[card.jpSetCode] || setNames[card.cnSetCode] || {}; if (!sd.year) return ''; return sd.month ? `${MONTHS[sd.month - 1]} ${sd.year}` : String(sd.year); } catch(e) { return ''; } })()}</span>

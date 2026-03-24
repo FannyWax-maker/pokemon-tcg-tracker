@@ -1,8 +1,8 @@
 // usePrices.js
 // Fetches EN market prices from TCGCSV (tcgcsv.com) — free, no auth, no CORS issues.
-// Caches per set in localStorage with a 24h TTL.
-// getPriceForCard(card) triggers a background fetch on first call for a set,
-// then returns the price once loaded (subsequent renders show the value).
+// Converts USD → GBP using live rate from frankfurter.app (free, no key).
+// Caches prices per set in localStorage with a 24h TTL.
+// Caches exchange rate in localStorage with a 24h TTL.
 
 import { useState, useCallback } from 'react';
 
@@ -22,6 +22,7 @@ const SET_CODE_REMAP = {
 const priceCache = {};
 const inFlight = {};
 const failed = new Set();
+let usdToGbp = null; // loaded once per session
 
 function lsKey(abbr) { return `tcgcsv_v1_${abbr}`; }
 
@@ -37,6 +38,27 @@ function loadFromLS(abbr) {
 
 function saveToLS(abbr, data) {
   try { localStorage.setItem(lsKey(abbr), JSON.stringify({ ts: Date.now(), data })); } catch {}
+}
+
+async function getUsdToGbp() {
+  if (usdToGbp) return usdToGbp;
+  try {
+    const cached = localStorage.getItem('tcgcsv_usd_gbp');
+    if (cached) {
+      const { ts, rate } = JSON.parse(cached);
+      if (Date.now() - ts < CACHE_TTL_MS) { usdToGbp = rate; return rate; }
+    }
+    const res = await fetch('https://api.frankfurter.app/latest?from=USD&to=GBP');
+    if (!res.ok) throw new Error('fx fetch failed');
+    const json = await res.json();
+    const rate = json.rates.GBP;
+    usdToGbp = rate;
+    localStorage.setItem('tcgcsv_usd_gbp', JSON.stringify({ ts: Date.now(), rate }));
+    return rate;
+  } catch {
+    usdToGbp = 0.79; // fallback if API unavailable
+    return usdToGbp;
+  }
 }
 
 function buildMap(data) {
@@ -96,8 +118,8 @@ function ensureLoaded(abbr, onLoaded) {
     return;
   }
   if (!inFlight[abbr]) {
-    inFlight[abbr] = fetchAndCache(abbr)
-      .then(map => {
+    inFlight[abbr] = Promise.all([fetchAndCache(abbr), getUsdToGbp()])
+      .then(([map]) => {
         priceCache[abbr] = map;
         delete inFlight[abbr];
         onLoaded();
@@ -116,12 +138,20 @@ export function usePrices() {
   const getPriceForCard = useCallback((card) => {
     if (!card.setCode) return null;
     const abbr = SET_CODE_REMAP[card.setCode] || card.setCode;
+
+    // Also ensure FX rate is loaded
+    if (!usdToGbp) getUsdToGbp().then(forceUpdate);
+
     ensureLoaded(abbr, forceUpdate);
     const byNumber = priceCache[abbr];
-    if (!byNumber) return null;
+    if (!byNumber || !usdToGbp) return null;
     const number = (card.number || card.setNumber || '').toLowerCase();
     if (!number) return null;
-    return byNumber.get(number) || null;
+    const p = byNumber.get(number);
+    if (!p) return null;
+    const usd = p.normal ?? p.holofoil ?? null;
+    if (usd === null) return null;
+    return { gbp: usd * usdToGbp, usd };
   }, [forceUpdate]);
 
   return { getPriceForCard };
