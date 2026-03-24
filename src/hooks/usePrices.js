@@ -22,7 +22,8 @@ const SET_CODE_REMAP = {
 const priceCache = {};
 const inFlight = {};
 const failed = new Set();
-let usdToGbp = null; // loaded once per session
+let usdToGbp = null;
+let fxInFlight = null; // deduplicate concurrent FX fetches
 
 function lsKey(abbr) { return `tcgcsv_v1_${abbr}`; }
 
@@ -42,23 +43,26 @@ function saveToLS(abbr, data) {
 
 async function getUsdToGbp() {
   if (usdToGbp) return usdToGbp;
-  try {
-    const cached = localStorage.getItem('tcgcsv_usd_gbp');
-    if (cached) {
-      const { ts, rate } = JSON.parse(cached);
-      if (Date.now() - ts < CACHE_TTL_MS) { usdToGbp = rate; return rate; }
+  if (fxInFlight) return fxInFlight;
+  fxInFlight = (async () => {
+    try {
+      const cached = localStorage.getItem('tcgcsv_usd_gbp');
+      if (cached) {
+        const { ts, rate } = JSON.parse(cached);
+        if (Date.now() - ts < CACHE_TTL_MS) { usdToGbp = rate; return rate; }
+      }
+      const res = await fetch('https://api.frankfurter.app/latest?from=USD&to=GBP');
+      if (!res.ok) throw new Error('fx fetch failed');
+      const json = await res.json();
+      usdToGbp = json.rates.GBP;
+      localStorage.setItem('tcgcsv_usd_gbp', JSON.stringify({ ts: Date.now(), rate: usdToGbp }));
+      return usdToGbp;
+    } catch {
+      usdToGbp = 0.79;
+      return usdToGbp;
     }
-    const res = await fetch('https://api.frankfurter.app/latest?from=USD&to=GBP');
-    if (!res.ok) throw new Error('fx fetch failed');
-    const json = await res.json();
-    const rate = json.rates.GBP;
-    usdToGbp = rate;
-    localStorage.setItem('tcgcsv_usd_gbp', JSON.stringify({ ts: Date.now(), rate }));
-    return rate;
-  } catch {
-    usdToGbp = 0.79; // fallback if API unavailable
-    return usdToGbp;
-  }
+  })();
+  return fxInFlight;
 }
 
 function buildMap(data) {
@@ -139,8 +143,8 @@ export function usePrices() {
     if (!card.setCode) return null;
     const abbr = SET_CODE_REMAP[card.setCode] || card.setCode;
 
-    // Also ensure FX rate is loaded
-    if (!usdToGbp) getUsdToGbp().then(forceUpdate);
+    // Kick off FX fetch once if not yet loaded (deduped by fxInFlight)
+    if (!usdToGbp && !fxInFlight) getUsdToGbp().then(forceUpdate);
 
     ensureLoaded(abbr, forceUpdate);
     const byNumber = priceCache[abbr];
