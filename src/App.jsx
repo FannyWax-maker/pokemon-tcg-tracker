@@ -122,7 +122,7 @@ export default function App() {
     return best;
   };
 
-  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyv3O3KDk83ussu2AGtKgCNruSRaAlXKwhfsDMRM9Gh3NsJXPrMDfqu8BeVcj27XHgK2Q/exec';
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyMgDPDy9wpz2YFJoYuYaDQfZ2u5uou3wYQgL6ULUSZDbaJTMNLFDC-Ho57qRHAJ6Osug/exec';
 
   useEffect(() => {
     const loadOwnership = async () => {
