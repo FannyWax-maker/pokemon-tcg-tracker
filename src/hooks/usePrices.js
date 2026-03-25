@@ -19,6 +19,12 @@ const SET_CODE_REMAP = {
   CEC:  'SM12',   CLG: 'CL',
 };
 
+// Sets where TCGCSV abbreviation is 'PR' (shared by many sets) — use groupId directly
+const GROUP_ID_OVERRIDE = {
+  XYP: 1451,   // XY Promos
+  BWP: 1407,   // Black and White Promos
+};
+
 const priceCache = {};
 const inFlight = {};
 const failed = new Set();
@@ -78,16 +84,20 @@ function buildMap(data) {
   return byNumber;
 }
 
-async function fetchAndCache(abbr) {
-  const groupsRes = await fetch(`${BASE}/groups`);
-  if (!groupsRes.ok) throw new Error('groups fetch failed');
-  const groups = await groupsRes.json();
-  const group = groups.results.find(g => g.abbreviation === abbr);
-  if (!group) throw new Error(`No TCGCSV group for: ${abbr}`);
+async function fetchAndCache(abbr, groupIdOverride) {
+  let groupId = groupIdOverride;
+  if (!groupId) {
+    const groupsRes = await fetch(`${BASE}/groups`);
+    if (!groupsRes.ok) throw new Error('groups fetch failed');
+    const groups = await groupsRes.json();
+    const group = groups.results.find(g => g.abbreviation === abbr);
+    if (!group) throw new Error(`No TCGCSV group for: ${abbr}`);
+    groupId = group.groupId;
+  }
 
   const [prodRes, priceRes] = await Promise.all([
-    fetch(`${BASE}/${group.groupId}/products`),
-    fetch(`${BASE}/${group.groupId}/prices`),
+    fetch(`${BASE}/${groupId}/products`),
+    fetch(`${BASE}/${groupId}/prices`),
   ]);
   if (!prodRes.ok || !priceRes.ok) throw new Error('products/prices fetch failed');
   const [prodJson, priceJson] = await Promise.all([prodRes.json(), priceRes.json()]);
@@ -122,7 +132,8 @@ function ensureLoaded(abbr, onLoaded) {
     return;
   }
   if (!inFlight[abbr]) {
-    inFlight[abbr] = Promise.all([fetchAndCache(abbr), getUsdToGbp()])
+    const groupIdOverride = GROUP_ID_OVERRIDE[abbr] || null;
+    inFlight[abbr] = Promise.all([fetchAndCache(abbr, groupIdOverride), getUsdToGbp()])
       .then(([map]) => {
         priceCache[abbr] = map;
         delete inFlight[abbr];
