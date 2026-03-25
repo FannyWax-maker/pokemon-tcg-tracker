@@ -241,6 +241,10 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     const pokemon = displayPokemon.toLowerCase().replace(/\s+/g, '_').replace(/[.']/g, '');
     const number = (card.setNumber || card.number || '').toLowerCase();
     const numberWithDash = number.replace(/\//g, '-');
+    // Variant with padded numerator: 85/168 -> 085-168
+    const numberWithDashPadded = number.includes('/')
+      ? (() => { const [num, den] = number.split('/'); return `${num.replace(/^(\d+)$/, n => n.padStart(3, '0'))}-${den}`; })()
+      : numberWithDash;
     // Variant with unpadded denominator: 006/025 -> 006-25
     const numberWithDashUnpadded = number.includes('/')
       ? number.split('/').map((p, i) => i > 0 ? p.replace(/^0+(?=\d)/, '') : p).join('-')
@@ -260,11 +264,13 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
       if (paddedOnly2) paths.push(`.${paddedOnly2}.${pokemon}_`);
     } else {
       paths.push(`${setCode}.${numberWithDash}.${pokemon}_`);
+      paths.push(`${setCode}.${numberWithDashPadded}.${pokemon}_`);
       paths.push(`${setCode}.${numberWithDashUnpadded}.${pokemon}_`);
       paths.push(`${setCode}.${numberOnly}.${pokemon}_`);
       if (paddedOnly1) paths.push(`${setCode}.${paddedOnly1}.${pokemon}_`);
       if (paddedOnly2) paths.push(`${setCode}.${paddedOnly2}.${pokemon}_`);
       paths.push(`${setCode}.${numberWithDash}.${pokemon}`);
+      paths.push(`${setCode}.${numberWithDashPadded}.${pokemon}`);
       paths.push(`${setCode}.${numberWithDashUnpadded}.${pokemon}`);
       paths.push(`${setCode}.${numberOnly}.${pokemon}`);
       paths.push(`.${numberWithDash}.${pokemon}_`);
