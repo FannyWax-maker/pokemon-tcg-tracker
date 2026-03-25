@@ -62,9 +62,15 @@ function resolveKey(setCode, number) {
     const k = setCode + '_SV';
     if (GROUP_ID_OVERRIDE[k]) return { cacheKey: k, groupIdOverride: GROUP_ID_OVERRIDE[k] };
   }
-  // Classic Collection cards in Celebrations use CC prefix
-  if (n.startsWith('CC') && setCode === 'CEL') {
-    return { cacheKey: 'CEL_CC', groupIdOverride: GROUP_ID_OVERRIDE['CEL_CC'] };
+  // Celebrations Classic Collection: CC-prefixed numbers OR plain numbers > 25
+  if (setCode === 'CEL') {
+    if (n.startsWith('CC')) {
+      return { cacheKey: 'CEL_CC', groupIdOverride: GROUP_ID_OVERRIDE['CEL_CC'] };
+    }
+    const celNum = parseInt(n.split('/')[0]);
+    if (!isNaN(celNum) && celNum > 25) {
+      return { cacheKey: 'CEL_CC', groupIdOverride: GROUP_ID_OVERRIDE['CEL_CC'] };
+    }
   }
   const abbr = SET_CODE_REMAP[setCode] || setCode;
   return { cacheKey: abbr, groupIdOverride: GROUP_ID_OVERRIDE[setCode] || null };
@@ -239,6 +245,9 @@ export function usePrices() {
       if (den.length > 1) candidates.push(`${num}/${den.replace(/^0+(?=\d)/, '')}`);
       // Pad numerator to 3 digits
       if (numDigits.length < 3) candidates.push(`${numDigits.padStart(3, '0')}/${den}`);
+      // Strip leading zeros from numerator: 008/73 → 8/73
+      const numStripped = numDigits.replace(/^0+(?=\d)/, '');
+      if (numStripped !== numDigits) candidates.push(`${numStripped}/${den}`);
       // Strip leading zeros from numerator: 008/73 → 8/73
       const numStripped = numDigits.replace(/^0+(?=\d)/, '');
       if (numStripped !== numDigits) candidates.push(`${numStripped}/${den}`);
