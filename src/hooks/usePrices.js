@@ -209,6 +209,9 @@ export function usePrices() {
     // Normalise number format: TCGCSV uses TG01/TG30, GG01/GG70 etc.
     // but spreadsheets often have TG01/30, GG01/70 — fix the suffix
     let lookupNumber = number.toLowerCase();
+    // XY Promos: TCGCSV stores as plain e.g. "XY67" — strip slash+total and letter suffix
+    // XY67a → xy67, XY150a → xy150, XY150 → xy150
+    lookupNumber = lookupNumber.replace(/^(xy\d+)[a-z]?(\/.*)?$/, '$1');
     // Fix prefixed numbers first (TG/GG/RC/SV): TCGCSV uses TG01/TG30 not TG01/30
     // These must run before padding so the suffix digits are still raw
     const tgMatch = lookupNumber.match(/^(tg\d+)\/(\d+)$/);
