@@ -239,6 +239,9 @@ export function usePrices() {
       if (den.length > 1) candidates.push(`${num}/${den.replace(/^0+(?=\d)/, '')}`);
       // Pad numerator to 3 digits
       if (numDigits.length < 3) candidates.push(`${numDigits.padStart(3, '0')}/${den}`);
+      // Strip leading zeros from numerator: 008/73 → 8/73
+      const numStripped = numDigits.replace(/^0+(?=\d)/, '');
+      if (numStripped !== numDigits) candidates.push(`${numStripped}/${den}`);
     }
     let p = null;
     for (const candidate of candidates) {
