@@ -208,6 +208,8 @@ export function usePrices() {
     // Normalise number format: TCGCSV uses TG01/TG30, GG01/GG70 etc.
     // but spreadsheets often have TG01/30, GG01/70 — fix the suffix
     let lookupNumber = number.toLowerCase();
+    // Normalise set totals: TCGCSV zero-pads the total (074/64 → 074/064)
+    lookupNumber = lookupNumber.replace(/^(\d+)\/(\d+)$/, (_, a, b) => `${a}/${b.padStart(3, '0')}`);
     const tgMatch = lookupNumber.match(/^(tg\d+)\/(\d+)$/);
     if (tgMatch) lookupNumber = `${tgMatch[1]}/tg${tgMatch[2]}`;
     const ggMatch = lookupNumber.match(/^(gg\d+)\/(\d+)$/);
