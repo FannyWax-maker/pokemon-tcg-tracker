@@ -17,6 +17,7 @@ const SET_CODE_REMAP = {
   SUM:  'SM01',   GRI: 'SM02',   SLG: 'SHL',    UPR: 'SM05',
   LOT:  'SM8',    TEU: 'SM9',    UNB: 'SM10',   UNM: 'SM11',
   CEC:  'SM12',
+  POR:  'ME03',
 };
 
 // Sets where TCGCSV abbreviation is ambiguous or cards split into sub-groups
@@ -245,9 +246,14 @@ export function usePrices() {
       if (den.length > 1) candidates.push(`${num}/${den.replace(/^0+(?=\d)/, '')}`);
       // Pad numerator to 3 digits
       if (numDigits.length < 3) candidates.push(`${numDigits.padStart(3, '0')}/${den}`);
-      // Strip leading zeros from numerator: 008/73 → 8/73
+      // Strip leading zeros from numerator: 008/73 → 08/73 and 8/73
       const numStripped = numDigits.replace(/^0+(?=\d)/, '');
-      if (numStripped !== numDigits) candidates.push(`${numStripped}/${den}`);
+      if (numStripped !== numDigits) {
+        candidates.push(`${numStripped}/${den}`); // all zeros stripped: 008 → 8
+        // Also try stripping just one zero: 008 → 08
+        const numOneStrip = numDigits.replace(/^0(?=\d)/, '');
+        if (numOneStrip !== numDigits && numOneStrip !== numStripped) candidates.push(`${numOneStrip}/${den}`);
+      }
     }
     let p = null;
     for (const candidate of candidates) {
