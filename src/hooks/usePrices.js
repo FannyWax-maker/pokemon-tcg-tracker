@@ -16,13 +16,14 @@ const SET_CODE_REMAP = {
   CPA:  'CHP',    CEL: 'CLB',    SWSH: 'SWSD',
   SUM:  'SM01',   GRI: 'SM02',   SLG: 'SHL',    UPR: 'SM05',
   LOT:  'SM8',    TEU: 'SM9',    UNB: 'SM10',   UNM: 'SM11',
-  CEC:  'SM12',   CLG: 'CL',
+  CEC:  'SM12',
 };
 
 // Sets where TCGCSV abbreviation is ambiguous or cards split into sub-groups
 const GROUP_ID_OVERRIDE = {
   XYP:      1451,   // XY Promos (abbr 'PR' is shared)
   BWP:      1407,   // BW Promos (abbr 'PR' is shared)
+  CLG:      1415,   // Call of Legends (abbr 'CL' clashes with TCG Classic)
   // Trainer Gallery sub-sets — keyed as SETCODE_TG
   BRS_TG:   3020,   // Brilliant Stars Trainer Gallery
   ASR_TG:   3068,   // Astral Radiance Trainer Gallery
@@ -208,16 +209,18 @@ export function usePrices() {
     // Normalise number format: TCGCSV uses TG01/TG30, GG01/GG70 etc.
     // but spreadsheets often have TG01/30, GG01/70 — fix the suffix
     let lookupNumber = number.toLowerCase();
-    // Normalise set totals: TCGCSV zero-pads the total (074/64 → 074/064)
-    lookupNumber = lookupNumber.replace(/^(\d+)\/(\d+)$/, (_, a, b) => `${a}/${b.padStart(3, '0')}`);
+    // Fix prefixed numbers first (TG/GG/RC/SV): TCGCSV uses TG01/TG30 not TG01/30
+    // These must run before padding so the suffix digits are still raw
     const tgMatch = lookupNumber.match(/^(tg\d+)\/(\d+)$/);
-    if (tgMatch) lookupNumber = `${tgMatch[1]}/tg${tgMatch[2]}`;
+    if (tgMatch) lookupNumber = `${tgMatch[1]}/tg${tgMatch[2].padStart(2, '0')}`;
     const ggMatch = lookupNumber.match(/^(gg\d+)\/(\d+)$/);
-    if (ggMatch) lookupNumber = `${ggMatch[1]}/gg${ggMatch[2]}`;
+    if (ggMatch) lookupNumber = `${ggMatch[1]}/gg${ggMatch[2].padStart(2, '0')}`;
     const rcMatch = lookupNumber.match(/^(rc\d+)\/(\d+)$/);
-    if (rcMatch) lookupNumber = `${rcMatch[1]}/rc${rcMatch[2]}`;
+    if (rcMatch) lookupNumber = `${rcMatch[1]}/rc${rcMatch[2].padStart(2, '0')}`;
     const svMatch = lookupNumber.match(/^(sv\d+)\/(\d+)$/);
-    if (svMatch) lookupNumber = `${svMatch[1]}/sv${svMatch[2]}`;
+    if (svMatch) lookupNumber = `${svMatch[1]}/sv${svMatch[2].padStart(2, '0')}`;
+    // Normalise plain numeric totals: TCGCSV zero-pads to 3 digits (074/64 → 074/064)
+    lookupNumber = lookupNumber.replace(/^(\d+)\/(\d+)$/, (_, a, b) => `${a}/${b.padStart(3, '0')}`);
     const p = byNumber.get(lookupNumber);
     if (!p) return null;
     const usd = p.normal ?? p.holofoil ?? null;
