@@ -241,26 +241,34 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     const pokemon = displayPokemon.toLowerCase().replace(/\s+/g, '_').replace(/[.']/g, '');
     const number = (card.setNumber || card.number || '').toLowerCase();
     const numberWithDash = number.replace(/\//g, '-');
+    // Variant with unpadded denominator: 006/025 -> 006-25
+    const numberWithDashUnpadded = number.includes('/')
+      ? number.split('/').map((p, i) => i > 0 ? p.replace(/^0+(?=\d)/, '') : p).join('-')
+      : numberWithDash;
     const numberOnly = number.split('/')[0];
-    // Zero-padded fallbacks: if numberOnly is e.g. "57", also try "057" and "0057"
-    const numericPart = numberOnly.match(/^([a-z]*)(\d+)([a-z]*)$/);
-    const paddedOnly1 = numericPart ? `${numericPart[1]}${numericPart[2].padStart(numericPart[2].length + 1, '0')}${numericPart[3]}` : null;
-    const paddedOnly2 = numericPart ? `${numericPart[1]}${numericPart[2].padStart(numericPart[2].length + 2, '0')}${numericPart[3]}` : null;
+    // Padded numberOnly variants: xy57 -> xy057 -> xy0057
+    const numParts = numberOnly.match(/^([a-z]*)(\d+)([a-z]*)$/);
+    const paddedOnly1 = numParts ? `${numParts[1]}${numParts[2].padStart(numParts[2].length + 1, '0')}${numParts[3]}` : null;
+    const paddedOnly2 = numParts ? `${numParts[1]}${numParts[2].padStart(numParts[2].length + 2, '0')}${numParts[3]}` : null;
     const numberAlreadyHasSet = numberOnly.toLowerCase().startsWith(setCode);
     const paths = [];
     if (numberAlreadyHasSet) {
       paths.push(`.${numberWithDash}.${pokemon}_`);
+      paths.push(`.${numberWithDashUnpadded}.${pokemon}_`);
       paths.push(`.${numberOnly}.${pokemon}_`);
       if (paddedOnly1) paths.push(`.${paddedOnly1}.${pokemon}_`);
       if (paddedOnly2) paths.push(`.${paddedOnly2}.${pokemon}_`);
     } else {
       paths.push(`${setCode}.${numberWithDash}.${pokemon}_`);
+      paths.push(`${setCode}.${numberWithDashUnpadded}.${pokemon}_`);
       paths.push(`${setCode}.${numberOnly}.${pokemon}_`);
       if (paddedOnly1) paths.push(`${setCode}.${paddedOnly1}.${pokemon}_`);
       if (paddedOnly2) paths.push(`${setCode}.${paddedOnly2}.${pokemon}_`);
       paths.push(`${setCode}.${numberWithDash}.${pokemon}`);
+      paths.push(`${setCode}.${numberWithDashUnpadded}.${pokemon}`);
       paths.push(`${setCode}.${numberOnly}.${pokemon}`);
       paths.push(`.${numberWithDash}.${pokemon}_`);
+      paths.push(`.${numberWithDashUnpadded}.${pokemon}_`);
       paths.push(`.${numberOnly}.${pokemon}_`);
     }
     paths.push(`${setCode.toUpperCase()}_${numberOnly}_R_EN_LG`);
