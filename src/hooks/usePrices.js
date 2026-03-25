@@ -205,7 +205,18 @@ export function usePrices() {
     const byNumber = priceCache[cacheKey];
     if (!byNumber || !usdToGbp) return null;
     if (!number) return null;
-    const p = byNumber.get(number.toLowerCase());
+    // Normalise number format: TCGCSV uses TG01/TG30, GG01/GG70 etc.
+    // but spreadsheets often have TG01/30, GG01/70 — fix the suffix
+    let lookupNumber = number.toLowerCase();
+    const tgMatch = lookupNumber.match(/^(tg\d+)\/(\d+)$/);
+    if (tgMatch) lookupNumber = `${tgMatch[1]}/tg${tgMatch[2]}`;
+    const ggMatch = lookupNumber.match(/^(gg\d+)\/(\d+)$/);
+    if (ggMatch) lookupNumber = `${ggMatch[1]}/gg${ggMatch[2]}`;
+    const rcMatch = lookupNumber.match(/^(rc\d+)\/(\d+)$/);
+    if (rcMatch) lookupNumber = `${rcMatch[1]}/rc${rcMatch[2]}`;
+    const svMatch = lookupNumber.match(/^(sv\d+)\/(\d+)$/);
+    if (svMatch) lookupNumber = `${svMatch[1]}/sv${svMatch[2]}`;
+    const p = byNumber.get(lookupNumber);
     if (!p) return null;
     const usd = p.normal ?? p.holofoil ?? null;
     if (usd === null) return null;
