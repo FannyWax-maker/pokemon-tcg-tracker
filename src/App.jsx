@@ -44,6 +44,7 @@ export default function App() {
   const [languagePickerCard, setLanguagePickerCard] = useState(null);
   const [viewMode, setViewMode] = useState('cards');
   const [filterMissingImages, setFilterMissingImages] = useState(false);
+  const [filterMissingPrice, setFilterMissingPrice] = useState(false);
   const [filterChinese, setFilterChinese] = useState('all');
   const [sortBy, setSortBy] = useState('default');
   const [filterArtist, setFilterArtist] = useState('all');
@@ -380,7 +381,7 @@ export default function App() {
     return { totalCards, ownedCards, completionPercent, langStats };
   }, [pokemonData]);
 
-  const hasActiveFilters = filterExclusive !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards !== 'all' || filterHideNonConforming !== 'all' || filterOwned !== 'all' || filterSetLang !== 'all' || filterGeneration !== 'all' || filterFavorites !== 'all' || filterUnobtainable !== 'all' || filterExpensive !== 'all' || filterVeryExpensive !== 'all';
+  const hasActiveFilters = filterExclusive !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterMissingPrice || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards !== 'all' || filterHideNonConforming !== 'all' || filterOwned !== 'all' || filterSetLang !== 'all' || filterGeneration !== 'all' || filterFavorites !== 'all' || filterUnobtainable !== 'all' || filterExpensive !== 'all' || filterVeryExpensive !== 'all';
   const activeFilterCount = [filterExclusive !== 'all', filterSet !== 'all', filterCardType !== 'all', filterMissingImages, filterChinese !== 'all', filterArtist !== 'all', filterHideNoCards !== 'all', filterHideNonConforming !== 'all', filterOwned !== 'all', filterGeneration !== 'all'].filter(Boolean).length;
 
   const filteredData = useMemo(() => {
@@ -480,6 +481,7 @@ export default function App() {
         if (filterVeryExpensive === 'hide' && card.veryExpensive) return;
         const cardEntry = { ...card, pokemonName: pokemon.name, pokemonId: pokemon.id };
         if (filterMissingImages) cardEntry._filterMissingImages = true;
+        if (filterMissingPrice) cardEntry._filterMissingPrice = true;
         cards.push(cardEntry);
       });
     });
@@ -490,7 +492,7 @@ export default function App() {
     else if (sortBy === 'conformance_desc') { cards.sort((a, b) => { const pa = reviewData[a.id]?.conformancePct ?? -1; const pb = reviewData[b.id]?.conformancePct ?? -1; return pb - pa; }); }
     else if (sortBy === 'conformance_asc')  { cards.sort((a, b) => { const pa = reviewData[a.id]?.conformancePct ?? 101; const pb = reviewData[b.id]?.conformancePct ?? 101; return pa - pb; }); }
     return cards;
-  }, [filteredData, filterChinese, filterExclusive, filterSet, filterCardType, sortBy, filterOwned, filterArtist, filterUnobtainable, filterExpensive, filterVeryExpensive, filterMissingImages, filterSetLang]);
+  }, [filteredData, filterChinese, filterExclusive, filterSet, filterCardType, sortBy, filterOwned, filterArtist, filterUnobtainable, filterExpensive, filterVeryExpensive, filterMissingImages, filterMissingPrice, filterSetLang]);
 
   const handleInlineUpdateCard = requireUnlock((pokemonId, cardId, updates) => {
     setPokemonData(pokemonData.map(pokemon => {
@@ -916,6 +918,10 @@ export default function App() {
                   <label className={`flex items-center gap-2 text-xs font-semibold cursor-pointer ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                     <input type="checkbox" checked={filterMissingImages} onChange={(e) => setFilterMissingImages(e.target.checked)} className="rounded" />
                     Show only cards with missing images
+                  </label>
+                  <label className={`flex items-center gap-2 text-xs font-semibold cursor-pointer ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+                    <input type="checkbox" checked={filterMissingPrice} onChange={(e) => setFilterMissingPrice(e.target.checked)} className="rounded" />
+                    Show only EN cards with no price (bad set number)
                   </label>
                 </div>
               )}

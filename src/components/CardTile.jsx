@@ -343,6 +343,13 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
   if (shouldHide) return null;
 
+  // Hide cards that have a price when filtering for missing prices
+  if (card._filterMissingPrice) {
+    if (!card.setCode) return null; // JP/CN-only — no EN price possible, hide too
+    const p = getPriceForCard ? getPriceForCard(card) : null;
+    if (p !== null) return null; // has a price — hide it
+  }
+
   return (
     <>
       {/* Click-away to close context menu */}
