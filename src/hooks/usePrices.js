@@ -19,11 +19,55 @@ const SET_CODE_REMAP = {
   CEC:  'SM12',   CLG: 'CL',
 };
 
-// Sets where TCGCSV abbreviation is 'PR' (shared by many sets) — use groupId directly
+// Sets where TCGCSV abbreviation is ambiguous or cards split into sub-groups
 const GROUP_ID_OVERRIDE = {
-  XYP: 1451,   // XY Promos
-  BWP: 1407,   // Black and White Promos
+  XYP:      1451,   // XY Promos (abbr 'PR' is shared)
+  BWP:      1407,   // BW Promos (abbr 'PR' is shared)
+  // Trainer Gallery sub-sets — keyed as SETCODE_TG
+  BRS_TG:   3020,   // Brilliant Stars Trainer Gallery
+  ASR_TG:   3068,   // Astral Radiance Trainer Gallery
+  LOR_TG:   3172,   // Lost Origin Trainer Gallery
+  SIT_TG:   17674,  // Silver Tempest Trainer Gallery
+  // Crown Zenith Galactic Gallery — keyed as CRZ_GG
+  CRZ_GG:   17689,  // Crown Zenith: Galactic Gallery
+  // Radiant Collection sub-sets — keyed as SETCODE_RC
+  GEN_RC:   1729,   // Generations: Radiant Collection
+  LTR_RC:   1465,   // Legendary Treasures: Radiant Collection
+  // Hidden Fates Shiny Vault — keyed as HIF_SV
+  HIF_SV:   2594,   // Hidden Fates: Shiny Vault
+  // Shining Fates Shiny Vault — keyed as SHF_SV
+  SHF_SV:   2781,   // Shining Fates: Shiny Vault
+  // Crown Zenith: Galarian Gallery (CRZ:GG already handled above)
+  // Celebrations: Classic Collection — keyed as CEL_CC
+  CEL_CC:   2931,   // Celebrations: Classic Collection
 };
+
+// Resolve which cache key and groupId to use for a card
+function resolveKey(setCode, number) {
+  const n = (number || '').toUpperCase();
+  if (n.startsWith('TG')) {
+    const k = setCode + '_TG';
+    if (GROUP_ID_OVERRIDE[k]) return { cacheKey: k, groupIdOverride: GROUP_ID_OVERRIDE[k] };
+  }
+  if (n.startsWith('GG')) {
+    const k = setCode + '_GG';
+    if (GROUP_ID_OVERRIDE[k]) return { cacheKey: k, groupIdOverride: GROUP_ID_OVERRIDE[k] };
+  }
+  if (n.startsWith('RC')) {
+    const k = setCode + '_RC';
+    if (GROUP_ID_OVERRIDE[k]) return { cacheKey: k, groupIdOverride: GROUP_ID_OVERRIDE[k] };
+  }
+  if (n.startsWith('SV') && (setCode === 'HIF' || setCode === 'SHF')) {
+    const k = setCode + '_SV';
+    if (GROUP_ID_OVERRIDE[k]) return { cacheKey: k, groupIdOverride: GROUP_ID_OVERRIDE[k] };
+  }
+  // Classic Collection cards in Celebrations use CC prefix
+  if (n.startsWith('CC') && setCode === 'CEL') {
+    return { cacheKey: 'CEL_CC', groupIdOverride: GROUP_ID_OVERRIDE['CEL_CC'] };
+  }
+  const abbr = SET_CODE_REMAP[setCode] || setCode;
+  return { cacheKey: abbr, groupIdOverride: GROUP_ID_OVERRIDE[setCode] || null };
+}
 
 const priceCache = {};
 const inFlight = {};
@@ -123,7 +167,7 @@ async function fetchAndCache(abbr, groupIdOverride) {
   return buildMap(data);
 }
 
-function ensureLoaded(abbr, onLoaded) {
+function ensureLoaded(abbr, onLoaded, groupIdOverride) {
   if (priceCache[abbr] || failed.has(abbr)) return;
   const stored = loadFromLS(abbr);
   if (stored) {
@@ -132,8 +176,7 @@ function ensureLoaded(abbr, onLoaded) {
     return;
   }
   if (!inFlight[abbr]) {
-    const groupIdOverride = GROUP_ID_OVERRIDE[abbr] || null;
-    inFlight[abbr] = Promise.all([fetchAndCache(abbr, groupIdOverride), getUsdToGbp()])
+    inFlight[abbr] = Promise.all([fetchAndCache(abbr, groupIdOverride || null), getUsdToGbp()])
       .then(([map]) => {
         priceCache[abbr] = map;
         delete inFlight[abbr];
@@ -152,17 +195,17 @@ export function usePrices() {
 
   const getPriceForCard = useCallback((card) => {
     if (!card.setCode) return null;
-    const abbr = SET_CODE_REMAP[card.setCode] || card.setCode;
+    const number = (card.number || card.setNumber || '');
+    const { cacheKey, groupIdOverride } = resolveKey(card.setCode, number);
 
     // Kick off FX fetch once if not yet loaded (deduped by fxInFlight)
     if (!usdToGbp && !fxInFlight) getUsdToGbp().then(forceUpdate);
 
-    ensureLoaded(abbr, forceUpdate);
-    const byNumber = priceCache[abbr];
+    ensureLoaded(cacheKey, forceUpdate, groupIdOverride);
+    const byNumber = priceCache[cacheKey];
     if (!byNumber || !usdToGbp) return null;
-    const number = (card.number || card.setNumber || '').toLowerCase();
     if (!number) return null;
-    const p = byNumber.get(number);
+    const p = byNumber.get(number.toLowerCase());
     if (!p) return null;
     const usd = p.normal ?? p.holofoil ?? null;
     if (usd === null) return null;
