@@ -219,9 +219,22 @@ export function usePrices() {
     if (rcMatch) lookupNumber = `${rcMatch[1]}/rc${rcMatch[2].padStart(2, '0')}`;
     const svMatch = lookupNumber.match(/^(sv\d+)\/(\d+)$/);
     if (svMatch) lookupNumber = `${svMatch[1]}/sv${svMatch[2].padStart(2, '0')}`;
-    // Normalise plain numeric totals: TCGCSV zero-pads to 3 digits (074/64 → 074/064)
-    lookupNumber = lookupNumber.replace(/^(\d+)\/(\d+)$/, (_, a, b) => `${a}/${b.padStart(3, '0')}`);
-    const p = byNumber.get(lookupNumber);
+    // Try multiple number formats to handle padding inconsistencies
+    // TCGCSV sometimes uses zero-padded denominators (074/064) and sometimes not (1/68)
+    // Strategy: try exact match first, then padded denominator, then stripped denominator
+    const candidates = [lookupNumber];
+    const plainMatch = lookupNumber.match(/^(\d+)\/(\d+)$/);
+    if (plainMatch) {
+      const [, num, den] = plainMatch;
+      if (den.length < 3) candidates.push(`${num}/${den.padStart(3, '0')}`); // 1/68 → 1/068
+      if (den.length > 1) candidates.push(`${num}/${den.replace(/^0+(?=\d)/, '')}`); // 074/064 → 74/64... skip
+      candidates.push(`${num.padStart(3, '0')}/${den}`); // 85/168 → 085/168... not needed here but safe
+    }
+    let p = null;
+    for (const candidate of candidates) {
+      p = byNumber.get(candidate);
+      if (p) break;
+    }
     if (!p) return null;
     const usd = p.normal ?? p.holofoil ?? null;
     if (usd === null) return null;
