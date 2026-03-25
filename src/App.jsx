@@ -516,8 +516,10 @@ export default function App() {
     else if (sortBy === 'release_asc') { cards.sort((a, b) => { const score = (c) => { const d = setNamesLC[(c.setCode||"").toLowerCase()] || setNamesLC[(c.jpSetCode||"").toLowerCase()] || setNamesLC[(c.cnSetCode||"").toLowerCase()] || {}; return (d.year||9999)*100+(d.month||99); }; return score(a) - score(b); }); }
     else if (sortBy === 'conformance_desc') { cards.sort((a, b) => { const pa = reviewData[a.id]?.conformancePct ?? -1; const pb = reviewData[b.id]?.conformancePct ?? -1; return pb - pa; }); }
     else if (sortBy === 'conformance_asc')  { cards.sort((a, b) => { const pa = reviewData[a.id]?.conformancePct ?? 101; const pb = reviewData[b.id]?.conformancePct ?? 101; return pa - pb; }); }
+    else if (sortBy === 'price_desc') { cards.sort((a, b) => { const pa = getPriceForCard(a)?.gbp ?? -1; const pb = getPriceForCard(b)?.gbp ?? -1; return pb - pa; }); }
+    else if (sortBy === 'price_asc')  { cards.sort((a, b) => { const pa = getPriceForCard(a)?.gbp ?? Infinity; const pb = getPriceForCard(b)?.gbp ?? Infinity; return pa - pb; }); }
     return cards;
-  }, [filteredData, filterChinese, filterExclusive, filterSet, filterCardType, sortBy, filterOwned, filterArtist, filterUnobtainable, filterExpensive, filterVeryExpensive, filterMissingImages, filterMissingPrice, filterSetLang]);
+  }, [filteredData, filterChinese, filterExclusive, filterSet, filterCardType, sortBy, filterOwned, filterArtist, filterUnobtainable, filterExpensive, filterVeryExpensive, filterMissingImages, filterMissingPrice, filterSetLang, getPriceForCard]);
 
   const handleInlineUpdateCard = requireUnlock((pokemonId, cardId, updates) => {
     setPokemonData(pokemonData.map(pokemon => {
@@ -804,6 +806,8 @@ export default function App() {
                     {viewMode === 'cards' && <option value="release_asc">Sort: Oldest first</option>}
                     {viewMode === 'cards' && <option value="conformance_desc">Sort: Highest conformance</option>}
                     {viewMode === 'cards' && <option value="conformance_asc">Sort: Lowest conformance</option>}
+                    {viewMode === 'cards' && <option value="price_desc">Sort: Price high → low</option>}
+                    {viewMode === 'cards' && <option value="price_asc">Sort: Price low → high</option>}
                     {viewMode === 'review' && <option value="conformance_desc">Sort: Highest conformance</option>}
                     {viewMode === 'review' && <option value="conformance_asc">Sort: Lowest conformance</option>}
                   </select>
