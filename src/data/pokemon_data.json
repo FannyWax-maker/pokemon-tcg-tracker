@@ -33892,10 +33892,10 @@
     "region": "Alola",
     "cards": [
       {
-        "id": "727_cpa_008-73",
+        "id": "727_cpa_08-73",
         "pokemonId": 727,
         "setCode": "CPA",
-        "number": "008/73",
+        "number": "08/73",
         "jpSetCode": "SD",
         "jpNumber": null,
         "cnSetCode": null,
@@ -33904,7 +33904,7 @@
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "008/73",
+        "setNumber": "08/73",
         "artist": "Kouki Saitou",
         "cardName": "Incineroar V\n",
         "exclusive": null,
