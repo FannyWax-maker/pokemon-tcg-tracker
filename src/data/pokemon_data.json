@@ -7687,10 +7687,10 @@
         "isSecondary": false
       },
       {
-        "id": "136_gen_rc006-83",
+        "id": "136_gen_rc6-rc32",
         "pokemonId": 136,
         "setCode": "GEN",
-        "number": "RC006/83",
+        "number": "RC6/RC32",
         "jpSetCode": "CP3",
         "jpNumber": null,
         "cnSetCode": null,
@@ -7699,9 +7699,9 @@
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "RC006/83",
+        "setNumber": "RC6/RC32",
         "artist": "Atsuko Nishida",
-        "cardName": "Flareon-EX",
+        "cardName": "Flareon EX",
         "exclusive": null,
         "otherPokemon": null,
         "availableLangs": [
@@ -35937,10 +35937,10 @@
     "region": "Alola",
     "cards": [
       {
-        "id": "792_sum_066-149",
+        "id": "792_sum_66-149",
         "pokemonId": 792,
         "setCode": "SUM",
-        "number": "066/149",
+        "number": "66/149",
         "jpSetCode": "SM1M",
         "jpNumber": null,
         "cnSetCode": null,
@@ -35949,9 +35949,9 @@
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "066/149",
+        "setNumber": "66/149",
         "artist": "PLANETA",
-        "cardName": "Lunala-GX",
+        "cardName": "Lunala GX",
         "exclusive": null,
         "otherPokemon": null,
         "availableLangs": [
