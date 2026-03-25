@@ -223,12 +223,19 @@ export function usePrices() {
     // TCGCSV sometimes uses zero-padded denominators (074/064) and sometimes not (1/68)
     // Strategy: try exact match first, then padded denominator, then stripped denominator
     const candidates = [lookupNumber];
-    const plainMatch = lookupNumber.match(/^(\d+)\/(\d+)$/);
+    // Strip letter suffixes: 195a/214 → try 195/214 as well
+    const alphaStripped = lookupNumber.replace(/^(\d+)[a-z](\/.*)/, '$1$2');
+    if (alphaStripped !== lookupNumber) candidates.push(alphaStripped);
+    const plainMatch = lookupNumber.match(/^(\d+[a-z]?)\/(\d+)$/);
     if (plainMatch) {
       const [, num, den] = plainMatch;
-      if (den.length < 3) candidates.push(`${num}/${den.padStart(3, '0')}`); // 1/68 → 1/068
-      if (den.length > 1) candidates.push(`${num}/${den.replace(/^0+(?=\d)/, '')}`); // 074/064 → 74/64... skip
-      candidates.push(`${num.padStart(3, '0')}/${den}`); // 85/168 → 085/168... not needed here but safe
+      const numDigits = num.replace(/[a-z]/g, '');
+      // Pad denominator to 3 digits if short
+      if (den.length < 3) candidates.push(`${num}/${den.padStart(3, '0')}`);
+      // Strip leading zeros from denominator
+      if (den.length > 1) candidates.push(`${num}/${den.replace(/^0+(?=\d)/, '')}`);
+      // Pad numerator to 3 digits
+      if (numDigits.length < 3) candidates.push(`${numDigits.padStart(3, '0')}/${den}`);
     }
     let p = null;
     for (const candidate of candidates) {
