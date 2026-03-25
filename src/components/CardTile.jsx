@@ -242,14 +242,22 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     const number = (card.setNumber || card.number || '').toLowerCase();
     const numberWithDash = number.replace(/\//g, '-');
     const numberOnly = number.split('/')[0];
+    // Zero-padded fallbacks: if numberOnly is e.g. "57", also try "057" and "0057"
+    const numericPart = numberOnly.match(/^([a-z]*)(\d+)([a-z]*)$/);
+    const paddedOnly1 = numericPart ? `${numericPart[1]}${numericPart[2].padStart(numericPart[2].length + 1, '0')}${numericPart[3]}` : null;
+    const paddedOnly2 = numericPart ? `${numericPart[1]}${numericPart[2].padStart(numericPart[2].length + 2, '0')}${numericPart[3]}` : null;
     const numberAlreadyHasSet = numberOnly.toLowerCase().startsWith(setCode);
     const paths = [];
     if (numberAlreadyHasSet) {
       paths.push(`.${numberWithDash}.${pokemon}_`);
       paths.push(`.${numberOnly}.${pokemon}_`);
+      if (paddedOnly1) paths.push(`.${paddedOnly1}.${pokemon}_`);
+      if (paddedOnly2) paths.push(`.${paddedOnly2}.${pokemon}_`);
     } else {
       paths.push(`${setCode}.${numberWithDash}.${pokemon}_`);
       paths.push(`${setCode}.${numberOnly}.${pokemon}_`);
+      if (paddedOnly1) paths.push(`${setCode}.${paddedOnly1}.${pokemon}_`);
+      if (paddedOnly2) paths.push(`${setCode}.${paddedOnly2}.${pokemon}_`);
       paths.push(`${setCode}.${numberWithDash}.${pokemon}`);
       paths.push(`${setCode}.${numberOnly}.${pokemon}`);
       paths.push(`.${numberWithDash}.${pokemon}_`);

@@ -125,6 +125,31 @@ export default function App() {
     return best;
   };
 
+  // Look up a cardId in a map, falling back to number-normalised variants
+  // Handles cases where numbers were zero-padded after initial entry (xy57 vs xy057)
+  const lookupById = (map, cardId) => {
+    if (map[cardId] !== undefined) return map[cardId];
+    // Try stripping/adding leading zeros from the number portion of the ID
+    // cardId format: {pokemonId}_{setCode}_{number}
+    const parts = cardId.split('_');
+    if (parts.length >= 3) {
+      const numPart = parts[parts.length - 1];
+      // Try removing one leading zero
+      const stripped = numPart.replace(/^0+([1-9])/, '$1');
+      if (stripped !== numPart) {
+        const strippedId = [...parts.slice(0, -1), stripped].join('_');
+        if (map[strippedId] !== undefined) return map[strippedId];
+      }
+      // Try adding one leading zero
+      const padded = numPart.replace(/^([a-z]*)(\d)/, '$10$2');
+      if (padded !== numPart) {
+        const paddedId = [...parts.slice(0, -1), padded].join('_');
+        if (map[paddedId] !== undefined) return map[paddedId];
+      }
+    }
+    return undefined;
+  };
+
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyMgDPDy9wpz2YFJoYuYaDQfZ2u5uou3wYQgL6ULUSZDbaJTMNLFDC-Ho57qRHAJ6Osug/exec';
 
   useEffect(() => {
@@ -136,7 +161,7 @@ export default function App() {
           ...pokemon,
           cards: pokemon.cards.map(card => ({
             ...card,
-            ownedLang: ownership[card.id] !== undefined ? ownership[card.id] : card.ownedLang
+            ownedLang: lookupById(ownership, card.id) !== undefined ? lookupById(ownership, card.id) : card.ownedLang
           }))
         })));
       }
@@ -167,12 +192,12 @@ export default function App() {
           ...pokemon,
           cards: pokemon.cards.map(card => ({
             ...card,
-            ownedLang: ownership[card.id] !== undefined ? ownership[card.id] : card.ownedLang,
-            nonConforming: nonConforming[card.id] === true ? true : card.nonConforming || false,
-            favorite: favorites[card.id] === true ? true : card.favorite || false,
-            unobtainable: unobtainable[card.id] === true ? true : card.unobtainable || false,
-            expensive: expensive[card.id] === true ? true : card.expensive || false,
-            veryExpensive: veryExpensive[card.id] === true ? true : card.veryExpensive || false,
+            ownedLang: lookupById(ownership, card.id) !== undefined ? lookupById(ownership, card.id) : card.ownedLang,
+            nonConforming: lookupById(nonConforming, card.id) === true ? true : card.nonConforming || false,
+            favorite: lookupById(favorites, card.id) === true ? true : card.favorite || false,
+            unobtainable: lookupById(unobtainable, card.id) === true ? true : card.unobtainable || false,
+            expensive: lookupById(expensive, card.id) === true ? true : card.expensive || false,
+            veryExpensive: lookupById(veryExpensive, card.id) === true ? true : card.veryExpensive || false,
           }))
         })));
       } catch (e) {
