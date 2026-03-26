@@ -249,6 +249,11 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     const numberWithDashUnpadded = number.includes('/')
       ? number.split('/').map((p, i) => i > 0 ? p.replace(/^0+(?=\d)/, '') : p).join('-')
       : numberWithDash;
+    // TG/GG variant: tg03/30 -> tg003-30 (3-digit numerator, plain denominator)
+    const tgDenomMatch = number.match(/^(tg|gg)(\d+)\/(.+)$/);
+    const numberWithDashTG = tgDenomMatch
+      ? `${tgDenomMatch[1]}${tgDenomMatch[2].padStart(3, '0')}-${tgDenomMatch[3].replace(/^(tg|gg)/i, '')}`
+      : null;
     const numberOnly = number.split('/')[0];
     // Padded numberOnly variants: xy57 -> xy057 -> xy0057
     const numParts = numberOnly.match(/^([a-z]*)(\d+)([a-z]*)$/);
@@ -264,6 +269,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
       if (paddedOnly2) paths.push(`.${paddedOnly2}.${pokemon}_`);
     } else {
       paths.push(`${setCode}.${numberWithDash}.${pokemon}_`);
+      if (numberWithDashTG) paths.push(`${setCode}.${numberWithDashTG}.${pokemon}_`);
       paths.push(`${setCode}.${numberWithDashPadded}.${pokemon}_`);
       paths.push(`${setCode}.${numberWithDashUnpadded}.${pokemon}_`);
       paths.push(`${setCode}.${numberOnly}.${pokemon}_`);
