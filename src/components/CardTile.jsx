@@ -267,11 +267,20 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
       paths.push(`.${numberOnly}.${pokemon}_`);
       if (paddedOnly1) paths.push(`.${paddedOnly1}.${pokemon}_`);
       if (paddedOnly2) paths.push(`.${paddedOnly2}.${pokemon}_`);
+      // Also try without leading dot (SWSH promos: swsh184.jolteon_.png)
+      paths.push(`${numberWithDash}.${pokemon}_`);
+      paths.push(`${numberOnly}.${pokemon}_`);
+      if (paddedOnly1) paths.push(`${paddedOnly1}.${pokemon}_`);
     } else {
       paths.push(`${setCode}.${numberWithDash}.${pokemon}_`);
       if (numberWithDashTG) paths.push(`${setCode}.${numberWithDashTG}.${pokemon}_`);
       paths.push(`${setCode}.${numberWithDashPadded}.${pokemon}_`);
       paths.push(`${setCode}.${numberWithDashUnpadded}.${pokemon}_`);
+      // Unpadded numberOnly: svp.044 → svp.44
+      if (paddedOnly1 || paddedOnly2) {
+        const numStripped = numberOnly.replace(/^0+(?=\d)/, '');
+        if (numStripped !== numberOnly) paths.push(`${setCode}.${numStripped}.${pokemon}_`);
+      }
       paths.push(`${setCode}.${numberOnly}.${pokemon}_`);
       if (paddedOnly1) paths.push(`${setCode}.${paddedOnly1}.${pokemon}_`);
       if (paddedOnly2) paths.push(`${setCode}.${paddedOnly2}.${pokemon}_`);
