@@ -25,7 +25,6 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
   }, [hasPrev, hasNext, onNavigatePrev, onNavigateNext, onClose]);
   
   const primaryCards = pokemon.cards.filter(c => !c.isSecondary && c.isPrimary !== false);
-  // Dedupe secondary cards by id (data sometimes has duplicates)
   const seenIds = new Set();
   const secondaryCards = pokemon.cards.filter(c => {
     if (!c.isSecondary && c.isPrimary !== false) return false;
@@ -37,7 +36,6 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
   const ownedCards = primaryCards.filter(c => c.ownedLang).length;
   const ownedSecondary = secondaryCards.filter(c => c.ownedLang).length;
   
-  // Count by language
   const langCounts = {};
   Object.keys(LANGUAGES).forEach(lang => {
     const owned = primaryCards.filter(c => c.ownedLang === lang).length;
@@ -47,12 +45,10 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
   
   const handleOwnershipClick = (card) => {
     if (card._directLang) {
-      // Direct lang button click - confirm immediately
       onUpdateCard(pokemon.id, card.id, card._directLang);
     } else if (card._action === 'unmark') {
       onUpdateCard(pokemon.id, card.id, null);
     } else {
-      // Open language picker
       setLanguagePickerCard(card);
     }
   };
@@ -62,24 +58,28 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
     setLanguagePickerCard(null);
   };
   
-  // Handle click on backdrop
   const handleBackdropClick = (e) => {
-    if (e.target === e.currentTarget) {
-      onClose();
-    }
+    if (e.target === e.currentTarget) onClose();
   };
   
   return (
     <>
+      {/* Backdrop: bottom-sheet on mobile, centered on sm+ */}
       <div 
-        className="fixed inset-0 bg-black/70 backdrop-blur-md z-40 flex items-center justify-center"
-        style={{padding: '1.5rem'}}
+        className="fixed inset-0 bg-black/70 backdrop-blur-md z-40 flex items-end sm:items-center sm:p-6"
         onClick={handleBackdropClick}
       >
-        <div className="bg-white rounded-3xl shadow-2xl w-full mx-auto flex flex-col" style={{maxWidth: '80rem', height: '88vh'}}>
+        {/* Modal: full-width bottom sheet on mobile, capped card on sm+ */}
+        <div
+          className="bg-white w-full mx-auto flex flex-col rounded-t-3xl sm:rounded-3xl shadow-2xl"
+          style={{
+            maxWidth: '80rem',
+            height: '92dvh',
+            // On sm+ override via inline — tailwind can't mix dvh with sm: easily
+          }}
+        >
           {/* Header */}
-          <div className="sticky top-0 z-10 rounded-t-3xl overflow-hidden">
-            {/* Gradient banner */}
+          <div className="sticky top-0 z-10 rounded-t-3xl overflow-hidden flex-shrink-0">
             <div style={{
               background: ownedCards === totalCards && totalCards > 0
                 ? 'linear-gradient(135deg, #065f46 0%, #059669 50%, #34d399 100%)'
@@ -89,10 +89,10 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
               padding: '1px'
             }}>
               <div style={{background: 'rgba(255,255,255,0.97)', borderRadius: '0.75rem 0.75rem 0 0'}}>
-                <div className="px-6 py-4 flex items-center justify-between">
+                <div className="px-3 py-3 sm:px-6 sm:py-4 flex items-center justify-between">
                   {/* Left: nav + info */}
-                  <div className="flex items-center gap-2">
-                    <div className="flex items-center gap-1 border border-gray-200 rounded-lg overflow-hidden">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <div className="flex items-center gap-1 border border-gray-200 rounded-lg overflow-hidden flex-shrink-0">
                       <button
                         onClick={onNavigatePrev}
                         disabled={!hasPrev}
@@ -107,11 +107,11 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
                         title="Next (→)"
                       >›</button>
                     </div>
-                    <div className="ml-2">
-                      <div className="flex items-center gap-2 mb-0.5">
+                    <div className="ml-1 min-w-0">
+                      <div className="flex items-center gap-1.5 mb-0.5 flex-wrap">
                         <span className="text-xs font-mono text-gray-400 tracking-widest">#{String(pokemon.id).padStart(4, '0')}</span>
-                        <span className="text-xs text-gray-300">·</span>
-                        <span className="text-xs text-gray-400">Gen {pokemon.gen}</span>
+                        <span className="text-xs text-gray-300 hidden sm:inline">·</span>
+                        <span className="text-xs text-gray-400 hidden sm:inline">Gen {pokemon.gen}</span>
                         <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
                           ownedCards === totalCards && totalCards > 0
                             ? 'bg-emerald-100 text-emerald-700'
@@ -127,11 +127,11 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
                           </span>
                         )}
                       </div>
-                      <h2 className="text-2xl font-black text-gray-900 leading-tight tracking-tight">{pokemon.name}</h2>
+                      <h2 className="text-lg sm:text-2xl font-black text-gray-900 leading-tight tracking-tight truncate">{pokemon.name}</h2>
                     </div>
                   </div>
                   {/* Right: progress + close */}
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
                     <div className="text-right hidden sm:block">
                       <div className="text-xs text-gray-400 mb-1">Collection progress</div>
                       <div className="flex items-center gap-2">
@@ -167,8 +167,8 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
             </div>
           </div>
           
-          {/* Cards Grid - scrollable independently so header stays fixed */}
-          <div ref={scrollRef} className="p-4 overflow-y-auto flex-1">
+          {/* Cards Grid */}
+          <div ref={scrollRef} className="p-3 sm:p-4 overflow-y-auto flex-1">
             {(() => {
               const hasRealCards = primaryCards.some(c => c.setCode || c.jpSetCode || c.cnSetCode);
               return !hasRealCards;
@@ -180,7 +180,7 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
                 {secondaryCards.length > 0 && (
                   <div className="w-full">
                     <p className="text-xs font-semibold text-purple-500 uppercase tracking-wider mb-3">Featured in {secondaryCards.length} other card{secondaryCards.length > 1 ? 's' : ''}</p>
-                    <div className="grid grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2">
                       {secondaryCards.map(card => (
                         <CardTile
                           key={card.id}
@@ -203,7 +203,7 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
                 )}
               </div>
             ) : (
-              <div className="grid grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2">
                 {pokemon.cards.map(card => (
                   <CardTile
                     key={card.id}
