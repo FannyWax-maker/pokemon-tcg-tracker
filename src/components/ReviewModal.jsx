@@ -70,6 +70,22 @@ export function conformanceColor(pct) {
 
 // ── Image loading ────────────────────────────────────────────────────────────
 const imageCache = {};
+
+// Manifest: shared with CardTile via module-level singleton pattern
+// Fetch once and reuse across both components
+let imageManifest = null;
+let manifestInFlight = null;
+const getManifest = () => {
+  if (imageManifest) return Promise.resolve(imageManifest);
+  if (manifestInFlight) return manifestInFlight;
+  manifestInFlight = fetch('/pokemon-tcg-tracker/card-images/manifest.json')
+    .then(r => r.json())
+    .then(files => { imageManifest = new Set(files); return imageManifest; })
+    .catch(() => { imageManifest = new Set(); return imageManifest; });
+  return manifestInFlight;
+};
+getManifest();
+
 const MAX_CONCURRENT = 6;
 let activeRequests = 0;
 const requestQueue = [];
@@ -152,19 +168,31 @@ function useCardImage(card, pokemonName) {
   useEffect(() => {
     if (imageCache[cacheKey]) { setImageSrc(imageCache[cacheKey].src); return; }
     let mounted = true;
-    const paths    = generateImagePaths(card, pokemonName);
-    const allPaths = paths.flatMap(p => [
-      `/pokemon-tcg-tracker/card-images/${p}.png`,
-      `/pokemon-tcg-tracker/card-images/${p}.jpg`,
-    ]);
-    const tryPath = (src) => enqueueImageLoad(() => new Promise((res, rej) => {
-      const img = new Image(); img.onload = () => res(src); img.onerror = rej; img.src = src;
-    }));
+    const paths = generateImagePaths(card, pokemonName);
+    const base  = '/pokemon-tcg-tracker/card-images/';
     (async () => {
+      const manifest = await getManifest();
       let found = null;
-      for (const src of allPaths) {
-        if (!mounted) return;
-        try { found = await tryPath(src); break; } catch (_) {}
+      if (manifest.size > 0) {
+        for (const p of paths) {
+          for (const ext of ['.png', '.jpg']) {
+            if (manifest.has(p + ext)) { found = base + p + ext; break; }
+          }
+          if (found) break;
+        }
+      }
+      if (!found) {
+        const tryPath = (src) => enqueueImageLoad(() => new Promise((res, rej) => {
+          const img = new Image(); img.onload = () => res(src); img.onerror = rej; img.src = src;
+        }));
+        for (const src of paths.flatMap(p => [base+p+'.png', base+p+'.jpg'])) {
+          if (!mounted) return;
+          try { found = await tryPath(src); break; } catch (_) {}
+        }
+      } else {
+        found = await enqueueImageLoad(() => new Promise((res, rej) => {
+          const img = new Image(); img.onload = () => res(found); img.onerror = rej; img.src = found;
+        })).catch(() => null);
       }
       if (!mounted) return;
       imageCache[cacheKey] = { src: found };

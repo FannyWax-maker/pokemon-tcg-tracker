@@ -8,6 +8,29 @@ const ALL_POKEMON_NAMES = pokemonDataImport.map(p => p.name);
 // Global cache - images never reload after first load
 const imageCache = {};
 
+// Manifest: set of all filenames in card-images/ (loaded once, avoids 404 waterfall)
+let imageManifest = null; // null = not loaded, Set = loaded
+let manifestInFlight = null;
+
+const getManifest = () => {
+  if (imageManifest) return Promise.resolve(imageManifest);
+  if (manifestInFlight) return manifestInFlight;
+  manifestInFlight = fetch('/pokemon-tcg-tracker/card-images/manifest.json')
+    .then(r => r.json())
+    .then(files => {
+      imageManifest = new Set(files);
+      return imageManifest;
+    })
+    .catch(() => {
+      imageManifest = new Set(); // fallback: empty set, will trial-and-error
+      return imageManifest;
+    });
+  return manifestInFlight;
+};
+
+// Pre-fetch manifest immediately on module load
+getManifest();
+
 
 
 // Global request queue - limits concurrent image fetches to avoid GitHub Pages 429
@@ -331,30 +354,53 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     let mounted = true;
 
     const tryLoadImage = async () => {
-      // Try paths sequentially through the queue - prevents burst of 200+ requests when fast-scrolling
-      const allPaths = imagePaths.flatMap(path => [
-        `/pokemon-tcg-tracker/card-images/${path}.png`,
-        `/pokemon-tcg-tracker/card-images/${path}.jpg`
-      ]);
-
-      const tryPath = (src) => enqueueImageLoad(() =>
-        new Promise((resolve, reject) => {
-          const img = new Image();
-          img.onload = () => resolve(src);
-          img.onerror = reject;
-          img.src = src;
-        })
-      );
+      const manifest = await getManifest();
+      const base = '/pokemon-tcg-tracker/card-images/';
 
       let found = null;
-      for (const src of allPaths) {
-        if (!mounted) return;
-        try {
-          found = await tryPath(src);
-          break;
-        } catch (_) {
-          // try next path
+
+      if (manifest.size > 0) {
+        // Fast path: check manifest for exact filename match
+        for (const path of imagePaths) {
+          for (const ext of ['.png', '.jpg']) {
+            if (manifest.has(path + ext)) {
+              found = base + path + ext;
+              break;
+            }
+          }
+          if (found) break;
         }
+      }
+
+      if (!found) {
+        // Fallback: try HTTP requests for any paths not in manifest
+        // (handles cases where manifest is empty or stale)
+        const allPaths = imagePaths.flatMap(path => [
+          base + path + '.png',
+          base + path + '.jpg'
+        ]);
+        const tryPath = (src) => enqueueImageLoad(() =>
+          new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = () => resolve(src);
+            img.onerror = reject;
+            img.src = src;
+          })
+        );
+        for (const src of allPaths) {
+          if (!mounted) return;
+          try { found = await tryPath(src); break; } catch (_) {}
+        }
+      } else {
+        // Load found image through queue to respect concurrency limit
+        found = await enqueueImageLoad(() =>
+          new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = () => resolve(found);
+            img.onerror = reject;
+            img.src = found;
+          })
+        ).catch(() => null);
       }
 
       if (!mounted) return;
