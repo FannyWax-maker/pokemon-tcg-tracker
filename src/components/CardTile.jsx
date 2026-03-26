@@ -240,63 +240,64 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     const setCode = (card.setCode || card.jpSetCode || card.cnSetCode || '').toLowerCase();
     const pokemon = displayPokemon.toLowerCase().replace(/\s+/g, '_').replace(/[.']/g, '');
     const number = (card.setNumber || card.number || '').toLowerCase();
-    const numberWithDash = number.replace(/\//g, '-');
-    // Variant with padded numerator: 85/168 -> 085-168
-    const numberWithDashPadded = number.includes('/')
-      ? (() => { const [num, den] = number.split('/'); return `${num.replace(/^(\d+)$/, n => n.padStart(3, '0'))}-${den}`; })()
-      : numberWithDash;
-    // Variant with unpadded denominator: 006/025 -> 006-25
-    const numberWithDashUnpadded = number.includes('/')
-      ? number.split('/').map((p, i) => i > 0 ? p.replace(/^0+(?=\d)/, '') : p).join('-')
-      : numberWithDash;
-    // TG/GG variant: tg03/30 -> tg003-30 (3-digit numerator, plain denominator)
-    const tgDenomMatch = number.match(/^(tg|gg)(\d+)\/(.+)$/);
-    const numberWithDashTG = tgDenomMatch
-      ? `${tgDenomMatch[1]}${tgDenomMatch[2].padStart(3, '0')}-${tgDenomMatch[3].replace(/^(tg|gg)/i, '')}`
-      : null;
     const numberOnly = number.split('/')[0];
-    // Padded numberOnly variants: xy57 -> xy057 -> xy0057
+    const numberAlreadyHasSet = numberOnly.startsWith(setCode) && setCode.length > 0;
+
+    // Generate all number-only variants
+    const numVariants = new Set([numberOnly]);
     const numParts = numberOnly.match(/^([a-z]*)(\d+)([a-z]*)$/);
-    const paddedOnly1 = numParts ? `${numParts[1]}${numParts[2].padStart(numParts[2].length + 1, '0')}${numParts[3]}` : null;
-    const paddedOnly2 = numParts ? `${numParts[1]}${numParts[2].padStart(numParts[2].length + 2, '0')}${numParts[3]}` : null;
-    const numberAlreadyHasSet = numberOnly.toLowerCase().startsWith(setCode);
-    const paths = [];
-    if (numberAlreadyHasSet) {
-      paths.push(`.${numberWithDash}.${pokemon}_`);
-      paths.push(`.${numberWithDashUnpadded}.${pokemon}_`);
-      paths.push(`.${numberOnly}.${pokemon}_`);
-      if (paddedOnly1) paths.push(`.${paddedOnly1}.${pokemon}_`);
-      if (paddedOnly2) paths.push(`.${paddedOnly2}.${pokemon}_`);
-      // Also try without leading dot (SWSH promos: swsh184.jolteon_.png)
-      paths.push(`${numberWithDash}.${pokemon}_`);
-      paths.push(`${numberOnly}.${pokemon}_`);
-      if (paddedOnly1) paths.push(`${paddedOnly1}.${pokemon}_`);
-    } else {
-      paths.push(`${setCode}.${numberWithDash}.${pokemon}_`);
-      if (numberWithDashTG) paths.push(`${setCode}.${numberWithDashTG}.${pokemon}_`);
-      paths.push(`${setCode}.${numberWithDashPadded}.${pokemon}_`);
-      paths.push(`${setCode}.${numberWithDashUnpadded}.${pokemon}_`);
-      // Unpadded numberOnly: svp.044 → svp.44
-      if (paddedOnly1 || paddedOnly2) {
-        const numStripped = numberOnly.replace(/^0+(?=\d)/, '');
-        if (numStripped !== numberOnly) paths.push(`${setCode}.${numStripped}.${pokemon}_`);
+    if (numParts) {
+      const [, prefix, digits, suffix] = numParts;
+      for (let pad = digits.length + 1; pad <= digits.length + 2; pad++) {
+        numVariants.add(prefix + digits.padStart(pad, '0') + suffix);
       }
-      paths.push(`${setCode}.${numberOnly}.${pokemon}_`);
-      if (paddedOnly1) paths.push(`${setCode}.${paddedOnly1}.${pokemon}_`);
-      if (paddedOnly2) paths.push(`${setCode}.${paddedOnly2}.${pokemon}_`);
-      paths.push(`${setCode}.${numberWithDash}.${pokemon}`);
-      paths.push(`${setCode}.${numberWithDashPadded}.${pokemon}`);
-      paths.push(`${setCode}.${numberWithDashUnpadded}.${pokemon}`);
-      paths.push(`${setCode}.${numberOnly}.${pokemon}`);
-      paths.push(`.${numberWithDash}.${pokemon}_`);
-      paths.push(`.${numberWithDashUnpadded}.${pokemon}_`);
-      paths.push(`.${numberOnly}.${pokemon}_`);
+      numVariants.add(prefix + digits.replace(/^0+(?=\d)/, '') + suffix);
+      numVariants.add(prefix + digits.replace(/^0(?=\d)/, '') + suffix);
     }
-    paths.push(`${setCode.toUpperCase()}_${numberOnly}_R_EN_LG`);
+
+    // Generate dash variants (num/den combos with all padding options)
+    const dashVariants = new Set();
+    if (number.includes('/')) {
+      const [rawNum, rawDen] = number.split('/');
+      const denParts = rawDen.match(/^([a-z]*)(\d+)([a-z]*)$/);
+      const denVariants = new Set([rawDen]);
+      if (denParts) {
+        const [, dp, dd, ds] = denParts;
+        denVariants.add(dp + dd.padStart(3, '0') + ds);
+        denVariants.add(dp + dd.replace(/^0+(?=\d)/, '') + ds);
+        denVariants.add(dp + dd.replace(/^0(?=\d)/, '') + ds);
+        if (dp) denVariants.add(dd.replace(/^0+(?=\d)/, '')); // strip prefix (tg30 → 30)
+      }
+      for (const nv of numVariants) {
+        for (const dv of denVariants) {
+          dashVariants.add(nv + '-' + dv);
+        }
+      }
+    } else {
+      for (const nv of numVariants) dashVariants.add(nv);
+    }
+
+    const paths = [];
+    const addPaths = (key) => {
+      paths.push(setCode + '.' + key + '.' + pokemon + '_');
+      paths.push(key + '.' + pokemon + '_');
+      paths.push('.' + key + '.' + pokemon + '_');
+      paths.push(setCode + '.' + key + '.' + pokemon);
+    };
+
+    if (numberAlreadyHasSet) {
+      for (const nv of numVariants) addPaths(nv);
+      for (const dv of dashVariants) addPaths(dv);
+    } else {
+      for (const dv of dashVariants) addPaths(dv);
+      for (const nv of numVariants) addPaths(nv);
+    }
+
+    paths.push(setCode.toUpperCase() + '_' + numberOnly + '_R_EN_LG');
     return [...new Set(paths)];
   };
 
-  const imagePaths = generateImagePaths();
+    const imagePaths = generateImagePaths();
   const cacheKey = card.id;
   const cached = imageCache[cacheKey];
   const [imageLoaded, setImageLoaded] = React.useState(!!cached?.src);
