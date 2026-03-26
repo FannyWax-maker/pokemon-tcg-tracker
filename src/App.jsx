@@ -620,7 +620,7 @@ export default function App() {
       {/* HEADER */}
       <div className={`sticky top-0 z-30 ${darkMode ? 'bg-gray-900 border-b border-gray-700' : 'bg-white border-b border-gray-200'}`} style={{boxShadow: darkMode ? 'none' : '0 2px 12px rgba(0,0,0,0.07)'}}>
         <div className="max-w-7xl mx-auto px-3 pt-2 pb-1.5">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <div className="shrink-0 flex items-center gap-1.5">
               <div className="relative w-6 h-6" title="Pokémon TCG Tracker">
                 <svg viewBox="0 0 24 24" className="w-6 h-6">
@@ -673,7 +673,7 @@ export default function App() {
                 className={`px-2.5 py-1 rounded-full transition-colors ${viewMode === 'review' ? 'text-white' : darkMode ? 'text-gray-400' : 'text-gray-500'}`}
                 style={viewMode === 'review' ? {background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)'} : {}}>Review</button>
             </div>
-            <div className={`flex items-center rounded-lg overflow-hidden text-xs font-bold shrink-0 border ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
+            <div className={`hidden sm:flex items-center rounded-lg overflow-hidden text-xs font-bold shrink-0 border ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
               {['S','M','L'].map(s => (
                 <button key={s} onClick={() => setTileSize(s)}
                   className={`px-2 py-1 transition-colors ${tileSize === s ? 'text-white' : darkMode ? 'bg-gray-700 text-gray-400' : 'bg-white text-gray-500 hover:bg-gray-50'}`}
@@ -962,7 +962,7 @@ export default function App() {
       {/* CONTENT */}
       <div className="max-w-7xl mx-auto px-4 py-6">
         <div className={`mb-4 text-xs font-semibold flex items-center justify-between ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             {filteredData.type === 'pokemon' ? (<><Grid className="w-3.5 h-3.5" /><span>{filteredData.data.length} Pokémon</span></>) : (<><List className="w-3.5 h-3.5" /><span>{filteredData.data.length} Cards</span></>)}
           </div>
           {hasActiveFilters && (
@@ -985,7 +985,7 @@ export default function App() {
         ) : viewMode === 'review' ? (
           <div>
             <div className={`flex items-center justify-between mb-4 text-xs font-semibold ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-wrap">
                 <span style={{fontSize:'0.85rem'}}>🔬</span>
                 <span>Review Mode — {allCardsFlat.length} cards · {allCardsFlat.filter(c => reviewData[c.id]).length} reviewed</span>
               </div>
@@ -1036,7 +1036,7 @@ export default function App() {
         ) : (
           <div>
             <div className={`flex items-center justify-between mb-4 text-xs font-semibold ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
-              <div className="flex items-center gap-2"><List className="w-3.5 h-3.5" /><span>All Cards ({allCardsFlat.length})</span></div>
+              <div className="flex items-center gap-2 flex-wrap"><List className="w-3.5 h-3.5" /><span>All Cards ({allCardsFlat.length})</span></div>
               <div>{allCardsFlat.filter(c => c.ownedLang).length} owned</div>
             </div>
             <div className={`grid ${tileGridClass[tileSize]}`}>
