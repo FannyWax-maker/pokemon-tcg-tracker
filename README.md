@@ -1,141 +1,96 @@
-# Pokémon TCG Full-Art Collection Tracker
+Pokémon TCG Full-Art Collection Tracker
+A personal web app to track your Pokémon TCG full-art card collection across multiple languages, with pricing, artwork tagging, and a review/conformance system.
+Features
 
-A beautiful, modern web application to track your Pokémon Trading Card Game full-art card collection across multiple languages.
+Visual Pokédex Grid — Browse all Pokémon with type-accurate gradient backgrounds; adjustable tile sizes (S/M/L)
+Multi-language Tracking — Track ownership across 5 languages: EN, JP, CN, TC (Traditional Chinese), and KR, each with distinct colour coding
+Live Pricing — Real-time EN card prices via TCGCSV, converted to GBP via frankfurter.app, with 24-hour local caching
+Card Detail Modal — Full card info including set, artist, price, language availability, and card artwork
+Review & Conformance System — Score cards on objective conformance criteria; blended with personal 1–10 ratings from Tjay and Steph
+Pokémon Coord Tagging — Zoom tool for tagging Pokémon positions on card artwork, stored per card
+Advanced Filtering & Sorting — Filter by set, language, artist, generation, ownership, exclusives, conformance, favourites, and more
+Search with Autocomplete — Find Pokémon by name or Pokédex number instantly
+Dark Mode — Full light/dark theme support
+Lock/Unlock System — SHA-256 password-protected write access for ownership and review edits
+Google Sheets Sync — Card data synced from Google Sheets via Apps Script to GitHub
 
-## Features
+Tech Stack
 
-- **Visual Pokédex Grid**: Browse all 1,025 Pokémon with type-accurate gradient backgrounds
-- **Detailed Card View**: See all cards for each Pokémon with prices, artists, and set information
-- **Language Tracking**: Track ownership across 4 languages (EN, JP, CN, KR) with permanent language locking
-- **Progress Tracking**: Visual indicators showing completion status for each Pokémon
-- **Search Functionality**: Quickly find Pokémon by name or Pokédex number
-- **Exclusive Cards**: Special badges for Japanese and Chinese exclusive cards
-- **Responsive Design**: Works beautifully on desktop, tablet, and mobile
+React 18 + Vite — Frontend build
+Tailwind CSS — Utility-first styling
+Lucide React — Icons
+TCGCSV — Free, no-auth EN card pricing
+frankfurter.app — Live USD→GBP exchange rate
+Google Sheets + Apps Script — Data source and sync pipeline
+GitHub Pages — Hosting (fannywax-maker.github.io/pokemon-tcg-tracker)
 
-## Tech Stack
-
-- **React 18** - Modern React with hooks
-- **Vite** - Lightning-fast build tool
-- **Tailwind CSS** - Utility-first styling
-- **Lucide React** - Beautiful icon library
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18+ 
-- npm or yarn
-
-### Installation
-
-1. Clone or download this project
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Start the development server:
-```bash
-npm run dev
-```
-
-4. Open your browser to `http://localhost:5173`
-
-### Build for Production
-
-```bash
-npm run build
-```
-
-The production-ready files will be in the `dist/` folder.
-
-### Preview Production Build
-
-```bash
-npm run preview
-```
-
-## Project Structure
-
-```
+Project Structure
 pokemon-tcg-tracker/
 ├── src/
 │   ├── components/
-│   │   ├── PokemonCard.jsx      # Grid tile component
-│   │   ├── CardTile.jsx         # Individual card in detail view
-│   │   ├── DetailModal.jsx      # Pokemon detail modal
-│   │   └── LanguagePicker.jsx   # Language selection modal
+│   │   ├── PokemonCard.jsx       # Grid tile component
+│   │   ├── CardTile.jsx          # Individual card in detail view
+│   │   ├── DetailModal.jsx       # Pokémon detail modal
+│   │   └── LanguagePicker.jsx    # Language selection modal
 │   ├── data/
-│   │   └── pokemon_data.json    # Full collection data (1,749 cards)
+│   │   ├── pokemon_data.json     # Full collection data
+│   │   ├── pokemon_coords.json   # Pokémon artwork position tags
+│   │   ├── review_data.json      # Card review/conformance scores
+│   │   └── set_names.json        # Set metadata by language
+│   ├── hooks/
+│   │   └── usePrices.js          # Live pricing hook (TCGCSV + GBP)
 │   ├── utils/
-│   │   └── typeGradients.js     # Pokemon type color mappings
-│   ├── App.jsx                  # Main application component
-│   ├── main.jsx                 # React entry point
-│   └── index.css                # Global styles + Tailwind
+│   │   └── typeGradients.js      # Pokémon type colour mappings
+│   ├── App.jsx                   # Main application component
+│   ├── main.jsx                  # React entry point
+│   └── index.css                 # Global styles + Tailwind
 ├── index.html
 ├── package.json
-├── vite.config.js
-└── tailwind.config.js
-```
-
-## Data Structure
-
-### Pokemon Object
-```javascript
-{
-  id: 1,              // Pokédex number
-  gen: 1,             // Generation (1-9)
-  name: "Bulbasaur",
-  cards: [...]        // Array of cards
+└── vite.config.js
+Data Structure
+Pokémon Object
+json{
+  "id": 1,
+  "gen": 1,
+  "name": "Bulbasaur",
+  "cards": []
 }
-```
-
-### Card Object
-```javascript
-{
-  id: "1_0",                    // Unique identifier
-  setCode: "MEW",               // Set abbreviation
-  number: "166/165",            // Card number in set
-  cardName: "V",                // Card type (V, VMAX, EX, GX, ex)
-  artist: "Yoriyuki Ikegami",  // Card artist
-  priceGBP: 35.0,              // Price in GBP
-  availableLangs: ["EN", "JP", "CN", "KR"],  // Available languages
-  ownedLang: "EN",             // Owned language (null if not owned)
-  exclusive: null              // "JP" or "CN" for exclusives
+Card Object
+json{
+  "id": "1_0",
+  "setCode": "MEW",
+  "number": "166/165",
+  "cardName": "ex",
+  "artist": "Yoriyuki Ikegami",
+  "availableLangs": ["EN", "JP", "CN", "TC", "KR"],
+  "ownedLang": "EN",
+  "exclusive": null,
+  "nonConforming": false,
+  "unobtainable": false,
+  "otherPokemon": ["Ivysaur", "Venusaur"]
 }
-```
+Language Codes
+CodeLanguageColourENEnglishBlueJPJapaneseRedCNChinese SimplifiedAmberTCChinese TraditionalTealKRKoreanPurple
 
-## Customization
+TC sets use JP set codes with an F suffix (e.g. xy2F). KR sets use identical JP set codes with no suffix.
 
-### Adding Your Own Data
+Getting Started
+bashnpm install
+npm run dev
+Open http://localhost:5173.
+bashnpm run build   # Production build → dist/
+Data & Sync
+Card data is maintained in Google Sheets and synced to src/data/pokemon_data.json via Google Apps Script. Review scores and coord tags are edited in-app and manually merged into review_data.json and pokemon_coords.json before pushing to GitHub.
+Git workflow:
+bashgit stash && git pull --rebase && git stash pop
+git add src/data/pokemon_data.json src/App.jsx  # only modified files
+git commit -m "..."
+git push
+Notes
 
-Replace `src/data/pokemon_data.json` with your collection data following the structure above.
+Live pricing requires HTTPS (GitHub Pages). crypto.subtle (used for the lock system) also requires a secure context.
+The review/conformance system auto-saves on modal navigation or close; JSON output is manually copied into review_data.json.
+Card images are hosted in public/card-images/ and loaded with a concurrent request throttle (max 6) to avoid GitHub Pages rate limiting.
 
-### Changing Colors
 
-Type gradients are defined in `src/utils/typeGradients.js`. Modify the gradient values to customize colors.
-
-### Styling
-
-All styles use Tailwind CSS. Modify `tailwind.config.js` to customize the theme.
-
-## Features Roadmap
-
-- [ ] Data persistence (localStorage or database)
-- [ ] Export collection to CSV/Excel
-- [ ] Collection statistics dashboard
-- [ ] Price tracking over time
-- [ ] Card condition tracking
-- [ ] Multiple collection support
-- [ ] Dark mode
-
-## License
-
-This project is for personal use. Pokémon and TCG card data are property of their respective owners.
-
-## Acknowledgments
-
-- Pokémon sprites from [PokeAPI](https://pokeapi.co/)
-- Card data structure based on official Pokémon TCG sets
-- Built with love for Pokémon TCG collectors ❤️
+For personal use. Pokémon and all related properties are owned by Nintendo / Creatures Inc. / GAME FREAK inc.
