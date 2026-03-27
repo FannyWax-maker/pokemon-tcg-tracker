@@ -53,8 +53,6 @@ export default function App() {
   const [filterHideNonConforming, setFilterHideNonConforming] = useState('all');
   const [filterFavorites, setFilterFavorites] = useState('all');
   const [filterUnobtainable, setFilterUnobtainable] = useState('all');
-  const [filterExpensive, setFilterExpensive] = useState('all');
-  const [filterVeryExpensive, setFilterVeryExpensive] = useState('all');
   const [showOwnershipButtons, setShowOwnershipButtons] = useState(false);
   const [filterOwned, setFilterOwned] = useState('all');
   const [filterGeneration, setFilterGeneration] = useState('all');
@@ -173,15 +171,11 @@ export default function App() {
         const nonConforming = data.nonConforming || {};
         const favorites = data.favorites || {};
         const unobtainable = data.unobtainable || {};
-        const expensive = data.expensive || {};
-        const veryExpensive = data.veryExpensive || {};
         const categories = data.categories || {};
         localStorage.setItem('pokemon_ownership_cache', JSON.stringify(ownership));
         localStorage.setItem('pokemon_nonconforming_cache', JSON.stringify(nonConforming));
         localStorage.setItem('pokemon_favorites_cache', JSON.stringify(favorites));
         localStorage.setItem('pokemon_unobtainable_cache', JSON.stringify(unobtainable));
-        localStorage.setItem('pokemon_expensive_cache', JSON.stringify(expensive));
-        localStorage.setItem('pokemon_veryexpensive_cache', JSON.stringify(veryExpensive));
         if (Object.keys(categories).length) {
           localStorage.setItem('pokemon_review_cache', JSON.stringify(categories));
           setReviewData(categories);
@@ -197,8 +191,6 @@ export default function App() {
             nonConforming: lookupById(nonConforming, card.id) === true ? true : card.nonConforming || false,
             favorite: lookupById(favorites, card.id) === true ? true : card.favorite || false,
             unobtainable: lookupById(unobtainable, card.id) === true ? true : card.unobtainable || false,
-            expensive: lookupById(expensive, card.id) === true ? true : card.expensive || false,
-            veryExpensive: lookupById(veryExpensive, card.id) === true ? true : card.veryExpensive || false,
           }))
         })));
       } catch (e) {
@@ -225,22 +217,6 @@ export default function App() {
           setPokemonData(prev => prev.map(pokemon => ({
             ...pokemon,
             cards: pokemon.cards.map(card => ({ ...card, unobtainable: unobtainable[card.id] === true ? true : card.unobtainable || false }))
-          })));
-        }
-        const expCached = localStorage.getItem('pokemon_expensive_cache');
-        if (expCached) {
-          const expensive = JSON.parse(expCached);
-          setPokemonData(prev => prev.map(pokemon => ({
-            ...pokemon,
-            cards: pokemon.cards.map(card => ({ ...card, expensive: expensive[card.id] === true ? true : card.expensive || false }))
-          })));
-        }
-        const vexpCached = localStorage.getItem('pokemon_veryexpensive_cache');
-        if (vexpCached) {
-          const veryExpensive = JSON.parse(vexpCached);
-          setPokemonData(prev => prev.map(pokemon => ({
-            ...pokemon,
-            cards: pokemon.cards.map(card => ({ ...card, veryExpensive: veryExpensive[card.id] === true ? true : card.veryExpensive || false }))
           })));
         }
         const revCached = localStorage.getItem('pokemon_review_cache');
@@ -407,7 +383,7 @@ export default function App() {
     return { totalCards, ownedCards, completionPercent, langStats };
   }, [pokemonData]);
 
-  const hasActiveFilters = filterExclusive !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterMissingPrice || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards !== 'all' || filterHideNonConforming !== 'all' || filterOwned !== 'all' || filterSetLang !== 'all' || filterGeneration !== 'all' || filterFavorites !== 'all' || filterUnobtainable !== 'all' || filterExpensive !== 'all' || filterVeryExpensive !== 'all';
+  const hasActiveFilters = filterExclusive !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterMissingPrice || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards !== 'all' || filterHideNonConforming !== 'all' || filterOwned !== 'all' || filterSetLang !== 'all' || filterGeneration !== 'all' || filterFavorites !== 'all' || filterUnobtainable !== 'all';
   const activeFilterCount = [filterExclusive !== 'all', filterSet !== 'all', filterCardType !== 'all', filterMissingImages, filterChinese !== 'all', filterArtist !== 'all', filterHideNoCards !== 'all', filterHideNonConforming !== 'all', filterOwned !== 'all', filterGeneration !== 'all'].filter(Boolean).length;
 
   const filteredData = useMemo(() => {
@@ -501,10 +477,6 @@ export default function App() {
         if (filterOwned === 'unowned' && card.ownedLang) return;
         if (filterUnobtainable === 'only' && !card.unobtainable) return;
         if (filterUnobtainable === 'hide' && card.unobtainable) return;
-        if (filterExpensive === 'only' && !card.expensive) return;
-        if (filterExpensive === 'hide' && card.expensive) return;
-        if (filterVeryExpensive === 'only' && !card.veryExpensive) return;
-        if (filterVeryExpensive === 'hide' && card.veryExpensive) return;
         const cardEntry = { ...card, pokemonName: pokemon.name, pokemonId: pokemon.id };
         if (filterMissingImages) cardEntry._filterMissingImages = true;
         if (filterMissingPrice) cardEntry._filterMissingPrice = true;
@@ -520,7 +492,7 @@ export default function App() {
     else if (sortBy === 'price_desc') { cards.sort((a, b) => { const pa = getPriceForCard(a)?.gbp ?? -1; const pb = getPriceForCard(b)?.gbp ?? -1; return pb - pa; }); }
     else if (sortBy === 'price_asc')  { cards.sort((a, b) => { const pa = getPriceForCard(a)?.gbp ?? Infinity; const pb = getPriceForCard(b)?.gbp ?? Infinity; return pa - pb; }); }
     return cards;
-  }, [filteredData, filterChinese, filterExclusive, filterSet, filterCardType, sortBy, filterOwned, filterArtist, filterUnobtainable, filterExpensive, filterVeryExpensive, filterMissingImages, filterMissingPrice, filterSetLang, getPriceForCard, conformanceMode]);
+  }, [filteredData, filterChinese, filterExclusive, filterSet, filterCardType, sortBy, filterOwned, filterArtist, filterUnobtainable, filterMissingImages, filterMissingPrice, filterSetLang, getPriceForCard, conformanceMode]);
 
   const handleInlineUpdateCard = requireUnlock((pokemonId, cardId, updates) => {
     setPokemonData(pokemonData.map(pokemon => {
@@ -555,22 +527,6 @@ export default function App() {
     try { await fetch(`${APPS_SCRIPT_URL}?action=setUnobtainable&cardId=${encodeURIComponent(cardId)}&unobtainable=${isUnobtainable ? 'true' : ''}`); } catch(e) {}
   };
 
-  const saveExpensive = async (cardId, val) => {
-    const cached = localStorage.getItem('pokemon_expensive_cache');
-    const exp = cached ? JSON.parse(cached) : {};
-    if (val) exp[cardId] = true; else delete exp[cardId];
-    localStorage.setItem('pokemon_expensive_cache', JSON.stringify(exp));
-    try { await fetch(`${APPS_SCRIPT_URL}?action=setExpensive&cardId=${encodeURIComponent(cardId)}&expensive=${val ? 'true' : ''}`); } catch(e) {}
-  };
-
-  const saveVeryExpensive = async (cardId, val) => {
-    const cached = localStorage.getItem('pokemon_veryexpensive_cache');
-    const vexp = cached ? JSON.parse(cached) : {};
-    if (val) vexp[cardId] = true; else delete vexp[cardId];
-    localStorage.setItem('pokemon_veryexpensive_cache', JSON.stringify(vexp));
-    try { await fetch(`${APPS_SCRIPT_URL}?action=setVeryExpensive&cardId=${encodeURIComponent(cardId)}&veryExpensive=${val ? 'true' : ''}`); } catch(e) {}
-  };
-
   const handleToggleNonConforming = requireUnlock((pokemonId, cardId, currentValue) => {
     const newValue = !currentValue;
     setPokemonData(prev => prev.map(pokemon => ({ ...pokemon, cards: pokemon.cards.map(card => card.id === cardId ? { ...card, nonConforming: newValue } : card) })));
@@ -592,24 +548,10 @@ export default function App() {
     saveUnobtainable(cardId, newValue);
   });
 
-  const handleToggleExpensive = requireUnlock((cardId, currentValue) => {
-    const newValue = !currentValue;
-    setPokemonData(prev => prev.map(pokemon => ({ ...pokemon, cards: pokemon.cards.map(card => card.id === cardId ? { ...card, expensive: newValue } : card) })));
-    setSelectedPokemon(prev => prev ? ({ ...prev, cards: prev.cards.map(card => card.id === cardId ? { ...card, expensive: newValue } : card) }) : prev);
-    saveExpensive(cardId, newValue);
-  });
-
-  const handleToggleVeryExpensive = requireUnlock((cardId, currentValue) => {
-    const newValue = !currentValue;
-    setPokemonData(prev => prev.map(pokemon => ({ ...pokemon, cards: pokemon.cards.map(card => card.id === cardId ? { ...card, veryExpensive: newValue } : card) })));
-    setSelectedPokemon(prev => prev ? ({ ...prev, cards: prev.cards.map(card => card.id === cardId ? { ...card, veryExpensive: newValue } : card) }) : prev);
-    saveVeryExpensive(cardId, newValue);
-  });
-
   const clearFilters = () => {
     setFilterExclusive('all'); setFilterSet('all'); setFilterCardType('all'); setFilterMissingImages(false);
     setFilterChinese('all'); setFilterArtist('all'); setFilterHideNoCards('all'); setFilterHideNonConforming('all');
-    setFilterOwned('all'); setFilterSetLang('all'); setFilterGeneration('all'); setFilterFavorites('all'); setFilterUnobtainable('all'); setFilterExpensive('all'); setFilterVeryExpensive('all');
+    setFilterOwned('all'); setFilterSetLang('all'); setFilterGeneration('all'); setFilterFavorites('all'); setFilterUnobtainable('all');
   };
 
   const tileGridClass = { S: 'grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2', M: 'grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-3', L: 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4' };
@@ -893,30 +835,7 @@ export default function App() {
                     </div>
                   </div>
                 )}
-                {viewMode === 'cards' && (
-                  <div className="flex items-center gap-1.5">
-                    <span className={`text-xs font-semibold ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>£100+</span>
-                    <div className={`flex rounded-lg overflow-hidden border text-xs font-bold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
-                      {[['all','All'],['hide','Hide'],['only','Only']].map(([val, label]) => (
-                        <button key={val} onClick={() => setFilterExpensive(val)}
-                          className={`px-2.5 py-1 transition-colors ${filterExpensive === val ? 'text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-500 hover:bg-gray-50'}`}
-                          style={filterExpensive === val ? {background: 'linear-gradient(135deg, #d97706, #b45309)'} : {}}>{label}</button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-                {viewMode === 'cards' && (
-                  <div className="flex items-center gap-1.5">
-                    <span className={`text-xs font-semibold ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>£500+</span>
-                    <div className={`flex rounded-lg overflow-hidden border text-xs font-bold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
-                      {[['all','All'],['hide','Hide'],['only','Only']].map(([val, label]) => (
-                        <button key={val} onClick={() => setFilterVeryExpensive(val)}
-                          className={`px-2.5 py-1 transition-colors ${filterVeryExpensive === val ? 'text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' : 'bg-white text-gray-500 hover:bg-gray-50'}`}
-                          style={filterVeryExpensive === val ? {background: 'linear-gradient(135deg, #dc2626, #991b1b)'} : {}}>{label}</button>
-                      ))}
-                    </div>
-                  </div>
-                )}
+
               </div>
 
               <button onClick={() => setShowAdvancedFilters(v => !v)}
@@ -1017,7 +936,7 @@ export default function App() {
                     <CardTile card={card} pokemonName={card.pokemonName}
                       onOwnershipClick={handleCardOwnershipClick} onToggleNonConforming={handleToggleNonConforming}
                       onToggleFavorite={handleToggleFavorite} onToggleUnobtainable={handleToggleUnobtainable}
-                      onToggleExpensive={handleToggleExpensive} onToggleVeryExpensive={handleToggleVeryExpensive}
+                     
                       onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={false} getPriceForCard={getPriceForCard} />
                     {/* Review badge overlay */}
                     <div className="absolute top-1 left-1 z-20 pointer-events-none">
@@ -1059,7 +978,7 @@ export default function App() {
                 <CardTile key={`${card.pokemonId}-${card.id}-${idx}`} card={card} pokemonName={card.pokemonName}
                   onOwnershipClick={handleCardOwnershipClick} onToggleNonConforming={handleToggleNonConforming}
                   onToggleFavorite={handleToggleFavorite} onToggleUnobtainable={handleToggleUnobtainable}
-                  onToggleExpensive={handleToggleExpensive} onToggleVeryExpensive={handleToggleVeryExpensive}
+                 
                   onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={showOwnershipButtons} getPriceForCard={getPriceForCard} />
               ))}
             </div>
@@ -1078,7 +997,7 @@ export default function App() {
       {selectedPokemon && (
         <DetailModal darkMode={darkMode} pokemon={selectedPokemon}
           onToggleNonConforming={handleToggleNonConforming} onToggleFavorite={handleToggleFavorite} onToggleUnobtainable={handleToggleUnobtainable}
-          onToggleExpensive={handleToggleExpensive} onToggleVeryExpensive={handleToggleVeryExpensive}
+         
           onNavigateToPokemon={(name) => { const target = pokemonData.find(p => p.name === name); if (target) setSelectedPokemon(target); }}
           onNavigatePrev={() => { const list = filteredData.data; const idx = list.findIndex(p => p.id === selectedPokemon.id); if (idx > 0) setSelectedPokemon(list[idx - 1]); }}
           onNavigateNext={() => { const list = filteredData.data; const idx = list.findIndex(p => p.id === selectedPokemon.id); if (idx < list.length - 1) setSelectedPokemon(list[idx + 1]); }}

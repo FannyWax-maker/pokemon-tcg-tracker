@@ -87,7 +87,7 @@ const buildEbayUrl = (card, pokemonName, lang) => {
 };
 
 
-export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onToggleExpensive, onToggleVeryExpensive, onNavigateToPokemon, showOwnershipButtons = false , scrollRoot, getPriceForCard }) {
+export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onNavigateToPokemon, showOwnershipButtons = false , scrollRoot, getPriceForCard }) {
   const isOwned = !!card.ownedLang;
   const hasOtherPokemon = card.otherPokemon && card.otherPokemon.length > 0;
   const isSecondary = card.isSecondary || !card.isPrimary;
@@ -237,8 +237,6 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const isNonConforming = !!card.nonConforming;
   const isFavorite = !!card.favorite;
   const isUnobtainable = !!card.unobtainable;
-  const isExpensive = !!card.expensive;
-  const isVeryExpensive = !!card.veryExpensive;
   const price = getPriceForCard ? getPriceForCard(card) : null;
   const priceValue = price ? price.gbp : null;
 
@@ -475,24 +473,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           >
             {isUnobtainable ? '💀 Remove unobtainable' : '💀 Mark as unobtainable'}
           </button>
-          <button
-            onClick={() => {
-              onToggleExpensive && onToggleExpensive(card.id, card.expensive);
-              setShowContextMenu(false);
-            }}
-            className={`w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center gap-2 ${isExpensive ? 'text-gray-500' : 'text-amber-600'}`}
-          >
-            {isExpensive ? '💰 Remove £100+ flag' : '💰 Mark as £100+'}
-          </button>
-          <button
-            onClick={() => {
-              onToggleVeryExpensive && onToggleVeryExpensive(card.id, card.veryExpensive);
-              setShowContextMenu(false);
-            }}
-            className={`w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center gap-2 ${isVeryExpensive ? 'text-gray-500' : 'text-red-600'}`}
-          >
-            {isVeryExpensive ? '🤑 Remove £500+ flag' : '🤑 Mark as £500+'}
-          </button>
+
         </div>
       )}
 
@@ -583,16 +564,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 💀
               </div>
             )}
-            {isExpensive && !isVeryExpensive && (
-              <div style={{fontSize:'1.6rem',lineHeight:1,textShadow:'0 0 6px rgba(0,0,0,0.9)'}}>
-                💰
-              </div>
-            )}
-            {isVeryExpensive && (
-              <div style={{fontSize:'1.6rem',lineHeight:1,textShadow:'0 0 6px rgba(0,0,0,0.9)'}}>
-                🤑
-              </div>
-            )}
+
           </div>
 
           {/* Secondary: link to primary pokemon */}
