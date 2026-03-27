@@ -37,7 +37,6 @@ export default function App() {
   const [autocompleteSuggestions, setAutocompleteSuggestions] = useState([]);
   const [showAutocomplete, setShowAutocomplete] = useState(false);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
-  const [filterExclusive, setFilterExclusive] = useState('all');
   const [filterSet, setFilterSet] = useState('all');
   const [filterCardType, setFilterCardType] = useState('all');
   const [showFilters, setShowFilters] = useState(false);
@@ -384,8 +383,8 @@ export default function App() {
     return { totalCards, ownedCards, completionPercent, langStats };
   }, [pokemonData]);
 
-  const hasActiveFilters = filterExclusive !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterMissingPrice || filterMissingCoords || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards !== 'all' || filterHideNonConforming !== 'all' || filterOwned !== 'all' || filterSetLang !== 'all' || filterGeneration !== 'all' || filterFavorites !== 'all' || filterUnobtainable !== 'all';
-  const activeFilterCount = [filterExclusive !== 'all', filterSet !== 'all', filterCardType !== 'all', filterMissingImages, filterChinese !== 'all', filterArtist !== 'all', filterHideNoCards !== 'all', filterHideNonConforming !== 'all', filterOwned !== 'all', filterGeneration !== 'all'].filter(Boolean).length;
+  const hasActiveFilters = filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterMissingPrice || filterMissingCoords || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards !== 'all' || filterHideNonConforming !== 'all' || filterOwned !== 'all' || filterSetLang !== 'all' || filterGeneration !== 'all' || filterFavorites !== 'all' || filterUnobtainable !== 'all';
+  const activeFilterCount = [filterSet !== 'all', filterCardType !== 'all', filterMissingImages, filterChinese !== 'all', filterArtist !== 'all', filterHideNoCards !== 'all', filterHideNonConforming !== 'all', filterOwned !== 'all', filterGeneration !== 'all'].filter(Boolean).length;
 
   const filteredData = useMemo(() => {
     let filtered = pokemonData;
@@ -414,12 +413,11 @@ export default function App() {
     if (filterArtist !== 'all') {
       filtered = filtered.filter(p => p.cards.some(c => !c.isSecondary && c.isPrimary !== false && c.artist === filterArtist));
     }
-    const cardFilterActive = filterChinese !== 'all' || filterExclusive !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterSetLang !== 'all';
+    const cardFilterActive = filterChinese !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterSetLang !== 'all';
     if (cardFilterActive) {
       filtered = filtered.filter(pokemon => pokemon.cards.some(card => {
         if (card.isSecondary || card.isPrimary === false) return false;
         if (filterChinese !== 'all') { const hasCN = (card.availableLangs || []).includes('CN'); if (filterChinese === 'has_cn' && !hasCN) return false; if (filterChinese === 'no_cn' && hasCN) return false; }
-        if (filterExclusive !== 'all') { if (filterExclusive === 'jp' && card.exclusive !== 'JP') return false; if (filterExclusive === 'cn' && card.exclusive !== 'CN') return false; if (filterExclusive === 'none' && !card.exclusive) return false; }
         if (filterSet !== 'all') { const matchesSet = card.setCode === filterSet || card.enSetCode === filterSet || card.jpSetCode === filterSet || card.cnSetCode === filterSet; if (!matchesSet) return false; }
         if (filterSetLang !== 'all' && filterSet === 'all') { const langs = card.availableLangs || []; if (filterSetLang === 'JP' && !card.jpSetCode) return false; if (filterSetLang === 'CN' && !card.cnSetCode) return false; if (filterSetLang === 'TC' && !card.tcSetCode) return false; if (filterSetLang === 'KR' && !card.krSetCode) return false; if (filterSetLang === 'EN' && !card.setCode) return false; }
         if (filterCardType !== 'all') {
@@ -448,7 +446,7 @@ export default function App() {
       return a.id - b.id;
     });
     return { type: 'pokemon', data: filtered };
-  }, [searchQuery, pokemonData, filterExclusive, filterSet, filterCardType, filterMissingImages, filterChinese, filterArtist, filterHideNoCards, filterHideNonConforming, filterGeneration, filterFavorites, filterUnobtainable, sortBy]);
+  }, [searchQuery, pokemonData, filterSet, filterCardType, filterMissingImages, filterMissingCoords, filterChinese, filterArtist, filterHideNoCards, filterHideNonConforming, filterGeneration, filterFavorites, filterUnobtainable, sortBy]);
 
   const allCardsFlat = useMemo(() => {
     const cards = [];
@@ -459,7 +457,6 @@ export default function App() {
         return false;
       }).forEach(card => {
         if (filterChinese !== 'all') { const hasCN = (card.availableLangs || []).includes('CN'); if (filterChinese === 'has_cn' && !hasCN) return; if (filterChinese === 'no_cn' && hasCN) return; }
-        if (filterExclusive !== 'all') { if (filterExclusive === 'jp' && card.exclusive !== 'JP') return; if (filterExclusive === 'cn' && card.exclusive !== 'CN') return; if (filterExclusive === 'none' && !card.exclusive) return; }
         if (filterSet !== 'all') { const matchesSet2 = card.setCode === filterSet || card.enSetCode === filterSet || card.jpSetCode === filterSet || card.cnSetCode === filterSet; if (!matchesSet2) return; }
         if (filterSetLang !== 'all' && filterSet === 'all') { if (filterSetLang === 'JP' && !card.jpSetCode) return; if (filterSetLang === 'CN' && !card.cnSetCode) return; if (filterSetLang === 'TC' && !card.tcSetCode) return; if (filterSetLang === 'KR' && !card.krSetCode) return; if (filterSetLang === 'EN' && !card.setCode) return; }
         if (filterCardType !== 'all') {
@@ -495,7 +492,7 @@ export default function App() {
     else if (sortBy === 'price_desc') { cards.sort((a, b) => { const pa = getPriceForCard(a)?.gbp ?? -1; const pb = getPriceForCard(b)?.gbp ?? -1; return pb - pa; }); }
     else if (sortBy === 'price_asc')  { cards.sort((a, b) => { const pa = getPriceForCard(a)?.gbp ?? Infinity; const pb = getPriceForCard(b)?.gbp ?? Infinity; return pa - pb; }); }
     return cards;
-  }, [filteredData, filterChinese, filterExclusive, filterSet, filterCardType, sortBy, filterOwned, filterArtist, filterUnobtainable, filterMissingImages, filterMissingPrice, filterSetLang, getPriceForCard, conformanceMode]);
+  }, [filteredData, filterChinese, filterSet, filterCardType, sortBy, filterOwned, filterArtist, filterUnobtainable, filterMissingImages, filterMissingPrice, filterMissingCoords, filterSetLang, getPriceForCard, conformanceMode]);
 
   const handleInlineUpdateCard = requireUnlock((pokemonId, cardId, updates) => {
     setPokemonData(pokemonData.map(pokemon => {
@@ -552,7 +549,7 @@ export default function App() {
   });
 
   const clearFilters = () => {
-    setFilterExclusive('all'); setFilterSet('all'); setFilterCardType('all'); setFilterMissingImages(false);
+    setFilterSet('all'); setFilterCardType('all'); setFilterMissingImages(false);
     setFilterChinese('all'); setFilterArtist('all'); setFilterHideNoCards('all'); setFilterHideNonConforming('all');
     setFilterOwned('all'); setFilterSetLang('all'); setFilterGeneration('all'); setFilterFavorites('all'); setFilterUnobtainable('all');
   };
@@ -850,19 +847,13 @@ export default function App() {
               <button onClick={() => setShowAdvancedFilters(v => !v)}
                 className={`flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-lg transition-colors ${showAdvancedFilters ? 'text-white' : darkMode ? 'bg-gray-700 text-gray-400 hover:bg-gray-600' : 'bg-gray-200 text-gray-600 hover:bg-gray-300'}`}
                 style={showAdvancedFilters ? {background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)'} : {}}>
-                {showAdvancedFilters ? '▲' : '▼'} Advanced filters {(filterExclusive !== 'all' || filterChinese !== 'all' || filterArtist !== 'all' || filterMissingImages) ? '●' : ''}
+                {showAdvancedFilters ? '▲' : '▼'} Advanced filters {(filterChinese !== 'all' || filterArtist !== 'all' || filterMissingImages) ? '●' : ''}
               </button>
 
               {showAdvancedFilters && (
                 <div className={`mt-2 p-3 rounded-xl border ${darkMode ? 'bg-gray-900 border-gray-700' : 'bg-white border-gray-200'}`}>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mb-2">
-                    <select value={filterExclusive} onChange={(e) => setFilterExclusive(e.target.value)}
-                      className={`px-3 py-1.5 border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-purple-400 font-medium ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-200 text-gray-700'}`}>
-                      <option value="all">All Exclusives</option>
-                      <option value="jp">🇯🇵 JP Exclusive ({filterCounts.jpCount})</option>
-                      <option value="cn">🇨🇳 CN Exclusive ({filterCounts.cnExclCount})</option>
-                      <option value="none">Not in English ({filterCounts.noneCount})</option>
-                    </select>
+
                     <select value={filterChinese} onChange={(e) => setFilterChinese(e.target.value)}
                       className={`px-3 py-1.5 border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-purple-400 font-medium ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-200 text-gray-700'}`}>
                       <option value="all">All CN Status</option>
@@ -914,8 +905,6 @@ export default function App() {
           </div>
           {hasActiveFilters && (
             <span className="font-bold text-red-500 text-xs">
-              {filterExclusive !== 'all' && `${filterExclusive.toUpperCase()} Excl`}
-              {filterExclusive !== 'all' && (filterSet !== 'all' || filterCardType !== 'all') && ' · '}
               {filterCardType !== 'all' && `${filterCardType.toUpperCase()}`}
               {filterCardType !== 'all' && filterSet !== 'all' && ' · '}
               {filterSet !== 'all' && `${filterSet}`}
