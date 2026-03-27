@@ -11,13 +11,13 @@
         "setCode": "MEW",
         "number": "166/165",
         "jpSetCode": "SV2A",
-        "jpNumber": null,
+        "jpNumber": "166/165",
         "cnSetCode": "CSVL1C",
-        "cnNumber": null,
-        "tcSetCode": null,
-        "tcNumber": null,
-        "krSetCode": null,
-        "krNumber": null,
+        "cnNumber": "086/049",
+        "tcSetCode": "SV2A",
+        "tcNumber": "166/165",
+        "krSetCode": "SV2A",
+        "krNumber": "166/165",
         "setNumber": "166/165",
         "artist": "Yoriyuki Ikegami",
         "cardName": null,
@@ -26,7 +26,9 @@
         "availableLangs": [
           "EN",
           "JP",
-          "CN"
+          "CN",
+          "TC",
+          "KR"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -89,14 +91,14 @@
         "pokemonId": 1,
         "setCode": "SCR",
         "number": "143/142",
-        "jpSetCode": "SV7",
-        "jpNumber": null,
+        "jpSetCode": "SVG",
+        "jpNumber": "050/049",
         "cnSetCode": "SVPC",
-        "cnNumber": null,
-        "tcSetCode": null,
-        "tcNumber": null,
-        "krSetCode": null,
-        "krNumber": null,
+        "cnNumber": "097/SV-P",
+        "tcSetCode": "SV-P",
+        "tcNumber": "068/SV-P",
+        "krSetCode": "SVG",
+        "krNumber": "050/049",
         "setNumber": "143/142",
         "artist": "Orca",
         "cardName": null,
@@ -107,7 +109,9 @@
         "availableLangs": [
           "EN",
           "JP",
-          "CN"
+          "CN",
+          "TC",
+          "KR"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -118,13 +122,13 @@
         "setCode": "MEG",
         "number": "133/132",
         "jpSetCode": "M1L",
-        "jpNumber": null,
+        "jpNumber": "064/063",
         "cnSetCode": null,
         "cnNumber": null,
-        "tcSetCode": null,
-        "tcNumber": null,
-        "krSetCode": null,
-        "krNumber": null,
+        "tcSetCode": "M1L",
+        "tcNumber": "064/063",
+        "krSetCode": "M1L",
+        "krNumber": "064/063",
         "setNumber": "133/132",
         "artist": "mashu",
         "cardName": null,
@@ -132,7 +136,9 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "TC",
+          "KR"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -3401,9 +3407,9 @@
         "setCode": "SIT",
         "number": "033/195",
         "jpSetCode": "S11A",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "022/068",
+        "cnSetCode": "CS6.5C",
+        "cnNumber": "013/072",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -3415,7 +3421,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -5641,6 +5648,32 @@
         "availableLangs": [
           "EN",
           "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "101_swsh_294",
+        "pokemonId": 101,
+        "setCode": "SWSH",
+        "number": "294",
+        "jpSetCode": "S10A",
+        "jpNumber": "003/071",
+        "cnSetCode": "CS5.5C",
+        "cnNumber": "003/066",
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "294",
+        "artist": "5ban Graphics",
+        "cardName": "Hisuian Electrode V",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -18885,9 +18918,9 @@
         "setCode": "ASR",
         "number": "050/189",
         "jpSetCode": "S10D",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "021/067",
+        "cnSetCode": "CS5.5C",
+        "cnNumber": "025/066",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -18899,7 +18932,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -19031,9 +19065,9 @@
         "setCode": "CRZ",
         "number": "GG66/70",
         "jpSetCode": "S12A",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "242/172",
+        "cnSetCode": "CS5.5C",
+        "cnNumber": "080/066",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -19048,7 +19082,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -19492,9 +19527,9 @@
         "setCode": "SIT",
         "number": "213/195",
         "jpSetCode": "S12",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "125/098",
+        "cnSetCode": "CS5.5C",
+        "cnNumber": "089/066",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -19506,7 +19541,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -23755,9 +23791,9 @@
         "setCode": "CRZ",
         "number": "GG58/70",
         "jpSetCode": "S12A",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "241/172",
+        "cnSetCode": "CS5.5C",
+        "cnNumber": "079/066",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -23769,7 +23805,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -26489,9 +26526,9 @@
         "setCode": "CRZ",
         "number": "GG56/70",
         "jpSetCode": "S12A",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "243/172",
+        "cnSetCode": "CS5.5C",
+        "cnNumber": "077/066",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -26503,7 +26540,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -26539,9 +26577,9 @@
         "setCode": "LOR",
         "number": "146/196",
         "jpSetCode": "S10A",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "061/071",
+        "cnSetCode": "CS5.5C",
+        "cnNumber": "057/066",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -26553,7 +26591,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -26579,6 +26618,32 @@
         "availableLangs": [
           "EN",
           "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "571_swsh_298",
+        "pokemonId": 571,
+        "setCode": "SWSH",
+        "number": "298",
+        "jpSetCode": "S12A",
+        "jpNumber": "129/172",
+        "cnSetCode": "CS5.5C",
+        "cnNumber": "058/066",
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "298",
+        "artist": "aky CG Works",
+        "cardName": "Hisuian Zoroark VSTAR",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -29818,8 +29883,8 @@
         "number": "SWSH295",
         "jpSetCode": "S-P",
         "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "cnSetCode": "CS5.5C",
+        "cnNumber": "006/066",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -29831,7 +29896,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -32317,9 +32383,9 @@
         "setCode": "CRZ",
         "number": "GG62/70",
         "jpSetCode": "S12A",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "238/172",
+        "cnSetCode": "CS5.5C",
+        "cnNumber": "078/066",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -32333,7 +32399,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -32986,9 +33053,9 @@
         "setCode": "LOR",
         "number": "135/196",
         "jpSetCode": "S10A",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "056/071",
+        "cnSetCode": "CS5.5C",
+        "cnNumber": "052/066",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -33000,7 +33067,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -33802,9 +33870,9 @@
         "setCode": "ASR",
         "number": "083/189",
         "jpSetCode": "S9A",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "044/067",
+        "cnSetCode": "CS5.5C",
+        "cnNumber": "049/066",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -33816,7 +33884,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
