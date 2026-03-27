@@ -297,8 +297,9 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
   const handleClose = () => { if (isDirty) { const data = buildData(); onSave(data); setSavedData(data); setIsDirty(false); } onClose(); };
 
   const handleCopyJson = () => {
-    if (!savedData) return;
-    const json = JSON.stringify({ [card.id]: savedData }, null, 2);
+    const data = buildData();
+    if (isDirty) { onSave(data); setSavedData(data); setIsDirty(false); }
+    const json = JSON.stringify({ [card.id]: data }, null, 2);
     navigator.clipboard.writeText(json).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
