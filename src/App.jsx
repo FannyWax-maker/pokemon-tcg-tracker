@@ -1047,7 +1047,7 @@ export default function App() {
           onNavigateNext={() => { const list = filteredData.data; const idx = list.findIndex(p => p.id === selectedPokemon.id); if (idx < list.length - 1) setSelectedPokemon(list[idx + 1]); }}
           hasPrev={(() => { const list = filteredData.data; const idx = list.findIndex(p => p.id === selectedPokemon.id); return idx > 0; })()}
           hasNext={(() => { const list = filteredData.data; const idx = list.findIndex(p => p.id === selectedPokemon.id); return idx < filteredData.data.length - 1; })()}
-          onClose={() => setSelectedPokemon(null)} onUpdateCard={handleUpdateCard} getPriceForCard={getPriceForCard} />
+          onClose={() => setSelectedPokemon(null)} onUpdateCard={handleUpdateCard} getPriceForCard={getPriceForCard} coordAppearances={coordAppearances} />
       )}
 
       {languagePickerCard && (

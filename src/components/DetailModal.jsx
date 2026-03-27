@@ -10,7 +10,7 @@ const LANGUAGES = {
   KR: 'Korean'
 };
 
-export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onToggleExpensive, onToggleVeryExpensive, onNavigateToPokemon, onNavigatePrev, onNavigateNext, hasPrev, hasNext, darkMode, getPriceForCard }) {
+export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onToggleExpensive, onToggleVeryExpensive, onNavigateToPokemon, onNavigatePrev, onNavigateNext, hasPrev, hasNext, darkMode, getPriceForCard, coordAppearances = {} }) {
   const [languagePickerCard, setLanguagePickerCard] = useState(null);
   const scrollRef = useRef(null);
   
@@ -36,6 +36,7 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
   const ownedCards = primaryCards.filter(c => c.ownedLang).length;
   const ownedSecondary = secondaryCards.filter(c => c.ownedLang).length;
   
+  const coordData = coordAppearances[(pokemon.name || '').toLowerCase()];
   const langCounts = {};
   Object.keys(LANGUAGES).forEach(lang => {
     const owned = primaryCards.filter(c => c.ownedLang === lang).length;
@@ -124,6 +125,11 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
                         {secondaryCards.length > 0 && (
                           <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-purple-100 text-purple-700">
                             ref {ownedSecondary}/{secondaryCards.length}
+                          </span>
+                        )}
+                        {coordData && (
+                          <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-yellow-100 text-yellow-700">
+                            seen {coordData.appearances}×
                           </span>
                         )}
                       </div>
