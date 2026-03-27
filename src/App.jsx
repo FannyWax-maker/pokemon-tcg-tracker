@@ -59,6 +59,7 @@ export default function App() {
   const [artistSortBy, setArtistSortBy] = useState('card_count');
   const [setListSort, setSetListSort] = useState('release');
   const [filterSetLang, setFilterSetLang] = useState('all');
+  const [filterExclusive, setFilterExclusive] = useState('all');
   const [darkMode, setDarkMode] = useState(false);
   const [syncStatus, setSyncStatus] = useState('');
   const [tileSize, setTileSize] = useState('M');
@@ -383,7 +384,7 @@ export default function App() {
     return { totalCards, ownedCards, completionPercent, langStats };
   }, [pokemonData]);
 
-  const hasActiveFilters = filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterMissingPrice || filterMissingCoords || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards !== 'all' || filterHideNonConforming !== 'all' || filterOwned !== 'all' || filterSetLang !== 'all' || filterGeneration !== 'all' || filterFavorites !== 'all' || filterUnobtainable !== 'all';
+  const hasActiveFilters = filterExclusive !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterMissingPrice || filterMissingCoords || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards !== 'all' || filterHideNonConforming !== 'all' || filterOwned !== 'all' || filterSetLang !== 'all' || filterGeneration !== 'all' || filterFavorites !== 'all' || filterUnobtainable !== 'all';
   const activeFilterCount = [filterSet !== 'all', filterCardType !== 'all', filterMissingImages, filterChinese !== 'all', filterArtist !== 'all', filterHideNoCards !== 'all', filterHideNonConforming !== 'all', filterOwned !== 'all', filterGeneration !== 'all'].filter(Boolean).length;
 
   const filteredData = useMemo(() => {
@@ -413,13 +414,14 @@ export default function App() {
     if (filterArtist !== 'all') {
       filtered = filtered.filter(p => p.cards.some(c => !c.isSecondary && c.isPrimary !== false && c.artist === filterArtist));
     }
-    const cardFilterActive = filterChinese !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterSetLang !== 'all';
+    const cardFilterActive = filterChinese !== 'all' || filterExclusive !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterSetLang !== 'all';
     if (cardFilterActive) {
       filtered = filtered.filter(pokemon => pokemon.cards.some(card => {
         if (card.isSecondary || card.isPrimary === false) return false;
         if (filterChinese !== 'all') { const hasCN = (card.availableLangs || []).includes('CN'); if (filterChinese === 'has_cn' && !hasCN) return false; if (filterChinese === 'no_cn' && hasCN) return false; }
         if (filterSet !== 'all') { const matchesSet = card.setCode === filterSet || card.enSetCode === filterSet || card.jpSetCode === filterSet || card.cnSetCode === filterSet; if (!matchesSet) return false; }
         if (filterSetLang !== 'all' && filterSet === 'all') { const langs = card.availableLangs || []; if (filterSetLang === 'JP' && !card.jpSetCode) return false; if (filterSetLang === 'CN' && !card.cnSetCode) return false; if (filterSetLang === 'TC' && !card.tcSetCode) return false; if (filterSetLang === 'KR' && !card.krSetCode) return false; if (filterSetLang === 'EN' && !card.setCode) return false; }
+        if (filterExclusive !== 'all') { if (filterExclusive === 'jp' && card.exclusive !== 'JP') return false; if (filterExclusive === 'cn' && card.exclusive !== 'CN') return false; if (filterExclusive === 'none' && !card.exclusive) return false; }
         if (filterCardType !== 'all') {
           const cn = String(card.cardName || '').trim(); const cu = cn.toUpperCase();
           if (filterCardType === 'trainer' && !cu.includes('TRAINER')) return false;
@@ -446,7 +448,7 @@ export default function App() {
       return a.id - b.id;
     });
     return { type: 'pokemon', data: filtered };
-  }, [searchQuery, pokemonData, filterSet, filterCardType, filterMissingImages, filterMissingCoords, filterChinese, filterArtist, filterHideNoCards, filterHideNonConforming, filterGeneration, filterFavorites, filterUnobtainable, sortBy]);
+  }, [searchQuery, pokemonData, filterSet, filterCardType, filterMissingImages, filterMissingCoords, filterSetLang, filterChinese, filterArtist, filterHideNoCards, filterHideNonConforming, filterGeneration, filterFavorites, filterUnobtainable, sortBy]);
 
   const allCardsFlat = useMemo(() => {
     const cards = [];
@@ -459,6 +461,7 @@ export default function App() {
         if (filterChinese !== 'all') { const hasCN = (card.availableLangs || []).includes('CN'); if (filterChinese === 'has_cn' && !hasCN) return; if (filterChinese === 'no_cn' && hasCN) return; }
         if (filterSet !== 'all') { const matchesSet2 = card.setCode === filterSet || card.enSetCode === filterSet || card.jpSetCode === filterSet || card.cnSetCode === filterSet; if (!matchesSet2) return; }
         if (filterSetLang !== 'all' && filterSet === 'all') { if (filterSetLang === 'JP' && !card.jpSetCode) return; if (filterSetLang === 'CN' && !card.cnSetCode) return; if (filterSetLang === 'TC' && !card.tcSetCode) return; if (filterSetLang === 'KR' && !card.krSetCode) return; if (filterSetLang === 'EN' && !card.setCode) return; }
+        if (filterExclusive !== 'all') { if (filterExclusive === 'jp' && card.exclusive !== 'JP') return; if (filterExclusive === 'cn' && card.exclusive !== 'CN') return; if (filterExclusive === 'none' && !card.exclusive) return; }
         if (filterCardType !== 'all') {
           const cn = String(card.cardName || '').trim(); const cu = cn.toUpperCase(); let matches = false;
           if (filterCardType === 'trainer') matches = cu.includes('TRAINER');
@@ -551,7 +554,7 @@ export default function App() {
   const clearFilters = () => {
     setFilterSet('all'); setFilterCardType('all'); setFilterMissingImages(false);
     setFilterChinese('all'); setFilterArtist('all'); setFilterHideNoCards('all'); setFilterHideNonConforming('all');
-    setFilterOwned('all'); setFilterSetLang('all'); setFilterGeneration('all'); setFilterFavorites('all'); setFilterUnobtainable('all');
+    setFilterExclusive('all'); setFilterOwned('all'); setFilterSetLang('all'); setFilterGeneration('all'); setFilterFavorites('all'); setFilterUnobtainable('all');
   };
 
   const tileGridClass = { S: 'grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2', M: 'grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-3', L: 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4' };
@@ -847,13 +850,20 @@ export default function App() {
               <button onClick={() => setShowAdvancedFilters(v => !v)}
                 className={`flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-lg transition-colors ${showAdvancedFilters ? 'text-white' : darkMode ? 'bg-gray-700 text-gray-400 hover:bg-gray-600' : 'bg-gray-200 text-gray-600 hover:bg-gray-300'}`}
                 style={showAdvancedFilters ? {background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)'} : {}}>
-                {showAdvancedFilters ? '▲' : '▼'} Advanced filters {(filterChinese !== 'all' || filterArtist !== 'all' || filterMissingImages) ? '●' : ''}
+                {showAdvancedFilters ? '▲' : '▼'} Advanced filters {(filterExclusive !== 'all' || filterChinese !== 'all' || filterArtist !== 'all' || filterMissingImages) ? '●' : ''}
               </button>
 
               {showAdvancedFilters && (
                 <div className={`mt-2 p-3 rounded-xl border ${darkMode ? 'bg-gray-900 border-gray-700' : 'bg-white border-gray-200'}`}>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mb-2">
 
+                    <select value={filterExclusive} onChange={(e) => setFilterExclusive(e.target.value)}
+                      className={`px-3 py-1.5 border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-purple-400 font-medium ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-200 text-gray-700'}`}>
+                      <option value="all">All Exclusives</option>
+                      <option value="jp">🇯🇵 JP Exclusive ({filterCounts.jpCount})</option>
+                      <option value="cn">🇨🇳 CN Exclusive ({filterCounts.cnExclCount})</option>
+                      <option value="none">Not in English ({filterCounts.noneCount})</option>
+                    </select>
                     <select value={filterChinese} onChange={(e) => setFilterChinese(e.target.value)}
                       className={`px-3 py-1.5 border rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-purple-400 font-medium ${darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-200 text-gray-700'}`}>
                       <option value="all">All CN Status</option>
