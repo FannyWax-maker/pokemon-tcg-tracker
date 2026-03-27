@@ -47,6 +47,7 @@ export default function App() {
   const [filterMissingPrice, setFilterMissingPrice] = useState(false);
   const [filterChinese, setFilterChinese] = useState('all');
   const [sortBy, setSortBy] = useState('default');
+  const [conformanceMode, setConformanceMode] = useState('blended'); // 'blended' | 'formula'
   const [filterArtist, setFilterArtist] = useState('all');
   const [filterHideNoCards, setFilterHideNoCards] = useState('all');
   const [filterHideNonConforming, setFilterHideNonConforming] = useState('all');
@@ -514,12 +515,12 @@ export default function App() {
     else if (sortBy === 'featured_asc') { cards.sort((a, b) => (a.otherPokemon || []).length - (b.otherPokemon || []).length); }
     else if (sortBy === 'release_desc') { cards.sort((a, b) => { const score = (c) => { const d = setNamesLC[(c.setCode||"").toLowerCase()] || setNamesLC[(c.jpSetCode||"").toLowerCase()] || setNamesLC[(c.cnSetCode||"").toLowerCase()] || {}; return (d.year||0)*100+(d.month||0); }; return score(b) - score(a); }); }
     else if (sortBy === 'release_asc') { cards.sort((a, b) => { const score = (c) => { const d = setNamesLC[(c.setCode||"").toLowerCase()] || setNamesLC[(c.jpSetCode||"").toLowerCase()] || setNamesLC[(c.cnSetCode||"").toLowerCase()] || {}; return (d.year||9999)*100+(d.month||99); }; return score(a) - score(b); }); }
-    else if (sortBy === 'conformance_desc') { cards.sort((a, b) => { const pa = reviewData[a.id]?.conformancePct ?? -1; const pb = reviewData[b.id]?.conformancePct ?? -1; return pb - pa; }); }
-    else if (sortBy === 'conformance_asc')  { cards.sort((a, b) => { const pa = reviewData[a.id]?.conformancePct ?? 101; const pb = reviewData[b.id]?.conformancePct ?? 101; return pa - pb; }); }
+    else if (sortBy === 'conformance_desc') { cards.sort((a, b) => { const pa = calcConformance(reviewData[a.id] || {}, conformanceMode) ?? -1; const pb = calcConformance(reviewData[b.id] || {}, conformanceMode) ?? -1; return pb - pa; }); }
+    else if (sortBy === 'conformance_asc')  { cards.sort((a, b) => { const pa = calcConformance(reviewData[a.id] || {}, conformanceMode) ?? 101; const pb = calcConformance(reviewData[b.id] || {}, conformanceMode) ?? 101; return pa - pb; }); }
     else if (sortBy === 'price_desc') { cards.sort((a, b) => { const pa = getPriceForCard(a)?.gbp ?? -1; const pb = getPriceForCard(b)?.gbp ?? -1; return pb - pa; }); }
     else if (sortBy === 'price_asc')  { cards.sort((a, b) => { const pa = getPriceForCard(a)?.gbp ?? Infinity; const pb = getPriceForCard(b)?.gbp ?? Infinity; return pa - pb; }); }
     return cards;
-  }, [filteredData, filterChinese, filterExclusive, filterSet, filterCardType, sortBy, filterOwned, filterArtist, filterUnobtainable, filterExpensive, filterVeryExpensive, filterMissingImages, filterMissingPrice, filterSetLang, getPriceForCard]);
+  }, [filteredData, filterChinese, filterExclusive, filterSet, filterCardType, sortBy, filterOwned, filterArtist, filterUnobtainable, filterExpensive, filterVeryExpensive, filterMissingImages, filterMissingPrice, filterSetLang, getPriceForCard, conformanceMode]);
 
   const handleInlineUpdateCard = requireUnlock((pokemonId, cardId, updates) => {
     setPokemonData(pokemonData.map(pokemon => {
@@ -815,6 +816,20 @@ export default function App() {
                     <button onClick={() => { clearFilters(); setSortBy('default'); }} className="text-xs font-bold px-2 py-1 rounded-lg bg-red-500 text-white hover:bg-red-600 shrink-0">✕</button>
                   )}
                 </div>
+                {(sortBy === 'conformance_desc' || sortBy === 'conformance_asc') && (
+                  <div className="flex rounded-lg overflow-hidden border border-gray-200 text-[10px] font-bold shrink-0">
+                    <button onClick={() => setConformanceMode('blended')}
+                      className="px-2 py-1 transition-colors"
+                      style={conformanceMode === 'blended' ? { background: '#7c3aed', color: 'white' } : { background: '#f9fafb', color: '#9ca3af' }}>
+                      Blended
+                    </button>
+                    <button onClick={() => setConformanceMode('formula')}
+                      className="px-2 py-1 transition-colors"
+                      style={conformanceMode === 'formula' ? { background: '#7c3aed', color: 'white' } : { background: '#f9fafb', color: '#9ca3af' }}>
+                      Formula only
+                    </button>
+                  </div>
+                )}
               </div>
 
               <div className="flex items-center flex-wrap gap-3 mb-2">

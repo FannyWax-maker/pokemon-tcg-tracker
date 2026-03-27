@@ -14,7 +14,8 @@ const ENV_LABEL_MAP = Object.fromEntries(ENV_LABELS.map(e => [e.score, e]));
 const ENV_BASE = [0, 8, 20, 38, 50];
 
 // ── Conformance formula ──────────────────────────────────────────────────────
-export function calcConformance(data) {
+// mode: 'blended' (default, 75% formula + 25% personal) | 'formula' (no personal ratings)
+export function calcConformance(data, mode = 'blended') {
   const env        = data.environmentScore ?? null;
   const trainer    = data.trainerPresence  ?? 'none';
   const pokCount   = data.pokemonCount     ?? 0;
@@ -51,12 +52,14 @@ export function calcConformance(data) {
     envScore + pokBonus + trainerBonus + connectingBonus + livingBonus + unawareBonus + finishBonus
   )));
 
-  // Personal ratings — average available ratings, then blend 50/50 with formula
-  const ratings = [tjayRating, stephRating].filter(r => r !== null);
-  if (ratings.length > 0) {
-    const avgRating = ratings.reduce((a, b) => a + b, 0) / ratings.length;
-    const ratingScore = Math.round((avgRating / 10) * 100);
-    return Math.min(100, Math.round((formulaScore + ratingScore) / 2));
+  // Personal ratings — blend 75% formula / 25% personal
+  if (mode === 'blended') {
+    const ratings = [tjayRating, stephRating].filter(r => r !== null);
+    if (ratings.length > 0) {
+      const avgRating = ratings.reduce((a, b) => a + b, 0) / ratings.length;
+      const ratingScore = Math.round((avgRating / 10) * 100);
+      return Math.min(100, Math.round(formulaScore * 0.75 + ratingScore * 0.25));
+    }
   }
 
   return formulaScore;
