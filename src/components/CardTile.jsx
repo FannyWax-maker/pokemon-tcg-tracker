@@ -432,6 +432,13 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     if (p !== null) return null; // has a price — hide it
   }
 
+  // Hide cards that have all featured Pokémon coords tagged (or have no featured Pokémon)
+  if (card._filterMissingCoords) {
+    const hasOtherPok = card.otherPokemon && card.otherPokemon.length > 0;
+    if (!hasOtherPok) return null; // no featured pokemon — hide
+    if (pokemonCoordsImport[card.id]) return null; // already has coords — hide
+  }
+
   return (
     <>
       {/* Click-away to close context menu */}

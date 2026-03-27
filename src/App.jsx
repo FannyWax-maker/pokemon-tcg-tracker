@@ -45,6 +45,7 @@ export default function App() {
   const [viewMode, setViewMode] = useState('cards');
   const [filterMissingImages, setFilterMissingImages] = useState(false);
   const [filterMissingPrice, setFilterMissingPrice] = useState(false);
+  const [filterMissingCoords, setFilterMissingCoords] = useState(false);
   const [filterChinese, setFilterChinese] = useState('all');
   const [sortBy, setSortBy] = useState('default');
   const [conformanceMode, setConformanceMode] = useState('blended'); // 'blended' | 'formula'
@@ -383,7 +384,7 @@ export default function App() {
     return { totalCards, ownedCards, completionPercent, langStats };
   }, [pokemonData]);
 
-  const hasActiveFilters = filterExclusive !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterMissingPrice || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards !== 'all' || filterHideNonConforming !== 'all' || filterOwned !== 'all' || filterSetLang !== 'all' || filterGeneration !== 'all' || filterFavorites !== 'all' || filterUnobtainable !== 'all';
+  const hasActiveFilters = filterExclusive !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterMissingPrice || filterMissingCoords || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards !== 'all' || filterHideNonConforming !== 'all' || filterOwned !== 'all' || filterSetLang !== 'all' || filterGeneration !== 'all' || filterFavorites !== 'all' || filterUnobtainable !== 'all';
   const activeFilterCount = [filterExclusive !== 'all', filterSet !== 'all', filterCardType !== 'all', filterMissingImages, filterChinese !== 'all', filterArtist !== 'all', filterHideNoCards !== 'all', filterHideNonConforming !== 'all', filterOwned !== 'all', filterGeneration !== 'all'].filter(Boolean).length;
 
   const filteredData = useMemo(() => {
@@ -480,6 +481,7 @@ export default function App() {
         const cardEntry = { ...card, pokemonName: pokemon.name, pokemonId: pokemon.id };
         if (filterMissingImages) cardEntry._filterMissingImages = true;
         if (filterMissingPrice) cardEntry._filterMissingPrice = true;
+        if (filterMissingCoords) cardEntry._filterMissingCoords = true;
         cards.push(cardEntry);
       });
     });
@@ -751,8 +753,14 @@ export default function App() {
                     {viewMode === 'cards' && <option value="conformance_asc">Sort: Lowest conformance</option>}
                     {viewMode === 'cards' && <option value="price_desc">Sort: Price high → low</option>}
                     {viewMode === 'cards' && <option value="price_asc">Sort: Price low → high</option>}
+                    {viewMode === 'review' && <option value="featured_desc">Sort: Most featured</option>}
+                    {viewMode === 'review' && <option value="featured_asc">Sort: Fewest featured</option>}
+                    {viewMode === 'review' && <option value="release_desc">Sort: Newest first</option>}
+                    {viewMode === 'review' && <option value="release_asc">Sort: Oldest first</option>}
                     {viewMode === 'review' && <option value="conformance_desc">Sort: Highest conformance</option>}
                     {viewMode === 'review' && <option value="conformance_asc">Sort: Lowest conformance</option>}
+                    {viewMode === 'review' && <option value="price_desc">Sort: Price high → low</option>}
+                    {viewMode === 'review' && <option value="price_asc">Sort: Price low → high</option>}
                   </select>
                   {(hasActiveFilters || sortBy !== 'default') && (
                     <button onClick={() => { clearFilters(); setSortBy('default'); }} className="text-xs font-bold px-2 py-1 rounded-lg bg-red-500 text-white hover:bg-red-600 shrink-0">✕</button>
@@ -885,6 +893,10 @@ export default function App() {
                   <label className={`flex items-center gap-2 text-xs font-semibold cursor-pointer ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                     <input type="checkbox" checked={filterMissingPrice} onChange={(e) => setFilterMissingPrice(e.target.checked)} className="rounded" />
                     Show only EN cards with no price (bad set number)
+                  </label>
+                  <label className={`flex items-center gap-2 text-xs font-semibold cursor-pointer ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+                    <input type="checkbox" checked={filterMissingCoords} onChange={(e) => setFilterMissingCoords(e.target.checked)} className="rounded" />
+                    Show only cards with featured Pokémon missing coords
                   </label>
                 </div>
               )}
