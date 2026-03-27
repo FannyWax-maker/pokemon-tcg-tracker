@@ -9,6 +9,7 @@ import LanguagePicker from './components/LanguagePicker';
 import pokemonDataImport from './data/pokemon_data.json';
 import setNamesImport from './data/set_names.json';
 import reviewDataImport from './data/review_data.json';
+import pokemonCoordsImport from './data/pokemon_coords.json';
 
 export default function App() {
   const [pokemonData, setPokemonData] = useState(() => {
@@ -948,7 +949,14 @@ export default function App() {
               </div>
             </div>
             <div className={`grid ${tileGridClass[tileSize]}`}>
-              {allCardsFlat.map((card, idx) => {
+              {allCardsFlat.filter(card => {
+                if (card._filterMissingCoords) {
+                  const hasOtherPok = card.otherPokemon && card.otherPokemon.length > 0;
+                  if (!hasOtherPok) return false;
+                  if (pokemonCoordsImport[card.id]) return false;
+                }
+                return true;
+              }).map((card, idx) => {
                 const rd = reviewData[card.id];
                 const isReviewed = !!rd;
                 return (
