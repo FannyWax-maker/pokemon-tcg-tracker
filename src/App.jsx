@@ -421,7 +421,7 @@ export default function App() {
         if (filterChinese !== 'all') { const hasCN = (card.availableLangs || []).includes('CN'); if (filterChinese === 'has_cn' && !hasCN) return false; if (filterChinese === 'no_cn' && hasCN) return false; }
         if (filterSet !== 'all') { const matchesSet = card.setCode === filterSet || card.enSetCode === filterSet || card.jpSetCode === filterSet || card.cnSetCode === filterSet; if (!matchesSet) return false; }
         if (filterSetLang !== 'all' && filterSet === 'all') { const langs = card.availableLangs || []; if (filterSetLang === 'JP' && !card.jpSetCode) return false; if (filterSetLang === 'CN' && !card.cnSetCode) return false; if (filterSetLang === 'TC' && !card.tcSetCode) return false; if (filterSetLang === 'KR' && !card.krSetCode) return false; if (filterSetLang === 'EN' && !card.setCode) return false; }
-        if (filterLang !== 'all') { if (filterLang === 'EN' && !card.setCode) return false; if (filterLang === 'JP' && !card.jpSetCode) return false; if (filterLang === 'CN' && !card.cnSetCode) return false; if (filterLang === 'TC' && !card.tcSetCode) return false; if (filterLang === 'KR' && !card.krSetCode) return false; }
+        if (filterLang !== 'all') { const al = card.availableLangs || []; if (al.length !== 1 || al[0] !== filterLang) return false; }
         if (filterCardType !== 'all') {
           const cn = String(card.cardName || '').trim(); const cu = cn.toUpperCase();
           if (filterCardType === 'trainer' && !cu.includes('TRAINER')) return false;
@@ -461,7 +461,7 @@ export default function App() {
         if (filterChinese !== 'all') { const hasCN = (card.availableLangs || []).includes('CN'); if (filterChinese === 'has_cn' && !hasCN) return; if (filterChinese === 'no_cn' && hasCN) return; }
         if (filterSet !== 'all') { const matchesSet2 = card.setCode === filterSet || card.enSetCode === filterSet || card.jpSetCode === filterSet || card.cnSetCode === filterSet; if (!matchesSet2) return; }
         if (filterSetLang !== 'all' && filterSet === 'all') { if (filterSetLang === 'JP' && !card.jpSetCode) return; if (filterSetLang === 'CN' && !card.cnSetCode) return; if (filterSetLang === 'TC' && !card.tcSetCode) return; if (filterSetLang === 'KR' && !card.krSetCode) return; if (filterSetLang === 'EN' && !card.setCode) return; }
-        if (filterLang !== 'all') { if (filterLang === 'EN' && !card.setCode) return; if (filterLang === 'JP' && !card.jpSetCode) return; if (filterLang === 'CN' && !card.cnSetCode) return; if (filterLang === 'TC' && !card.tcSetCode) return; if (filterLang === 'KR' && !card.krSetCode) return; }
+        if (filterLang !== 'all') { const al = card.availableLangs || []; if (al.length !== 1 || al[0] !== filterLang) return; }
         if (filterCardType !== 'all') {
           const cn = String(card.cardName || '').trim(); const cu = cn.toUpperCase(); let matches = false;
           if (filterCardType === 'trainer') matches = cu.includes('TRAINER');
