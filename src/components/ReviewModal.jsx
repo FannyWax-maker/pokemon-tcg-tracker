@@ -19,8 +19,9 @@ export function calcConformance(data) {
   const trainer    = data.trainerPresence  ?? 'none';
   const pokCount   = data.pokemonCount     ?? 0;
   const connecting = data.connectingCard   ?? false;
-  const living     = data.nonPokemonLiving ?? false;
+  const living     = data.nonPokemonLiving ?? null;
   const unaware    = data.unawareOfViewer  ?? null;
+  const finish     = data.cardFinish       ?? null;
   const tjayRating  = data.tjayRating  ?? null;
   const stephRating = data.stephRating ?? null;
 
@@ -42,11 +43,12 @@ export function calcConformance(data) {
   else if (trainer === 'present')     trainerBonus = 4;
 
   const connectingBonus = connecting ? 6 : 0;
-  const livingBonus     = living     ? 7 : 0;
+  const livingBonus     = living === true ? 7 : living === false ? -3 : 0;
   const unawareBonus    = unaware === true ? 6 : unaware === false ? -5 : 0;
+  const finishBonus     = finish === 'textured' ? 4 : finish === 'matte' ? -4 : 0;
 
   const formulaScore = Math.min(100, Math.max(0, Math.round(
-    envScore + pokBonus + trainerBonus + connectingBonus + livingBonus + unawareBonus
+    envScore + pokBonus + trainerBonus + connectingBonus + livingBonus + unawareBonus + finishBonus
   )));
 
   // Personal ratings — average available ratings, then blend 50/50 with formula
@@ -259,6 +261,7 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
   const [connectingCard,   setConnectingCard]   = useState(reviewData.connectingCard   ?? null);
   const [nonPokemonLiving, setNonPokemonLiving] = useState(reviewData.nonPokemonLiving ?? null);
   const [unawareOfViewer,  setUnawareOfViewer]  = useState(reviewData.unawareOfViewer  ?? null);
+  const [cardFinish,       setCardFinish]       = useState(reviewData.cardFinish       ?? null);
   const [tjayRating,       setTjayRating]       = useState(reviewData.tjayRating       ?? null);
   const [stephRating,      setStephRating]      = useState(reviewData.stephRating      ?? null);
 
@@ -272,6 +275,7 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
     setConnectingCard(reviewData.connectingCard     ?? null);
     setNonPokemonLiving(reviewData.nonPokemonLiving ?? null);
     setUnawareOfViewer(reviewData.unawareOfViewer   ?? null);
+    setCardFinish(reviewData.cardFinish             ?? null);
     setTjayRating(reviewData.tjayRating             ?? null);
     setStephRating(reviewData.stephRating           ?? null);
     setSavedData(Object.keys(reviewData).length > 0 ? reviewData : null);
@@ -281,7 +285,7 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
 
   const conformancePct = calcConformance({
     environmentScore, trainerPresence, pokemonCount,
-    connectingCard, nonPokemonLiving, unawareOfViewer, tjayRating, stephRating,
+    connectingCard, nonPokemonLiving, unawareOfViewer, cardFinish, tjayRating, stephRating,
   });
 
   const [savedData,  setSavedData]  = useState(Object.keys(reviewData).length > 0 ? reviewData : null);
@@ -289,7 +293,7 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
 
   const buildData = () => ({
     environmentScore, trainerPresence, pokemonCount,
-    connectingCard, nonPokemonLiving, unawareOfViewer, tjayRating, stephRating,
+    connectingCard, nonPokemonLiving, unawareOfViewer, cardFinish, tjayRating, stephRating,
     conformancePct,
     reviewedAt: new Date().toISOString(),
   });
@@ -316,7 +320,7 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
   }, [hasPrev, hasNext, isDirty, environmentScore, trainerPresence, pokemonCount,
-      connectingCard, nonPokemonLiving, unawareOfViewer, tjayRating, stephRating]);
+      connectingCard, nonPokemonLiving, unawareOfViewer, cardFinish, tjayRating, stephRating]);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
@@ -439,7 +443,7 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
               {/* Boolean flags */}
               {[
                 { label: 'Has a connecting card',              hint: '+6',       key: 'connectingCard',   val: connectingCard,   set: setConnectingCard },
-                { label: 'Non-Pokémon living things',          hint: '+7',       key: 'nonPokemonLiving', val: nonPokemonLiving, set: setNonPokemonLiving },
+                { label: 'Non-Pokémon living things',          hint: 'Yes +7 · No −3', key: 'nonPokemonLiving', val: nonPokemonLiving, set: setNonPokemonLiving },
                 { label: 'Pokémon unaware / not facing camera',hint: 'Yes +6 · No −5', key: 'unawareOfViewer',  val: unawareOfViewer,  set: setUnawareOfViewer },
               ].map(({ label, hint, key, val, set }) => (
                 <div key={key} className="flex items-center justify-between gap-3">
@@ -450,6 +454,25 @@ export default function ReviewModal({ card, reviewData, onSave, onClose, onPrev,
                   <YesNo value={val} onChange={(v) => { set(v); dirty(); }} />
                 </div>
               ))}
+
+              {/* Card finish */}
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <div className="text-xs font-bold text-gray-700">Card finish</div>
+                  <div className="text-[9px] text-gray-400">Matte −4 · Glossy ±0 · Textured +4</div>
+                </div>
+                <div className="flex gap-1">
+                  {[['matte','Matte'],['glossy','Glossy'],['textured','Textured']].map(([val, label]) => (
+                    <button key={val} onClick={() => { setCardFinish(cardFinish === val ? null : val); dirty(); }}
+                      className="px-2 py-1 rounded-lg text-[10px] font-black transition-all border"
+                      style={cardFinish === val
+                        ? { background: val === 'textured' ? '#7c3aed' : val === 'matte' ? '#6b7280' : '#3b82f6', color: 'white', borderColor: 'transparent' }
+                        : { background: '#f9fafb', color: '#9ca3af', borderColor: '#e5e7eb' }}>
+                      {label}
+                    </button>
+                  ))}
+                </div>
+              </div>
 
               {/* Personal ratings */}
               {[
