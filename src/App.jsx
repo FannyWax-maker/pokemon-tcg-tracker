@@ -318,6 +318,22 @@ export default function App() {
     return { en: stats, jp: jpStats, cn: cnStats, tc: tcStats, kr: krStats };
   }, [pokemonData]);
 
+  // Build name -> {cards, appearances} lookup from coords data
+  const coordAppearances = useMemo(() => {
+    const map = {};
+    Object.values(pokemonCoordsImport).forEach(entries => {
+      (Array.isArray(entries) ? entries : [entries]).forEach(entry => {
+        const name = (entry.name || '').toLowerCase();
+        if (!name) return;
+        const count = entry.positions ? entry.positions.length : (entry.x !== undefined ? 1 : 0);
+        if (!map[name]) map[name] = { cards: 0, appearances: 0 };
+        map[name].cards += 1;
+        map[name].appearances += count;
+      });
+    });
+    return map;
+  }, []);
+
   const filterCounts = useMemo(() => {
     const primary = pokemonData.flatMap(p => p.cards.filter(c => !c.isSecondary && c.isPrimary !== false && (c.setCode || c.jpSetCode || c.cnSetCode)));
     const jpCount = primary.filter(c => c.exclusive === 'JP').length;
@@ -934,7 +950,7 @@ export default function App() {
         {viewMode === 'pokemon' ? (
           <div className={`grid ${pokemonGridClass[tileSize]}`}>
             {filteredData.data.map(pokemon => (
-              <PokemonCard key={`${pokemon.id}-${pokemon.name}`} pokemon={pokemon} onClick={() => setSelectedPokemon(pokemon)} />
+              <PokemonCard key={`${pokemon.id}-${pokemon.name}`} pokemon={pokemon} onClick={() => setSelectedPokemon(pokemon)} coordAppearances={coordAppearances} />
             ))}
           </div>
         ) : viewMode === 'review' ? (

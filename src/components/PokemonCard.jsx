@@ -12,7 +12,7 @@ const GEN_COLORS = {
   9: '#E59866',  // Peach (Paldea)
 };
 
-export default function PokemonCard({ pokemon, onClick }) {
+export default function PokemonCard({ pokemon, onClick, coordAppearances = {} }) {
   // Filter to only PRIMARY cards WITH valid set codes
   const primaryCardsWithSets = pokemon.cards.filter(c => 
     c.isPrimary !== false && c.setCode && c.setCode.trim()
@@ -34,6 +34,7 @@ export default function PokemonCard({ pokemon, onClick }) {
   // Check if Pokemon appears in other cards
   const hasSecondaryCards = secondaryCards.length > 0;
   
+  const coordData = coordAppearances[(pokemon.name || '').toLowerCase()];
   const spriteUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`;
   
   return (
@@ -99,6 +100,7 @@ export default function PokemonCard({ pokemon, onClick }) {
                   <span className="text-white text-[10px] font-bold drop-shadow">
                     {completionPercent === 100 ? `★ ${ownedPrimaryCards}/${totalPrimaryCards}` : `${ownedPrimaryCards}/${totalPrimaryCards}`}
                     {hasSecondaryCards && <span className="text-purple-200 ml-1">+{secondaryCards.length}r</span>}
+                    {coordData && <span className="text-yellow-200 ml-1">👁{coordData.appearances}</span>}
                   </span>
                 </div>
               </div>
