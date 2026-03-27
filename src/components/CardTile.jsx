@@ -742,7 +742,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
             {/* Left checklist panel */}
             {card.otherPokemon && card.otherPokemon.length > 0 && (
-              <div style={{ width: '180px', flexShrink: 0, background: '#1f2937', borderRadius: '10px', padding: '10px', maxHeight: '90vh', overflowY: 'auto' }}>
+              <div style={{ width: '220px', flexShrink: 0, background: '#1f2937', borderRadius: '10px', padding: '10px', maxHeight: '90vh', overflowY: 'auto' }}>
                 <div style={{ color: '#9ca3af', fontSize: '11px', marginBottom: '8px', fontWeight: 'bold' }}>
                   Featured ({card.otherPokemon.length})
                 </div>
@@ -756,7 +756,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                     : [];
                   const THUMB = 44; // circle thumbnail px
                   return (
-                    <div key={name} onClick={() => { setHighlightName(n => n === name ? null : name); setShowHighlight(true); }} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '4px 0', borderBottom: '1px solid #374151', cursor: 'pointer', background: highlightName === name ? 'rgba(255,255,255,0.08)' : 'transparent', borderRadius: '6px' }}>
+                    <div key={name} onClick={() => { if (highlightName === name) { setHighlightName(null); setShowHighlight(false); } else { setHighlightName(name); setShowHighlight(true); } }} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '4px 0', borderBottom: '1px solid #374151', cursor: 'pointer', background: highlightName === name ? 'rgba(255,255,255,0.08)' : 'transparent', borderRadius: '6px' }}>
                       {/* Circle crop thumbnail(s) — use first position */}
                       {positions.length > 0 && imageSrc ? (
                         <div style={{ display: 'flex', gap: '3px', flexShrink: 0, alignItems: 'center' }}>
