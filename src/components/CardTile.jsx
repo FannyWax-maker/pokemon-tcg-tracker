@@ -68,9 +68,10 @@ const LANG_CONFIG = {
   JP: { flag: '🇯🇵', color: 'bg-red-500 hover:bg-red-600', owned: 'bg-red-500' },
   CN: { flag: '🇨🇳', color: 'bg-yellow-500 hover:bg-yellow-600', owned: 'bg-yellow-500' },
   KR: { flag: '🇰🇷', color: 'bg-indigo-500 hover:bg-indigo-600', owned: 'bg-indigo-500' },
+  TC: { flag: '🇹🇼', color: 'bg-green-500 hover:bg-green-600', owned: 'bg-green-500' },
 };
 
-const ALL_LANGS = ['EN', 'JP', 'CN', 'KR'];
+const ALL_LANGS = ['EN', 'JP', 'CN', 'TC', 'KR'];
 
 const buildEbayUrl = (card, pokemonName, lang) => {
   const rawName = card.cardName || '';
@@ -79,9 +80,9 @@ const buildEbayUrl = (card, pokemonName, lang) => {
   const skipNames = ['Full Art', 'Trainer', 'Item', 'Stadium', 'Supporter', 'Tool', 'Energy'];
   const cardName = cleanedName && !skipNames.includes(cleanedName) ? cleanedName : null;
   const searchName = cardName || pokemonName;
-  const setCode = lang === 'JP' ? card.jpSetCode : lang === 'CN' ? card.cnSetCode : card.setCode;
+  const setCode = lang === 'JP' ? card.jpSetCode : lang === 'CN' ? card.cnSetCode : lang === 'TC' ? card.tcSetCode : card.setCode;
   const setNumber = lang === 'EN' ? (card.setNumber || card.number || null) : null;
-  const langKeyword = lang === 'JP' ? 'japanese' : lang === 'CN' ? 'chinese' : lang === 'KR' ? 'korean' : '';
+  const langKeyword = lang === 'JP' ? 'japanese' : lang === 'CN' ? 'chinese simplified' : lang === 'TC' ? 'chinese traditional taiwan' : lang === 'KR' ? 'korean' : '';
   const query = [searchName, setCode, setNumber, langKeyword].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim();
   return `https://www.ebay.co.uk/sch/i.html?_nkw=${encodeURIComponent(query)}&LH_ItemLocation=3&_sop=12`;
 };
@@ -652,6 +653,14 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             ) : <><span className="text-yellow-500 font-bold shrink-0 opacity-40">CN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
           </div>
 
+          {/* Row 6b: TC */}
+          {card.tcSetCode && (
+            <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-start gap-1 ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
+              <span className="text-green-500 font-bold shrink-0">TC</span>
+              <span className="truncate">{card.tcSetCode}{card.tcNumber ? ` ${card.tcNumber}` : ''}{(() => { const _t = setNames[card.tcSetCode]; const n = typeof _t === 'object' ? _t?.name : _t; return n ? ` - ${n.replace(/ \d{4}.*/, '').trim()}` : ''; })()}</span>
+            </div>
+          )}
+
           {/* Row 7: other pokemon — always reserve space */}
           <div className={`text-xs min-h-[0.9rem] leading-tight ${isOwned ? 'text-red-100' : 'text-blue-500'}`}>
             {hasOtherPokemon ? (showAllPokemon
@@ -677,7 +686,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
               ) : (
                 <div className="flex gap-1">
                   {ALL_LANGS.map(lang => {
-                    const isAvailable = availableLangs.includes(lang) || (lang === 'KR' && showKR);
+                    const isAvailable = availableLangs.includes(lang) || (lang === 'KR' && showKR) || (lang === 'TC' && !!card.tcSetCode);
                     const cfg = LANG_CONFIG[lang];
                     return (
                       <button
@@ -705,6 +714,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
               const hasLang = lang === 'EN' ? !!(card.enSetCode || card.setCode)
                 : lang === 'JP' ? !!card.jpSetCode
                 : lang === 'CN' ? !!card.cnSetCode
+                : lang === 'TC' ? !!card.tcSetCode
                 : showKR;
               const cfg = LANG_CONFIG[lang];
               return (
