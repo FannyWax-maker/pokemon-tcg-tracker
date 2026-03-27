@@ -80,7 +80,7 @@ const buildEbayUrl = (card, pokemonName, lang) => {
   const skipNames = ['Full Art', 'Trainer', 'Item', 'Stadium', 'Supporter', 'Tool', 'Energy'];
   const cardName = cleanedName && !skipNames.includes(cleanedName) ? cleanedName : null;
   const searchName = cardName || pokemonName;
-  const setCode = lang === 'JP' ? card.jpSetCode : lang === 'CN' ? card.cnSetCode : lang === 'TC' ? card.tcSetCode : card.setCode;
+  const setCode = lang === 'JP' ? card.jpSetCode : lang === 'CN' ? card.cnSetCode : lang === 'TC' ? (card.tcSetCode || card.setCode || card.jpSetCode) : card.setCode;
   const setNumber = lang === 'EN' ? (card.setNumber || card.number || null) : null;
   const langKeyword = lang === 'JP' ? 'japanese' : lang === 'CN' ? 'chinese simplified' : lang === 'TC' ? 'chinese traditional taiwan' : lang === 'KR' ? 'korean' : '';
   const query = [searchName, setCode, setNumber, langKeyword].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim();
@@ -714,7 +714,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
               const hasLang = lang === 'EN' ? !!(card.enSetCode || card.setCode)
                 : lang === 'JP' ? !!card.jpSetCode
                 : lang === 'CN' ? !!card.cnSetCode
-                : lang === 'TC' ? !!card.tcSetCode
+                : lang === 'TC' ? !!(card.tcSetCode || card.setCode || card.jpSetCode)
                 : showKR;
               const cfg = LANG_CONFIG[lang];
               return (
