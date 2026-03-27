@@ -93,6 +93,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const isSecondary = card.isSecondary || !card.isPrimary;
   const [showZoom, setShowZoom] = React.useState(false);
   const [showHighlight, setShowHighlight] = React.useState(false);
+  const [highlightName, setHighlightName] = React.useState(null);
   const [zoomScale, setZoomScale] = React.useState(2.5);
   const [mousePos, setMousePos] = React.useState({ x: 0, y: 0 });
   const [imgRect, setImgRect] = React.useState(null);
@@ -755,11 +756,11 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                     : [];
                   const THUMB = 44; // circle thumbnail px
                   return (
-                    <div key={name} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '4px 0', borderBottom: '1px solid #374151' }}>
+                    <div key={name} onClick={() => { setHighlightName(n => n === name ? null : name); setShowHighlight(true); }} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '4px 0', borderBottom: '1px solid #374151', cursor: 'pointer', background: highlightName === name ? 'rgba(255,255,255,0.08)' : 'transparent', borderRadius: '6px' }}>
                       {/* Circle crop thumbnail(s) — use first position */}
                       {positions.length > 0 && imageSrc ? (
                         <div style={{ display: 'flex', gap: '3px', flexShrink: 0, alignItems: 'center' }}>
-                          {positions.slice(0, 4).map((pos, pi) => {
+                          {positions.slice(0, 2).map((pos, pi) => {
                             // We render the card image clipped to the circle region
                             // bg-size = THUMB / (r*2) * 100% of natural img
                             // We need: the circle centre at pos.x,pos.y with radius pos.r (all fractions of card width)
@@ -784,9 +785,9 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                               }} />
                             );
                           })}
-                          {positions.length > 4 && (
+                          {positions.length > 2 && (
                             <div style={{ width: 28, height: 28, borderRadius: '50%', flexShrink: 0, background: '#374151', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '9px', fontWeight: 'bold', color: '#9ca3af', border: '1px solid #6b7280' }}>
-                              +{positions.length - 4}
+                              +{positions.length - 2}
                             </div>
                           )}
                         </div>
@@ -840,7 +841,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                   entry.positions
                     ? entry.positions.map(p => ({ ...p, name: entry.name }))
                     : [{ x: entry.x, y: entry.y, r: entry.r, name: entry.name }]
-                );
+                ).filter(p => !highlightName || p.name.toLowerCase() === highlightName.toLowerCase());
                 return (
                   <svg
                     style={{ position: 'absolute', top: rect.top - containerRect.top, left: rect.left - containerRect.left, width: w, height: h, pointerEvents: 'none', borderRadius: '8px', overflow: 'hidden' }}
