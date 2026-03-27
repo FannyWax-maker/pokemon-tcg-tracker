@@ -758,8 +758,8 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                     <div key={name} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '4px 0', borderBottom: '1px solid #374151' }}>
                       {/* Circle crop thumbnail(s) — use first position */}
                       {positions.length > 0 && imageSrc ? (
-                        <div style={{ display: 'flex', gap: '3px', flexShrink: 0 }}>
-                          {positions.slice(0, 2).map((pos, pi) => {
+                        <div style={{ display: 'flex', gap: '3px', flexShrink: 0, alignItems: 'center' }}>
+                          {positions.slice(0, 4).map((pos, pi) => {
                             // We render the card image clipped to the circle region
                             // bg-size = THUMB / (r*2) * 100% of natural img
                             // We need: the circle centre at pos.x,pos.y with radius pos.r (all fractions of card width)
@@ -784,6 +784,11 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                               }} />
                             );
                           })}
+                          {positions.length > 4 && (
+                            <div style={{ width: 28, height: 28, borderRadius: '50%', flexShrink: 0, background: '#374151', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '9px', fontWeight: 'bold', color: '#9ca3af', border: '1px solid #6b7280' }}>
+                              +{positions.length - 4}
+                            </div>
+                          )}
                         </div>
                       ) : (
                         <div style={{
