@@ -2405,7 +2405,13 @@
         "cardName": "Detective Pikachu",
         "exclusive": "JP/CN",
         "otherPokemon": [
-          "Growlithe"
+          "Growlithe",
+          "Raboot",
+          "Manectric",
+          "Whimsicott",
+          "Mewtwo",
+          "Pangoro",
+          "Darmanitan"
         ],
         "availableLangs": [
           "JP",
@@ -4838,7 +4844,8 @@
         "cardName": "Slowpoke & Psyduck GX",
         "exclusive": null,
         "otherPokemon": [
-          "Psyduck"
+          "Psyduck",
+          "Shellder"
         ],
         "availableLangs": [
           "EN",
@@ -10706,7 +10713,8 @@
         "cardName": "Espeon V",
         "exclusive": null,
         "otherPokemon": [
-          "Eevee"
+          "Eevee",
+          "Ditto"
         ],
         "availableLangs": [
           "EN",
@@ -33866,7 +33874,14 @@
         "cardName": null,
         "exclusive": null,
         "otherPokemon": [
-          "Wishiwashi"
+          "Wishiwashi",
+          "Meowstic",
+          "Meowscarada",
+          "Voltorb",
+          "Zeraora",
+          "Meowth",
+          "Incineroar",
+          "Toedscool"
         ],
         "availableLangs": [
           "EN",
@@ -41180,7 +41195,8 @@
         "exclusive": null,
         "otherPokemon": [
           "Snorunt",
-          "Sealeo"
+          "Sealeo",
+          "Glastrier"
         ],
         "availableLangs": [
           "EN",
@@ -42803,7 +42819,8 @@
         "cardName": "Iono's Bellibolt ex",
         "exclusive": null,
         "otherPokemon": [
-          "Tadbulb"
+          "Tadbulb",
+          "Magnemite"
         ],
         "availableLangs": [
           "EN",
@@ -42889,7 +42906,8 @@
         "cardName": "Iono's Wattrel",
         "exclusive": null,
         "otherPokemon": [
-          "Rotom"
+          "Rotom",
+          "Magnemite"
         ],
         "availableLangs": [
           "EN",
@@ -45688,7 +45706,9 @@
         "cardName": null,
         "exclusive": null,
         "otherPokemon": [
-          "Skwovet"
+          "Skwovet",
+          "Ogerpon",
+          "Applin"
         ],
         "availableLangs": [
           "EN",
