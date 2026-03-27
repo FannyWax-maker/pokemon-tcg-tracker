@@ -462,6 +462,7 @@ export default function App() {
       if (pushToEnd) { if (aPrimary === 0 && bPrimary === 0) return a.id - b.id; if (aPrimary === 0) return 1; if (bPrimary === 0) return -1; }
       if (sortBy === 'alpha_asc') return a.name.localeCompare(b.name);
       if (sortBy === 'alpha_desc') return b.name.localeCompare(a.name);
+      if (sortBy === 'seen_desc') { const aS = coordAppearances[(a.name||'').toLowerCase()]?.appearances ?? -1; const bS = coordAppearances[(b.name||'').toLowerCase()]?.appearances ?? -1; return bS - aS; }
       return a.id - b.id;
     });
     return { type: 'pokemon', data: filtered };
@@ -763,6 +764,7 @@ export default function App() {
                     <option value="default">Sort: Dex Order</option>
                     <option value="alpha_asc">Sort: A → Z</option>
                     <option value="alpha_desc">Sort: Z → A</option>
+                    {viewMode === 'pokemon' && <option value="seen_desc">Sort: Most seen (coords)</option>}
                     {viewMode === 'cards' && <option value="featured_desc">Sort: Most featured</option>}
                     {viewMode === 'cards' && <option value="featured_asc">Sort: Fewest featured</option>}
                     {viewMode === 'cards' && <option value="release_desc">Sort: Newest first</option>}
