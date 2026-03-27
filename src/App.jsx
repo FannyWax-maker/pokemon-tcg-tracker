@@ -437,6 +437,7 @@ export default function App() {
       }));
     }
     if (filterMissingImages) { filtered = filtered.map(p => ({ ...p, cards: p.cards.map(c => ({ ...c, _filterMissingImages: true })) })); }
+    if (filterMissingCoords) { filtered = filtered.map(p => ({ ...p, cards: p.cards.map(c => ({ ...c, _filterMissingCoords: true })) })); }
     filtered = [...filtered].sort((a, b) => {
       const aPrimary = a.cards.filter(c => !c.isSecondary && c.isPrimary !== false).length;
       const bPrimary = b.cards.filter(c => !c.isSecondary && c.isPrimary !== false).length;
