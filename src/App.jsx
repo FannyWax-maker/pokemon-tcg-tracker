@@ -448,7 +448,7 @@ export default function App() {
       return a.id - b.id;
     });
     return { type: 'pokemon', data: filtered };
-  }, [searchQuery, pokemonData, filterSet, filterCardType, filterMissingImages, filterMissingCoords, filterSetLang, filterChinese, filterArtist, filterHideNoCards, filterHideNonConforming, filterGeneration, filterFavorites, filterUnobtainable, sortBy]);
+  }, [searchQuery, pokemonData, filterLang, filterSet, filterCardType, filterMissingImages, filterMissingCoords, filterSetLang, filterChinese, filterArtist, filterHideNoCards, filterHideNonConforming, filterGeneration, filterFavorites, filterUnobtainable, sortBy]);
 
   const allCardsFlat = useMemo(() => {
     const cards = [];
@@ -495,7 +495,7 @@ export default function App() {
     else if (sortBy === 'price_desc') { cards.sort((a, b) => { const pa = getPriceForCard(a)?.gbp ?? -1; const pb = getPriceForCard(b)?.gbp ?? -1; return pb - pa; }); }
     else if (sortBy === 'price_asc')  { cards.sort((a, b) => { const pa = getPriceForCard(a)?.gbp ?? Infinity; const pb = getPriceForCard(b)?.gbp ?? Infinity; return pa - pb; }); }
     return cards;
-  }, [filteredData, filterChinese, filterSet, filterCardType, sortBy, filterOwned, filterArtist, filterUnobtainable, filterMissingImages, filterMissingPrice, filterMissingCoords, filterSetLang, getPriceForCard, conformanceMode]);
+  }, [filteredData, filterChinese, filterLang, filterSet, filterCardType, sortBy, filterOwned, filterArtist, filterUnobtainable, filterMissingImages, filterMissingPrice, filterMissingCoords, filterSetLang, getPriceForCard, conformanceMode]);
 
   const handleInlineUpdateCard = requireUnlock((pokemonId, cardId, updates) => {
     setPokemonData(pokemonData.map(pokemon => {
@@ -846,7 +846,7 @@ export default function App() {
                 )}
                 {viewMode === 'cards' && (
                   <div className="flex items-center gap-1.5">
-                    <span className={`text-xs font-semibold ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Lang</span>
+                    <span className={`text-xs font-semibold ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Exclusive</span>
                     <div className={`flex rounded-lg overflow-hidden border text-xs font-bold ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
                       {[['all','All'],['EN','EN'],['JP','JP'],['CN','CN'],['TC','TC'],['KR','KR']].map(([val, label]) => (
                         <button key={val} onClick={() => setFilterLang(filterLang === val ? 'all' : val)}
