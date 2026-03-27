@@ -848,6 +848,21 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                     viewBox={`0 0 ${w} ${h}`}
                   >
                     <defs>
+                      <linearGradient id="fire1" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#fde68a" />
+                        <stop offset="40%" stopColor="#f97316" />
+                        <stop offset="100%" stopColor="#dc2626" stopOpacity="0.2" />
+                      </linearGradient>
+                      <linearGradient id="fire2" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#fef3c7" />
+                        <stop offset="50%" stopColor="#fb923c" />
+                        <stop offset="100%" stopColor="#ef4444" stopOpacity="0.1" />
+                      </linearGradient>
+                      <linearGradient id="fire3" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#fff7ed" />
+                        <stop offset="60%" stopColor="#fbbf24" />
+                        <stop offset="100%" stopColor="#f97316" stopOpacity="0.1" />
+                      </linearGradient>
                       <mask id="highlight-mask">
                         <rect width={w} height={h} fill="white" />
                         {allPositions.map((p, i) => (
@@ -857,18 +872,67 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                     </defs>
                     {/* Dark overlay everywhere except circles */}
                     <rect width={w} height={h} fill="rgba(0,0,0,0.6)" mask="url(#highlight-mask)" />
-                    {/* Circle outlines + labels */}
-                    {allPositions.map((p, i) => (
-                      <g key={i}>
-                        <circle cx={p.x * w} cy={p.y * h} r={p.r * w}
-                          fill="none" stroke="rgba(255,255,255,0.9)" strokeWidth="2.5" />
-                        <text x={p.x * w} y={p.y * h - p.r * w - 5}
-                          textAnchor="middle" fill="white" fontSize="12" fontWeight="bold"
-                          style={{ textShadow: '0 1px 4px black' }}>
-                          {p.name}
-                        </text>
-                      </g>
-                    ))}
+                    <defs>
+                      {allPositions.map((p, i) => (
+                        <radialGradient key={`rg-${i}`} id={`fire-glow-${i}`} cx="50%" cy="50%" r="50%">
+                          <stop offset="0%" stopColor="#fff7ed" stopOpacity="0" />
+                          <stop offset="70%" stopColor="#f97316" stopOpacity="0.15" />
+                          <stop offset="100%" stopColor="#dc2626" stopOpacity="0.3" />
+                        </radialGradient>
+                      ))}
+                    </defs>
+                    {/* Animated fire rings + labels */}
+                    {allPositions.map((p, i) => {
+                      const cx = p.x * w;
+                      const cy = p.y * h;
+                      const r = p.r * w;
+                      const dur = `${2.8 + (i * 0.4)}s`;
+                      return (
+                        <g key={i}>
+                          {/* Glow fill */}
+                          <circle cx={cx} cy={cy} r={r} fill={`url(#fire-glow-${i})`} />
+                          {/* Base ring */}
+                          <circle cx={cx} cy={cy} r={r} fill="none"
+                            stroke="rgba(251,146,60,0.4)" strokeWidth="3" />
+                          {/* Rotating fire arc 1 — main flame */}
+                          <g style={{ transformOrigin: `${cx}px ${cy}px` }}>
+                            <animateTransform attributeName="transform" type="rotate"
+                              from={`0 ${cx} ${cy}`} to={`360 ${cx} ${cy}`}
+                              dur={dur} repeatCount="indefinite" />
+                            <circle cx={cx} cy={cy} r={r} fill="none"
+                              stroke="url(#fire1)" strokeWidth="3.5"
+                              strokeDasharray={`${r * 1.2} ${r * 4.6}`}
+                              strokeLinecap="round" />
+                          </g>
+                          {/* Rotating fire arc 2 — offset */}
+                          <g style={{ transformOrigin: `${cx}px ${cy}px` }}>
+                            <animateTransform attributeName="transform" type="rotate"
+                              from={`120 ${cx} ${cy}`} to={`480 ${cx} ${cy}`}
+                              dur={`${parseFloat(dur)*1.3}s`} repeatCount="indefinite" />
+                            <circle cx={cx} cy={cy} r={r} fill="none"
+                              stroke="url(#fire2)" strokeWidth="2.5"
+                              strokeDasharray={`${r * 0.8} ${r * 5}`}
+                              strokeLinecap="round" />
+                          </g>
+                          {/* Rotating fire arc 3 — flicker */}
+                          <g style={{ transformOrigin: `${cx}px ${cy}px` }}>
+                            <animateTransform attributeName="transform" type="rotate"
+                              from={`240 ${cx} ${cy}`} to={`600 ${cx} ${cy}`}
+                              dur={`${parseFloat(dur)*0.7}s`} repeatCount="indefinite" />
+                            <circle cx={cx} cy={cy} r={r} fill="none"
+                              stroke="url(#fire3)" strokeWidth="2"
+                              strokeDasharray={`${r * 0.5} ${r * 5.3}`}
+                              strokeLinecap="round" />
+                          </g>
+                          {/* Label */}
+                          <text x={cx} y={cy - r - 6}
+                            textAnchor="middle" fill="white" fontSize="12" fontWeight="bold"
+                            style={{ textShadow: '0 1px 6px rgba(0,0,0,0.9), 0 0 12px rgba(251,146,60,0.8)' }}>
+                            {p.name}
+                          </text>
+                        </g>
+                      );
+                    })}
                   </svg>
                 );
               })()}
