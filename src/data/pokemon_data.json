@@ -32264,10 +32264,10 @@
     "region": "Kalos",
     "cards": [
       {
-        "id": "696_por_116-088",
+        "id": "696_mep_070",
         "pokemonId": 696,
-        "setCode": "POR",
-        "number": "116/088",
+        "setCode": "MEP",
+        "number": "070",
         "jpSetCode": "M3",
         "jpNumber": null,
         "cnSetCode": null,
@@ -32276,7 +32276,7 @@
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "116/088",
+        "setNumber": "070",
         "artist": "Shimaris Yukichi",
         "cardName": null,
         "exclusive": null,
