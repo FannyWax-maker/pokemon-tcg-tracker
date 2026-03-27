@@ -98,9 +98,9 @@ export default function PokemonCard({ pokemon, onClick, coordAppearances = {} })
                 ></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <span className="text-white text-[10px] font-bold drop-shadow">
-                    {completionPercent === 100 ? `★ ${ownedPrimaryCards}/${totalPrimaryCards}` : `${ownedPrimaryCards}/${totalPrimaryCards}`}
+                    {!onlyFeatured && (completionPercent === 100 ? `★ ${ownedPrimaryCards}/${totalPrimaryCards}` : `${ownedPrimaryCards}/${totalPrimaryCards}`)}
                     {hasSecondaryCards && <span className="text-purple-200 ml-1">+{secondaryCards.length}r</span>}
-                    {coordData && <span className="text-yellow-200 ml-1">👁{coordData.appearances}</span>}
+                    {coordData && <span className="text-yellow-200 ml-1">· seen {coordData.appearances}x</span>}
                   </span>
                 </div>
               </div>
