@@ -12,17 +12,8 @@ import reviewDataImport from './data/review_data.json';
 import pokemonCoordsImport from './data/pokemon_coords.json';
 
 
-// JP sets that have never had a Simplified Chinese release
-const CN_NEVER_RELEASED = new Set([
-  // BW / XY era — CN never existed
-  'BW-P','BW2','CP1','CP3','EBB','LL','MBG','ME-P','UNP','WCS23',
-  'XY-P','XY10','XY11','XY2','XY3','XY4','XY5','XY6','XY7','XY8','XY9',
-  'sm9b',
-  // Mega era — CN not released
-  'm1L','m1S','m2','m2a','m3','m4',
-  // SV sets with no CN release (TC only or unreleased)
-  'sv7','sv7a','sv8','sv8a','sv9','sv9a','sv10','sv11B','sv11W',
-]);
+// Derived dynamically in filterCounts — placeholder kept for any residual references
+const CN_NEVER_RELEASED_STATIC = new Set([]);
 
 export default function App() {
   const [pokemonData, setPokemonData] = useState(() => {
@@ -347,8 +338,17 @@ export default function App() {
     return map;
   }, []);
 
+  // JP set codes where NO card in that set has a cnSetCode
+  const cnNeverReleased = useMemo(() => {
+    const allCards = pokemonData.flatMap(p => p.cards.filter(c => !c.isSecondary && c.isPrimary !== false));
+    const jpSetHasCN = new Set();
+    allCards.forEach(c => { if (c.jpSetCode && c.cnSetCode) jpSetHasCN.add(c.jpSetCode); });
+    return new Set([...new Set(allCards.map(c => c.jpSetCode).filter(Boolean))].filter(s => !jpSetHasCN.has(s)));
+  }, [pokemonData]);
+
   const filterCounts = useMemo(() => {
     const primary = pokemonData.flatMap(p => p.cards.filter(c => !c.isSecondary && c.isPrimary !== false && (c.setCode || c.jpSetCode || c.cnSetCode)));
+    const CN_NEVER_RELEASED = cnNeverReleased;
     const jpCount = primary.filter(c => c.exclusive === 'JP').length;
     const cnExclCount = primary.filter(c => c.exclusive === 'CN').length;
     const noneCount = primary.filter(c => c.exclusive).length;
@@ -448,7 +448,7 @@ export default function App() {
     if (cardFilterActive) {
       filtered = filtered.filter(pokemon => pokemon.cards.some(card => {
         if (card.isSecondary || card.isPrimary === false) return false;
-        if (filterChinese !== 'all') { const cnNever = CN_NEVER_RELEASED.has(card.jpSetCode); const hasCN = !cnNever && !!card.cnSetCode; if (filterChinese === 'has_cn' && !hasCN) return false; if (filterChinese === 'no_cn' && (hasCN || cnNever)) return false; }
+        if (filterChinese !== 'all') { const cnNever = cnNeverReleased.has(card.jpSetCode); const hasCN = !cnNever && !!card.cnSetCode; if (filterChinese === 'has_cn' && !hasCN) return false; if (filterChinese === 'no_cn' && (hasCN || cnNever)) return false; }
         if (filterSet !== 'all') { const matchesSet = card.setCode === filterSet || card.enSetCode === filterSet || card.jpSetCode === filterSet || card.cnSetCode === filterSet; if (!matchesSet) return false; }
         if (filterSetLang !== 'all' && filterSet === 'all') { const langs = card.availableLangs || []; if (filterSetLang === 'JP' && !card.jpSetCode) return false; if (filterSetLang === 'CN' && !card.cnSetCode) return false; if (filterSetLang === 'TC' && !card.tcSetCode) return false; if (filterSetLang === 'KR' && !card.krSetCode) return false; if (filterSetLang === 'EN' && !card.setCode) return false; }
         if (filterLang !== 'all') { const al = card.availableLangs || []; if (al.length !== 1 || al[0] !== filterLang) return false; }
@@ -479,7 +479,7 @@ export default function App() {
       return a.id - b.id;
     });
     return { type: 'pokemon', data: filtered };
-  }, [searchQuery, pokemonData, filterLang, filterSet, filterCardType, filterMissingImages, filterMissingCoords, filterSetLang, filterChinese, filterArtist, filterHideNoCards, filterHideNonConforming, filterGeneration, filterFavorites, filterUnobtainable, sortBy]);
+  }, [searchQuery, pokemonData, filterLang, filterSet, filterCardType, filterMissingImages, filterMissingCoords, filterSetLang, filterChinese, filterArtist, filterHideNoCards, filterHideNonConforming, filterGeneration, filterFavorites, filterUnobtainable, sortBy, cnNeverReleased]);
 
   const allCardsFlat = useMemo(() => {
     const cards = [];
@@ -489,7 +489,7 @@ export default function App() {
         if (searchQuery.trim() && c.isSecondary) { const q = searchQuery.trim().toLowerCase(); return pokemon.name.toLowerCase().includes(q); }
         return false;
       }).forEach(card => {
-        if (filterChinese !== 'all') { const cnNever = CN_NEVER_RELEASED.has(card.jpSetCode); const hasCN = !cnNever && !!card.cnSetCode; if (filterChinese === 'has_cn' && !hasCN) return; if (filterChinese === 'no_cn' && (hasCN || cnNever)) return; }
+        if (filterChinese !== 'all') { const cnNever = cnNeverReleased.has(card.jpSetCode); const hasCN = !cnNever && !!card.cnSetCode; if (filterChinese === 'has_cn' && !hasCN) return; if (filterChinese === 'no_cn' && (hasCN || cnNever)) return; }
         if (filterSet !== 'all') { const matchesSet2 = card.setCode === filterSet || card.enSetCode === filterSet || card.jpSetCode === filterSet || card.cnSetCode === filterSet; if (!matchesSet2) return; }
         if (filterSetLang !== 'all' && filterSet === 'all') { if (filterSetLang === 'JP' && !card.jpSetCode) return; if (filterSetLang === 'CN' && !card.cnSetCode) return; if (filterSetLang === 'TC' && !card.tcSetCode) return; if (filterSetLang === 'KR' && !card.krSetCode) return; if (filterSetLang === 'EN' && !card.setCode) return; }
         if (filterLang !== 'all') { const al = card.availableLangs || []; if (al.length !== 1 || al[0] !== filterLang) return; }
@@ -526,7 +526,7 @@ export default function App() {
     else if (sortBy === 'price_desc') { cards.sort((a, b) => { const pa = getPriceForCard(a)?.gbp ?? -1; const pb = getPriceForCard(b)?.gbp ?? -1; return pb - pa; }); }
     else if (sortBy === 'price_asc')  { cards.sort((a, b) => { const pa = getPriceForCard(a)?.gbp ?? Infinity; const pb = getPriceForCard(b)?.gbp ?? Infinity; return pa - pb; }); }
     return cards;
-  }, [filteredData, filterChinese, filterLang, filterSet, filterCardType, sortBy, filterOwned, filterArtist, filterUnobtainable, filterMissingImages, filterMissingPrice, filterMissingCoords, filterSetLang, getPriceForCard, conformanceMode]);
+  }, [filteredData, filterChinese, filterLang, filterSet, filterCardType, sortBy, filterOwned, filterArtist, filterUnobtainable, filterMissingImages, filterMissingPrice, filterMissingCoords, filterSetLang, getPriceForCard, conformanceMode, cnNeverReleased]);
 
   const handleInlineUpdateCard = requireUnlock((pokemonId, cardId, updates) => {
     setPokemonData(pokemonData.map(pokemon => {
