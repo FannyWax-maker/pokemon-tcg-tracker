@@ -14,9 +14,14 @@ import pokemonCoordsImport from './data/pokemon_coords.json';
 
 // JP sets that have never had a Simplified Chinese release
 const CN_NEVER_RELEASED = new Set([
+  // BW / XY / early SM era — CN never existed
   'BW-P','BW2','CP1','CP3','EBB','LL','MBG','ME-P','UNP','WCS23',
   'XY-P','XY10','XY11','XY2','XY3','XY4','XY5','XY6','XY7','XY8','XY9',
-  'm1L','m1S','m2a','m3','m4','sm9b',
+  'sm9b',
+  // Mega era — CN not released (TC only)
+  'm1L','m1S','m2a','m3','m4',
+  // SV sets released only in TC, not CN Simplified
+  'sv8a','sv9','sv9a','sv11B','sv11W',
 ]);
 
 export default function App() {
