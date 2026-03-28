@@ -5243,9 +5243,9 @@
         "setCode": "FST",
         "number": "271/264",
         "jpSetCode": "SGG",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "020/019",
+        "cnSetCode": "CP",
+        "cnNumber": "211",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -5257,7 +5257,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -6764,9 +6765,9 @@
         "setCode": "EVS",
         "number": "029/203",
         "jpSetCode": "S7R",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "021/067",
+        "cnSetCode": "CS4BC",
+        "cnNumber": "026/132",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -6778,7 +6779,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -6908,9 +6910,9 @@
         "setCode": "SSH",
         "number": "050/202",
         "jpSetCode": "S1W",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "015/060",
+        "cnSetCode": "CS1AC",
+        "cnNumber": "009/135",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -6922,7 +6924,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -11272,9 +11275,9 @@
         "setCode": "CRE",
         "number": "179/198",
         "jpSetCode": "S5A",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "080/070",
+        "cnSetCode": "CS3DC",
+        "cnNumber": "174/170",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -11286,7 +11289,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -11398,9 +11402,9 @@
         "setCode": "SSH",
         "number": "086/202",
         "jpSetCode": "S1W",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "026/060",
+        "cnSetCode": "CS1AC",
+        "cnNumber": "056/135",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -11412,7 +11416,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -12086,9 +12091,9 @@
         "setCode": "BRS",
         "number": "TG03/30",
         "jpSetCode": "S8B",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "191/184",
+        "cnSetCode": "CS3DC",
+        "cnNumber": "171/170",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -12100,7 +12105,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -12251,9 +12257,9 @@
         "setCode": "BRS",
         "number": "TG10/30",
         "jpSetCode": "S8B",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "206/184",
+        "cnSetCode": "CS3DC",
+        "cnNumber": "172/170",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -12265,7 +12271,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -13306,9 +13313,9 @@
         "setCode": "SSH",
         "number": "001/202",
         "jpSetCode": "SA",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "001/023",
+        "cnSetCode": "CS1DC",
+        "cnNumber": "008/207",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -13320,7 +13327,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -14942,9 +14950,9 @@
         "setCode": "SSH",
         "number": "120/202",
         "jpSetCode": "S1H",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "036/060",
+        "cnSetCode": "CS1BC",
+        "cnNumber": "062/136",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -14956,7 +14964,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -15353,9 +15362,9 @@
         "setCode": "PAR",
         "number": "193/182",
         "jpSetCode": "SV3A",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "065/062",
+        "cnSetCode": "CP",
+        "cnNumber": "092",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -15367,7 +15376,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -15386,9 +15396,9 @@
         "setCode": "PAR",
         "number": "194/182",
         "jpSetCode": "SV3A",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "066/062",
+        "cnSetCode": "CP",
+        "cnNumber": "093",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -15400,7 +15410,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -17409,9 +17420,9 @@
         "setCode": "SSH",
         "number": "104/202",
         "jpSetCode": "SA",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "005/024",
+        "cnSetCode": "CS1DC",
+        "cnNumber": "104/207",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -17423,7 +17434,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -18508,9 +18520,9 @@
         "setCode": "SHF",
         "number": "066/72",
         "jpSetCode": "S4A",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "193/190",
+        "cnSetCode": "CS2AC",
+        "cnNumber": "132/115",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -18522,7 +18534,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -18886,9 +18899,9 @@
         "setCode": "PAF",
         "number": "237/091",
         "jpSetCode": "SV4A",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "350/190",
+        "cnSetCode": "CP",
+        "cnNumber": "087",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -18906,7 +18919,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -22923,9 +22937,9 @@
         "setCode": "SSH",
         "number": "025/202",
         "jpSetCode": "SA",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "003/023",
+        "cnSetCode": "CS1DC",
+        "cnNumber": "027/207",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -22937,7 +22951,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -24315,9 +24330,9 @@
         "setCode": "PAR",
         "number": "195/182",
         "jpSetCode": "SV4M",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "072/066",
+        "cnSetCode": "CSVL2C",
+        "cnNumber": "102/052",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -24329,7 +24344,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -25447,9 +25463,9 @@
         "setCode": "ASR",
         "number": "018/189",
         "jpSetCode": "S10D",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "008/067",
+        "cnSetCode": "CS6AC",
+        "cnNumber": "020/131",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -25461,7 +25477,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -29989,9 +30006,9 @@
         "setCode": "CRE",
         "number": "185/198",
         "jpSetCode": "S6H",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "079/070",
+        "cnSetCode": "CS3DC",
+        "cnNumber": "177/170",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -30008,7 +30025,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -30742,9 +30760,9 @@
         "setCode": "SSH",
         "number": "053/202",
         "jpSetCode": "SA",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "006/023",
+        "cnSetCode": "CS1DC",
+        "cnNumber": "056/207",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -30756,7 +30774,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -34004,9 +34023,9 @@
         "setCode": "CPA",
         "number": "08/73",
         "jpSetCode": "SD",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "015/127",
+        "cnSetCode": "CS1DC",
+        "cnNumber": "033/207",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -34018,7 +34037,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -34563,10 +34583,10 @@
         "pokemonId": 746,
         "setCode": "CEC",
         "number": "63/236",
-        "jpSetCode": "SM12",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpSetCode": "SM12A",
+        "jpNumber": "039/173",
+        "cnSetCode": "CSM2AC",
+        "cnNumber": "047/150",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -34578,7 +34598,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -34920,9 +34941,9 @@
         "setCode": "PAR",
         "number": "220/182",
         "jpSetCode": "SV4M",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "080/066",
+        "cnSetCode": "CSV6C",
+        "cnNumber": "138/128",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -34934,7 +34955,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -35814,9 +35836,9 @@
         "setCode": "SSH",
         "number": "072/202",
         "jpSetCode": "SA",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "006/024",
+        "cnSetCode": "CS1DC",
+        "cnNumber": "075/207",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -35828,7 +35850,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -35839,9 +35862,9 @@
         "setCode": "PAR",
         "number": "247/182",
         "jpSetCode": "SV3A",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "086/062",
+        "cnSetCode": "CSV4C",
+        "cnNumber": "154/129",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -35853,7 +35876,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -36784,9 +36808,9 @@
         "setCode": "FST",
         "number": "023/264",
         "jpSetCode": "S-P",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "171",
+        "cnSetCode": "CS3DC",
+        "cnNumber": "014/170",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -36798,7 +36822,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -36909,9 +36934,9 @@
         "setCode": "FST",
         "number": "044/264",
         "jpSetCode": "S-P",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "168",
+        "cnSetCode": "CS3DC",
+        "cnNumber": "026/170",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -36923,7 +36948,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -36960,9 +36986,9 @@
         "setCode": "FST",
         "number": "045/264",
         "jpSetCode": "S-P",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "169",
+        "cnSetCode": "CS3DC",
+        "cnNumber": "027/170",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -36974,7 +37000,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -37330,9 +37357,9 @@
         "setCode": "FST",
         "number": "218/264",
         "jpSetCode": "S8",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "086/100",
+        "cnSetCode": "CS4BC",
+        "cnNumber": "113/132",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -37344,7 +37371,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -37861,9 +37889,9 @@
         "setCode": "DAA",
         "number": "188/189",
         "jpSetCode": "S2A",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "078/070",
+        "cnSetCode": "CS1.5C",
+        "cnNumber": "082/055",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -37877,7 +37905,8 @@
         ],
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -39043,9 +39072,9 @@
         "setCode": "CPA",
         "number": "71/73",
         "jpSetCode": "SD",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "103/100",
+        "cnSetCode": "CS2.5C",
+        "cnNumber": "063/059",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -39057,7 +39086,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -39296,9 +39326,9 @@
         "setCode": "RCL",
         "number": "110/192",
         "jpSetCode": "S2",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "061/096",
+        "cnSetCode": "CS1AC",
+        "cnNumber": "106/135",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -39310,7 +39340,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -39418,9 +39449,9 @@
         "setCode": "ASR",
         "number": "213/189",
         "jpSetCode": "S10D",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "088/067",
+        "cnSetCode": "CS3.5C",
+        "cnNumber": "090/066",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -39432,7 +39463,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -39638,9 +39670,9 @@
         "setCode": "SSH",
         "number": "079/202",
         "jpSetCode": "S1H",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "019/060",
+        "cnSetCode": "CS1AC",
+        "cnNumber": "047/135",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -39652,7 +39684,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -40216,9 +40249,9 @@
         "setCode": "ASR",
         "number": "TG21/30",
         "jpSetCode": "S8B",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "250/184",
+        "cnSetCode": "CP",
+        "cnNumber": "085",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -40230,7 +40263,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -40317,9 +40351,9 @@
         "setCode": "SSH",
         "number": "138/202",
         "jpSetCode": "S1W",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "046/060",
+        "cnSetCode": "CS1BC",
+        "cnNumber": "103/136",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -40331,7 +40365,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -40350,9 +40385,9 @@
         "setCode": "ASR",
         "number": "TG22/30",
         "jpSetCode": "S8B",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "251/184",
+        "cnSetCode": "CP",
+        "cnNumber": "086",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -40364,7 +40399,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -40401,9 +40437,9 @@
         "setCode": "SSH",
         "number": "139/202",
         "jpSetCode": "S1H",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "044/060",
+        "cnSetCode": "CS1BC",
+        "cnNumber": "105/136",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -40415,7 +40451,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -41376,9 +41413,9 @@
         "setCode": "ASR",
         "number": "134/189",
         "jpSetCode": "S10D",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "059/067",
+        "cnSetCode": "CS5DC",
+        "cnNumber": "111/153",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -41390,7 +41427,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -42270,9 +42308,9 @@
         "setCode": "PAF",
         "number": "226/091",
         "jpSetCode": "SV4A",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "340/190",
+        "cnSetCode": "CP",
+        "cnNumber": "096",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -42284,7 +42322,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
@@ -44235,9 +44274,9 @@
         "setCode": "PAR",
         "number": "263/182",
         "jpSetCode": "SV3A",
-        "jpNumber": null,
-        "cnSetCode": null,
-        "cnNumber": null,
+        "jpNumber": "091/062",
+        "cnSetCode": "CSV4C",
+        "cnNumber": "165/129",
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
@@ -44249,7 +44288,8 @@
         "otherPokemon": null,
         "availableLangs": [
           "EN",
-          "JP"
+          "JP",
+          "CN"
         ],
         "isPrimary": true,
         "isSecondary": false
