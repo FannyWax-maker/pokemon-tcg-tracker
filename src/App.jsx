@@ -352,7 +352,7 @@ export default function App() {
     const jpCount = primary.filter(c => c.exclusive === 'JP').length;
     const cnExclCount = primary.filter(c => c.exclusive === 'CN').length;
     const noneCount = primary.filter(c => c.exclusive).length;
-    const hasCN = primary.filter(c => (c.availableLangs || []).includes('CN')).length;
+    const hasCN = primary.filter(c => !!c.cnSetCode).length;
     const noCN = primary.filter(c => !CN_NEVER_RELEASED.has(c.jpSetCode) && !c.cnSetCode).length;
     const typeCount = (type) => primary.filter(c => {
       const n = (c.cardName || '').toUpperCase();
