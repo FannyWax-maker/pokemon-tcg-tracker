@@ -249,6 +249,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const availableLangs = card.availableLangs || [];
   const isJpExclusive = card.exclusive === 'JP';
   const isCnExclusive = card.exclusive === 'CN';
+  const isEnExclusive = !card.jpSetCode && !card.cnSetCode && !!card.setCode;
   const showKR = !isJpExclusive && !isCnExclusive;
 
   const handleLangClick = (lang) => {
@@ -558,6 +559,11 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 card.exclusive.includes('JP') ? 'bg-red-500' : 'bg-yellow-500'
               }`}>
                 {card.exclusive === 'JP' ? '🇯🇵 JP' : card.exclusive === 'CN' ? '🇨🇳 CN' : card.exclusive}
+              </div>
+            )}
+            {!card.exclusive && isEnExclusive && (
+              <div className="px-2 py-0.5 rounded text-xs font-bold shadow-lg text-white bg-blue-500">
+                🇬🇧 EN
               </div>
             )}
             {isNonConforming && (
