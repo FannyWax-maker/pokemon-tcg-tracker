@@ -744,17 +744,17 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
       {/* Zoom Modal with Loupe + Coord Picker */}
       {showZoom && (
         <div
-          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
+          className="fixed inset-0 bg-black/90 flex items-start sm:items-center justify-center z-50 overflow-y-auto py-4 sm:py-0"
           style={{ cursor: pickerMode ? 'crosshair' : overImage ? 'none' : 'default' }}
           onClick={() => { if (!pickerMode) { setShowZoom(false); setZoomScale(2.5); setPickerMode(false); setPickerCircles([]); setPickerSelected(null); setShowHighlight(false); }}}
           onMouseMove={handleZoomMouseMove}
           onWheel={handleZoomWheel}
         >
-          <div className="flex items-start gap-4" onClick={e => e.stopPropagation()}>
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 w-full sm:w-auto px-2 sm:px-0" onClick={e => e.stopPropagation()}>
 
             {/* Left checklist panel */}
             {card.otherPokemon && card.otherPokemon.length > 0 && (
-              <div style={{ width: '220px', flexShrink: 0, background: '#1f2937', borderRadius: '10px', padding: '10px', maxHeight: '90vh', overflowY: 'auto' }}>
+              <div className="hidden sm:block" style={{ width: '220px', flexShrink: 0, background: '#1f2937', borderRadius: '10px', padding: '10px', maxHeight: '90vh', overflowY: 'auto' }}>
                 <div style={{ color: '#9ca3af', fontSize: '11px', marginBottom: '8px', fontWeight: 'bold' }}>
                   Featured ({card.otherPokemon.length})
                 </div>
@@ -826,7 +826,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             )}
 
             {/* Card image column */}
-            <div className="relative" style={{ width: 'min(420px, 55vw)' }}>
+            <div className="relative" style={{ width: 'clamp(260px, 80vw, 420px)' }}>
               <img
                 ref={zoomImgRef}
                 src={imageSrc}
@@ -976,7 +976,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             </div>
 
             {/* Right panel */}
-            <div style={{ width: '230px', display: 'flex', flexDirection: 'column', gap: '10px', maxHeight: '90vh', overflowY: 'auto', paddingRight: '4px' }}>
+            <div style={{ width: '100%', maxWidth: '230px', display: 'flex', flexDirection: 'column', gap: '10px', maxHeight: '90vh', overflowY: 'auto', paddingRight: '4px' }}>
 
               {/* Highlight toggle — only show if coords exist for this card */}
               {pokemonCoordsImport[card.id] && (
