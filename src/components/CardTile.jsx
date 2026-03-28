@@ -63,6 +63,14 @@ const enqueueImageLoad = (fn) => {
   });
 };
 
+
+// JP sets that have never had a Simplified Chinese release
+const CN_NEVER_RELEASED = new Set([
+  'BW-P','BW2','CP1','CP3','EBB','LL','MBG','ME-P','UNP','WCS23',
+  'XY-P','XY10','XY11','XY2','XY3','XY4','XY5','XY6','XY7','XY8','XY9',
+  'm1L','m1S','m2a','m3','m4','sm9b',
+]);
+
 const LANG_CONFIG = {
   EN: { flag: '🇬🇧', color: 'bg-blue-500 hover:bg-blue-600', owned: 'bg-blue-500' },
   JP: { flag: '🇯🇵', color: 'bg-red-500 hover:bg-red-600', owned: 'bg-red-500' },
@@ -650,6 +658,8 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 <span className="text-yellow-500 font-bold shrink-0">CN</span>
                 <span className="truncate">{card.cnSetCode}{(() => { const _c = setNames[card.cnSetCode]; const n = typeof _c === 'object' ? _c?.name : _c; return n ? ` - ${n.replace(/ \d{4}.*/, '').trim()}` : ''; })()}</span>
               </>
+            ) : CN_NEVER_RELEASED.has(card.jpSetCode) ? (
+              <><span className="text-yellow-500 font-bold shrink-0 opacity-40">CN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>
             ) : <><span className="text-yellow-500 font-bold shrink-0 opacity-40">CN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
           </div>
 
@@ -713,7 +723,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             {ALL_LANGS.map(lang => {
               const hasLang = lang === 'EN' ? !!(card.enSetCode || card.setCode)
                 : lang === 'JP' ? !!card.jpSetCode
-                : lang === 'CN' ? !!card.cnSetCode
+                : lang === 'CN' ? (!CN_NEVER_RELEASED.has(card.jpSetCode) && !!card.cnSetCode)
                 : lang === 'TC' ? !!(card.tcSetCode || card.setCode || card.jpSetCode)
                 : showKR;
               const cfg = LANG_CONFIG[lang];

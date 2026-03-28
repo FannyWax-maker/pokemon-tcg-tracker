@@ -11,6 +11,14 @@ import setNamesImport from './data/set_names.json';
 import reviewDataImport from './data/review_data.json';
 import pokemonCoordsImport from './data/pokemon_coords.json';
 
+
+// JP sets that have never had a Simplified Chinese release
+const CN_NEVER_RELEASED = new Set([
+  'BW-P','BW2','CP1','CP3','EBB','LL','MBG','ME-P','UNP','WCS23',
+  'XY-P','XY10','XY11','XY2','XY3','XY4','XY5','XY6','XY7','XY8','XY9',
+  'm1L','m1S','m2a','m3','m4','sm9b',
+]);
+
 export default function App() {
   const [pokemonData, setPokemonData] = useState(() => {
     const nameMap = {};
@@ -340,7 +348,7 @@ export default function App() {
     const cnExclCount = primary.filter(c => c.exclusive === 'CN').length;
     const noneCount = primary.filter(c => c.exclusive).length;
     const hasCN = primary.filter(c => (c.availableLangs || []).includes('CN')).length;
-    const noCN = primary.length - hasCN;
+    const noCN = primary.filter(c => !CN_NEVER_RELEASED.has(c.jpSetCode) && !(c.availableLangs || []).includes('CN')).length;
     const typeCount = (type) => primary.filter(c => {
       const n = (c.cardName || '').toUpperCase();
       if (type === 'trainer') return n.includes('TRAINER');
@@ -435,7 +443,7 @@ export default function App() {
     if (cardFilterActive) {
       filtered = filtered.filter(pokemon => pokemon.cards.some(card => {
         if (card.isSecondary || card.isPrimary === false) return false;
-        if (filterChinese !== 'all') { const hasCN = (card.availableLangs || []).includes('CN'); if (filterChinese === 'has_cn' && !hasCN) return false; if (filterChinese === 'no_cn' && hasCN) return false; }
+        if (filterChinese !== 'all') { const hasCN = (card.availableLangs || []).includes('CN'); if (filterChinese === 'has_cn' && !hasCN) return false; if (filterChinese === 'no_cn' && (hasCN || CN_NEVER_RELEASED.has(card.jpSetCode))) return false; }
         if (filterSet !== 'all') { const matchesSet = card.setCode === filterSet || card.enSetCode === filterSet || card.jpSetCode === filterSet || card.cnSetCode === filterSet; if (!matchesSet) return false; }
         if (filterSetLang !== 'all' && filterSet === 'all') { const langs = card.availableLangs || []; if (filterSetLang === 'JP' && !card.jpSetCode) return false; if (filterSetLang === 'CN' && !card.cnSetCode) return false; if (filterSetLang === 'TC' && !card.tcSetCode) return false; if (filterSetLang === 'KR' && !card.krSetCode) return false; if (filterSetLang === 'EN' && !card.setCode) return false; }
         if (filterLang !== 'all') { const al = card.availableLangs || []; if (al.length !== 1 || al[0] !== filterLang) return false; }
@@ -476,7 +484,7 @@ export default function App() {
         if (searchQuery.trim() && c.isSecondary) { const q = searchQuery.trim().toLowerCase(); return pokemon.name.toLowerCase().includes(q); }
         return false;
       }).forEach(card => {
-        if (filterChinese !== 'all') { const hasCN = (card.availableLangs || []).includes('CN'); if (filterChinese === 'has_cn' && !hasCN) return; if (filterChinese === 'no_cn' && hasCN) return; }
+        if (filterChinese !== 'all') { const hasCN = (card.availableLangs || []).includes('CN'); if (filterChinese === 'has_cn' && !hasCN) return; if (filterChinese === 'no_cn' && (hasCN || CN_NEVER_RELEASED.has(card.jpSetCode))) return; }
         if (filterSet !== 'all') { const matchesSet2 = card.setCode === filterSet || card.enSetCode === filterSet || card.jpSetCode === filterSet || card.cnSetCode === filterSet; if (!matchesSet2) return; }
         if (filterSetLang !== 'all' && filterSet === 'all') { if (filterSetLang === 'JP' && !card.jpSetCode) return; if (filterSetLang === 'CN' && !card.cnSetCode) return; if (filterSetLang === 'TC' && !card.tcSetCode) return; if (filterSetLang === 'KR' && !card.krSetCode) return; if (filterSetLang === 'EN' && !card.setCode) return; }
         if (filterLang !== 'all') { const al = card.availableLangs || []; if (al.length !== 1 || al[0] !== filterLang) return; }
