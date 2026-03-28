@@ -65,17 +65,6 @@ const enqueueImageLoad = (fn) => {
 
 
 // JP sets that have never had a Simplified Chinese release
-const CN_NEVER_RELEASED = new Set([
-  // BW / XY / early SM era — CN never existed
-  'BW-P','BW2','CP1','CP3','EBB','LL','MBG','ME-P','UNP','WCS23',
-  'XY-P','XY10','XY11','XY2','XY3','XY4','XY5','XY6','XY7','XY8','XY9',
-  'sm9b',
-  // Mega era — CN not released (TC only)
-  'm1L','m1S','m2a','m3','m4',
-  // SV sets released only in TC, not CN Simplified
-  'sv8a','sv9','sv9a','sv11B','sv11W',
-]);
-
 const LANG_CONFIG = {
   EN: { flag: '🇬🇧', color: 'bg-blue-500 hover:bg-blue-600', owned: 'bg-blue-500' },
   JP: { flag: '🇯🇵', color: 'bg-red-500 hover:bg-red-600', owned: 'bg-red-500' },
@@ -663,8 +652,6 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 <span className="text-yellow-500 font-bold shrink-0">CN</span>
                 <span className="truncate">{card.cnSetCode}{(() => { const _c = setNames[card.cnSetCode]; const n = typeof _c === 'object' ? _c?.name : _c; return n ? ` - ${n.replace(/ \d{4}.*/, '').trim()}` : ''; })()}</span>
               </>
-            ) : CN_NEVER_RELEASED.has(card.jpSetCode) ? (
-              <><span className="text-yellow-500 font-bold shrink-0 opacity-40">CN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>
             ) : <><span className="text-yellow-500 font-bold shrink-0 opacity-40">CN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
           </div>
 
@@ -728,7 +715,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             {ALL_LANGS.map(lang => {
               const hasLang = lang === 'EN' ? !!(card.enSetCode || card.setCode)
                 : lang === 'JP' ? !!card.jpSetCode
-                : lang === 'CN' ? (!CN_NEVER_RELEASED.has(card.jpSetCode) && !!card.cnSetCode)
+                : lang === 'CN' ? !!card.cnSetCode
                 : lang === 'TC' ? !!(card.tcSetCode || card.setCode || card.jpSetCode)
                 : showKR;
               const cfg = LANG_CONFIG[lang];
