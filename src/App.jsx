@@ -13,6 +13,17 @@ import pokemonCoordsImport from './data/pokemon_coords.json';
 
 
 // JP sets that have never had a Simplified Chinese release
+const CN_NEVER_RELEASED = new Set([
+  // BW / XY era — CN never existed
+  'BW-P','BW2','CP1','CP3','EBB','LL','MBG','ME-P','UNP','WCS23',
+  'XY-P','XY10','XY11','XY2','XY3','XY4','XY5','XY6','XY7','XY8','XY9',
+  'sm9b',
+  // Mega era — CN not released
+  'm1L','m1S','m2','m2a','m3','m4',
+  // SV sets with no CN release (TC only or unreleased)
+  'sv7','sv7a','sv8','sv8a','sv9','sv9a','sv10','sv11B','sv11W',
+]);
+
 export default function App() {
   const [pokemonData, setPokemonData] = useState(() => {
     const nameMap = {};
@@ -338,15 +349,6 @@ export default function App() {
 
   const filterCounts = useMemo(() => {
     const primary = pokemonData.flatMap(p => p.cards.filter(c => !c.isSecondary && c.isPrimary !== false && (c.setCode || c.jpSetCode || c.cnSetCode)));
-    // JP sets where 0 cards have a CN set code = never released in CN
-    const jpSetCnCounts = {};
-    const jpSetTotals = {};
-    primary.forEach(c => {
-      const jp = c.jpSetCode; if (!jp) return;
-      jpSetTotals[jp] = (jpSetTotals[jp] || 0) + 1;
-      if (c.cnSetCode) jpSetCnCounts[jp] = (jpSetCnCounts[jp] || 0) + 1;
-    });
-    const CN_NEVER_RELEASED = new Set(Object.keys(jpSetTotals).filter(jp => !jpSetCnCounts[jp]));
     const jpCount = primary.filter(c => c.exclusive === 'JP').length;
     const cnExclCount = primary.filter(c => c.exclusive === 'CN').length;
     const noneCount = primary.filter(c => c.exclusive).length;
