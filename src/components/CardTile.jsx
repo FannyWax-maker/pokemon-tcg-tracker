@@ -90,7 +90,7 @@ const buildEbayUrl = (card, pokemonName, lang) => {
 };
 
 
-export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onNavigateToPokemon, showOwnershipButtons = false , scrollRoot, getPriceForCard }) {
+export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onNavigateToPokemon, showOwnershipButtons = false , scrollRoot, getPriceForCard, showSetNames = false }) {
   const isOwned = !!card.ownedLang;
   const hasOtherPokemon = card.otherPokemon && card.otherPokemon.length > 0;
   const isSecondary = card.isSecondary || !card.isPrimary;
@@ -636,7 +636,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             {(card.enSetCode || card.setCode) ? (
               <>
                 <span className="text-blue-500 font-bold shrink-0">EN</span>
-                <span className="truncate">{card.enSetCode || card.setCode}{card.number ? ` ${card.number}` : ''}</span>
+                <span className="truncate" title={(() => { const sc = card.enSetCode || card.setCode; const s = setNames[sc]; return (typeof s === 'object' ? s?.name : s) || sc; })()}>{card.enSetCode || card.setCode}{card.number ? ` ${card.number}` : ''}</span>
               </>
             ) : <><span className="text-blue-500 font-bold shrink-0 opacity-40">EN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
           </div>
@@ -646,7 +646,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             {card.jpSetCode ? (
               <>
                 <span className="text-red-400 font-bold shrink-0">JP</span>
-                <span className="truncate">{card.jpSetCode}{card.jpNumber ? ` ${card.jpNumber}` : ''}</span>
+                <span className="truncate" title={(() => { const s = setNames[card.jpSetCode]; return (typeof s === 'object' ? s?.name : s) || card.jpSetCode; })()}>{card.jpSetCode}{card.jpNumber ? ` ${card.jpNumber}` : ''}</span>
               </>
             ) : <><span className="text-red-400 font-bold shrink-0 opacity-40">JP</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
           </div>
@@ -656,7 +656,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             {card.cnSetCode ? (
               <>
                 <span className="text-yellow-500 font-bold shrink-0">CN</span>
-                <span className="truncate">{card.cnSetCode}{card.cnNumber ? ` ${card.cnNumber}` : ''}</span>
+                <span className="truncate" title={(() => { const s = setNames[card.cnSetCode]; return (typeof s === 'object' ? s?.name : s) || card.cnSetCode; })()}>{card.cnSetCode}{card.cnNumber ? ` ${card.cnNumber}` : ''}</span>
               </>
             ) : <><span className="text-yellow-500 font-bold shrink-0 opacity-40">CN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
           </div>
@@ -665,7 +665,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           {card.tcSetCode && (
             <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-start gap-1 ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
               <span className="text-green-500 font-bold shrink-0">TC</span>
-              <span className="truncate">{card.tcSetCode}{card.tcNumber ? ` ${card.tcNumber}` : ''}</span>
+              <span className="truncate" title={(() => { const s = setNames[card.tcSetCode]; return (typeof s === 'object' ? s?.name : s) || card.tcSetCode; })()}>{card.tcSetCode}{card.tcNumber ? ` ${card.tcNumber}` : ''}</span>
             </div>
           )}
 
@@ -674,10 +674,21 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             {card.krSetCode ? (
               <>
                 <span className="text-indigo-400 font-bold shrink-0">KR</span>
-                <span className="truncate">{card.krSetCode}{card.krNumber ? ` ${card.krNumber}` : ''}</span>
+                <span className="truncate" title={(() => { const s = setNames[card.krSetCode]; return (typeof s === 'object' ? s?.name : s) || card.krSetCode; })()}>{card.krSetCode}{card.krNumber ? ` ${card.krNumber}` : ''}</span>
               </>
             ) : <><span className="text-indigo-400 font-bold shrink-0 opacity-40">KR</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
           </div>
+
+          {/* Set names — shown in modal (mobile) */}
+          {showSetNames && (
+            <div className="mt-1 mb-0.5 text-[9px] leading-snug space-y-0.5 text-gray-400">
+              {(card.enSetCode || card.setCode) && (() => { const s = setNames[card.enSetCode || card.setCode]; const n = typeof s === 'object' ? s?.name : s; return n ? <div><span className="text-blue-400 font-bold">EN</span> {n}</div> : null; })()}
+              {card.jpSetCode && (() => { const s = setNames[card.jpSetCode]; const n = typeof s === 'object' ? s?.name : s; return n ? <div><span className="text-red-400 font-bold">JP</span> {n}</div> : null; })()}
+              {card.cnSetCode && (() => { const s = setNames[card.cnSetCode]; const n = typeof s === 'object' ? s?.name : s; return n ? <div><span className="text-yellow-500 font-bold">CN</span> {n}</div> : null; })()}
+              {card.tcSetCode && (() => { const s = setNames[card.tcSetCode]; const n = typeof s === 'object' ? s?.name : s; return n ? <div><span className="text-green-500 font-bold">TC</span> {n}</div> : null; })()}
+              {card.krSetCode && (() => { const s = setNames[card.krSetCode]; const n = typeof s === 'object' ? s?.name : s; return n ? <div><span className="text-indigo-400 font-bold">KR</span> {n}</div> : null; })()}
+            </div>
+          )}
 
           {/* Row 7: other pokemon — always reserve space */}
           <div className={`text-xs min-h-[0.9rem] leading-tight ${isOwned ? 'text-red-100' : 'text-blue-500'}`}>

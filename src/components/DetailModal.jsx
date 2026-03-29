@@ -202,6 +202,7 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
                           showOwnershipButtons={true}
                           scrollRoot={scrollRef.current}
                           getPriceForCard={getPriceForCard}
+                          showSetNames={true}
                         />
                       ))}
                     </div>
@@ -225,6 +226,7 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
                     showOwnershipButtons={true}
                     scrollRoot={scrollRef.current}
                     getPriceForCard={getPriceForCard}
+                    showSetNames={true}
                   />
                 ))}
               </div>
