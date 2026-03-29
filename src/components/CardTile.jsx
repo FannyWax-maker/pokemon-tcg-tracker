@@ -4,7 +4,6 @@ import pokemonDataImport from '../data/pokemon_data.json';
 import pokemonCoordsImport from '../data/pokemon_coords.json';
 const setNames = setNamesImport;
 const SET_NAME_OVERRIDES = {
-  'MEW': 'Pokémon Card 151',
   '151C': 'Pokémon Card 151',
 };
 const getSetName = (code) => {
