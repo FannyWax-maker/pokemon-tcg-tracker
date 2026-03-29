@@ -642,16 +642,14 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
 
           {/* Row 1: dex # + price + year — compact metadata line */}
-          <div className={`flex items-center justify-between text-[10px] font-mono ${isOwned ? 'text-red-200' : 'text-gray-400'}`}>
+          <div className={`flex items-center gap-1 text-[10px] font-mono ${isOwned ? 'text-red-200' : 'text-gray-400'}`}>
             <span className="shrink-0">#{String(card.pokemonId || '').padStart(4, '0')}</span>
-            <div className="flex items-center gap-1 min-w-0 justify-end">
-              {priceValue !== null && (
-                <span className={`text-[9px] font-bold px-1 py-0.5 rounded shrink-0 ${isOwned ? 'bg-red-700 text-red-100' : 'bg-emerald-100 text-emerald-700'}`}>
-                  £{priceValue.toFixed(2)}
-                </span>
-              )}
-              <span className="shrink-0">{(() => { try { const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const sd = setNames[card.enSetCode || card.setCode] || setNames[card.jpSetCode] || setNames[card.cnSetCode] || {}; if (!sd.year) return ''; return sd.month ? `${MONTHS[sd.month - 1]} ${sd.year}` : String(sd.year); } catch(e) { return ''; } })()}</span>
-            </div>
+            {priceValue !== null && (
+              <span className={`text-[9px] font-bold px-1 py-0.5 rounded shrink-0 ${isOwned ? 'bg-red-700 text-red-100' : 'bg-emerald-100 text-emerald-700'}`}>
+                £{priceValue.toFixed(2)}
+              </span>
+            )}
+            <span className="shrink-0 ml-auto">{(() => { try { const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const sd = setNames[card.enSetCode || card.setCode] || setNames[card.jpSetCode] || setNames[card.cnSetCode] || {}; if (!sd.year) return ''; return sd.month ? `${MONTHS[sd.month - 1]} ${sd.year}` : String(sd.year); } catch(e) { return ''; } })()}</span>
           </div>
 
           {/* Row 2: Pokemon name — full width, wraps if needed */}
@@ -669,7 +667,6 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 <>
                   <span className="text-blue-500 font-bold shrink-0">EN</span>
                   <span className="truncate flex-1">{card.enSetCode || card.setCode}{card.number ? ` ${card.number}` : ''}</span>
-                  <span className="truncate text-[9px] opacity-60 max-w-[60px]">{getSetName(card.enSetCode || card.setCode).slice(0,12)}</span>
                   <button
                     onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'en' ? null : 'en'); }}
                     className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}
@@ -689,7 +686,6 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 <>
                   <span className="text-red-400 font-bold shrink-0">JP</span>
                   <span className="truncate flex-1">{card.jpSetCode}{card.jpNumber ? ` ${card.jpNumber}` : ''}</span>
-                  <span className="truncate text-[9px] opacity-60 max-w-[60px]">{getSetName(card.jpSetCode).slice(0,12)}</span>
                   <button
                     onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'jp' ? null : 'jp'); }}
                     className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}
@@ -709,7 +705,6 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 <>
                   <span className="text-yellow-500 font-bold shrink-0">CN</span>
                   <span className="truncate flex-1">{card.cnSetCode}{card.cnNumber ? ` ${card.cnNumber}` : ''}</span>
-                  <span className="truncate text-[9px] opacity-60 max-w-[60px]">{getSetName(card.cnSetCode).slice(0,12)}</span>
                   <button
                     onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'cn' ? null : 'cn'); }}
                     className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}
@@ -729,7 +724,6 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 <>
                   <span className="text-green-500 font-bold shrink-0">TC</span>
                   <span className="truncate flex-1">{card.tcSetCode}{card.tcNumber ? ` ${card.tcNumber}` : ''}</span>
-                  <span className="truncate text-[9px] opacity-60 max-w-[60px]">{getSetName(card.tcSetCode).slice(0,12)}</span>
                   <button
                     onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'tc' ? null : 'tc'); }}
                     className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}
@@ -749,7 +743,6 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 <>
                   <span className="text-indigo-400 font-bold shrink-0">KR</span>
                   <span className="truncate flex-1">{card.krSetCode}{card.krNumber ? ` ${card.krNumber}` : ''}</span>
-                  <span className="truncate text-[9px] opacity-60 max-w-[60px]">{getSetName(card.krSetCode).slice(0,12)}</span>
                   <button
                     onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'kr' ? null : 'kr'); }}
                     className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}
