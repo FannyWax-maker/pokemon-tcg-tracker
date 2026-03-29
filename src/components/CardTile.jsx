@@ -662,12 +662,14 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           </div>
 
           {/* Row 6b: TC */}
-          {card.tcSetCode && (
-            <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-start gap-1 ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
-              <span className="text-green-500 font-bold shrink-0">TC</span>
-              <span className="truncate" title={(() => { const s = setNames[card.tcSetCode]; return (typeof s === 'object' ? s?.name : s) || card.tcSetCode; })()}>{card.tcSetCode}{card.tcNumber ? ` ${card.tcNumber}` : ''}</span>
-            </div>
-          )}
+          <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-start gap-1 ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
+            {card.tcSetCode ? (
+              <>
+                <span className="text-green-500 font-bold shrink-0">TC</span>
+                <span className="truncate" title={(() => { const s = setNames[card.tcSetCode]; return (typeof s === 'object' ? s?.name : s) || card.tcSetCode; })()}>{card.tcSetCode}{card.tcNumber ? ` ${card.tcNumber}` : ''}</span>
+              </>
+            ) : <><span className="text-green-500 font-bold shrink-0 opacity-40">TC</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
+          </div>
 
           {/* Row KR */}
           <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-start gap-1 ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
