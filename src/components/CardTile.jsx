@@ -658,7 +658,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 <>
                   <span className="text-blue-500 font-bold shrink-0">EN</span>
                   <span className="truncate flex-1">{card.enSetCode || card.setCode}{card.number ? ` ${card.number}` : ''}</span>
-                  <span className="truncate text-[9px] opacity-60 max-w-[60px]">{(() => { const sc = card.enSetCode || card.setCode; const s = setNames[sc]; return (typeof s === 'object' ? s?.name : s) || ''; })()?.slice(0,12)}</span>
+                  <span className="truncate text-[9px] opacity-60 max-w-[60px]">{(() => { const sc = card.enSetCode || card.setCode; const s = setNames[sc]; const n = (typeof s === 'object' ? s?.name : s) || ''; return n.slice(0,12); })()}</span>
                   <button
                     onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'en' ? null : 'en'); }}
                     className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}
@@ -678,7 +678,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 <>
                   <span className="text-red-400 font-bold shrink-0">JP</span>
                   <span className="truncate flex-1">{card.jpSetCode}{card.jpNumber ? ` ${card.jpNumber}` : ''}</span>
-                  <span className="truncate text-[9px] opacity-60 max-w-[60px]">{(() => { const s = setNames[card.jpSetCode]; return (typeof s === 'object' ? s?.name : s) || ''; })()?.slice(0,12)}</span>
+                  <span className="truncate text-[9px] opacity-60 max-w-[60px]">{(() => { const s = setNames[card.jpSetCode]; const n = (typeof s === 'object' ? s?.name : s) || ''; return n.slice(0,12); })()}</span>
                   <button
                     onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'jp' ? null : 'jp'); }}
                     className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}
@@ -698,7 +698,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 <>
                   <span className="text-yellow-500 font-bold shrink-0">CN</span>
                   <span className="truncate flex-1">{card.cnSetCode}{card.cnNumber ? ` ${card.cnNumber}` : ''}</span>
-                  <span className="truncate text-[9px] opacity-60 max-w-[60px]">{(() => { const s = setNames[card.cnSetCode]; return (typeof s === 'object' ? s?.name : s) || ''; })()?.slice(0,12)}</span>
+                  <span className="truncate text-[9px] opacity-60 max-w-[60px]">{(() => { const s = setNames[card.cnSetCode]; const n = (typeof s === 'object' ? s?.name : s) || ''; return n.slice(0,12); })()}</span>
                   <button
                     onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'cn' ? null : 'cn'); }}
                     className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}
@@ -718,7 +718,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 <>
                   <span className="text-green-500 font-bold shrink-0">TC</span>
                   <span className="truncate flex-1">{card.tcSetCode}{card.tcNumber ? ` ${card.tcNumber}` : ''}</span>
-                  <span className="truncate text-[9px] opacity-60 max-w-[60px]">{(() => { const s = setNames[card.tcSetCode]; return (typeof s === 'object' ? s?.name : s) || ''; })()?.slice(0,12)}</span>
+                  <span className="truncate text-[9px] opacity-60 max-w-[60px]">{(() => { const s = setNames[card.tcSetCode]; const n = (typeof s === 'object' ? s?.name : s) || ''; return n.slice(0,12); })()}</span>
                   <button
                     onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'tc' ? null : 'tc'); }}
                     className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}
@@ -738,7 +738,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 <>
                   <span className="text-indigo-400 font-bold shrink-0">KR</span>
                   <span className="truncate flex-1">{card.krSetCode}{card.krNumber ? ` ${card.krNumber}` : ''}</span>
-                  <span className="truncate text-[9px] opacity-60 max-w-[60px]">{(() => { const s = setNames[card.krSetCode]; return (typeof s === 'object' ? s?.name : s) || ''; })()?.slice(0,12)}</span>
+                  <span className="truncate text-[9px] opacity-60 max-w-[60px]">{(() => { const s = setNames[card.krSetCode]; const n = (typeof s === 'object' ? s?.name : s) || ''; return n.slice(0,12); })()}</span>
                   <button
                     onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'kr' ? null : 'kr'); }}
                     className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}
