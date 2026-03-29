@@ -82,9 +82,28 @@ const buildEbayUrl = (card, pokemonName, lang) => {
   const skipNames = ['Full Art', 'Trainer', 'Item', 'Stadium', 'Supporter', 'Tool', 'Energy'];
   const cardName = cleanedName && !skipNames.includes(cleanedName) ? cleanedName : null;
   const searchName = cardName || pokemonName;
-  const setCode = lang === 'EN' ? card.setCode : (card.jpSetCode || card.setCode);
-  const setNumber = lang === 'EN' ? (card.setNumber || card.number || null) : null;
-  const langKeyword = lang === 'JP' ? 'japanese' : lang === 'CN' ? 'chinese simplified' : lang === 'TC' ? 'chinese traditional taiwan' : lang === 'KR' ? 'korean' : '';
+  let setCode, setNumber, langKeyword;
+  if (lang === 'EN') {
+    setCode = card.enSetCode || card.setCode;
+    setNumber = card.number || null;
+    langKeyword = '';
+  } else if (lang === 'JP') {
+    setCode = card.jpSetCode;
+    setNumber = card.jpNumber || null;
+    langKeyword = 'japanese';
+  } else if (lang === 'CN') {
+    setCode = card.cnSetCode || card.jpSetCode;
+    setNumber = card.cnNumber || null;
+    langKeyword = 'chinese simplified';
+  } else if (lang === 'TC') {
+    setCode = card.tcSetCode || card.jpSetCode;
+    setNumber = card.tcNumber || null;
+    langKeyword = 'chinese traditional taiwan';
+  } else if (lang === 'KR') {
+    setCode = card.krSetCode || card.jpSetCode;
+    setNumber = card.krNumber || null;
+    langKeyword = 'korean';
+  }
   const query = [searchName, setCode, setNumber, langKeyword].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim();
   return `https://www.ebay.co.uk/sch/i.html?_nkw=${encodeURIComponent(query)}&LH_ItemLocation=3&_sop=12`;
 };
@@ -147,6 +166,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const [copied, setCopied] = React.useState(false);
   const [autocompleteFor, setAutocompleteFor] = React.useState(null);
   const [autocompleteQuery, setAutocompleteQuery] = React.useState('');
+  const [expandedLang, setExpandedLang] = React.useState(null); // which lang row is expanded to show set name
   const dragState = React.useRef(null);
   const pickerCirclesRef = React.useRef([]);
   React.useEffect(() => { pickerCirclesRef.current = pickerCircles; }, [pickerCircles]);
@@ -610,16 +630,16 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
         <div className={`p-2 space-y-0.5`} style={isOwned ? {background: 'linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)'} : {background: 'white'}}>
 
 
-          {/* Row 1: dex # + year + price — compact metadata line */}
+          {/* Row 1: dex # + price + year — compact metadata line */}
           <div className={`flex items-center justify-between text-[10px] font-mono ${isOwned ? 'text-red-200' : 'text-gray-400'}`}>
-            <span>#{String(card.pokemonId || '').padStart(4, '0')}</span>
-            <div className="flex items-center gap-1">
+            <span className="shrink-0">#{String(card.pokemonId || '').padStart(4, '0')}</span>
+            <div className="flex items-center gap-1 min-w-0 justify-end">
               {priceValue !== null && (
-                <span className={`text-[9px] font-bold px-1 py-0.5 rounded ${isOwned ? 'bg-red-700 text-red-100' : 'bg-emerald-100 text-emerald-700'}`}>
+                <span className={`text-[9px] font-bold px-1 py-0.5 rounded shrink-0 ${isOwned ? 'bg-red-700 text-red-100' : 'bg-emerald-100 text-emerald-700'}`}>
                   £{priceValue.toFixed(2)}
                 </span>
               )}
-              <span>{(() => { try { const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const sd = setNames[card.enSetCode || card.setCode] || setNames[card.jpSetCode] || setNames[card.cnSetCode] || {}; if (!sd.year) return ''; return sd.month ? `${MONTHS[sd.month - 1]} ${sd.year}` : String(sd.year); } catch(e) { return ''; } })()}</span>
+              <span className="shrink-0">{(() => { try { const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const sd = setNames[card.enSetCode || card.setCode] || setNames[card.jpSetCode] || setNames[card.cnSetCode] || {}; if (!sd.year) return ''; return sd.month ? `${MONTHS[sd.month - 1]} ${sd.year}` : String(sd.year); } catch(e) { return ''; } })()}</span>
             </div>
           </div>
 
@@ -632,65 +652,80 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           </div>
 
           {/* Row 4: EN */}
-          <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-start gap-1 ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
-            {(card.enSetCode || card.setCode) ? (
-              <>
-                <span className="text-blue-500 font-bold shrink-0">EN</span>
-                <span className="truncate" title={(() => { const sc = card.enSetCode || card.setCode; const s = setNames[sc]; return (typeof s === 'object' ? s?.name : s) || sc; })()}>{card.enSetCode || card.setCode}{card.number ? ` ${card.number}` : ''}</span>
-              </>
-            ) : <><span className="text-blue-500 font-bold shrink-0 opacity-40">EN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
+          <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
+            <div className="flex items-start gap-1 cursor-pointer sm:cursor-default" onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'en' ? null : 'en'); }}>
+              {(card.enSetCode || card.setCode) ? (
+                <>
+                  <span className="text-blue-500 font-bold shrink-0">EN</span>
+                  <span className="truncate" title={(() => { const sc = card.enSetCode || card.setCode; const s = setNames[sc]; return (typeof s === 'object' ? s?.name : s) || sc; })()}>{card.enSetCode || card.setCode}{card.number ? ` ${card.number}` : ''}</span>
+                </>
+              ) : <><span className="text-blue-500 font-bold shrink-0 opacity-40">EN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
+            </div>
+            {expandedLang === 'en' && !!(card.enSetCode || card.setCode) && (
+              <div className="sm:hidden text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{(() => { const sc = card.enSetCode || card.setCode; const s = setNames[sc]; return (typeof s === 'object' ? s?.name : s) || sc; })()}</div>
+            )}
           </div>
 
           {/* Row 5: JP */}
-          <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-start gap-1 ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
-            {card.jpSetCode ? (
-              <>
-                <span className="text-red-400 font-bold shrink-0">JP</span>
-                <span className="truncate" title={(() => { const s = setNames[card.jpSetCode]; return (typeof s === 'object' ? s?.name : s) || card.jpSetCode; })()}>{card.jpSetCode}{card.jpNumber ? ` ${card.jpNumber}` : ''}</span>
-              </>
-            ) : <><span className="text-red-400 font-bold shrink-0 opacity-40">JP</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
+          <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
+            <div className="flex items-start gap-1 cursor-pointer sm:cursor-default" onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'jp' ? null : 'jp'); }}>
+              {card.jpSetCode ? (
+                <>
+                  <span className="text-red-400 font-bold shrink-0">JP</span>
+                  <span className="truncate" title={(() => { const s = setNames[card.jpSetCode]; return (typeof s === 'object' ? s?.name : s) || card.jpSetCode; })()}>{card.jpSetCode}{card.jpNumber ? ` ${card.jpNumber}` : ''}</span>
+                </>
+              ) : <><span className="text-red-400 font-bold shrink-0 opacity-40">JP</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
+            </div>
+            {expandedLang === 'jp' && !!card.jpSetCode && (
+              <div className="sm:hidden text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{(() => { const s = setNames[card.jpSetCode]; return (typeof s === 'object' ? s?.name : s) || card.jpSetCode; })()}</div>
+            )}
           </div>
 
           {/* Row 6: CN */}
-          <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-start gap-1 ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
-            {card.cnSetCode ? (
-              <>
-                <span className="text-yellow-500 font-bold shrink-0">CN</span>
-                <span className="truncate" title={(() => { const s = setNames[card.cnSetCode]; return (typeof s === 'object' ? s?.name : s) || card.cnSetCode; })()}>{card.cnSetCode}{card.cnNumber ? ` ${card.cnNumber}` : ''}</span>
-              </>
-            ) : <><span className="text-yellow-500 font-bold shrink-0 opacity-40">CN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
+          <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
+            <div className="flex items-start gap-1 cursor-pointer sm:cursor-default" onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'cn' ? null : 'cn'); }}>
+              {card.cnSetCode ? (
+                <>
+                  <span className="text-yellow-500 font-bold shrink-0">CN</span>
+                  <span className="truncate" title={(() => { const s = setNames[card.cnSetCode]; return (typeof s === 'object' ? s?.name : s) || card.cnSetCode; })()}>{card.cnSetCode}{card.cnNumber ? ` ${card.cnNumber}` : ''}</span>
+                </>
+              ) : <><span className="text-yellow-500 font-bold shrink-0 opacity-40">CN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
+            </div>
+            {expandedLang === 'cn' && !!card.cnSetCode && (
+              <div className="sm:hidden text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{(() => { const s = setNames[card.cnSetCode]; return (typeof s === 'object' ? s?.name : s) || card.cnSetCode; })()}</div>
+            )}
           </div>
 
           {/* Row 6b: TC */}
-          <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-start gap-1 ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
-            {card.tcSetCode ? (
-              <>
-                <span className="text-green-500 font-bold shrink-0">TC</span>
-                <span className="truncate" title={(() => { const s = setNames[card.tcSetCode]; return (typeof s === 'object' ? s?.name : s) || card.tcSetCode; })()}>{card.tcSetCode}{card.tcNumber ? ` ${card.tcNumber}` : ''}</span>
-              </>
-            ) : <><span className="text-green-500 font-bold shrink-0 opacity-40">TC</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
+          <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
+            <div className="flex items-start gap-1 cursor-pointer sm:cursor-default" onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'tc' ? null : 'tc'); }}>
+              {card.tcSetCode ? (
+                <>
+                  <span className="text-green-500 font-bold shrink-0">TC</span>
+                  <span className="truncate" title={(() => { const s = setNames[card.tcSetCode]; return (typeof s === 'object' ? s?.name : s) || card.tcSetCode; })()}>{card.tcSetCode}{card.tcNumber ? ` ${card.tcNumber}` : ''}</span>
+                </>
+              ) : <><span className="text-green-500 font-bold shrink-0 opacity-40">TC</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
+            </div>
+            {expandedLang === 'tc' && !!card.tcSetCode && (
+              <div className="sm:hidden text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{(() => { const s = setNames[card.tcSetCode]; return (typeof s === 'object' ? s?.name : s) || card.tcSetCode; })()}</div>
+            )}
           </div>
 
           {/* Row KR */}
-          <div className={`text-[10px] leading-tight min-h-[0.9rem] flex items-start gap-1 ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
-            {card.krSetCode ? (
-              <>
-                <span className="text-indigo-400 font-bold shrink-0">KR</span>
-                <span className="truncate" title={(() => { const s = setNames[card.krSetCode]; return (typeof s === 'object' ? s?.name : s) || card.krSetCode; })()}>{card.krSetCode}{card.krNumber ? ` ${card.krNumber}` : ''}</span>
-              </>
-            ) : <><span className="text-indigo-400 font-bold shrink-0 opacity-40">KR</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
+          <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
+            <div className="flex items-start gap-1 cursor-pointer sm:cursor-default" onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'kr' ? null : 'kr'); }}>
+              {card.krSetCode ? (
+                <>
+                  <span className="text-indigo-400 font-bold shrink-0">KR</span>
+                  <span className="truncate" title={(() => { const s = setNames[card.krSetCode]; return (typeof s === 'object' ? s?.name : s) || card.krSetCode; })()}>{card.krSetCode}{card.krNumber ? ` ${card.krNumber}` : ''}</span>
+                </>
+              ) : <><span className="text-indigo-400 font-bold shrink-0 opacity-40">KR</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
+            </div>
+            {expandedLang === 'kr' && !!card.krSetCode && (
+              <div className="sm:hidden text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{(() => { const s = setNames[card.krSetCode]; return (typeof s === 'object' ? s?.name : s) || card.krSetCode; })()}</div>
+            )}
           </div>
 
-          {/* Set names — shown in modal (mobile) */}
-          {showSetNames && (
-            <div className="mt-1 mb-0.5 text-[9px] leading-snug space-y-0.5 text-gray-400">
-              {(card.enSetCode || card.setCode) && (() => { const s = setNames[card.enSetCode || card.setCode]; const n = typeof s === 'object' ? s?.name : s; return n ? <div><span className="text-blue-400 font-bold">EN</span> {n}</div> : null; })()}
-              {card.jpSetCode && (() => { const s = setNames[card.jpSetCode]; const n = typeof s === 'object' ? s?.name : s; return n ? <div><span className="text-red-400 font-bold">JP</span> {n}</div> : null; })()}
-              {card.cnSetCode && (() => { const s = setNames[card.cnSetCode]; const n = typeof s === 'object' ? s?.name : s; return n ? <div><span className="text-yellow-500 font-bold">CN</span> {n}</div> : null; })()}
-              {card.tcSetCode && (() => { const s = setNames[card.tcSetCode]; const n = typeof s === 'object' ? s?.name : s; return n ? <div><span className="text-green-500 font-bold">TC</span> {n}</div> : null; })()}
-              {card.krSetCode && (() => { const s = setNames[card.krSetCode]; const n = typeof s === 'object' ? s?.name : s; return n ? <div><span className="text-indigo-400 font-bold">KR</span> {n}</div> : null; })()}
-            </div>
-          )}
 
           {/* Row 7: other pokemon — always reserve space */}
           <div className={`text-xs min-h-[0.9rem] leading-tight ${isOwned ? 'text-red-100' : 'text-blue-500'}`}>
