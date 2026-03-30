@@ -1,0 +1,80 @@
+{
+  "XY-P": {
+    "name": "XY Promo",
+    "series": "XY",
+    "year": 2014,
+    "month": 10
+  },
+  "XY2": {
+    "name": "Wild Blaze",
+    "series": "XY",
+    "year": 2014,
+    "month": 2
+  },
+  "XY3": {
+    "name": "Rising Fist",
+    "series": "XY",
+    "year": 2014,
+    "month": 5
+  },
+  "DCGR": {
+    "name": "Magma Gang vs Aqua Gang",
+    "series": "XY",
+    "year": 2015,
+    "month": 3
+  },
+  "XY5": {
+    "name": "Emerald Break",
+    "series": "XY",
+    "year": 2015,
+    "month": 3
+  },
+  "XY7": {
+    "name": "Bandit Ring",
+    "series": "XY",
+    "year": 2015,
+    "month": 7
+  },
+  "XY6": {
+    "name": "Legendary Shine",
+    "series": "XY",
+    "year": 2015,
+    "month": 7
+  },
+  "XY6B": {
+    "name": "Blue Shock",
+    "series": "XY",
+    "year": 2015,
+    "month": 7
+  },
+  "XY8": {
+    "name": "Rage of the Broken Heavens",
+    "series": "XY",
+    "year": 2016,
+    "month": 1
+  },
+  "CP4": {
+    "name": "PokeKyun Collection",
+    "series": "XY",
+    "year": 2016,
+    "month": 1
+  },
+  "XY9": {
+    "name": "Awakening Psychic King",
+    "series": "XY",
+    "year": 2016,
+    "month": 3
+  },
+  "XY10": {
+    "name": "Cruel Traitor",
+    "series": "XY",
+    "year": 2016,
+    "month": 9
+  },
+  "SM-P": {
+    "name": "SM Promo",
+    "series": "Sun & Moon",
+    "year": 2017,
+    "month": 3
+  }
+}

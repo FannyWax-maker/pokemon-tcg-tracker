@@ -10,33 +10,35 @@ import pokemonDataImport from './data/pokemon_data.json';
 import setNamesImport from './data/set_names.json';
 import reviewDataImport from './data/review_data.json';
 import pokemonCoordsImport from './data/pokemon_coords.json';
+import stephPokemonDataImport from './data/steph/pokemon_data.json';
+import stephSetNamesImport from './data/steph/set_names.json';
 
 
 // Derived dynamically in filterCounts — placeholder kept for any residual references
 const CN_NEVER_RELEASED_STATIC = new Set([]);
 
-export default function App() {
-  const [pokemonData, setPokemonData] = useState(() => {
-    const nameMap = {};
-    pokemonDataImport.forEach(p => { nameMap[p.name] = p; });
-    const enriched = pokemonDataImport.map(p => ({ ...p, cards: [...p.cards] }));
-    const enrichedMap = {};
-    enriched.forEach(p => { enrichedMap[p.name] = p; });
-    pokemonDataImport.forEach(p => {
-      p.cards.forEach(card => {
-        if (!card.otherPokemon || !card.otherPokemon.length) return;
-        card.otherPokemon.forEach(otherName => {
-          const other = enrichedMap[otherName];
-          if (!other) return;
-          const alreadyHas = other.cards.some(c => c.id === card.id);
-          if (!alreadyHas) {
-            other.cards.push({ ...card, isSecondary: true, isPrimary: false, primaryPokemon: p.name });
-          }
-        });
+function enrichPokemonData(rawData) {
+  const enriched = rawData.map(p => ({ ...p, cards: [...p.cards] }));
+  const enrichedMap = {};
+  enriched.forEach(p => { enrichedMap[p.name] = p; });
+  rawData.forEach(p => {
+    p.cards.forEach(card => {
+      if (!card.otherPokemon || !card.otherPokemon.length) return;
+      card.otherPokemon.forEach(otherName => {
+        const other = enrichedMap[otherName];
+        if (!other) return;
+        const alreadyHas = other.cards.some(c => c.id === card.id);
+        if (!alreadyHas) {
+          other.cards.push({ ...card, isSecondary: true, isPrimary: false, primaryPokemon: p.name });
+        }
       });
     });
-    return enriched;
   });
+  return enriched;
+}
+
+export default function App() {
+  const [pokemonData, setPokemonData] = useState(() => enrichPokemonData(pokemonDataImport));
   const [searchQuery, setSearchQuery] = useState('');
   const [searchSuggestion, setSearchSuggestion] = useState(null);
   const [autocompleteSuggestions, setAutocompleteSuggestions] = useState([]);
@@ -67,7 +69,20 @@ export default function App() {
   const [filterLang, setFilterLang] = useState('all');
   const [darkMode, setDarkMode] = useState(false);
   const [appMode, setAppMode] = useState(() => localStorage.getItem('appMode') || 'fullart');
-  const [stephData, setStephData] = useState(null); // lazy-loaded when switching to cameos
+  const [stephData, setStephData] = useState(null);
+
+  // Switch data source when appMode changes
+  useEffect(() => {
+    if (appMode === 'cameos') {
+      setPokemonData(enrichPokemonData(stephPokemonDataImport));
+    } else {
+      setPokemonData(enrichPokemonData(pokemonDataImport));
+    }
+    // Reset filters and selection when switching modes
+    setSelectedPokemon(null);
+    setSearchQuery('');
+    setFilterSet('all');
+  }, [appMode]);
   const [syncStatus, setSyncStatus] = useState('');
   const [tileSize, setTileSize] = useState('M');
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
@@ -80,7 +95,7 @@ export default function App() {
     // Seed from committed JSON file, then overlay any localStorage edits on top
     const base = reviewDataImport || {};
     try {
-      const cached = localStorage.getItem((cachePrefix + 'review_cache'));
+      const cached = localStorage.getItem('pokemon_review_cache');
       if (cached) return { ...base, ...JSON.parse(cached) };
     } catch (_) {}
     return base;
@@ -106,12 +121,12 @@ export default function App() {
     return fn(...args);
   };
 
-  const setNames = setNamesImport;
+  const setNames = appMode === 'cameos' ? stephSetNamesImport : setNamesImport;
   const setNamesLC = useMemo(() => {
     const out = {};
     Object.entries(setNames).forEach(([k, v]) => { out[k.toLowerCase()] = v; });
     return out;
-  }, []);
+  }, [appMode]);
 
   const getSpellSuggestion = (query, names) => {
     if (!query || query.length < 3) return null;
@@ -235,7 +250,7 @@ export default function App() {
       }
     };
     loadOwnership();
-  }, []);
+  }, [appMode]);
 
   const saveOwnership = async (cardId, ownedLang) => {
     setSyncStatus('saving');
