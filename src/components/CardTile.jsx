@@ -545,7 +545,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           {/* Card back placeholder — always visible until image loads */}
           {!imageSrc && (
             <img
-              src="https://archives.bulbagarden.net/media/upload/thumb/f/f3/Cardback.jpg/170px-Cardback.jpg"
+              src="/pokemon-tcg-tracker/card-back.jpg"
               alt="Loading..."
               className="w-full h-full object-cover"
             />
