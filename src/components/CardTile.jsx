@@ -540,19 +540,27 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             background: 'linear-gradient(135deg, #E5E5E5 0%, #CCCCCC 100%)',
             aspectRatio: '2.5/3.5'
           }}
-          onClick={() => imageLoaded && setShowZoom(true)}
+          onClick={() => imageSrc && setShowZoom(true)}
         >
-          {imageLoaded && imageSrc ? (
+          {/* Card back placeholder — always visible until image loads */}
+          {!imageSrc && (
+            <img
+              src="https://archives.bulbagarden.net/media/upload/thumb/f/f3/Cardback.jpg/170px-Cardback.jpg"
+              alt="Loading..."
+              className="w-full h-full object-cover"
+            />
+          )}
+          {/* Actual card image — fades in when loaded */}
+          {imageSrc && (
             <img
               src={imageSrc}
               alt={`${pokemonName} ${card.cardName}`}
               className="w-full h-full object-contain"
             />
-          ) : (
-            <div className="flex flex-col items-center justify-center p-3 text-center h-full">
-              <div className="text-5xl mb-2 opacity-20">🃏</div>
-              <div className="text-white/90 font-bold text-xs mb-1">{card.cardName}</div>
-              <div className="text-white/60 text-xs mb-3">{card.setCode} {card.number}</div>
+          )}
+          {/* IMAGE MISSING overlay — only shown after load attempt fails (imageLoaded=false, inView=true, no src) */}
+          {inView && imageLoaded === false && !imageSrc && (
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-3 text-center bg-black/60">
               <div className="px-3 py-1 bg-red-600 rounded text-white text-xs font-bold mb-3">IMAGE MISSING</div>
               <div className="w-full">
                 <div className="text-white/50 text-[9px] mb-1">Expected filename:</div>
