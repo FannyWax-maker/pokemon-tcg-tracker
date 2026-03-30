@@ -387,8 +387,37 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     let mounted = true;
 
     const tryLoadImage = async () => {
+      // Cameos mode: use TCGdex CDN directly from JP set code + number
+      if (appMode === 'cameos') {
+        const tcgdexSetMap = {
+    'XY2': 'xy/xy2', 'XY3': 'xy/xy3', 'DCGR': 'xy/dc1',
+    'XY5': 'xy/xy5', 'XY6': 'xy/xy6', 'XY6B': 'xy/xy6',
+    'XY7': 'xy/xy7', 'XY8': 'xy/xy8', 'CP4': 'xy/g1',
+    'XY9': 'xy/xy9', 'XY10': 'xy/xy10',
+  };
+        const jpSet = card.jpSetCode;
+        const jpNum = (card.jpNumber || card.number || '').split('/')[0].replace(/^0+/, '') || '0';
+        const setPath = tcgdexSetMap[jpSet];
+        if (setPath) {
+          const url = `https://assets.tcgdex.net/en/${setPath}/${jpNum}/high.webp`;
+          const loaded = await enqueueImageLoad(() =>
+            new Promise((resolve, reject) => {
+              const img = new Image();
+              img.onload = () => resolve(url);
+              img.onerror = reject;
+              img.src = url;
+            })
+          ).catch(() => null);
+          if (!mounted) return;
+          imageCache[cacheKey] = { src: loaded };
+          setImageSrc(loaded);
+          setImageLoaded(!!loaded);
+          return;
+        }
+      }
+
       const manifest = await getManifest();
-      const base = appMode === 'cameos' ? '/pokemon-tcg-tracker/card-images-steph/' : '/pokemon-tcg-tracker/card-images/';
+      const base = '/pokemon-tcg-tracker/card-images/';
 
       let found = null;
 
