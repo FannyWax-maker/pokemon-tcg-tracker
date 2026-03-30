@@ -66,6 +66,8 @@ export default function App() {
   const [filterSetLang, setFilterSetLang] = useState('all');
   const [filterLang, setFilterLang] = useState('all');
   const [darkMode, setDarkMode] = useState(false);
+  const [appMode, setAppMode] = useState(() => localStorage.getItem('appMode') || 'fullart');
+  const [stephData, setStephData] = useState(null); // lazy-loaded when switching to cameos
   const [syncStatus, setSyncStatus] = useState('');
   const [tileSize, setTileSize] = useState('M');
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
@@ -78,7 +80,7 @@ export default function App() {
     // Seed from committed JSON file, then overlay any localStorage edits on top
     const base = reviewDataImport || {};
     try {
-      const cached = localStorage.getItem('pokemon_review_cache');
+      const cached = localStorage.getItem((cachePrefix + 'review_cache'));
       if (cached) return { ...base, ...JSON.parse(cached) };
     } catch (_) {}
     return base;
@@ -155,11 +157,14 @@ export default function App() {
     return undefined;
   };
 
-  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyMgDPDy9wpz2YFJoYuYaDQfZ2u5uou3wYQgL6ULUSZDbaJTMNLFDC-Ho57qRHAJ6Osug/exec';
+  const FULLART_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyMgDPDy9wpz2YFJoYuYaDQfZ2u5uou3wYQgL6ULUSZDbaJTMNLFDC-Ho57qRHAJ6Osug/exec';
+  const STEPH_SCRIPT_URL = 'STEPH_APPS_SCRIPT_URL_PLACEHOLDER'; // replace when ready
+  const APPS_SCRIPT_URL = appMode === 'cameos' ? STEPH_SCRIPT_URL : FULLART_SCRIPT_URL;
 
   useEffect(() => {
     const loadOwnership = async () => {
-      const cached = localStorage.getItem('pokemon_ownership_cache');
+      const cachePrefix = appMode === 'cameos' ? 'steph_' : 'pokemon_';
+      const cached = localStorage.getItem(cachePrefix + 'ownership_cache');
       if (cached) {
         const ownership = JSON.parse(cached);
         setPokemonData(prev => prev.map(pokemon => ({
@@ -178,15 +183,15 @@ export default function App() {
         const favorites = data.favorites || {};
         const unobtainable = data.unobtainable || {};
         const categories = data.categories || {};
-        localStorage.setItem('pokemon_ownership_cache', JSON.stringify(ownership));
-        localStorage.setItem('pokemon_nonconforming_cache', JSON.stringify(nonConforming));
-        localStorage.setItem('pokemon_favorites_cache', JSON.stringify(favorites));
-        localStorage.setItem('pokemon_unobtainable_cache', JSON.stringify(unobtainable));
+        localStorage.setItem((cachePrefix + 'ownership_cache'), JSON.stringify(ownership));
+        localStorage.setItem((cachePrefix + 'nonconforming_cache'), JSON.stringify(nonConforming));
+        localStorage.setItem((cachePrefix + 'favorites_cache'), JSON.stringify(favorites));
+        localStorage.setItem((cachePrefix + 'unobtainable_cache'), JSON.stringify(unobtainable));
         if (Object.keys(categories).length) {
-          localStorage.setItem('pokemon_review_cache', JSON.stringify(categories));
+          localStorage.setItem((cachePrefix + 'review_cache'), JSON.stringify(categories));
           setReviewData(categories);
         } else {
-          const revCached = localStorage.getItem('pokemon_review_cache');
+          const revCached = localStorage.getItem((cachePrefix + 'review_cache'));
           if (revCached) setReviewData(JSON.parse(revCached));
         }
         setPokemonData(prev => prev.map(pokemon => ({
@@ -201,7 +206,7 @@ export default function App() {
         })));
       } catch (e) {
         console.warn('Could not reach Google Sheets, using cached data');
-        const ncCached = localStorage.getItem('pokemon_nonconforming_cache');
+        const ncCached = localStorage.getItem((cachePrefix + 'nonconforming_cache'));
         if (ncCached) {
           const nonConforming = JSON.parse(ncCached);
           setPokemonData(prev => prev.map(pokemon => ({
@@ -209,7 +214,7 @@ export default function App() {
             cards: pokemon.cards.map(card => ({ ...card, nonConforming: nonConforming[card.id] === true ? true : card.nonConforming || false }))
           })));
         }
-        const favCached = localStorage.getItem('pokemon_favorites_cache');
+        const favCached = localStorage.getItem((cachePrefix + 'favorites_cache'));
         if (favCached) {
           const favorites = JSON.parse(favCached);
           setPokemonData(prev => prev.map(pokemon => ({
@@ -217,7 +222,7 @@ export default function App() {
             cards: pokemon.cards.map(card => ({ ...card, favorite: favorites[card.id] === true ? true : card.favorite || false }))
           })));
         }
-        const unobtCached = localStorage.getItem('pokemon_unobtainable_cache');
+        const unobtCached = localStorage.getItem((cachePrefix + 'unobtainable_cache'));
         if (unobtCached) {
           const unobtainable = JSON.parse(unobtCached);
           setPokemonData(prev => prev.map(pokemon => ({
@@ -225,7 +230,7 @@ export default function App() {
             cards: pokemon.cards.map(card => ({ ...card, unobtainable: unobtainable[card.id] === true ? true : card.unobtainable || false }))
           })));
         }
-        const revCached = localStorage.getItem('pokemon_review_cache');
+        const revCached = localStorage.getItem((cachePrefix + 'review_cache'));
         if (revCached) setReviewData(JSON.parse(revCached));
       }
     };
@@ -234,10 +239,10 @@ export default function App() {
 
   const saveOwnership = async (cardId, ownedLang) => {
     setSyncStatus('saving');
-    const cached = localStorage.getItem('pokemon_ownership_cache');
+    const cached = localStorage.getItem((cachePrefix + 'ownership_cache'));
     const ownership = cached ? JSON.parse(cached) : {};
     if (ownedLang) ownership[cardId] = ownedLang; else delete ownership[cardId];
-    localStorage.setItem('pokemon_ownership_cache', JSON.stringify(ownership));
+    localStorage.setItem((cachePrefix + 'ownership_cache'), JSON.stringify(ownership));
     try {
       await fetch(`${APPS_SCRIPT_URL}?action=set&cardId=${encodeURIComponent(cardId)}&ownedLang=${encodeURIComponent(ownedLang || '')}`);
       setSyncStatus('saved'); setTimeout(() => setSyncStatus(''), 2000);
@@ -246,10 +251,10 @@ export default function App() {
 
   const saveNonConforming = async (cardId, isNonConforming) => {
     setSyncStatus('saving');
-    const cached = localStorage.getItem('pokemon_nonconforming_cache');
+    const cached = localStorage.getItem((cachePrefix + 'nonconforming_cache'));
     const nonConforming = cached ? JSON.parse(cached) : {};
     if (isNonConforming) nonConforming[cardId] = true; else delete nonConforming[cardId];
-    localStorage.setItem('pokemon_nonconforming_cache', JSON.stringify(nonConforming));
+    localStorage.setItem((cachePrefix + 'nonconforming_cache'), JSON.stringify(nonConforming));
     try {
       await fetch(`${APPS_SCRIPT_URL}?action=setConforming&cardId=${encodeURIComponent(cardId)}&nonConforming=${isNonConforming ? 'true' : ''}`);
       setSyncStatus('saved'); setTimeout(() => setSyncStatus(''), 2000);
@@ -258,10 +263,10 @@ export default function App() {
 
   const saveFavorite = async (cardId, isFavorite) => {
     setSyncStatus('saving');
-    const cached = localStorage.getItem('pokemon_favorites_cache');
+    const cached = localStorage.getItem((cachePrefix + 'favorites_cache'));
     const favorites = cached ? JSON.parse(cached) : {};
     if (isFavorite) favorites[cardId] = true; else delete favorites[cardId];
-    localStorage.setItem('pokemon_favorites_cache', JSON.stringify(favorites));
+    localStorage.setItem((cachePrefix + 'favorites_cache'), JSON.stringify(favorites));
     try {
       await fetch(`${APPS_SCRIPT_URL}?action=setFavorite&cardId=${encodeURIComponent(cardId)}&favorite=${isFavorite ? 'true' : ''}`);
       setSyncStatus('saved'); setTimeout(() => setSyncStatus(''), 2000);
@@ -270,10 +275,10 @@ export default function App() {
 
   const saveReviewData = async (cardId, data) => {
     setSyncStatus('saving');
-    const cached = localStorage.getItem('pokemon_review_cache');
+    const cached = localStorage.getItem((cachePrefix + 'review_cache'));
     const all = cached ? JSON.parse(cached) : {};
     all[cardId] = data;
-    localStorage.setItem('pokemon_review_cache', JSON.stringify(all));
+    localStorage.setItem((cachePrefix + 'review_cache'), JSON.stringify(all));
     setReviewData(prev => ({ ...prev, [cardId]: data }));
     try {
       await fetch(`${APPS_SCRIPT_URL}?action=setReview&cardId=${encodeURIComponent(cardId)}&data=${encodeURIComponent(JSON.stringify(data))}`);
@@ -616,6 +621,20 @@ export default function App() {
               <span className="opacity-70">·</span>
               <span>{Math.round(overallStats.completionPercent)}%</span>
             </div>
+            {/* Mode toggle: Full Art / Cameos */}
+            <div className="flex items-center rounded-full p-0.5 text-xs font-bold shrink-0 bg-gray-100">
+              <button
+                onClick={() => { setAppMode('fullart'); localStorage.setItem('appMode', 'fullart'); }}
+                className={`px-2.5 py-1 rounded-full transition-colors ${appMode === 'fullart' ? 'text-white' : 'text-gray-500'}`}
+                style={appMode === 'fullart' ? {background: 'linear-gradient(135deg, #ef4444, #dc2626)'} : {}}
+              >Full Art</button>
+              <button
+                onClick={() => { setAppMode('cameos'); localStorage.setItem('appMode', 'cameos'); }}
+                className={`px-2.5 py-1 rounded-full transition-colors ${appMode === 'cameos' ? 'text-white' : 'text-gray-500'}`}
+                style={appMode === 'cameos' ? {background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)'} : {}}
+              >Cameos</button>
+            </div>
+
             <div className="relative flex-1 min-w-0 hidden sm:block">
               <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400 pointer-events-none" />
               <input type="text" placeholder="Search Pokémon..." value={searchQuery}
@@ -646,9 +665,11 @@ export default function App() {
               <button onClick={() => { setViewMode('cards'); setFilterHideNoCards('all'); setFilterHideNonConforming('hide'); }}
                 className={`px-2.5 py-1 rounded-full transition-colors ${viewMode === 'cards' ? 'text-white' : darkMode ? 'text-gray-400' : 'text-gray-500'}`}
                 style={viewMode === 'cards' ? {background: 'linear-gradient(135deg, #3b82f6, #1d4ed8)'} : {}}>Cards</button>
-              <button onClick={() => { setViewMode('review'); setFilterHideNoCards('hide'); setFilterHideNonConforming('all'); }}
-                className={`px-2.5 py-1 rounded-full transition-colors ${viewMode === 'review' ? 'text-white' : darkMode ? 'text-gray-400' : 'text-gray-500'}`}
-                style={viewMode === 'review' ? {background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)'} : {}}>Review</button>
+              {appMode === 'fullart' && (
+                <button onClick={() => { setViewMode('review'); setFilterHideNoCards('hide'); setFilterHideNonConforming('all'); }}
+                  className={`px-2.5 py-1 rounded-full transition-colors ${viewMode === 'review' ? 'text-white' : darkMode ? 'text-gray-400' : 'text-gray-500'}`}
+                  style={viewMode === 'review' ? {background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)'} : {}}>Review</button>
+              )}
             </div>
             <div className={`hidden sm:flex items-center rounded-lg overflow-hidden text-xs font-bold shrink-0 border ${darkMode ? 'border-gray-600' : 'border-gray-200'}`}>
               {['S','M','L'].map(s => (
@@ -992,7 +1013,7 @@ export default function App() {
                 const isReviewed = !!rd;
                 return (
                   <div key={`${card.pokemonId}-${card.id}-${idx}`} className="relative cursor-pointer" onClick={() => setReviewCard({ ...card, pokemonName: card.pokemonName })}>
-                    <CardTile card={card} pokemonName={card.pokemonName}
+                    <CardTile card={card} pokemonName={card.pokemonName} appMode={appMode}
                       onOwnershipClick={handleCardOwnershipClick} onToggleNonConforming={handleToggleNonConforming}
                       onToggleFavorite={handleToggleFavorite} onToggleUnobtainable={handleToggleUnobtainable}
                      
@@ -1062,7 +1083,7 @@ export default function App() {
           onNavigateNext={() => { const list = filteredData.data; const idx = list.findIndex(p => p.id === selectedPokemon.id); if (idx < list.length - 1) setSelectedPokemon(list[idx + 1]); }}
           hasPrev={(() => { const list = filteredData.data; const idx = list.findIndex(p => p.id === selectedPokemon.id); return idx > 0; })()}
           hasNext={(() => { const list = filteredData.data; const idx = list.findIndex(p => p.id === selectedPokemon.id); return idx < filteredData.data.length - 1; })()}
-          onClose={() => setSelectedPokemon(null)} onUpdateCard={handleUpdateCard} getPriceForCard={getPriceForCard} coordAppearances={coordAppearances} />
+          onClose={() => setSelectedPokemon(null)} onUpdateCard={handleUpdateCard} getPriceForCard={getPriceForCard} coordAppearances={coordAppearances} appMode={appMode} />
       )}
 
       {languagePickerCard && (

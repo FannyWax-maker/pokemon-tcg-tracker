@@ -119,7 +119,7 @@ const buildEbayUrl = (card, pokemonName, lang) => {
 };
 
 
-export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onNavigateToPokemon, showOwnershipButtons = false , scrollRoot, getPriceForCard, showSetNames = false }) {
+export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onNavigateToPokemon, showOwnershipButtons = false , scrollRoot, getPriceForCard, showSetNames = false, appMode = 'fullart' }) {
   const isOwned = !!card.ownedLang;
   const hasOtherPokemon = card.otherPokemon && card.otherPokemon.length > 0;
   const isSecondary = card.isSecondary || !card.isPrimary;
@@ -388,7 +388,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
     const tryLoadImage = async () => {
       const manifest = await getManifest();
-      const base = '/pokemon-tcg-tracker/card-images/';
+      const base = appMode === 'cameos' ? '/pokemon-tcg-tracker/card-images-steph/' : '/pokemon-tcg-tracker/card-images/';
 
       let found = null;
 
@@ -932,7 +932,8 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 src={imageSrc}
                 alt={`${pokemonName} ${card.cardName}`}
                 className="w-full h-auto object-contain rounded-lg"
-                style={{ cursor: pickerMode ? 'crosshair' : 'none', display: 'block', userSelect: 'none' }}
+                style={{ cursor: pickerMode ? 'crosshair' : 'none', display: 'block', userSelect: 'none',
+                  ...(appMode === 'cameos' ? { clipPath: 'inset(0 0 38% 0 round 8px)', marginBottom: '-38%' } : {}) }}
                 onMouseEnter={() => setOverImage(true)}
                 onMouseLeave={() => setOverImage(false)}
                 onLoad={() => { if (zoomImgRef.current) setImgRect(zoomImgRef.current.getBoundingClientRect()); }}

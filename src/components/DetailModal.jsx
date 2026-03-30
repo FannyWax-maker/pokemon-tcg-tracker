@@ -10,7 +10,7 @@ const LANGUAGES = {
   KR: 'Korean'
 };
 
-export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onToggleExpensive, onToggleVeryExpensive, onNavigateToPokemon, onNavigatePrev, onNavigateNext, hasPrev, hasNext, darkMode, getPriceForCard, coordAppearances = {} }) {
+export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onToggleExpensive, onToggleVeryExpensive, onNavigateToPokemon, onNavigatePrev, onNavigateNext, hasPrev, hasNext, darkMode, getPriceForCard, coordAppearances = {}, appMode = 'fullart' }) {
   const [languagePickerCard, setLanguagePickerCard] = useState(null);
   const scrollRef = useRef(null);
   
@@ -203,6 +203,7 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
                           scrollRoot={scrollRef.current}
                           getPriceForCard={getPriceForCard}
                           showSetNames={true}
+                          appMode={appMode}
                         />
                       ))}
                     </div>
@@ -227,6 +228,7 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
                     scrollRoot={scrollRef.current}
                     getPriceForCard={getPriceForCard}
                     showSetNames={true}
+                    appMode={appMode}
                   />
                 ))}
               </div>
