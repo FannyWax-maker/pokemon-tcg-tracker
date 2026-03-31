@@ -409,6 +409,24 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             })
           ).catch(() => null);
           if (!mounted) return;
+          // If TCGdex failed, fall back to local card-images-cameo/
+          if (!loaded) {
+            const localBase = '/pokemon-tcg-tracker/card-images-cameo/';
+            for (const path of imagePaths) {
+              for (const ext of ['.png', '.jpg', '.webp']) {
+                try {
+                  loaded = await enqueueImageLoad(() => new Promise((resolve, reject) => {
+                    const img = new Image();
+                    img.onload = () => resolve(localBase + path + ext);
+                    img.onerror = reject;
+                    img.src = localBase + path + ext;
+                  }));
+                  break;
+                } catch (_) {}
+              }
+              if (loaded) break;
+            }
+          }
           imageCache[cacheKey] = { src: loaded };
           setImageSrc(loaded);
           setImageLoaded(!!loaded);
