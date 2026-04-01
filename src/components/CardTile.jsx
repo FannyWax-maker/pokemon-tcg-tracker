@@ -429,7 +429,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
       }
 
       const manifest = await getManifest();
-      const base = '/pokemon-tcg-tracker/card-images/';
+      const base = appMode === 'cameos' ? '/pokemon-tcg-tracker/card-images-cameo/' : '/pokemon-tcg-tracker/card-images/';
 
       let found = null;
 
