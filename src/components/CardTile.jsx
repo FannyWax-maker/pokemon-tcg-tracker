@@ -401,7 +401,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
     const tryLoadImage = async () => {
       // Cameos mode: use TCGdex CDN directly from JP set code + number
-      if (appMode === 'cameos') {
+      if (appMode === 'cameos') { console.log("CAMEOS MODE", appMode);
         const cameoManifest = await getCameoManifest();
         const cameoBase = '/pokemon-tcg-tracker/card-images-cameo/';
         let found = null;
