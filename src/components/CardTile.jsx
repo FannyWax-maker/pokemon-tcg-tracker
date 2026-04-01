@@ -19,6 +19,14 @@ const ALL_POKEMON_NAMES = pokemonDataImport.map(p => p.name);
 const imageCache = {};
 
 // Manifest: set of all filenames in card-images/ (loaded once, avoids 404 waterfall)
+let cameoManifestInFlight = null;
+const getCameoManifest = () => {
+  if (cameoManifestInFlight) return cameoManifestInFlight;
+  cameoManifestInFlight = fetch('/pokemon-tcg-tracker/card-images-cameo/manifest.json')
+    .then(r => r.json()).then(files => new Set(files)).catch(() => new Set());
+  return cameoManifestInFlight;
+};
+// Manifest: set of all filenames in card-images/ (loaded once, avoids 404 waterfall)
 let imageManifest = null; // null = not loaded, Set = loaded
 let manifestInFlight = null;
 
@@ -394,26 +402,29 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     const tryLoadImage = async () => {
       // Cameos mode: use TCGdex CDN directly from JP set code + number
       if (appMode === 'cameos') {
-        let loaded = null;
-        const localBase = '/pokemon-tcg-tracker/card-images-cameo/';
-        for (const path of imagePaths) {
-          for (const ext of ['.png', '.jpg', '.webp']) {
-            try {
-              loaded = await enqueueImageLoad(() => new Promise((resolve, reject) => {
-                const img = new Image();
-                img.onload = () => resolve(localBase + path + ext);
-                img.onerror = reject;
-                img.src = localBase + path + ext;
-              }));
-              if (loaded) break;
-            } catch (_) {}
+        const cameoManifest = await getCameoManifest();
+        const cameoBase = '/pokemon-tcg-tracker/card-images-cameo/';
+        let found = null;
+        if (cameoManifest.size > 0) {
+          for (const path of imagePaths) {
+            for (const ext of ['.png', '.jpg', '.webp']) {
+              if (cameoManifest.has(path + ext)) { found = cameoBase + path + ext; break; }
+            }
+            if (found) break;
           }
-          if (loaded) break;
+        }
+        if (found) {
+          found = await enqueueImageLoad(() => new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = () => resolve(found);
+            img.onerror = reject;
+            img.src = found;
+          })).catch(() => null);
         }
         if (!mounted) return;
-        imageCache[cacheKey] = { src: loaded };
-        setImageSrc(loaded);
-        setImageLoaded(!!loaded);
+        imageCache[cacheKey] = { src: found };
+        setImageSrc(found);
+        setImageLoaded(!!found);
         return;
       }
 
