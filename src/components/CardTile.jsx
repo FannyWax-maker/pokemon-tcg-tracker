@@ -376,6 +376,11 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   }, [cacheKey, scrollRoot]);
 
   React.useEffect(() => {
+    // Clear cache when appMode changes so images reload from correct folder
+    Object.keys(imageCache).forEach(k => delete imageCache[k]);
+  }, [appMode]);
+
+  React.useEffect(() => {
     if (!inView) return;
     if (imageCache[cacheKey]) {
       const cached = imageCache[cacheKey];
