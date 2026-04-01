@@ -470,7 +470,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
     tryLoadImage();
     return () => { mounted = false; };
-  }, [inView, cacheKey]);
+  }, [inView, cacheKey, appMode]);
 
   // Re-evaluate hide when filter flag changes
   React.useEffect(() => {
