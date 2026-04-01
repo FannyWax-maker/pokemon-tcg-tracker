@@ -967,14 +967,14 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             )}
 
             {/* Card image column */}
-            <div className="relative" style={{ width: 'clamp(260px, 80vw, 420px)' }}>
+            <div className="relative" style={{ width: appMode === 'cameos' ? 'clamp(300px, 92vw, 600px)' : 'clamp(260px, 80vw, 420px)' }}>
               <img
                 ref={zoomImgRef}
                 src={imageSrc}
                 alt={`${pokemonName} ${card.cardName}`}
                 className="w-full h-auto object-contain rounded-lg"
                 style={{ cursor: pickerMode ? 'crosshair' : 'none', display: 'block', userSelect: 'none',
-                  ...(appMode === 'cameos' ? { clipPath: 'inset(0 0 38% 0 round 8px)', marginBottom: '-38%' } : {}) }}
+                  ...(appMode === 'cameos' ? { clipPath: 'inset(0 0 50% 0 round 8px)', marginBottom: '-50%' } : {}) }}
                 onMouseEnter={() => setOverImage(true)}
                 onMouseLeave={() => setOverImage(false)}
                 onLoad={() => { if (zoomImgRef.current) setImgRect(zoomImgRef.current.getBoundingClientRect()); }}
