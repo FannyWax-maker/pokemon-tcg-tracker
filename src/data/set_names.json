@@ -425,6 +425,42 @@
     "year": 2021,
     "month": 10
   },
+  "N1": {
+    "name": "Neo Genesis",
+    "series": "Neo",
+    "year": 2000,
+    "month": 12
+  },
+  "N2": {
+    "name": "Neo Discovery",
+    "series": "Neo",
+    "year": 2001,
+    "month": 6
+  },
+  "N3": {
+    "name": "Neo Revelation",
+    "series": "Neo",
+    "year": 2001,
+    "month": 9
+  },
+  "N4": {
+    "name": "Neo Destiny",
+    "series": "Neo",
+    "year": 2002,
+    "month": 2
+  },
+  "AQ": {
+    "name": "Aquapolis",
+    "series": "e-Card Series",
+    "year": 2003,
+    "month": 1
+  },
+  "SI": {
+    "name": "Start Deck 100",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
   "LL": {
     "name": "Lost Link",
     "series": "HeartGold & SoulSilver",
@@ -785,12 +821,6 @@
     "year": null,
     "month": null
   },
-  "SI": {
-    "name": "Start Deck 100",
-    "series": "Sword & Shield",
-    "year": null,
-    "month": null
-  },
   "S9": {
     "name": "Star Birth",
     "series": "Sword & Shield",
@@ -1112,6 +1142,12 @@
   "SMI": {
     "name": "Starter Sets Flareon & Jolteon & Vaporeon",
     "series": "Sun & Moon",
+    "year": null,
+    "month": null
+  },
+  "SI-JP": {
+    "name": "Southern Island JP",
+    "series": "",
     "year": null,
     "month": null
   },
