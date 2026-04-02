@@ -177,7 +177,7 @@ export default function App() {
   };
 
   const FULLART_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyMgDPDy9wpz2YFJoYuYaDQfZ2u5uou3wYQgL6ULUSZDbaJTMNLFDC-Ho57qRHAJ6Osug/exec';
-  const STEPH_SCRIPT_URL = FULLART_SCRIPT_URL + '?mode=steph';
+  const STEPH_SCRIPT_URL = FULLART_SCRIPT_URL + '?mode=cameo';
   const APPS_SCRIPT_URL = appMode === 'cameos' ? STEPH_SCRIPT_URL : FULLART_SCRIPT_URL;
 
   useEffect(() => {
