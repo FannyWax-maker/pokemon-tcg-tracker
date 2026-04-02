@@ -12,6 +12,8 @@ import reviewDataImport from './data/review_data.json';
 import pokemonCoordsImport from './data/pokemon_coords.json';
 import stephPokemonDataImport from './data/steph/pokemon_data.json';
 import stephSetNamesImport from './data/steph/set_names.json';
+import stephReviewDataImport from './data/steph/review_data.json';
+import stephPokemonCoordsImport from './data/steph/pokemon_coords.json';
 
 
 // Derived dynamically in filterCounts — placeholder kept for any residual references
@@ -92,10 +94,12 @@ export default function App() {
   const [lockInput, setLockInput] = useState('');
   const [lockError, setLockError] = useState(false);
   const [reviewData, setReviewData] = useState(() => {
-    // Seed from committed JSON file, then overlay any localStorage edits on top
-    const base = reviewDataImport || {};
+    // Seed from committed JSON file based on current mode, then overlay localStorage
+    const savedMode = localStorage.getItem('appMode') || 'fullart';
+    const base = savedMode === 'cameos' ? (stephReviewDataImport || {}) : (reviewDataImport || {});
     try {
-      const cached = localStorage.getItem('pokemon_review_cache');
+      const cacheKey = savedMode === 'cameos' ? 'steph_review_cache' : 'pokemon_review_cache';
+      const cached = localStorage.getItem(cacheKey);
       if (cached) return { ...base, ...JSON.parse(cached) };
     } catch (_) {}
     return base;
@@ -173,7 +177,7 @@ export default function App() {
   };
 
   const FULLART_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyMgDPDy9wpz2YFJoYuYaDQfZ2u5uou3wYQgL6ULUSZDbaJTMNLFDC-Ho57qRHAJ6Osug/exec';
-  const STEPH_SCRIPT_URL = 'STEPH_APPS_SCRIPT_URL_PLACEHOLDER'; // replace when ready
+  const STEPH_SCRIPT_URL = FULLART_SCRIPT_URL + '?mode=steph';
   const APPS_SCRIPT_URL = appMode === 'cameos' ? STEPH_SCRIPT_URL : FULLART_SCRIPT_URL;
 
   useEffect(() => {
@@ -344,8 +348,9 @@ export default function App() {
 
   // Build name -> {cards, appearances} lookup from coords data
   const coordAppearances = useMemo(() => {
+    const source = appMode === 'cameos' ? stephPokemonCoordsImport : pokemonCoordsImport;
     const map = {};
-    Object.values(pokemonCoordsImport).forEach(entries => {
+    Object.values(source).forEach(entries => {
       (Array.isArray(entries) ? entries : [entries]).forEach(entry => {
         const name = (entry.name || '').toLowerCase();
         if (!name) return;
@@ -356,7 +361,7 @@ export default function App() {
       });
     });
     return map;
-  }, []);
+  }, [appMode]);
 
   // JP set codes where NO card in that set has a cnSetCode
   const cnNeverReleased = useMemo(() => {
