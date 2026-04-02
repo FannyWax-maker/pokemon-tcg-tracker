@@ -704,9 +704,11 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           <div className={`font-bold text-sm leading-tight ${isOwned ? 'text-white' : 'text-gray-900'}`}>{isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName}</div>
 
           {/* Row 3: card name — always reserve space */}
+          {appMode !== 'cameos' && (
           <div className={`text-xs leading-tight min-h-[0.9rem] font-medium truncate ${isOwned ? 'text-red-100' : 'text-gray-600'}`}>
             {(() => { const n = (card.cardName||'').replace(', Japanese Exclusive','').replace('Japanese Exclusive','').replace(', Chinese Exclusive','').replace('Chinese Exclusive','').trim(); const dn = (n && n !== 'Full Art') ? n : null; return dn || ' '; })()}
           </div>
+          )}
 
           {/* Row 4: EN */}
           <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
@@ -715,14 +717,14 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 <>
                   <span className="text-blue-500 font-bold shrink-0">EN</span>
                   <span className="truncate flex-1">{card.enSetCode || card.setCode}{card.number ? ` ${card.number}` : ''}</span>
-                  <button
+                  {appMode !== 'cameos' && <button
                     onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'en' ? null : 'en'); }}
                     className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}
-                  >{expandedLang === 'en' ? '−' : '+'}</button>
+                  >{expandedLang === 'en' ? '−' : '+'}</button>}
                 </>
               ) : <><span className="text-blue-500 font-bold shrink-0 opacity-40">EN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
             </div>
-            {expandedLang === 'en' && !!((card.enSetCode || card.setCode)) && (
+            {(appMode === 'cameos' || expandedLang === 'en') && !!((card.enSetCode || card.setCode)) && (
               <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{getSetName(card.enSetCode || card.setCode)}</div>
             )}
           </div>
@@ -734,19 +736,20 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 <>
                   <span className="text-red-400 font-bold shrink-0">JP</span>
                   <span className="truncate flex-1">{card.jpSetCode}{card.jpNumber ? ` ${card.jpNumber}` : ''}</span>
-                  <button
+                  {appMode !== 'cameos' && <button
                     onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'jp' ? null : 'jp'); }}
                     className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}
-                  >{expandedLang === 'jp' ? '−' : '+'}</button>
+                  >{expandedLang === 'jp' ? '−' : '+'}</button>}
                 </>
               ) : <><span className="text-red-400 font-bold shrink-0 opacity-40">JP</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
             </div>
-            {expandedLang === 'jp' && !!(card.jpSetCode) && (
+            {(appMode === 'cameos' || expandedLang === 'jp') && !!(card.jpSetCode) && (
               <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{getSetName(card.jpSetCode)}</div>
             )}
           </div>
 
           {/* Row 6: CN */}
+          {appMode !== 'cameos' && (
           <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
             <div className="flex items-center gap-1">
               {card.cnSetCode ? (
@@ -764,8 +767,10 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
               <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{getSetName(card.cnSetCode)}</div>
             )}
           </div>
+          )}
 
           {/* Row 6b: TC */}
+          {appMode !== 'cameos' && (
           <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
             <div className="flex items-center gap-1">
               {card.tcSetCode ? (
@@ -783,8 +788,10 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
               <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{getSetName(card.tcSetCode)}</div>
             )}
           </div>
+          )}
 
           {/* Row KR */}
+          {appMode !== 'cameos' && (
           <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
             <div className="flex items-center gap-1">
               {card.krSetCode ? (
@@ -802,6 +809,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
               <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{getSetName(card.krSetCode)}</div>
             )}
           </div>
+          )}
 
 
           {/* Row 7: other pokemon — always reserve space */}

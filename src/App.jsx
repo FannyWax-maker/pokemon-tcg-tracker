@@ -511,6 +511,9 @@ export default function App() {
     filteredData.data.forEach(pokemon => {
       pokemon.cards.filter(c => {
         if (!c.isSecondary && c.isPrimary !== false && (c.setCode || c.jpSetCode || c.cnSetCode)) return true;
+        // In cameos mode, also include secondary cards so trainer/non-pokemon cards appear in cards view
+        // They'll be deduplicated by card ID below
+        if (appMode === 'cameos' && c.isSecondary && (c.setCode || c.jpSetCode)) return true;
         if (searchQuery.trim() && c.isSecondary) { const q = searchQuery.trim().toLowerCase(); return pokemon.name.toLowerCase().includes(q); }
         return false;
       }).forEach(card => {
@@ -543,6 +546,11 @@ export default function App() {
       });
     });
     if (sortBy === 'featured_desc') { cards.sort((a, b) => (b.otherPokemon || []).length - (a.otherPokemon || []).length); }
+    // In cameos mode deduplicate by card ID — same card may appear under multiple featured Pokémon
+    if (appMode === 'cameos') {
+      const seen = new Set();
+      return cards.filter(c => { if (seen.has(c.id)) return false; seen.add(c.id); return true; });
+    }
     else if (sortBy === 'featured_asc') { cards.sort((a, b) => (a.otherPokemon || []).length - (b.otherPokemon || []).length); }
     else if (sortBy === 'release_desc') { cards.sort((a, b) => { const score = (c) => { const d = setNamesLC[(c.setCode||"").toLowerCase()] || setNamesLC[(c.jpSetCode||"").toLowerCase()] || setNamesLC[(c.cnSetCode||"").toLowerCase()] || {}; return (d.year||0)*100+(d.month||0); }; return score(b) - score(a); }); }
     else if (sortBy === 'release_asc') { cards.sort((a, b) => { const score = (c) => { const d = setNamesLC[(c.setCode||"").toLowerCase()] || setNamesLC[(c.jpSetCode||"").toLowerCase()] || setNamesLC[(c.cnSetCode||"").toLowerCase()] || {}; return (d.year||9999)*100+(d.month||99); }; return score(a) - score(b); }); }
@@ -647,7 +655,7 @@ export default function App() {
                 onClick={() => { setAppMode('fullart'); localStorage.setItem('appMode', 'fullart'); }}
                 className={`px-2.5 py-1 rounded-full transition-colors ${appMode === 'fullart' ? 'text-white' : 'text-gray-500'}`}
                 style={appMode === 'fullart' ? {background: 'linear-gradient(135deg, #ef4444, #dc2626)'} : {}}
-              >Full Art</button>
+              >Illustrations</button>
               <button
                 onClick={() => { setAppMode('cameos'); localStorage.setItem('appMode', 'cameos'); }}
                 className={`px-2.5 py-1 rounded-full transition-colors ${appMode === 'cameos' ? 'text-white' : 'text-gray-500'}`}
