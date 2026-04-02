@@ -425,11 +425,11 @@
     "year": 2021,
     "month": 10
   },
-  "N1": {
-    "name": "Gold, Silver, to a New World...",
-    "series": "",
-    "year": null,
-    "month": null
+  "NG": {
+    "name": "Neo Genesis",
+    "series": "Neo",
+    "year": 2000,
+    "month": 12
   },
   "N2": {
     "name": "Neo Discovery",
@@ -437,13 +437,13 @@
     "year": 2001,
     "month": 6
   },
-  "N3": {
+  "NR": {
     "name": "Neo Revelation",
     "series": "Neo",
     "year": 2001,
     "month": 9
   },
-  "N4": {
+  "NDE": {
     "name": "Neo Destiny",
     "series": "Neo",
     "year": 2002,
@@ -461,17 +461,71 @@
     "year": 2003,
     "month": 1
   },
+  "SK": {
+    "name": "Skyridge",
+    "series": "e-Card Series",
+    "year": 2003,
+    "month": 5
+  },
+  "NP": {
+    "name": "Nintendo Black Star Promos",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "SS": {
+    "name": "EX Sandstorm",
+    "series": "EX Ruby & Sapphire Series",
+    "year": 2003,
+    "month": 9
+  },
+  "DR": {
+    "name": "EX Dragon",
+    "series": "EX Ruby & Sapphire Series",
+    "year": 2003,
+    "month": 9
+  },
+  "TRR": {
+    "name": "EX Team Rocket Returns",
+    "series": "EX Ruby & Sapphire Series",
+    "year": 2004,
+    "month": 11
+  },
   "DX": {
     "name": "EX Deoxys",
     "series": "EX Ruby & Sapphire Series",
     "year": 2005,
     "month": 2
   },
+  "POP2": {
+    "name": "POP Series 2",
+    "series": "EX Ruby & Sapphire Series",
+    "year": null,
+    "month": null
+  },
+  "UF": {
+    "name": "EX Unseen Forces",
+    "series": "EX Ruby & Sapphire Series",
+    "year": 2005,
+    "month": 8
+  },
+  "DS": {
+    "name": "EX Delta Species",
+    "series": "EX Ruby & Sapphire Series",
+    "year": 2005,
+    "month": 10
+  },
   "HP": {
     "name": "Holon Phantoms",
     "series": "EX Ruby & Sapphire Series",
     "year": 2006,
     "month": 5
+  },
+  "POP4": {
+    "name": "POP Series 4",
+    "series": "POP Series",
+    "year": null,
+    "month": null
   },
   "DF": {
     "name": "Dragon Frontiers",
@@ -485,6 +539,18 @@
     "year": null,
     "month": null
   },
+  "DPPR": {
+    "name": "Diamond & Pearl Promos",
+    "series": "Diamond And Pearl",
+    "year": null,
+    "month": null
+  },
+  "DP": {
+    "name": "Diamond & Pearl",
+    "series": "Diamond And Pearl",
+    "year": 2007,
+    "month": 5
+  },
   "MT": {
     "name": "Mysterious Treasures",
     "series": "",
@@ -497,11 +563,29 @@
     "year": 2007,
     "month": 11
   },
+  "GE": {
+    "name": "Great Encounters",
+    "series": "",
+    "year": 2008,
+    "month": 2
+  },
   "MD": {
     "name": "Majestic Dawn",
     "series": "",
     "year": 2008,
     "month": 5
+  },
+  "LA": {
+    "name": "Legends Awakened",
+    "series": "",
+    "year": 2008,
+    "month": 8
+  },
+  "STF": {
+    "name": "Stormfront",
+    "series": "",
+    "year": 2008,
+    "month": 11
   },
   "AR": {
     "name": "Arceus",
@@ -527,11 +611,23 @@
     "year": 2000,
     "month": 2
   },
+  "FO": {
+    "name": "Fossil",
+    "series": "",
+    "year": 1999,
+    "month": 10
+  },
   "BS": {
     "name": "Base Set",
     "series": "",
     "year": 1999,
     "month": 1
+  },
+  "WP": {
+    "name": "Wizards Black Star Promos",
+    "series": "",
+    "year": null,
+    "month": null
   },
   "SI": {
     "name": "Start Deck 100",
@@ -1223,8 +1319,20 @@
     "year": null,
     "month": null
   },
+  "N3": {
+    "name": "Awakening Legends",
+    "series": "",
+    "year": null,
+    "month": null
+  },
   "SI-JP": {
     "name": "Southern Island JP",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "N1": {
+    "name": "Gold, Silver, to a New World...",
     "series": "",
     "year": null,
     "month": null
@@ -1240,6 +1348,198 @@
     "series": "",
     "year": null,
     "month": null
+  },
+  "EC2": {
+    "name": "The Town On No Map",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "G2": {
+    "name": "Challenge from the Darkness",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "EXP": {
+    "name": "Expansion Pack",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "XY8B": {
+    "name": "Blue Shock",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "EC1": {
+    "name": "Base Expansion Pack",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "EC5": {
+    "name": "Mysterious Mountains",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "G1": {
+    "name": "Leaders' Stadium",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "N4": {
+    "name": "Darkness, and to Light",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "PCG2": {
+    "name": "Clash of the Blue Sky",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "DP1": {
+    "name": "Space-Time Creation",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "PCG-P": {
+    "name": "PCG Promos",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "PF3": {
+    "name": "Neo Premium File 3",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "PCG9": {
+    "name": "Offense and Defense of the Furthest Ends",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "DP5T": {
+    "name": "Temple of Anger",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "PTPK": {
+    "name": "Pikachu DPt Half Deck",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "EC4": {
+    "name": "Split Earth",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "EC3": {
+    "name": "Wind from the Sea",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "WCP": {
+    "name": "World Championship Pack",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "DP2": {
+    "name": "Secret of the Lakes",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "PCG3": {
+    "name": "Rocket Gang Strikes Back",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "VS": {
+    "name": "Pokémon Card VS",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "MFO": {
+    "name": "Mystery of the Fossils",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "ADV2": {
+    "name": "Miracle Of The Desert",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "ADV3": {
+    "name": "Rulers Of The Heavens",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "DP4M": {
+    "name": "Moonlit Pursuit",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "PCG4": {
+    "name": "Golden Sky, Silvery Ocean",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "PCG6": {
+    "name": "Holon Research Tower",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "CP2": {
+    "name": "Legendary Shine Collection",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "T-P": {
+    "name": "T Promos",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "P-P": {
+    "name": "P Promos",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "J-P": {
+    "name": "J Promos",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "NW-P": {
+    "name": "Natta Wake Promo",
+    "series": "",
+    "year": 2000,
+    "month": 8
   },
   "CSGC": {
     "name": "Eevee Display Frame Box",
