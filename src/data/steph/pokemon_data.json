@@ -32,6 +32,38 @@
           "Whooper"
         ],
         "pokemonId": 1
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Pokémon Valley",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Pikachu",
+          "Togepi",
+          "Bulbasaur",
+          "Squirtle",
+          "Psyduck",
+          "Marill",
+          "Elekid",
+          "Venonat"
+        ],
+        "pokemonId": 1
       }
     ]
   },
@@ -177,7 +209,37 @@
     "name": "Charizard",
     "gen": 1,
     "region": "Kanto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "New Year Present",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Dragonite",
+          "Charizard",
+          "Gyarados",
+          "Horsea",
+          "Dratini"
+        ],
+        "pokemonId": 6
+      }
+    ]
   },
   {
     "id": 7,
@@ -210,6 +272,38 @@
           "Hoothoot",
           "Bulbasaur",
           "Whooper"
+        ],
+        "pokemonId": 7
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Pokémon Valley",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Pikachu",
+          "Togepi",
+          "Bulbasaur",
+          "Squirtle",
+          "Psyduck",
+          "Marill",
+          "Elekid",
+          "Venonat"
         ],
         "pokemonId": 7
       }
@@ -256,6 +350,52 @@
     "gen": 1,
     "region": "Kanto",
     "cards": [
+      {
+        "id": "cameo_b2_107-130",
+        "cardName": "Scoop Up",
+        "setCode": "B2",
+        "number": "107/130",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "107/130",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 13
+      },
+      {
+        "id": "cameo_b2_120-130",
+        "cardName": "Gust of Wind",
+        "setCode": "B2",
+        "number": "120/130",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "120/130",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 13
+      },
       {
         "id": "cameo_fossil_058-062",
         "cardName": "Mr. Fuji",
@@ -456,7 +596,77 @@
     "name": "Spearow",
     "gen": 1,
     "region": "Kanto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_ros_001-104",
+        "cardName": "Exeggcute",
+        "setCode": "ROS",
+        "number": "001/104",
+        "jpSetCode": null,
+        "jpNumber": "001/078",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "001/104",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 21
+      },
+      {
+        "id": "cameo_ros_002-104",
+        "cardName": "Exeggutor",
+        "setCode": "ROS",
+        "number": "002/104",
+        "jpSetCode": null,
+        "jpNumber": "002/078",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "002/104",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 21
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Sunkern",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 21
+      }
+    ]
   },
   {
     "id": 22,
@@ -509,6 +719,34 @@
     "gen": 1,
     "region": "Kanto",
     "cards": [
+      {
+        "id": "cameo_gh_117-132",
+        "cardName": "Sabrina's ESP",
+        "setCode": "GH",
+        "number": "117/132",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "117/132",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Clefairy",
+          "Oddish",
+          "Poliwrath",
+          "Pikachu"
+        ],
+        "pokemonId": 25
+      },
       {
         "id": "cameo_fossil_058-062",
         "cardName": "Mr. Fuji",
@@ -622,6 +860,34 @@
         "pokemonId": 25
       },
       {
+        "id": "cameo_unp_n-a",
+        "cardName": "Arceus",
+        "setCode": "UNP",
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Luvdisc",
+          "Phione",
+          "Pikachu"
+        ],
+        "pokemonId": 25
+      },
+      {
         "id": "cameo_flashfire_093-106",
         "cardName": "Pokémon Center Lady",
         "setCode": "FLASHFIRE",
@@ -707,7 +973,31 @@
     "name": "Nidoking",
     "gen": 1,
     "region": "Kanto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_gc_105-132",
+        "cardName": "Giovanni's Last Resort",
+        "setCode": "GC",
+        "number": "105/132",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "105/132",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 34
+      }
+    ]
   },
   {
     "id": 35,
@@ -715,6 +1005,57 @@
     "gen": 1,
     "region": "Kanto",
     "cards": [
+      {
+        "id": "cameo_bs_070-102",
+        "cardName": "Clefairy Doll",
+        "setCode": "BS",
+        "number": "070/102",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "070/102",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 35
+      },
+      {
+        "id": "cameo_gh_117-132",
+        "cardName": "Sabrina's ESP",
+        "setCode": "GH",
+        "number": "117/132",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "117/132",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Clefairy",
+          "Oddish",
+          "Poliwrath",
+          "Pikachu"
+        ],
+        "pokemonId": 35
+      },
       {
         "id": "cameo_breakpoint_051-122",
         "cardName": "Hypno",
@@ -815,6 +1156,33 @@
         "isSecondary": false,
         "otherPokemon": null,
         "pokemonId": 39
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Spiky-eared Pichu M",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Roselia",
+          "Budew",
+          "Jigglypuff"
+        ],
+        "pokemonId": 39
       }
     ]
   },
@@ -830,21 +1198,124 @@
     "name": "Zubat",
     "gen": 1,
     "region": "Kanto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_gh_126-132",
+        "cardName": "Trash Exchange",
+        "setCode": "GH",
+        "number": "126/132",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "126/132",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 41
+      }
+    ]
   },
   {
     "id": 42,
     "name": "Golbat",
     "gen": 1,
     "region": "Kanto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_gc_115-132",
+        "cardName": "Koga's Ninja Trick",
+        "setCode": "GC",
+        "number": "115/132",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "115/132",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Golbat",
+          "Ditto?"
+        ],
+        "pokemonId": 42
+      }
+    ]
   },
   {
     "id": 43,
     "name": "Oddish",
     "gen": 1,
     "region": "Kanto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_gh_117-132",
+        "cardName": "Sabrina's ESP",
+        "setCode": "GH",
+        "number": "117/132",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "117/132",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Clefairy",
+          "Oddish",
+          "Poliwrath",
+          "Pikachu"
+        ],
+        "pokemonId": 43
+      },
+      {
+        "id": "cameo_gc_126-132",
+        "cardName": "Warp Point",
+        "setCode": "GC",
+        "number": "126/132",
+        "jpSetCode": null,
+        "jpNumber": "135/141",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "126/132",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 43
+      }
+    ]
   },
   {
     "id": 44,
@@ -960,6 +1431,38 @@
           "Onix"
         ],
         "pokemonId": 48
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Pokémon Valley",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Pikachu",
+          "Togepi",
+          "Bulbasaur",
+          "Squirtle",
+          "Psyduck",
+          "Marill",
+          "Elekid",
+          "Venonat"
+        ],
+        "pokemonId": 48
       }
     ]
   },
@@ -1000,7 +1503,54 @@
     "name": "Diglett",
     "gen": 1,
     "region": "Kanto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_hp_089-120",
+        "cardName": "Professor Cozmo's Discovery",
+        "setCode": "HP",
+        "number": "089/120",
+        "jpSetCode": null,
+        "jpNumber": "076/082",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "089/120",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 50
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Lucky Stadium",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 50
+      }
+    ]
   },
   {
     "id": 51,
@@ -1014,7 +1564,49 @@
     "name": "Meowth",
     "gen": 1,
     "region": "Kanto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Captain Pikachu",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Piplup",
+          "Pikachu",
+          "Turtwig",
+          "Cacnea",
+          "Spinda",
+          "Munchlax",
+          "Manaphy",
+          "Wingull",
+          "Chinchou",
+          "Chimchar",
+          "Aipom",
+          "Kirila",
+          "Treeko",
+          "Pelliper",
+          "Lumineon",
+          "Tentacool",
+          "Meowth"
+        ],
+        "pokemonId": 52
+      }
+    ]
   },
   {
     "id": 53,
@@ -1029,6 +1621,29 @@
     "gen": 1,
     "region": "Kanto",
     "cards": [
+      {
+        "id": "cameo_gc_121-132",
+        "cardName": "Sabrina's Psychic Control",
+        "setCode": "GC",
+        "number": "121/132",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "121/132",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 54
+      },
       {
         "id": "cameo_si_014-018",
         "cardName": "Slowking",
@@ -1055,6 +1670,38 @@
           "Psyduck"
         ],
         "pokemonId": 54
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Pokémon Valley",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Pikachu",
+          "Togepi",
+          "Bulbasaur",
+          "Squirtle",
+          "Psyduck",
+          "Marill",
+          "Elekid",
+          "Venonat"
+        ],
+        "pokemonId": 54
       }
     ]
   },
@@ -1070,7 +1717,31 @@
     "name": "Mankey",
     "gen": 1,
     "region": "Kanto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_sts_053-114",
+        "cardName": "Primeape",
+        "setCode": "STS",
+        "number": "053/114",
+        "jpSetCode": null,
+        "jpNumber": "025/054",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "053/114",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 56
+      }
+    ]
   },
   {
     "id": 57,
@@ -1141,7 +1812,36 @@
     "name": "Poliwrath",
     "gen": 1,
     "region": "Kanto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_gh_117-132",
+        "cardName": "Sabrina's ESP",
+        "setCode": "GH",
+        "number": "117/132",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "117/132",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Clefairy",
+          "Oddish",
+          "Poliwrath",
+          "Pikachu"
+        ],
+        "pokemonId": 62
+      }
+    ]
   },
   {
     "id": 63,
@@ -1162,14 +1862,62 @@
     "name": "Alakazam",
     "gen": 1,
     "region": "Kanto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_fco_063-124",
+        "cardName": "Lucario",
+        "setCode": "FCO",
+        "number": "063/124",
+        "jpSetCode": null,
+        "jpNumber": "050/078",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "063/124",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 65
+      }
+    ]
   },
   {
     "id": 66,
     "name": "Machop",
     "gen": 1,
     "region": "Kanto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_n1_086-111",
+        "cardName": "Focus Band",
+        "setCode": null,
+        "number": "086/111",
+        "jpSetCode": "N1",
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "086/111",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 66
+      }
+    ]
   },
   {
     "id": 67,
@@ -1268,7 +2016,49 @@
     "name": "Tentacool",
     "gen": 1,
     "region": "Kanto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Captain Pikachu",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Piplup",
+          "Pikachu",
+          "Turtwig",
+          "Cacnea",
+          "Spinda",
+          "Munchlax",
+          "Manaphy",
+          "Wingull",
+          "Chinchou",
+          "Chimchar",
+          "Aipom",
+          "Kirila",
+          "Treeko",
+          "Pelliper",
+          "Lumineon",
+          "Tentacool",
+          "Meowth"
+        ],
+        "pokemonId": 72
+      }
+    ]
   },
   {
     "id": 73,
@@ -1420,6 +2210,29 @@
     "region": "Kanto",
     "cards": [
       {
+        "id": "cameo_n1_100-113",
+        "cardName": "Super Scoop Up",
+        "setCode": null,
+        "number": "100/113",
+        "jpSetCode": "N1",
+        "jpNumber": "136/141",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "100/113",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 81
+      },
+      {
         "id": "cameo_base_095-102",
         "cardName": "Switch",
         "setCode": "BASE",
@@ -1442,6 +2255,35 @@
         "otherPokemon": [
           "Magnemite",
           "Kakuna"
+        ],
+        "pokemonId": 81
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Spiky-eared Pichu M",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Piplup",
+          "Cyndaquil",
+          "Magnemite",
+          "Venonat",
+          "Voltorb"
         ],
         "pokemonId": 81
       }
@@ -1612,7 +2454,31 @@
     "name": "Haunter",
     "gen": 1,
     "region": "Kanto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Hoppip",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 93
+      }
+    ]
   },
   {
     "id": 94,
@@ -1653,6 +2519,29 @@
           "Mew",
           "Onix"
         ],
+        "pokemonId": 95
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Lucky Stadium",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
         "pokemonId": 95
       }
     ]
@@ -1741,6 +2630,35 @@
           "Voltorb"
         ],
         "pokemonId": 100
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Spiky-eared Pichu M",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Piplup",
+          "Cyndaquil",
+          "Magnemite",
+          "Venonat",
+          "Voltorb"
+        ],
+        "pokemonId": 100
       }
     ]
   },
@@ -1785,6 +2703,32 @@
         "isPrimary": true,
         "isSecondary": false,
         "otherPokemon": null,
+        "pokemonId": 103
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Lucky Stadium",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Exeggutor",
+          "Staryu"
+        ],
         "pokemonId": 103
       }
     ]
@@ -1871,6 +2815,33 @@
           "Hitmonchan"
         ],
         "pokemonId": 107
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Pokémon Pal City",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Pikachu",
+          "Hitmonchan",
+          "Magikarp"
+        ],
+        "pokemonId": 107
       }
     ]
   },
@@ -1916,7 +2887,54 @@
     "name": "Koffing",
     "gen": 1,
     "region": "Kanto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_gc_125-132",
+        "cardName": "Transparent Walls",
+        "setCode": "GC",
+        "number": "125/132",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "125/132",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 109
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Koga's Ninja Gym",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 109
+      }
+    ]
   },
   {
     "id": 110,
@@ -1989,6 +3007,35 @@
         "isSecondary": false,
         "otherPokemon": null,
         "pokemonId": 116
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "New Year Present",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Dragonite",
+          "Charizard",
+          "Gyarados",
+          "Horsea",
+          "Dratini"
+        ],
+        "pokemonId": 116
       }
     ]
   },
@@ -2018,7 +3065,34 @@
     "name": "Staryu",
     "gen": 1,
     "region": "Kanto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Lucky Stadium",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Exeggutor",
+          "Staryu"
+        ],
+        "pokemonId": 120
+      }
+    ]
   },
   {
     "id": 121,
@@ -2046,7 +3120,31 @@
     "name": "Jynx",
     "gen": 1,
     "region": "Kanto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_gc_081-132",
+        "cardName": "Koga's Tangela",
+        "setCode": "GC",
+        "number": "081/132",
+        "jpSetCode": null,
+        "jpNumber": "114",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "081/132",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 124
+      }
+    ]
   },
   {
     "id": 125,
@@ -2067,14 +3165,62 @@
     "name": "Pinsir",
     "gen": 1,
     "region": "Kanto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_n1_006-111",
+        "cardName": "Heracross",
+        "setCode": "N1",
+        "number": "006/111",
+        "jpSetCode": null,
+        "jpNumber": "214",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "006/111",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 127
+      }
+    ]
   },
   {
     "id": 128,
     "name": "Tauros",
     "gen": 1,
     "region": "Kanto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_n1_041-111",
+        "cardName": "Miltank",
+        "setCode": null,
+        "number": "041/111",
+        "jpSetCode": "N1",
+        "jpNumber": "241",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "041/111",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 128
+      }
+    ]
   },
   {
     "id": 129,
@@ -2105,6 +3251,33 @@
         "isSecondary": false,
         "otherPokemon": null,
         "pokemonId": 129
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Pokémon Pal City",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Pikachu",
+          "Hitmonchan",
+          "Magikarp"
+        ],
+        "pokemonId": 129
       }
     ]
   },
@@ -2113,14 +3286,62 @@
     "name": "Gyarados",
     "gen": 1,
     "region": "Kanto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Lucky Stadium",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 130
+      }
+    ]
   },
   {
     "id": 131,
     "name": "Lapras",
     "gen": 1,
     "region": "Kanto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Misty's Treatment",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 131
+      }
+    ]
   },
   {
     "id": 132,
@@ -2204,7 +3425,35 @@
     "name": "Snorlax",
     "gen": 1,
     "region": "Kanto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "New Century Present",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Celebi",
+          "Snorlax",
+          "Togepi"
+        ],
+        "pokemonId": 143
+      }
+    ]
   },
   {
     "id": 144,
@@ -2261,6 +3510,33 @@
         "isSecondary": false,
         "otherPokemon": [
           "Zapdos",
+          "Articuno"
+        ],
+        "pokemonId": 144
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Lawrence III",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Zapdos",
+          "Moltres",
           "Articuno"
         ],
         "pokemonId": 144
@@ -2351,6 +3627,33 @@
           "Moltres"
         ],
         "pokemonId": 145
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Lawrence III",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Zapdos",
+          "Moltres",
+          "Articuno"
+        ],
+        "pokemonId": 145
       }
     ]
   },
@@ -2412,6 +3715,33 @@
           "Moltres"
         ],
         "pokemonId": 146
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Lawrence III",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Zapdos",
+          "Moltres",
+          "Articuno"
+        ],
+        "pokemonId": 146
       }
     ]
   },
@@ -2444,6 +3774,35 @@
         "isSecondary": false,
         "otherPokemon": null,
         "pokemonId": 147
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "New Year Present",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Dragonite",
+          "Charizard",
+          "Gyarados",
+          "Horsea",
+          "Dratini"
+        ],
+        "pokemonId": 147
       }
     ]
   },
@@ -2461,10 +3820,10 @@
     "region": "Kanto",
     "cards": [
       {
-        "id": "cameo_sm-p_320-sm-p",
+        "id": "cameo_sm-p_n-a",
         "cardName": "Abareru-kun",
         "setCode": null,
-        "number": null,
+        "number": "N/A",
         "jpSetCode": "SM-P",
         "jpNumber": "320/SM-P",
         "cnSetCode": null,
@@ -2473,7 +3832,7 @@
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "320/SM-P",
+        "setNumber": "N/A",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -2538,6 +3897,35 @@
         "isSecondary": false,
         "otherPokemon": null,
         "pokemonId": 149
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "New Year Present",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Dragonite",
+          "Charizard",
+          "Gyarados",
+          "Horsea",
+          "Dratini"
+        ],
+        "pokemonId": 149
       }
     ]
   },
@@ -2581,6 +3969,30 @@
           "Onix"
         ],
         "pokemonId": 151
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Ancient Mew",
+        "setCode": "UNP",
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 151
       }
     ]
   },
@@ -2590,6 +4002,88 @@
     "gen": 2,
     "region": "Johto",
     "cards": [
+      {
+        "id": "cameo_fco_010-124",
+        "cardName": "Fennekin",
+        "setCode": "FCO",
+        "number": "010/124",
+        "jpSetCode": null,
+        "jpNumber": "009/078",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "010/124",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 152
+      },
+      {
+        "id": "cameo_df_079-101",
+        "cardName": "Professor Elm's Training Method",
+        "setCode": "DF",
+        "number": "079/101",
+        "jpSetCode": null,
+        "jpNumber": "049/128",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "079/101",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Totodile",
+          "Chikorita",
+          "Cyndaquil"
+        ],
+        "pokemonId": 152
+      },
+      {
+        "id": "cameo_n1_102-111",
+        "cardName": "Pokémon March",
+        "setCode": null,
+        "number": "102/111",
+        "jpSetCode": "N1",
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "102/111",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Hoppip",
+          "Murkrow",
+          "Cyndaquil",
+          "Hoothoot",
+          "Chikorita",
+          "Mareep",
+          "Sentret",
+          "Totodile"
+        ],
+        "pokemonId": 152
+      },
       {
         "id": "cameo_lot_188-214",
         "cardName": "Professor Elm's Lecture",
@@ -2640,6 +4134,88 @@
     "region": "Johto",
     "cards": [
       {
+        "id": "cameo_df_079-101",
+        "cardName": "Professor Elm's Training Method",
+        "setCode": "DF",
+        "number": "079/101",
+        "jpSetCode": null,
+        "jpNumber": "049/128",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "079/101",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Totodile",
+          "Chikorita",
+          "Cyndaquil"
+        ],
+        "pokemonId": 155
+      },
+      {
+        "id": "cameo_n1_102-111",
+        "cardName": "Pokémon March",
+        "setCode": null,
+        "number": "102/111",
+        "jpSetCode": "N1",
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "102/111",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Hoppip",
+          "Murkrow",
+          "Cyndaquil",
+          "Hoothoot",
+          "Chikorita",
+          "Mareep",
+          "Sentret",
+          "Totodile"
+        ],
+        "pokemonId": 155
+      },
+      {
+        "id": "cameo_n1_096-111",
+        "cardName": "Professor Elm",
+        "setCode": null,
+        "number": "096/111",
+        "jpSetCode": "N1",
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "096/111",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 155
+      },
+      {
         "id": "cameo_lot_188-214",
         "cardName": "Professor Elm's Lecture",
         "setCode": "LOT",
@@ -2665,6 +4241,35 @@
           "Cyndaquil"
         ],
         "pokemonId": 155
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Spiky-eared Pichu M",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Piplup",
+          "Cyndaquil",
+          "Magnemite",
+          "Venonat",
+          "Voltorb"
+        ],
+        "pokemonId": 155
       }
     ]
   },
@@ -2688,6 +4293,65 @@
     "gen": 2,
     "region": "Johto",
     "cards": [
+      {
+        "id": "cameo_df_079-101",
+        "cardName": "Professor Elm's Training Method",
+        "setCode": "DF",
+        "number": "079/101",
+        "jpSetCode": null,
+        "jpNumber": "049/128",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "079/101",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Totodile",
+          "Chikorita",
+          "Cyndaquil"
+        ],
+        "pokemonId": 158
+      },
+      {
+        "id": "cameo_n1_102-111",
+        "cardName": "Pokémon March",
+        "setCode": null,
+        "number": "102/111",
+        "jpSetCode": "N1",
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "102/111",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Hoppip",
+          "Murkrow",
+          "Cyndaquil",
+          "Hoothoot",
+          "Chikorita",
+          "Mareep",
+          "Sentret",
+          "Totodile"
+        ],
+        "pokemonId": 158
+      },
       {
         "id": "cameo_lot_188-214",
         "cardName": "Professor Elm's Lecture",
@@ -2736,7 +4400,91 @@
     "name": "Sentret",
     "gen": 2,
     "region": "Johto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_n1_100-111",
+        "cardName": "Double Gust",
+        "setCode": null,
+        "number": "100/111",
+        "jpSetCode": "N1",
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "100/111",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Hoppip",
+          "Sentret",
+          "Hoothoot",
+          "Mareep"
+        ],
+        "pokemonId": 161
+      },
+      {
+        "id": "cameo_n1_n-a",
+        "cardName": "Moo-Moo Milk",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "N1",
+        "jpNumber": "N1",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 161
+      },
+      {
+        "id": "cameo_n1_102-111",
+        "cardName": "Pokémon March",
+        "setCode": null,
+        "number": "102/111",
+        "jpSetCode": "N1",
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "102/111",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Hoppip",
+          "Murkrow",
+          "Cyndaquil",
+          "Hoothoot",
+          "Chikorita",
+          "Mareep",
+          "Sentret",
+          "Totodile"
+        ],
+        "pokemonId": 161
+      }
+    ]
   },
   {
     "id": 162,
@@ -2751,6 +4499,66 @@
     "gen": 2,
     "region": "Johto",
     "cards": [
+      {
+        "id": "cameo_n1_100-111",
+        "cardName": "Double Gust",
+        "setCode": null,
+        "number": "100/111",
+        "jpSetCode": "N1",
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "100/111",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Hoppip",
+          "Sentret",
+          "Hoothoot",
+          "Mareep"
+        ],
+        "pokemonId": 163
+      },
+      {
+        "id": "cameo_n1_102-111",
+        "cardName": "Pokémon March",
+        "setCode": null,
+        "number": "102/111",
+        "jpSetCode": "N1",
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "102/111",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Hoppip",
+          "Murkrow",
+          "Cyndaquil",
+          "Hoothoot",
+          "Chikorita",
+          "Mareep",
+          "Sentret",
+          "Totodile"
+        ],
+        "pokemonId": 163
+      },
       {
         "id": "cameo_aquapolis_136-147",
         "cardName": "Town Volunteers",
@@ -2828,7 +4636,49 @@
     "name": "Chinchou",
     "gen": 2,
     "region": "Johto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Captain Pikachu",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Piplup",
+          "Pikachu",
+          "Turtwig",
+          "Cacnea",
+          "Spinda",
+          "Munchlax",
+          "Manaphy",
+          "Wingull",
+          "Chinchou",
+          "Chimchar",
+          "Aipom",
+          "Kirila",
+          "Treeko",
+          "Pelliper",
+          "Lumineon",
+          "Tentacool",
+          "Meowth"
+        ],
+        "pokemonId": 170
+      }
+    ]
   },
   {
     "id": 171,
@@ -2868,6 +4718,34 @@
           "Growlithe",
           "Pichu",
           "Machoke"
+        ],
+        "pokemonId": 172
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Arceus",
+        "setCode": "UNP",
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Pikachu",
+          "Pichu",
+          "Piplup"
         ],
         "pokemonId": 172
       }
@@ -2919,6 +4797,33 @@
           "Raticate",
           "Slowpoke",
           "Pikachu"
+        ],
+        "pokemonId": 175
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "New Century Present",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Celebi",
+          "Snorlax",
+          "Togepi"
         ],
         "pokemonId": 175
       }
@@ -2974,7 +4879,68 @@
     "name": "Mareep",
     "gen": 2,
     "region": "Johto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_n1_100-111",
+        "cardName": "Double Gust",
+        "setCode": null,
+        "number": "100/111",
+        "jpSetCode": "N1",
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "100/111",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Hoppip",
+          "Sentret",
+          "Hoothoot",
+          "Mareep"
+        ],
+        "pokemonId": 179
+      },
+      {
+        "id": "cameo_n1_102-111",
+        "cardName": "Pokémon March",
+        "setCode": null,
+        "number": "102/111",
+        "jpSetCode": "N1",
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "102/111",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Hoppip",
+          "Murkrow",
+          "Cyndaquil",
+          "Hoothoot",
+          "Chikorita",
+          "Mareep",
+          "Sentret",
+          "Totodile"
+        ],
+        "pokemonId": 179
+      }
+    ]
   },
   {
     "id": 180,
@@ -3002,7 +4968,40 @@
     "name": "Marill",
     "gen": 2,
     "region": "Johto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Pokémon Valley",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Pikachu",
+          "Togepi",
+          "Bulbasaur",
+          "Squirtle",
+          "Psyduck",
+          "Marill",
+          "Elekid",
+          "Venonat"
+        ],
+        "pokemonId": 183
+      }
+    ]
   },
   {
     "id": 184,
@@ -3031,6 +5030,66 @@
     "gen": 2,
     "region": "Johto",
     "cards": [
+      {
+        "id": "cameo_n1_100-111",
+        "cardName": "Double Gust",
+        "setCode": null,
+        "number": "100/111",
+        "jpSetCode": "N1",
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "100/111",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Hoppip",
+          "Sentret",
+          "Hoothoot",
+          "Mareep"
+        ],
+        "pokemonId": 187
+      },
+      {
+        "id": "cameo_n1_102-111",
+        "cardName": "Pokémon March",
+        "setCode": null,
+        "number": "102/111",
+        "jpSetCode": "N1",
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "102/111",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Hoppip",
+          "Murkrow",
+          "Cyndaquil",
+          "Hoothoot",
+          "Chikorita",
+          "Mareep",
+          "Sentret",
+          "Totodile"
+        ],
+        "pokemonId": 187
+      },
       {
         "id": "cameo_smp_sm234",
         "cardName": "Pikachu",
@@ -3079,7 +5138,72 @@
     "name": "Aipom",
     "gen": 2,
     "region": "Johto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_ex_072-165",
+        "cardName": "Chansey",
+        "setCode": "EX",
+        "number": "072/165",
+        "jpSetCode": null,
+        "jpNumber": "047/128",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "072/165",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 190
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Captain Pikachu",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Piplup",
+          "Pikachu",
+          "Turtwig",
+          "Cacnea",
+          "Spinda",
+          "Munchlax",
+          "Manaphy",
+          "Wingull",
+          "Chinchou",
+          "Chimchar",
+          "Aipom",
+          "Kirila",
+          "Treeko",
+          "Pelliper",
+          "Lumineon",
+          "Tentacool",
+          "Meowth"
+        ],
+        "pokemonId": 190
+      }
+    ]
   },
   {
     "id": 191,
@@ -3119,10 +5243,10 @@
     "region": "Johto",
     "cards": [
       {
-        "id": "cameo_sm-p_320-sm-p",
+        "id": "cameo_sm-p_n-a",
         "cardName": "Abareru-kun",
         "setCode": null,
-        "number": null,
+        "number": "N/A",
         "jpSetCode": "SM-P",
         "jpNumber": "320/SM-P",
         "cnSetCode": null,
@@ -3131,7 +5255,7 @@
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "320/SM-P",
+        "setNumber": "N/A",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -3234,7 +5358,40 @@
     "name": "Murkrow",
     "gen": 2,
     "region": "Johto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_n1_102-111",
+        "cardName": "Pokémon March",
+        "setCode": null,
+        "number": "102/111",
+        "jpSetCode": "N1",
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "102/111",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Hoppip",
+          "Murkrow",
+          "Cyndaquil",
+          "Hoothoot",
+          "Chikorita",
+          "Mareep",
+          "Sentret",
+          "Totodile"
+        ],
+        "pokemonId": 198
+      }
+    ]
   },
   {
     "id": 199,
@@ -3353,7 +5510,35 @@
     "name": "Qwilfish",
     "gen": 2,
     "region": "Johto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Pokémon Pal City",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Qwilfish",
+          "Pikachu",
+          "Clamperl"
+        ],
+        "pokemonId": 211
+      }
+    ]
   },
   {
     "id": 212,
@@ -3388,7 +5573,35 @@
     "name": "Teddiursa",
     "gen": 2,
     "region": "Johto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Pokémon Pal City",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Pikachu",
+          "Snover",
+          "Teddiursa"
+        ],
+        "pokemonId": 216
+      }
+    ]
   },
   {
     "id": 217,
@@ -3437,7 +5650,31 @@
     "name": "Remoraid",
     "gen": 2,
     "region": "Johto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_sts_027-114",
+        "cardName": "Mantine",
+        "setCode": "STS",
+        "number": "027/114",
+        "jpSetCode": null,
+        "jpNumber": "014/054",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "027/114",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 223
+      }
+    ]
   },
   {
     "id": 224,
@@ -3458,7 +5695,31 @@
     "name": "Mantine",
     "gen": 2,
     "region": "Johto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_aor_022-098",
+        "cardName": "Vaporeon",
+        "setCode": "AOR",
+        "number": "022/098",
+        "jpSetCode": null,
+        "jpNumber": "022/081",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "022/098",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 226
+      }
+    ]
   },
   {
     "id": 227,
@@ -3542,7 +5803,35 @@
     "name": "Stantler",
     "gen": 2,
     "region": "Johto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Pokémon Pal City",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Meowth",
+          "Stantler",
+          "Pikachu"
+        ],
+        "pokemonId": 234
+      }
+    ]
   },
   {
     "id": 235,
@@ -3661,14 +5950,75 @@
     "name": "Elekid",
     "gen": 2,
     "region": "Johto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Pokémon Valley",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Pikachu",
+          "Togepi",
+          "Bulbasaur",
+          "Squirtle",
+          "Psyduck",
+          "Marill",
+          "Elekid",
+          "Venonat"
+        ],
+        "pokemonId": 239
+      }
+    ]
   },
   {
     "id": 240,
     "name": "Magby",
     "gen": 2,
     "region": "Johto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Pokémon Pal City",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Numel",
+          "Magby",
+          "Pikachu"
+        ],
+        "pokemonId": 240
+      }
+    ]
   },
   {
     "id": 241,
@@ -3731,7 +6081,34 @@
     "name": "Lugia",
     "gen": 2,
     "region": "Johto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Champion's League",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Lugia",
+          "Diagla"
+        ],
+        "pokemonId": 249
+      }
+    ]
   },
   {
     "id": 250,
@@ -3761,6 +6138,29 @@
         "isSecondary": false,
         "otherPokemon": null,
         "pokemonId": 250
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Lucky Stadium",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 250
       }
     ]
   },
@@ -3769,7 +6169,35 @@
     "name": "Celebi",
     "gen": 2,
     "region": "Johto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "New Century Present",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Celebi",
+          "Snorlax",
+          "Togepi"
+        ],
+        "pokemonId": 251
+      }
+    ]
   },
   {
     "id": 252,
@@ -4035,6 +6463,47 @@
         "isSecondary": false,
         "otherPokemon": null,
         "pokemonId": 278
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Captain Pikachu",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Piplup",
+          "Pikachu",
+          "Turtwig",
+          "Cacnea",
+          "Spinda",
+          "Munchlax",
+          "Manaphy",
+          "Wingull",
+          "Chinchou",
+          "Chimchar",
+          "Aipom",
+          "Kirila",
+          "Treeko",
+          "Pelliper",
+          "Lumineon",
+          "Tentacool",
+          "Meowth"
+        ],
+        "pokemonId": 278
       }
     ]
   },
@@ -4267,14 +6736,62 @@
     "name": "Plusle",
     "gen": 3,
     "region": "Hoenn",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_dx_041-107",
+        "cardName": "Minun",
+        "setCode": "DX",
+        "number": "041/107",
+        "jpSetCode": null,
+        "jpNumber": "035/082",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "041/107",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 311
+      }
+    ]
   },
   {
     "id": 312,
     "name": "Minun",
     "gen": 3,
     "region": "Hoenn",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_dx_044-107",
+        "cardName": "Plusle",
+        "setCode": "DX",
+        "number": "044/107",
+        "jpSetCode": null,
+        "jpNumber": "034/082",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "044/107",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 312
+      }
+    ]
   },
   {
     "id": 313,
@@ -4295,7 +6812,35 @@
     "name": "Roselia",
     "gen": 3,
     "region": "Hoenn",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Spiky-eared Pichu M",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Roselia",
+          "Budew",
+          "Jigglypuff"
+        ],
+        "pokemonId": 315
+      }
+    ]
   },
   {
     "id": 316,
@@ -4330,7 +6875,31 @@
     "name": "Wailmer",
     "gen": 3,
     "region": "Hoenn",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_pop5_012-017",
+        "cardName": "Pikachu",
+        "setCode": "POP5",
+        "number": "012/017",
+        "jpSetCode": null,
+        "jpNumber": "153/PCG-P",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "012/017",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 320
+      }
+    ]
   },
   {
     "id": 321,
@@ -4344,7 +6913,35 @@
     "name": "Numel",
     "gen": 3,
     "region": "Hoenn",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Pokémon Pal City",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Numel",
+          "Magby",
+          "Pikachu"
+        ],
+        "pokemonId": 322
+      }
+    ]
   },
   {
     "id": 323,
@@ -4365,7 +6962,34 @@
     "name": "Spoink",
     "gen": 3,
     "region": "Hoenn",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_fco_065-124",
+        "cardName": "Jigglypuff",
+        "setCode": "FCO",
+        "number": "065/124",
+        "jpSetCode": null,
+        "jpNumber": "052/078",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "065/124",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Spoink",
+          "Snivy"
+        ],
+        "pokemonId": 325
+      }
+    ]
   },
   {
     "id": 326,
@@ -4379,7 +7003,49 @@
     "name": "Spinda",
     "gen": 3,
     "region": "Hoenn",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Captain Pikachu",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Piplup",
+          "Pikachu",
+          "Turtwig",
+          "Cacnea",
+          "Spinda",
+          "Munchlax",
+          "Manaphy",
+          "Wingull",
+          "Chinchou",
+          "Chimchar",
+          "Aipom",
+          "Kirila",
+          "Treeko",
+          "Pelliper",
+          "Lumineon",
+          "Tentacool",
+          "Meowth"
+        ],
+        "pokemonId": 327
+      }
+    ]
   },
   {
     "id": 328,
@@ -4407,7 +7073,49 @@
     "name": "Cacnea",
     "gen": 3,
     "region": "Hoenn",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Captain Pikachu",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Piplup",
+          "Pikachu",
+          "Turtwig",
+          "Cacnea",
+          "Spinda",
+          "Munchlax",
+          "Manaphy",
+          "Wingull",
+          "Chinchou",
+          "Chimchar",
+          "Aipom",
+          "Kirila",
+          "Treeko",
+          "Pelliper",
+          "Lumineon",
+          "Tentacool",
+          "Meowth"
+        ],
+        "pokemonId": 331
+      }
+    ]
   },
   {
     "id": 332,
@@ -4463,7 +7171,31 @@
     "name": "Barboach",
     "gen": 3,
     "region": "Hoenn",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_dx_057-107",
+        "cardName": "Corphish",
+        "setCode": "DX",
+        "number": "057/107",
+        "jpSetCode": null,
+        "jpNumber": "031/082",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "057/107",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 339
+      }
+    ]
   },
   {
     "id": 340,
@@ -4652,7 +7384,35 @@
     "name": "Clamperl",
     "gen": 3,
     "region": "Hoenn",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Pokémon Pal City",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Qwilfish",
+          "Pikachu",
+          "Clamperl"
+        ],
+        "pokemonId": 366
+      }
+    ]
   },
   {
     "id": 367,
@@ -4680,7 +7440,36 @@
     "name": "Luvdisc",
     "gen": 3,
     "region": "Hoenn",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Arceus",
+        "setCode": "UNP",
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Luvdisc",
+          "Phione",
+          "Pikachu"
+        ],
+        "pokemonId": 370
+      }
+    ]
   },
   {
     "id": 371,
@@ -4809,7 +7598,35 @@
     "name": "Jirachi",
     "gen": 3,
     "region": "Hoenn",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Pokémon Pal City",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Cherrim",
+          "Jirachi",
+          "Pikachu"
+        ],
+        "pokemonId": 385
+      }
+    ]
   },
   {
     "id": 386,
@@ -4824,6 +7641,33 @@
     "gen": 4,
     "region": "Sinnoh",
     "cards": [
+      {
+        "id": "cameo_md_082-100",
+        "cardName": "Fossil Excavator",
+        "setCode": "MD",
+        "number": "082/100",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "082/100",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Turtwig",
+          "Cranidos",
+          "Pachirisu"
+        ],
+        "pokemonId": 387
+      },
       {
         "id": "cameo_stormfront_093-100",
         "cardName": "Switch",
@@ -4849,6 +7693,47 @@
           "Turtwig"
         ],
         "pokemonId": 387
+      },
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Captain Pikachu",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Piplup",
+          "Pikachu",
+          "Turtwig",
+          "Cacnea",
+          "Spinda",
+          "Munchlax",
+          "Manaphy",
+          "Wingull",
+          "Chinchou",
+          "Chimchar",
+          "Aipom",
+          "Kirila",
+          "Treeko",
+          "Pelliper",
+          "Lumineon",
+          "Tentacool",
+          "Meowth"
+        ],
+        "pokemonId": 387
       }
     ]
   },
@@ -4871,7 +7756,49 @@
     "name": "Chimchar",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Captain Pikachu",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Piplup",
+          "Pikachu",
+          "Turtwig",
+          "Cacnea",
+          "Spinda",
+          "Munchlax",
+          "Manaphy",
+          "Wingull",
+          "Chinchou",
+          "Chimchar",
+          "Aipom",
+          "Kirila",
+          "Treeko",
+          "Pelliper",
+          "Lumineon",
+          "Tentacool",
+          "Meowth"
+        ],
+        "pokemonId": 390
+      }
+    ]
   },
   {
     "id": 391,
@@ -4892,7 +7819,60 @@
     "name": "Piplup",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Arceus",
+        "setCode": "UNP",
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Pikachu",
+          "Pichu",
+          "Piplup"
+        ],
+        "pokemonId": 393
+      },
+      {
+        "id": "cameo_sw_125-132",
+        "cardName": "Roseanne's Research",
+        "setCode": "SW",
+        "number": "125/132",
+        "jpSetCode": "DP3",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "125/132",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 393
+      }
+    ]
   },
   {
     "id": 394,
@@ -4913,7 +7893,32 @@
     "name": "Starly",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_ar_090-099",
+        "cardName": "Professor Oak's Visit",
+        "setCode": "AR",
+        "number": "090/099",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "090/099",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 396
+      }
+    ]
   },
   {
     "id": 397,
@@ -4983,7 +7988,35 @@
     "name": "Budew",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Spiky-eared Pichu M",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Roselia",
+          "Budew",
+          "Jigglypuff"
+        ],
+        "pokemonId": 406
+      }
+    ]
   },
   {
     "id": 407,
@@ -4997,7 +8030,35 @@
     "name": "Cranidos",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_md_082-100",
+        "cardName": "Fossil Excavator",
+        "setCode": "MD",
+        "number": "082/100",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "082/100",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Turtwig",
+          "Cranidos",
+          "Pachirisu"
+        ],
+        "pokemonId": 408
+      }
+    ]
   },
   {
     "id": 409,
@@ -5060,7 +8121,35 @@
     "name": "Pachirisu",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_md_082-100",
+        "cardName": "Fossil Excavator",
+        "setCode": "MD",
+        "number": "082/100",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "082/100",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Turtwig",
+          "Cranidos",
+          "Pachirisu"
+        ],
+        "pokemonId": 417
+      }
+    ]
   },
   {
     "id": 418,
@@ -5088,7 +8177,35 @@
     "name": "Cherrim",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Pokémon Pal City",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Cherrim",
+          "Jirachi",
+          "Pikachu"
+        ],
+        "pokemonId": 421
+      }
+    ]
   },
   {
     "id": 422,
@@ -5248,7 +8365,34 @@
     "name": "Happiny",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Spiky-eared Pichu M",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Piplup. Shaymin",
+          "Happiny"
+        ],
+        "pokemonId": 440
+      }
+    ]
   },
   {
     "id": 441,
@@ -5318,7 +8462,49 @@
     "name": "Munchlax",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Captain Pikachu",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Piplup",
+          "Pikachu",
+          "Turtwig",
+          "Cacnea",
+          "Spinda",
+          "Munchlax",
+          "Manaphy",
+          "Wingull",
+          "Chinchou",
+          "Chimchar",
+          "Aipom",
+          "Kirila",
+          "Treeko",
+          "Pelliper",
+          "Lumineon",
+          "Tentacool",
+          "Meowth"
+        ],
+        "pokemonId": 446
+      }
+    ]
   },
   {
     "id": 447,
@@ -5422,7 +8608,49 @@
     "name": "Lumineon",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Captain Pikachu",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Piplup",
+          "Pikachu",
+          "Turtwig",
+          "Cacnea",
+          "Spinda",
+          "Munchlax",
+          "Manaphy",
+          "Wingull",
+          "Chinchou",
+          "Chimchar",
+          "Aipom",
+          "Kirila",
+          "Treeko",
+          "Pelliper",
+          "Lumineon",
+          "Tentacool",
+          "Meowth"
+        ],
+        "pokemonId": 457
+      }
+    ]
   },
   {
     "id": 458,
@@ -5436,7 +8664,35 @@
     "name": "Snover",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Pokémon Pal City",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Pikachu",
+          "Snover",
+          "Teddiursa"
+        ],
+        "pokemonId": 459
+      }
+    ]
   },
   {
     "id": 460,
@@ -5583,35 +8839,180 @@
     "name": "Uxie",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_mt_124-123",
+        "cardName": "Time-Space Distortion",
+        "setCode": "MT",
+        "number": "124/123",
+        "jpSetCode": "PTS",
+        "jpNumber": "012/012",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "124/123",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Uxie",
+          "Mesprit",
+          "Azelf"
+        ],
+        "pokemonId": 480
+      }
+    ]
   },
   {
     "id": 481,
     "name": "Mesprit",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_mt_124-123",
+        "cardName": "Time-Space Distortion",
+        "setCode": "MT",
+        "number": "124/123",
+        "jpSetCode": "PTS",
+        "jpNumber": "012/012",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "124/123",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Uxie",
+          "Mesprit",
+          "Azelf"
+        ],
+        "pokemonId": 481
+      }
+    ]
   },
   {
     "id": 482,
     "name": "Azelf",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_mt_124-123",
+        "cardName": "Time-Space Distortion",
+        "setCode": "MT",
+        "number": "124/123",
+        "jpSetCode": "PTS",
+        "jpNumber": "012/012",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "124/123",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Uxie",
+          "Mesprit",
+          "Azelf"
+        ],
+        "pokemonId": 482
+      }
+    ]
   },
   {
     "id": 483,
     "name": "Dialga",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Arceus",
+        "setCode": "UNP",
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Dialga",
+          "Palkia",
+          "Giratina"
+        ],
+        "pokemonId": 483
+      }
+    ]
   },
   {
     "id": 484,
     "name": "Palkia",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Arceus",
+        "setCode": "UNP",
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Dialga",
+          "Palkia",
+          "Giratina"
+        ],
+        "pokemonId": 484
+      }
+    ]
   },
   {
     "id": 485,
@@ -5632,28 +9033,152 @@
     "name": "Giratina",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Arceus",
+        "setCode": "UNP",
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Dialga",
+          "Palkia",
+          "Giratina"
+        ],
+        "pokemonId": 487
+      }
+    ]
   },
   {
     "id": 488,
     "name": "Cresselia",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Spiky-eared Pichu M",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 488
+      }
+    ]
   },
   {
     "id": 489,
     "name": "Phione",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Arceus",
+        "setCode": "UNP",
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Luvdisc",
+          "Phione",
+          "Pikachu"
+        ],
+        "pokemonId": 489
+      }
+    ]
   },
   {
     "id": 490,
     "name": "Manaphy",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Captain Pikachu",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "N/A",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Piplup",
+          "Pikachu",
+          "Turtwig",
+          "Cacnea",
+          "Spinda",
+          "Munchlax",
+          "Manaphy",
+          "Wingull",
+          "Chinchou",
+          "Chimchar",
+          "Aipom",
+          "Kirila",
+          "Treeko",
+          "Pelliper",
+          "Lumineon",
+          "Tentacool",
+          "Meowth"
+        ],
+        "pokemonId": 490
+      }
+    ]
   },
   {
     "id": 491,
@@ -5688,7 +9213,34 @@
     "name": "Snivy",
     "gen": 5,
     "region": "Unova",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_fco_065-124",
+        "cardName": "Jigglypuff",
+        "setCode": "FCO",
+        "number": "065/124",
+        "jpSetCode": null,
+        "jpNumber": "052/078",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "065/124",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Spoink",
+          "Snivy"
+        ],
+        "pokemonId": 495
+      }
+    ]
   },
   {
     "id": 496,
@@ -6213,7 +9765,31 @@
     "name": "Zorua",
     "gen": 5,
     "region": "Unova",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_fco_105-124",
+        "cardName": "N",
+        "setCode": "FCO",
+        "number": "105/124",
+        "jpSetCode": null,
+        "jpNumber": "076/078",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "105/124",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 570
+      }
+    ]
   },
   {
     "id": 571,
@@ -6810,7 +10386,34 @@
     "name": "Meloetta",
     "gen": 5,
     "region": "Unova",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_bkt_102-162",
+        "cardName": "Floette",
+        "setCode": "BKT",
+        "number": "102/162",
+        "jpSetCode": null,
+        "jpNumber": "041/059",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "102/162",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Snubull",
+          "Meloetta"
+        ],
+        "pokemonId": 648
+      }
+    ]
   },
   {
     "id": 649,
@@ -6964,7 +10567,31 @@
     "name": "Floette",
     "gen": 6,
     "region": "Kalos",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_sts_089-114",
+        "cardName": "Persian",
+        "setCode": "STS",
+        "number": "089/114",
+        "jpSetCode": null,
+        "jpNumber": "045/054",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "089/114",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 670
+      }
+    ]
   },
   {
     "id": 671,
@@ -7258,7 +10885,31 @@
     "name": "Bergmite",
     "gen": 6,
     "region": "Kalos",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_sts_037-114",
+        "cardName": "Avalugg",
+        "setCode": "STS",
+        "number": "037/114",
+        "jpSetCode": null,
+        "jpNumber": "016/054",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "037/114",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 712
+      }
+    ]
   },
   {
     "id": 713,
