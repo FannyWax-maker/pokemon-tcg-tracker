@@ -302,19 +302,20 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const generateImagePaths = () => {
     const displayPokemon = isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName;
 
-    // In cameos mode use card name as the filename subject, and prefer JP set/number
+    // In cameos mode use card name as the filename subject
     const fileSubject = appMode === 'cameos'
       ? (card.cardName || displayPokemon).toLowerCase().replace(/\s+/g, '_').replace(/[.'"]/g, '').replace(/[^a-z0-9_-]/g, '')
       : displayPokemon.toLowerCase().replace(/\s+/g, '_').replace(/[.']/g, '');
 
-    const setCode = appMode === 'cameos'
-      ? (card.jpSetCode || card.setCode || card.cnSetCode || '').toLowerCase()
-      : (card.setCode || card.jpSetCode || card.cnSetCode || '').toLowerCase();
-
     const pokemon = fileSubject;
 
+    // In cameos mode: prefer EN set+number, fall back to JP
+    const setCode = appMode === 'cameos'
+      ? (card.setCode || card.jpSetCode || card.cnSetCode || '').toLowerCase()
+      : (card.setCode || card.jpSetCode || card.cnSetCode || '').toLowerCase();
+
     const rawNumber = appMode === 'cameos'
-      ? (card.jpNumber || card.number || card.setNumber || '')
+      ? (card.number || card.jpNumber || card.setNumber || '')
       : (card.setNumber || card.number || '');
     const number = rawNumber.toLowerCase();
     const numberOnly = number.split('/')[0];
