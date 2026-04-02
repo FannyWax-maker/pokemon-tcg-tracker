@@ -94,7 +94,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Pokémon Valley",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -284,7 +284,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Illustrator Pikachu",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -375,7 +375,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "New Year Present",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -491,7 +491,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Pokémon Valley",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -646,7 +646,7 @@
         "setCode": "B2",
         "number": "107/130",
         "jpSetCode": "EXP",
-        "jpNumber": null,
+        "jpNumber": "Scoop Up",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -670,7 +670,7 @@
         "setCode": "B2",
         "number": "120/130",
         "jpSetCode": "EXP",
-        "jpNumber": null,
+        "jpNumber": "Gust of Wind",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -694,7 +694,7 @@
         "setCode": "FO",
         "number": "058/062",
         "jpSetCode": "MFO",
-        "jpNumber": null,
+        "jpNumber": "Mr. Fuji",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -1079,6 +1079,66 @@
     "region": "Kanto",
     "cards": [
       {
+        "id": "cameo_unp_boy no.1 trainer",
+        "cardName": "Boy No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Boy No.1 Trainer",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Boy No.1 Trainer",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 25
+      },
+      {
+        "id": "cameo_unp_boy no.2 trainer",
+        "cardName": "Boy No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Boy No.2 Trainer",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Boy No.2 Trainer",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 25
+      },
+      {
         "id": "cameo_flf_093-106",
         "cardName": "Pokémon Center Lady",
         "setCode": "FLF",
@@ -1108,7 +1168,7 @@
         "setCode": "FO",
         "number": "058/062",
         "jpSetCode": "MFO",
-        "jpNumber": null,
+        "jpNumber": "Mr. Fuji",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -1162,7 +1222,7 @@
         "setCode": "GH",
         "number": "117/132",
         "jpSetCode": "G2",
-        "jpNumber": null,
+        "jpNumber": "Sabrina's ESP",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -1181,6 +1241,58 @@
           "Clefairy",
           "Oddish",
           "Poliwrath",
+          "Pikachu"
+        ],
+        "pokemonId": 25
+      },
+      {
+        "id": "cameo_unp_boy no.3 trainer1",
+        "cardName": "Boy No.3 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Boy No.3 Trainer1",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Boy No.3 Trainer1",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Growlithe",
+          "Pikachu"
+        ],
+        "pokemonId": 25
+      },
+      {
+        "id": "cameo_unp_boy no.3 trainer2",
+        "cardName": "Boy No.3 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Boy No.3 Trainer2",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Boy No.3 Trainer2",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Growlithe",
           "Pikachu"
         ],
         "pokemonId": 25
@@ -1331,6 +1443,32 @@
         "pokemonId": 25
       },
       {
+        "id": "cameo_unp_boy no.3 trainer3",
+        "cardName": "Boy No.3 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Boy No.3 Trainer3",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Boy No.3 Trainer3",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Growlithe",
+          "Pikachu"
+        ],
+        "pokemonId": 25
+      },
+      {
         "id": "cameo_sm-p_n-a",
         "cardName": "Sapporo's Pikachu",
         "setCode": null,
@@ -1412,7 +1550,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Arceus1",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -1480,19 +1618,19 @@
         "pokemonId": 25
       },
       {
-        "id": "cameo_unp_promo",
-        "cardName": "Boy No.1 Trainer",
+        "id": "cameo_unp_girl no.1 trainer1",
+        "cardName": "Girl No.1 Trainer",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Girl No.1 Trainer1",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Girl No.1 Trainer1",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -1506,6 +1644,380 @@
           "Marill",
           "Voltorb",
           "Doduo"
+        ],
+        "pokemonId": 25
+      },
+      {
+        "id": "cameo_unp_girl no.1 trainer2",
+        "cardName": "Girl No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Girl No.1 Trainer2",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Girl No.1 Trainer2",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 25
+      },
+      {
+        "id": "cameo_unp_girl no.2 trainer",
+        "cardName": "Girl No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Girl No.2 Trainer",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Girl No.2 Trainer",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 25
+      },
+      {
+        "id": "cameo_unp_girl no.3 trainer1",
+        "cardName": "Girl No.3 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Girl No.3 Trainer1",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Girl No.3 Trainer1",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 25
+      },
+      {
+        "id": "cameo_unp_girl no.3 trainer2",
+        "cardName": "Girl No.3 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Girl No.3 Trainer2",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Girl No.3 Trainer2",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Growlithe",
+          "Pikachu"
+        ],
+        "pokemonId": 25
+      },
+      {
+        "id": "cameo_unp_no.1 trainer3",
+        "cardName": "No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.1 Trainer3",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.1 Trainer3",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 25
+      },
+      {
+        "id": "cameo_unp_no.1 trainer4",
+        "cardName": "No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.1 Trainer4",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.1 Trainer4",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 25
+      },
+      {
+        "id": "cameo_unp_no.2 trainer3",
+        "cardName": "No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.2 Trainer3",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.2 Trainer3",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 25
+      },
+      {
+        "id": "cameo_unp_no.2 trainer4",
+        "cardName": "No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.2 Trainer4",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.2 Trainer4",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 25
+      },
+      {
+        "id": "cameo_unp_no.2 trainer5",
+        "cardName": "No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.2 Trainer5",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.2 Trainer5",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Doduo"
+        ],
+        "pokemonId": 25
+      },
+      {
+        "id": "cameo_unp_no.3 trainer3",
+        "cardName": "No.3 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.3 Trainer3",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.3 Trainer3",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Growlithe",
+          "Pikachu"
+        ],
+        "pokemonId": 25
+      },
+      {
+        "id": "cameo_unp_tropical present1",
+        "cardName": "Tropical Present",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Tropical Present1",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Tropical Present1",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Hoppip",
+          "Pikachu",
+          "Mareep",
+          "Snorlax"
+        ],
+        "pokemonId": 25
+      },
+      {
+        "id": "cameo_unp_tropical tidal wave1",
+        "cardName": "Tropical Tidal Wave",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Tropical Tidal Wave1",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Tropical Tidal Wave1",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Corsola",
+          "Psyduck",
+          "Wingull",
+          "Pikachu"
+        ],
+        "pokemonId": 25
+      },
+      {
+        "id": "cameo_unp_tropical tidal wave2",
+        "cardName": "Tropical Tidal Wave",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Tropical Tidal Wave2",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Tropical Tidal Wave2",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Wailmer",
+          "Pikachu",
+          "Munchlax",
+          "Psyduck"
         ],
         "pokemonId": 25
       }
@@ -1523,7 +2035,7 @@
         "setCode": "BKT",
         "number": "118/132",
         "jpSetCode": "G1",
-        "jpNumber": null,
+        "jpNumber": "Secret Mission",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -1627,7 +2139,7 @@
         "setCode": "GC",
         "number": "105/132",
         "jpSetCode": "G2",
-        "jpNumber": null,
+        "jpNumber": "Giovanni's Last Resort",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -1683,7 +2195,7 @@
         "setCode": "BS",
         "number": "070/102",
         "jpSetCode": "EXP",
-        "jpNumber": null,
+        "jpNumber": "Clefairy Doll",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -1734,7 +2246,7 @@
         "setCode": "GH",
         "number": "117/132",
         "jpSetCode": "G2",
-        "jpNumber": null,
+        "jpNumber": "Sabrina's ESP",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -1850,7 +2362,7 @@
         "setCode": "FO",
         "number": "061/062",
         "jpSetCode": "MFO",
-        "jpNumber": null,
+        "jpNumber": "Recycle",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -1874,7 +2386,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Spiky-eared Pichu M 3",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -1896,19 +2408,19 @@
         "pokemonId": 39
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_tropical wind5",
         "cardName": "Tropical Wind",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Tropical Wind5",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Tropical Wind5",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -1969,7 +2481,7 @@
         "setCode": "GH",
         "number": "126/132",
         "jpSetCode": "G2",
-        "jpNumber": null,
+        "jpNumber": "Trash Exchange",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -2001,7 +2513,7 @@
         "setCode": "GC",
         "number": "115/132",
         "jpSetCode": "G2",
-        "jpNumber": null,
+        "jpNumber": "Koga's Ninja Trick",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -2028,7 +2540,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Pokémon Plaza",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -2116,7 +2628,7 @@
         "setCode": "GH",
         "number": "117/132",
         "jpSetCode": "G2",
-        "jpNumber": null,
+        "jpNumber": "Sabrina's ESP",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -2145,7 +2657,7 @@
         "setCode": "GC",
         "number": "103/132",
         "jpSetCode": "G1",
-        "jpNumber": null,
+        "jpNumber": "Erika's Kindness",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -2172,7 +2684,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Pokémon Plaza",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -2216,7 +2728,7 @@
         "setCode": "GH",
         "number": "111/132",
         "jpSetCode": "G1",
-        "jpNumber": null,
+        "jpNumber": "Good Manners",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -2347,7 +2859,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Pokémon Valley",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -2470,7 +2982,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Lucky Stadium6",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -2508,7 +3020,7 @@
         "setCode": "NDE",
         "number": "095/105",
         "jpSetCode": "N4",
-        "jpNumber": null,
+        "jpNumber": "Radio Tower",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -2618,7 +3130,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Captain Pikachu",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -2717,99 +3229,12 @@
     "region": "Kanto",
     "cards": [
       {
-        "id": "cameo_dppr_005",
-        "cardName": "Tropical Wind",
-        "setCode": "DPPR",
-        "number": "005",
-        "jpSetCode": "UNP",
-        "jpNumber": "Promo",
-        "cnSetCode": null,
-        "cnNumber": null,
-        "tcSetCode": null,
-        "tcNumber": null,
-        "krSetCode": null,
-        "krNumber": null,
-        "setNumber": "005",
-        "exclusive": null,
-        "availableLangs": [
-          "EN",
-          "JP"
-        ],
-        "isPrimary": true,
-        "isSecondary": false,
-        "otherPokemon": [
-          "Psyduck",
-          "Turtwig",
-          "Piplup",
-          "Chimchar"
-        ],
-        "pokemonId": 54
-      },
-      {
-        "id": "cameo_dppr_025",
-        "cardName": "Tropical Wind",
-        "setCode": "DPPR",
-        "number": "025",
-        "jpSetCode": "UNP",
-        "jpNumber": "Promo",
-        "cnSetCode": null,
-        "cnNumber": null,
-        "tcSetCode": null,
-        "tcNumber": null,
-        "krSetCode": null,
-        "krNumber": null,
-        "setNumber": "025",
-        "exclusive": null,
-        "availableLangs": [
-          "EN",
-          "JP"
-        ],
-        "isPrimary": true,
-        "isSecondary": false,
-        "otherPokemon": [
-          "Pachirisu",
-          "Psyduck",
-          "Buneary",
-          "Crogunk"
-        ],
-        "pokemonId": 54
-      },
-      {
-        "id": "cameo_dppr_048",
-        "cardName": "Tropical Wind",
-        "setCode": "DPPR",
-        "number": "048",
-        "jpSetCode": "UNP",
-        "jpNumber": "Promo",
-        "cnSetCode": null,
-        "cnNumber": null,
-        "tcSetCode": null,
-        "tcNumber": null,
-        "krSetCode": null,
-        "krNumber": null,
-        "setNumber": "048",
-        "exclusive": null,
-        "availableLangs": [
-          "EN",
-          "JP"
-        ],
-        "isPrimary": true,
-        "isSecondary": false,
-        "otherPokemon": [
-          "Shaymin",
-          "Psyduck",
-          "Bidoof",
-          "Sneasel"
-        ],
-        "pokemonId": 54
-      },
-      {
         "id": "cameo_gc_121-132",
         "cardName": "Sabrina's Psychic Control",
         "setCode": "GC",
         "number": "121/132",
         "jpSetCode": "G2",
-        "jpNumber": null,
+        "jpNumber": "Sabrina's Psychic Control",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -2833,7 +3258,7 @@
         "setCode": "GH",
         "number": "114/132",
         "jpSetCode": "G1",
-        "jpNumber": null,
+        "jpNumber": "Misty's Wrath",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -2849,33 +3274,6 @@
         "isPrimary": true,
         "isSecondary": false,
         "otherPokemon": null,
-        "pokemonId": 54
-      },
-      {
-        "id": "cameo_np_026",
-        "cardName": "Tropical Wind",
-        "setCode": "NP",
-        "number": "026",
-        "jpSetCode": "UNP",
-        "jpNumber": "Promo",
-        "cnSetCode": null,
-        "cnNumber": null,
-        "tcSetCode": null,
-        "tcNumber": null,
-        "krSetCode": null,
-        "krNumber": null,
-        "setNumber": "026",
-        "exclusive": null,
-        "availableLangs": [
-          "EN",
-          "JP"
-        ],
-        "isPrimary": true,
-        "isSecondary": false,
-        "otherPokemon": [
-          "Torchic",
-          "Psyduck"
-        ],
         "pokemonId": 54
       },
       {
@@ -2940,7 +3338,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Pokémon Valley",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -2967,19 +3365,19 @@
         "pokemonId": 54
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_tropical tidal wave1",
         "cardName": "Tropical Tidal Wave",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Tropical Tidal Wave1",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Tropical Tidal Wave1",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -2991,6 +3389,229 @@
           "Psyduck",
           "Wingull",
           "Pikachu"
+        ],
+        "pokemonId": 54
+      },
+      {
+        "id": "cameo_unp_tropical tidal wave2",
+        "cardName": "Tropical Tidal Wave",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Tropical Tidal Wave2",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Tropical Tidal Wave2",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Wailmer",
+          "Pikachu",
+          "Munchlax",
+          "Psyduck"
+        ],
+        "pokemonId": 54
+      },
+      {
+        "id": "cameo_unp_tropical tidal wave3",
+        "cardName": "Tropical Tidal Wave",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Tropical Tidal Wave3",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Tropical Tidal Wave3",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Marill",
+          "Hoppip",
+          "Psyduck"
+        ],
+        "pokemonId": 54
+      },
+      {
+        "id": "cameo_dppr_005",
+        "cardName": "Tropical Wind",
+        "setCode": "DPPR",
+        "number": "005",
+        "jpSetCode": "UNP",
+        "jpNumber": "Tropical Wind1",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "005",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Psyduck",
+          "Turtwig",
+          "Piplup",
+          "Chimchar"
+        ],
+        "pokemonId": 54
+      },
+      {
+        "id": "cameo_dppr_025",
+        "cardName": "Tropical Wind",
+        "setCode": "DPPR",
+        "number": "025",
+        "jpSetCode": "UNP",
+        "jpNumber": "Tropical Wind2",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "025",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Pachirisu",
+          "Psyduck",
+          "Buneary",
+          "Crogunk"
+        ],
+        "pokemonId": 54
+      },
+      {
+        "id": "cameo_dppr_048",
+        "cardName": "Tropical Wind",
+        "setCode": "DPPR",
+        "number": "048",
+        "jpSetCode": "UNP",
+        "jpNumber": "Tropical Wind3",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "048",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Shaymin",
+          "Psyduck",
+          "Bidoof",
+          "Sneasel"
+        ],
+        "pokemonId": 54
+      },
+      {
+        "id": "cameo_np_026",
+        "cardName": "Tropical Wind",
+        "setCode": "NP",
+        "number": "026",
+        "jpSetCode": "UNP",
+        "jpNumber": "Tropical Wind4",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "026",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Torchic",
+          "Psyduck"
+        ],
+        "pokemonId": 54
+      },
+      {
+        "id": "cameo_unp_tropical wind5",
+        "cardName": "Tropical Wind",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Tropical Wind5",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Tropical Wind5",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Psyduck",
+          "Jigglypuff"
+        ],
+        "pokemonId": 54
+      },
+      {
+        "id": "cameo_unp_tropical wind6",
+        "cardName": "Tropical Wind",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Tropical Wind6",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Tropical Wind6",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Smoochum",
+          "Psyduck",
+          "Exeggutor",
+          "Cleffa"
         ],
         "pokemonId": 54
       }
@@ -3078,12 +3699,72 @@
         "pokemonId": 58
       },
       {
+        "id": "cameo_unp_boy no.1 trainer",
+        "cardName": "Boy No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Boy No.1 Trainer",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Boy No.1 Trainer",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 58
+      },
+      {
+        "id": "cameo_unp_boy no.2 trainer",
+        "cardName": "Boy No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Boy No.2 Trainer",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Boy No.2 Trainer",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 58
+      },
+      {
         "id": "cameo_gc_103-132",
         "cardName": "Erika's Kindness",
         "setCode": "GC",
         "number": "103/132",
         "jpSetCode": "G1",
-        "jpNumber": null,
+        "jpNumber": "Erika's Kindness",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -3105,19 +3786,97 @@
         "pokemonId": 58
       },
       {
-        "id": "cameo_unp_promo",
-        "cardName": "Boy No.1 Trainer",
+        "id": "cameo_unp_boy no.3 trainer1",
+        "cardName": "Boy No.3 Trainer",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Boy No.3 Trainer1",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Boy No.3 Trainer1",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Growlithe",
+          "Pikachu"
+        ],
+        "pokemonId": 58
+      },
+      {
+        "id": "cameo_unp_boy no.3 trainer2",
+        "cardName": "Boy No.3 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Boy No.3 Trainer2",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Boy No.3 Trainer2",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Growlithe",
+          "Pikachu"
+        ],
+        "pokemonId": 58
+      },
+      {
+        "id": "cameo_unp_boy no.3 trainer3",
+        "cardName": "Boy No.3 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Boy No.3 Trainer3",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Boy No.3 Trainer3",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Growlithe",
+          "Pikachu"
+        ],
+        "pokemonId": 58
+      },
+      {
+        "id": "cameo_unp_girl no.1 trainer1",
+        "cardName": "Girl No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Girl No.1 Trainer1",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Girl No.1 Trainer1",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -3131,6 +3890,296 @@
           "Marill",
           "Voltorb",
           "Doduo"
+        ],
+        "pokemonId": 58
+      },
+      {
+        "id": "cameo_unp_girl no.1 trainer2",
+        "cardName": "Girl No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Girl No.1 Trainer2",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Girl No.1 Trainer2",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 58
+      },
+      {
+        "id": "cameo_unp_girl no.2 trainer",
+        "cardName": "Girl No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Girl No.2 Trainer",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Girl No.2 Trainer",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 58
+      },
+      {
+        "id": "cameo_unp_girl no.3 trainer1",
+        "cardName": "Girl No.3 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Girl No.3 Trainer1",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Girl No.3 Trainer1",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 58
+      },
+      {
+        "id": "cameo_unp_girl no.3 trainer2",
+        "cardName": "Girl No.3 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Girl No.3 Trainer2",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Girl No.3 Trainer2",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Growlithe",
+          "Pikachu"
+        ],
+        "pokemonId": 58
+      },
+      {
+        "id": "cameo_unp_no.1 trainer3",
+        "cardName": "No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.1 Trainer3",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.1 Trainer3",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 58
+      },
+      {
+        "id": "cameo_unp_no.1 trainer4",
+        "cardName": "No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.1 Trainer4",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.1 Trainer4",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 58
+      },
+      {
+        "id": "cameo_unp_no.2 trainer3",
+        "cardName": "No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.2 Trainer3",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.2 Trainer3",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 58
+      },
+      {
+        "id": "cameo_unp_no.2 trainer4",
+        "cardName": "No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.2 Trainer4",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.2 Trainer4",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 58
+      },
+      {
+        "id": "cameo_unp_no.2 trainer5",
+        "cardName": "No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.2 Trainer5",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.2 Trainer5",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Doduo"
+        ],
+        "pokemonId": 58
+      },
+      {
+        "id": "cameo_unp_no.3 trainer3",
+        "cardName": "No.3 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.3 Trainer3",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.3 Trainer3",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Growlithe",
+          "Pikachu"
         ],
         "pokemonId": 58
       }
@@ -3185,7 +4234,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Pokémon Plaza",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -3248,7 +4297,7 @@
         "setCode": "GH",
         "number": "117/132",
         "jpSetCode": "G2",
-        "jpNumber": null,
+        "jpNumber": "Sabrina's ESP",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -3331,7 +4380,7 @@
         "setCode": "NG",
         "number": "086/111",
         "jpSetCode": "N1",
-        "jpNumber": null,
+        "jpNumber": "Focus Band",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -3407,7 +4456,7 @@
         "setCode": "GH",
         "number": "111/132",
         "jpSetCode": "G1",
-        "jpNumber": null,
+        "jpNumber": "Good Manners",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -3507,7 +4556,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Captain Pikachu",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -3543,19 +4592,19 @@
         "pokemonId": 72
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_tropical present2",
         "cardName": "Tropical Present",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Tropical Present2",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Tropical Present2",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -3688,7 +4737,7 @@
         "setCode": "GH",
         "number": "116/132",
         "jpSetCode": "G1",
-        "jpNumber": null,
+        "jpNumber": "Recall",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -3909,39 +4958,12 @@
         "pokemonId": 81
       },
       {
-        "id": "cameo_wp_16",
-        "cardName": "Computer Error",
-        "setCode": "WP",
-        "number": "16",
-        "jpSetCode": "UNP",
-        "jpNumber": "Promo",
-        "cnSetCode": null,
-        "cnNumber": null,
-        "tcSetCode": null,
-        "tcNumber": null,
-        "krSetCode": null,
-        "krNumber": null,
-        "setNumber": "16",
-        "exclusive": null,
-        "availableLangs": [
-          "EN",
-          "JP"
-        ],
-        "isPrimary": true,
-        "isSecondary": false,
-        "otherPokemon": [
-          "Onix",
-          "Magnemite"
-        ],
-        "pokemonId": 81
-      },
-      {
         "id": "cameo_unp_n-a",
         "cardName": "Spiky-eared Pichu M",
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Spiky-eared Pichu M 1",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -3961,6 +4983,33 @@
           "Magnemite",
           "Venonat",
           "Voltorb"
+        ],
+        "pokemonId": 81
+      },
+      {
+        "id": "cameo_wp_16",
+        "cardName": "Computer Error",
+        "setCode": "WP",
+        "number": "16",
+        "jpSetCode": "UNP",
+        "jpNumber": "Computer Error",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "16",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Onix",
+          "Magnemite"
         ],
         "pokemonId": 81
       }
@@ -3987,12 +5036,72 @@
     "region": "Kanto",
     "cards": [
       {
+        "id": "cameo_unp_boy no.1 trainer",
+        "cardName": "Boy No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Boy No.1 Trainer",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Boy No.1 Trainer",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 84
+      },
+      {
+        "id": "cameo_unp_boy no.2 trainer",
+        "cardName": "Boy No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Boy No.2 Trainer",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Boy No.2 Trainer",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 84
+      },
+      {
         "id": "cameo_nde_100-105",
         "cardName": "Lucky Stadium",
         "setCode": "NDE",
         "number": "100/105",
         "jpSetCode": "N4",
-        "jpNumber": null,
+        "jpNumber": "Lucky Stadium",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -4038,19 +5147,19 @@
         "pokemonId": 84
       },
       {
-        "id": "cameo_unp_promo",
-        "cardName": "Boy No.1 Trainer",
+        "id": "cameo_unp_girl no.1 trainer1",
+        "cardName": "Girl No.1 Trainer",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Girl No.1 Trainer1",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Girl No.1 Trainer1",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -4063,6 +5172,244 @@
           "Pikachu",
           "Marill",
           "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 84
+      },
+      {
+        "id": "cameo_unp_girl no.1 trainer2",
+        "cardName": "Girl No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Girl No.1 Trainer2",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Girl No.1 Trainer2",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 84
+      },
+      {
+        "id": "cameo_unp_girl no.2 trainer",
+        "cardName": "Girl No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Girl No.2 Trainer",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Girl No.2 Trainer",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 84
+      },
+      {
+        "id": "cameo_unp_girl no.3 trainer1",
+        "cardName": "Girl No.3 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Girl No.3 Trainer1",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Girl No.3 Trainer1",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 84
+      },
+      {
+        "id": "cameo_unp_no.1 trainer3",
+        "cardName": "No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.1 Trainer3",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.1 Trainer3",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 84
+      },
+      {
+        "id": "cameo_unp_no.1 trainer4",
+        "cardName": "No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.1 Trainer4",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.1 Trainer4",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 84
+      },
+      {
+        "id": "cameo_unp_no.2 trainer3",
+        "cardName": "No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.2 Trainer3",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.2 Trainer3",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 84
+      },
+      {
+        "id": "cameo_unp_no.2 trainer4",
+        "cardName": "No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.2 Trainer4",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.2 Trainer4",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 84
+      },
+      {
+        "id": "cameo_unp_no.2 trainer5",
+        "cardName": "No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.2 Trainer5",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.2 Trainer5",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
           "Doduo"
         ],
         "pokemonId": 84
@@ -4249,7 +5596,7 @@
         "setCode": "NR",
         "number": "063/064",
         "jpSetCode": "N3",
-        "jpNumber": null,
+        "jpNumber": "Rocket's Hideout",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -4328,12 +5675,35 @@
         "pokemonId": 95
       },
       {
+        "id": "cameo_unp_n-a",
+        "cardName": "Lucky Stadium",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "Lucky Stadium1",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 95
+      },
+      {
         "id": "cameo_wp_16",
         "cardName": "Computer Error",
         "setCode": "WP",
         "number": "16",
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Computer Error",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -4352,29 +5722,6 @@
           "Onix",
           "Magnemite"
         ],
-        "pokemonId": 95
-      },
-      {
-        "id": "cameo_unp_n-a",
-        "cardName": "Lucky Stadium",
-        "setCode": null,
-        "number": "N/A",
-        "jpSetCode": "UNP",
-        "jpNumber": "N/A",
-        "cnSetCode": null,
-        "cnNumber": null,
-        "tcSetCode": null,
-        "tcNumber": null,
-        "krSetCode": null,
-        "krNumber": null,
-        "setNumber": "N/A",
-        "exclusive": "JP",
-        "availableLangs": [
-          "JP"
-        ],
-        "isPrimary": true,
-        "isSecondary": false,
-        "otherPokemon": null,
         "pokemonId": 95
       }
     ]
@@ -4463,6 +5810,66 @@
         "pokemonId": 100
       },
       {
+        "id": "cameo_unp_boy no.1 trainer",
+        "cardName": "Boy No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Boy No.1 Trainer",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Boy No.1 Trainer",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 100
+      },
+      {
+        "id": "cameo_unp_boy no.2 trainer",
+        "cardName": "Boy No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Boy No.2 Trainer",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Boy No.2 Trainer",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 100
+      },
+      {
         "id": "cameo_hif_048-068",
         "cardName": "Eevee",
         "setCode": "HIF",
@@ -4520,7 +5927,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Spiky-eared Pichu M 1",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -4544,19 +5951,229 @@
         "pokemonId": 100
       },
       {
-        "id": "cameo_unp_promo",
-        "cardName": "Boy No.1 Trainer",
+        "id": "cameo_unp_girl no.1 trainer1",
+        "cardName": "Girl No.1 Trainer",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Girl No.1 Trainer1",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Girl No.1 Trainer1",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 100
+      },
+      {
+        "id": "cameo_unp_girl no.1 trainer2",
+        "cardName": "Girl No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Girl No.1 Trainer2",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Girl No.1 Trainer2",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 100
+      },
+      {
+        "id": "cameo_unp_girl no.2 trainer",
+        "cardName": "Girl No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Girl No.2 Trainer",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Girl No.2 Trainer",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 100
+      },
+      {
+        "id": "cameo_unp_girl no.3 trainer1",
+        "cardName": "Girl No.3 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Girl No.3 Trainer1",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Girl No.3 Trainer1",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 100
+      },
+      {
+        "id": "cameo_unp_no.1 trainer3",
+        "cardName": "No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.1 Trainer3",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.1 Trainer3",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 100
+      },
+      {
+        "id": "cameo_unp_no.1 trainer4",
+        "cardName": "No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.1 Trainer4",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.1 Trainer4",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 100
+      },
+      {
+        "id": "cameo_unp_no.2 trainer3",
+        "cardName": "No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.2 Trainer3",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.2 Trainer3",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 100
+      },
+      {
+        "id": "cameo_unp_no.2 trainer4",
+        "cardName": "No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.2 Trainer4",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.2 Trainer4",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -4648,7 +6265,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Lucky Stadium9",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -4669,19 +6286,19 @@
         "pokemonId": 103
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_no.1 trainer1",
         "cardName": "No.1 Trainer",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "No.1 Trainer1",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "No.1 Trainer1",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -4689,6 +6306,80 @@
         "isPrimary": true,
         "isSecondary": false,
         "otherPokemon": null,
+        "pokemonId": 103
+      },
+      {
+        "id": "cameo_unp_no.2 trainer1",
+        "cardName": "No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.2 Trainer1",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.2 Trainer1",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 103
+      },
+      {
+        "id": "cameo_unp_no.3 trainer1",
+        "cardName": "No.3 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.3 Trainer1",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.3 Trainer1",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 103
+      },
+      {
+        "id": "cameo_unp_tropical wind6",
+        "cardName": "Tropical Wind",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Tropical Wind6",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Tropical Wind6",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Smoochum",
+          "Psyduck",
+          "Exeggutor",
+          "Cleffa"
+        ],
         "pokemonId": 103
       }
     ]
@@ -4705,7 +6396,7 @@
         "setCode": "FO",
         "number": "058/062",
         "jpSetCode": "MFO",
-        "jpNumber": null,
+        "jpNumber": "Mr. Fuji",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -4810,7 +6501,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Pokémon Pal City5",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -4871,7 +6562,7 @@
         "setCode": "FO",
         "number": "058/062",
         "jpSetCode": "MFO",
-        "jpNumber": null,
+        "jpNumber": "Mr. Fuji",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -4909,7 +6600,7 @@
         "setCode": "GC",
         "number": "125/132",
         "jpSetCode": "G2",
-        "jpNumber": null,
+        "jpNumber": "Transparent Walls",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -4966,7 +6657,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Koga's Ninja Gym",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -5011,7 +6702,7 @@
         "setCode": "NDE",
         "number": "102/105",
         "jpSetCode": "N4",
-        "jpNumber": null,
+        "jpNumber": "Pokémon Personality Test",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -5041,19 +6732,19 @@
     "region": "Kanto",
     "cards": [
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_boy no.1 trainer",
         "cardName": "Boy No.1 Trainer",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Boy No.1 Trainer",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Boy No.1 Trainer",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -5066,6 +6757,304 @@
           "Pikachu",
           "Marill",
           "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 113
+      },
+      {
+        "id": "cameo_unp_boy no.2 trainer",
+        "cardName": "Boy No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Boy No.2 Trainer",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Boy No.2 Trainer",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 113
+      },
+      {
+        "id": "cameo_unp_girl no.1 trainer1",
+        "cardName": "Girl No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Girl No.1 Trainer1",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Girl No.1 Trainer1",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 113
+      },
+      {
+        "id": "cameo_unp_girl no.1 trainer2",
+        "cardName": "Girl No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Girl No.1 Trainer2",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Girl No.1 Trainer2",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 113
+      },
+      {
+        "id": "cameo_unp_girl no.2 trainer",
+        "cardName": "Girl No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Girl No.2 Trainer",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Girl No.2 Trainer",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 113
+      },
+      {
+        "id": "cameo_unp_girl no.3 trainer1",
+        "cardName": "Girl No.3 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Girl No.3 Trainer1",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Girl No.3 Trainer1",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 113
+      },
+      {
+        "id": "cameo_unp_no.1 trainer3",
+        "cardName": "No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.1 Trainer3",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.1 Trainer3",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 113
+      },
+      {
+        "id": "cameo_unp_no.1 trainer4",
+        "cardName": "No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.1 Trainer4",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.1 Trainer4",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 113
+      },
+      {
+        "id": "cameo_unp_no.2 trainer3",
+        "cardName": "No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.2 Trainer3",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.2 Trainer3",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 113
+      },
+      {
+        "id": "cameo_unp_no.2 trainer4",
+        "cardName": "No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.2 Trainer4",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.2 Trainer4",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 113
+      },
+      {
+        "id": "cameo_unp_no.2 trainer5",
+        "cardName": "No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.2 Trainer5",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.2 Trainer5",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
           "Doduo"
         ],
         "pokemonId": 113
@@ -5098,7 +7087,7 @@
         "setCode": "GH",
         "number": "123/132",
         "jpSetCode": "G1",
-        "jpNumber": null,
+        "jpNumber": "Misty's Duel",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -5146,7 +7135,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "New Year Present",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -5227,7 +7216,7 @@
         "setCode": "GC",
         "number": "118/132",
         "jpSetCode": "G1",
-        "jpNumber": null,
+        "jpNumber": "Misty's Tears",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -5251,7 +7240,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Lucky Stadium9",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -5367,7 +7356,7 @@
         "setCode": "GH",
         "number": "112/132",
         "jpSetCode": "G1",
-        "jpNumber": null,
+        "jpNumber": "Lt. Surge's Treaty",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -5518,7 +7507,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Pokémon Pal City5",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -5540,19 +7529,19 @@
         "pokemonId": 129
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_tropical present2",
         "cardName": "Tropical Present",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Tropical Present2",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Tropical Present2",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -5583,7 +7572,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Lucky Stadium4",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -5643,7 +7632,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Misty's Treatment",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -5661,19 +7650,19 @@
         "pokemonId": 131
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_tropical present2",
         "cardName": "Tropical Present",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Tropical Present2",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Tropical Present2",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -5704,7 +7693,7 @@
         "setCode": "NDE",
         "number": "096/105",
         "jpSetCode": "N4",
-        "jpNumber": null,
+        "jpNumber": "Thought Wave Machine",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -6034,7 +8023,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "New Century Present",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -6056,19 +8045,19 @@
         "pokemonId": 143
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_tropical present1",
         "cardName": "Tropical Present",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Tropical Present1",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Tropical Present1",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -6152,7 +8141,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Lawrence III",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -6174,19 +8163,19 @@
         "pokemonId": 144
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_trainer certification card",
         "cardName": "Trainer Certification Card",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Trainer Certification Card",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Trainer Certification Card",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -6296,7 +8285,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Lawrence III",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -6318,19 +8307,19 @@
         "pokemonId": 145
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_trainer certification card",
         "cardName": "Trainer Certification Card",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Trainer Certification Card",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Trainer Certification Card",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -6413,7 +8402,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Lawrence III",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -6435,19 +8424,19 @@
         "pokemonId": 146
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_trainer certification card",
         "cardName": "Trainer Certification Card",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Trainer Certification Card",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Trainer Certification Card",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -6499,7 +8488,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "New Year Present",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -6523,19 +8512,19 @@
         "pokemonId": 147
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_tropical present2",
         "cardName": "Tropical Present",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Tropical Present2",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Tropical Present2",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -6654,7 +8643,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "New Year Present",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -6678,19 +8667,19 @@
         "pokemonId": 149
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_tropical present2",
         "cardName": "Tropical Present",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Tropical Present2",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Tropical Present2",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -6744,19 +8733,65 @@
         "pokemonId": 150
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_no.1 trainer2",
         "cardName": "No.1 Trainer",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "No.1 Trainer2",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "No.1 Trainer2",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 150
+      },
+      {
+        "id": "cameo_unp_no.2 trainer2",
+        "cardName": "No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.2 Trainer2",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.2 Trainer2",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 150
+      },
+      {
+        "id": "cameo_unp_no.3 trainer2",
+        "cardName": "No.3 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.3 Trainer2",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.3 Trainer2",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -6873,7 +8908,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Ancient Mew",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -6984,7 +9019,7 @@
         "setCode": "NG",
         "number": "102/111",
         "jpSetCode": "N1",
-        "jpNumber": null,
+        "jpNumber": "Pokémon March",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -7149,7 +9184,7 @@
         "setCode": "NG",
         "number": "096/111",
         "jpSetCode": "N1",
-        "jpNumber": null,
+        "jpNumber": "Professor Elm",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -7173,7 +9208,7 @@
         "setCode": "NG",
         "number": "102/111",
         "jpSetCode": "N1",
-        "jpNumber": null,
+        "jpNumber": "Pokémon March",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -7234,7 +9269,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Spiky-eared Pichu M 1",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -7341,7 +9376,7 @@
         "setCode": "NG",
         "number": "102/111",
         "jpSetCode": "N1",
-        "jpNumber": null,
+        "jpNumber": "Pokémon March",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -7396,7 +9431,7 @@
         "setCode": "NG",
         "number": "100/111",
         "jpSetCode": "N1",
-        "jpNumber": null,
+        "jpNumber": "Double Gust",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -7425,7 +9460,7 @@
         "setCode": "NG",
         "number": "102/111",
         "jpSetCode": "N1",
-        "jpNumber": null,
+        "jpNumber": "Pokémon March",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -7552,7 +9587,7 @@
         "setCode": "NG",
         "number": "100/111",
         "jpSetCode": "N1",
-        "jpNumber": null,
+        "jpNumber": "Double Gust",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -7581,7 +9616,7 @@
         "setCode": "NG",
         "number": "102/111",
         "jpSetCode": "N1",
-        "jpNumber": null,
+        "jpNumber": "Pokémon March",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -7723,7 +9758,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Captain Pikachu",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -7808,7 +9843,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Arceus3",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -7838,19 +9873,19 @@
     "region": "Johto",
     "cards": [
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_tropical wind6",
         "cardName": "Tropical Wind",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Tropical Wind6",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Tropical Wind6",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -7942,7 +9977,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "New Century Present",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -8023,7 +10058,7 @@
         "setCode": "NG",
         "number": "100/111",
         "jpSetCode": "N1",
-        "jpNumber": null,
+        "jpNumber": "Double Gust",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -8052,7 +10087,7 @@
         "setCode": "NG",
         "number": "102/111",
         "jpSetCode": "N1",
-        "jpNumber": null,
+        "jpNumber": "Pokémon March",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -8080,19 +10115,19 @@
         "pokemonId": 179
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_tropical present1",
         "cardName": "Tropical Present",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Tropical Present1",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Tropical Present1",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -8247,6 +10282,66 @@
         "pokemonId": 183
       },
       {
+        "id": "cameo_unp_boy no.1 trainer",
+        "cardName": "Boy No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Boy No.1 Trainer",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Boy No.1 Trainer",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 183
+      },
+      {
+        "id": "cameo_unp_boy no.2 trainer",
+        "cardName": "Boy No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Boy No.2 Trainer",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Boy No.2 Trainer",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 183
+      },
+      {
         "id": "cameo_sm-p_n-a",
         "cardName": "Pretend Tea Ceremony Pikachu",
         "setCode": null,
@@ -8281,7 +10376,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Pokémon Valley",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -8308,19 +10403,19 @@
         "pokemonId": 183
       },
       {
-        "id": "cameo_unp_promo",
-        "cardName": "Boy No.1 Trainer",
+        "id": "cameo_unp_girl no.1 trainer1",
+        "cardName": "Girl No.1 Trainer",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Girl No.1 Trainer1",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Girl No.1 Trainer1",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -8334,6 +10429,273 @@
           "Marill",
           "Voltorb",
           "Doduo"
+        ],
+        "pokemonId": 183
+      },
+      {
+        "id": "cameo_unp_girl no.1 trainer2",
+        "cardName": "Girl No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Girl No.1 Trainer2",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Girl No.1 Trainer2",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 183
+      },
+      {
+        "id": "cameo_unp_girl no.2 trainer",
+        "cardName": "Girl No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Girl No.2 Trainer",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Girl No.2 Trainer",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 183
+      },
+      {
+        "id": "cameo_unp_girl no.3 trainer1",
+        "cardName": "Girl No.3 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Girl No.3 Trainer1",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Girl No.3 Trainer1",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 183
+      },
+      {
+        "id": "cameo_unp_no.1 trainer3",
+        "cardName": "No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.1 Trainer3",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.1 Trainer3",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 183
+      },
+      {
+        "id": "cameo_unp_no.1 trainer4",
+        "cardName": "No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.1 Trainer4",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.1 Trainer4",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 183
+      },
+      {
+        "id": "cameo_unp_no.2 trainer3",
+        "cardName": "No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.2 Trainer3",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.2 Trainer3",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 183
+      },
+      {
+        "id": "cameo_unp_no.2 trainer4",
+        "cardName": "No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.2 Trainer4",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.2 Trainer4",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Chansey",
+          "Growlithe",
+          "Pikachu",
+          "Marill",
+          "Voltorb",
+          "Doduo"
+        ],
+        "pokemonId": 183
+      },
+      {
+        "id": "cameo_unp_tropical present2",
+        "cardName": "Tropical Present",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Tropical Present2",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Tropical Present2",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Lapras",
+          "Dratini",
+          "Magikarp",
+          "Marill",
+          "Tentacool",
+          "Dragonite"
+        ],
+        "pokemonId": 183
+      },
+      {
+        "id": "cameo_unp_tropical tidal wave3",
+        "cardName": "Tropical Tidal Wave",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Tropical Tidal Wave3",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Tropical Tidal Wave3",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Marill",
+          "Hoppip",
+          "Psyduck"
         ],
         "pokemonId": 183
       }
@@ -8351,7 +10713,7 @@
         "setCode": "NDE",
         "number": "102/105",
         "jpSetCode": "N4",
-        "jpNumber": null,
+        "jpNumber": "Pokémon Personality Test",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -8430,7 +10792,7 @@
         "setCode": "NG",
         "number": "100/111",
         "jpSetCode": "N1",
-        "jpNumber": null,
+        "jpNumber": "Double Gust",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -8459,7 +10821,7 @@
         "setCode": "NG",
         "number": "102/111",
         "jpSetCode": "N1",
-        "jpNumber": null,
+        "jpNumber": "Pokémon March",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -8515,19 +10877,19 @@
         "pokemonId": 187
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_tropical present1",
         "cardName": "Tropical Present",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Tropical Present1",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Tropical Present1",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -8539,6 +10901,33 @@
           "Pikachu",
           "Mareep",
           "Snorlax"
+        ],
+        "pokemonId": 187
+      },
+      {
+        "id": "cameo_unp_tropical tidal wave3",
+        "cardName": "Tropical Tidal Wave",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Tropical Tidal Wave3",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Tropical Tidal Wave3",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Marill",
+          "Hoppip",
+          "Psyduck"
         ],
         "pokemonId": 187
       }
@@ -8594,7 +10983,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Captain Pikachu",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -8894,7 +11283,7 @@
         "setCode": "NG",
         "number": "102/111",
         "jpSetCode": "N1",
-        "jpNumber": null,
+        "jpNumber": "Pokémon March",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -9015,7 +11404,7 @@
         "setCode": "NDE",
         "number": "096/105",
         "jpSetCode": "N4",
-        "jpNumber": null,
+        "jpNumber": "Thought Wave Machine",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -9106,7 +11495,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Pokémon Pal City6",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -9162,7 +11551,7 @@
         "setCode": "DPPR",
         "number": "048",
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Tropical Wind3",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -9199,7 +11588,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Pokémon Pal City3",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -9289,19 +11678,19 @@
     "region": "Johto",
     "cards": [
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_tropical tidal wave1",
         "cardName": "Tropical Tidal Wave",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Tropical Tidal Wave1",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Tropical Tidal Wave1",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -9559,7 +11948,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Pokémon Pal City7",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -9722,19 +12111,19 @@
         "pokemonId": 238
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_tropical wind6",
         "cardName": "Tropical Wind",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Tropical Wind6",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Tropical Wind6",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -9787,7 +12176,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Pokémon Valley",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -9860,7 +12249,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Pokémon Pal City1",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -10038,7 +12427,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Champion's League",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -10087,19 +12476,65 @@
         "pokemonId": 249
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_girl no.3 trainer3",
         "cardName": "Girl No.3 Trainer",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Girl No.3 Trainer3",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Girl No.3 Trainer3",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 249
+      },
+      {
+        "id": "cameo_unp_no.1 trainer6",
+        "cardName": "No.1 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.1 Trainer6",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.1 Trainer6",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": null,
+        "pokemonId": 249
+      },
+      {
+        "id": "cameo_unp_no.2 trainer6",
+        "cardName": "No.2 Trainer",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "No.2 Trainer6",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "No.2 Trainer6",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -10195,7 +12630,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Lucky Stadium3",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -10213,19 +12648,19 @@
         "pokemonId": 250
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_no.1 trainer5",
         "cardName": "No.1 Trainer",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "No.1 Trainer5",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "No.1 Trainer5",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -10249,7 +12684,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "New Century Present",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -10328,33 +12763,6 @@
     "region": "Hoenn",
     "cards": [
       {
-        "id": "cameo_np_026",
-        "cardName": "Tropical Wind",
-        "setCode": "NP",
-        "number": "026",
-        "jpSetCode": "UNP",
-        "jpNumber": "Promo",
-        "cnSetCode": null,
-        "cnNumber": null,
-        "tcSetCode": null,
-        "tcNumber": null,
-        "krSetCode": null,
-        "krNumber": null,
-        "setNumber": "026",
-        "exclusive": null,
-        "availableLangs": [
-          "EN",
-          "JP"
-        ],
-        "isPrimary": true,
-        "isSecondary": false,
-        "otherPokemon": [
-          "Torchic",
-          "Psyduck"
-        ],
-        "pokemonId": 255
-      },
-      {
         "id": "cameo_trr_093-109",
         "cardName": "Venture Bomb",
         "setCode": "TRR",
@@ -10378,6 +12786,33 @@
         "otherPokemon": [
           "Torchic",
           "Bulbasaur"
+        ],
+        "pokemonId": 255
+      },
+      {
+        "id": "cameo_np_026",
+        "cardName": "Tropical Wind",
+        "setCode": "NP",
+        "number": "026",
+        "jpSetCode": "UNP",
+        "jpNumber": "Tropical Wind4",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "026",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Torchic",
+          "Psyduck"
         ],
         "pokemonId": 255
       }
@@ -10712,7 +13147,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Captain Pikachu",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -10748,19 +13183,19 @@
         "pokemonId": 278
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_tropical tidal wave1",
         "cardName": "Tropical Tidal Wave",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Tropical Tidal Wave1",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Tropical Tidal Wave1",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -11393,19 +13828,19 @@
         "pokemonId": 311
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_touch exchange!",
         "cardName": "Touch Exchange!",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Touch Exchange!",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Touch Exchange!",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -11512,19 +13947,19 @@
         "pokemonId": 312
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_touch exchange!",
         "cardName": "Touch Exchange!",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Touch Exchange!",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Touch Exchange!",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -11567,7 +14002,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Spiky-eared Pichu M 3",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -11649,19 +14084,19 @@
         "pokemonId": 320
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_tropical tidal wave2",
         "cardName": "Tropical Tidal Wave",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Tropical Tidal Wave2",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Tropical Tidal Wave2",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -11697,7 +14132,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Pokémon Pal City1",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -11818,7 +14253,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Captain Pikachu",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -11888,7 +14323,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Captain Pikachu",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -12403,7 +14838,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Pokémon Pal City6",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -12459,7 +14894,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Arceus1",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -12598,19 +15033,19 @@
     "region": "Hoenn",
     "cards": [
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_zoroark and the legendary pokémon",
         "cardName": "Zoroark and the Legendary Pokémon",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Zoroark and the Legendary Pokémon",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Zoroark and the Legendary Pokémon",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -12661,19 +15096,19 @@
         "pokemonId": 384
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_zoroark and the legendary pokémon",
         "cardName": "Zoroark and the Legendary Pokémon",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Zoroark and the Legendary Pokémon",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Zoroark and the Legendary Pokémon",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -12733,7 +15168,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Pokémon Pal City2",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -12748,7 +15183,7 @@
         "isPrimary": true,
         "isSecondary": false,
         "otherPokemon": [
-          "Cherrim",
+          "Cherubi",
           "Jirachi",
           "Pikachu"
         ],
@@ -12770,41 +15205,12 @@
     "region": "Sinnoh",
     "cards": [
       {
-        "id": "cameo_dppr_005",
-        "cardName": "Tropical Wind",
-        "setCode": "DPPR",
-        "number": "005",
-        "jpSetCode": "UNP",
-        "jpNumber": "Promo",
-        "cnSetCode": null,
-        "cnNumber": null,
-        "tcSetCode": null,
-        "tcNumber": null,
-        "krSetCode": null,
-        "krNumber": null,
-        "setNumber": "005",
-        "exclusive": null,
-        "availableLangs": [
-          "EN",
-          "JP"
-        ],
-        "isPrimary": true,
-        "isSecondary": false,
-        "otherPokemon": [
-          "Psyduck",
-          "Turtwig",
-          "Piplup",
-          "Chimchar"
-        ],
-        "pokemonId": 387
-      },
-      {
         "id": "cameo_md_082-100",
         "cardName": "Fossil Excavator",
         "setCode": "MD",
         "number": "082/100",
         "jpSetCode": "DP2",
-        "jpNumber": null,
+        "jpNumber": "Fossil Excavator",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -12832,7 +15238,7 @@
         "setCode": "STF",
         "number": "093/100",
         "jpSetCode": "DP1",
-        "jpNumber": null,
+        "jpNumber": "Switch",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -12859,7 +15265,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Captain Pikachu",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -12891,6 +15297,35 @@
           "Lumineon",
           "Tentacool",
           "Meowth"
+        ],
+        "pokemonId": 387
+      },
+      {
+        "id": "cameo_dppr_005",
+        "cardName": "Tropical Wind",
+        "setCode": "DPPR",
+        "number": "005",
+        "jpSetCode": "UNP",
+        "jpNumber": "Tropical Wind1",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "005",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Psyduck",
+          "Turtwig",
+          "Piplup",
+          "Chimchar"
         ],
         "pokemonId": 387
       }
@@ -12922,7 +15357,7 @@
         "setCode": "DP",
         "number": "107/120",
         "jpSetCode": "DP1",
-        "jpNumber": null,
+        "jpNumber": "Energy Switch",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -12944,41 +15379,12 @@
         "pokemonId": 390
       },
       {
-        "id": "cameo_dppr_005",
-        "cardName": "Tropical Wind",
-        "setCode": "DPPR",
-        "number": "005",
-        "jpSetCode": "UNP",
-        "jpNumber": "Promo",
-        "cnSetCode": null,
-        "cnNumber": null,
-        "tcSetCode": null,
-        "tcNumber": null,
-        "krSetCode": null,
-        "krNumber": null,
-        "setNumber": "005",
-        "exclusive": null,
-        "availableLangs": [
-          "EN",
-          "JP"
-        ],
-        "isPrimary": true,
-        "isSecondary": false,
-        "otherPokemon": [
-          "Psyduck",
-          "Turtwig",
-          "Piplup",
-          "Chimchar"
-        ],
-        "pokemonId": 390
-      },
-      {
         "id": "cameo_unp_n-a",
         "cardName": "Captain Pikachu",
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Captain Pikachu",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -13012,6 +15418,35 @@
           "Meowth"
         ],
         "pokemonId": 390
+      },
+      {
+        "id": "cameo_dppr_005",
+        "cardName": "Tropical Wind",
+        "setCode": "DPPR",
+        "number": "005",
+        "jpSetCode": "UNP",
+        "jpNumber": "Tropical Wind1",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "005",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Psyduck",
+          "Turtwig",
+          "Piplup",
+          "Chimchar"
+        ],
+        "pokemonId": 390
       }
     ]
   },
@@ -13041,7 +15476,7 @@
         "setCode": "DP",
         "number": "115/120",
         "jpSetCode": "DP1",
-        "jpNumber": null,
+        "jpNumber": "Super Scoop Up",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -13057,35 +15492,6 @@
         "isPrimary": true,
         "isSecondary": false,
         "otherPokemon": null,
-        "pokemonId": 393
-      },
-      {
-        "id": "cameo_dppr_005",
-        "cardName": "Tropical Wind",
-        "setCode": "DPPR",
-        "number": "005",
-        "jpSetCode": "UNP",
-        "jpNumber": "Promo",
-        "cnSetCode": null,
-        "cnNumber": null,
-        "tcSetCode": null,
-        "tcNumber": null,
-        "krSetCode": null,
-        "krNumber": null,
-        "setNumber": "005",
-        "exclusive": null,
-        "availableLangs": [
-          "EN",
-          "JP"
-        ],
-        "isPrimary": true,
-        "isSecondary": false,
-        "otherPokemon": [
-          "Psyduck",
-          "Turtwig",
-          "Piplup",
-          "Chimchar"
-        ],
         "pokemonId": 393
       },
       {
@@ -13148,7 +15554,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Arceus3",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -13166,6 +15572,35 @@
           "Pikachu",
           "Pichu",
           "Piplup"
+        ],
+        "pokemonId": 393
+      },
+      {
+        "id": "cameo_dppr_005",
+        "cardName": "Tropical Wind",
+        "setCode": "DPPR",
+        "number": "005",
+        "jpSetCode": "UNP",
+        "jpNumber": "Tropical Wind1",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "005",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Psyduck",
+          "Turtwig",
+          "Piplup",
+          "Chimchar"
         ],
         "pokemonId": 393
       }
@@ -13221,7 +15656,7 @@
         "setCode": "DP",
         "number": "107/120",
         "jpSetCode": "DP1",
-        "jpNumber": null,
+        "jpNumber": "Energy Switch",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -13270,7 +15705,7 @@
         "setCode": "DPPR",
         "number": "048",
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Tropical Wind3",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -13349,7 +15784,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Spiky-eared Pichu M 3",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -13416,7 +15851,7 @@
         "setCode": "MD",
         "number": "082/100",
         "jpSetCode": "DP2",
-        "jpNumber": null,
+        "jpNumber": "Fossil Excavator",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -13503,35 +15938,6 @@
     "region": "Sinnoh",
     "cards": [
       {
-        "id": "cameo_dppr_025",
-        "cardName": "Tropical Wind",
-        "setCode": "DPPR",
-        "number": "025",
-        "jpSetCode": "UNP",
-        "jpNumber": "Promo",
-        "cnSetCode": null,
-        "cnNumber": null,
-        "tcSetCode": null,
-        "tcNumber": null,
-        "krSetCode": null,
-        "krNumber": null,
-        "setNumber": "025",
-        "exclusive": null,
-        "availableLangs": [
-          "EN",
-          "JP"
-        ],
-        "isPrimary": true,
-        "isSecondary": false,
-        "otherPokemon": [
-          "Pachirisu",
-          "Psyduck",
-          "Buneary",
-          "Crogunk"
-        ],
-        "pokemonId": 417
-      },
-      {
         "id": "cameo_la_132-146",
         "cardName": "Energy Pickup",
         "setCode": "LA",
@@ -13561,7 +15967,7 @@
         "setCode": "MD",
         "number": "082/100",
         "jpSetCode": "DP2",
-        "jpNumber": null,
+        "jpNumber": "Fossil Excavator",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -13584,19 +15990,19 @@
         "pokemonId": 417
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_touch exchange!",
         "cardName": "Touch Exchange!",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Touch Exchange!",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Touch Exchange!",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -13608,6 +16014,35 @@
           "Plusle",
           "Buneary",
           "Pachirisu"
+        ],
+        "pokemonId": 417
+      },
+      {
+        "id": "cameo_dppr_025",
+        "cardName": "Tropical Wind",
+        "setCode": "DPPR",
+        "number": "025",
+        "jpSetCode": "UNP",
+        "jpNumber": "Tropical Wind2",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "025",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Pachirisu",
+          "Psyduck",
+          "Buneary",
+          "Crogunk"
         ],
         "pokemonId": 417
       }
@@ -13632,7 +16067,35 @@
     "name": "Cherubi",
     "gen": 4,
     "region": "Sinnoh",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_unp_n-a",
+        "cardName": "Pokémon Pal City",
+        "setCode": null,
+        "number": "N/A",
+        "jpSetCode": "UNP",
+        "jpNumber": "Pokémon Pal City2",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "N/A",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Cherubi",
+          "Jirachi",
+          "Pikachu"
+        ],
+        "pokemonId": 420
+      }
+    ]
   },
   {
     "id": 421,
@@ -13661,33 +16124,6 @@
         "isPrimary": true,
         "isSecondary": false,
         "otherPokemon": null,
-        "pokemonId": 421
-      },
-      {
-        "id": "cameo_unp_n-a",
-        "cardName": "Pokémon Pal City",
-        "setCode": null,
-        "number": "N/A",
-        "jpSetCode": "UNP",
-        "jpNumber": "N/A",
-        "cnSetCode": null,
-        "cnNumber": null,
-        "tcSetCode": null,
-        "tcNumber": null,
-        "krSetCode": null,
-        "krNumber": null,
-        "setNumber": "N/A",
-        "exclusive": "JP",
-        "availableLangs": [
-          "JP"
-        ],
-        "isPrimary": true,
-        "isSecondary": false,
-        "otherPokemon": [
-          "Cherrim",
-          "Jirachi",
-          "Pikachu"
-        ],
         "pokemonId": 421
       }
     ]
@@ -13734,12 +16170,40 @@
     "region": "Sinnoh",
     "cards": [
       {
+        "id": "cameo_unp_touch exchange!",
+        "cardName": "Touch Exchange!",
+        "setCode": null,
+        "number": null,
+        "jpSetCode": "UNP",
+        "jpNumber": "Touch Exchange!",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "Touch Exchange!",
+        "exclusive": "JP",
+        "availableLangs": [
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false,
+        "otherPokemon": [
+          "Minun",
+          "Plusle",
+          "Buneary",
+          "Pachirisu"
+        ],
+        "pokemonId": 427
+      },
+      {
         "id": "cameo_dppr_025",
         "cardName": "Tropical Wind",
         "setCode": "DPPR",
         "number": "025",
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Tropical Wind2",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -13759,34 +16223,6 @@
           "Psyduck",
           "Buneary",
           "Crogunk"
-        ],
-        "pokemonId": 427
-      },
-      {
-        "id": "cameo_unp_promo",
-        "cardName": "Touch Exchange!",
-        "setCode": null,
-        "number": null,
-        "jpSetCode": "UNP",
-        "jpNumber": "Promo",
-        "cnSetCode": null,
-        "cnNumber": null,
-        "tcSetCode": null,
-        "tcNumber": null,
-        "krSetCode": null,
-        "krNumber": null,
-        "setNumber": "Promo",
-        "exclusive": "JP",
-        "availableLangs": [
-          "JP"
-        ],
-        "isPrimary": true,
-        "isSecondary": false,
-        "otherPokemon": [
-          "Minun",
-          "Plusle",
-          "Buneary",
-          "Pachirisu"
         ],
         "pokemonId": 427
       }
@@ -13825,7 +16261,7 @@
         "setCode": "MT",
         "number": "109/123",
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Bebe's Search",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -13941,7 +16377,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Spiky-eared Pichu M 2",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -14066,7 +16502,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Captain Pikachu",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -14102,19 +16538,19 @@
         "pokemonId": 446
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_tropical tidal wave2",
         "cardName": "Tropical Tidal Wave",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Tropical Tidal Wave2",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Tropical Tidal Wave2",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -14150,7 +16586,7 @@
         "setCode": "STF",
         "number": "093/100",
         "jpSetCode": "DP1",
-        "jpNumber": null,
+        "jpNumber": "Switch",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -14296,7 +16732,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Captain Pikachu",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -14352,7 +16788,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Pokémon Pal City3",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -14821,7 +17257,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Arceus2",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -14843,19 +17279,19 @@
         "pokemonId": 483
       },
       {
-        "id": "cameo_unp_promo",
+        "id": "cameo_unp_zoroark and the legendary pokémon",
         "cardName": "Zoroark and the Legendary Pokémon",
         "setCode": null,
         "number": null,
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Zoroark and the Legendary Pokémon",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "Promo",
+        "setNumber": "Zoroark and the Legendary Pokémon",
         "exclusive": "JP",
         "availableLangs": [
           "JP"
@@ -14883,7 +17319,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Arceus2",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -14932,7 +17368,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Arceus2",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -14997,7 +17433,7 @@
         "setCode": "GE",
         "number": "100/106",
         "jpSetCode": "DP4M",
-        "jpNumber": null,
+        "jpNumber": "Moonlight Stadium",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -15021,7 +17457,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Spiky-eared Pichu M 4",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -15052,7 +17488,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Arceus1",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -15087,7 +17523,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "UNP",
-        "jpNumber": "N/A",
+        "jpNumber": "Captain Pikachu",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -15143,7 +17579,7 @@
         "setCode": "DPPR",
         "number": "048",
         "jpSetCode": "UNP",
-        "jpNumber": "Promo",
+        "jpNumber": "Tropical Wind3",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
