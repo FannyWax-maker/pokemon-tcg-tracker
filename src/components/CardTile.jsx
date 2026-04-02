@@ -996,7 +996,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 alt={`${pokemonName} ${card.cardName}`}
                 className="w-full h-auto object-contain rounded-lg"
                 style={{ cursor: pickerMode ? 'crosshair' : 'none', display: 'block', userSelect: 'none',
-                  ...(appMode === 'cameos' ? { clipPath: 'inset(0 0 50% 0 round 8px)', marginBottom: '-50%' } : {}) }}
+                  ...(appMode === 'cameos' ? { clipPath: 'inset(18% 0 38% 0 round 8px)', marginBottom: '-38%', marginTop: '-18%' } : {}) }}
                 onMouseEnter={() => setOverImage(true)}
                 onMouseLeave={() => setOverImage(false)}
                 onLoad={() => { if (zoomImgRef.current) setImgRect(zoomImgRef.current.getBoundingClientRect()); }}
