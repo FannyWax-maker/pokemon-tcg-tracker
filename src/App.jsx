@@ -431,13 +431,20 @@ export default function App() {
   }, [filterCounts.artistCounts, artistSortBy]);
 
   const overallStats = useMemo(() => {
-    const allCards = pokemonData.flatMap(p => p.cards.filter(c => !c.isSecondary && c.isPrimary !== false && (c.setCode || c.jpSetCode || c.cnSetCode)));
+    let allCards;
+    if (appMode === 'cameos') {
+      // In cameos mode deduplicate by card ID — trainer cards appear as secondary under multiple Pokémon
+      const seen = new Set();
+      allCards = pokemonData.flatMap(p => p.cards.filter(c => (c.setCode || c.jpSetCode) && !seen.has(c.id) && seen.add(c.id)));
+    } else {
+      allCards = pokemonData.flatMap(p => p.cards.filter(c => !c.isSecondary && c.isPrimary !== false && (c.setCode || c.jpSetCode || c.cnSetCode)));
+    }
     const totalCards = allCards.length;
     const ownedCards = allCards.filter(c => c.ownedLang).length;
     const completionPercent = totalCards > 0 ? (ownedCards / totalCards) * 100 : 0;
     const langStats = { EN: allCards.filter(c => c.ownedLang === 'EN').length, JP: allCards.filter(c => c.ownedLang === 'JP').length, CN: allCards.filter(c => c.ownedLang === 'CN').length, KR: allCards.filter(c => c.ownedLang === 'KR').length };
     return { totalCards, ownedCards, completionPercent, langStats };
-  }, [pokemonData]);
+  }, [pokemonData, appMode]);
 
   const hasActiveFilters = filterLang !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterMissingImages || filterMissingPrice || filterMissingCoords || filterChinese !== 'all' || filterArtist !== 'all' || filterHideNoCards !== 'all' || filterHideNonConforming !== 'all' || filterOwned !== 'all' || filterSetLang !== 'all' || filterGeneration !== 'all' || filterFavorites !== 'all' || filterUnobtainable !== 'all';
   const activeFilterCount = [filterSet !== 'all', filterCardType !== 'all', filterMissingImages, filterChinese !== 'all', filterArtist !== 'all', filterHideNoCards !== 'all', filterHideNonConforming !== 'all', filterOwned !== 'all', filterGeneration !== 'all'].filter(Boolean).length;
