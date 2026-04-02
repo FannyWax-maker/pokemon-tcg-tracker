@@ -995,6 +995,12 @@
     "year": null,
     "month": null
   },
+  "SD100": {
+    "name": "Starter Decks 100",
+    "series": "Sword & Shield",
+    "year": 2021,
+    "month": 12
+  },
   "S9": {
     "name": "Star Birth",
     "series": "Sword & Shield",
