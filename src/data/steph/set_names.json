@@ -630,10 +630,10 @@
     "month": null
   },
   "SI": {
-    "name": "Start Deck 100",
-    "series": "Sword & Shield",
-    "year": null,
-    "month": null
+    "name": "Southern Islands",
+    "series": "",
+    "year": 2001,
+    "month": 7
   },
   "LL": {
     "name": "Lost Link",
@@ -996,10 +996,10 @@
     "month": null
   },
   "SD100": {
-    "name": "Starter Decks 100",
+    "name": "Start Deck 100",
     "series": "Sword & Shield",
-    "year": 2021,
-    "month": 12
+    "year": null,
+    "month": null
   },
   "S9": {
     "name": "Star Birth",
