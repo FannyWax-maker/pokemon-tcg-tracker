@@ -426,10 +426,10 @@
     "month": 10
   },
   "N1": {
-    "name": "Neo Genesis",
-    "series": "Neo",
-    "year": 2000,
-    "month": 12
+    "name": "Gold, Silver, to a New World...",
+    "series": "",
+    "year": null,
+    "month": null
   },
   "N2": {
     "name": "Neo Discovery",
@@ -449,10 +449,88 @@
     "year": 2002,
     "month": 2
   },
+  "EX": {
+    "name": "Expedition Base Set",
+    "series": "e-Card Series",
+    "year": 2002,
+    "month": 9
+  },
   "AQ": {
     "name": "Aquapolis",
     "series": "e-Card Series",
     "year": 2003,
+    "month": 1
+  },
+  "DX": {
+    "name": "EX Deoxys",
+    "series": "EX Ruby & Sapphire Series",
+    "year": 2005,
+    "month": 2
+  },
+  "HP": {
+    "name": "Holon Phantoms",
+    "series": "EX Ruby & Sapphire Series",
+    "year": 2006,
+    "month": 5
+  },
+  "DF": {
+    "name": "Dragon Frontiers",
+    "series": "EX Ruby & Sapphire Series",
+    "year": 2006,
+    "month": 11
+  },
+  "POP5": {
+    "name": "POP Series 5",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "MT": {
+    "name": "Mysterious Treasures",
+    "series": "",
+    "year": 2007,
+    "month": 8
+  },
+  "SW": {
+    "name": "Secret Wonders",
+    "series": "",
+    "year": 2007,
+    "month": 11
+  },
+  "MD": {
+    "name": "Majestic Dawn",
+    "series": "",
+    "year": 2008,
+    "month": 5
+  },
+  "AR": {
+    "name": "Arceus",
+    "series": "",
+    "year": 2009,
+    "month": 11
+  },
+  "GC": {
+    "name": "Gym Challenge",
+    "series": "",
+    "year": 2000,
+    "month": 10
+  },
+  "GH": {
+    "name": "Gym Heroes",
+    "series": "",
+    "year": 2000,
+    "month": 8
+  },
+  "B2": {
+    "name": "Base Set 2",
+    "series": "",
+    "year": 2000,
+    "month": 2
+  },
+  "BS": {
+    "name": "Base Set",
+    "series": "",
+    "year": 1999,
     "month": 1
   },
   "SI": {
@@ -1147,6 +1225,18 @@
   },
   "SI-JP": {
     "name": "Southern Island JP",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "DP3": {
+    "name": "Shining Darkness",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "PTS": {
+    "name": "Shaymin LV.X Collection Pack",
     "series": "",
     "year": null,
     "month": null
