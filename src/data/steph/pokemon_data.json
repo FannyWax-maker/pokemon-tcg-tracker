@@ -631,7 +631,34 @@
     "name": "Wartortle",
     "gen": 1,
     "region": "Kanto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_si_015-018",
+        "cardName": "Wartortle",
+        "setCode": "SI",
+        "number": "015/018",
+        "jpSetCode": "SI-JP",
+        "jpNumber": "008",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "015/018",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "otherPokemon": [
+          "Horsea"
+        ],
+        "pokemonId": 8,
+        "isPrimary": true,
+        "isSecondary": false
+      }
+    ]
   },
   {
     "id": 9,
@@ -766,7 +793,8 @@
           "JP"
         ],
         "otherPokemon": [
-          "Venonat"
+          "Venonat",
+          "Mankey"
         ],
         "pokemonId": 12,
         "isPrimary": true,
@@ -2583,7 +2611,7 @@
         "cardName": "Pokémon Communication",
         "setCode": "HS",
         "number": "098/123",
-        "jpSetCode": "L1",
+        "jpSetCode": "L1SS",
         "jpNumber": "065/070",
         "cnSetCode": null,
         "cnNumber": null,
@@ -3578,7 +3606,8 @@
           "JP"
         ],
         "otherPokemon": [
-          "Venonat"
+          "Venonat",
+          "Mankey"
         ],
         "pokemonId": 48,
         "isPrimary": false,
@@ -4521,6 +4550,34 @@
     "gen": 1,
     "region": "Kanto",
     "cards": [
+      {
+        "id": "cameo_si_009-018",
+        "cardName": "Butterfree",
+        "setCode": "SI",
+        "number": "009/018",
+        "jpSetCode": "SI-JP",
+        "jpNumber": "012",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "009/018",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "otherPokemon": [
+          "Venonat",
+          "Mankey"
+        ],
+        "pokemonId": 56,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Butterfree"
+      },
       {
         "id": "cameo_sts_053-114",
         "cardName": "Primeape",
@@ -8609,7 +8666,7 @@
       },
       {
         "id": "cameo_si_015-018",
-        "cardName": "Wortortle",
+        "cardName": "Wartortle",
         "setCode": "SI",
         "number": "015/018",
         "jpSetCode": "SI-JP",
@@ -8632,7 +8689,7 @@
         "pokemonId": 116,
         "isPrimary": false,
         "isSecondary": true,
-        "primaryPokemon": "Wortortle"
+        "primaryPokemon": "Wartortle"
       },
       {
         "id": "cameo_unp_n-a",
@@ -9126,7 +9183,7 @@
         "cardName": "Fisherman",
         "setCode": "HS",
         "number": "092/123",
-        "jpSetCode": "L1",
+        "jpSetCode": "L1SS",
         "jpNumber": "067/070",
         "cnSetCode": null,
         "cnNumber": null,
@@ -12003,7 +12060,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "N1",
-        "jpNumber": "N1",
+        "jpNumber": "Moo-Moo Milk",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -12456,7 +12513,7 @@
         "cardName": "Pokémon Collector",
         "setCode": "HS",
         "number": "097/123",
-        "jpSetCode": "L1",
+        "jpSetCode": "L1SS",
         "jpNumber": "068/070",
         "cnSetCode": null,
         "cnNumber": null,
@@ -13560,7 +13617,35 @@
     "name": "Sudowoodo",
     "gen": 2,
     "region": "Johto",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_hs_120-123",
+        "cardName": "Fighting Energy",
+        "setCode": "HS",
+        "number": "120/123",
+        "jpSetCode": "L1HG",
+        "jpNumber": "077/070",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "120/123",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "otherPokemon": [
+          "Sudowoodo"
+        ],
+        "pokemonId": 185,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Fighting Energy"
+      }
+    ]
   },
   {
     "id": 186,
@@ -14024,10 +14109,10 @@
     "region": "Johto",
     "cards": [
       {
-        "id": "cameo_bkp_037-080",
+        "id": "cameo_bkp_054-122",
         "cardName": "Drapion",
         "setCode": "BKP",
-        "number": "037/080",
+        "number": "054/122",
         "jpSetCode": "XY9",
         "jpNumber": "037/080",
         "cnSetCode": null,
@@ -14036,7 +14121,7 @@
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "037/080",
+        "setNumber": "054/122",
         "exclusive": null,
         "availableLangs": [
           "EN",
@@ -15048,9 +15133,9 @@
         "primaryPokemon": "Mantine"
       },
       {
-        "id": "cameo_hs_059-95",
+        "id": "cameo_ul_059-95",
         "cardName": "Remoraid",
-        "setCode": "HS",
+        "setCode": "UL",
         "number": "059/95",
         "jpSetCode": "L1HG",
         "jpNumber": "028/070",
@@ -15229,9 +15314,9 @@
         "isSecondary": false
       },
       {
-        "id": "cameo_hs_059-95",
+        "id": "cameo_ul_059-95",
         "cardName": "Remoraid",
-        "setCode": "HS",
+        "setCode": "UL",
         "number": "059/95",
         "jpSetCode": "L1HG",
         "jpNumber": "028/070",
@@ -15309,7 +15394,8 @@
           "JP"
         ],
         "otherPokemon": [
-          "Skarmory"
+          "Skarmory",
+          "Lugia"
         ],
         "pokemonId": 227,
         "isPrimary": false,
@@ -15737,7 +15823,7 @@
         "cardName": "Pokémon Collector",
         "setCode": "HS",
         "number": "097/123",
-        "jpSetCode": "L1",
+        "jpSetCode": "L1SS",
         "jpNumber": "068/070",
         "cnSetCode": null,
         "cnNumber": null,
@@ -16287,6 +16373,34 @@
     "region": "Johto",
     "cards": [
       {
+        "id": "cameo_nr_018-064",
+        "cardName": "Ho-Oh",
+        "setCode": "NR",
+        "number": "018/064",
+        "jpSetCode": "PF3",
+        "jpNumber": "250",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "018/064",
+        "exclusive": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "otherPokemon": [
+          "Skarmory",
+          "Lugia"
+        ],
+        "pokemonId": 249,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Ho-Oh"
+      },
+      {
         "id": "cameo_nr_020-064",
         "cardName": "Lugia",
         "setCode": "NR",
@@ -16541,7 +16655,8 @@
           "JP"
         ],
         "otherPokemon": [
-          "Skarmory"
+          "Skarmory",
+          "Lugia"
         ],
         "pokemonId": 250,
         "isPrimary": true,
@@ -22018,10 +22133,10 @@
     "region": "Sinnoh",
     "cards": [
       {
-        "id": "cameo_bkp_037-080",
+        "id": "cameo_bkp_054-122",
         "cardName": "Drapion",
         "setCode": "BKP",
-        "number": "037/080",
+        "number": "054/122",
         "jpSetCode": "XY9",
         "jpNumber": "037/080",
         "cnSetCode": null,
@@ -22030,7 +22145,7 @@
         "tcNumber": null,
         "krSetCode": null,
         "krNumber": null,
-        "setNumber": "037/080",
+        "setNumber": "054/122",
         "exclusive": null,
         "availableLangs": [
           "EN",
