@@ -139,7 +139,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const [imgRect, setImgRect] = React.useState(null);
   const [overImage, setOverImage] = React.useState(false);
   const zoomImgRef = React.useRef(null);
-  const LOUPE_SIZE = 180;
+  const LOUPE_SIZE = 300;
 
   React.useEffect(() => {
     document.body.style.overflow = showZoom ? 'hidden' : '';
