@@ -587,10 +587,34 @@
     "year": 2008,
     "month": 11
   },
+  "PL": {
+    "name": "Platinum",
+    "series": "",
+    "year": 2009,
+    "month": 2
+  },
+  "RR": {
+    "name": "Rising Rivals",
+    "series": "",
+    "year": 2009,
+    "month": 5
+  },
   "AR": {
     "name": "Arceus",
     "series": "",
     "year": 2009,
+    "month": 11
+  },
+  "HS": {
+    "name": "Undaunted",
+    "series": "",
+    "year": 2010,
+    "month": 8
+  },
+  "TM": {
+    "name": "Triumphant",
+    "series": "",
+    "year": 2010,
     "month": 11
   },
   "GC": {
@@ -1541,11 +1565,53 @@
     "year": null,
     "month": null
   },
+  "LP-P": {
+    "name": "Legend Promo",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "DPT-P": {
+    "name": "Platinum Promo",
+    "series": "",
+    "year": null,
+    "month": null
+  },
   "NW-P": {
     "name": "Natta Wake Promo",
     "series": "",
     "year": 2000,
     "month": 8
+  },
+  "IFDS": {
+    "name": "Intense Fight in the Destroyed Sky",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "PT1": {
+    "name": "Galactic Conquest",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "PT2": {
+    "name": "Bonds to the End of Time",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "PT4": {
+    "name": "Advent of Arceus",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "L1HG": {
+    "name": "HeartGold Collection",
+    "series": "",
+    "year": null,
+    "month": null
   },
   "CSGC": {
     "name": "Eevee Display Frame Box",
