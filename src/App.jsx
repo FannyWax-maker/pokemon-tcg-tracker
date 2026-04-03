@@ -453,7 +453,25 @@ export default function App() {
     let filtered = pokemonData;
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
-      filtered = filtered.filter(p => p.name.toLowerCase().includes(query) || String(p.id).includes(query));
+      filtered = filtered.filter(p => {
+        if (p.name.toLowerCase().includes(query)) return true;
+        if (String(p.id).includes(query)) return true;
+        return p.cards.some(c => {
+          // Match set codes
+          if ((c.setCode || '').toLowerCase().includes(query)) return true;
+          if ((c.jpSetCode || '').toLowerCase().includes(query)) return true;
+          if ((c.cnSetCode || '').toLowerCase().includes(query)) return true;
+          if ((c.tcSetCode || '').toLowerCase().includes(query)) return true;
+          if ((c.krSetCode || '').toLowerCase().includes(query)) return true;
+          // Match set names
+          const codes = [c.setCode, c.enSetCode, c.jpSetCode, c.cnSetCode, c.tcSetCode, c.krSetCode].filter(Boolean);
+          return codes.some(code => {
+            const sn = setNamesLC[code.toLowerCase()];
+            const name = typeof sn === 'object' ? (sn?.name || '') : (sn || '');
+            return name.toLowerCase().includes(query);
+          });
+        });
+      });
     }
     if (filterGeneration !== 'all') { const gen = parseInt(filterGeneration); filtered = filtered.filter(p => p.gen === gen); }
     if (filterHideNoCards === 'hide' || filterHideNoCards === true) {
