@@ -467,7 +467,7 @@ export default function App() {
           const codes = [c.setCode, c.enSetCode, c.jpSetCode, c.cnSetCode, c.tcSetCode, c.krSetCode].filter(Boolean);
           return codes.some(code => {
             const sn = setNamesLC[code.toLowerCase()];
-            const name = typeof sn === 'object' ? (sn?.name || '') : (sn || '');
+            const name = String(typeof sn === 'object' ? (sn?.name || '') : (sn || ''));
             return name.toLowerCase().includes(query);
           });
         });
