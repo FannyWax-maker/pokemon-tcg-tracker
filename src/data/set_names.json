@@ -449,6 +449,12 @@
     "year": 2002,
     "month": 2
   },
+  "LC": {
+    "name": "Legendary Collection",
+    "series": "Neo",
+    "year": 2002,
+    "month": 5
+  },
   "EX": {
     "name": "Expedition Base Set",
     "series": "e-Card Series",
@@ -473,6 +479,12 @@
     "year": null,
     "month": null
   },
+  "RS": {
+    "name": "Ruby & Sapphire",
+    "series": "EX Ruby & Sapphire Series",
+    "year": 2003,
+    "month": 7
+  },
   "SS": {
     "name": "EX Sandstorm",
     "series": "EX Ruby & Sapphire Series",
@@ -483,6 +495,24 @@
     "name": "EX Dragon",
     "series": "EX Ruby & Sapphire Series",
     "year": 2003,
+    "month": 9
+  },
+  "MA": {
+    "name": "Team Magma vs Team Aqua",
+    "series": "EX Ruby & Sapphire Series",
+    "year": 2004,
+    "month": 3
+  },
+  "HL": {
+    "name": "Hidden Legends",
+    "series": "EX Ruby & Sapphire Series",
+    "year": 2004,
+    "month": 6
+  },
+  "RG": {
+    "name": "FireRed & LeafGreen",
+    "series": "EX Ruby & Sapphire Series",
+    "year": 2004,
     "month": 9
   },
   "TRR": {
@@ -496,6 +526,12 @@
     "series": "EX Ruby & Sapphire Series",
     "year": 2005,
     "month": 2
+  },
+  "EM": {
+    "name": "Emerald",
+    "series": "EX Ruby & Sapphire Series",
+    "year": 2005,
+    "month": 5
   },
   "POP2": {
     "name": "POP Series 2",
@@ -515,6 +551,18 @@
     "year": 2005,
     "month": 10
   },
+  "LM": {
+    "name": "Legend Maker",
+    "series": "EX Ruby & Sapphire Series",
+    "year": 2006,
+    "month": 2
+  },
+  "POP3": {
+    "name": "POP Series 3",
+    "series": "POP Series",
+    "year": null,
+    "month": null
+  },
   "HP": {
     "name": "Holon Phantoms",
     "series": "EX Ruby & Sapphire Series",
@@ -527,11 +575,23 @@
     "year": null,
     "month": null
   },
+  "CG": {
+    "name": "Crystal Guardians",
+    "series": "EX Ruby & Sapphire Series",
+    "year": 2006,
+    "month": 8
+  },
   "DF": {
     "name": "Dragon Frontiers",
     "series": "EX Ruby & Sapphire Series",
     "year": 2006,
     "month": 11
+  },
+  "PK": {
+    "name": "Power Keepers",
+    "series": "EX Ruby & Sapphire Series",
+    "year": 2007,
+    "month": 2
   },
   "POP5": {
     "name": "POP Series 5",
@@ -581,6 +641,12 @@
     "year": 2008,
     "month": 8
   },
+  "POP8": {
+    "name": "POP Series 8",
+    "series": "",
+    "year": null,
+    "month": null
+  },
   "STF": {
     "name": "Stormfront",
     "series": "",
@@ -605,13 +671,31 @@
     "year": 2009,
     "month": 11
   },
+  "RM": {
+    "name": "Rumble",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "HGSS": {
+    "name": "HeartGold & SoulSilver Promos",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "HS": {
+    "name": "HeartGold & SoulSilver",
+    "series": "",
+    "year": 2010,
+    "month": 2
+  },
   "UL": {
     "name": "Unleashed",
     "series": "",
     "year": 2010,
     "month": 5
   },
-  "HS": {
+  "UD": {
     "name": "Undaunted",
     "series": "",
     "year": 2010,
@@ -622,6 +706,84 @@
     "series": "",
     "year": 2010,
     "month": 11
+  },
+  "DEX": {
+    "name": "Dark Explorers",
+    "series": "",
+    "year": 2012,
+    "month": 5
+  },
+  "DRX": {
+    "name": "Dragons Exalted",
+    "series": "",
+    "year": 2012,
+    "month": 8
+  },
+  "BCR": {
+    "name": "Boundaries Crossed",
+    "series": "",
+    "year": 2012,
+    "month": 11
+  },
+  "PLS": {
+    "name": "Plasma Storm",
+    "series": "",
+    "year": 2013,
+    "month": 2
+  },
+  "PLF": {
+    "name": "Plasma Freeze",
+    "series": "",
+    "year": 2013,
+    "month": 5
+  },
+  "PLB": {
+    "name": "Plasma Blast",
+    "series": "",
+    "year": 2013,
+    "month": 8
+  },
+  "MCD15": {
+    "name": "McDonald’s Collection 2015",
+    "series": "",
+    "year": 2015,
+    "month": 11
+  },
+  "MCD16": {
+    "name": "McDonald’s Collection 2016",
+    "series": "",
+    "year": 2016,
+    "month": 8
+  },
+  "BUS": {
+    "name": "Burning Shadows",
+    "series": "",
+    "year": 2017,
+    "month": 8
+  },
+  "CIN": {
+    "name": "Crimson Invasion",
+    "series": "",
+    "year": 2017,
+    "month": 11
+  },
+  "FLI": {
+    "name": "Forbidden Light",
+    "series": "",
+    "year": 2018,
+    "month": 5
+  },
+  "DET": {
+    "name": "Detective Pikachu",
+    "series": "",
+    "year": 2019,
+    "month": 3
+  },
+  "MCD21": {
+    "name": "McDonald’s Collection 2021",
+    "series": "",
+    "year": 2021,
+    "month": 2
   },
   "GC": {
     "name": "Gym Challenge",
@@ -634,6 +796,12 @@
     "series": "",
     "year": 2000,
     "month": 8
+  },
+  "TR": {
+    "name": "Team Rocket",
+    "series": "",
+    "year": 2000,
+    "month": 4
   },
   "B2": {
     "name": "Base Set 2",
