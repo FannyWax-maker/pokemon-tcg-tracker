@@ -179,10 +179,10 @@ export default function App() {
   const FULLART_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyMgDPDy9wpz2YFJoYuYaDQfZ2u5uou3wYQgL6ULUSZDbaJTMNLFDC-Ho57qRHAJ6Osug/exec';
   const STEPH_SCRIPT_URL = FULLART_SCRIPT_URL + '?mode=cameo';
   const APPS_SCRIPT_URL = appMode === 'cameos' ? STEPH_SCRIPT_URL : FULLART_SCRIPT_URL;
+  const cachePrefix = appMode === 'cameos' ? 'steph_' : 'pokemon_';
 
   useEffect(() => {
     const loadOwnership = async () => {
-      const cachePrefix = appMode === 'cameos' ? 'steph_' : 'pokemon_';
       const cached = localStorage.getItem(cachePrefix + 'ownership_cache');
       if (cached) {
         const ownership = JSON.parse(cached);
