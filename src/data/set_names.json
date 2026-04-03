@@ -581,6 +581,12 @@
     "year": 2008,
     "month": 8
   },
+  "POP8": {
+    "name": "POP Series 8",
+    "series": "",
+    "year": null,
+    "month": null
+  },
   "STF": {
     "name": "Stormfront",
     "series": "",
@@ -604,6 +610,12 @@
     "series": "",
     "year": 2009,
     "month": 11
+  },
+  "HS": {
+    "name": "HeartGold & SoulSilver",
+    "series": "",
+    "year": 2010,
+    "month": 2
   },
   "UL": {
     "name": "Unleashed",
