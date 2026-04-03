@@ -605,6 +605,12 @@
     "year": 2009,
     "month": 11
   },
+  "UL": {
+    "name": "Unleashed",
+    "series": "",
+    "year": 2010,
+    "month": 5
+  },
   "HS": {
     "name": "Undaunted",
     "series": "",
@@ -1609,6 +1615,12 @@
   },
   "L1HG": {
     "name": "HeartGold Collection",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "L1SS": {
+    "name": "SoulSilver Collection",
     "series": "",
     "year": null,
     "month": null
