@@ -1,8 +1,9 @@
 import { useState, useCallback } from 'react';
 
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
-const ECHO_URL = 'https://script.googleusercontent.com/macros/echo?lib=M_mZsYf37zQ7yPysNbFRHfYrQazuLjtiG';
-const MAX_CONCURRENT = 2;
+const PROXY = 'https://bold-dawn-78b1.tonybaldwin1990.workers.dev/?url=';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyMgDPDy9wpz2YFJoYuYaDQfZ2u5uou3wYQgL6ULUSZDbaJTMNLFDC-Ho57qRHAJ6Osug/exec';
+const MAX_CONCURRENT = 3;
 
 const memCache = {};
 const inFlight = {};
@@ -44,7 +45,8 @@ function saveToLS(cardId, gbp) {
 }
 
 async function fetchPrice(cardId, setCode, number) {
-  const url = `${ECHO_URL}&action=getPrice&cardId=${encodeURIComponent(cardId)}&setCode=${encodeURIComponent(setCode)}&number=${encodeURIComponent(number)}&_t=${Date.now()}`;
+  const target = `${APPS_SCRIPT_URL}?action=getPrice&cardId=${encodeURIComponent(cardId)}&setCode=${encodeURIComponent(setCode)}&number=${encodeURIComponent(number)}`;
+  const url = PROXY + encodeURIComponent(target);
   const res = await fetch(url);
   if (!res.ok) throw new Error(`error ${res.status}`);
   const json = await res.json();
