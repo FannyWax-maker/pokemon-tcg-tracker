@@ -48,11 +48,11 @@ const buildEbayUrl = (card, pokemonName, lang) => {
   } else if (lang === 'CN') {
     setCode = card.cnSetCode || card.jpSetCode;
     setNumber = card.cnNumber || null;
-    langKeyword = 'chinese simplified';
+    langKeyword = 'chinese';
   } else if (lang === 'TC') {
     setCode = card.tcSetCode || card.jpSetCode;
     setNumber = card.tcNumber || null;
-    langKeyword = 'chinese traditional taiwan';
+    langKeyword = 'chinese traditional';
   } else if (lang === 'KR') {
     setCode = card.krSetCode || card.jpSetCode;
     setNumber = card.krNumber || null;
