@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
+import { imageCache, getManifest, enqueueImageLoad, generateImagePaths } from '../utils/imageUtils';
 
 const ENV_LABELS = [
   { score: 1, label: 'Minimal',      desc: 'Colour wash or gradient only' },
@@ -73,99 +74,7 @@ export function conformanceColor(pct) {
   return '#ef4444';
 }
 
-// ── Image loading ────────────────────────────────────────────────────────────
-const imageCache = {};
-
-// Manifest: shared with CardTile via module-level singleton pattern
-// Fetch once and reuse across both components
-let imageManifest = null;
-let manifestInFlight = null;
-const getManifest = () => {
-  if (imageManifest) return Promise.resolve(imageManifest);
-  if (manifestInFlight) return manifestInFlight;
-  manifestInFlight = fetch('/pokemon-tcg-tracker/card-images/manifest.json')
-    .then(r => r.json())
-    .then(files => { imageManifest = new Set(files); return imageManifest; })
-    .catch(() => { imageManifest = new Set(); return imageManifest; });
-  return manifestInFlight;
-};
-getManifest();
-
-const MAX_CONCURRENT = 6;
-let activeRequests = 0;
-const requestQueue = [];
-const enqueueImageLoad = (fn) => new Promise((resolve, reject) => {
-  const run = async () => {
-    activeRequests++;
-    try { resolve(await fn()); }
-    catch (e) { reject(e); }
-    finally {
-      activeRequests--;
-      if (requestQueue.length > 0) requestQueue.shift()();
-    }
-  };
-  activeRequests < MAX_CONCURRENT ? run() : requestQueue.push(run);
-});
-
-const generateImagePaths = (card, pokemonName) => {
-  const displayPokemon = card.isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName;
-  const setCode = (card.setCode || card.jpSetCode || card.cnSetCode || '').toLowerCase();
-  const pokemon = displayPokemon.toLowerCase().replace(/\s+/g, '_').replace(/[.']/g, '');
-  const number = (card.setNumber || card.number || '').toLowerCase();
-  const numberOnly = number.split('/')[0];
-  const numberAlreadyHasSet = numberOnly.startsWith(setCode) && setCode.length > 0;
-
-  const numVariants = new Set([numberOnly]);
-  const numParts = numberOnly.match(/^([a-z]*)(\d+)([a-z]*)$/);
-  if (numParts) {
-    const [, prefix, digits, suffix] = numParts;
-    for (let pad = digits.length + 1; pad <= digits.length + 2; pad++) {
-      numVariants.add(prefix + digits.padStart(pad, '0') + suffix);
-    }
-    numVariants.add(prefix + digits.replace(/^0+(?=\d)/, '') + suffix);
-    numVariants.add(prefix + digits.replace(/^0(?=\d)/, '') + suffix);
-  }
-
-  const dashVariants = new Set();
-  if (number.includes('/')) {
-    const [rawNum, rawDen] = number.split('/');
-    const denParts = rawDen.match(/^([a-z]*)(\d+)([a-z]*)$/);
-    const denVariants = new Set([rawDen]);
-    if (denParts) {
-      const [, dp, dd, ds] = denParts;
-      denVariants.add(dp + dd.padStart(3, '0') + ds);
-      denVariants.add(dp + dd.replace(/^0+(?=\d)/, '') + ds);
-      denVariants.add(dp + dd.replace(/^0(?=\d)/, '') + ds);
-      if (dp) denVariants.add(dd.replace(/^0+(?=\d)/, ''));
-    }
-    for (const nv of numVariants) {
-      for (const dv of denVariants) {
-        dashVariants.add(nv + '-' + dv);
-      }
-    }
-  } else {
-    for (const nv of numVariants) dashVariants.add(nv);
-  }
-
-  const paths = [];
-  const addPaths = (key) => {
-    paths.push(setCode + '.' + key + '.' + pokemon + '_');
-    paths.push(key + '.' + pokemon + '_');
-    paths.push('.' + key + '.' + pokemon + '_');
-    paths.push(setCode + '.' + key + '.' + pokemon);
-  };
-
-  if (numberAlreadyHasSet) {
-    for (const nv of numVariants) addPaths(nv);
-    for (const dv of dashVariants) addPaths(dv);
-  } else {
-    for (const dv of dashVariants) addPaths(dv);
-    for (const nv of numVariants) addPaths(nv);
-  }
-
-  paths.push(setCode.toUpperCase() + '_' + numberOnly + '_R_EN_LG');
-  return [...new Set(paths)];
-};
+// ── Image loading hook (uses shared utilities) ────────────────────────────────
 
 function useCardImage(card, pokemonName) {
   const cacheKey = card.id;

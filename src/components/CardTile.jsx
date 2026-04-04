@@ -2,6 +2,8 @@ import React from 'react';
 import setNamesImport from '../data/set_names.json';
 import pokemonDataImport from '../data/pokemon_data.json';
 import pokemonCoordsImport from '../data/pokemon_coords.json';
+import { imageCache, clearImageCache, getManifest, getCameoManifest, enqueueImageLoad, generateImagePaths } from '../utils/imageUtils';
+
 const setNames = setNamesImport;
 const SET_NAME_OVERRIDES = {
   '151C': 'Pokémon Card 151',
@@ -14,72 +16,6 @@ const getSetName = (code) => {
   return n != null ? String(n) : '';
 };
 const ALL_POKEMON_NAMES = pokemonDataImport.map(p => p.name);
-
-// Global cache - images never reload after first load
-const imageCache = {};
-
-// Manifest: set of all filenames in card-images/ (loaded once, avoids 404 waterfall)
-let cameoManifestInFlight = null;
-const getCameoManifest = () => {
-  if (cameoManifestInFlight) return cameoManifestInFlight;
-  cameoManifestInFlight = fetch('/pokemon-tcg-tracker/card-images-cameo/manifest.json')
-    .then(r => r.json()).then(files => new Set(files)).catch(() => new Set());
-  return cameoManifestInFlight;
-};
-// Manifest: set of all filenames in card-images/ (loaded once, avoids 404 waterfall)
-let imageManifest = null; // null = not loaded, Set = loaded
-let manifestInFlight = null;
-
-const getManifest = () => {
-  if (imageManifest) return Promise.resolve(imageManifest);
-  if (manifestInFlight) return manifestInFlight;
-  manifestInFlight = fetch('/pokemon-tcg-tracker/card-images/manifest.json')
-    .then(r => r.json())
-    .then(files => {
-      imageManifest = new Set(files);
-      return imageManifest;
-    })
-    .catch(() => {
-      imageManifest = new Set(); // fallback: empty set, will trial-and-error
-      return imageManifest;
-    });
-  return manifestInFlight;
-};
-
-// Pre-fetch manifest immediately on module load
-getManifest();
-
-
-
-// Global request queue - limits concurrent image fetches to avoid GitHub Pages 429
-const MAX_CONCURRENT = 6;
-let activeRequests = 0;
-const requestQueue = [];
-
-const enqueueImageLoad = (fn) => {
-  return new Promise((resolve, reject) => {
-    const run = async () => {
-      activeRequests++;
-      try {
-        const result = await fn();
-        resolve(result);
-      } catch (e) {
-        reject(e);
-      } finally {
-        activeRequests--;
-        if (requestQueue.length > 0) {
-          const next = requestQueue.shift();
-          next();
-        }
-      }
-    };
-    if (activeRequests < MAX_CONCURRENT) {
-      run();
-    } else {
-      requestQueue.push(run);
-    }
-  });
-};
 
 
 // JP sets that have never had a Simplified Chinese release
@@ -127,7 +63,7 @@ const buildEbayUrl = (card, pokemonName, lang) => {
 };
 
 
-export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onNavigateToPokemon, showOwnershipButtons = false , scrollRoot, getPriceForCard, showSetNames = false, appMode = 'fullart' }) {
+export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onToggleExpensive, onToggleVeryExpensive, onNavigateToPokemon, showOwnershipButtons = false , scrollRoot, getPriceForCard, showSetNames = false, appMode = 'fullart' }) {
   const isOwned = !!card.ownedLang;
   const hasOtherPokemon = card.otherPokemon && card.otherPokemon.length > 0;
   const isSecondary = card.isSecondary || !card.isPrimary;
@@ -229,7 +165,6 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     e.stopPropagation();
     e.preventDefault();
     setPickerSelected({ ci, pi });
-    setPickerRadius(pickerCircles[ci].positions[pi]?.r ?? pickerCircles[ci].positions[0]?.r ?? 0.08);
     const pos = pickerCircles[ci].positions[pi];
     setPickerRadius(pos.r ?? 0.08);
     dragState.current = { ci, pi, startX: e.clientX, startY: e.clientY, origX: pos.x, origY: pos.y, didDrag: false };
@@ -299,83 +234,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     }
   };
 
-  const generateImagePaths = () => {
-    const displayPokemon = isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName;
-
-    // In cameos mode use card name as the filename subject
-    const fileSubject = appMode === 'cameos'
-      ? (card.cardName || displayPokemon).toLowerCase().replace(/\s+/g, '_').replace(/[.'"]/g, '').replace(/[^a-z0-9_-]/g, '')
-      : displayPokemon.toLowerCase().replace(/\s+/g, '_').replace(/[.']/g, '');
-
-    const pokemon = fileSubject;
-
-    // In cameos mode: prefer EN set+number, fall back to JP
-    const setCode = appMode === 'cameos'
-      ? (card.setCode || card.jpSetCode || card.cnSetCode || '').toLowerCase()
-      : (card.setCode || card.jpSetCode || card.cnSetCode || '').toLowerCase();
-
-    const rawNumber = appMode === 'cameos'
-      ? (card.number || card.jpNumber || card.setNumber || '')
-      : (card.setNumber || card.number || '');
-    const number = rawNumber.toLowerCase();
-    const numberOnly = number.split('/')[0];
-    const numberAlreadyHasSet = numberOnly.startsWith(setCode) && setCode.length > 0;
-
-    // Generate all number-only variants
-    const numVariants = new Set([numberOnly]);
-    const numParts = numberOnly.match(/^([a-z]*)(\d+)([a-z]*)$/);
-    if (numParts) {
-      const [, prefix, digits, suffix] = numParts;
-      for (let pad = digits.length + 1; pad <= digits.length + 2; pad++) {
-        numVariants.add(prefix + digits.padStart(pad, '0') + suffix);
-      }
-      numVariants.add(prefix + digits.replace(/^0+(?=\d)/, '') + suffix);
-      numVariants.add(prefix + digits.replace(/^0(?=\d)/, '') + suffix);
-    }
-
-    // Generate dash variants (num/den combos with all padding options)
-    const dashVariants = new Set();
-    if (number.includes('/')) {
-      const [rawNum, rawDen] = number.split('/');
-      const denParts = rawDen.match(/^([a-z]*)(\d+)([a-z]*)$/);
-      const denVariants = new Set([rawDen]);
-      if (denParts) {
-        const [, dp, dd, ds] = denParts;
-        denVariants.add(dp + dd.padStart(3, '0') + ds);
-        denVariants.add(dp + dd.replace(/^0+(?=\d)/, '') + ds);
-        denVariants.add(dp + dd.replace(/^0(?=\d)/, '') + ds);
-        if (dp) denVariants.add(dd.replace(/^0+(?=\d)/, '')); // strip prefix (tg30 → 30)
-      }
-      for (const nv of numVariants) {
-        for (const dv of denVariants) {
-          dashVariants.add(nv + '-' + dv);
-        }
-      }
-    } else {
-      for (const nv of numVariants) dashVariants.add(nv);
-    }
-
-    const paths = [];
-    const addPaths = (key) => {
-      paths.push(setCode + '.' + key + '.' + pokemon + '_');
-      paths.push(key + '.' + pokemon + '_');
-      paths.push('.' + key + '.' + pokemon + '_');
-      paths.push(setCode + '.' + key + '.' + pokemon);
-    };
-
-    if (numberAlreadyHasSet) {
-      for (const nv of numVariants) addPaths(nv);
-      for (const dv of dashVariants) addPaths(dv);
-    } else {
-      for (const dv of dashVariants) addPaths(dv);
-      for (const nv of numVariants) addPaths(nv);
-    }
-
-    paths.push(setCode.toUpperCase() + '_' + numberOnly + '_R_EN_LG');
-    return [...new Set(paths)];
-  };
-
-    const imagePaths = generateImagePaths();
+  const imagePaths = generateImagePaths(card, pokemonName, appMode);
   const cacheKey = card.id;
   const cached = imageCache[cacheKey];
   const [imageLoaded, setImageLoaded] = React.useState(!!cached?.src);
@@ -399,7 +258,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
   React.useEffect(() => {
     // Clear cache when appMode changes so images reload from correct folder
-    Object.keys(imageCache).forEach(k => delete imageCache[k]);
+    clearImageCache();
   }, [appMode]);
 
   React.useEffect(() => {
@@ -414,8 +273,8 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     let mounted = true;
 
     const tryLoadImage = async () => {
-      // Cameos mode: use TCGdex CDN directly from JP set code + number
-      if (appMode === 'cameos') { console.log("CAMEOS MODE", appMode);
+      // Cameos mode: use cameo manifest and image folder
+      if (appMode === 'cameos') {
         const cameoManifest = await getCameoManifest();
         const cameoBase = '/pokemon-tcg-tracker/card-images-cameo/';
         let found = null;
@@ -442,8 +301,9 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
         return;
       }
 
+      // Fullart mode: use main manifest and image folder
       const manifest = await getManifest();
-      const base = appMode === 'cameos' ? '/pokemon-tcg-tracker/card-images-cameo/' : '/pokemon-tcg-tracker/card-images/';
+      const base = '/pokemon-tcg-tracker/card-images/';
 
       let found = null;
 
