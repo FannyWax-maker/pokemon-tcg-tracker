@@ -1,8 +1,3 @@
-// usePrices.js
-// Routes price lookups through Google Apps Script.
-// Simple direct fetch — no proxy, no redirect resolution needed.
-// Throttles to 2 concurrent. Caches per card in localStorage with 24h TTL.
-
 import { useState, useCallback } from 'react';
 
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
@@ -13,6 +8,7 @@ const memCache = {};
 const inFlight = {};
 let activeCount = 0;
 const queue = [];
+let echoBase = null; // resolved googleusercontent base URL + lib param
 
 function processQueue() {
   while (activeCount < MAX_CONCURRENT && queue.length > 0) {
@@ -48,12 +44,30 @@ function saveToLS(cardId, gbp) {
   try { localStorage.setItem(lsKey(cardId), JSON.stringify({ ts: Date.now(), gbp })); } catch {}
 }
 
+// Resolve the stable googleusercontent base by following the redirect once
+async function resolveEchoBase() {
+  if (echoBase) return echoBase;
+  const res = await fetch(`${APPS_SCRIPT_URL}?action=ping&_t=${Date.now()}`, { redirect: 'follow' });
+  const finalUrl = res.url; // This is the googleusercontent.com URL after redirect
+  if (finalUrl && finalUrl.includes('googleusercontent.com')) {
+    const u = new URL(finalUrl);
+    const lib = u.searchParams.get('lib');
+    if (lib) {
+      echoBase = `https://script.googleusercontent.com/macros/echo?lib=${lib}`;
+      return echoBase;
+    }
+  }
+  // Fallback: use Apps Script URL directly
+  echoBase = APPS_SCRIPT_URL;
+  return echoBase;
+}
+
 async function fetchPrice(cardId, setCode, number) {
-  const url = `${APPS_SCRIPT_URL}?action=getPrice`
-    + `&cardId=${encodeURIComponent(cardId)}`
-    + `&setCode=${encodeURIComponent(setCode)}`
-    + `&number=${encodeURIComponent(number)}`
-    + `&_t=${Date.now()}`;
+  const base = await resolveEchoBase();
+  const params = `&action=getPrice&cardId=${encodeURIComponent(cardId)}&setCode=${encodeURIComponent(setCode)}&number=${encodeURIComponent(number)}&_t=${Date.now()}`;
+  const url = base.includes('googleusercontent') 
+    ? `${base}${params}`
+    : `${base}?action=getPrice&cardId=${encodeURIComponent(cardId)}&setCode=${encodeURIComponent(setCode)}&number=${encodeURIComponent(number)}&_t=${Date.now()}`;
   const res = await fetch(url);
   if (!res.ok) throw new Error(`error ${res.status}`);
   const json = await res.json();
@@ -63,6 +77,9 @@ async function fetchPrice(cardId, setCode, number) {
 export function usePrices() {
   const [, setTick] = useState(0);
   const forceUpdate = useCallback(() => setTick(t => t + 1), []);
+
+  // Kick off base URL resolution immediately
+  resolveEchoBase().catch(() => {});
 
   const getPriceForCard = useCallback((card) => {
     if (!card.setCode) return null;
