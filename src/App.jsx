@@ -97,9 +97,6 @@ export default function App() {
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
   const [isUnlocked, setIsUnlocked] = useState(false);
   const { getPriceForCard, priceTick } = usePrices();
-  // priceTick changes whenever a new price loads, forcing cards to re-render
-  // eslint-disable-next-line no-unused-vars
-  const _priceTick = priceTick;
   const [showLockModal, setShowLockModal] = useState(false);
   const [lockInput, setLockInput] = useState('');
   const [lockError, setLockError] = useState(false);
@@ -1127,7 +1124,7 @@ export default function App() {
               <div className="flex items-center gap-2 flex-wrap"><List className="w-3.5 h-3.5" /><span>All Cards ({allCardsFlat.length})</span></div>
               <div>{allCardsFlat.filter(c => c.ownedLang).length} owned</div>
             </div>
-            <div className={`grid ${tileGridClass[tileSize]}`}>
+            <div className={`grid ${tileGridClass[tileSize]}`} data-price-tick={priceTick}>
               {allCardsFlat.map((card, idx) => (
                 <CardTile key={`${card.pokemonId}-${card.id}-${idx}`} card={card} pokemonName={card.pokemonName}
                   onOwnershipClick={handleCardOwnershipClick} onToggleNonConforming={handleToggleNonConforming}
