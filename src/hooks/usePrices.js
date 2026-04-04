@@ -1,17 +1,17 @@
 // usePrices.js
-// Routes price lookups through Google Apps Script to avoid CORS issues.
-// Throttles to 3 concurrent requests to avoid Apps Script rate limiting.
+// Routes price lookups through Google Apps Script via corsproxy.io to handle redirect CORS.
+// Throttles to 3 concurrent requests. Caches per card in localStorage with 24h TTL.
 
 import { useState, useCallback } from 'react';
 
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyMgDPDy9wpz2YFJoYuYaDQfZ2u5uou3wYQgL6ULUSZDbaJTMNLFDC-Ho57qRHAJ6Osug/exec';
+const PROXY = 'https://corsproxy.io/?url=';
 const MAX_CONCURRENT = 3;
 
 const memCache = {};
 const inFlight = {};
 
-// Request queue to throttle concurrent Apps Script calls
 let activeCount = 0;
 const queue = [];
 
@@ -50,9 +50,10 @@ function saveToLS(cardId, gbp) {
 }
 
 async function fetchPrice(cardId, setCode, number) {
-  const url = `${APPS_SCRIPT_URL}?action=getPrice&cardId=${encodeURIComponent(cardId)}&setCode=${encodeURIComponent(setCode)}&number=${encodeURIComponent(number)}`;
-  const res = await fetch(url, { redirect: 'follow' });
-  if (!res.ok) throw new Error(`Apps Script error ${res.status}`);
+  const target = `${APPS_SCRIPT_URL}?action=getPrice&cardId=${encodeURIComponent(cardId)}&setCode=${encodeURIComponent(setCode)}&number=${encodeURIComponent(number)}`;
+  const url = PROXY + encodeURIComponent(target);
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`error ${res.status}`);
   const json = await res.json();
   return json.price ?? null;
 }
