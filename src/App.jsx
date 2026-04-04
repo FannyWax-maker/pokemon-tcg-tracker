@@ -1,5 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
-import { usePrices } from './hooks/usePrices';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import { Search, Filter, Grid, List, Moon, Sun, Lock, Unlock } from 'lucide-react';
 import PokemonCard from './components/PokemonCard';
 import CardTile from './components/CardTile';
@@ -96,7 +95,20 @@ export default function App() {
   const [tileSize, setTileSize] = useState('M');
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
   const [isUnlocked, setIsUnlocked] = useState(false);
-  const { getPriceForCard, priceTick } = usePrices();
+  const [pricesData, setPricesData] = useState(() => {
+    try {
+      const savedMode = localStorage.getItem('appMode') || 'fullart';
+      const cacheKey = (savedMode === 'cameos' ? 'steph_' : 'pokemon_') + 'prices_cache';
+      const cached = localStorage.getItem(cacheKey);
+      return cached ? JSON.parse(cached) : {};
+    } catch { return {}; }
+  });
+  const getPriceForCard = useCallback((card) => {
+    if (!card.setCode) return null;
+    const gbp = pricesData[card.id];
+    if (gbp === undefined || gbp === null) return null;
+    return { gbp: Number(gbp), usd: null };
+  }, [pricesData]);
   const [showLockModal, setShowLockModal] = useState(false);
   const [lockInput, setLockInput] = useState('');
   const [lockError, setLockError] = useState(false);
@@ -209,10 +221,18 @@ export default function App() {
         const favorites = data.favorites || {};
         const unobtainable = data.unobtainable || {};
         const categories = data.categories || {};
+        const prices = data.prices || {};
         localStorage.setItem((cachePrefix + 'ownership_cache'), JSON.stringify(ownership));
         localStorage.setItem((cachePrefix + 'nonconforming_cache'), JSON.stringify(nonConforming));
         localStorage.setItem((cachePrefix + 'favorites_cache'), JSON.stringify(favorites));
         localStorage.setItem((cachePrefix + 'unobtainable_cache'), JSON.stringify(unobtainable));
+        if (Object.keys(prices).length) {
+          localStorage.setItem((cachePrefix + 'prices_cache'), JSON.stringify(prices));
+          setPricesData(prices);
+        } else {
+          const pricesCached = localStorage.getItem((cachePrefix + 'prices_cache'));
+          if (pricesCached) setPricesData(JSON.parse(pricesCached));
+        }
         if (Object.keys(categories).length) {
           localStorage.setItem((cachePrefix + 'review_cache'), JSON.stringify(categories));
           setReviewData(categories);
@@ -258,6 +278,8 @@ export default function App() {
         }
         const revCached = localStorage.getItem((cachePrefix + 'review_cache'));
         if (revCached) setReviewData(JSON.parse(revCached));
+        const pricesCached = localStorage.getItem((cachePrefix + 'prices_cache'));
+        if (pricesCached) setPricesData(JSON.parse(pricesCached));
       }
     };
     loadOwnership();
@@ -1124,7 +1146,7 @@ export default function App() {
               <div className="flex items-center gap-2 flex-wrap"><List className="w-3.5 h-3.5" /><span>All Cards ({allCardsFlat.length})</span></div>
               <div>{allCardsFlat.filter(c => c.ownedLang).length} owned</div>
             </div>
-            <div className={`grid ${tileGridClass[tileSize]}`} data-price-tick={priceTick}>
+            <div className={`grid ${tileGridClass[tileSize]}`}>
               {allCardsFlat.map((card, idx) => (
                 <CardTile key={`${card.pokemonId}-${card.id}-${idx}`} card={card} pokemonName={card.pokemonName}
                   onOwnershipClick={handleCardOwnershipClick} onToggleNonConforming={handleToggleNonConforming}
