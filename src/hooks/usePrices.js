@@ -1,10 +1,11 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
 const PROXY = 'https://bold-dawn-78b1.tonybaldwin1990.workers.dev/?url=';
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyMgDPDy9wpz2YFJoYuYaDQfZ2u5uou3wYQgL6ULUSZDbaJTMNLFDC-Ho57qRHAJ6Osug/exec';
 const MAX_CONCURRENT = 3;
 
+// Module-level state — persists across renders
 const memCache = {};
 const inFlight = {};
 let activeCount = 0;
@@ -54,8 +55,9 @@ async function fetchPrice(cardId, setCode, number) {
 }
 
 export function usePrices() {
-  const [, setTick] = useState(0);
-  const forceUpdate = useCallback(() => setTick(t => t + 1), []);
+  const [priceTick, setPriceTick] = useState(0);
+  const tickRef = useRef(setPriceTick);
+  tickRef.current = setPriceTick;
 
   const getPriceForCard = useCallback((card) => {
     if (!card.setCode) return null;
@@ -80,7 +82,7 @@ export function usePrices() {
           memCache[cardId] = gbp;
           saveToLS(cardId, gbp);
           delete inFlight[cardId];
-          forceUpdate();
+          tickRef.current(t => t + 1); // trigger re-render via ref to avoid stale closure
         })
         .catch(() => {
           memCache[cardId] = null;
@@ -88,7 +90,7 @@ export function usePrices() {
         });
     }
     return null;
-  }, [forceUpdate]);
+  }, []); // stable reference — re-render triggered via priceTick instead
 
-  return { getPriceForCard };
+  return { getPriceForCard, priceTick };
 }

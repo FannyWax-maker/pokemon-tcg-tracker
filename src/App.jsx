@@ -96,7 +96,10 @@ export default function App() {
   const [tileSize, setTileSize] = useState('M');
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
   const [isUnlocked, setIsUnlocked] = useState(false);
-  const { getPriceForCard } = usePrices();
+  const { getPriceForCard, priceTick } = usePrices();
+  // priceTick changes whenever a new price loads, forcing cards to re-render
+  // eslint-disable-next-line no-unused-vars
+  const _priceTick = priceTick;
   const [showLockModal, setShowLockModal] = useState(false);
   const [lockInput, setLockInput] = useState('');
   const [lockError, setLockError] = useState(false);
