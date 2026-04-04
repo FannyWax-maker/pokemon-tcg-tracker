@@ -42,7 +42,14 @@ function enrichPokemonData(rawData) {
 export default function App() {
   const [pokemonData, setPokemonData] = useState(() => enrichPokemonData(pokemonDataImport));
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchInput, setSearchInput] = useState('');
   const [searchSuggestion, setSearchSuggestion] = useState(null);
+
+  // Debounce searchInput -> searchQuery so filtering only runs after typing stops
+  useEffect(() => {
+    const t = setTimeout(() => setSearchQuery(searchInput), 200);
+    return () => clearTimeout(t);
+  }, [searchInput]);
   const [autocompleteSuggestions, setAutocompleteSuggestions] = useState([]);
   const [showAutocomplete, setShowAutocomplete] = useState(false);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
@@ -83,7 +90,7 @@ export default function App() {
     // Reset filters and selection when switching modes
     setSelectedPokemon(null);
     setSearchQuery('');
-    setFilterSet('all');
+    setSearchInput('');
   }, [appMode]);
   const [syncStatus, setSyncStatus] = useState('');
   const [tileSize, setTileSize] = useState('M');
@@ -701,9 +708,9 @@ export default function App() {
 
             <div className="relative flex-1 min-w-0 hidden sm:block">
               <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400 pointer-events-none" />
-              <input type="text" placeholder="Search Pokémon..." value={searchQuery}
+              <input type="text" placeholder="Search Pokémon..." value={searchInput}
                 onChange={(e) => {
-                  const val = e.target.value; setSearchQuery(val);
+                  const val = e.target.value; setSearchInput(val);
                   const names = pokemonData.map(p => p.name);
                   setSearchSuggestion(getSpellSuggestion(val, names));
                   if (val.length >= 2) { const q = val.toLowerCase(); const matches = names.filter(n => n.toLowerCase().includes(q) && n.toLowerCase() !== q).slice(0, 6); setAutocompleteSuggestions(matches); setShowAutocomplete(matches.length > 0); }
@@ -716,7 +723,7 @@ export default function App() {
               {showAutocomplete && (
                 <div className={`absolute top-full left-0 right-0 mt-1 rounded-lg shadow-lg z-50 overflow-hidden border ${darkMode ? 'bg-gray-700 border-gray-600' : 'bg-white border-gray-200'}`}>
                   {autocompleteSuggestions.map(name => (
-                    <button key={name} onMouseDown={() => { setSearchQuery(name); setShowAutocomplete(false); setSearchSuggestion(null); }}
+                    <button key={name} onMouseDown={() => { setSearchInput(name); setSearchQuery(name); setShowAutocomplete(false); setSearchSuggestion(null); }}
                       className={`w-full text-left px-3 py-1.5 text-xs hover:bg-emerald-50 ${darkMode ? 'text-white hover:bg-gray-600' : 'text-gray-700'}`}>{name}</button>
                   ))}
                 </div>
@@ -770,8 +777,8 @@ export default function App() {
           </div>
           <div className="sm:hidden mt-1.5 relative">
             <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400 pointer-events-none" />
-            <input type="text" placeholder="Search Pokémon..." value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+            <input type="text" placeholder="Search Pokémon..." value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
               className={`w-full pl-8 pr-3 py-2 rounded-full border text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400 ${darkMode ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' : 'border-gray-200 text-gray-700 bg-gray-50'}`}
             />
           </div>
