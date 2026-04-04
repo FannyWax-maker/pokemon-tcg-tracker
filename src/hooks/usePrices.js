@@ -1,12 +1,12 @@
 // usePrices.js
-// Routes price lookups through Google Apps Script via corsproxy.io to handle redirect CORS.
-// Throttles to 3 concurrent requests. Caches per card in localStorage with 24h TTL.
+// Routes price lookups through Google Apps Script.
+// Resolves the redirect URL once, then calls googleusercontent.com directly.
+// Throttles to 3 concurrent. Caches per card in localStorage with 24h TTL.
 
 import { useState, useCallback } from 'react';
 
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyMgDPDy9wpz2YFJoYuYaDQfZ2u5uou3wYQgL6ULUSZDbaJTMNLFDC-Ho57qRHAJ6Osug/exec';
-const PROXY = 'https://corsproxy.io/?url=';
 const MAX_CONCURRENT = 3;
 
 const memCache = {};
@@ -14,6 +14,10 @@ const inFlight = {};
 
 let activeCount = 0;
 const queue = [];
+
+// Cache the resolved googleusercontent base URL
+let resolvedBaseUrl = null;
+let resolveInFlight = null;
 
 function processQueue() {
   while (activeCount < MAX_CONCURRENT && queue.length > 0) {
@@ -49,9 +53,30 @@ function saveToLS(cardId, gbp) {
   try { localStorage.setItem(lsKey(cardId), JSON.stringify({ ts: Date.now(), gbp })); } catch {}
 }
 
+// Resolve the googleusercontent.com URL by making a probe request
+// and capturing where it redirects to, stripping query params
+async function resolveBase() {
+  if (resolvedBaseUrl) return resolvedBaseUrl;
+  if (resolveInFlight) return resolveInFlight;
+  resolveInFlight = fetch(`${APPS_SCRIPT_URL}?action=ping`, { redirect: 'follow' })
+    .then(res => {
+      // res.url will be the final redirected URL
+      const u = new URL(res.url);
+      // Keep just the origin + path, drop query string
+      resolvedBaseUrl = u.origin + u.pathname;
+      return resolvedBaseUrl;
+    })
+    .catch(() => {
+      resolveInFlight = null;
+      return null;
+    });
+  return resolveInFlight;
+}
+
 async function fetchPrice(cardId, setCode, number) {
-  const target = `${APPS_SCRIPT_URL}?action=getPrice&cardId=${encodeURIComponent(cardId)}&setCode=${encodeURIComponent(setCode)}&number=${encodeURIComponent(number)}`;
-  const url = PROXY + encodeURIComponent(target);
+  const base = await resolveBase();
+  if (!base) throw new Error('Could not resolve Apps Script URL');
+  const url = `${base}?action=getPrice&cardId=${encodeURIComponent(cardId)}&setCode=${encodeURIComponent(setCode)}&number=${encodeURIComponent(number)}`;
   const res = await fetch(url);
   if (!res.ok) throw new Error(`error ${res.status}`);
   const json = await res.json();
@@ -61,6 +86,9 @@ async function fetchPrice(cardId, setCode, number) {
 export function usePrices() {
   const [, setTick] = useState(0);
   const forceUpdate = useCallback(() => setTick(t => t + 1), []);
+
+  // Kick off URL resolution immediately
+  resolveBase();
 
   const getPriceForCard = useCallback((card) => {
     if (!card.setCode) return null;
