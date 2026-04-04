@@ -58,7 +58,7 @@ const buildEbayUrl = (card, pokemonName, lang) => {
     setNumber = card.krNumber || null;
     langKeyword = 'korean';
   }
-  const query = [searchName, setCode, setNumber, langKeyword].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim();
+  const query = [searchName, setCode, setNumber, langKeyword, '-graded -PSA -BGS -CGC'].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim();
   return `https://www.ebay.co.uk/sch/i.html?_nkw=${encodeURIComponent(query)}&LH_ItemLocation=3&_sop=12`;
 };
 

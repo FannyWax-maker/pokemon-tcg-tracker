@@ -104,8 +104,8 @@ export default function App() {
     } catch { return {}; }
   });
   const getPriceForCard = useCallback((card) => {
-    if (!card.setCode) return null;
-    const gbp = pricesData[card.id];
+    if (!card.setCode && !card.jpSetCode) return null;
+    const gbp = lookupById(pricesData, card.id);
     if (gbp === undefined || gbp === null) return null;
     return { gbp: Number(gbp), usd: null };
   }, [pricesData]);
