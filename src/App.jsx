@@ -796,6 +796,12 @@ export default function App() {
               <Filter className="w-3.5 h-3.5" />
               {hasActiveFilters ? activeFilterCount : 'Filters'}
             </button>
+            {hasActiveFilters && (
+              <button onClick={() => { clearFilters(); setSortBy('default'); }} title="Clear all filters"
+                className="px-2 py-1.5 rounded-lg text-xs font-bold bg-red-100 text-red-600 hover:bg-red-200 shrink-0 transition-colors">
+                ✕
+              </button>
+            )}
           </div>
           <div className="sm:hidden mt-1.5 relative">
             <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400 pointer-events-none" />
@@ -1110,7 +1116,7 @@ export default function App() {
                       onOwnershipClick={handleCardOwnershipClick} onToggleNonConforming={handleToggleNonConforming}
                       onToggleFavorite={handleToggleFavorite} onToggleUnobtainable={handleToggleUnobtainable}
                      
-                      onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={false} getPriceForCard={getPriceForCard} onSetFilter={setFilterSet} />
+                      onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={false} getPriceForCard={getPriceForCard} onSetFilter={(code) => { setFilterSet(code); setSearchInput(""); setSearchQuery(""); }} />
                     {/* Review badge overlay */}
                     <div className="absolute top-1 left-1 z-20 pointer-events-none">
                       {isReviewed ? (() => {
@@ -1152,7 +1158,7 @@ export default function App() {
                   onOwnershipClick={handleCardOwnershipClick} onToggleNonConforming={handleToggleNonConforming}
                   onToggleFavorite={handleToggleFavorite} onToggleUnobtainable={handleToggleUnobtainable}
                  
-                  onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={showOwnershipButtons} getPriceForCard={getPriceForCard} appMode={appMode} onSetFilter={setFilterSet} />
+                  onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={showOwnershipButtons} getPriceForCard={getPriceForCard} appMode={appMode} onSetFilter={(code) => { setFilterSet(code); setSearchInput(""); setSearchQuery(""); }} />
               ))}
             </div>
           </div>

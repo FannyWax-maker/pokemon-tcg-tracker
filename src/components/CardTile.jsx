@@ -581,30 +581,34 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             )}
             {/* Row 4: artist — always visible in identity */}
             {appMode !== 'cameos' && card.artist && (
-              <div className={`text-[10px] leading-tight truncate ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>{card.artist}</div>
+              <div className={`text-[10px] leading-tight truncate ${isOwned ? 'text-red-300' : 'text-gray-400'}`}><span className="font-semibold">Artist · </span>{card.artist}</div>
             )}
           </div>
 
           {/* === SETS section === */}
           {appMode === 'cameos' ? (
-            // Cameos: always expanded, no toggle
-            <div className={`border-t pt-1.5 space-y-0.5 ${isOwned ? 'border-red-700' : 'border-gray-100'}`}>
-              <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
-                <div className="flex items-center gap-1">
-                  {(card.enSetCode || card.setCode) ? (
-                    <><span className="text-blue-500 font-bold shrink-0">EN</span><span className="truncate flex-1">{card.enSetCode || card.setCode}{card.number ? ` ${card.number}` : ''}</span></>
-                  ) : <><span className="text-blue-500 font-bold shrink-0 opacity-40">EN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
-                </div>
-                {!!((card.enSetCode || card.setCode)) && <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{getSetName(card.enSetCode || card.setCode)}</div>}
-              </div>
-              <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
-                <div className="flex items-center gap-1">
-                  {card.jpSetCode ? (
-                    <><span className="text-red-400 font-bold shrink-0">JP</span><span className="truncate flex-1">{card.jpSetCode}{card.jpNumber ? ` ${card.jpNumber}` : ''}</span></>
-                  ) : <><span className="text-red-400 font-bold shrink-0 opacity-40">JP</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
-                </div>
-                {!!(card.jpSetCode) && <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{getSetName(card.jpSetCode)}</div>}
-              </div>
+            // Cameos: always expanded, clickable boxes
+            <div className={`border-t pt-1.5 flex flex-col gap-1 ${isOwned ? 'border-red-700' : 'border-gray-100'}`}>
+              {[
+                { label: 'EN', bgColor: 'bg-blue-500',   code: card.enSetCode || card.setCode, num: card.number },
+                { label: 'JP', bgColor: 'bg-red-500',    code: card.jpSetCode,                 num: card.jpNumber },
+              ].filter(({ code }) => !!code).map(({ label, bgColor, code, num }) => {
+                const setName = getSetName(code);
+                return (
+                  <button
+                    key={label}
+                    className={`w-full text-left px-2 py-1 rounded-lg text-[10px] transition-all cursor-pointer ${isOwned ? 'bg-red-700 hover:bg-red-600' : 'bg-gray-50 hover:bg-gray-100 border border-gray-200'}`}
+                    onClick={onSetFilter ? (e) => { e.stopPropagation(); onSetFilter(code); } : (e) => e.stopPropagation()}
+                    title={onSetFilter ? `Filter by ${setName || code}` : undefined}
+                  >
+                    <div className="flex items-center gap-1.5">
+                      <span className={`${bgColor} text-white text-[9px] font-bold px-1 py-0.5 rounded shrink-0`}>{label}</span>
+                      <span className={`font-medium truncate flex-1 ${isOwned ? 'text-red-100' : 'text-gray-700'}`}>{setName || '—'}</span>
+                    </div>
+                    <div className={`text-[9px] mt-0.5 pl-0.5 font-mono ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>{code}{num ? ` ${num}` : ''}</div>
+                  </button>
+                );
+              })}
             </div>
           ) : (
             // Illustrations: collapsible sets section, collapsed by default showing primary set only
@@ -679,30 +683,35 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           {/* === FEATURED section === */}
           {appMode !== 'cameos' && (
             <div className={`border-t ${isOwned ? 'border-red-700' : 'border-gray-100'}`}>
-              <button
-                onClick={(e) => { e.stopPropagation(); setFeaturedOpen(o => !o); }}
-                className={`w-full flex items-center justify-between py-1 text-[10px] font-bold ${isOwned ? 'text-red-200 hover:text-white' : 'text-gray-500 hover:text-gray-800'} transition-colors`}
-              >
-                <span>Featured</span>
-                {!featuredOpen && (
-                  <span className={`truncate mx-1 font-normal text-[9px] ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>
-                    {hasOtherPokemon ? `w/ ${card.otherPokemon.slice(0, 2).join(', ')}${card.otherPokemon.length > 2 ? ` +${card.otherPokemon.length - 2}` : ''}` : 'None'}
-                  </span>
-                )}
-                <span className="shrink-0">{featuredOpen ? '▴' : '▾'}</span>
-              </button>
-              {featuredOpen && (
-                <div className="pb-1.5">
-                  {hasOtherPokemon ? (
-                    <div className={`text-xs leading-tight ${isOwned ? 'text-red-100' : 'text-blue-500'}`}>
-                      {showAllPokemon
-                        ? <span>w/ {card.otherPokemon.join(', ')} <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(false); }} className={`font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>less</button></span>
-                        : <span className="flex items-baseline gap-1"><span className="truncate">w/ {card.otherPokemon.slice(0, 2).join(', ')}</span>{card.otherPokemon.length > 2 && <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(true); }} className={`shrink-0 font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>+{card.otherPokemon.length - 2}</button>}</span>
-                      }
+              {hasOtherPokemon ? (
+                <>
+                  <button
+                    onClick={(e) => { e.stopPropagation(); setFeaturedOpen(o => !o); }}
+                    className={`w-full flex items-center justify-between py-1 text-[10px] font-bold ${isOwned ? 'text-red-200 hover:text-white' : 'text-gray-500 hover:text-gray-800'} transition-colors`}
+                  >
+                    <span>Featured</span>
+                    {!featuredOpen && (
+                      <span className={`truncate mx-1 font-normal text-[9px] ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>
+                        w/ {card.otherPokemon.slice(0, 2).join(', ')}{card.otherPokemon.length > 2 ? ` +${card.otherPokemon.length - 2}` : ''}
+                      </span>
+                    )}
+                    <span className="shrink-0">{featuredOpen ? '▴' : '▾'}</span>
+                  </button>
+                  {featuredOpen && (
+                    <div className="pb-1.5">
+                      <div className={`text-xs leading-tight ${isOwned ? 'text-red-100' : 'text-blue-500'}`}>
+                        {showAllPokemon
+                          ? <span>w/ {card.otherPokemon.join(', ')} <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(false); }} className={`font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>less</button></span>
+                          : <span className="flex items-baseline gap-1"><span className="truncate">w/ {card.otherPokemon.slice(0, 2).join(', ')}</span>{card.otherPokemon.length > 2 && <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(true); }} className={`shrink-0 font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>+{card.otherPokemon.length - 2}</button>}</span>
+                        }
+                      </div>
                     </div>
-                  ) : (
-                    <div className={`text-[10px] italic ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>None</div>
                   )}
+                </>
+              ) : (
+                <div className={`flex items-center justify-between py-1 text-[10px] font-bold ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
+                  <span>Featured</span>
+                  <span className={`font-normal text-[9px] italic ${isOwned ? 'text-red-400' : 'text-gray-400'}`}>None</span>
                 </div>
               )}
             </div>
