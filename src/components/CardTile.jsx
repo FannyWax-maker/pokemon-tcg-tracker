@@ -120,8 +120,6 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const [copied, setCopied] = React.useState(false);
   const [autocompleteFor, setAutocompleteFor] = React.useState(null);
   const [autocompleteQuery, setAutocompleteQuery] = React.useState('');
-  const [expandedLangs, setExpandedLangs] = React.useState(() => new Set(['en', 'jp', 'cn', 'tc', 'kr']));
-  const toggleLang = (lang) => setExpandedLangs(prev => { const next = new Set(prev); next.has(lang) ? next.delete(lang) : next.add(lang); return next; });
   const dragState = React.useRef(null);
   const pickerCirclesRef = React.useRef([]);
   React.useEffect(() => { pickerCirclesRef.current = pickerCircles; }, [pickerCircles]);
@@ -618,14 +616,14 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 <span>Sets</span>
                 <span className="shrink-0">{setsOpen ? '▴' : '▾'}</span>
               </button>
-              {/* Collapsed: show first available lang with set name */}
+              {/* Collapsed: show first available lang as clickable box */}
               {!setsOpen && (() => {
                 const langs = [
-                  { label: 'EN', color: 'text-blue-500',   code: card.enSetCode || card.setCode, num: card.number },
-                  { label: 'JP', color: 'text-red-400',    code: card.jpSetCode,                 num: card.jpNumber },
-                  { label: 'CN', color: 'text-yellow-500', code: card.cnSetCode,                 num: card.cnNumber },
-                  { label: 'TC', color: 'text-green-500',  code: card.tcSetCode,                 num: card.tcNumber },
-                  { label: 'KR', color: 'text-indigo-400', code: card.krSetCode,                 num: card.krNumber },
+                  { label: 'EN', bgColor: 'bg-blue-500',   code: card.enSetCode || card.setCode, num: card.number },
+                  { label: 'JP', bgColor: 'bg-red-500',    code: card.jpSetCode,                 num: card.jpNumber },
+                  { label: 'CN', bgColor: 'bg-yellow-500', code: card.cnSetCode,                 num: card.cnNumber },
+                  { label: 'TC', bgColor: 'bg-green-500',  code: card.tcSetCode,                 num: card.tcNumber },
+                  { label: 'KR', bgColor: 'bg-indigo-500', code: card.krSetCode,                 num: card.krNumber },
                 ];
                 const available = langs.filter(l => !!l.code);
                 if (!available.length) return null;
@@ -633,50 +631,44 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 const setName = getSetName(primary.code);
                 const otherCount = available.length - 1;
                 return (
-                  <div className={`pb-1.5 text-[10px] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
-                    <div className="flex items-center gap-1">
-                      <span className={`${primary.color} font-bold shrink-0 w-5`}>{primary.label}</span>
-                      <span className="truncate flex-1">{primary.code}{primary.num ? ` ${primary.num}` : ''}</span>
+                  <button
+                    className={`w-full text-left mb-1.5 px-2 py-1 rounded-lg text-[10px] transition-all ${isOwned ? 'bg-red-700 hover:bg-red-600' : 'bg-gray-50 hover:bg-gray-100 border border-gray-200'}`}
+                    onClick={onSetFilter ? (e) => { e.stopPropagation(); onSetFilter(primary.code); } : (e) => e.stopPropagation()}
+                    title={onSetFilter ? `Filter by ${setName || primary.code}` : undefined}
+                  >
+                    <div className="flex items-center gap-1.5">
+                      <span className={`${primary.bgColor} text-white text-[9px] font-bold px-1 py-0.5 rounded shrink-0`}>{primary.label}</span>
+                      <span className={`font-medium truncate flex-1 ${isOwned ? 'text-red-100' : 'text-gray-700'}`}>{primary.code}{primary.num ? ` ${primary.num}` : ''}</span>
                       {otherCount > 0 && <span className={`shrink-0 text-[9px] ${isOwned ? 'text-red-400' : 'text-gray-400'}`}>+{otherCount}</span>}
                     </div>
-                    {setName && <div
-                      className={`text-[9px] pl-5 leading-tight mt-0.5 ${onSetFilter ? 'cursor-pointer hover:underline' : ''} ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-600'}`}
-                      onClick={onSetFilter ? (e) => { e.stopPropagation(); onSetFilter(primary.code); } : undefined}
-                      title={onSetFilter ? `Filter by ${setName}` : undefined}
-                    >{setName}</div>}
-                  </div>
+                    {setName && <div className={`text-[9px] mt-0.5 pl-0.5 ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>{setName}</div>}
+                  </button>
                 );
               })()}
-              {/* Expanded: all langs, skip rows with no code */}
+              {/* Expanded: each lang as a clickable box */}
               {setsOpen && (
-                <div className="pb-1.5">
+                <div className="pb-1.5 flex flex-col gap-1">
                   {[
-                    { key: 'en', label: 'EN', color: 'text-blue-500',   code: card.enSetCode || card.setCode, num: card.number },
-                    { key: 'jp', label: 'JP', color: 'text-red-400',    code: card.jpSetCode,                 num: card.jpNumber },
-                    { key: 'cn', label: 'CN', color: 'text-yellow-500', code: card.cnSetCode,                 num: card.cnNumber },
-                    { key: 'tc', label: 'TC', color: 'text-green-500',  code: card.tcSetCode,                 num: card.tcNumber },
-                    { key: 'kr', label: 'KR', color: 'text-indigo-400', code: card.krSetCode,                 num: card.krNumber },
-                  ].filter(({ code }) => !!code).map(({ key, label, color, code, num }) => {
-                    const isExpanded = expandedLangs.has(key);
+                    { key: 'en', label: 'EN', bgColor: 'bg-blue-500',   code: card.enSetCode || card.setCode, num: card.number },
+                    { key: 'jp', label: 'JP', bgColor: 'bg-red-500',    code: card.jpSetCode,                 num: card.jpNumber },
+                    { key: 'cn', label: 'CN', bgColor: 'bg-yellow-500', code: card.cnSetCode,                 num: card.cnNumber },
+                    { key: 'tc', label: 'TC', bgColor: 'bg-green-500',  code: card.tcSetCode,                 num: card.tcNumber },
+                    { key: 'kr', label: 'KR', bgColor: 'bg-indigo-500', code: card.krSetCode,                 num: card.krNumber },
+                  ].filter(({ code }) => !!code).map(({ key, label, bgColor, code, num }) => {
                     const setName = getSetName(code);
                     return (
-                      <div key={key} className={`text-[10px] ${isOwned ? 'text-red-200' : 'text-gray-500'} py-0.5`}>
-                        <div className="flex items-center gap-1">
-                          <span className={`${color} font-bold shrink-0 w-5`}>{label}</span>
-                          <span className="truncate flex-1">{code}{num ? ` ${num}` : ''}</span>
-                          <button
-                            onClick={(e) => { e.stopPropagation(); toggleLang(key); }}
-                            className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}
-                          >{isExpanded ? '−' : '+'}</button>
+                      <button
+                        key={key}
+                        className={`w-full text-left px-2 py-1 rounded-lg text-[10px] transition-all ${isOwned ? 'bg-red-700 hover:bg-red-600' : 'bg-gray-50 hover:bg-gray-100 border border-gray-200'} ${onSetFilter ? 'cursor-pointer' : 'cursor-default'}`}
+                        onClick={onSetFilter ? (e) => { e.stopPropagation(); onSetFilter(code); } : (e) => e.stopPropagation()}
+                        title={onSetFilter ? `Filter by ${setName || code}` : undefined}
+                      >
+                        <div className="flex items-center gap-1.5">
+                          <span className={`${bgColor} text-white text-[9px] font-bold px-1 py-0.5 rounded shrink-0`}>{label}</span>
+                          <span className={`font-medium truncate flex-1 ${isOwned ? 'text-red-100' : 'text-gray-700'}`}>{code}{num ? ` ${num}` : ''}</span>
                         </div>
-                        {isExpanded && setName && (
-                          <div
-                            className={`text-[9px] pl-5 leading-tight mt-0.5 ${onSetFilter ? 'cursor-pointer hover:underline' : ''} ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-600'}`}
-                            onClick={onSetFilter ? (e) => { e.stopPropagation(); onSetFilter(code); } : undefined}
-                            title={onSetFilter ? `Filter by ${setName}` : undefined}
-                          >{setName}</div>
-                        )}
-                      </div>
+                        {setName && <div className={`text-[9px] mt-0.5 pl-0.5 ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>{setName}</div>}
+                      </button>
                     );
                   })}
                 </div>
