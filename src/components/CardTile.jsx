@@ -245,6 +245,25 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const [inView, setInView] = React.useState(!!cached);
   const containerRef = React.useRef(null);
 
+  // Compute expected filename for IMAGE MISSING overlay based on displayLang
+  const expectedImagePath = React.useMemo(() => {
+    if (displayLang === 'JP' || displayLang === 'CN') {
+      const langSetCode = displayLang === 'JP' ? card.jpSetCode : card.cnSetCode;
+      const langNumber = displayLang === 'JP' ? card.jpNumber : card.cnNumber;
+      if (langSetCode && langNumber) {
+        const pokeName = pokemonName.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const numParts = String(langNumber).split('/');
+        const numerator = numParts[0] ? String(parseInt(numParts[0])).padStart(3, '0') : '';
+        const denominator = numParts[1] ? String(parseInt(numParts[1])) : '';
+        return denominator
+          ? `${langSetCode}.${numerator}-${denominator}.${pokeName}_`
+          : `${langSetCode}.${numerator}.${pokeName}_`;
+      }
+      return `(no ${displayLang} set code/number for this card)`;
+    }
+    return imagePaths[0];
+  }, [displayLang, card.jpSetCode, card.jpNumber, card.cnSetCode, card.cnNumber, imagePaths, pokemonName]);
+
   // Intersection observer - only start loading when card enters viewport
   React.useEffect(() => {
     if (cached) return;
@@ -311,7 +330,6 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
         const langNumber = displayLang === 'JP' ? card.jpNumber : card.cnNumber;
         let found = null;
         if (langSetCode && langNumber) {
-          // Build lang-specific paths using the lang set code + number
           const pokeName = pokemonName.toLowerCase().replace(/[^a-z0-9]/g, '');
           const numParts = String(langNumber).split('/');
           const numerator = numParts[0] ? String(parseInt(numParts[0])).padStart(3, '0') : '';
@@ -319,14 +337,12 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           const langPaths = denominator
             ? [`${langSetCode}.${numerator}-${denominator}.${pokeName}_`]
             : [`${langSetCode}.${numerator}.${pokeName}_`];
-          // Also try EN imagePaths in the lang folder as fallback
-          const allLangPaths = [...langPaths, ...imagePaths];
           const tryPath = (src) => enqueueImageLoad(() =>
             new Promise((resolve, reject) => {
               const img = new Image(); img.onload = () => resolve(src); img.onerror = reject; img.src = src;
             })
           );
-          for (const path of allLangPaths) {
+          for (const path of langPaths) {
             if (!mounted) return;
             for (const ext of ['.png', '.jpg']) {
               try { found = await tryPath(langBase + path + ext); break; } catch (_) {}
@@ -334,24 +350,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             if (found) break;
           }
         }
-        // Fall back to EN folder if not found in lang folder
-        if (!found) {
-          const enBase = '/pokemon-tcg-tracker/card-images/';
-          const manifest = await getManifest();
-          if (manifest.size > 0) {
-            for (const path of imagePaths) {
-              for (const ext of ['.png', '.jpg']) {
-                if (manifest.has(path + ext)) { found = enBase + path + ext; break; }
-              }
-              if (found) break;
-            }
-          }
-          if (found) {
-            found = await enqueueImageLoad(() => new Promise((resolve, reject) => {
-              const img = new Image(); img.onload = () => resolve(found); img.onerror = reject; img.src = found;
-            })).catch(() => null);
-          }
-        }
+        // No EN fallback — show IMAGE MISSING if not found so user knows filename needed
         if (!mounted) return;
         imageCache[cacheKey] = { src: found };
         setImageSrc(found);
@@ -536,14 +535,14 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             <div className="absolute inset-0 flex flex-col items-center justify-center p-3 text-center bg-black/60">
               <div className="px-3 py-1 bg-red-600 rounded text-white text-xs font-bold mb-3">IMAGE MISSING</div>
               <div className="w-full">
-                <div className="text-white/50 text-[9px] mb-1">Expected filename:</div>
+                <div className="text-white/50 text-[9px] mb-1">Expected {displayLang !== 'EN' ? `(${displayLang}) ` : ''}filename:</div>
                 <div className="bg-black/40 px-2 py-1.5 rounded text-white font-mono text-[10px] leading-tight break-all select-all cursor-text hover:bg-black/60 transition-colors mb-2">
-                  {imagePaths[0]}.png
+                  {expectedImagePath}.png
                 </div>
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
-                    navigator.clipboard.writeText(imagePaths[0] + '.png').then(() => alert('Copied!'));
+                    navigator.clipboard.writeText(expectedImagePath + '.png').then(() => alert('Copied!'));
                   }}
                   className="w-full px-2 py-1 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded transition-colors"
                 >
@@ -676,7 +675,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 <span>Sets</span>
                 <span className="shrink-0">{setsOpen ? '▴' : '▾'}</span>
               </button>
-              {/* Collapsed: show first available lang as clickable box */}
+              {/* Collapsed: show displayLang first if available, else first available */}
               {!setsOpen && (() => {
                 const langs = [
                   { label: 'EN', bgColor: 'bg-blue-500',   code: card.enSetCode || card.setCode, num: card.number },
@@ -687,7 +686,8 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 ];
                 const available = langs.filter(l => !!l.code);
                 if (!available.length) return null;
-                const primary = available[0];
+                const preferred = available.find(l => l.label === displayLang);
+                const primary = preferred || available[0];
                 const setName = getSetName(primary.code);
                 const otherCount = available.length - 1;
                 return (
