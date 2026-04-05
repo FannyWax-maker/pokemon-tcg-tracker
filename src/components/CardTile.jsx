@@ -209,6 +209,9 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   };
 
   const [showAllPokemon, setShowAllPokemon] = React.useState(false);
+  const [setsOpen, setSetsOpen] = React.useState(true);
+  const [featuredOpen, setFeaturedOpen] = React.useState(false);
+  const [ebayOpen, setEbayOpen] = React.useState(false);
   const [showContextMenu, setShowContextMenu] = React.useState(false);
   const [contextMenuPos, setContextMenuPos] = React.useState({ x: 0, y: 0 });
   const isNonConforming = !!card.nonConforming;
@@ -560,146 +563,228 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
         </div>
 
         {/* Card Details */}
-        <div className={`p-2 space-y-0.5`} style={isOwned ? {background: 'linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)'} : {background: 'white'}}>
+        <div className={`p-2 space-y-0`} style={isOwned ? {background: 'linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)'} : {background: 'white'}}>
 
-
-          {/* Row 1: dex # + price + year — compact metadata line */}
-          <div className={`flex items-center gap-1 text-[10px] font-mono ${isOwned ? 'text-red-200' : 'text-gray-400'}`}>
-            <span className="shrink-0">#{String(card.pokemonId || '').padStart(4, '0')}</span>
-            {priceValue !== null && (
-              <span className={`text-[9px] font-bold px-1 py-0.5 rounded shrink-0 ${isOwned ? 'bg-red-700 text-red-100' : 'bg-emerald-100 text-emerald-700'}`}>
-                £{priceValue.toFixed(2)}
-              </span>
+          {/* === IDENTITY: always visible === */}
+          <div className="space-y-0.5 pb-1.5">
+            {/* Row 1: dex # + price + year */}
+            <div className={`flex items-center gap-1 text-[10px] font-mono ${isOwned ? 'text-red-200' : 'text-gray-400'}`}>
+              <span className="shrink-0">#{String(card.pokemonId || '').padStart(4, '0')}</span>
+              {priceValue !== null && (
+                <span className={`text-[9px] font-bold px-1 py-0.5 rounded shrink-0 ${isOwned ? 'bg-red-700 text-red-100' : 'bg-emerald-100 text-emerald-700'}`}>
+                  £{priceValue.toFixed(2)}
+                </span>
+              )}
+              <span className="shrink-0 ml-auto">{(() => { try { const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const sd = setNames[card.enSetCode || card.setCode] || setNames[card.jpSetCode] || setNames[card.cnSetCode] || {}; if (!sd.year) return ''; return sd.month ? `${MONTHS[sd.month - 1]} ${sd.year}` : String(sd.year); } catch(e) { return ''; } })()}</span>
+            </div>
+            {/* Row 2: Pokemon name */}
+            <div className={`font-bold text-sm leading-tight ${isOwned ? 'text-white' : 'text-gray-900'}`}>{isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName}</div>
+            {/* Row 3: card name */}
+            {appMode !== 'cameos' && (
+              <div className={`text-xs leading-tight min-h-[0.9rem] font-medium truncate ${isOwned ? 'text-red-100' : 'text-gray-600'}`}>
+                {(() => { const n = (card.cardName||'').replace(', Japanese Exclusive','').replace('Japanese Exclusive','').replace(', Chinese Exclusive','').replace('Chinese Exclusive','').trim(); const dn = (n && n !== 'Full Art') ? n : null; return dn || ' '; })()}
+              </div>
             )}
-            <span className="shrink-0 ml-auto">{(() => { try { const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const sd = setNames[card.enSetCode || card.setCode] || setNames[card.jpSetCode] || setNames[card.cnSetCode] || {}; if (!sd.year) return ''; return sd.month ? `${MONTHS[sd.month - 1]} ${sd.year}` : String(sd.year); } catch(e) { return ''; } })()}</span>
           </div>
 
-          {/* Row 2: Pokemon name — full width, wraps if needed */}
-          <div className={`font-bold text-sm leading-tight ${isOwned ? 'text-white' : 'text-gray-900'}`}>{isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName}</div>
-
-          {/* Row 3: card name — always reserve space */}
-          {appMode !== 'cameos' && (
-          <div className={`text-xs leading-tight min-h-[0.9rem] font-medium truncate ${isOwned ? 'text-red-100' : 'text-gray-600'}`}>
-            {(() => { const n = (card.cardName||'').replace(', Japanese Exclusive','').replace('Japanese Exclusive','').replace(', Chinese Exclusive','').replace('Chinese Exclusive','').trim(); const dn = (n && n !== 'Full Art') ? n : null; return dn || ' '; })()}
-          </div>
+          {/* === SETS section === */}
+          {appMode === 'cameos' ? (
+            // Cameos: always expanded, no toggle
+            <div className={`border-t pt-1.5 space-y-0.5 ${isOwned ? 'border-red-700' : 'border-gray-100'}`}>
+              <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
+                <div className="flex items-center gap-1">
+                  {(card.enSetCode || card.setCode) ? (
+                    <><span className="text-blue-500 font-bold shrink-0">EN</span><span className="truncate flex-1">{card.enSetCode || card.setCode}{card.number ? ` ${card.number}` : ''}</span></>
+                  ) : <><span className="text-blue-500 font-bold shrink-0 opacity-40">EN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
+                </div>
+                {!!((card.enSetCode || card.setCode)) && <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{getSetName(card.enSetCode || card.setCode)}</div>}
+              </div>
+              <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
+                <div className="flex items-center gap-1">
+                  {card.jpSetCode ? (
+                    <><span className="text-red-400 font-bold shrink-0">JP</span><span className="truncate flex-1">{card.jpSetCode}{card.jpNumber ? ` ${card.jpNumber}` : ''}</span></>
+                  ) : <><span className="text-red-400 font-bold shrink-0 opacity-40">JP</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
+                </div>
+                {!!(card.jpSetCode) && <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{getSetName(card.jpSetCode)}</div>}
+              </div>
+            </div>
+          ) : (
+            // Illustrations: collapsible sets section
+            <div className={`border-t ${isOwned ? 'border-red-700' : 'border-gray-100'}`}>
+              {/* Sets header / toggle */}
+              <button
+                onClick={(e) => { e.stopPropagation(); setSetsOpen(o => !o); }}
+                className={`w-full flex items-center justify-between py-1 text-[10px] font-bold ${isOwned ? 'text-red-200 hover:text-white' : 'text-gray-500 hover:text-gray-800'} transition-colors`}
+              >
+                <span>Sets</span>
+                {!setsOpen && (
+                  <span className={`truncate mx-1 font-normal text-[9px] ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>
+                    {(() => {
+                      const primary = card.enSetCode || card.setCode;
+                      const code = primary || card.jpSetCode || card.cnSetCode;
+                      const num = primary ? card.number : card.jpSetCode ? card.jpNumber : card.cnNumber;
+                      const others = [card.jpSetCode, card.cnSetCode, card.tcSetCode, card.krSetCode].filter(Boolean).length;
+                      return code ? `${code}${num ? ` ${num}` : ''}${others > 0 ? ` +${others}` : ''}` : 'N/A';
+                    })()}
+                  </span>
+                )}
+                <span className="shrink-0">{setsOpen ? '▴' : '▾'}</span>
+              </button>
+              {setsOpen && (
+                <div className="space-y-0.5 pb-1.5">
+                  {/* EN */}
+                  <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
+                    <div className="flex items-center gap-1">
+                      {(card.enSetCode || card.setCode) ? (
+                        <>
+                          <span className="text-blue-500 font-bold shrink-0">EN</span>
+                          <span className="truncate flex-1">{card.enSetCode || card.setCode}{card.number ? ` ${card.number}` : ''}</span>
+                          <button onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'en' ? null : 'en'); }} className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}>{expandedLang === 'en' ? '−' : '+'}</button>
+                        </>
+                      ) : <><span className="text-blue-500 font-bold shrink-0 opacity-40">EN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
+                    </div>
+                    {expandedLang === 'en' && !!((card.enSetCode || card.setCode)) && <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{getSetName(card.enSetCode || card.setCode)}</div>}
+                  </div>
+                  {/* JP */}
+                  <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
+                    <div className="flex items-center gap-1">
+                      {card.jpSetCode ? (
+                        <>
+                          <span className="text-red-400 font-bold shrink-0">JP</span>
+                          <span className="truncate flex-1">{card.jpSetCode}{card.jpNumber ? ` ${card.jpNumber}` : ''}</span>
+                          <button onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'jp' ? null : 'jp'); }} className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}>{expandedLang === 'jp' ? '−' : '+'}</button>
+                        </>
+                      ) : <><span className="text-red-400 font-bold shrink-0 opacity-40">JP</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
+                    </div>
+                    {expandedLang === 'jp' && !!(card.jpSetCode) && <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{getSetName(card.jpSetCode)}</div>}
+                  </div>
+                  {/* CN */}
+                  <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
+                    <div className="flex items-center gap-1">
+                      {card.cnSetCode ? (
+                        <>
+                          <span className="text-yellow-500 font-bold shrink-0">CN</span>
+                          <span className="truncate flex-1">{card.cnSetCode}{card.cnNumber ? ` ${card.cnNumber}` : ''}</span>
+                          <button onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'cn' ? null : 'cn'); }} className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}>{expandedLang === 'cn' ? '−' : '+'}</button>
+                        </>
+                      ) : <><span className="text-yellow-500 font-bold shrink-0 opacity-40">CN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
+                    </div>
+                    {expandedLang === 'cn' && !!(card.cnSetCode) && <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{getSetName(card.cnSetCode)}</div>}
+                  </div>
+                  {/* TC */}
+                  <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
+                    <div className="flex items-center gap-1">
+                      {card.tcSetCode ? (
+                        <>
+                          <span className="text-green-500 font-bold shrink-0">TC</span>
+                          <span className="truncate flex-1">{card.tcSetCode}{card.tcNumber ? ` ${card.tcNumber}` : ''}</span>
+                          <button onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'tc' ? null : 'tc'); }} className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}>{expandedLang === 'tc' ? '−' : '+'}</button>
+                        </>
+                      ) : <><span className="text-green-500 font-bold shrink-0 opacity-40">TC</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
+                    </div>
+                    {expandedLang === 'tc' && !!(card.tcSetCode) && <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{getSetName(card.tcSetCode)}</div>}
+                  </div>
+                  {/* KR */}
+                  <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
+                    <div className="flex items-center gap-1">
+                      {card.krSetCode ? (
+                        <>
+                          <span className="text-indigo-400 font-bold shrink-0">KR</span>
+                          <span className="truncate flex-1">{card.krSetCode}{card.krNumber ? ` ${card.krNumber}` : ''}</span>
+                          <button onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'kr' ? null : 'kr'); }} className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}>{expandedLang === 'kr' ? '−' : '+'}</button>
+                        </>
+                      ) : <><span className="text-indigo-400 font-bold shrink-0 opacity-40">KR</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
+                    </div>
+                    {expandedLang === 'kr' && !!(card.krSetCode) && <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{getSetName(card.krSetCode)}</div>}
+                  </div>
+                </div>
+              )}
+            </div>
           )}
 
-          {/* Row 4: EN */}
-          <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
-            <div className="flex items-center gap-1">
-              {(card.enSetCode || card.setCode) ? (
-                <>
-                  <span className="text-blue-500 font-bold shrink-0">EN</span>
-                  <span className="truncate flex-1">{card.enSetCode || card.setCode}{card.number ? ` ${card.number}` : ''}</span>
-                  {appMode !== 'cameos' && <button
-                    onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'en' ? null : 'en'); }}
-                    className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}
-                  >{expandedLang === 'en' ? '−' : '+'}</button>}
-                </>
-              ) : <><span className="text-blue-500 font-bold shrink-0 opacity-40">EN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
-            </div>
-            {(appMode === 'cameos' || expandedLang === 'en') && !!((card.enSetCode || card.setCode)) && (
-              <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{getSetName(card.enSetCode || card.setCode)}</div>
-            )}
-          </div>
-
-          {/* Row 5: JP */}
-          <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
-            <div className="flex items-center gap-1">
-              {card.jpSetCode ? (
-                <>
-                  <span className="text-red-400 font-bold shrink-0">JP</span>
-                  <span className="truncate flex-1">{card.jpSetCode}{card.jpNumber ? ` ${card.jpNumber}` : ''}</span>
-                  {appMode !== 'cameos' && <button
-                    onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'jp' ? null : 'jp'); }}
-                    className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}
-                  >{expandedLang === 'jp' ? '−' : '+'}</button>}
-                </>
-              ) : <><span className="text-red-400 font-bold shrink-0 opacity-40">JP</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
-            </div>
-            {(appMode === 'cameos' || expandedLang === 'jp') && !!(card.jpSetCode) && (
-              <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{getSetName(card.jpSetCode)}</div>
-            )}
-          </div>
-
-          {/* Row 6: CN */}
+          {/* === FEATURED / ARTIST section === */}
           {appMode !== 'cameos' && (
-          <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
-            <div className="flex items-center gap-1">
-              {card.cnSetCode ? (
-                <>
-                  <span className="text-yellow-500 font-bold shrink-0">CN</span>
-                  <span className="truncate flex-1">{card.cnSetCode}{card.cnNumber ? ` ${card.cnNumber}` : ''}</span>
-                  <button
-                    onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'cn' ? null : 'cn'); }}
-                    className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}
-                  >{expandedLang === 'cn' ? '−' : '+'}</button>
-                </>
-              ) : <><span className="text-yellow-500 font-bold shrink-0 opacity-40">CN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
+            <div className={`border-t ${isOwned ? 'border-red-700' : 'border-gray-100'}`}>
+              <button
+                onClick={(e) => { e.stopPropagation(); setFeaturedOpen(o => !o); }}
+                className={`w-full flex items-center justify-between py-1 text-[10px] font-bold ${isOwned ? 'text-red-200 hover:text-white' : 'text-gray-500 hover:text-gray-800'} transition-colors`}
+              >
+                <span>Featured</span>
+                {!featuredOpen && (
+                  <span className={`truncate mx-1 font-normal text-[9px] ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>
+                    {hasOtherPokemon ? `w/ ${card.otherPokemon.slice(0, 2).join(', ')}${card.otherPokemon.length > 2 ? ` +${card.otherPokemon.length - 2}` : ''}` : card.artist || '—'}
+                  </span>
+                )}
+                <span className="shrink-0">{featuredOpen ? '▴' : '▾'}</span>
+              </button>
+              {featuredOpen && (
+                <div className="pb-1.5 space-y-0.5">
+                  <div className={`text-xs min-h-[0.9rem] leading-tight ${isOwned ? 'text-red-100' : 'text-blue-500'}`}>
+                    {hasOtherPokemon ? (showAllPokemon
+                      ? <span>w/ {card.otherPokemon.join(', ')} <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(false); }} className={`font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>less</button></span>
+                      : <span className="flex items-baseline gap-1"><span className="truncate">w/ {card.otherPokemon.slice(0, 2).join(', ')}</span>{card.otherPokemon.length > 2 && <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(true); }} className={`shrink-0 font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>+{card.otherPokemon.length - 2}</button>}</span>
+                    ) : <span>&nbsp;</span>}
+                  </div>
+                  <div className={`text-xs leading-tight truncate min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-400'}`}>{card.artist || ' '}</div>
+                </div>
+              )}
             </div>
-            {expandedLang === 'cn' && !!(card.cnSetCode) && (
-              <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{getSetName(card.cnSetCode)}</div>
-            )}
-          </div>
           )}
 
-          {/* Row 6b: TC */}
-          {appMode !== 'cameos' && (
-          <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
-            <div className="flex items-center gap-1">
-              {card.tcSetCode ? (
-                <>
-                  <span className="text-green-500 font-bold shrink-0">TC</span>
-                  <span className="truncate flex-1">{card.tcSetCode}{card.tcNumber ? ` ${card.tcNumber}` : ''}</span>
-                  <button
-                    onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'tc' ? null : 'tc'); }}
-                    className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}
-                  >{expandedLang === 'tc' ? '−' : '+'}</button>
-                </>
-              ) : <><span className="text-green-500 font-bold shrink-0 opacity-40">TC</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
-            </div>
-            {expandedLang === 'tc' && !!(card.tcSetCode) && (
-              <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{getSetName(card.tcSetCode)}</div>
+          {/* === EBAY section === */}
+          <div className={`border-t ${isOwned ? 'border-red-700' : 'border-gray-100'}`}>
+            <button
+              onClick={(e) => { e.stopPropagation(); setEbayOpen(o => !o); }}
+              className={`w-full flex items-center justify-between py-1 text-[10px] font-bold ${isOwned ? 'text-red-200 hover:text-white' : 'text-gray-500 hover:text-gray-800'} transition-colors`}
+            >
+              <span>eBay</span>
+              {!ebayOpen && (
+                <span className={`font-normal text-[9px] ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>
+                  {[
+                    (card.enSetCode || card.setCode) ? '🇬🇧' : null,
+                    card.jpSetCode ? '🇯🇵' : null,
+                    card.cnSetCode ? '🇨🇳' : null,
+                    card.tcSetCode ? '🇹🇼' : null,
+                    showKR ? '🇰🇷' : null,
+                  ].filter(Boolean).join(' ')}
+                </span>
+              )}
+              <span className="shrink-0">{ebayOpen ? '▴' : '▾'}</span>
+            </button>
+            {ebayOpen && (
+              <div className="flex gap-1 pb-1.5">
+                {ALL_LANGS.map(lang => {
+                  const hasLang = lang === 'EN' ? !!(card.enSetCode || card.setCode)
+                    : lang === 'JP' ? !!card.jpSetCode
+                    : lang === 'CN' ? !!card.cnSetCode
+                    : lang === 'TC' ? !!(card.tcSetCode || card.setCode || card.jpSetCode)
+                    : showKR;
+                  const cfg = LANG_CONFIG[lang];
+                  return (
+                    <a
+                      key={lang}
+                      href={hasLang ? buildEbayUrl(card, isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName, lang) : undefined}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={e => e.stopPropagation()}
+                      title={hasLang ? `Search eBay sold listings (${lang})` : `Not available in ${lang}`}
+                      className={`flex-1 py-0.5 rounded text-[10px] font-bold text-center transition-all duration-150
+                        ${hasLang
+                          ? `${cfg.color} text-white opacity-70 hover:opacity-100`
+                          : 'bg-gray-200 text-gray-400 cursor-not-allowed opacity-30'
+                        }`}
+                    >
+                      {cfg.flag}
+                    </a>
+                  );
+                })}
+              </div>
             )}
           </div>
-          )}
 
-          {/* Row KR */}
-          {appMode !== 'cameos' && (
-          <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
-            <div className="flex items-center gap-1">
-              {card.krSetCode ? (
-                <>
-                  <span className="text-indigo-400 font-bold shrink-0">KR</span>
-                  <span className="truncate flex-1">{card.krSetCode}{card.krNumber ? ` ${card.krNumber}` : ''}</span>
-                  <button
-                    onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'kr' ? null : 'kr'); }}
-                    className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}
-                  >{expandedLang === 'kr' ? '−' : '+'}</button>
-                </>
-              ) : <><span className="text-indigo-400 font-bold shrink-0 opacity-40">KR</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
-            </div>
-            {expandedLang === 'kr' && !!(card.krSetCode) && (
-              <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{getSetName(card.krSetCode)}</div>
-            )}
-          </div>
-          )}
-
-
-          {/* Row 7: other pokemon — always reserve space */}
-          <div className={`text-xs min-h-[0.9rem] leading-tight ${isOwned ? 'text-red-100' : 'text-blue-500'}`}>
-            {hasOtherPokemon ? (showAllPokemon
-              ? <span>w/ {card.otherPokemon.join(', ')} <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(false); }} className={`font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>less</button></span>
-              : <span className="flex items-baseline gap-1"><span className="truncate">w/ {card.otherPokemon.slice(0, 2).join(', ')}</span>{card.otherPokemon.length > 2 && <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(true); }} className={`shrink-0 font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>+{card.otherPokemon.length - 2}</button>}</span>
-            ) : <span>&nbsp;</span>}
-          </div>
-
-          {/* Row 8: artist — always reserve space */}
-          <div className={`text-xs leading-tight truncate min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-400'}`}>{card.artist || ' '}</div>
-
-          {/* Language buttons — hidden when owned, show owned pill instead */}
+          {/* Language ownership buttons */}
           {!isSecondary && showOwnershipButtons && (
-            <div className="pt-1">
+            <div className={`border-t pt-1 ${isOwned ? 'border-red-700' : 'border-gray-100'}`}>
               {isOwned ? (
                 <button
                   onClick={() => handleLangClick(card.ownedLang)}
@@ -732,35 +817,6 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
               )}
             </div>
           )}
-
-          {/* eBay search buttons */}
-          <div className="flex gap-1 pt-2 border-t border-gray-100/30 mt-1">
-            {ALL_LANGS.map(lang => {
-              const hasLang = lang === 'EN' ? !!(card.enSetCode || card.setCode)
-                : lang === 'JP' ? !!card.jpSetCode
-                : lang === 'CN' ? !!card.cnSetCode
-                : lang === 'TC' ? !!(card.tcSetCode || card.setCode || card.jpSetCode)
-                : showKR;
-              const cfg = LANG_CONFIG[lang];
-              return (
-                <a
-                  key={lang}
-                  href={hasLang ? buildEbayUrl(card, isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName, lang) : undefined}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={e => e.stopPropagation()}
-                  title={hasLang ? `Search eBay sold listings (${lang})` : `Not available in ${lang}`}
-                  className={`flex-1 py-0.5 rounded text-[10px] font-bold text-center transition-all duration-150
-                    ${hasLang
-                      ? `${cfg.color} text-white opacity-70 hover:opacity-100`
-                      : 'bg-gray-200 text-gray-400 cursor-not-allowed opacity-30'
-                    }`}
-                >
-                  {cfg.flag}
-                </a>
-              );
-            })}
-          </div>
         </div>
       </div>
 
