@@ -1126,7 +1126,7 @@ export default function App() {
                       onOwnershipClick={handleCardOwnershipClick} onToggleNonConforming={handleToggleNonConforming}
                       onToggleFavorite={handleToggleFavorite} onToggleUnobtainable={handleToggleUnobtainable}
                      
-                      onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={false} getPriceForCard={getPriceForCard} onSetFilter={(code) => { setFilterSet(prev => prev === code ? 'all' : code); setSearchInput(""); setSearchQuery(""); }} activeSetFilter={filterSet} />
+                      onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={false} getPriceForCard={getPriceForCard} onSetFilter={(code) => { setFilterSet(prev => prev === code ? 'all' : code); setSearchInput(""); setSearchQuery(""); }} activeSetFilter={filterSet} displayLang={filterSetLang !== 'all' ? filterSetLang : 'EN'} />
                     {/* Review badge overlay */}
                     <div className="absolute top-1 left-1 z-20 pointer-events-none">
                       {isReviewed ? (() => {
@@ -1168,7 +1168,7 @@ export default function App() {
                   onOwnershipClick={handleCardOwnershipClick} onToggleNonConforming={handleToggleNonConforming}
                   onToggleFavorite={handleToggleFavorite} onToggleUnobtainable={handleToggleUnobtainable}
                  
-                  onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={showOwnershipButtons} getPriceForCard={getPriceForCard} appMode={appMode} onSetFilter={(code) => { setFilterSet(prev => prev === code ? 'all' : code); setSearchInput(""); setSearchQuery(""); }} activeSetFilter={filterSet} />
+                  onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={showOwnershipButtons} getPriceForCard={getPriceForCard} appMode={appMode} onSetFilter={(code) => { setFilterSet(prev => prev === code ? 'all' : code); setSearchInput(""); setSearchQuery(""); }} activeSetFilter={filterSet} displayLang={filterSetLang !== 'all' ? filterSetLang : 'EN'} />
               ))}
             </div>
           </div>

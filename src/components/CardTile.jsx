@@ -63,7 +63,7 @@ const buildEbayUrl = (card, pokemonName, lang) => {
 };
 
 
-export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onToggleExpensive, onToggleVeryExpensive, onNavigateToPokemon, showOwnershipButtons = false , scrollRoot, getPriceForCard, showSetNames = false, appMode = 'fullart', onSetFilter, activeSetFilter }) {
+export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onToggleExpensive, onToggleVeryExpensive, onNavigateToPokemon, showOwnershipButtons = false , scrollRoot, getPriceForCard, showSetNames = false, appMode = 'fullart', onSetFilter, activeSetFilter, displayLang = 'EN' }) {
   const isOwned = !!card.ownedLang;
   const hasOtherPokemon = card.otherPokemon && card.otherPokemon.length > 0;
   const isSecondary = card.isSecondary || !card.isPrimary;
@@ -237,7 +237,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   };
 
   const imagePaths = generateImagePaths(card, pokemonName, appMode);
-  const cacheKey = card.id;
+  const cacheKey = `${card.id}__${displayLang}`;
   const cached = imageCache[cacheKey];
   const [imageLoaded, setImageLoaded] = React.useState(!!cached?.src);
   const [imageSrc, setImageSrc] = React.useState(cached?.src || null);
@@ -295,6 +295,62 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             img.onerror = reject;
             img.src = found;
           })).catch(() => null);
+        }
+        if (!mounted) return;
+        imageCache[cacheKey] = { src: found };
+        setImageSrc(found);
+        setImageLoaded(!!found);
+        return;
+      }
+
+      // JP/CN lang display: try lang-specific folder first
+      if (displayLang === 'JP' || displayLang === 'CN') {
+        const langFolder = displayLang === 'JP' ? 'card-images-jp' : 'card-images-cn';
+        const langBase = `/pokemon-tcg-tracker/${langFolder}/`;
+        const langSetCode = displayLang === 'JP' ? card.jpSetCode : card.cnSetCode;
+        const langNumber = displayLang === 'JP' ? card.jpNumber : card.cnNumber;
+        let found = null;
+        if (langSetCode && langNumber) {
+          // Build lang-specific paths using the lang set code + number
+          const pokeName = pokemonName.toLowerCase().replace(/[^a-z0-9]/g, '');
+          const numParts = String(langNumber).split('/');
+          const numerator = numParts[0] ? String(parseInt(numParts[0])).padStart(3, '0') : '';
+          const denominator = numParts[1] ? String(parseInt(numParts[1])) : '';
+          const langPaths = denominator
+            ? [`${langSetCode}.${numerator}-${denominator}.${pokeName}_`]
+            : [`${langSetCode}.${numerator}.${pokeName}_`];
+          // Also try EN imagePaths in the lang folder as fallback
+          const allLangPaths = [...langPaths, ...imagePaths];
+          const tryPath = (src) => enqueueImageLoad(() =>
+            new Promise((resolve, reject) => {
+              const img = new Image(); img.onload = () => resolve(src); img.onerror = reject; img.src = src;
+            })
+          );
+          for (const path of allLangPaths) {
+            if (!mounted) return;
+            for (const ext of ['.png', '.jpg']) {
+              try { found = await tryPath(langBase + path + ext); break; } catch (_) {}
+            }
+            if (found) break;
+          }
+        }
+        // Fall back to EN folder if not found in lang folder
+        if (!found) {
+          const enBase = '/pokemon-tcg-tracker/card-images/';
+          const manifest = await getManifest();
+          if (manifest.size > 0) {
+            for (const path of imagePaths) {
+              for (const ext of ['.png', '.jpg']) {
+                if (manifest.has(path + ext)) { found = enBase + path + ext; break; }
+              }
+              if (found) break;
+            }
+          }
+          if (found) {
+            found = await enqueueImageLoad(() => new Promise((resolve, reject) => {
+              const img = new Image(); img.onload = () => resolve(found); img.onerror = reject; img.src = found;
+            })).catch(() => null);
+          }
         }
         if (!mounted) return;
         imageCache[cacheKey] = { src: found };
@@ -362,7 +418,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
     tryLoadImage();
     return () => { mounted = false; };
-  }, [inView, cacheKey, appMode]);
+  }, [inView, cacheKey, appMode, displayLang]);
 
   // Re-evaluate hide when filter flag changes
   React.useEffect(() => {
