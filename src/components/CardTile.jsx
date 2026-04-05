@@ -120,7 +120,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const [copied, setCopied] = React.useState(false);
   const [autocompleteFor, setAutocompleteFor] = React.useState(null);
   const [autocompleteQuery, setAutocompleteQuery] = React.useState('');
-  const [expandedLang, setExpandedLang] = React.useState(null); // which lang row is expanded to show set name
+  const [expandedLang, setExpandedLang] = React.useState('en'); // which lang row is expanded to show set name
   const dragState = React.useRef(null);
   const pickerCirclesRef = React.useRef([]);
   React.useEffect(() => { pickerCirclesRef.current = pickerCircles; }, [pickerCircles]);
@@ -209,7 +209,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   };
 
   const [showAllPokemon, setShowAllPokemon] = React.useState(false);
-  const [setsOpen, setSetsOpen] = React.useState(true);
+  const [setsOpen, setSetsOpen] = React.useState(false);
   const [featuredOpen, setFeaturedOpen] = React.useState(false);
   const [ebayOpen, setEbayOpen] = React.useState(false);
   const [showContextMenu, setShowContextMenu] = React.useState(false);
@@ -567,14 +567,9 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
           {/* === IDENTITY: always visible === */}
           <div className="space-y-0.5 pb-1.5">
-            {/* Row 1: dex # + price + year */}
+            {/* Row 1: dex # + year */}
             <div className={`flex items-center gap-1 text-[10px] font-mono ${isOwned ? 'text-red-200' : 'text-gray-400'}`}>
               <span className="shrink-0">#{String(card.pokemonId || '').padStart(4, '0')}</span>
-              {priceValue !== null && (
-                <span className={`text-[9px] font-bold px-1 py-0.5 rounded shrink-0 ${isOwned ? 'bg-red-700 text-red-100' : 'bg-emerald-100 text-emerald-700'}`}>
-                  £{priceValue.toFixed(2)}
-                </span>
-              )}
               <span className="shrink-0 ml-auto">{(() => { try { const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const sd = setNames[card.enSetCode || card.setCode] || setNames[card.jpSetCode] || setNames[card.cnSetCode] || {}; if (!sd.year) return ''; return sd.month ? `${MONTHS[sd.month - 1]} ${sd.year}` : String(sd.year); } catch(e) { return ''; } })()}</span>
             </div>
             {/* Row 2: Pokemon name */}
@@ -584,6 +579,10 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
               <div className={`text-xs leading-tight min-h-[0.9rem] font-medium truncate ${isOwned ? 'text-red-100' : 'text-gray-600'}`}>
                 {(() => { const n = (card.cardName||'').replace(', Japanese Exclusive','').replace('Japanese Exclusive','').replace(', Chinese Exclusive','').replace('Chinese Exclusive','').trim(); const dn = (n && n !== 'Full Art') ? n : null; return dn || ' '; })()}
               </div>
+            )}
+            {/* Row 4: artist — always visible in identity */}
+            {appMode !== 'cameos' && card.artist && (
+              <div className={`text-[10px] leading-tight truncate ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>{card.artist}</div>
             )}
           </div>
 
@@ -609,27 +608,38 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
               </div>
             </div>
           ) : (
-            // Illustrations: collapsible sets section
+            // Illustrations: collapsible sets section, collapsed by default showing primary set only
             <div className={`border-t ${isOwned ? 'border-red-700' : 'border-gray-100'}`}>
-              {/* Sets header / toggle */}
               <button
                 onClick={(e) => { e.stopPropagation(); setSetsOpen(o => !o); }}
                 className={`w-full flex items-center justify-between py-1 text-[10px] font-bold ${isOwned ? 'text-red-200 hover:text-white' : 'text-gray-500 hover:text-gray-800'} transition-colors`}
               >
                 <span>Sets</span>
-                {!setsOpen && (
-                  <span className={`truncate mx-1 font-normal text-[9px] ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>
-                    {(() => {
-                      const primary = card.enSetCode || card.setCode;
-                      const code = primary || card.jpSetCode || card.cnSetCode;
-                      const num = primary ? card.number : card.jpSetCode ? card.jpNumber : card.cnNumber;
-                      const others = [card.jpSetCode, card.cnSetCode, card.tcSetCode, card.krSetCode].filter(Boolean).length;
-                      return code ? `${code}${num ? ` ${num}` : ''}${others > 0 ? ` +${others}` : ''}` : 'N/A';
-                    })()}
-                  </span>
-                )}
                 <span className="shrink-0">{setsOpen ? '▴' : '▾'}</span>
               </button>
+              {/* Collapsed: show primary set with set name */}
+              {!setsOpen && (() => {
+                const isEN = !!(card.enSetCode || card.setCode);
+                const isJPExcl = card.exclusive === 'JP';
+                const isCNExcl = card.exclusive === 'CN';
+                const primaryCode = isEN && !isJPExcl && !isCNExcl ? (card.enSetCode || card.setCode) : isJPExcl ? card.jpSetCode : isCNExcl ? card.cnSetCode : (card.enSetCode || card.setCode || card.jpSetCode);
+                const primaryNum = isEN && !isJPExcl && !isCNExcl ? card.number : isJPExcl ? card.jpNumber : isCNExcl ? card.cnNumber : (card.number || card.jpNumber);
+                const primaryLang = isEN && !isJPExcl && !isCNExcl ? 'EN' : isJPExcl ? 'JP' : isCNExcl ? 'CN' : 'EN';
+                const langColor = { EN: 'text-blue-500', JP: 'text-red-400', CN: 'text-yellow-500' }[primaryLang] || 'text-blue-500';
+                const setName = getSetName(primaryCode);
+                const otherCount = [card.jpSetCode, card.cnSetCode, card.tcSetCode, card.krSetCode].filter(Boolean).length + (isEN && !isJPExcl && !isCNExcl ? 0 : isEN ? 1 : 0);
+                return (
+                  <div className={`pb-1.5 text-[10px] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
+                    <div className="flex items-center gap-1">
+                      <span className={`${langColor} font-bold shrink-0`}>{primaryLang}</span>
+                      <span className="truncate flex-1">{primaryCode}{primaryNum ? ` ${primaryNum}` : ''}</span>
+                      {otherCount > 0 && <span className={`shrink-0 text-[9px] ${isOwned ? 'text-red-400' : 'text-gray-400'}`}>+{otherCount}</span>}
+                    </div>
+                    {setName && <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{setName}</div>}
+                  </div>
+                );
+              })()}
+              {/* Expanded: all langs with set name toggles */}
               {setsOpen && (
                 <div className="space-y-0.5 pb-1.5">
                   {/* EN */}
@@ -702,8 +712,8 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             </div>
           )}
 
-          {/* === FEATURED / ARTIST section === */}
-          {appMode !== 'cameos' && (
+          {/* === FEATURED section (Pokémon only, no artist) === */}
+          {appMode !== 'cameos' && hasOtherPokemon && (
             <div className={`border-t ${isOwned ? 'border-red-700' : 'border-gray-100'}`}>
               <button
                 onClick={(e) => { e.stopPropagation(); setFeaturedOpen(o => !o); }}
@@ -712,75 +722,109 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 <span>Featured</span>
                 {!featuredOpen && (
                   <span className={`truncate mx-1 font-normal text-[9px] ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>
-                    {hasOtherPokemon ? `w/ ${card.otherPokemon.slice(0, 2).join(', ')}${card.otherPokemon.length > 2 ? ` +${card.otherPokemon.length - 2}` : ''}` : card.artist || '—'}
+                    w/ {card.otherPokemon.slice(0, 2).join(', ')}{card.otherPokemon.length > 2 ? ` +${card.otherPokemon.length - 2}` : ''}
                   </span>
                 )}
                 <span className="shrink-0">{featuredOpen ? '▴' : '▾'}</span>
               </button>
               {featuredOpen && (
-                <div className="pb-1.5 space-y-0.5">
-                  <div className={`text-xs min-h-[0.9rem] leading-tight ${isOwned ? 'text-red-100' : 'text-blue-500'}`}>
-                    {hasOtherPokemon ? (showAllPokemon
+                <div className="pb-1.5">
+                  <div className={`text-xs leading-tight ${isOwned ? 'text-red-100' : 'text-blue-500'}`}>
+                    {showAllPokemon
                       ? <span>w/ {card.otherPokemon.join(', ')} <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(false); }} className={`font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>less</button></span>
                       : <span className="flex items-baseline gap-1"><span className="truncate">w/ {card.otherPokemon.slice(0, 2).join(', ')}</span>{card.otherPokemon.length > 2 && <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(true); }} className={`shrink-0 font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>+{card.otherPokemon.length - 2}</button>}</span>
-                    ) : <span>&nbsp;</span>}
+                    }
                   </div>
-                  <div className={`text-xs leading-tight truncate min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-400'}`}>{card.artist || ' '}</div>
                 </div>
               )}
             </div>
           )}
 
-          {/* === EBAY section === */}
-          <div className={`border-t ${isOwned ? 'border-red-700' : 'border-gray-100'}`}>
-            <button
-              onClick={(e) => { e.stopPropagation(); setEbayOpen(o => !o); }}
-              className={`w-full flex items-center justify-between py-1 text-[10px] font-bold ${isOwned ? 'text-red-200 hover:text-white' : 'text-gray-500 hover:text-gray-800'} transition-colors`}
-            >
-              <span>eBay</span>
-              {!ebayOpen && (
-                <span className={`font-normal text-[9px] ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>
-                  {[
-                    (card.enSetCode || card.setCode) ? '🇬🇧' : null,
-                    card.jpSetCode ? '🇯🇵' : null,
-                    card.cnSetCode ? '🇨🇳' : null,
-                    card.tcSetCode ? '🇹🇼' : null,
-                    showKR ? '🇰🇷' : null,
-                  ].filter(Boolean).join(' ')}
-                </span>
+          {/* === BUY section (eBay flags + TCGPlayer) === */}
+          {appMode !== 'cameos' && (
+            <div className={`border-t ${isOwned ? 'border-red-700' : 'border-gray-100'}`}>
+              <button
+                onClick={(e) => { e.stopPropagation(); setEbayOpen(o => !o); }}
+                className={`w-full flex items-center justify-between py-1 text-[10px] font-bold ${isOwned ? 'text-red-200 hover:text-white' : 'text-gray-500 hover:text-gray-800'} transition-colors`}
+              >
+                <span>Buy</span>
+                {!ebayOpen && (
+                  <span className={`font-normal text-[9px] ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>
+                    {[
+                      (card.enSetCode || card.setCode) ? '🇬🇧' : null,
+                      card.jpSetCode ? '🇯🇵' : null,
+                      card.cnSetCode ? '🇨🇳' : null,
+                      card.tcSetCode ? '🇹🇼' : null,
+                      showKR ? '🇰🇷' : null,
+                    ].filter(Boolean).join(' ')}
+                  </span>
+                )}
+                <span className="shrink-0">{ebayOpen ? '▴' : '▾'}</span>
+              </button>
+              {ebayOpen && (
+                <div className="pb-1.5 space-y-1">
+                  {/* eBay flags row */}
+                  <div className="flex gap-1">
+                    {ALL_LANGS.map(lang => {
+                      const hasLang = lang === 'EN' ? !!(card.enSetCode || card.setCode)
+                        : lang === 'JP' ? !!card.jpSetCode
+                        : lang === 'CN' ? !!card.cnSetCode
+                        : lang === 'TC' ? !!(card.tcSetCode || card.setCode || card.jpSetCode)
+                        : showKR;
+                      const cfg = LANG_CONFIG[lang];
+                      return (
+                        <a
+                          key={lang}
+                          href={hasLang ? buildEbayUrl(card, isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName, lang) : undefined}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={e => e.stopPropagation()}
+                          title={hasLang ? `Search eBay (${lang})` : `Not available in ${lang}`}
+                          className={`flex-1 py-0.5 rounded text-[10px] font-bold text-center transition-all duration-150
+                            ${hasLang ? `${cfg.color} text-white opacity-70 hover:opacity-100` : 'bg-gray-200 text-gray-400 cursor-not-allowed opacity-30'}`}
+                        >
+                          {cfg.flag}
+                        </a>
+                      );
+                    })}
+                  </div>
+                  {/* TCGPlayer EN link */}
+                  {!!(card.enSetCode || card.setCode) && (() => {
+                    const rawName = card.cardName || '';
+                    const isTrainer = rawName.startsWith('Trainer,') || rawName.startsWith('Trainer ,');
+                    const cleanName = isTrainer ? rawName.replace(/^Trainer\s*,\s*/, '').trim() : rawName;
+                    const skipNames = ['Full Art', 'Trainer', 'Item', 'Stadium', 'Supporter', 'Tool', 'Energy'];
+                    const searchName = cleanName && !skipNames.includes(cleanName) ? cleanName : (isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName);
+                    const tcgUrl = `https://www.tcgplayer.com/search/pokemon/product?q=${encodeURIComponent(searchName)}&view=grid`;
+                    return (
+                      <a
+                        href={tcgUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={e => e.stopPropagation()}
+                        title="Search TCGPlayer (EN)"
+                        className={`flex w-full items-center justify-center gap-1 py-0.5 rounded text-[10px] font-bold text-center transition-all duration-150 bg-blue-600 text-white opacity-70 hover:opacity-100`}
+                      >
+                        🛒 TCGPlayer
+                      </a>
+                    );
+                  })()}
+                </div>
               )}
-              <span className="shrink-0">{ebayOpen ? '▴' : '▾'}</span>
-            </button>
-            {ebayOpen && (
-              <div className="flex gap-1 pb-1.5">
-                {ALL_LANGS.map(lang => {
-                  const hasLang = lang === 'EN' ? !!(card.enSetCode || card.setCode)
-                    : lang === 'JP' ? !!card.jpSetCode
-                    : lang === 'CN' ? !!card.cnSetCode
-                    : lang === 'TC' ? !!(card.tcSetCode || card.setCode || card.jpSetCode)
-                    : showKR;
-                  const cfg = LANG_CONFIG[lang];
-                  return (
-                    <a
-                      key={lang}
-                      href={hasLang ? buildEbayUrl(card, isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName, lang) : undefined}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={e => e.stopPropagation()}
-                      title={hasLang ? `Search eBay sold listings (${lang})` : `Not available in ${lang}`}
-                      className={`flex-1 py-0.5 rounded text-[10px] font-bold text-center transition-all duration-150
-                        ${hasLang
-                          ? `${cfg.color} text-white opacity-70 hover:opacity-100`
-                          : 'bg-gray-200 text-gray-400 cursor-not-allowed opacity-30'
-                        }`}
-                    >
-                      {cfg.flag}
-                    </a>
-                  );
-                })}
+            </div>
+          )}
+
+          {/* === PRICE section === */}
+          {appMode !== 'cameos' && priceValue !== null && (
+            <div className={`border-t ${isOwned ? 'border-red-700' : 'border-gray-100'}`}>
+              <div className={`flex items-center justify-between py-1 text-[10px] font-bold ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
+                <span>Price</span>
+                <span className={`text-[11px] font-bold px-1.5 py-0.5 rounded ${isOwned ? 'bg-red-700 text-red-100' : 'bg-emerald-100 text-emerald-700'}`}>
+                  £{priceValue.toFixed(2)}
+                </span>
               </div>
-            )}
-          </div>
+            </div>
+          )}
 
           {/* Language ownership buttons */}
           {!isSecondary && showOwnershipButtons && (
@@ -804,10 +848,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                         onClick={() => isAvailable && handleLangClick(lang)}
                         title={isAvailable ? `Mark as owned (${lang})` : `Not available in ${lang}`}
                         className={`flex-1 py-1 rounded text-xs font-bold transition-all duration-150
-                          ${isAvailable
-                            ? `${cfg.color} text-white`
-                            : 'bg-gray-200 text-gray-400 cursor-not-allowed opacity-40'
-                          }`}
+                          ${isAvailable ? `${cfg.color} text-white` : 'bg-gray-200 text-gray-400 cursor-not-allowed opacity-40'}`}
                       >
                         {lang}
                       </button>
