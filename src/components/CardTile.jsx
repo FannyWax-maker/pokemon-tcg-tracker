@@ -658,7 +658,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
         </div>
 
         {/* Card Details */}
-        <div className="px-2 pt-2 pb-1 space-y-0 bg-white">
+        <div className="px-2 pt-2 pb-1 space-y-0 bg-white flex flex-col flex-1">
 
           {/* === IDENTITY: always visible === */}
           <div className="space-y-0.5 pb-1.5">
@@ -906,12 +906,14 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
           {/* Owned indicator */}
           {isOwned && (
-            <div className="border-t border-gray-100 pt-1 pb-0.5">
+            <div className="mt-auto border-t border-gray-100 pt-1 pb-0.5">
               <div className={`w-full text-center text-[10px] font-bold px-2 py-1 rounded-lg text-white ${LANG_CONFIG[card.ownedLang]?.owned || 'bg-emerald-500'}`}>
                 ✓ Owned in {card.ownedLang}
               </div>
             </div>
           )}
+          {/* Spacer to push content consistent height when not owned */}
+          {!isOwned && <div className="mt-auto" />}
         </div>
 
         {/* Language ownership buttons — separate white box */}
