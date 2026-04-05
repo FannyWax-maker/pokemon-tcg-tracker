@@ -63,7 +63,7 @@ const buildEbayUrl = (card, pokemonName, lang) => {
 };
 
 
-export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onToggleExpensive, onToggleVeryExpensive, onNavigateToPokemon, showOwnershipButtons = false , scrollRoot, getPriceForCard, showSetNames = false, appMode = 'fullart', onSetFilter }) {
+export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onToggleExpensive, onToggleVeryExpensive, onNavigateToPokemon, showOwnershipButtons = false , scrollRoot, getPriceForCard, showSetNames = false, appMode = 'fullart', onSetFilter, activeSetFilter }) {
   const isOwned = !!card.ownedLang;
   const hasOtherPokemon = card.otherPokemon && card.otherPokemon.length > 0;
   const isSecondary = card.isSecondary || !card.isPrimary;
@@ -636,7 +636,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 const otherCount = available.length - 1;
                 return (
                   <button
-                    className={`w-full text-left mb-1.5 px-2 py-1 rounded-lg text-[10px] transition-all ${isOwned ? 'bg-red-700 hover:bg-red-600' : 'bg-gray-50 hover:bg-gray-100 border border-gray-200'}`}
+                    className={`w-full text-left mb-1.5 px-2 py-1 rounded-lg text-[10px] transition-all cursor-pointer ${activeSetFilter === primary.code ? (isOwned ? 'bg-red-500 ring-2 ring-white/50' : 'bg-blue-50 border-2 border-blue-400') : isOwned ? 'bg-red-700 hover:bg-red-600' : 'bg-gray-50 hover:bg-gray-100 border border-gray-200'}`}
                     onClick={onSetFilter ? (e) => { e.stopPropagation(); onSetFilter(primary.code); } : (e) => e.stopPropagation()}
                     title={onSetFilter ? `Filter by ${setName || primary.code}` : undefined}
                   >
@@ -663,7 +663,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                     return (
                       <button
                         key={key}
-                        className={`w-full text-left px-2 py-1 rounded-lg text-[10px] transition-all ${isOwned ? 'bg-red-700 hover:bg-red-600' : 'bg-gray-50 hover:bg-gray-100 border border-gray-200'} ${onSetFilter ? 'cursor-pointer' : 'cursor-default'}`}
+                        className={`w-full text-left px-2 py-1 rounded-lg text-[10px] transition-all cursor-pointer ${activeSetFilter === code ? (isOwned ? 'bg-red-500 ring-2 ring-white/50' : 'bg-blue-50 border-2 border-blue-400') : isOwned ? 'bg-red-700 hover:bg-red-600' : 'bg-gray-50 hover:bg-gray-100 border border-gray-200'}`}
                         onClick={onSetFilter ? (e) => { e.stopPropagation(); onSetFilter(code); } : (e) => e.stopPropagation()}
                         title={onSetFilter ? `Filter by ${setName || code}` : undefined}
                       >

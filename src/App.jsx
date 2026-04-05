@@ -483,15 +483,18 @@ export default function App() {
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
       filtered = filtered.filter(p => {
-        if (p.name.toLowerCase().includes(query)) return true;
+        const pName = p.name.toLowerCase();
+        // Exact match or starts-with-word-boundary so "mew" matches Mew but not Mewtwo
+        const nameMatch = pName === query || pName.startsWith(query + ' ') || pName.startsWith(query + '-') || (query.length > 3 && pName.includes(query));
+        if (nameMatch) return true;
         if (String(p.id).includes(query)) return true;
         return p.cards.some(c => {
-          // Match set codes
-          if ((c.setCode || '').toLowerCase().includes(query)) return true;
-          if ((c.jpSetCode || '').toLowerCase().includes(query)) return true;
-          if ((c.cnSetCode || '').toLowerCase().includes(query)) return true;
-          if ((c.tcSetCode || '').toLowerCase().includes(query)) return true;
-          if ((c.krSetCode || '').toLowerCase().includes(query)) return true;
+          // Match set codes (exact only to avoid mew matching MEW set)
+          if ((c.setCode || '').toLowerCase() === query) return true;
+          if ((c.jpSetCode || '').toLowerCase() === query) return true;
+          if ((c.cnSetCode || '').toLowerCase() === query) return true;
+          if ((c.tcSetCode || '').toLowerCase() === query) return true;
+          if ((c.krSetCode || '').toLowerCase() === query) return true;
           // Match set names
           const codes = [c.setCode, c.enSetCode, c.jpSetCode, c.cnSetCode, c.tcSetCode, c.krSetCode].filter(Boolean);
           return codes.some(code => {
@@ -1116,7 +1119,7 @@ export default function App() {
                       onOwnershipClick={handleCardOwnershipClick} onToggleNonConforming={handleToggleNonConforming}
                       onToggleFavorite={handleToggleFavorite} onToggleUnobtainable={handleToggleUnobtainable}
                      
-                      onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={false} getPriceForCard={getPriceForCard} onSetFilter={(code) => { setFilterSet(code); setSearchInput(""); setSearchQuery(""); }} />
+                      onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={false} getPriceForCard={getPriceForCard} onSetFilter={(code) => { setFilterSet(prev => prev === code ? 'all' : code); setSearchInput(""); setSearchQuery(""); }} activeSetFilter={filterSet} />
                     {/* Review badge overlay */}
                     <div className="absolute top-1 left-1 z-20 pointer-events-none">
                       {isReviewed ? (() => {
@@ -1158,7 +1161,7 @@ export default function App() {
                   onOwnershipClick={handleCardOwnershipClick} onToggleNonConforming={handleToggleNonConforming}
                   onToggleFavorite={handleToggleFavorite} onToggleUnobtainable={handleToggleUnobtainable}
                  
-                  onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={showOwnershipButtons} getPriceForCard={getPriceForCard} appMode={appMode} onSetFilter={(code) => { setFilterSet(code); setSearchInput(""); setSearchQuery(""); }} />
+                  onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={showOwnershipButtons} getPriceForCard={getPriceForCard} appMode={appMode} onSetFilter={(code) => { setFilterSet(prev => prev === code ? 'all' : code); setSearchInput(""); setSearchQuery(""); }} activeSetFilter={filterSet} />
               ))}
             </div>
           </div>
