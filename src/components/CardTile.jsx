@@ -539,8 +539,8 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
         }}
         className={`flex flex-col rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 ${
         isSecondary ? 'opacity-75 ring-2 ring-purple-300' : ''
-      } ${isOwned ? 'ring-2 ring-red-400' : 'bg-white shadow-md'}`}
-        style={isOwned ? {boxShadow: '0 4px 20px rgba(239,68,68,0.25)'} : {}}>
+      } ${isOwned ? 'ring-2 ring-emerald-400 shadow-md' : 'bg-white shadow-md'}`}
+        style={isOwned ? {boxShadow: '0 4px 20px rgba(16,185,129,0.2)'} : {}}>
 
         {/* Card Image */}
         <div
@@ -551,8 +551,8 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           }}
           onClick={() => imageSrc && setShowZoom(true)}
         >
-          {/* Card back placeholder — always visible until image loads */}
-          {!imageSrc && (
+          {/* Card back placeholder — only shown while image is still loading (not yet attempted) */}
+          {!imageSrc && !inView && (
             <img
               src="/pokemon-tcg-tracker/card-back.jpg"
               alt="Loading..."
@@ -658,33 +658,33 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
         </div>
 
         {/* Card Details */}
-        <div className={`px-2 pt-2 pb-1 space-y-0`} style={isOwned ? {background: 'linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)'} : {background: 'white'}}>
+        <div className="px-2 pt-2 pb-1 space-y-0 bg-white">
 
           {/* === IDENTITY: always visible === */}
           <div className="space-y-0.5 pb-1.5">
             {/* Row 1: dex # + year */}
-            <div className={`flex items-center gap-1 text-[10px] font-mono ${isOwned ? 'text-red-200' : 'text-gray-400'}`}>
+            <div className={`flex items-center gap-1 text-[10px] font-mono text-gray-400`}>
               <span className="shrink-0">#{String(card.pokemonId || '').padStart(4, '0')}</span>
               <span className="shrink-0 ml-auto">{(() => { try { const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const sd = setNames[card.enSetCode || card.setCode] || setNames[card.jpSetCode] || setNames[card.cnSetCode] || {}; if (!sd.year) return ''; return sd.month ? `${MONTHS[sd.month - 1]} ${sd.year}` : String(sd.year); } catch(e) { return ''; } })()}</span>
             </div>
             {/* Row 2: Pokemon name */}
-            <div className={`font-bold text-sm leading-tight ${isOwned ? 'text-white' : 'text-gray-900'}`}>{isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName}</div>
+            <div className={`font-bold text-sm leading-tight text-gray-900`}>{isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName}</div>
             {/* Row 3: card name */}
             {appMode !== 'cameos' && (
-              <div className={`text-xs leading-tight min-h-[0.9rem] font-medium truncate ${isOwned ? 'text-red-100' : 'text-gray-600'}`}>
+              <div className={`text-xs leading-tight min-h-[0.9rem] font-medium truncate text-gray-600`}>
                 {(() => { const n = (card.cardName||'').replace(', Japanese Exclusive','').replace('Japanese Exclusive','').replace(', Chinese Exclusive','').replace('Chinese Exclusive','').trim(); const dn = (n && n !== 'Full Art') ? n : null; return dn || ' '; })()}
               </div>
             )}
             {/* Row 4: artist — always visible in identity */}
             {appMode !== 'cameos' && card.artist && (
-              <div className={`text-[10px] leading-tight truncate ${isOwned ? 'text-red-300' : 'text-gray-400'}`}><span className="font-semibold">Artist · </span>{card.artist}</div>
+              <div className={`text-[10px] leading-tight truncate text-gray-400`}><span className="font-semibold">Artist · </span>{card.artist}</div>
             )}
           </div>
 
           {/* === SETS section === */}
           {appMode === 'cameos' ? (
             // Cameos: always expanded, clickable boxes
-            <div className={`border-t pt-1.5 flex flex-col gap-1 ${isOwned ? 'border-red-700' : 'border-gray-100'}`}>
+            <div className={`border-t pt-1.5 flex flex-col gap-1 border-gray-100`}>
               {[
                 { label: 'EN', bgColor: 'bg-blue-500',   code: card.enSetCode || card.setCode, num: card.number },
                 { label: 'JP', bgColor: 'bg-red-500',    code: card.jpSetCode,                 num: card.jpNumber },
@@ -693,25 +693,25 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 return (
                   <button
                     key={label}
-                    className={`w-full text-left px-2 py-1 rounded-lg text-[10px] transition-all cursor-pointer ${isOwned ? 'bg-red-700 hover:bg-red-600' : 'bg-gray-50 hover:bg-gray-100 border border-gray-200'}`}
+                    className={`w-full text-left px-2 py-1 rounded-lg text-[10px] transition-all cursor-pointer bg-gray-50 hover:bg-gray-100 border border-gray-200`}
                     onClick={onSetFilter ? (e) => { e.stopPropagation(); onSetFilter(code); } : (e) => e.stopPropagation()}
                     title={onSetFilter ? `Filter by ${setName || code}` : undefined}
                   >
                     <div className="flex items-center gap-1.5">
                       <span className={`${bgColor} text-white text-[9px] font-bold px-1 py-0.5 rounded shrink-0`}>{label}</span>
-                      <span className={`font-medium truncate flex-1 ${isOwned ? 'text-red-100' : 'text-gray-700'}`}>{setName || '—'}</span>
+                      <span className={`font-medium truncate flex-1 text-gray-700`}>{setName || '—'}</span>
                     </div>
-                    <div className={`text-[9px] mt-0.5 pl-0.5 font-mono ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>{code}{num ? ` ${num}` : ''}</div>
+                    <div className={`text-[9px] mt-0.5 pl-0.5 font-mono text-gray-400`}>{code}{num ? ` ${num}` : ''}</div>
                   </button>
                 );
               })}
             </div>
           ) : (
             // Illustrations: collapsible sets section, collapsed by default showing primary set only
-            <div className={`border-t ${isOwned ? 'border-red-700' : 'border-gray-100'}`}>
+            <div className={`border-t border-gray-100`}>
               <button
                 onClick={(e) => { e.stopPropagation(); setSetsOpen(o => !o); }}
-                className={`w-full flex items-center justify-between py-1 text-[10px] font-bold ${isOwned ? 'text-red-200 hover:text-white' : 'text-gray-500 hover:text-gray-800'} transition-colors`}
+                className={`w-full flex items-center justify-between py-1 text-[10px] font-bold text-gray-500 hover:text-gray-800 transition-colors`}
               >
                 <span>Sets</span>
                 <span className="shrink-0">{setsOpen ? '▴' : '▾'}</span>
@@ -739,10 +739,10 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                   >
                     <div className="flex items-center gap-1.5">
                       <span className={`${primary.bgColor} text-white text-[9px] font-bold px-1 py-0.5 rounded shrink-0`}>{primary.label}</span>
-                      <span className={`font-medium truncate flex-1 ${isOwned ? 'text-red-100' : 'text-gray-700'}`}>{setName || '—'}</span>
-                      {otherCount > 0 && <span className={`shrink-0 text-[9px] ${isOwned ? 'text-red-400' : 'text-gray-400'}`}>+{otherCount}</span>}
+                      <span className={`font-medium truncate flex-1 text-gray-700`}>{setName || '—'}</span>
+                      {otherCount > 0 && <span className={`shrink-0 text-[9px] text-gray-400`}>+{otherCount}</span>}
                     </div>
-                    <div className={`text-[9px] mt-0.5 pl-0.5 font-mono ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>{primary.code}{primary.num ? ` ${primary.num}` : ''}</div>
+                    <div className={`text-[9px] mt-0.5 pl-0.5 font-mono text-gray-400`}>{primary.code}{primary.num ? ` ${primary.num}` : ''}</div>
                   </button>
                 );
               })()}
@@ -760,15 +760,15 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                     return (
                       <button
                         key={key}
-                        className={`w-full text-left px-2 py-1 rounded-lg text-[10px] transition-all cursor-pointer ${activeSetFilter === code ? (isOwned ? 'bg-red-500 ring-2 ring-white/50' : 'bg-blue-50 border-2 border-blue-400') : isOwned ? 'bg-red-700 hover:bg-red-600' : 'bg-gray-50 hover:bg-gray-100 border border-gray-200'}`}
+                        className={`w-full text-left px-2 py-1 rounded-lg text-[10px] transition-all cursor-pointer ${activeSetFilter === code ? 'bg-blue-50 border-2 border-blue-400' : 'bg-gray-50 hover:bg-gray-100 border border-gray-200'}`}
                         onClick={onSetFilter ? (e) => { e.stopPropagation(); onSetFilter(code); } : (e) => e.stopPropagation()}
                         title={onSetFilter ? `Filter by ${setName || code}` : undefined}
                       >
                         <div className="flex items-center gap-1.5">
                           <span className={`${bgColor} text-white text-[9px] font-bold px-1 py-0.5 rounded shrink-0`}>{label}</span>
-                          <span className={`font-medium truncate flex-1 ${isOwned ? 'text-red-100' : 'text-gray-700'}`}>{setName || '—'}</span>
+                          <span className={`font-medium truncate flex-1 text-gray-700`}>{setName || '—'}</span>
                         </div>
-                        <div className={`text-[9px] mt-0.5 pl-0.5 font-mono ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>{code}{num ? ` ${num}` : ''}</div>
+                        <div className={`text-[9px] mt-0.5 pl-0.5 font-mono text-gray-400`}>{code}{num ? ` ${num}` : ''}</div>
                       </button>
                     );
                   })}
@@ -779,16 +779,16 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
           {/* === FEATURED section === */}
           {appMode !== 'cameos' && (
-            <div className={`border-t ${isOwned ? 'border-red-700' : 'border-gray-100'}`}>
+            <div className={`border-t border-gray-100`}>
               {hasOtherPokemon ? (
                 <>
                   <button
                     onClick={(e) => { e.stopPropagation(); setFeaturedOpen(o => !o); }}
-                    className={`w-full flex items-center justify-between py-1 text-[10px] font-bold ${isOwned ? 'text-red-200 hover:text-white' : 'text-gray-500 hover:text-gray-800'} transition-colors`}
+                    className={`w-full flex items-center justify-between py-1 text-[10px] font-bold text-gray-500 hover:text-gray-800 transition-colors`}
                   >
                     <span>Featured</span>
                     {!featuredOpen && (
-                      <span className={`truncate mx-1 font-normal text-[9px] ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>
+                      <span className={`truncate mx-1 font-normal text-[9px] text-gray-400`}>
                         w/ {card.otherPokemon.slice(0, 2).join(', ')}{card.otherPokemon.length > 2 ? ` +${card.otherPokemon.length - 2}` : ''}
                       </span>
                     )}
@@ -796,7 +796,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                   </button>
                   {featuredOpen && (
                     <div className="pb-1.5">
-                      <div className={`text-xs leading-tight ${isOwned ? 'text-red-100' : 'text-blue-500'}`}>
+                      <div className={`text-xs leading-tight text-blue-500`}>
                         {showAllPokemon
                           ? <span>w/ {card.otherPokemon.join(', ')} <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(false); }} className={`font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>less</button></span>
                           : <span className="flex items-baseline gap-1"><span className="truncate">w/ {card.otherPokemon.slice(0, 2).join(', ')}</span>{card.otherPokemon.length > 2 && <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(true); }} className={`shrink-0 font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>+{card.otherPokemon.length - 2}</button>}</span>
@@ -806,9 +806,9 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                   )}
                 </>
               ) : (
-                <div className={`flex items-center justify-between py-1 text-[10px] font-bold ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
+                <div className={`flex items-center justify-between py-1 text-[10px] font-bold text-gray-500`}>
                   <span>Featured</span>
-                  <span className={`font-normal text-[9px] italic ${isOwned ? 'text-red-400' : 'text-gray-400'}`}>None</span>
+                  <span className={`font-normal text-[9px] italic text-gray-400`}>None</span>
                 </div>
               )}
             </div>
@@ -816,14 +816,14 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
           {/* === BUY section (eBay flags + TCGPlayer) === */}
           {appMode !== 'cameos' && (
-            <div className={`border-t ${isOwned ? 'border-red-700' : 'border-gray-100'}`}>
+            <div className={`border-t border-gray-100`}>
               <button
                 onClick={(e) => { e.stopPropagation(); setEbayOpen(o => !o); }}
-                className={`w-full flex items-center justify-between py-1 text-[10px] font-bold ${isOwned ? 'text-red-200 hover:text-white' : 'text-gray-500 hover:text-gray-800'} transition-colors`}
+                className={`w-full flex items-center justify-between py-1 text-[10px] font-bold text-gray-500 hover:text-gray-800 transition-colors`}
               >
                 <span>Buy</span>
                 {!ebayOpen && (
-                  <span className={`font-normal text-[9px] ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>
+                  <span className={`font-normal text-[9px] text-gray-400`}>
                     {[
                       (card.enSetCode || card.setCode) ? '🇬🇧' : null,
                       card.jpSetCode ? '🇯🇵' : null,
@@ -890,22 +890,31 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
           {/* === PRICE section === */}
           {appMode !== 'cameos' && (
-            <div className={`border-t ${isOwned ? 'border-red-700' : 'border-gray-100'}`}>
-              <div className={`flex items-center justify-between py-1 text-[10px] font-bold ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
+            <div className="border-t border-gray-100">
+              <div className="flex items-center justify-between py-1 text-[10px] font-bold text-gray-500">
                 <span>Price</span>
                 {priceValue !== null ? (
-                  <span className={`text-[11px] font-bold px-1.5 py-0.5 rounded ${isOwned ? 'bg-red-700 text-red-100' : 'bg-emerald-100 text-emerald-700'}`}>
+                  <span className="text-[11px] font-bold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-700">
                     £{priceValue.toFixed(2)}
                   </span>
                 ) : (
-                  <span className={`text-[9px] italic ${isOwned ? 'text-red-400' : 'text-gray-400'}`}>N/A</span>
+                  <span className="text-[9px] italic text-gray-400">N/A</span>
                 )}
               </div>
             </div>
           )}
+
+          {/* Owned indicator */}
+          {isOwned && (
+            <div className="border-t border-gray-100 py-1">
+              <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full text-white ${LANG_CONFIG[card.ownedLang]?.owned || 'bg-emerald-500'}`}>
+                ✓ Owned in {card.ownedLang}
+              </span>
+            </div>
+          )}
         </div>
 
-        {/* Language ownership buttons — separate box always white/neutral */}
+        {/* Language ownership buttons — separate white box */}
         {!isSecondary && showOwnershipButtons && (
           <div className="px-2 pb-2 pt-1 bg-white border-t border-gray-100">
             {isOwned ? (
