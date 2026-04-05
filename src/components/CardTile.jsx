@@ -733,7 +733,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 const otherCount = available.length - 1;
                 return (
                   <button
-                    className={`w-full text-left mb-1.5 px-2 py-1 rounded-lg text-[10px] transition-all cursor-pointer ${activeSetFilter === primary.code ? (isOwned ? 'bg-red-500 ring-2 ring-white/50' : 'bg-blue-50 border-2 border-blue-400') : isOwned ? 'bg-red-700 hover:bg-red-600' : 'bg-gray-50 hover:bg-gray-100 border border-gray-200'}`}
+                    className={`w-full text-left mb-1.5 px-2 py-1 rounded-lg text-[10px] transition-all cursor-pointer ${activeSetFilter === primary.code ? 'bg-blue-50 border-2 border-blue-400' : 'bg-gray-50 hover:bg-gray-100 border border-gray-200'}`}
                     onClick={onSetFilter ? (e) => { e.stopPropagation(); onSetFilter(primary.code); } : (e) => e.stopPropagation()}
                     title={onSetFilter ? `Filter by ${setName || primary.code}` : undefined}
                   >
@@ -906,10 +906,10 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
           {/* Owned indicator */}
           {isOwned && (
-            <div className="border-t border-gray-100 py-1">
-              <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full text-white ${LANG_CONFIG[card.ownedLang]?.owned || 'bg-emerald-500'}`}>
+            <div className="border-t border-gray-100 pt-1 pb-0.5">
+              <div className={`w-full text-center text-[10px] font-bold px-2 py-1 rounded-lg text-white ${LANG_CONFIG[card.ownedLang]?.owned || 'bg-emerald-500'}`}>
                 ✓ Owned in {card.ownedLang}
-              </span>
+              </div>
             </div>
           )}
         </div>
