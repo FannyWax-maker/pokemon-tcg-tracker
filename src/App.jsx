@@ -1110,7 +1110,7 @@ export default function App() {
                       onOwnershipClick={handleCardOwnershipClick} onToggleNonConforming={handleToggleNonConforming}
                       onToggleFavorite={handleToggleFavorite} onToggleUnobtainable={handleToggleUnobtainable}
                      
-                      onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={false} getPriceForCard={getPriceForCard} />
+                      onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={false} getPriceForCard={getPriceForCard} onSetFilter={setFilterSet} />
                     {/* Review badge overlay */}
                     <div className="absolute top-1 left-1 z-20 pointer-events-none">
                       {isReviewed ? (() => {
@@ -1152,7 +1152,7 @@ export default function App() {
                   onOwnershipClick={handleCardOwnershipClick} onToggleNonConforming={handleToggleNonConforming}
                   onToggleFavorite={handleToggleFavorite} onToggleUnobtainable={handleToggleUnobtainable}
                  
-                  onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={showOwnershipButtons} getPriceForCard={getPriceForCard} appMode={appMode} />
+                  onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={showOwnershipButtons} getPriceForCard={getPriceForCard} appMode={appMode} onSetFilter={setFilterSet} />
               ))}
             </div>
           </div>

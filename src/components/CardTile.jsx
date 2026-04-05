@@ -638,10 +638,10 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                   >
                     <div className="flex items-center gap-1.5">
                       <span className={`${primary.bgColor} text-white text-[9px] font-bold px-1 py-0.5 rounded shrink-0`}>{primary.label}</span>
-                      <span className={`font-medium truncate flex-1 ${isOwned ? 'text-red-100' : 'text-gray-700'}`}>{primary.code}{primary.num ? ` ${primary.num}` : ''}</span>
+                      <span className={`font-medium truncate flex-1 ${isOwned ? 'text-red-100' : 'text-gray-700'}`}>{setName || '—'}</span>
                       {otherCount > 0 && <span className={`shrink-0 text-[9px] ${isOwned ? 'text-red-400' : 'text-gray-400'}`}>+{otherCount}</span>}
                     </div>
-                    {setName && <div className={`text-[9px] mt-0.5 pl-0.5 ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>{setName}</div>}
+                    <div className={`text-[9px] mt-0.5 pl-0.5 font-mono ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>{primary.code}{primary.num ? ` ${primary.num}` : ''}</div>
                   </button>
                 );
               })()}
@@ -665,9 +665,9 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                       >
                         <div className="flex items-center gap-1.5">
                           <span className={`${bgColor} text-white text-[9px] font-bold px-1 py-0.5 rounded shrink-0`}>{label}</span>
-                          <span className={`font-medium truncate flex-1 ${isOwned ? 'text-red-100' : 'text-gray-700'}`}>{code}{num ? ` ${num}` : ''}</span>
+                          <span className={`font-medium truncate flex-1 ${isOwned ? 'text-red-100' : 'text-gray-700'}`}>{setName || '—'}</span>
                         </div>
-                        {setName && <div className={`text-[9px] mt-0.5 pl-0.5 ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>{setName}</div>}
+                        <div className={`text-[9px] mt-0.5 pl-0.5 font-mono ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>{code}{num ? ` ${num}` : ''}</div>
                       </button>
                     );
                   })}
