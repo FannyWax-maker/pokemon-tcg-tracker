@@ -481,7 +481,9 @@ export default function App() {
   const filteredData = useMemo(() => {
     let filtered = pokemonData;
     if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase();
+      const rawQuery = searchQuery.trim();
+      const query = rawQuery.toLowerCase();
+      const isUpperCase = rawQuery === rawQuery.toUpperCase() && /[A-Z]/.test(rawQuery);
       filtered = filtered.filter(p => {
         const pName = p.name.toLowerCase();
         // Exact match or starts-with-word-boundary so "mew" matches Mew but not Mewtwo
@@ -489,19 +491,24 @@ export default function App() {
         if (nameMatch) return true;
         if (String(p.id).includes(query)) return true;
         return p.cards.some(c => {
-          // Match set codes (exact only to avoid mew matching MEW set)
-          if ((c.setCode || '').toLowerCase() === query) return true;
-          if ((c.jpSetCode || '').toLowerCase() === query) return true;
-          if ((c.cnSetCode || '').toLowerCase() === query) return true;
-          if ((c.tcSetCode || '').toLowerCase() === query) return true;
-          if ((c.krSetCode || '').toLowerCase() === query) return true;
-          // Match set names
-          const codes = [c.setCode, c.enSetCode, c.jpSetCode, c.cnSetCode, c.tcSetCode, c.krSetCode].filter(Boolean);
-          return codes.some(code => {
-            const sn = setNamesLC[code.toLowerCase()];
-            const name = String(typeof sn === 'object' ? (sn?.name || '') : (sn || ''));
-            return name.toLowerCase().includes(query);
-          });
+          // Set code matching only when query is all-caps (e.g. MEW, SCR) — prevents "mew" matching the MEW set
+          if (isUpperCase) {
+            if ((c.setCode || '') === rawQuery) return true;
+            if ((c.jpSetCode || '') === rawQuery) return true;
+            if ((c.cnSetCode || '') === rawQuery) return true;
+            if ((c.tcSetCode || '') === rawQuery) return true;
+            if ((c.krSetCode || '') === rawQuery) return true;
+          }
+          // Match set names (only when query is 3+ chars)
+          if (query.length >= 3) {
+            const codes = [c.setCode, c.enSetCode, c.jpSetCode, c.cnSetCode, c.tcSetCode, c.krSetCode].filter(Boolean);
+            return codes.some(code => {
+              const sn = setNamesLC[code.toLowerCase()];
+              const name = String(typeof sn === 'object' ? (sn?.name || '') : (sn || ''));
+              return name.toLowerCase().includes(query);
+            });
+          }
+          return false;
         });
       });
     }
