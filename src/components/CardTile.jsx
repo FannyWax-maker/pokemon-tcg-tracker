@@ -537,7 +537,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           setContextMenuPos({ x, y });
           setShowContextMenu(true);
         }}
-        className={`flex flex-col rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 ${
+        className={`flex flex-col h-full rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 ${
         isSecondary ? 'opacity-75 ring-2 ring-purple-300' : ''
       } ${isOwned ? 'ring-2 ring-emerald-400 shadow-md' : 'bg-white shadow-md'}`}
         style={isOwned ? {boxShadow: '0 4px 20px rgba(16,185,129,0.2)'} : {}}>
