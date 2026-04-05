@@ -611,11 +611,6 @@ export default function App() {
       });
     });
     if (sortBy === 'featured_desc') { cards.sort((a, b) => (b.otherPokemon || []).length - (a.otherPokemon || []).length); }
-    // In cameos mode deduplicate by card ID — same card may appear under multiple featured Pokémon
-    if (appMode === 'cameos') {
-      const seen = new Set();
-      return cards.filter(c => { if (seen.has(c.id)) return false; seen.add(c.id); return true; });
-    }
     else if (sortBy === 'featured_asc') { cards.sort((a, b) => (a.otherPokemon || []).length - (b.otherPokemon || []).length); }
     else if (sortBy === 'release_desc') { cards.sort((a, b) => { const score = (c) => { const d = setNamesLC[(c.setCode||"").toLowerCase()] || setNamesLC[(c.jpSetCode||"").toLowerCase()] || setNamesLC[(c.cnSetCode||"").toLowerCase()] || {}; return (d.year||0)*100+(d.month||0); }; return score(b) - score(a); }); }
     else if (sortBy === 'release_asc') { cards.sort((a, b) => { const score = (c) => { const d = setNamesLC[(c.setCode||"").toLowerCase()] || setNamesLC[(c.jpSetCode||"").toLowerCase()] || setNamesLC[(c.cnSetCode||"").toLowerCase()] || {}; return (d.year||9999)*100+(d.month||99); }; return score(a) - score(b); }); }
@@ -623,6 +618,11 @@ export default function App() {
     else if (sortBy === 'conformance_asc')  { cards.sort((a, b) => { const pa = calcConformance(reviewData[a.id] || {}, conformanceMode) ?? 101; const pb = calcConformance(reviewData[b.id] || {}, conformanceMode) ?? 101; return pa - pb; }); }
     else if (sortBy === 'price_desc') { cards.sort((a, b) => { const pa = getPriceForCard(a)?.gbp ?? -1; const pb = getPriceForCard(b)?.gbp ?? -1; return pb - pa; }); }
     else if (sortBy === 'price_asc')  { cards.sort((a, b) => { const pa = getPriceForCard(a)?.gbp ?? Infinity; const pb = getPriceForCard(b)?.gbp ?? Infinity; return pa - pb; }); }
+    // In cameos mode deduplicate by card ID — same card may appear under multiple featured Pokémon
+    if (appMode === 'cameos') {
+      const seen = new Set();
+      return cards.filter(c => { if (seen.has(c.id)) return false; seen.add(c.id); return true; });
+    }
     return cards;
   }, [filteredData, filterChinese, filterLang, filterSet, filterCardType, sortBy, filterOwned, filterArtist, filterUnobtainable, filterMissingImages, filterMissingPrice, filterMissingCoords, filterSetLang, getPriceForCard, conformanceMode, cnNeverReleased]);
 
