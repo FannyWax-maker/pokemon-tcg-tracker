@@ -186,7 +186,7 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
                 {secondaryCards.length > 0 && (
                   <div className="w-full">
                     <p className="text-xs font-semibold text-purple-500 uppercase tracking-wider mb-3">Featured in {secondaryCards.length} other card{secondaryCards.length > 1 ? 's' : ''}</p>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2">
                       {secondaryCards.map(card => (
                         <CardTile
                           key={card.id}
@@ -211,7 +211,7 @@ export default function DetailModal({ pokemon, onClose, onUpdateCard, onToggleNo
                 )}
               </div>
             ) : (
-              <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2">
                 {pokemon.cards.map(card => (
                   <CardTile
                     key={card.id}
