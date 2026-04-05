@@ -63,7 +63,7 @@ const buildEbayUrl = (card, pokemonName, lang) => {
 };
 
 
-export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onToggleExpensive, onToggleVeryExpensive, onNavigateToPokemon, showOwnershipButtons = false , scrollRoot, getPriceForCard, showSetNames = false, appMode = 'fullart' }) {
+export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onToggleExpensive, onToggleVeryExpensive, onNavigateToPokemon, showOwnershipButtons = false , scrollRoot, getPriceForCard, showSetNames = false, appMode = 'fullart', onSetFilter }) {
   const isOwned = !!card.ownedLang;
   const hasOtherPokemon = card.otherPokemon && card.otherPokemon.length > 0;
   const isSecondary = card.isSecondary || !card.isPrimary;
@@ -564,7 +564,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
         </div>
 
         {/* Card Details */}
-        <div className={`p-2 space-y-0`} style={isOwned ? {background: 'linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)'} : {background: 'white'}}>
+        <div className={`px-2 pt-2 pb-1 space-y-0`} style={isOwned ? {background: 'linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)'} : {background: 'white'}}>
 
           {/* === IDENTITY: always visible === */}
           <div className="space-y-0.5 pb-1.5">
@@ -639,7 +639,11 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                       <span className="truncate flex-1">{primary.code}{primary.num ? ` ${primary.num}` : ''}</span>
                       {otherCount > 0 && <span className={`shrink-0 text-[9px] ${isOwned ? 'text-red-400' : 'text-gray-400'}`}>+{otherCount}</span>}
                     </div>
-                    {setName && <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{setName}</div>}
+                    {setName && <div
+                      className={`text-[9px] pl-5 leading-tight mt-0.5 ${onSetFilter ? 'cursor-pointer hover:underline' : ''} ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-600'}`}
+                      onClick={onSetFilter ? (e) => { e.stopPropagation(); onSetFilter(primary.code); } : undefined}
+                      title={onSetFilter ? `Filter by ${setName}` : undefined}
+                    >{setName}</div>}
                   </div>
                 );
               })()}
@@ -666,7 +670,11 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                           >{isExpanded ? '−' : '+'}</button>
                         </div>
                         {isExpanded && setName && (
-                          <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{setName}</div>
+                          <div
+                            className={`text-[9px] pl-5 leading-tight mt-0.5 ${onSetFilter ? 'cursor-pointer hover:underline' : ''} ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-600'}`}
+                            onClick={onSetFilter ? (e) => { e.stopPropagation(); onSetFilter(code); } : undefined}
+                            title={onSetFilter ? `Filter by ${setName}` : undefined}
+                          >{setName}</div>
                         )}
                       </div>
                     );
