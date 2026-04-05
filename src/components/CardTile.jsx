@@ -618,29 +618,32 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 <span>Sets</span>
                 <span className="shrink-0">{setsOpen ? '▴' : '▾'}</span>
               </button>
-              {/* Collapsed: show primary set with set name */}
+              {/* Collapsed: show first available lang with set name */}
               {!setsOpen && (() => {
-                const isEN = !!(card.enSetCode || card.setCode);
-                const isJPExcl = card.exclusive === 'JP';
-                const isCNExcl = card.exclusive === 'CN';
-                const primaryCode = isEN && !isJPExcl && !isCNExcl ? (card.enSetCode || card.setCode) : isJPExcl ? card.jpSetCode : isCNExcl ? card.cnSetCode : (card.enSetCode || card.setCode || card.jpSetCode);
-                const primaryNum = isEN && !isJPExcl && !isCNExcl ? card.number : isJPExcl ? card.jpNumber : isCNExcl ? card.cnNumber : (card.number || card.jpNumber);
-                const primaryLang = isEN && !isJPExcl && !isCNExcl ? 'EN' : isJPExcl ? 'JP' : isCNExcl ? 'CN' : 'EN';
-                const langColor = { EN: 'text-blue-500', JP: 'text-red-400', CN: 'text-yellow-500' }[primaryLang] || 'text-blue-500';
-                const setName = getSetName(primaryCode);
-                const otherCount = [card.jpSetCode, card.cnSetCode, card.tcSetCode, card.krSetCode].filter(Boolean).length + (isEN && !isJPExcl && !isCNExcl ? 0 : isEN ? 1 : 0);
+                const langs = [
+                  { label: 'EN', color: 'text-blue-500',   code: card.enSetCode || card.setCode, num: card.number },
+                  { label: 'JP', color: 'text-red-400',    code: card.jpSetCode,                 num: card.jpNumber },
+                  { label: 'CN', color: 'text-yellow-500', code: card.cnSetCode,                 num: card.cnNumber },
+                  { label: 'TC', color: 'text-green-500',  code: card.tcSetCode,                 num: card.tcNumber },
+                  { label: 'KR', color: 'text-indigo-400', code: card.krSetCode,                 num: card.krNumber },
+                ];
+                const available = langs.filter(l => !!l.code);
+                if (!available.length) return null;
+                const primary = available[0];
+                const setName = getSetName(primary.code);
+                const otherCount = available.length - 1;
                 return (
                   <div className={`pb-1.5 text-[10px] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
                     <div className="flex items-center gap-1">
-                      <span className={`${langColor} font-bold shrink-0`}>{primaryLang}</span>
-                      <span className="truncate flex-1">{primaryCode}{primaryNum ? ` ${primaryNum}` : ''}</span>
+                      <span className={`${primary.color} font-bold shrink-0 w-5`}>{primary.label}</span>
+                      <span className="truncate flex-1">{primary.code}{primary.num ? ` ${primary.num}` : ''}</span>
                       {otherCount > 0 && <span className={`shrink-0 text-[9px] ${isOwned ? 'text-red-400' : 'text-gray-400'}`}>+{otherCount}</span>}
                     </div>
                     {setName && <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{setName}</div>}
                   </div>
                 );
               })()}
-              {/* Expanded: all langs with set name toggles */}
+              {/* Expanded: all langs, skip rows with no code */}
               {setsOpen && (
                 <div className="pb-1.5">
                   {[
@@ -649,26 +652,20 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                     { key: 'cn', label: 'CN', color: 'text-yellow-500', code: card.cnSetCode,                 num: card.cnNumber },
                     { key: 'tc', label: 'TC', color: 'text-green-500',  code: card.tcSetCode,                 num: card.tcNumber },
                     { key: 'kr', label: 'KR', color: 'text-indigo-400', code: card.krSetCode,                 num: card.krNumber },
-                  ].map(({ key, label, color, code, num }) => {
+                  ].filter(({ code }) => !!code).map(({ key, label, color, code, num }) => {
                     const isExpanded = expandedLangs.has(key);
                     const setName = getSetName(code);
                     return (
-                      <div key={key} className={`text-[10px] ${isOwned ? 'text-red-200' : 'text-gray-500'} mb-1`}>
+                      <div key={key} className={`text-[10px] ${isOwned ? 'text-red-200' : 'text-gray-500'} py-0.5`}>
                         <div className="flex items-center gap-1">
                           <span className={`${color} font-bold shrink-0 w-5`}>{label}</span>
-                          {code ? (
-                            <>
-                              <span className="truncate flex-1">{code}{num ? ` ${num}` : ''}</span>
-                              <button
-                                onClick={(e) => { e.stopPropagation(); toggleLang(key); }}
-                                className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}
-                              >{isExpanded ? '−' : '+'}</button>
-                            </>
-                          ) : (
-                            <span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span>
-                          )}
+                          <span className="truncate flex-1">{code}{num ? ` ${num}` : ''}</span>
+                          <button
+                            onClick={(e) => { e.stopPropagation(); toggleLang(key); }}
+                            className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}
+                          >{isExpanded ? '−' : '+'}</button>
                         </div>
-                        {isExpanded && code && setName && (
+                        {isExpanded && setName && (
                           <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{setName}</div>
                         )}
                       </div>
@@ -679,8 +676,8 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             </div>
           )}
 
-          {/* === FEATURED section (Pokémon only, no artist) === */}
-          {appMode !== 'cameos' && hasOtherPokemon && (
+          {/* === FEATURED section === */}
+          {appMode !== 'cameos' && (
             <div className={`border-t ${isOwned ? 'border-red-700' : 'border-gray-100'}`}>
               <button
                 onClick={(e) => { e.stopPropagation(); setFeaturedOpen(o => !o); }}
@@ -689,19 +686,23 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 <span>Featured</span>
                 {!featuredOpen && (
                   <span className={`truncate mx-1 font-normal text-[9px] ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>
-                    w/ {card.otherPokemon.slice(0, 2).join(', ')}{card.otherPokemon.length > 2 ? ` +${card.otherPokemon.length - 2}` : ''}
+                    {hasOtherPokemon ? `w/ ${card.otherPokemon.slice(0, 2).join(', ')}${card.otherPokemon.length > 2 ? ` +${card.otherPokemon.length - 2}` : ''}` : 'None'}
                   </span>
                 )}
                 <span className="shrink-0">{featuredOpen ? '▴' : '▾'}</span>
               </button>
               {featuredOpen && (
                 <div className="pb-1.5">
-                  <div className={`text-xs leading-tight ${isOwned ? 'text-red-100' : 'text-blue-500'}`}>
-                    {showAllPokemon
-                      ? <span>w/ {card.otherPokemon.join(', ')} <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(false); }} className={`font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>less</button></span>
-                      : <span className="flex items-baseline gap-1"><span className="truncate">w/ {card.otherPokemon.slice(0, 2).join(', ')}</span>{card.otherPokemon.length > 2 && <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(true); }} className={`shrink-0 font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>+{card.otherPokemon.length - 2}</button>}</span>
-                    }
-                  </div>
+                  {hasOtherPokemon ? (
+                    <div className={`text-xs leading-tight ${isOwned ? 'text-red-100' : 'text-blue-500'}`}>
+                      {showAllPokemon
+                        ? <span>w/ {card.otherPokemon.join(', ')} <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(false); }} className={`font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>less</button></span>
+                        : <span className="flex items-baseline gap-1"><span className="truncate">w/ {card.otherPokemon.slice(0, 2).join(', ')}</span>{card.otherPokemon.length > 2 && <button onClick={(e) => { e.stopPropagation(); setShowAllPokemon(true); }} className={`shrink-0 font-bold underline ${isOwned ? 'text-white' : 'text-blue-400'}`}>+{card.otherPokemon.length - 2}</button>}</span>
+                      }
+                    </div>
+                  ) : (
+                    <div className={`text-[10px] italic ${isOwned ? 'text-red-300' : 'text-gray-400'}`}>None</div>
+                  )}
                 </div>
               )}
             </div>
@@ -782,13 +783,17 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           )}
 
           {/* === PRICE section === */}
-          {appMode !== 'cameos' && priceValue !== null && (
+          {appMode !== 'cameos' && (
             <div className={`border-t ${isOwned ? 'border-red-700' : 'border-gray-100'}`}>
               <div className={`flex items-center justify-between py-1 text-[10px] font-bold ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
                 <span>Price</span>
-                <span className={`text-[11px] font-bold px-1.5 py-0.5 rounded ${isOwned ? 'bg-red-700 text-red-100' : 'bg-emerald-100 text-emerald-700'}`}>
-                  £{priceValue.toFixed(2)}
-                </span>
+                {priceValue !== null ? (
+                  <span className={`text-[11px] font-bold px-1.5 py-0.5 rounded ${isOwned ? 'bg-red-700 text-red-100' : 'bg-emerald-100 text-emerald-700'}`}>
+                    £{priceValue.toFixed(2)}
+                  </span>
+                ) : (
+                  <span className={`text-[9px] italic ${isOwned ? 'text-red-400' : 'text-gray-400'}`}>N/A</span>
+                )}
               </div>
             </div>
           )}
