@@ -120,7 +120,8 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const [copied, setCopied] = React.useState(false);
   const [autocompleteFor, setAutocompleteFor] = React.useState(null);
   const [autocompleteQuery, setAutocompleteQuery] = React.useState('');
-  const [expandedLang, setExpandedLang] = React.useState('en'); // which lang row is expanded to show set name
+  const [expandedLangs, setExpandedLangs] = React.useState(() => new Set(['en', 'jp', 'cn', 'tc', 'kr']));
+  const toggleLang = (lang) => setExpandedLangs(prev => { const next = new Set(prev); next.has(lang) ? next.delete(lang) : next.add(lang); return next; });
   const dragState = React.useRef(null);
   const pickerCirclesRef = React.useRef([]);
   React.useEffect(() => { pickerCirclesRef.current = pickerCircles; }, [pickerCircles]);
@@ -641,72 +642,38 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
               })()}
               {/* Expanded: all langs with set name toggles */}
               {setsOpen && (
-                <div className="space-y-0.5 pb-1.5">
-                  {/* EN */}
-                  <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
-                    <div className="flex items-center gap-1">
-                      {(card.enSetCode || card.setCode) ? (
-                        <>
-                          <span className="text-blue-500 font-bold shrink-0">EN</span>
-                          <span className="truncate flex-1">{card.enSetCode || card.setCode}{card.number ? ` ${card.number}` : ''}</span>
-                          <button onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'en' ? null : 'en'); }} className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}>{expandedLang === 'en' ? '−' : '+'}</button>
-                        </>
-                      ) : <><span className="text-blue-500 font-bold shrink-0 opacity-40">EN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
-                    </div>
-                    {expandedLang === 'en' && !!((card.enSetCode || card.setCode)) && <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{getSetName(card.enSetCode || card.setCode)}</div>}
-                  </div>
-                  {/* JP */}
-                  <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
-                    <div className="flex items-center gap-1">
-                      {card.jpSetCode ? (
-                        <>
-                          <span className="text-red-400 font-bold shrink-0">JP</span>
-                          <span className="truncate flex-1">{card.jpSetCode}{card.jpNumber ? ` ${card.jpNumber}` : ''}</span>
-                          <button onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'jp' ? null : 'jp'); }} className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}>{expandedLang === 'jp' ? '−' : '+'}</button>
-                        </>
-                      ) : <><span className="text-red-400 font-bold shrink-0 opacity-40">JP</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
-                    </div>
-                    {expandedLang === 'jp' && !!(card.jpSetCode) && <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{getSetName(card.jpSetCode)}</div>}
-                  </div>
-                  {/* CN */}
-                  <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
-                    <div className="flex items-center gap-1">
-                      {card.cnSetCode ? (
-                        <>
-                          <span className="text-yellow-500 font-bold shrink-0">CN</span>
-                          <span className="truncate flex-1">{card.cnSetCode}{card.cnNumber ? ` ${card.cnNumber}` : ''}</span>
-                          <button onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'cn' ? null : 'cn'); }} className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}>{expandedLang === 'cn' ? '−' : '+'}</button>
-                        </>
-                      ) : <><span className="text-yellow-500 font-bold shrink-0 opacity-40">CN</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
-                    </div>
-                    {expandedLang === 'cn' && !!(card.cnSetCode) && <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{getSetName(card.cnSetCode)}</div>}
-                  </div>
-                  {/* TC */}
-                  <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
-                    <div className="flex items-center gap-1">
-                      {card.tcSetCode ? (
-                        <>
-                          <span className="text-green-500 font-bold shrink-0">TC</span>
-                          <span className="truncate flex-1">{card.tcSetCode}{card.tcNumber ? ` ${card.tcNumber}` : ''}</span>
-                          <button onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'tc' ? null : 'tc'); }} className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}>{expandedLang === 'tc' ? '−' : '+'}</button>
-                        </>
-                      ) : <><span className="text-green-500 font-bold shrink-0 opacity-40">TC</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
-                    </div>
-                    {expandedLang === 'tc' && !!(card.tcSetCode) && <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{getSetName(card.tcSetCode)}</div>}
-                  </div>
-                  {/* KR */}
-                  <div className={`text-[10px] leading-tight min-h-[0.9rem] ${isOwned ? 'text-red-200' : 'text-gray-500'}`}>
-                    <div className="flex items-center gap-1">
-                      {card.krSetCode ? (
-                        <>
-                          <span className="text-indigo-400 font-bold shrink-0">KR</span>
-                          <span className="truncate flex-1">{card.krSetCode}{card.krNumber ? ` ${card.krNumber}` : ''}</span>
-                          <button onClick={(e) => { e.stopPropagation(); setExpandedLang(prev => prev === 'kr' ? null : 'kr'); }} className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}>{expandedLang === 'kr' ? '−' : '+'}</button>
-                        </>
-                      ) : <><span className="text-indigo-400 font-bold shrink-0 opacity-40">KR</span><span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span></>}
-                    </div>
-                    {expandedLang === 'kr' && !!(card.krSetCode) && <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{getSetName(card.krSetCode)}</div>}
-                  </div>
+                <div className="pb-1.5">
+                  {[
+                    { key: 'en', label: 'EN', color: 'text-blue-500',   code: card.enSetCode || card.setCode, num: card.number },
+                    { key: 'jp', label: 'JP', color: 'text-red-400',    code: card.jpSetCode,                 num: card.jpNumber },
+                    { key: 'cn', label: 'CN', color: 'text-yellow-500', code: card.cnSetCode,                 num: card.cnNumber },
+                    { key: 'tc', label: 'TC', color: 'text-green-500',  code: card.tcSetCode,                 num: card.tcNumber },
+                    { key: 'kr', label: 'KR', color: 'text-indigo-400', code: card.krSetCode,                 num: card.krNumber },
+                  ].map(({ key, label, color, code, num }) => {
+                    const isExpanded = expandedLangs.has(key);
+                    const setName = getSetName(code);
+                    return (
+                      <div key={key} className={`text-[10px] ${isOwned ? 'text-red-200' : 'text-gray-500'} mb-1`}>
+                        <div className="flex items-center gap-1">
+                          <span className={`${color} font-bold shrink-0 w-5`}>{label}</span>
+                          {code ? (
+                            <>
+                              <span className="truncate flex-1">{code}{num ? ` ${num}` : ''}</span>
+                              <button
+                                onClick={(e) => { e.stopPropagation(); toggleLang(key); }}
+                                className={`shrink-0 text-[9px] font-bold ${isOwned ? 'text-red-300 hover:text-white' : 'text-gray-400 hover:text-gray-700'}`}
+                              >{isExpanded ? '−' : '+'}</button>
+                            </>
+                          ) : (
+                            <span className={`${isOwned ? 'text-red-300' : 'text-gray-400'} italic`}>N/A</span>
+                          )}
+                        </div>
+                        {isExpanded && code && setName && (
+                          <div className="text-[9px] text-gray-400 pl-5 leading-tight mt-0.5">{setName}</div>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               )}
             </div>
