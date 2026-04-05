@@ -243,6 +243,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   const [imageSrc, setImageSrc] = React.useState(cached?.src || null);
   const [shouldHide, setShouldHide] = React.useState(false);
   const [inView, setInView] = React.useState(!!cached);
+  const [enFallbackSrc, setEnFallbackSrc] = React.useState(null);
   const containerRef = React.useRef(null);
 
   // Compute expected filename for IMAGE MISSING overlay based on displayLang
@@ -263,6 +264,42 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     }
     return imagePaths[0];
   }, [displayLang, card.jpSetCode, card.jpNumber, card.cnSetCode, card.cnNumber, imagePaths, pokemonName]);
+
+  // When lang image is missing, load EN image as background reference
+  React.useEffect(() => {
+    if (imageLoaded !== false || imageSrc || (displayLang !== 'JP' && displayLang !== 'CN')) {
+      setEnFallbackSrc(null);
+      return;
+    }
+    let mounted = true;
+    const loadEN = async () => {
+      const manifest = await getManifest();
+      const enBase = '/pokemon-tcg-tracker/card-images/';
+      let found = null;
+      if (manifest.size > 0) {
+        for (const path of imagePaths) {
+          for (const ext of ['.png', '.jpg']) {
+            if (manifest.has(path + ext)) { found = enBase + path + ext; break; }
+          }
+          if (found) break;
+        }
+      }
+      if (!found) {
+        for (const path of imagePaths) {
+          for (const ext of ['.png', '.jpg']) {
+            try {
+              await enqueueImageLoad(() => new Promise((res, rej) => { const i = new Image(); i.onload = () => res(enBase + path + ext); i.onerror = rej; i.src = enBase + path + ext; }));
+              found = enBase + path + ext; break;
+            } catch (_) {}
+          }
+          if (found) break;
+        }
+      }
+      if (mounted) setEnFallbackSrc(found);
+    };
+    loadEN();
+    return () => { mounted = false; };
+  }, [imageLoaded, imageSrc, displayLang, cacheKey]);
 
   // Intersection observer - only start loading when card enters viewport
   React.useEffect(() => {
@@ -532,11 +569,15 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           )}
           {/* IMAGE MISSING overlay — only shown after load attempt fails (imageLoaded=false, inView=true, no src) */}
           {inView && imageLoaded === false && !imageSrc && (
-            <div className="absolute inset-0 flex flex-col items-center justify-center p-3 text-center bg-black/60">
-              <div className="px-3 py-1 bg-red-600 rounded text-white text-xs font-bold mb-3">IMAGE MISSING</div>
-              <div className="w-full">
-                <div className="text-white/50 text-[9px] mb-1">Expected {displayLang !== 'EN' ? `(${displayLang}) ` : ''}filename:</div>
-                <div className="bg-black/40 px-2 py-1.5 rounded text-white font-mono text-[10px] leading-tight break-all select-all cursor-text hover:bg-black/60 transition-colors mb-2">
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-3 text-center">
+              {/* EN card as dim background reference */}
+              {enFallbackSrc && (
+                <img src={enFallbackSrc} alt="EN reference" className="absolute inset-0 w-full h-full object-contain opacity-40" />
+              )}
+              <div className="relative z-10 w-full flex flex-col items-center" style={{ background: 'rgba(0,0,0,0.55)', borderRadius: '8px', padding: '8px' }}>
+                <div className="px-3 py-1 bg-red-600 rounded text-white text-xs font-bold mb-2">IMAGE MISSING</div>
+                <div className="text-white/60 text-[9px] mb-1">Expected {displayLang !== 'EN' ? `(${displayLang}) ` : ''}filename:</div>
+                <div className="bg-black/50 px-2 py-1.5 rounded text-white font-mono text-[9px] leading-tight break-all select-all cursor-text hover:bg-black/70 transition-colors mb-2 w-full">
                   {expectedImagePath}.png
                 </div>
                 <button
@@ -862,40 +903,40 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
               </div>
             </div>
           )}
-
-          {/* Language ownership buttons */}
-          {!isSecondary && showOwnershipButtons && (
-            <div className={`border-t pt-1 ${isOwned ? 'border-red-700' : 'border-gray-100'}`}>
-              {isOwned ? (
-                <button
-                  onClick={() => handleLangClick(card.ownedLang)}
-                  className={`w-full py-1 rounded text-xs font-bold text-white transition-colors ${LANG_CONFIG[card.ownedLang]?.owned || 'bg-emerald-500'} hover:opacity-80`}
-                  title="Click to unmark"
-                >
-                  ✓ {card.ownedLang} · tap to unmark
-                </button>
-              ) : (
-                <div className="flex gap-1">
-                  {ALL_LANGS.map(lang => {
-                    const isAvailable = availableLangs.includes(lang) || (lang === 'KR' && showKR) || (lang === 'TC' && !!card.tcSetCode);
-                    const cfg = LANG_CONFIG[lang];
-                    return (
-                      <button
-                        key={lang}
-                        onClick={() => isAvailable && handleLangClick(lang)}
-                        title={isAvailable ? `Mark as owned (${lang})` : `Not available in ${lang}`}
-                        className={`flex-1 py-1 rounded text-xs font-bold transition-all duration-150
-                          ${isAvailable ? `${cfg.color} text-white` : 'bg-gray-200 text-gray-400 cursor-not-allowed opacity-40'}`}
-                      >
-                        {lang}
-                      </button>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-          )}
         </div>
+
+        {/* Language ownership buttons — separate box always white/neutral */}
+        {!isSecondary && showOwnershipButtons && (
+          <div className="px-2 pb-2 pt-1 bg-white border-t border-gray-100">
+            {isOwned ? (
+              <button
+                onClick={() => handleLangClick(card.ownedLang)}
+                className={`w-full py-1 rounded text-xs font-bold text-white transition-colors ${LANG_CONFIG[card.ownedLang]?.owned || 'bg-emerald-500'} hover:opacity-80`}
+                title="Click to unmark"
+              >
+                ✓ {card.ownedLang} · tap to unmark
+              </button>
+            ) : (
+              <div className="flex gap-1">
+                {ALL_LANGS.map(lang => {
+                  const isAvailable = availableLangs.includes(lang) || (lang === 'KR' && showKR) || (lang === 'TC' && !!card.tcSetCode);
+                  const cfg = LANG_CONFIG[lang];
+                  return (
+                    <button
+                      key={lang}
+                      onClick={() => isAvailable && handleLangClick(lang)}
+                      title={isAvailable ? `Mark as owned (${lang})` : `Not available in ${lang}`}
+                      className={`flex-1 py-1 rounded text-xs font-bold transition-all duration-150
+                        ${isAvailable ? `${cfg.color} text-white` : 'bg-gray-200 text-gray-400 cursor-not-allowed opacity-40'}`}
+                    >
+                      {lang}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Zoom Modal with Loupe + Coord Picker */}
