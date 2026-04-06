@@ -432,10 +432,10 @@
     "month": 12
   },
   "N2": {
-    "name": "Neo Discovery",
-    "series": "Neo",
-    "year": 2001,
-    "month": 6
+    "name": "Crossing The Ruins",
+    "series": "",
+    "year": null,
+    "month": null
   },
   "NR": {
     "name": "Neo Revelation",
@@ -833,6 +833,12 @@
     "year": 2001,
     "month": 7
   },
+  "BLW": {
+    "name": "Black and White",
+    "series": "",
+    "year": null,
+    "month": null
+  },
   "LL": {
     "name": "Lost Link",
     "series": "HeartGold & SoulSilver",
@@ -907,6 +913,12 @@
   },
   "CP3": {
     "name": "PokéKyun Collection",
+    "series": "XY",
+    "year": null,
+    "month": null
+  },
+  "CP6": {
+    "name": "Expansion Pack 20th Anniversary",
     "series": "XY",
     "year": null,
     "month": null
@@ -1062,10 +1074,10 @@
     "month": null
   },
   "SC": {
-    "name": "Charizard VMAX Starter Set",
-    "series": "Sword & Shield",
-    "year": 2020,
-    "month": 3
+    "name": "Shiny Collection",
+    "series": "",
+    "year": null,
+    "month": null
   },
   "SCD": {
     "name": "Grimmsnarl VMAX Starter Set",
@@ -1619,6 +1631,12 @@
     "year": null,
     "month": null
   },
+  "PF2": {
+    "name": "Neo Premium File 2",
+    "series": "",
+    "year": null,
+    "month": null
+  },
   "PF3": {
     "name": "Neo Premium File 3",
     "series": "",
@@ -1790,6 +1808,78 @@
   "L1SS": {
     "name": "SoulSilver Collection",
     "series": "",
+    "year": null,
+    "month": null
+  },
+  "L2": {
+    "name": "Reviving Legends",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "L3": {
+    "name": "Clash at the Summit",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "BW1": {
+    "name": "Black Collection",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "BW4": {
+    "name": "Dark Rush",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "BW5T": {
+    "name": "Dragon Blade",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "BW6": {
+    "name": "Freeze Bolt",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "BW8": {
+    "name": "Spiral Force",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "BW9": {
+    "name": "Megalo Cannon",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "ROG": {
+    "name": "Rocket Gang",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "SM6B": {
+    "name": "Champion Road",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "ADV4": {
+    "name": "Magma Vs Aqua : Two Ambitions",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "US": {
+    "name": "Undone Seal",
+    "series": "?",
     "year": null,
     "month": null
   },
