@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+*.xlsx
+dry-run.txt
+cn_cards.json
+cn_download_failed.json
+cn_numbers_needed.csv
+fill_card_numbers_report.py
+fill_report.csv
+set_mapping.csv
+steph_failed.json
