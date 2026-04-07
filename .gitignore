@@ -31,3 +31,7 @@ fill_card_numbers_report.py
 fill_report.csv
 set_mapping.csv
 steph_failed.json
+src/data/steph/pokemon_data.json
+src/data/steph/set_names.json
+src/data/pokemon_data.json
+src/data/set_names.json
