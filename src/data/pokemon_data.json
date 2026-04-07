@@ -2910,6 +2910,31 @@
         "isSecondary": false
       },
       {
+        "id": "25_bus_146-147",
+        "pokemonId": 25,
+        "setCode": "BUS",
+        "number": "146/147",
+        "jpSetCode": "SM2+",
+        "jpNumber": "057/049",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "146/147",
+        "artist": "Sanosuke Sakuma",
+        "cardName": "Trainer, Sophocles",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
         "id": "25_cbb5c_0107-07",
         "pokemonId": 25,
         "setCode": null,
