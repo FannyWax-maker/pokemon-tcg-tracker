@@ -689,6 +689,18 @@
     "year": 2010,
     "month": 2
   },
+  "TK4G": {
+    "name": "HGSS Trainer Kit - Gyarados",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "TK4R": {
+    "name": "HGSS Trainer Kit - Raichu",
+    "series": "",
+    "year": null,
+    "month": null
+  },
   "UL": {
     "name": "Unleashed",
     "series": "",
@@ -798,7 +810,7 @@
     "month": 8
   },
   "TR": {
-    "name": "Team Rocket",
+    "name": "Team Rocket Returns",
     "series": "",
     "year": 2000,
     "month": 4
@@ -899,11 +911,17 @@
     "year": null,
     "month": null
   },
-  "XY8": {
-    "name": "Blue Shock / Red Flash",
-    "series": "XY",
+  "XY8B": {
+    "name": "Blue Shock",
+    "series": "",
     "year": null,
     "month": null
+  },
+  "XY8R": {
+    "name": "Red Flash",
+    "series": "XY",
+    "year": 2015,
+    "month": 9
   },
   "XY9": {
     "name": "Rage of the Broken Heavens",
@@ -929,11 +947,17 @@
     "year": null,
     "month": null
   },
-  "XY11": {
-    "name": "Fever-Burst Fighter / Cruel Traitor",
+  "XY11F": {
+    "name": "Fever-Burst Fighter",
     "series": "XY",
-    "year": null,
-    "month": null
+    "year": 2016,
+    "month": 6
+  },
+  "XY11C": {
+    "name": "Cruel Traitor",
+    "series": "XY",
+    "year": 2016,
+    "month": 6
   },
   "SM1M": {
     "name": "Moon Collection",
@@ -1583,12 +1607,6 @@
     "year": null,
     "month": null
   },
-  "XY8B": {
-    "name": "Blue Shock",
-    "series": "",
-    "year": null,
-    "month": null
-  },
   "EC1": {
     "name": "Base Expansion Pack",
     "series": "",
@@ -1877,9 +1895,159 @@
     "year": null,
     "month": null
   },
-  "US": {
+  "ADV5": {
     "name": "Undone Seal",
-    "series": "?",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "PCG1": {
+    "name": "Flight of Legends",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "PCG-M": {
+    "name": "Holon Research Tower Fire Quarter Deck",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "PCG-O": {
+    "name": "Holon Research Tower Electric Quarter Deck",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "PCG-N": {
+    "name": "Holon Research Tower Water Quarter Deck",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "PCG5": {
+    "name": "Mirage Forest",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "PLAY": {
+    "name": "Play Promo",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "DP4": {
+    "name": "Dawn Dash",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "MPS": {
+    "name": "Melee! Pokemon Scramble",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "LMEM": {
+    "name": "Leafeon vs Metagross Expert Deck (Metagross)",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "LMEL": {
+    "name": "Leafeon vs Metagross Expert Deck (Leafeon)",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "BSDR": {
+    "name": "Battle Starter Deck Raichu",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "SNPN": {
+    "name": "Noivern BREAK Evolution Pack",
+    "series": "",
+    "year": 2015,
+    "month": 9
+  },
+  "SMG": {
+    "name": "Ultra Sun & Ultra Moon Deck Build Boxes",
+    "series": "",
+    "year": 2018,
+    "month": 2
+  },
+  "KSS": {
+    "name": "XY Kalos Starter Set",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "20TH": {
+    "name": "BREAK Starter Pack",
+    "series": "XY",
+    "year": null,
+    "month": null
+  },
+  "XYH": {
+    "name": "M Audino-EX Mega Battle Deck",
+    "series": "XY",
+    "year": 2016,
+    "month": 3
+  },
+  "XYG": {
+    "name": "Zygarde-EX Perfect Battle Deck",
+    "series": "XY",
+    "year": 2016,
+    "month": 3
+  },
+  "XY": {
+    "name": "The Best of XY",
+    "series": "XY",
+    "year": 2017,
+    "month": 4
+  },
+  "SM3H": {
+    "name": "To Have Seen the Battle Rainbow",
+    "series": "Sun & Moon",
+    "year": 2017,
+    "month": 6
+  },
+  "SM3N": {
+    "name": "Darkness that Consumes Light",
+    "series": "Sun & Moon",
+    "year": null,
+    "month": null
+  },
+  "SM4A": {
+    "name": "Ultradimensional Beasts",
+    "series": "Sun & Moon",
+    "year": null,
+    "month": null
+  },
+  "SM4S": {
+    "name": "Awakened Heroes",
+    "series": "Sun & Moon",
+    "year": null,
+    "month": null
+  },
+  "SM5M": {
+    "name": "Ultra Moon",
+    "series": "Sun & Moon",
+    "year": null,
+    "month": null
+  },
+  "SM4+": {
+    "name": "GX Battle Boost",
+    "series": "Sun & Moon",
+    "year": null,
+    "month": null
+  },
+  "SM6": {
+    "name": "Forbidden Light",
+    "series": "Sun & Moon",
     "year": null,
     "month": null
   },
@@ -2665,6 +2833,18 @@
   },
   "XY1": {
     "name": "X Collection / Y Collection",
+    "series": "XY",
+    "year": null,
+    "month": null
+  },
+  "XY8": {
+    "name": "Blue Shock / Red Flash",
+    "series": "XY",
+    "year": null,
+    "month": null
+  },
+  "XY11": {
+    "name": "Fever-Burst Fighter / Cruel Traitor",
     "series": "XY",
     "year": null,
     "month": null
