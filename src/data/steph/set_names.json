@@ -1001,6 +1001,12 @@
     "year": null,
     "month": null
   },
+  "SM7A": {
+    "name": "Thunderclap Spark",
+    "series": "Sun & Moon",
+    "year": null,
+    "month": null
+  },
   "SM8": {
     "name": "Super-Burst Impact",
     "series": "Sun & Moon",
@@ -2051,6 +2057,48 @@
     "year": null,
     "month": null
   },
+  "SMP2": {
+    "name": "Great Detective",
+    "series": "Sun & Moon",
+    "year": null,
+    "month": null
+  },
+  "SM-P/CS ": {
+    "name": "Sun & Moon Simplified Chinese Promos",
+    "series": "Sun & Moon",
+    "year": null,
+    "month": null
+  },
+  "SM11A": {
+    "name": "Remix Bout",
+    "series": "Sun & Moon",
+    "year": null,
+    "month": null
+  },
+  "CSIC": {
+    "name": "Sword & Shield Trainer Collection Gift Box",
+    "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "SVB": {
+    "name": "Premium Trainer Box EX",
+    "series": "Sword And Shield",
+    "year": null,
+    "month": null
+  },
+  "SI100": {
+    "name": "Start Deck 100",
+    "series": "Sword And Shield",
+    "year": null,
+    "month": null
+  },
+  "SVM": {
+    "name": "Generations Start Decks",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
   "CSGC": {
     "name": "Eevee Display Frame Box",
     "series": "Sword & Shield",
@@ -2477,6 +2525,12 @@
     "year": 2023,
     "month": 4
   },
+  "CSVE1C": {
+    "name": "Battle Party Dream Together",
+    "series": "Scarlet & Violet",
+    "year": null,
+    "month": null
+  },
   "AC1A": {
     "name": "Crossing the Sky - Set A",
     "series": "Sun & Moon",
@@ -2827,6 +2881,12 @@
   },
   "TC-P": {
     "name": "Traditional Chinese Promo Cards",
+    "series": "",
+    "year": null,
+    "month": null
+  },
+  "PKMTCH": {
+    "name": "Traditional Chinese Products",
     "series": "",
     "year": null,
     "month": null
