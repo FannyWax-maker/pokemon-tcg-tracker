@@ -2875,7 +2875,9 @@
         "exclusive": null,
         "otherPokemon": [
           "Caterpie",
-          "Parasect"
+          "Parasect",
+          "Oddish",
+          "Butterfree"
         ],
         "availableLangs": [
           "EN",
@@ -4701,7 +4703,8 @@
         "otherPokemon": [
           "Trapinch",
           "Dugtrio",
-          "Maractus"
+          "Maractus",
+          "Claydol"
         ],
         "availableLangs": [
           "EN",
@@ -6959,7 +6962,8 @@
           "Spheal",
           "Wingull",
           "Pelipper",
-          "Wishiwashi"
+          "Wishiwashi",
+          "Remoraid"
         ],
         "availableLangs": [
           "EN",
@@ -7424,6 +7428,32 @@
         "setNumber": "188/167",
         "artist": "Narumi Sato",
         "cardName": null,
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP",
+          "CN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "133_shf_070-072",
+        "pokemonId": 133,
+        "setCode": "SHF",
+        "number": "070/072",
+        "jpSetCode": "S4A",
+        "jpNumber": "197/190",
+        "cnSetCode": "CS4.1C",
+        "cnNumber": "010/004",
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "070/072",
+        "artist": "Sanosuke Sakuma",
+        "cardName": "Trainer, Poké Kid",
         "exclusive": null,
         "otherPokemon": null,
         "availableLangs": [
@@ -8574,6 +8604,56 @@
         ],
         "isPrimary": true,
         "isSecondary": false
+      },
+      {
+        "id": "145_pgo_085-078",
+        "pokemonId": 145,
+        "setCode": "PGO",
+        "number": "085/078",
+        "jpSetCode": "S10B",
+        "jpNumber": "088/071",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "085/078",
+        "artist": "Naoki Saito",
+        "cardName": "Trainer, Spark",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "145_swsh_swsh226",
+        "pokemonId": 145,
+        "setCode": "SWSH",
+        "number": "SWSH226",
+        "jpSetCode": "S10B",
+        "jpNumber": "083/071",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "SWSH226",
+        "artist": "Naoki Saito",
+        "cardName": "Trainer, Spark",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
       }
     ]
   },
@@ -8735,6 +8815,56 @@
         "setNumber": "229/182",
         "artist": "AKIRA EGAWA",
         "cardName": "Team Rocket's Moltres ex",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "146_pgo_083-078",
+        "pokemonId": 146,
+        "setCode": "PGO",
+        "number": "083/078",
+        "jpSetCode": "S10B",
+        "jpNumber": "087/071",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "083/078",
+        "artist": "Ryuta Fuse",
+        "cardName": "Trainer, Candela",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "146_swsh_swsh228",
+        "pokemonId": 146,
+        "setCode": "SWSH",
+        "number": "SWSH228",
+        "jpSetCode": "S10B",
+        "jpNumber": "080/071",
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "SWSH228",
+        "artist": "Ryuta Fuse",
+        "cardName": "Trainer, Candela",
         "exclusive": null,
         "otherPokemon": null,
         "availableLangs": [
@@ -9347,7 +9477,9 @@
         "otherPokemon": [
           "Smeargle",
           "Toxtricity",
-          "Dreepy"
+          "Dreepy",
+          "Hoopa",
+          "Toxel"
         ],
         "availableLangs": [
           "EN",
@@ -16787,7 +16919,9 @@
         "artist": "Atsushi Furusawa",
         "cardName": null,
         "exclusive": null,
-        "otherPokemon": null,
+        "otherPokemon": [
+          "Watchog"
+        ],
         "availableLangs": [
           "EN",
           "JP",
@@ -24333,7 +24467,9 @@
         "artist": "nagano",
         "cardName": "Simisear VSTAR",
         "exclusive": null,
-        "otherPokemon": null,
+        "otherPokemon": [
+          "Pansear"
+        ],
         "availableLangs": [
           "EN",
           "JP",
@@ -37915,6 +38051,32 @@
         ],
         "isPrimary": true,
         "isSecondary": false
+      },
+      {
+        "id": "821_bst_071-072",
+        "pokemonId": 821,
+        "setCode": "BST",
+        "number": "071/072",
+        "jpSetCode": "S4A",
+        "jpNumber": "199/190",
+        "cnSetCode": "CS4.1C",
+        "cnNumber": "011/004",
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "071/072",
+        "artist": "Megumi Mizutani",
+        "cardName": "Trainer, Rose",
+        "exclusive": null,
+        "otherPokemon": null,
+        "availableLangs": [
+          "EN",
+          "JP",
+          "CN"
+        ],
+        "isPrimary": true,
+        "isSecondary": false
       }
     ]
   },
@@ -40527,7 +40689,9 @@
         "artist": "AKIRA EGAWA",
         "cardName": "Duraludon VMAX",
         "exclusive": null,
-        "otherPokemon": null,
+        "otherPokemon": [
+          "Rotom"
+        ],
         "availableLangs": [
           "EN",
           "JP",
