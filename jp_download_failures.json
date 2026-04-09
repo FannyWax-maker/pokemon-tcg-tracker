@@ -4,1434 +4,1224 @@
     "set": "SM-P",
     "number": "161",
     "pokemon": "Raticate",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "SV-P",
     "number": "1",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-jp",
-    "set": "SM2+",
-    "number": "057/049",
-    "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "SV-P",
     "number": "181/165",
     "pokemon": "Snorlax",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "SM3+",
     "number": "040/072",
     "pokemon": "Mewtwo",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "SM3+",
     "number": "082/072",
     "pokemon": "Mewtwo",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "SM12",
     "number": "186/173",
     "pokemon": "Togepi",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "SV-P",
     "number": "193/SV-P",
     "pokemon": "Wooper",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "SD100",
     "number": "173/414",
     "pokemon": "Espeon",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "S-P",
     "number": "189",
     "pokemon": "Espeon",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "SM3+",
     "number": "077/072",
     "pokemon": "Miltank",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "S-P",
     "number": "175",
     "pokemon": "Celebi",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "SA",
     "number": "001/023",
     "pokemon": "Celebi",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "SD100",
     "number": "300/314",
     "pokemon": "Aggron",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-jp",
-    "set": "SM12B",
-    "number": "050/049",
-    "pokemon": "Torkoal",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "SV7A",
     "number": "131/106",
     "pokemon": "Milotic",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "SA",
     "number": "005/024",
     "pokemon": "Regirock",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "SPD",
     "number": "00/020",
     "pokemon": "Deoxys",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "SA",
     "number": "003/023",
     "pokemon": "Victini",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "S-P",
     "number": "243",
     "pokemon": "Victini",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-jp",
-    "set": "SM12B",
-    "number": "061/049",
-    "pokemon": "Stoutland",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "SA",
     "number": "006/023",
     "pokemon": "Keldeo",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "SM-P",
     "number": "323",
     "pokemon": "Sylveon",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-jp",
-    "set": "SM1+",
-    "number": "026/051",
-    "pokemon": "Toxapex",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "SV-P",
     "number": "341/190",
     "pokemon": "Mimikyu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "SA",
     "number": "006/024",
     "pokemon": "Tapu Koko",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "S-P",
     "number": "171",
     "pokemon": "Rillaboom",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "S-P",
     "number": "168",
     "pokemon": "Cinderace",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "S-P",
     "number": "169",
     "pokemon": "Cinderace",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-jp",
     "set": "SV-P",
     "number": "232",
     "pokemon": "Wattrel",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "EC2",
-    "number": "079/092",
-    "pokemon": "Bulbasaur",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY-P",
     "number": "298/XY-P",
     "pokemon": "Bulbasaur",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "DPT-P",
     "number": "030/DPt-P",
     "pokemon": "Bulbasaur",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "PCG6",
-    "number": "007/086",
-    "pokemon": "Bulbasaur",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SM-P",
     "number": "2019",
     "pokemon": "Bulbasaur",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SI-JP",
     "number": "175",
     "pokemon": "Ivysaur",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "SI-JP",
-    "number": "002",
-    "pokemon": "Ivysaur",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | tcgio=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SI-JP",
     "number": "020",
     "pokemon": "Ivysaur",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | tcgio=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "?",
     "number": "001/016",
     "pokemon": "Venusaur",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "EC2",
-    "number": "075/092",
-    "pokemon": "Charmander",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "PCG-M",
+    "set": "PCGM",
     "number": "003/015",
     "pokemon": "Charmander",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SI-JP",
     "number": "151",
     "pokemon": "Charizard",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | tcgio=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY-P",
     "number": "099/XY-P",
     "pokemon": "Charizard",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SM-P",
     "number": "084/SM-P",
     "pokemon": "Charizard",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SV-P",
     "number": "120/SV-P",
     "pokemon": "Charizard",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "PCG-N",
+    "set": "PCGN",
     "number": "002/015",
     "pokemon": "Squirtle",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "SI-JP",
-    "number": "008",
-    "pokemon": "Wartortle",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "N4",
-    "number": "40",
-    "pokemon": "Caterpie",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "N3",
     "number": "209",
     "pokemon": "Butterfree",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "SI-JP",
-    "number": "012",
-    "pokemon": "Butterfree",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | tcgio=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "PCG-P",
     "number": "096/PCG-P",
     "pokemon": "Weedle",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SM-P",
     "number": "306/SM-P",
     "pokemon": "Pidgey",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "SI-JP",
-    "number": "018",
-    "pokemon": "Pidgeot",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SI-JP",
     "number": "095",
     "pokemon": "Pidgeot",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | tcgio=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "N4",
     "number": "135",
     "pokemon": "Rattata",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | tcgio=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SI-JP",
     "number": "108",
     "pokemon": "Rattata",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | tcgio=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "NW-P",
     "number": "004",
     "pokemon": "Spearow",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "EC2",
-    "number": "088/092",
-    "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "PCG-P",
     "number": "153/PCG-P",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SM-P",
     "number": "249/SM-P",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SM-P",
     "number": "273/SM-P",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SM-P",
     "number": "005/SM-P",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "PCG-P",
     "number": "043/PCG-P",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "P-P",
     "number": "019/P",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY-P",
     "number": "098/XY-P",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY-P",
     "number": "154/XY-P",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "DPT-P",
     "number": "044/DPt-P",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "LP-P",
+    "set": "L-P",
     "number": "028/L-P",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "LP-P",
+    "set": "L-P",
     "number": "031/L-P",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "LP-P",
+    "set": "L-P",
     "number": "032/L-P",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "LP-P",
+    "set": "L-P",
     "number": "033/L-P",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "BW-P",
     "number": "120/BW-P",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "BW-P",
     "number": "235/BW-P",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
+  },
+  {
+    "source": "public/card-images-cameo-jp",
+    "set": "SHC",
+    "number": "019/020",
+    "pokemon": "Pikachu",
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY-P",
     "number": "077/XY-P",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY-P",
     "number": "154/XY-P",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "PCG-O",
+    "set": "PCGO",
     "number": "003/015",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY-P",
     "number": "064/XY-P",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SNPN",
     "number": "065/072",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SM-P",
     "number": "2018",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SM-P",
     "number": "242/SM-P",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SM-P",
     "number": "198/SM-P",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "SM3+",
-    "number": "069/072",
-    "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SA",
     "number": "022/023",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SV-P",
     "number": "197/SV-P",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SV-P",
     "number": "291/SV-P",
     "pokemon": "Pikachu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY11C",
     "number": "022/054",
     "pokemon": "Nidoking",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SM-P",
     "number": "080/SM-P",
     "pokemon": "Clefairy",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SI-JP",
     "number": "039",
     "pokemon": "Jigglypuff",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "SI-JP",
-    "number": "016",
-    "pokemon": "Jigglypuff",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | tcgio=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "DPT-P",
     "number": "047/DPt-P",
     "pokemon": "Jigglypuff",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "G2",
     "number": "135/141",
     "pokemon": "Oddish",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "SI-JP",
-    "number": "001",
-    "pokemon": "Vileplume",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | tcgio=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SI-JP",
     "number": "057",
     "pokemon": "Venomoth",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | tcgio=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SA",
     "number": "002/023",
     "pokemon": "Diglett",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY-P",
     "number": "106/XY-P",
     "pokemon": "Meowth",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "P-P",
     "number": "020/P",
     "pokemon": "Meowth",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "BW-P",
     "number": "161/BW-P",
     "pokemon": "Meowth",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY11C",
     "number": "045/054",
     "pokemon": "Persian",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SI-JP",
     "number": "199",
     "pokemon": "Psyduck",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | tcgio=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY11C",
     "number": "025/054",
     "pokemon": "Mankey",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "EC2",
-    "number": "078/092",
-    "pokemon": "Growlithe",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "S-P",
     "number": "255/S-P",
     "pokemon": "Growlithe",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "S-P",
     "number": "338/S-P",
     "pokemon": "Arcanine",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY-P",
     "number": "282/XY-P",
     "pokemon": "Poliwhirl",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "T-P",
     "number": "005/T",
     "pokemon": "Bellsprout",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SI-JP",
     "number": "073",
     "pokemon": "Tentacruel",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | tcgio=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "PCG-M",
+    "set": "PCGM",
     "number": "009/015",
     "pokemon": "Geodude",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY-P",
     "number": "203/XY-P",
     "pokemon": "Slowpoke",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "LP-P",
+    "set": "L-P",
     "number": "029/L-P",
     "pokemon": "Slowbro",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "N1",
     "number": "136/141",
     "pokemon": "Magnemite",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | tcgio=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SA",
     "number": "003/023",
     "pokemon": "Krabby",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SA",
     "number": "010/023",
     "pokemon": "Voltorb",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SM-P",
     "number": "099/SM-P",
     "pokemon": "Exeggcute",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "SI-JP",
-    "number": "004",
-    "pokemon": "Exeggutor",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "EC2",
-    "number": "055/092",
-    "pokemon": "Hitmonchan",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "EC2",
-    "number": "056/092",
-    "pokemon": "Hitmonchan",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "P-P",
     "number": "023/P",
     "pokemon": "Hitmonchan",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SM-P",
     "number": "326/SM-P",
     "pokemon": "Rhyhorn",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY-P",
     "number": "226/XY-P",
     "pokemon": "Horsea",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "PCG-P",
     "number": "108/PCG-P",
     "pokemon": "Mr. Mime",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "G2",
-    "number": "114",
-    "pokemon": "Jynx",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SM-P",
     "number": "318/SM-P",
     "pokemon": "Magmar",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "G2",
     "number": "214",
     "pokemon": "Pinsir",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | tcgio=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "N1",
     "number": "241",
     "pokemon": "Tauros",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | tcgio=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SI-JP",
     "number": "183",
     "pokemon": "Magikarp",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | tcgio=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SV-P",
     "number": "241/SV-P",
     "pokemon": "Magikarp",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SI-JP",
     "number": "131",
     "pokemon": "Lapras",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | tcgio=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "BW-P",
     "number": "190/BW-P",
     "pokemon": "Eevee",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
+  },
+  {
+    "source": "public/card-images-cameo-jp",
+    "set": "LED",
+    "number": "005/015",
+    "pokemon": "Eevee",
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
+  },
+  {
+    "source": "public/card-images-cameo-jp",
+    "set": "LED",
+    "number": "007/015",
+    "pokemon": "Eevee",
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "T-P",
     "number": "002/T",
     "pokemon": "Vaporeon",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "T-P",
     "number": "001/T",
     "pokemon": "Jolteon",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "T-P",
     "number": "003/T",
     "pokemon": "Jolteon",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY-P",
     "number": "148/XY-P",
     "pokemon": "Snorlax",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY-P",
     "number": "149/XY-P",
     "pokemon": "Snorlax",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "BW8",
+    "set": "BW8S",
     "number": "048/051",
     "pokemon": "Snorlax",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY-P",
     "number": "149/XY-P",
     "pokemon": "Snorlax",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "J-P",
     "number": "002/J",
     "pokemon": "Mewtwo",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "BW-P",
     "number": "107/BW-P",
     "pokemon": "Mewtwo",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY-P",
     "number": "222/XY-P",
     "pokemon": "Chikorita",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SM-P",
     "number": "250/SM-P",
     "pokemon": "Chikorita",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "LP-P",
+    "set": "L-P",
     "number": "041/L-P",
     "pokemon": "Meganium",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "LP-P",
+    "set": "L-P",
     "number": "027/L-P",
     "pokemon": "Typhlosion",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "LP-P",
+    "set": "L-P",
     "number": "042/L-P",
     "pokemon": "Typhlosion",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "LP-P",
+    "set": "L-P",
     "number": "043/L-P",
     "pokemon": "Feraligatr",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY-P",
     "number": "139/XY-P",
     "pokemon": "Crobat",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY-P",
     "number": "274/XY-P",
     "pokemon": "Ampharos",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "L1HG",
-    "number": "075/070",
-    "pokemon": "Ampharos",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "L1HG",
-    "number": "077/070",
-    "pokemon": "Sudowoodo",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SM-P",
     "number": "387/SM-P",
     "pokemon": "Aipom",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "L1HG",
-    "number": "076/070",
-    "pokemon": "Espeon",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY-P",
     "number": "256/XY-P",
     "pokemon": "Umbreon",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "L1HG",
-    "number": "078/070",
+    "set": "PF2",
+    "number": "102",
     "pokemon": "Umbreon",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "L1HG",
-    "number": "079/070",
-    "pokemon": "Steelix",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "set": "MED",
+    "number": "003/014",
+    "pokemon": "Misdreavus",
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
+  },
+  {
+    "source": "public/card-images-cameo-jp",
+    "set": "MED",
+    "number": "002/014",
+    "pokemon": "Dunsparce",
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
+  },
+  {
+    "source": "public/card-images-cameo-jp",
+    "set": "SHC",
+    "number": "016/020",
+    "pokemon": "Teddiursa",
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "N4",
     "number": "221",
     "pokemon": "Swinub",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | tcgio=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY11C",
     "number": "014/054",
     "pokemon": "Remoraid",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "PF3",
+    "set": "UNP",
     "number": "250",
     "pokemon": "Skarmory",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "PF3",
+    "set": "UNP",
     "number": "227",
     "pokemon": "Skarmory",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "SM3+",
-    "number": "068/072",
-    "pokemon": "Miltank",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "LP-P",
-    "number": "052/L-P",
-    "pokemon": "Raikou",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "PF3",
+    "set": "UNP",
     "number": "249",
     "pokemon": "Lugia",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "L1HG",
-    "number": "074/070",
-    "pokemon": "Lugia",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "L1HG",
-    "number": "073/070",
-    "pokemon": "Ho-Oh",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "LP-P",
-    "number": "070/L-P",
-    "pokemon": "Celebi",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "L1HG",
-    "number": "072/070",
-    "pokemon": "Celebi",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "set": "ADVEX1",
+    "number": "032/080",
+    "pokemon": "Wingull",
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "S-P",
     "number": "231/S-P",
     "pokemon": "Wingull",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY-P",
     "number": "171/XY-P",
     "pokemon": "Kirlia",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY-P",
     "number": "275/XY-P",
     "pokemon": "Gardevoir",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "BW5",
+    "set": "BW5E",
     "number": "005/050",
     "pokemon": "Ninjask",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "BW5",
+    "set": "BW5E",
     "number": "018/050",
     "pokemon": "Ninjask",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "SM3+",
-    "number": "034/072",
-    "pokemon": "Plusle",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "set": "LED",
+    "number": "013/015",
+    "pokemon": "Roselia",
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "SM3+",
-    "number": "035/072",
-    "pokemon": "Plusle",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "set": "LED",
+    "number": "014/015",
+    "pokemon": "Roselia",
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
+  },
+  {
+    "source": "public/card-images-cameo-jp",
+    "set": "MED",
+    "number": "010/014",
+    "pokemon": "Carvanha",
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "S-P",
     "number": "228/S-P",
     "pokemon": "Flygon",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
+  },
+  {
+    "source": "public/card-images-cameo-jp",
+    "set": "MED",
+    "number": "014/014",
+    "pokemon": "Beldum",
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SM-P",
     "number": "101/SM-P",
     "pokemon": "Latias",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "IFDS",
-    "number": "084/092",
-    "pokemon": "Piplup",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "UNP",
     "number": "087/090",
     "pokemon": "Starly",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "IFDS",
-    "number": "085/092",
-    "pokemon": "Bidoof",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SI100",
     "number": "141/414",
     "pokemon": "Luxio",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY-P",
     "number": "289/XY-P",
     "pokemon": "Roserade",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
+  },
+  {
+    "source": "public/card-images-cameo-jp",
+    "set": "LED",
+    "number": "009/015",
+    "pokemon": "Roserade",
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "PTPK",
     "number": "010/15",
     "pokemon": "Pachirisu",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "IFDS",
-    "number": "086/092",
-    "pokemon": "Mime Jr",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "IFDS",
-    "number": "083/092",
-    "pokemon": "Lucario",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "S-P",
     "number": "172/S-P",
     "pokemon": "Croagunk",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
+  },
+  {
+    "source": "public/card-images-cameo-jp",
+    "set": "LED",
+    "number": "011/015",
+    "pokemon": "Leafeon",
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "DPT-P",
     "number": "031/DPt-P",
     "pokemon": "Giratina",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "DPT-P",
     "number": "033/DPt-P",
     "pokemon": "Giratina",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "DPT-P",
     "number": "036/DPt-P",
     "pokemon": "Arceus",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "DPT-P",
     "number": "048/DPt-P",
     "pokemon": "Arceus",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "DPT-P",
     "number": "051/DPt-P",
     "pokemon": "Arceus",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "S-P",
     "number": "159/S-P",
     "pokemon": "Tepig",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
-    "set": "BW6",
+    "set": "BW6F",
     "number": "057/059",
     "pokemon": "Lillipup",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY-P",
     "number": "028/XY-P",
     "pokemon": "Petilil",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "BW-P",
     "number": "160/BW-P",
     "pokemon": "Scraggy",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SM-P",
     "number": "105/SM-P",
     "pokemon": "Zorua",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "SM3+",
-    "number": "053/072",
-    "pokemon": "Zorua",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY-P",
     "number": "047/XY-P",
     "pokemon": "Zoroark",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "BW1",
-    "number": "050/053",
-    "pokemon": "Minccino",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "KSS",
-    "number": "039/039",
-    "pokemon": "Vanillite",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "SM3+",
-    "number": "045/072",
-    "pokemon": "Golurk",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY11F",
     "number": "009/054",
     "pokemon": "Braviary",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "S-P",
     "number": "339/S-P",
     "pokemon": "Froakie",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY11C",
     "number": "016/054",
     "pokemon": "Bergmite",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "XY-P",
     "number": "266/XY-P",
     "pokemon": "Volcanion",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "SM-P",
     "number": "107/SM-P",
     "pokemon": "Salazzle",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "SM4+",
-    "number": "099/114",
-    "pokemon": "Silvally",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
-  },
-  {
-    "source": "public/card-images-cameo-jp",
-    "set": "SM4+",
-    "number": "102/114",
-    "pokemon": "Silvally",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "S-P",
     "number": "182/S-P",
     "pokemon": "Cramorant",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   },
   {
     "source": "public/card-images-cameo-jp",
     "set": "CSIC",
     "number": "006/007",
     "pokemon": "Morpeko",
-    "reason": "limitless=HTTP 403 | pokecardex_hd=HTTP 404 | pokecardex_md=HTTP 404"
+    "reason": "limitless=HTTP 403 | pokecardex=HTTP 404"
   }
 ]
