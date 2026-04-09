@@ -237,7 +237,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   };
 
   const imagePaths = generateImagePaths(card, pokemonName, appMode);
-  const cacheKey = `${card.id}__${displayLang}__${appMode}`;
+  const cacheKey = `${card.id}__${displayLang}`;
   const cached = imageCache[cacheKey];
   const [imageLoaded, setImageLoaded] = React.useState(!!cached?.src);
   const [imageSrc, setImageSrc] = React.useState(cached?.src || null);
@@ -274,8 +274,8 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     }
     let mounted = true;
     const loadEN = async () => {
-      const manifest = await getManifest();
-      const enBase = '/pokemon-tcg-tracker/card-images/';
+      const manifest = appMode === 'cameos' ? await getCameoManifest() : await getManifest();
+      const enBase = appMode === 'cameos' ? '/pokemon-tcg-tracker/card-images-cameo/' : '/pokemon-tcg-tracker/card-images/';
       let found = null;
       if (manifest.size > 0) {
         for (const path of imagePaths) {
@@ -781,7 +781,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           )}
 
           {/* === FEATURED section === */}
-          {appMode !== 'cameos' && (
+          {(
             <div className={`border-t border-gray-100`}>
               {hasOtherPokemon ? (
                 <>
