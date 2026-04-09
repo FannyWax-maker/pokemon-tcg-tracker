@@ -2,7 +2,7 @@ import React from 'react';
 import setNamesImport from '../data/set_names.json';
 import pokemonDataImport from '../data/pokemon_data.json';
 import pokemonCoordsImport from '../data/pokemon_coords.json';
-import { imageCache, clearImageCache, getManifest, getCameoManifest, enqueueImageLoad, generateImagePaths } from '../utils/imageUtils';
+import { imageCache, clearImageCache, getManifest, getCameoManifest, getCameoJpManifest, getCameoCnManifest, getJpManifest, getCnManifest, enqueueImageLoad, generateImagePaths } from '../utils/imageUtils';
 
 const setNames = setNamesImport;
 const SET_NAME_OVERRIDES = {
@@ -332,53 +332,50 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     let mounted = true;
 
     const tryLoadImage = async () => {
-      // Cameos mode: route to lang-specific cameo folder based on displayLang
-      if (appMode === 'cameos') {
-        const langFolder = displayLang === 'JP' ? 'card-images-cameo-jp'
-                         : displayLang === 'CN' ? 'card-images-cameo-cn'
-                         : 'card-images-cameo';
-        const cameoBase = `/pokemon-tcg-tracker/${langFolder}/`;
-
-        // For JP/CN cameos, build lang-specific filename using cardName slug
-        let found = null;
-        if (displayLang === 'JP' || displayLang === 'CN') {
-          const langSetCode = displayLang === 'JP' ? card.jpSetCode : card.cnSetCode;
-          const langNumber  = displayLang === 'JP' ? card.jpNumber  : card.cnNumber;
-          if (langSetCode && langNumber) {
-            const cardSlug = (card.cardName || pokemonName).toLowerCase().replace(/[^a-z0-9]/g, '');
-            const numParts  = String(langNumber).split('/');
-            const numerator = numParts[0] ? String(parseInt(numParts[0])).padStart(3, '0') : '';
-            const denominator = numParts[1] ? (isNaN(parseInt(numParts[1])) ? numParts[1].replace(/[^a-z0-9]/gi,'') : String(parseInt(numParts[1]))) : '';
-            const langPath = denominator
-              ? `${langSetCode}.${numerator}-${denominator}.${cardSlug}_`
-              : `${langSetCode}.${numerator}.${cardSlug}_`;
-            const tryPath = (src) => enqueueImageLoad(() =>
-              new Promise((resolve, reject) => {
-                const img = new Image(); img.onload = () => resolve(src); img.onerror = reject; img.src = src;
-              })
-            );
-            for (const ext of ['.png', '.jpg']) {
-              try { found = await tryPath(cameoBase + langPath + ext); break; } catch (_) {}
-            }
-          }
-        } else {
-          // EN cameos: use manifest lookup
-          const cameoManifest = await getCameoManifest();
-          if (cameoManifest.size > 0) {
-            for (const path of imagePaths) {
-              for (const ext of ['.png', '.jpg', '.webp']) {
-                if (cameoManifest.has(path + ext)) { found = cameoBase + path + ext; break; }
-              }
-              if (found) break;
-            }
-            if (found) {
-              found = await enqueueImageLoad(() => new Promise((resolve, reject) => {
-                const img = new Image(); img.onload = () => resolve(found); img.onerror = reject; img.src = found;
+      // Helper: manifest-based lookup for a given folder and list of paths
+      const findInManifest = async (manifest, folder, paths) => {
+        if (!manifest || manifest.size === 0) return null;
+        const base = `/pokemon-tcg-tracker/${folder}/`;
+        for (const path of paths) {
+          for (const ext of ['.png', '.jpg', '.webp']) {
+            if (manifest.has(path + ext)) {
+              return await enqueueImageLoad(() => new Promise((resolve, reject) => {
+                const img = new Image(); img.onload = () => resolve(base + path + ext); img.onerror = reject; img.src = base + path + ext;
               })).catch(() => null);
             }
           }
         }
+        return null;
+      };
 
+      // Build lang-specific paths for JP/CN (uses cardName for cameos, pokemonName for illustrations)
+      const buildLangPaths = (setCode, number, nameSlug) => {
+        if (!setCode || !number) return [];
+        const numParts = String(number).split('/');
+        const numerator = numParts[0] ? String(parseInt(numParts[0])).padStart(3, '0') : '';
+        const rawDen = numParts[1] || '';
+        const denominator = rawDen ? (isNaN(parseInt(rawDen)) ? rawDen.replace(/[^a-z0-9]/gi,'') : String(parseInt(rawDen))) : '';
+        const path = denominator
+          ? `${setCode}.${numerator}-${denominator}.${nameSlug}_`
+          : `${setCode}.${numerator}.${nameSlug}_`;
+        return [path];
+      };
+
+      // Cameos mode
+      if (appMode === 'cameos') {
+        let found = null;
+        if (displayLang === 'JP') {
+          const manifest = await getCameoJpManifest();
+          const slug = (card.cardName || pokemonName).toLowerCase().replace(/[^a-z0-9]/g, '');
+          found = await findInManifest(manifest, 'card-images-cameo-jp', buildLangPaths(card.jpSetCode, card.jpNumber, slug));
+        } else if (displayLang === 'CN') {
+          const manifest = await getCameoCnManifest();
+          const slug = (card.cardName || pokemonName).toLowerCase().replace(/[^a-z0-9]/g, '');
+          found = await findInManifest(manifest, 'card-images-cameo-cn', buildLangPaths(card.cnSetCode, card.cnNumber, slug));
+        } else {
+          const manifest = await getCameoManifest();
+          found = await findInManifest(manifest, 'card-images-cameo', imagePaths);
+        }
         if (!mounted) return;
         imageCache[cacheKey] = { src: found };
         setImageSrc(found);
@@ -386,35 +383,14 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
         return;
       }
 
-      // JP/CN lang display: try lang-specific folder first
+      // Illustrations JP/CN mode
       if (displayLang === 'JP' || displayLang === 'CN') {
-        const langFolder = displayLang === 'JP' ? 'card-images-jp' : 'card-images-cn';
-        const langBase = `/pokemon-tcg-tracker/${langFolder}/`;
-        const langSetCode = displayLang === 'JP' ? card.jpSetCode : card.cnSetCode;
-        const langNumber = displayLang === 'JP' ? card.jpNumber : card.cnNumber;
-        let found = null;
-        if (langSetCode && langNumber) {
-          const pokeName = pokemonName.toLowerCase().replace(/[^a-z0-9]/g, '');
-          const numParts = String(langNumber).split('/');
-          const numerator = numParts[0] ? String(parseInt(numParts[0])).padStart(3, '0') : '';
-          const denominator = numParts[1] ? String(parseInt(numParts[1])) : '';
-          const langPaths = denominator
-            ? [`${langSetCode}.${numerator}-${denominator}.${pokeName}_`]
-            : [`${langSetCode}.${numerator}.${pokeName}_`];
-          const tryPath = (src) => enqueueImageLoad(() =>
-            new Promise((resolve, reject) => {
-              const img = new Image(); img.onload = () => resolve(src); img.onerror = reject; img.src = src;
-            })
-          );
-          for (const path of langPaths) {
-            if (!mounted) return;
-            for (const ext of ['.png', '.jpg']) {
-              try { found = await tryPath(langBase + path + ext); break; } catch (_) {}
-            }
-            if (found) break;
-          }
-        }
-        // No EN fallback — show IMAGE MISSING if not found so user knows filename needed
+        const folder   = displayLang === 'JP' ? 'card-images-jp' : 'card-images-cn';
+        const manifest = displayLang === 'JP' ? await getJpManifest() : await getCnManifest();
+        const setCode  = displayLang === 'JP' ? card.jpSetCode : card.cnSetCode;
+        const number   = displayLang === 'JP' ? card.jpNumber  : card.cnNumber;
+        const slug     = pokemonName.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const found    = await findInManifest(manifest, folder, buildLangPaths(setCode, number, slug));
         if (!mounted) return;
         imageCache[cacheKey] = { src: found };
         setImageSrc(found);

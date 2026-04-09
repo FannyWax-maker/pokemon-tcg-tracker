@@ -1,41 +1,36 @@
 // Shared image loading utilities for CardTile and ReviewModal
-// Extracted to eliminate duplication and prevent double manifest fetches
 
-// Global cache - images never reload after first load
 export const imageCache = {};
 
-// Clear all cached images (used when switching app modes)
 export function clearImageCache() {
   Object.keys(imageCache).forEach(k => delete imageCache[k]);
 }
 
-// Manifest: set of all filenames in card-images/ (loaded once, avoids 404 waterfall)
-let imageManifest = null;
-let manifestInFlight = null;
+// Single manifest cache for all folders
+const manifestCache = {};
+const manifestInFlights = {};
 
-export const getManifest = () => {
-  if (imageManifest) return Promise.resolve(imageManifest);
-  if (manifestInFlight) return manifestInFlight;
-  manifestInFlight = fetch('/pokemon-tcg-tracker/card-images/manifest.json')
+const getManifestForFolder = (folder) => {
+  if (manifestCache[folder]) return Promise.resolve(manifestCache[folder]);
+  if (manifestInFlights[folder]) return manifestInFlights[folder];
+  manifestInFlights[folder] = fetch(`/pokemon-tcg-tracker/${folder}/manifest.json`)
     .then(r => r.json())
-    .then(files => { imageManifest = new Set(files); return imageManifest; })
-    .catch(() => { imageManifest = new Set(); return imageManifest; });
-  return manifestInFlight;
+    .then(files => { manifestCache[folder] = new Set(files); return manifestCache[folder]; })
+    .catch(() => { manifestCache[folder] = new Set(); return manifestCache[folder]; });
+  return manifestInFlights[folder];
 };
 
-// Pre-fetch manifest immediately on module load
-getManifest();
+export const getManifest       = () => getManifestForFolder('card-images');
+export const getCameoManifest  = () => getManifestForFolder('card-images-cameo');
+export const getCameoJpManifest = () => getManifestForFolder('card-images-cameo-jp');
+export const getCameoCnManifest = () => getManifestForFolder('card-images-cameo-cn');
+export const getJpManifest     = () => getManifestForFolder('card-images-jp');
+export const getCnManifest     = () => getManifestForFolder('card-images-cn');
 
-// Cameo manifest: set of all filenames in card-images-cameo/
-let cameoManifestInFlight = null;
-export const getCameoManifest = () => {
-  if (cameoManifestInFlight) return cameoManifestInFlight;
-  cameoManifestInFlight = fetch('/pokemon-tcg-tracker/card-images-cameo/manifest.json')
-    .then(r => r.json()).then(files => new Set(files)).catch(() => new Set());
-  return cameoManifestInFlight;
-};
+// Pre-fetch all manifests on load
+getManifest(); getCameoManifest(); getCameoJpManifest(); getJpManifest(); getCnManifest();
 
-// Global request queue - limits concurrent image fetches to avoid GitHub Pages 429
+// Request queue
 const MAX_CONCURRENT = 6;
 let activeRequests = 0;
 const requestQueue = [];
@@ -55,7 +50,6 @@ export const enqueueImageLoad = (fn) => {
   });
 };
 
-// Generate all possible image filename paths for a card
 export const generateImagePaths = (card, pokemonName, appMode = 'fullart') => {
   const isSecondary = card.isSecondary || !card.isPrimary;
   const displayPokemon = isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName;
