@@ -688,16 +688,34 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           {appMode === 'cameos' ? (
             // Cameos: always expanded, clickable boxes
             <div className={`border-t pt-1.5 flex flex-col gap-1 border-gray-100`}>
-              {[
-                { label: 'EN', bgColor: 'bg-blue-500',   code: card.enSetCode || card.setCode, num: card.number },
-                { label: 'JP', bgColor: 'bg-red-500',    code: card.jpSetCode,                 num: card.jpNumber },
-              ].filter(({ code }) => !!code).map(({ label, bgColor, code, num }) => {
+              {(displayLang === 'JP'
+                ? [
+                    { label: 'JP', bgColor: 'bg-red-500',  code: card.jpSetCode,                 num: card.jpNumber },
+                    { label: 'EN', bgColor: 'bg-blue-500', code: card.enSetCode || card.setCode, num: card.number },
+                  ]
+                : [
+                    { label: 'EN', bgColor: 'bg-blue-500', code: card.enSetCode || card.setCode, num: card.number },
+                    { label: 'JP', bgColor: 'bg-red-500',  code: card.jpSetCode,                 num: card.jpNumber },
+                  ]
+              ).filter(({ code }) => !!code).map(({ label, bgColor, code, num }) => {
                 const setName = getSetName(code);
                 return (
                   <button
                     key={label}
                     className={`w-full text-left px-2 py-1 rounded-lg text-[10px] transition-all cursor-pointer bg-gray-50 hover:bg-gray-100 border border-gray-200`}
                     onClick={onSetFilter ? (e) => { e.stopPropagation(); onSetFilter(code, label); } : (e) => e.stopPropagation()}
+                    title={onSetFilter ? `Filter by ${setName || code}` : undefined}
+                  >
+                    <div className="flex items-center gap-1.5">
+                      <span className={`${bgColor} text-white text-[9px] font-bold px-1 py-0.5 rounded shrink-0`}>{label}</span>
+                      <span className={`font-medium truncate flex-1 text-gray-700`}>{setName || '—'}</span>
+                    </div>
+                    <div className={`text-[9px] mt-0.5 pl-0.5 font-mono text-gray-400`}>{code}{num ? ` ${num}` : ''}</div>
+                  </button>
+                );
+              })}
+            </div>
+          ) : (
             // Illustrations: collapsible sets section, collapsed by default showing primary set only
             <div className={`border-t border-gray-100`}>
               <button
