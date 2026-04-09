@@ -15,7 +15,7 @@ const getManifestForFolder = (folder) => {
   if (manifestInFlights[folder]) return manifestInFlights[folder];
   manifestInFlights[folder] = fetch(`/pokemon-tcg-tracker/${folder}/manifest.json`)
     .then(r => r.json())
-    .then(files => { manifestCache[folder] = new Set(files); return manifestCache[folder]; })
+    .then(files => { manifestCache[folder] = new Set(files.map(f => f.toLowerCase())); return manifestCache[folder]; })
     .catch(() => { manifestCache[folder] = new Set(); return manifestCache[folder]; });
   return manifestInFlights[folder];
 };
@@ -55,7 +55,7 @@ export const generateImagePaths = (card, pokemonName, appMode = 'fullart') => {
   const displayPokemon = isSecondary && card.primaryPokemon ? card.primaryPokemon : pokemonName;
 
   const fileSubject = appMode === 'cameos'
-    ? (card.cardName || displayPokemon).toLowerCase().replace(/\s+/g, '_').replace(/[.'"]/g, '').replace(/[^a-z0-9_-]/g, '')
+    ? (card.cardName || displayPokemon).toLowerCase().replace(/[^a-z0-9]/g, '')
     : displayPokemon.toLowerCase().replace(/\s+/g, '_').replace(/[.']/g, '');
 
   const pokemon = fileSubject;

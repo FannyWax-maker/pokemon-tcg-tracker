@@ -356,8 +356,8 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
         const rawDen = numParts[1] || '';
         const denominator = rawDen ? (isNaN(parseInt(rawDen)) ? rawDen.replace(/[^a-z0-9]/gi,'') : String(parseInt(rawDen))) : '';
         const path = denominator
-          ? `${setCode}.${numerator}-${denominator}.${nameSlug}_`
-          : `${setCode}.${numerator}.${nameSlug}_`;
+          ? `${setCode.toLowerCase()}.${numerator}-${denominator}.${nameSlug}_`
+          : `${setCode.toLowerCase()}.${numerator}.${nameSlug}_`;
         return [path];
       };
 
