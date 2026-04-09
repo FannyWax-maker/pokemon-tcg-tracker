@@ -268,7 +268,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
   // When lang image is missing, load EN image as background reference
   React.useEffect(() => {
-    if (imageLoaded !== false || imageSrc || (displayLang !== 'JP' && displayLang !== 'CN') || appMode === 'cameos') {
+    if (imageLoaded !== false || imageSrc || (displayLang !== 'JP' && displayLang !== 'CN')) {
       setEnFallbackSrc(null);
       return;
     }
