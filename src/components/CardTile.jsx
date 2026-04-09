@@ -783,6 +783,10 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                         key={key}
                         className={`w-full text-left px-2 py-1 rounded-lg text-[10px] transition-all cursor-pointer ${activeSetFilter === code ? 'bg-blue-50 border-2 border-blue-400' : 'bg-gray-50 hover:bg-gray-100 border border-gray-200'}`}
                         onClick={onSetFilter ? (e) => { e.stopPropagation(); onSetFilter(code, label); } : (e) => e.stopPropagation()}
+                        title={onSetFilter ? `Filter by ${setName || code}` : undefined}
+                      >
+                        <div className="flex items-center gap-1.5">
+                          <span className={`${bgColor} text-white text-[9px] font-bold px-1 py-0.5 rounded shrink-0`}>{label}</span>
                           <span className={`font-medium truncate flex-1 text-gray-700`}>{setName || '—'}</span>
                         </div>
                         <div className={`text-[9px] mt-0.5 pl-0.5 font-mono text-gray-400`}>{code}{num ? ` ${num}` : ''}</div>
