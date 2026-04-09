@@ -252,18 +252,19 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
       const langSetCode = displayLang === 'JP' ? card.jpSetCode : card.cnSetCode;
       const langNumber = displayLang === 'JP' ? card.jpNumber : card.cnNumber;
       if (langSetCode && langNumber) {
-        const pokeName = pokemonName.toLowerCase().replace(/[^a-z0-9]/g, '');
+        // For cameos use cardName slug, for illustrations use pokemonName
+        const nameSlug = (appMode === 'cameos' ? (card.cardName || pokemonName) : pokemonName).toLowerCase().replace(/[^a-z0-9]/g, '');
         const numParts = String(langNumber).split('/');
         const numerator = numParts[0] ? String(parseInt(numParts[0])).padStart(3, '0') : '';
-        const denominator = numParts[1] ? String(parseInt(numParts[1])) : '';
+        const denominator = numParts[1] ? (isNaN(parseInt(numParts[1])) ? numParts[1].replace(/[^a-z0-9]/gi,'') : String(parseInt(numParts[1]))) : '';
         return denominator
-          ? `${langSetCode}.${numerator}-${denominator}.${pokeName}_`
-          : `${langSetCode}.${numerator}.${pokeName}_`;
+          ? `${langSetCode}.${numerator}-${denominator}.${nameSlug}_`
+          : `${langSetCode}.${numerator}.${nameSlug}_`;
       }
       return `(no ${displayLang} set code/number for this card)`;
     }
     return imagePaths[0];
-  }, [displayLang, card.jpSetCode, card.jpNumber, card.cnSetCode, card.cnNumber, imagePaths, pokemonName]);
+  }, [displayLang, appMode, card.jpSetCode, card.jpNumber, card.cnSetCode, card.cnNumber, card.cardName, imagePaths, pokemonName]);
 
   // When lang image is missing, load EN image as background reference
   React.useEffect(() => {
@@ -331,27 +332,53 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     let mounted = true;
 
     const tryLoadImage = async () => {
-      // Cameos mode: use cameo manifest and image folder
+      // Cameos mode: route to lang-specific cameo folder based on displayLang
       if (appMode === 'cameos') {
-        const cameoManifest = await getCameoManifest();
-        const cameoBase = '/pokemon-tcg-tracker/card-images-cameo/';
+        const langFolder = displayLang === 'JP' ? 'card-images-cameo-jp'
+                         : displayLang === 'CN' ? 'card-images-cameo-cn'
+                         : 'card-images-cameo';
+        const cameoBase = `/pokemon-tcg-tracker/${langFolder}/`;
+
+        // For JP/CN cameos, build lang-specific filename using cardName slug
         let found = null;
-        if (cameoManifest.size > 0) {
-          for (const path of imagePaths) {
-            for (const ext of ['.png', '.jpg', '.webp']) {
-              if (cameoManifest.has(path + ext)) { found = cameoBase + path + ext; break; }
+        if (displayLang === 'JP' || displayLang === 'CN') {
+          const langSetCode = displayLang === 'JP' ? card.jpSetCode : card.cnSetCode;
+          const langNumber  = displayLang === 'JP' ? card.jpNumber  : card.cnNumber;
+          if (langSetCode && langNumber) {
+            const cardSlug = (card.cardName || pokemonName).toLowerCase().replace(/[^a-z0-9]/g, '');
+            const numParts  = String(langNumber).split('/');
+            const numerator = numParts[0] ? String(parseInt(numParts[0])).padStart(3, '0') : '';
+            const denominator = numParts[1] ? (isNaN(parseInt(numParts[1])) ? numParts[1].replace(/[^a-z0-9]/gi,'') : String(parseInt(numParts[1]))) : '';
+            const langPath = denominator
+              ? `${langSetCode}.${numerator}-${denominator}.${cardSlug}_`
+              : `${langSetCode}.${numerator}.${cardSlug}_`;
+            const tryPath = (src) => enqueueImageLoad(() =>
+              new Promise((resolve, reject) => {
+                const img = new Image(); img.onload = () => resolve(src); img.onerror = reject; img.src = src;
+              })
+            );
+            for (const ext of ['.png', '.jpg']) {
+              try { found = await tryPath(cameoBase + langPath + ext); break; } catch (_) {}
             }
-            if (found) break;
+          }
+        } else {
+          // EN cameos: use manifest lookup
+          const cameoManifest = await getCameoManifest();
+          if (cameoManifest.size > 0) {
+            for (const path of imagePaths) {
+              for (const ext of ['.png', '.jpg', '.webp']) {
+                if (cameoManifest.has(path + ext)) { found = cameoBase + path + ext; break; }
+              }
+              if (found) break;
+            }
+            if (found) {
+              found = await enqueueImageLoad(() => new Promise((resolve, reject) => {
+                const img = new Image(); img.onload = () => resolve(found); img.onerror = reject; img.src = found;
+              })).catch(() => null);
+            }
           }
         }
-        if (found) {
-          found = await enqueueImageLoad(() => new Promise((resolve, reject) => {
-            const img = new Image();
-            img.onload = () => resolve(found);
-            img.onerror = reject;
-            img.src = found;
-          })).catch(() => null);
-        }
+
         if (!mounted) return;
         imageCache[cacheKey] = { src: found };
         setImageSrc(found);
