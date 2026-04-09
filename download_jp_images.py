@@ -19,7 +19,7 @@ SOURCES = [
     {"data_file": "src/data/steph/pokemon_data.json", "output_dir": "public/card-images-cameo-jp", "use_card_name": True},
 ]
 
-LIMITLESS  = "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci"
+LIMITLESS  = "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc"
 POKECARDEX = "https://pokecardex-scans.b-cdn.net/sets_jp"
 TCGIO      = "https://images.pokemontcg.io"
 DELAY = 0.3
@@ -106,8 +106,15 @@ def process_source(session, data_file, output_dir, use_card_name, all_failures):
         padded   = bare_num.zfill(3)
         bare_int = str(int(bare_num))
 
-        # 1. Try Limitless (best quality PNG)
-        data_bytes, reason_l = try_url(session, f"{LIMITLESS}/{jp_set}/{jp_set}_{padded}_R_JP_SM.png")
+        # 1. Try Limitless (best quality PNG) — try LG then SM, padded then unpadded
+        data_bytes = None
+        for num_variant in ([padded, bare_int] if padded != bare_int else [padded]):
+            for size in ['LG', 'SM']:
+                data_bytes, reason_l = try_url(session, f"{LIMITLESS}/{jp_set}/{jp_set}_{num_variant}_R_JP_{size}.png")
+                if data_bytes:
+                    break
+            if data_bytes:
+                break
         ext = "png"
         source = "limitless"
 

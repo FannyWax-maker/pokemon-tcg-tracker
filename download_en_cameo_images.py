@@ -14,7 +14,7 @@ from collections import Counter
 
 DATA_FILE  = "src/data/steph/pokemon_data.json"
 OUTPUT_DIR = "public/card-images-cameo"
-LIMITLESS  = "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci"
+LIMITLESS  = "https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpc"
 TCGIO      = "https://images.pokemontcg.io"
 DELAY = 0.3
 
@@ -111,11 +111,15 @@ def main():
         padded = bare.zfill(3) if bare.isdigit() else bare
         bare_int = str(int(bare)) if bare.isdigit() else bare
 
-        # 1. Try Limitless LG then standard
-        data_bytes = (
-            try_url(session, f"{LIMITLESS}/{set_code}/{set_code}_{padded}_R_EN_LG.png") or
-            try_url(session, f"{LIMITLESS}/{set_code}/{set_code}_{padded}_R_EN.png")
-        )
+        # 1. Try Limitless LG then standard, padded then unpadded
+        data_bytes = None
+        for num_variant in ([padded, bare_int] if padded != bare_int else [padded]):
+            data_bytes = (
+                try_url(session, f"{LIMITLESS}/{set_code}/{set_code}_{num_variant}_R_EN_LG.png") or
+                try_url(session, f"{LIMITLESS}/{set_code}/{set_code}_{num_variant}_R_EN.png")
+            )
+            if data_bytes:
+                break
         source = "limitless"
 
         # 2. Fallback: pokemontcg.io hires
