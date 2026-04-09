@@ -268,7 +268,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
   // When lang image is missing, load EN image as background reference
   React.useEffect(() => {
-    if (imageLoaded !== false || imageSrc || (displayLang !== 'JP' && displayLang !== 'CN')) {
+    if (imageLoaded !== false || imageSrc || (displayLang !== 'JP' && displayLang !== 'CN') || appMode === 'cameos') {
       setEnFallbackSrc(null);
       return;
     }
@@ -688,10 +688,16 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           {appMode === 'cameos' ? (
             // Cameos: always expanded, clickable boxes
             <div className={`border-t pt-1.5 flex flex-col gap-1 border-gray-100`}>
-              {[
-                { label: 'EN', bgColor: 'bg-blue-500',   code: card.enSetCode || card.setCode, num: card.number },
-                { label: 'JP', bgColor: 'bg-red-500',    code: card.jpSetCode,                 num: card.jpNumber },
-              ].filter(({ code }) => !!code).map(({ label, bgColor, code, num }) => {
+              {(displayLang === 'JP'
+                ? [
+                    { label: 'JP', bgColor: 'bg-red-500',  code: card.jpSetCode,                 num: card.jpNumber },
+                    { label: 'EN', bgColor: 'bg-blue-500', code: card.enSetCode || card.setCode, num: card.number },
+                  ]
+                : [
+                    { label: 'EN', bgColor: 'bg-blue-500', code: card.enSetCode || card.setCode, num: card.number },
+                    { label: 'JP', bgColor: 'bg-red-500',  code: card.jpSetCode,                 num: card.jpNumber },
+                  ]
+              ).filter(({ code }) => !!code).map(({ label, bgColor, code, num }) => {
                 const setName = getSetName(code);
                 return (
                   <button
@@ -956,7 +962,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
       {/* Zoom Modal with Loupe + Coord Picker */}
       {showZoom && (
         <div
-          className="fixed inset-0 bg-black/90 flex items-start sm:items-center justify-center z-50 overflow-y-auto py-4 sm:py-0"
+          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
           style={{ cursor: pickerMode ? 'crosshair' : overImage ? 'none' : 'default' }}
           onClick={() => { if (!pickerMode) { setShowZoom(false); setZoomScale(2.5); setPickerMode(false); setPickerCircles([]); setPickerSelected(null); setShowHighlight(false); }}}
           onMouseMove={handleZoomMouseMove}
@@ -1038,12 +1044,12 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             )}
 
             {/* Card image column */}
-            <div className="relative" style={{ width: appMode === 'cameos' ? 'clamp(300px, 92vw, 600px)' : 'clamp(260px, 80vw, 420px)' }}>
+            <div className="relative" style={{ height: 'min(90dvh, 90vw / 0.714)', width: 'auto', flexShrink: 0 }}>
               <img
                 ref={zoomImgRef}
                 src={imageSrc}
                 alt={`${pokemonName} ${card.cardName}`}
-                className="w-full h-auto object-contain rounded-lg"
+                className="h-full w-auto object-contain rounded-lg"
                 style={{ cursor: pickerMode ? 'crosshair' : 'none', display: 'block', userSelect: 'none',
                   ...(appMode === 'cameos' ? { clipPath: 'inset(8% 3% 38% 3% round 4px)', marginBottom: '-38%', marginTop: '-8%' } : {}) }}
                 onMouseEnter={() => setOverImage(true)}
