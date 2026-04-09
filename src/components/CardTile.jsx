@@ -380,7 +380,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
       // Build lang-specific paths for JP/CN (uses cardName for cameos, pokemonName for illustrations)
       const buildLangPaths = (setCode, number, nameSlug) => {
         if (!setCode || !number) return [];
-        const sc = setCode.toLowerCase();
+        const sc = setCode.toLowerCase().replace(/-/g, '');
         const numParts = String(number).split('/');
         const rawNum = numParts[0] || '';
         const rawDen = numParts[1] || '';
