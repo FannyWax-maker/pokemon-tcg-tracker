@@ -266,39 +266,56 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     return imagePaths[0];
   }, [displayLang, appMode, card.jpSetCode, card.jpNumber, card.cnSetCode, card.cnNumber, card.cardName, imagePaths, pokemonName]);
 
-  // When lang image is missing, load EN image as background reference
+  // When lang image is missing, load a reference image (EN preferred, JP fallback)
   React.useEffect(() => {
     if (imageLoaded !== false || imageSrc || (displayLang !== 'JP' && displayLang !== 'CN')) {
       setEnFallbackSrc(null);
       return;
     }
     let mounted = true;
-    const loadEN = async () => {
-      const manifest = appMode === 'cameos' ? await getCameoManifest() : await getManifest();
+    const loadFallback = async () => {
+      const enManifest = appMode === 'cameos' ? await getCameoManifest() : await getManifest();
       const enBase = appMode === 'cameos' ? '/pokemon-tcg-tracker/card-images-cameo/' : '/pokemon-tcg-tracker/card-images/';
       let found = null;
-      if (manifest.size > 0) {
+      // Try EN first
+      if (enManifest.size > 0) {
         for (const path of imagePaths) {
           for (const ext of ['.png', '.jpg']) {
-            if (manifest.has(path + ext)) { found = enBase + path + ext; break; }
+            if (enManifest.has(path + ext)) { found = enBase + path + ext; break; }
           }
           if (found) break;
         }
       }
+      // If EN not found, try JP
       if (!found) {
-        for (const path of imagePaths) {
-          for (const ext of ['.png', '.jpg']) {
-            try {
-              await enqueueImageLoad(() => new Promise((res, rej) => { const i = new Image(); i.onload = () => res(enBase + path + ext); i.onerror = rej; i.src = enBase + path + ext; }));
-              found = enBase + path + ext; break;
-            } catch (_) {}
+        const jpManifest = appMode === 'cameos' ? await getCameoJpManifest() : await getJpManifest();
+        const jpBase = appMode === 'cameos' ? '/pokemon-tcg-tracker/card-images-cameo-jp/' : '/pokemon-tcg-tracker/card-images-jp/';
+        const slug = appMode === 'cameos'
+          ? (card.cardName || pokemonName).toLowerCase().replace(/[^a-z0-9]/g, '')
+          : pokemonName.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const jpSetCode = card.jpSetCode || '';
+        const jpNumber = card.jpNumber || '';
+        if (jpSetCode && jpNumber && jpManifest.size > 0) {
+          const numParts = String(jpNumber).split('/');
+          const numInt = parseInt(numParts[0]);
+          const denInt = parseInt(numParts[1] || '');
+          const nums = isNaN(numInt) ? [numParts[0]] : [String(numInt), String(numInt).padStart(2,'0'), String(numInt).padStart(3,'0')];
+          const dens = numParts[1] && !isNaN(denInt) ? [String(denInt), String(denInt).padStart(2,'0'), String(denInt).padStart(3,'0')] : [numParts[1] || ''];
+          for (const n of nums) {
+            for (const d of dens) {
+              const p = d ? `${jpSetCode.toLowerCase()}.${n}-${d}.${slug}_` : `${jpSetCode.toLowerCase()}.${n}.${slug}_`;
+              for (const ext of ['.png', '.jpg']) {
+                if (jpManifest.has(p + ext)) { found = jpBase + p + ext; break; }
+              }
+              if (found) break;
+            }
+            if (found) break;
           }
-          if (found) break;
         }
       }
       if (mounted) setEnFallbackSrc(found);
     };
-    loadEN();
+    loadFallback();
     return () => { mounted = false; };
   }, [imageLoaded, imageSrc, displayLang, cacheKey]);
 
