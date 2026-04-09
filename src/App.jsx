@@ -343,7 +343,15 @@ export default function App() {
   const setStats = useMemo(() => {
     const stats = {}, jpStats = {}, cnStats = {}, tcStats = {}, krStats = {};
     pokemonData.forEach(p => {
-      p.cards.filter(c => !c.isSecondary && c.isPrimary !== false).forEach(c => {
+      const cardFilter = appMode === 'cameos'
+        ? p.cards.filter(c => c.setCode || c.jpSetCode || c.enSetCode || c.cnSetCode)
+        : p.cards.filter(c => !c.isSecondary && c.isPrimary !== false);
+      // Deduplicate by card id in cameos (same card appears under multiple pokemon)
+      const seen = new Set();
+      const cards = appMode === 'cameos'
+        ? cardFilter.filter(c => { if (seen.has(c.id)) return false; seen.add(c.id); return true; })
+        : cardFilter;
+      cards.forEach(c => {
         if (c.setCode) {
           if (!stats[c.setCode]) stats[c.setCode] = { total: 0, owned: 0, langs: new Set() };
           stats[c.setCode].total++;
@@ -373,7 +381,7 @@ export default function App() {
       });
     });
     return { en: stats, jp: jpStats, cn: cnStats, tc: tcStats, kr: krStats };
-  }, [pokemonData]);
+  }, [pokemonData, appMode]);
 
   // Build name -> {cards, appearances} lookup from coords data
   const coordAppearances = useMemo(() => {
@@ -1131,7 +1139,7 @@ export default function App() {
                       onOwnershipClick={handleCardOwnershipClick} onToggleNonConforming={handleToggleNonConforming}
                       onToggleFavorite={handleToggleFavorite} onToggleUnobtainable={handleToggleUnobtainable}
                      
-                      onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={false} getPriceForCard={getPriceForCard} onSetFilter={(code, lang) => { setFilterSet(prev => prev === code ? 'all' : code); if (lang) setFilterSetLang(lang); setSearchInput(""); setSearchQuery(""); }} activeSetFilter={filterSet} displayLang={filterSetLang !== 'all' ? filterSetLang : 'EN'} />
+                      onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={false} getPriceForCard={getPriceForCard} onSetFilter={(code) => { setFilterSet(prev => prev === code ? 'all' : code); setSearchInput(""); setSearchQuery(""); }} activeSetFilter={filterSet} displayLang={filterSetLang !== 'all' ? filterSetLang : 'EN'} />
                     {/* Review badge overlay */}
                     <div className="absolute top-1 left-1 z-20 pointer-events-none">
                       {isReviewed ? (() => {
@@ -1173,7 +1181,7 @@ export default function App() {
                   onOwnershipClick={handleCardOwnershipClick} onToggleNonConforming={handleToggleNonConforming}
                   onToggleFavorite={handleToggleFavorite} onToggleUnobtainable={handleToggleUnobtainable}
                  
-                  onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={showOwnershipButtons} getPriceForCard={getPriceForCard} appMode={appMode} onSetFilter={(code, lang) => { setFilterSet(prev => prev === code ? 'all' : code); if (lang) setFilterSetLang(lang); setSearchInput(""); setSearchQuery(""); }} activeSetFilter={filterSet} displayLang={filterSetLang !== 'all' ? filterSetLang : 'EN'} />
+                  onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={showOwnershipButtons} getPriceForCard={getPriceForCard} appMode={appMode} onSetFilter={(code) => { setFilterSet(prev => prev === code ? 'all' : code); setSearchInput(""); setSearchQuery(""); }} activeSetFilter={filterSet} displayLang={filterSetLang !== 'all' ? filterSetLang : 'EN'} />
               ))}
             </div>
           </div>
