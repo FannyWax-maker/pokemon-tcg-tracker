@@ -320,6 +320,11 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     clearImageCache();
   }, [appMode]);
 
+  React.useEffect(() => {
+    // Clear cache when lang changes so stale entries don't bleed across
+    clearImageCache();
+  }, [displayLang]);
+
   // Reset image state immediately when the target lang/card changes
   React.useEffect(() => {
     const cached = imageCache[cacheKey];
@@ -1062,7 +1067,11 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 src={imageSrc}
                 alt={`${pokemonName} ${card.cardName}`}
                 className="object-contain rounded-lg"
-                style={{ maxHeight: '90dvh', maxWidth: '90vw', width: 'auto', height: 'auto', display: 'block', cursor: pickerMode ? 'crosshair' : 'none', userSelect: 'none' }}
+                style={{ 
+                  maxWidth: '90vw', display: 'block', cursor: pickerMode ? 'crosshair' : 'none', userSelect: 'none',
+                  ...(appMode === 'cameos' 
+                    ? { height: 'calc(90dvh / 0.54)', width: 'auto', clipPath: 'inset(8% 3% 38% 3% round 4px)', marginBottom: '-38%', marginTop: '-8%' } 
+                    : { maxHeight: '90dvh', height: 'auto', width: 'auto' }) }}
                 onMouseEnter={() => setOverImage(true)}
                 onMouseLeave={() => setOverImage(false)}
                 onLoad={() => { if (zoomImgRef.current) setImgRect(zoomImgRef.current.getBoundingClientRect()); }}
