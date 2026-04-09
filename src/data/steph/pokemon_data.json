@@ -726,7 +726,7 @@
         "cardName": "Ditto",
         "setCode": "DS",
         "number": "061/113",
-        "jpSetCode": "PCG-M",
+        "jpSetCode": "PCGM",
         "jpNumber": "003/015",
         "cnSetCode": null,
         "cnNumber": null,
@@ -1381,7 +1381,7 @@
         "cardName": "Ditto",
         "setCode": "DS",
         "number": "064/113",
-        "jpSetCode": "PCG-N",
+        "jpSetCode": "PCGN",
         "jpNumber": "002/015",
         "cnSetCode": null,
         "cnNumber": null,
@@ -3930,7 +3930,7 @@
         "cardName": "Slowpoke",
         "setCode": "UD",
         "number": "066/90",
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": "028/L-P",
         "cnSetCode": null,
         "cnNumber": null,
@@ -3954,11 +3954,11 @@
         "primaryPokemon": "Slowpoke"
       },
       {
-        "id": "cameo_lp-p_031-l-p",
+        "id": "cameo_l-p_031-l-p",
         "cardName": "Victory Medal",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": "031/L-P",
         "cnSetCode": null,
         "cnNumber": null,
@@ -3980,11 +3980,11 @@
         "primaryPokemon": "Victory Medal"
       },
       {
-        "id": "cameo_lp-p_032-l-p",
+        "id": "cameo_l-p_032-l-p",
         "cardName": "Victory Medal",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": "032/L-P",
         "cnSetCode": null,
         "cnNumber": null,
@@ -4006,11 +4006,11 @@
         "primaryPokemon": "Victory Medal"
       },
       {
-        "id": "cameo_lp-p_033-l-p",
+        "id": "cameo_l-p_033-l-p",
         "cardName": "Victory Medal",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": "033/L-P",
         "cnSetCode": null,
         "cnNumber": null,
@@ -4032,11 +4032,11 @@
         "primaryPokemon": "Victory Medal"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -4297,7 +4297,7 @@
         "cardName": "Cinccino",
         "setCode": "LTR",
         "number": "RC019/113",
-        "jpSetCode": "SC",
+        "jpSetCode": "SHC",
         "jpNumber": "019/020",
         "cnSetCode": null,
         "cnNumber": null,
@@ -4463,7 +4463,7 @@
         "cardName": "Tropical Tidal Wave",
         "setCode": "NP",
         "number": "036",
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": "?",
         "cnSetCode": null,
         "cnNumber": null,
@@ -4549,7 +4549,7 @@
         "cardName": "Ditto",
         "setCode": "DS",
         "number": "063/113",
-        "jpSetCode": "PCG-O",
+        "jpSetCode": "PCGO",
         "jpNumber": "003/015",
         "cnSetCode": null,
         "cnNumber": null,
@@ -4967,7 +4967,7 @@
         "cardName": "Sophocles",
         "setCode": "BUS",
         "number": "123/147",
-        "jpSetCode": "SM3+",
+        "jpSetCode": "SM3P",
         "jpNumber": "069/072",
         "cnSetCode": null,
         "cnNumber": null,
@@ -5598,6 +5598,114 @@
         "isPrimary": false,
         "isSecondary": true,
         "primaryPokemon": "Terapagos & Friends"
+      },
+      {
+        "id": "cameo_mep_005",
+        "cardName": "Drifloon",
+        "setCode": "MEP",
+        "number": "005",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "005",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Pikachu"
+        ],
+        "pokemonId": 25,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Drifloon"
+      },
+      {
+        "id": "cameo_mep_006",
+        "cardName": "Vigoroth",
+        "setCode": "MEP",
+        "number": "006",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "006",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Pikachu"
+        ],
+        "pokemonId": 25,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Vigoroth"
+      },
+      {
+        "id": "cameo_mep_unp",
+        "cardName": "Pikachu at the Museum",
+        "setCode": "MEP",
+        "number": "UNP",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "UNP",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Aerodactyl",
+          "Tyrantrum",
+          "Pikachu"
+        ],
+        "pokemonId": 25,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Pikachu at the Museum"
+      },
+      {
+        "id": "cameo_asc_094-217",
+        "cardName": "Slurpuff",
+        "setCode": "ASC",
+        "number": "094/217",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "094/217",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Pikachu",
+          "Snorlax",
+          "Swirlix"
+        ],
+        "pokemonId": 25,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Slurpuff"
       }
     ]
   },
@@ -5661,9 +5769,9 @@
         "primaryPokemon": "Hau"
       },
       {
-        "id": "cameo_n2_074-075",
+        "id": "cameo_ndi_074-075",
         "cardName": "Ruin Wall",
-        "setCode": "N2",
+        "setCode": "NDI",
         "number": "074/075",
         "jpSetCode": "N2",
         "jpNumber": null,
@@ -6362,6 +6470,38 @@
         "isPrimary": false,
         "isSecondary": true,
         "primaryPokemon": "Gastly"
+      },
+      {
+        "id": "cameo_mep_028",
+        "cardName": "Celebratory Fanfare",
+        "setCode": "MEP",
+        "number": "028",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "028",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Clefairy",
+          "Budew",
+          "Darumaka",
+          "Ho-Oh",
+          "Mewtwo",
+          "Drakloak",
+          "Dreepy"
+        ],
+        "pokemonId": 35,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Celebratory Fanfare"
       }
     ]
   },
@@ -8247,11 +8387,11 @@
         "primaryPokemon": "Lucky Stadium"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -8394,11 +8534,11 @@
     "region": "Kanto",
     "cards": [
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -9556,7 +9696,7 @@
         "cardName": "Tropical Tidal Wave",
         "setCode": "NP",
         "number": "036",
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": "?",
         "cnSetCode": null,
         "cnNumber": null,
@@ -11891,7 +12031,7 @@
         "cardName": "Switch",
         "setCode": "RS",
         "number": "092/109",
-        "jpSetCode": "PCG-M",
+        "jpSetCode": "PCGM",
         "jpNumber": "009/015",
         "cnSetCode": null,
         "cnNumber": null,
@@ -12272,7 +12412,7 @@
         "cardName": "Slowpoke",
         "setCode": "UD",
         "number": "066/90",
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": "028/L-P",
         "cnSetCode": null,
         "cnNumber": null,
@@ -12385,7 +12525,7 @@
         "cardName": "Slowbro",
         "setCode": "UD",
         "number": "038/90",
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": "029/L-P",
         "cnSetCode": null,
         "cnNumber": null,
@@ -12638,6 +12778,58 @@
         "isPrimary": false,
         "isSecondary": true,
         "primaryPokemon": "Iono"
+      },
+      {
+        "id": "cameo_jtg_188-159",
+        "cardName": "Iono's Bellibolt ex",
+        "setCode": "JTG",
+        "number": "188/159",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "188/159",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Magnemite"
+        ],
+        "pokemonId": 81,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Iono's Bellibolt ex"
+      },
+      {
+        "id": "cameo_jtg_172-159",
+        "cardName": "Iono's Bellibolt ex",
+        "setCode": "JTG",
+        "number": "172/159",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "172/159",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Magnemite"
+        ],
+        "pokemonId": 81,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Iono's Bellibolt ex"
       }
     ]
   },
@@ -14982,7 +15174,7 @@
         "cardName": "Sophocles",
         "setCode": "BUS",
         "number": "123/147",
-        "jpSetCode": "SM3+",
+        "jpSetCode": "SM3P",
         "jpNumber": "069/072",
         "cnSetCode": null,
         "cnNumber": null,
@@ -19173,7 +19365,7 @@
         "cardName": "Ditto",
         "setCode": "DS",
         "number": "061/113",
-        "jpSetCode": "PCG-M",
+        "jpSetCode": "PCGM",
         "jpNumber": "003/015",
         "cnSetCode": null,
         "cnNumber": null,
@@ -19225,7 +19417,7 @@
         "cardName": "Ditto",
         "setCode": "DS",
         "number": "063/113",
-        "jpSetCode": "PCG-O",
+        "jpSetCode": "PCGO",
         "jpNumber": "003/015",
         "cnSetCode": null,
         "cnNumber": null,
@@ -19251,7 +19443,7 @@
         "cardName": "Ditto",
         "setCode": "DS",
         "number": "064/113",
-        "jpSetCode": "PCG-N",
+        "jpSetCode": "PCGN",
         "jpNumber": "002/015",
         "cnSetCode": null,
         "cnNumber": null,
@@ -19331,6 +19523,34 @@
         "isPrimary": false,
         "isSecondary": true,
         "primaryPokemon": "Shelmet"
+      },
+      {
+        "id": "cameo_twm_151-167",
+        "cardName": "Hassel",
+        "setCode": "TWM",
+        "number": "151/167",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "151/167",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Ditto",
+          "Dedenne",
+          "Eevee"
+        ],
+        "pokemonId": 132,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Hassel"
       }
     ]
   },
@@ -19548,7 +19768,7 @@
         "cardName": "Shaymin",
         "setCode": "UL",
         "number": "008/095",
-        "jpSetCode": "LMEL",
+        "jpSetCode": "LED",
         "jpNumber": "005/015",
         "cnSetCode": null,
         "cnNumber": null,
@@ -19575,7 +19795,7 @@
         "cardName": "Eevee",
         "setCode": "UL",
         "number": "008/95",
-        "jpSetCode": "LMEL",
+        "jpSetCode": "LED",
         "jpNumber": "007/015",
         "cnSetCode": null,
         "cnNumber": null,
@@ -19794,6 +20014,112 @@
         "isPrimary": false,
         "isSecondary": true,
         "primaryPokemon": "Penny"
+      },
+      {
+        "id": "cameo_twm_151-167",
+        "cardName": "Hassel",
+        "setCode": "TWM",
+        "number": "151/167",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "151/167",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Ditto",
+          "Dedenne",
+          "Eevee"
+        ],
+        "pokemonId": 133,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Hassel"
+      },
+      {
+        "id": "cameo_sfa_056-064",
+        "cardName": "Cassiopeia",
+        "setCode": "SFA",
+        "number": "056/064",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "056/064",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Eevee"
+        ],
+        "pokemonId": 133,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Cassiopeia"
+      },
+      {
+        "id": "cameo_pre_109-131",
+        "cardName": "Friends in Paldea",
+        "setCode": "PRE",
+        "number": "109/131",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "109/131",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Eevee"
+        ],
+        "pokemonId": 133,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Friends in Paldea"
+      },
+      {
+        "id": "cameo_pre_137-131",
+        "cardName": "Friends in Paldea",
+        "setCode": "PRE",
+        "number": "137/131",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "137/131",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Eevee"
+        ],
+        "pokemonId": 133,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Friends in Paldea"
       }
     ]
   },
@@ -20361,9 +20687,9 @@
     "region": "Kanto",
     "cards": [
       {
-        "id": "cameo_n2_074-075",
+        "id": "cameo_ndi_074-075",
         "cardName": "Ruin Wall",
-        "setCode": "N2",
+        "setCode": "NDI",
         "number": "074/075",
         "jpSetCode": "N2",
         "jpNumber": null,
@@ -20483,6 +20809,34 @@
         "isPrimary": false,
         "isSecondary": true,
         "primaryPokemon": "Pokemon Research Lab"
+      },
+      {
+        "id": "cameo_mep_unp",
+        "cardName": "Pikachu at the Museum",
+        "setCode": "MEP",
+        "number": "UNP",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "UNP",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Aerodactyl",
+          "Tyrantrum",
+          "Pikachu"
+        ],
+        "pokemonId": 142,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Pikachu at the Museum"
       }
     ]
   },
@@ -20637,7 +20991,7 @@
         "cardName": "Ghetsis",
         "setCode": "PLF",
         "number": "101/116",
-        "jpSetCode": "BW8",
+        "jpSetCode": "BW8S",
         "jpNumber": "048/051",
         "cnSetCode": null,
         "cnNumber": null,
@@ -20828,6 +21182,60 @@
         "pokemonId": 143,
         "isPrimary": true,
         "isSecondary": false
+      },
+      {
+        "id": "cameo_par_175-182",
+        "cardName": "Snorlax Doll",
+        "setCode": "PAR",
+        "number": "175/182",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "175/182",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Snorlax"
+        ],
+        "pokemonId": 143,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Snorlax Doll"
+      },
+      {
+        "id": "cameo_asc_094-217",
+        "cardName": "Slurpuff",
+        "setCode": "ASC",
+        "number": "094/217",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "094/217",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Pikachu",
+          "Snorlax",
+          "Swirlix"
+        ],
+        "pokemonId": 143,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Slurpuff"
       }
     ]
   },
@@ -20951,11 +21359,11 @@
         "primaryPokemon": "Trainer Certification Card"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zoroark",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -21140,11 +21548,11 @@
         "primaryPokemon": "Trainer Certification Card"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -21400,11 +21808,11 @@
         "primaryPokemon": "Trainer Certification Card"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zoroark",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -21976,11 +22384,11 @@
         "primaryPokemon": "No.3 Trainer"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zoroark",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -22096,6 +22504,38 @@
         "isPrimary": false,
         "isSecondary": true,
         "primaryPokemon": "Flabébé"
+      },
+      {
+        "id": "cameo_mep_028",
+        "cardName": "Celebratory Fanfare",
+        "setCode": "MEP",
+        "number": "028",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "028",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Clefairy",
+          "Budew",
+          "Darumaka",
+          "Ho-Oh",
+          "Mewtwo",
+          "Drakloak",
+          "Dreepy"
+        ],
+        "pokemonId": 150,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Celebratory Fanfare"
       }
     ]
   },
@@ -22255,11 +22695,11 @@
         "primaryPokemon": "Ancient Mew"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zoroark",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -22671,7 +23111,7 @@
         "cardName": "Slowbro",
         "setCode": "UD",
         "number": "038/90",
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": "029/L-P",
         "cnSetCode": null,
         "cnNumber": null,
@@ -22695,11 +23135,11 @@
         "primaryPokemon": "Slowbro"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -22775,11 +23215,11 @@
     "region": "Johto",
     "cards": [
       {
-        "id": "cameo_lp-p_041-l-p",
+        "id": "cameo_l-p_041-l-p",
         "cardName": "Victory Medal",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": "041/L-P",
         "cnSetCode": null,
         "cnNumber": null,
@@ -22991,7 +23431,7 @@
         "cardName": "Slowbro",
         "setCode": "UD",
         "number": "038/90",
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": "029/L-P",
         "cnSetCode": null,
         "cnNumber": null,
@@ -23015,11 +23455,11 @@
         "primaryPokemon": "Slowbro"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -23067,11 +23507,11 @@
     "region": "Johto",
     "cards": [
       {
-        "id": "cameo_lp-p_027-l-p",
+        "id": "cameo_l-p_027-l-p",
         "cardName": "Victory Medal",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": "027/L-P",
         "cnSetCode": null,
         "cnNumber": null,
@@ -23093,11 +23533,11 @@
         "primaryPokemon": "Victory Medal"
       },
       {
-        "id": "cameo_lp-p_042-l-p",
+        "id": "cameo_l-p_042-l-p",
         "cardName": "Victory Medal",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": "042/L-P",
         "cnSetCode": null,
         "cnNumber": null,
@@ -23248,7 +23688,7 @@
         "cardName": "Slowpoke",
         "setCode": "UD",
         "number": "066/90",
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": "028/L-P",
         "cnSetCode": null,
         "cnNumber": null,
@@ -23312,11 +23752,11 @@
     "region": "Johto",
     "cards": [
       {
-        "id": "cameo_lp-p_043-l-p",
+        "id": "cameo_l-p_043-l-p",
         "cardName": "Victory Medal",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": "043/L-P",
         "cnSetCode": null,
         "cnNumber": null,
@@ -24052,11 +24492,11 @@
         "primaryPokemon": "Michina Temple"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -25517,11 +25957,11 @@
         "primaryPokemon": "Tropical Tidal Wave"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -26819,11 +27259,11 @@
         "primaryPokemon": "Poncho-wearing Eevee"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -26913,12 +27353,12 @@
         "primaryPokemon": "Pokémon Center"
       },
       {
-        "id": "cameo_n2_032-075",
+        "id": "cameo_ndi_032-075",
         "cardName": "Umbreon",
-        "setCode": "N2",
+        "setCode": "NDI",
         "number": "032/075",
         "jpSetCode": "PF2",
-        "jpNumber": null,
+        "jpNumber": "102",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -26981,11 +27421,11 @@
         "primaryPokemon": "Pokémon March"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -27119,7 +27559,7 @@
         "cardName": "Beldum",
         "setCode": "UL",
         "number": "044/95",
-        "jpSetCode": "LMEM",
+        "jpSetCode": "MED",
         "jpNumber": "003/014",
         "cnSetCode": null,
         "cnNumber": null,
@@ -27441,7 +27881,7 @@
         "cardName": "Mismagius",
         "setCode": "UL",
         "number": "005/095",
-        "jpSetCode": "LMEM",
+        "jpSetCode": "MED",
         "jpNumber": "002/014",
         "cnSetCode": null,
         "cnNumber": null,
@@ -27951,11 +28391,11 @@
         "primaryPokemon": "Tropical Wind"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -28050,7 +28490,7 @@
         "cardName": "Ursaring",
         "setCode": "LTR",
         "number": "RC016/113",
-        "jpSetCode": "SC",
+        "jpSetCode": "SHC",
         "jpNumber": "016/020",
         "cnSetCode": null,
         "cnNumber": null,
@@ -28138,7 +28578,7 @@
         "cardName": "Ursaring",
         "setCode": "LTR",
         "number": "RC016/113",
-        "jpSetCode": "SC",
+        "jpSetCode": "SHC",
         "jpNumber": "016/020",
         "cnSetCode": null,
         "cnNumber": null,
@@ -28746,6 +29186,32 @@
         "isPrimary": false,
         "isSecondary": true,
         "primaryPokemon": "Mantine"
+      },
+      {
+        "id": "cameo_meg_032-132",
+        "cardName": "Mantine",
+        "setCode": "MEG",
+        "number": "032/132",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "032/132",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Remoraid"
+        ],
+        "pokemonId": 223,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Mantine"
       }
     ]
   },
@@ -29253,6 +29719,31 @@
         "isPrimary": false,
         "isSecondary": true,
         "primaryPokemon": "Paradise Resort"
+      },
+      {
+        "id": "cameo_meg_032-132",
+        "cardName": "Mantine",
+        "setCode": "MEG",
+        "number": "032/132",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "032/132",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Remoraid"
+        ],
+        "pokemonId": 226,
+        "isPrimary": true,
+        "isSecondary": false
       }
     ]
   },
@@ -29267,7 +29758,7 @@
         "cardName": "Ho-Oh",
         "setCode": "NR",
         "number": "018/064",
-        "jpSetCode": "PF3",
+        "jpSetCode": "UNP",
         "jpNumber": "250",
         "cnSetCode": null,
         "cnNumber": null,
@@ -29295,7 +29786,7 @@
         "cardName": "Skarmory",
         "setCode": "NR",
         "number": "023/064",
-        "jpSetCode": "PF3",
+        "jpSetCode": "UNP",
         "jpNumber": "227",
         "cnSetCode": null,
         "cnNumber": null,
@@ -30210,7 +30701,7 @@
         "cardName": "Pokémon Breeder",
         "setCode": "SLG",
         "number": "063/073",
-        "jpSetCode": "SM3+",
+        "jpSetCode": "SM3P",
         "jpNumber": "068/072",
         "cnSetCode": null,
         "cnNumber": null,
@@ -30280,8 +30771,8 @@
         "cardName": "Burned Tower",
         "setCode": "HS",
         "number": "071/090",
-        "jpSetCode": "LP-P",
-        "jpNumber": "052/L-P",
+        "jpSetCode": "L2",
+        "jpNumber": "078/80",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -30305,11 +30796,11 @@
         "primaryPokemon": "Burned Tower"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zoroark",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -30443,8 +30934,8 @@
         "cardName": "Burned Tower",
         "setCode": "HS",
         "number": "071/090",
-        "jpSetCode": "LP-P",
-        "jpNumber": "052/L-P",
+        "jpSetCode": "L2",
+        "jpNumber": "078/80",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -30468,11 +30959,11 @@
         "primaryPokemon": "Burned Tower"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zoroark",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -30633,8 +31124,8 @@
         "cardName": "Burned Tower",
         "setCode": "HS",
         "number": "071/090",
-        "jpSetCode": "LP-P",
-        "jpNumber": "052/L-P",
+        "jpSetCode": "L2",
+        "jpNumber": "078/80",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -30658,11 +31149,11 @@
         "primaryPokemon": "Burned Tower"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zoroark",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -30846,7 +31337,7 @@
         "cardName": "Ho-Oh",
         "setCode": "NR",
         "number": "018/064",
-        "jpSetCode": "PF3",
+        "jpSetCode": "UNP",
         "jpNumber": "250",
         "cnSetCode": null,
         "cnNumber": null,
@@ -30874,7 +31365,7 @@
         "cardName": "Lugia",
         "setCode": "NR",
         "number": "020/064",
-        "jpSetCode": "PF3",
+        "jpSetCode": "UNP",
         "jpNumber": "249",
         "cnSetCode": null,
         "cnNumber": null,
@@ -31030,11 +31521,11 @@
         "primaryPokemon": "No.2 Trainer"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zoroark",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -31097,12 +31588,12 @@
         "primaryPokemon": "Water Energy"
       },
       {
-        "id": "cameo_n2_032-075",
+        "id": "cameo_ndi_032-075",
         "cardName": "Umbreon",
-        "setCode": "N2",
+        "setCode": "NDI",
         "number": "032/075",
         "jpSetCode": "PF2",
-        "jpNumber": null,
+        "jpNumber": "102",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -31136,7 +31627,7 @@
         "cardName": "Ho-Oh",
         "setCode": "NR",
         "number": "018/064",
-        "jpSetCode": "PF3",
+        "jpSetCode": "UNP",
         "jpNumber": "250",
         "cnSetCode": null,
         "cnNumber": null,
@@ -31163,7 +31654,7 @@
         "cardName": "Lugia",
         "setCode": "NR",
         "number": "020/064",
-        "jpSetCode": "PF3",
+        "jpSetCode": "UNP",
         "jpNumber": "249",
         "cnSetCode": null,
         "cnNumber": null,
@@ -31190,7 +31681,7 @@
         "cardName": "Skarmory",
         "setCode": "NR",
         "number": "023/064",
-        "jpSetCode": "PF3",
+        "jpSetCode": "UNP",
         "jpNumber": "227",
         "cnSetCode": null,
         "cnNumber": null,
@@ -31292,11 +31783,11 @@
         "primaryPokemon": "No.1 Trainer"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zoroark",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -31384,6 +31875,38 @@
         "isPrimary": false,
         "isSecondary": true,
         "primaryPokemon": "Golbat"
+      },
+      {
+        "id": "cameo_mep_028",
+        "cardName": "Celebratory Fanfare",
+        "setCode": "MEP",
+        "number": "028",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "028",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Clefairy",
+          "Budew",
+          "Darumaka",
+          "Ho-Oh",
+          "Mewtwo",
+          "Drakloak",
+          "Dreepy"
+        ],
+        "pokemonId": 250,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Celebratory Fanfare"
       }
     ]
   },
@@ -31455,8 +31978,8 @@
         "cardName": "Indigo Plateau",
         "setCode": "TM",
         "number": "086/102",
-        "jpSetCode": "LP-P",
-        "jpNumber": "070/L-P",
+        "jpSetCode": "L3",
+        "jpNumber": "079/80",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -31478,11 +32001,11 @@
         "primaryPokemon": "Indigo Plateau"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -31730,7 +32253,7 @@
         "cardName": "Switch",
         "setCode": "RS",
         "number": "092/109",
-        "jpSetCode": "PCG-M",
+        "jpSetCode": "PCGM",
         "jpNumber": "009/015",
         "cnSetCode": null,
         "cnNumber": null,
@@ -32015,11 +32538,11 @@
     "region": "Hoenn",
     "cards": [
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -32331,11 +32854,11 @@
     "region": "Hoenn",
     "cards": [
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -32371,11 +32894,11 @@
     "region": "Hoenn",
     "cards": [
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -32653,7 +33176,7 @@
         "cardName": "Wailmer",
         "setCode": "SS",
         "number": "083/100",
-        "jpSetCode": "ADV4",
+        "jpSetCode": "ADVEX1",
         "jpNumber": "032/080",
         "cnSetCode": null,
         "cnNumber": null,
@@ -32680,7 +33203,7 @@
         "cardName": "Feebas",
         "setCode": "HL",
         "number": "061/101",
-        "jpSetCode": "ADV5",
+        "jpSetCode": "ADV4",
         "jpNumber": "024/083",
         "cnSetCode": null,
         "cnNumber": null,
@@ -32975,7 +33498,7 @@
         "cardName": "Feebas",
         "setCode": "HL",
         "number": "061/101",
-        "jpSetCode": "ADV5",
+        "jpSetCode": "ADV4",
         "jpNumber": "024/083",
         "cnSetCode": null,
         "cnNumber": null,
@@ -33444,6 +33967,31 @@
         "pokemonId": 288,
         "isPrimary": true,
         "isSecondary": false
+      },
+      {
+        "id": "cameo_mep_006",
+        "cardName": "Vigoroth",
+        "setCode": "MEP",
+        "number": "006",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "006",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Pikachu"
+        ],
+        "pokemonId": 288,
+        "isPrimary": true,
+        "isSecondary": false
       }
     ]
   },
@@ -33500,7 +34048,7 @@
         "cardName": "Ninjask",
         "setCode": "DRX",
         "number": "011/124",
-        "jpSetCode": "BW5",
+        "jpSetCode": "BW5E",
         "jpNumber": "005/050",
         "cnSetCode": null,
         "cnNumber": null,
@@ -33526,7 +34074,7 @@
         "cardName": "Shedinja",
         "setCode": "DRX",
         "number": "048/124",
-        "jpSetCode": "BW5",
+        "jpSetCode": "BW5E",
         "jpNumber": "018/050",
         "cnSetCode": null,
         "cnNumber": null,
@@ -34640,7 +35188,7 @@
         "cardName": "Plusle",
         "setCode": "SLG",
         "number": "033/073",
-        "jpSetCode": "SM3+",
+        "jpSetCode": "SM3P",
         "jpNumber": "034/072",
         "cnSetCode": null,
         "cnNumber": null,
@@ -34666,7 +35214,7 @@
         "cardName": "Minun",
         "setCode": "SLG",
         "number": "034/073",
-        "jpSetCode": "SM3+",
+        "jpSetCode": "SM3P",
         "jpNumber": "035/072",
         "cnSetCode": null,
         "cnNumber": null,
@@ -35136,7 +35684,7 @@
         "cardName": "Plusle",
         "setCode": "SLG",
         "number": "033/073",
-        "jpSetCode": "SM3+",
+        "jpSetCode": "SM3P",
         "jpNumber": "034/072",
         "cnSetCode": null,
         "cnNumber": null,
@@ -35163,7 +35711,7 @@
         "cardName": "Minun",
         "setCode": "SLG",
         "number": "034/073",
-        "jpSetCode": "SM3+",
+        "jpSetCode": "SM3P",
         "jpNumber": "035/072",
         "cnSetCode": null,
         "cnNumber": null,
@@ -35453,7 +36001,7 @@
         "cardName": "Emcee's Chatter",
         "setCode": "UL",
         "number": "073/95",
-        "jpSetCode": "LMEL",
+        "jpSetCode": "LED",
         "jpNumber": "013/015",
         "cnSetCode": null,
         "cnNumber": null,
@@ -35480,7 +36028,7 @@
         "cardName": "Cheerleader's Cheer",
         "setCode": "UL",
         "number": "071/95",
-        "jpSetCode": "LMEL",
+        "jpSetCode": "LED",
         "jpNumber": "014/015",
         "cnSetCode": null,
         "cnNumber": null,
@@ -35530,7 +36078,7 @@
         "cardName": "Eevee",
         "setCode": "UL",
         "number": "008/95",
-        "jpSetCode": "LMEL",
+        "jpSetCode": "LED",
         "jpNumber": "007/015",
         "cnSetCode": null,
         "cnNumber": null,
@@ -35557,7 +36105,7 @@
         "cardName": "Pokémon Circulator",
         "setCode": "UL",
         "number": "081/95",
-        "jpSetCode": "LMEM",
+        "jpSetCode": "MED",
         "jpNumber": "010/014",
         "cnSetCode": null,
         "cnNumber": null,
@@ -35684,7 +36232,7 @@
         "cardName": "Tropical Tidal Wave",
         "setCode": "NP",
         "number": "036",
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": "?",
         "cnSetCode": null,
         "cnNumber": null,
@@ -35714,7 +36262,7 @@
         "cardName": "Wailmer",
         "setCode": "SS",
         "number": "083/100",
-        "jpSetCode": "ADV4",
+        "jpSetCode": "ADVEX1",
         "jpNumber": "032/080",
         "cnSetCode": null,
         "cnNumber": null,
@@ -35874,6 +36422,32 @@
         "pokemonId": 321,
         "isPrimary": true,
         "isSecondary": false
+      },
+      {
+        "id": "cameo_jtg_070-159",
+        "cardName": "Dhelmise",
+        "setCode": "JTG",
+        "number": "070/159",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "070/159",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Wailord"
+        ],
+        "pokemonId": 321,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Dhelmise"
       }
     ]
   },
@@ -36274,11 +36848,11 @@
     "region": "Hoenn",
     "cards": [
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -37076,7 +37650,7 @@
         "cardName": "Feebas",
         "setCode": "HL",
         "number": "061/101",
-        "jpSetCode": "ADV5",
+        "jpSetCode": "ADV4",
         "jpNumber": "024/083",
         "cnSetCode": null,
         "cnNumber": null,
@@ -37246,7 +37820,7 @@
         "cardName": "Feebas",
         "setCode": "HL",
         "number": "061/101",
-        "jpSetCode": "ADV5",
+        "jpSetCode": "ADV4",
         "jpNumber": "024/083",
         "cnSetCode": null,
         "cnNumber": null,
@@ -37277,7 +37851,34 @@
     "name": "Chimecho",
     "gen": 3,
     "region": "Hoenn",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_pre_113-131",
+        "cardName": "Kieran",
+        "setCode": "PRE",
+        "number": "113/131",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "113/131",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Chimecho"
+        ],
+        "pokemonId": 358,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Kieran"
+      }
+    ]
   },
   {
     "id": 359,
@@ -37286,11 +37887,11 @@
     "region": "Hoenn",
     "cards": [
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -37338,7 +37939,7 @@
         "cardName": "Snow-cloud Castform",
         "setCode": "HL",
         "number": "025/101",
-        "jpSetCode": "ADV5",
+        "jpSetCode": "ADV4",
         "jpNumber": "027/083",
         "cnSetCode": null,
         "cnNumber": null,
@@ -37911,7 +38512,7 @@
         "cardName": "Cheerleader's Cheer",
         "setCode": "UL",
         "number": "071/95",
-        "jpSetCode": "LMEL",
+        "jpSetCode": "LED",
         "jpNumber": "014/015",
         "cnSetCode": null,
         "cnNumber": null,
@@ -37939,7 +38540,7 @@
         "cardName": "Beldum",
         "setCode": "UL",
         "number": "044/95",
-        "jpSetCode": "LMEM",
+        "jpSetCode": "MED",
         "jpNumber": "003/014",
         "cnSetCode": null,
         "cnNumber": null,
@@ -37965,7 +38566,7 @@
         "cardName": "Judge",
         "setCode": "UL",
         "number": "078/95",
-        "jpSetCode": "LMEM",
+        "jpSetCode": "MED",
         "jpNumber": "014/014",
         "cnSetCode": null,
         "cnNumber": null,
@@ -38119,11 +38720,11 @@
         "primaryPokemon": "Latias"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -38282,11 +38883,11 @@
         "primaryPokemon": "Zoroark and the Legendary Pokémon"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -38402,11 +39003,11 @@
         "primaryPokemon": "Pokémon Pal City"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zoroark",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -38957,11 +39558,11 @@
         "primaryPokemon": "Michina Temple"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -39671,6 +40272,38 @@
         "isPrimary": false,
         "isSecondary": true,
         "primaryPokemon": "Slakoth"
+      },
+      {
+        "id": "cameo_mep_028",
+        "cardName": "Celebratory Fanfare",
+        "setCode": "MEP",
+        "number": "028",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "028",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Clefairy",
+          "Budew",
+          "Darumaka",
+          "Ho-Oh",
+          "Mewtwo",
+          "Drakloak",
+          "Dreepy"
+        ],
+        "pokemonId": 406,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Celebratory Fanfare"
       }
     ]
   },
@@ -39712,7 +40345,7 @@
         "cardName": "Super Scoop Up",
         "setCode": "UL",
         "number": "083/95",
-        "jpSetCode": "LMEL",
+        "jpSetCode": "LED",
         "jpNumber": "009/015",
         "cnSetCode": null,
         "cnNumber": null,
@@ -39978,11 +40611,11 @@
         "primaryPokemon": "Department Store Girl"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -40099,11 +40732,11 @@
         "primaryPokemon": "Cherry Blossom Afro Pikachu"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -40304,6 +40937,31 @@
         "isPrimary": false,
         "isSecondary": true,
         "primaryPokemon": "Clefable"
+      },
+      {
+        "id": "cameo_mep_005",
+        "cardName": "Drifloon",
+        "setCode": "MEP",
+        "number": "005",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "005",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Pikachu"
+        ],
+        "pokemonId": 425,
+        "isPrimary": true,
+        "isSecondary": false
       }
     ]
   },
@@ -40591,7 +41249,7 @@
         "cardName": "Mismagius",
         "setCode": "UL",
         "number": "005/095",
-        "jpSetCode": "LMEM",
+        "jpSetCode": "MED",
         "jpNumber": "002/014",
         "cnSetCode": null,
         "cnNumber": null,
@@ -40849,11 +41507,11 @@
     "region": "Sinnoh",
     "cards": [
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -41170,11 +41828,11 @@
         "primaryPokemon": "Spiky-eared Pichu M"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -41481,11 +42139,11 @@
         "primaryPokemon": "Tropical Tidal Wave"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -41517,7 +42175,7 @@
         "cardName": "Tropical Tidal Wave",
         "setCode": "NP",
         "number": "036",
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": "?",
         "cnSetCode": null,
         "cnNumber": null,
@@ -42932,7 +43590,7 @@
         "cardName": "Dawn Stadium",
         "setCode": "MD",
         "number": "079/100",
-        "jpSetCode": "DP4",
+        "jpSetCode": "DP4D",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -42960,7 +43618,7 @@
         "cardName": "Interviewer's Questions",
         "setCode": "UL",
         "number": "077/95",
-        "jpSetCode": "LMEL",
+        "jpSetCode": "LED",
         "jpNumber": "011/015",
         "cnSetCode": null,
         "cnNumber": null,
@@ -43055,7 +43713,7 @@
         "cardName": "Dawn Stadium",
         "setCode": "MD",
         "number": "079/100",
-        "jpSetCode": "DP4",
+        "jpSetCode": "DP4D",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -43257,7 +43915,7 @@
         "cardName": "Ghetsis",
         "setCode": "PLF",
         "number": "101/116",
-        "jpSetCode": "BW8",
+        "jpSetCode": "BW8S",
         "jpNumber": "048/051",
         "cnSetCode": null,
         "cnNumber": null,
@@ -43491,11 +44149,11 @@
         "primaryPokemon": "Lake Boundary"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -43586,11 +44244,11 @@
         "primaryPokemon": "Lake Boundary"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -43681,11 +44339,11 @@
         "primaryPokemon": "Lake Boundary"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -43906,11 +44564,11 @@
     "region": "Sinnoh",
     "cards": [
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zoroark",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -44329,11 +44987,11 @@
     "region": "Sinnoh",
     "cards": [
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zoroark",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -44439,7 +45097,7 @@
         "cardName": "Shaymin",
         "setCode": "UL",
         "number": "008/095",
-        "jpSetCode": "LMEL",
+        "jpSetCode": "LED",
         "jpNumber": "005/015",
         "cnSetCode": null,
         "cnNumber": null,
@@ -44628,11 +45286,11 @@
         "primaryPokemon": "Ultimate Zone"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zoroark",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -45617,7 +46275,7 @@
         "cardName": "Aspertia City Gym",
         "setCode": "BCR",
         "number": "127/149",
-        "jpSetCode": "BW6",
+        "jpSetCode": "BW6F",
         "jpNumber": "057/059",
         "cnSetCode": null,
         "cnNumber": null,
@@ -46045,6 +46703,31 @@
         "isPrimary": false,
         "isSecondary": true,
         "primaryPokemon": "Poncho-wearing Pikachu"
+      },
+      {
+        "id": "cameo_jtg_124-159",
+        "cardName": "Audino",
+        "setCode": "JTG",
+        "number": "124/159",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "124/159",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "?"
+        ],
+        "pokemonId": 531,
+        "isPrimary": true,
+        "isSecondary": false
       }
     ]
   },
@@ -46412,9 +47095,9 @@
     "region": "Unova",
     "cards": [
       {
-        "id": "cameo_xyp_122-146",
+        "id": "cameo_xy_122-146",
         "cardName": "Professor Sycamore",
-        "setCode": "XYP",
+        "setCode": "XY",
         "number": "122/146",
         "jpSetCode": "XY-P",
         "jpNumber": "028/XY-P",
@@ -46654,6 +47337,38 @@
         "isPrimary": false,
         "isSecondary": true,
         "primaryPokemon": "Champions Festival"
+      },
+      {
+        "id": "cameo_mep_028",
+        "cardName": "Celebratory Fanfare",
+        "setCode": "MEP",
+        "number": "028",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "028",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Clefairy",
+          "Budew",
+          "Darumaka",
+          "Ho-Oh",
+          "Mewtwo",
+          "Drakloak",
+          "Dreepy"
+        ],
+        "pokemonId": 554,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Celebratory Fanfare"
       }
     ]
   },
@@ -46896,7 +47611,7 @@
         "cardName": "Ghetsis",
         "setCode": "PLF",
         "number": "101/116",
-        "jpSetCode": "BW8",
+        "jpSetCode": "BW8S",
         "jpNumber": "048/051",
         "cnSetCode": null,
         "cnNumber": null,
@@ -46957,9 +47672,9 @@
     "region": "Unova",
     "cards": [
       {
-        "id": "cameo_xyp_122-146",
+        "id": "cameo_xy_122-146",
         "cardName": "Professor Sycamore",
-        "setCode": "XYP",
+        "setCode": "XY",
         "number": "122/146",
         "jpSetCode": "XY-P",
         "jpNumber": "028/XY-P",
@@ -46994,9 +47709,9 @@
     "region": "Unova",
     "cards": [
       {
-        "id": "cameo_xyp_122-146",
+        "id": "cameo_xy_122-146",
         "cardName": "Professor Sycamore",
-        "setCode": "XYP",
+        "setCode": "XY",
         "number": "122/146",
         "jpSetCode": "XY-P",
         "jpNumber": "028/XY-P",
@@ -47317,7 +48032,7 @@
         "cardName": "Zorua",
         "setCode": "SLG",
         "number": "052/073",
-        "jpSetCode": "SM3+",
+        "jpSetCode": "SM3P",
         "jpNumber": "053/072",
         "cnSetCode": null,
         "cnNumber": null,
@@ -47374,11 +48089,11 @@
         "primaryPokemon": "Zorua"
       },
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -47437,7 +48152,7 @@
         "cardName": "Zorua",
         "setCode": "SLG",
         "number": "052/073",
-        "jpSetCode": "SM3+",
+        "jpSetCode": "SM3P",
         "jpNumber": "053/072",
         "cnSetCode": null,
         "cnNumber": null,
@@ -47472,7 +48187,7 @@
         "cardName": "Pokémon Communication",
         "setCode": "BLW",
         "number": "099/114",
-        "jpSetCode": "BW1",
+        "jpSetCode": "BW1B",
         "jpNumber": "050/053",
         "cnSetCode": null,
         "cnNumber": null,
@@ -47587,7 +48302,7 @@
         "cardName": "Cinccino",
         "setCode": "LTR",
         "number": "RC019/113",
-        "jpSetCode": "SC",
+        "jpSetCode": "SHC",
         "jpNumber": "019/020",
         "cnSetCode": null,
         "cnNumber": null,
@@ -47907,8 +48622,8 @@
         "cardName": "Tierno",
         "setCode": "BKP",
         "number": "112/122",
-        "jpSetCode": "KSS",
-        "jpNumber": "039/039",
+        "jpSetCode": "20TH",
+        "jpNumber": "066/072",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -48108,6 +48823,57 @@
         "isPrimary": false,
         "isSecondary": true,
         "primaryPokemon": "Shelmet"
+      },
+      {
+        "id": "cameo_blk_009-086",
+        "cardName": "Karrablast",
+        "setCode": "BLK",
+        "number": "009/086",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "009/086",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Shelmet"
+        ],
+        "pokemonId": 588,
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "cameo_wht_008-086",
+        "cardName": "Shelmet",
+        "setCode": "WHT",
+        "number": "008/086",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "008/086",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Karrablast"
+        ],
+        "pokemonId": 588,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Shelmet"
       }
     ]
   },
@@ -48164,7 +48930,7 @@
         "cardName": "Ghetsis",
         "setCode": "PLF",
         "number": "101/116",
-        "jpSetCode": "BW8",
+        "jpSetCode": "BW8S",
         "jpNumber": "048/051",
         "cnSetCode": null,
         "cnNumber": null,
@@ -48590,6 +49356,57 @@
         "pokemonId": 616,
         "isPrimary": true,
         "isSecondary": false
+      },
+      {
+        "id": "cameo_blk_009-086",
+        "cardName": "Karrablast",
+        "setCode": "BLK",
+        "number": "009/086",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "009/086",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Shelmet"
+        ],
+        "pokemonId": 616,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Karrablast"
+      },
+      {
+        "id": "cameo_wht_008-086",
+        "cardName": "Shelmet",
+        "setCode": "WHT",
+        "number": "008/086",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "008/086",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Karrablast"
+        ],
+        "pokemonId": 616,
+        "isPrimary": true,
+        "isSecondary": false
       }
     ]
   },
@@ -48639,7 +49456,7 @@
         "setCode": "UNB",
         "number": "056/214",
         "jpSetCode": "SM10",
-        "jpNumber": "028//095",
+        "jpNumber": "028/095",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -48754,7 +49571,7 @@
         "cardName": "Golurk",
         "setCode": "SLG",
         "number": "044/073",
-        "jpSetCode": "SM3+",
+        "jpSetCode": "SM3P",
         "jpNumber": "045/072",
         "cnSetCode": null,
         "cnNumber": null,
@@ -49418,7 +50235,7 @@
         "cardName": "Golurk",
         "setCode": "SLG",
         "number": "044/073",
-        "jpSetCode": "SM3+",
+        "jpSetCode": "SM3P",
         "jpNumber": "045/072",
         "cnSetCode": null,
         "cnNumber": null,
@@ -50570,6 +51387,32 @@
         "isPrimary": false,
         "isSecondary": true,
         "primaryPokemon": "Arcanine"
+      },
+      {
+        "id": "cameo_jtg_154-159",
+        "cardName": "Postwick",
+        "setCode": "JTG",
+        "number": "154/159",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "154/159",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Fletchling"
+        ],
+        "pokemonId": 661,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Postwick"
       }
     ]
   },
@@ -51317,6 +52160,34 @@
         "isPrimary": false,
         "isSecondary": true,
         "primaryPokemon": "Slurpuff"
+      },
+      {
+        "id": "cameo_asc_094-217",
+        "cardName": "Slurpuff",
+        "setCode": "ASC",
+        "number": "094/217",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "094/217",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Pikachu",
+          "Snorlax",
+          "Swirlix"
+        ],
+        "pokemonId": 684,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Slurpuff"
       }
     ]
   },
@@ -51372,6 +52243,33 @@
           "JP"
         ],
         "otherPokemon": [
+          "Swirlix"
+        ],
+        "pokemonId": 685,
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "cameo_asc_094-217",
+        "cardName": "Slurpuff",
+        "setCode": "ASC",
+        "number": "094/217",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "094/217",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Pikachu",
+          "Snorlax",
           "Swirlix"
         ],
         "pokemonId": 685,
@@ -51574,7 +52472,36 @@
     "name": "Tyrantrum",
     "gen": 6,
     "region": "Kalos",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_mep_unp",
+        "cardName": "Pikachu at the Museum",
+        "setCode": "MEP",
+        "number": "UNP",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "UNP",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Aerodactyl",
+          "Tyrantrum",
+          "Pikachu"
+        ],
+        "pokemonId": 697,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Pikachu at the Museum"
+      }
+    ]
   },
   {
     "id": 698,
@@ -51971,6 +52898,34 @@
         "isPrimary": false,
         "isSecondary": true,
         "primaryPokemon": "Morpeko"
+      },
+      {
+        "id": "cameo_twm_151-167",
+        "cardName": "Hassel",
+        "setCode": "TWM",
+        "number": "151/167",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "151/167",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Ditto",
+          "Dedenne",
+          "Eevee"
+        ],
+        "pokemonId": 702,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Hassel"
       }
     ]
   },
@@ -51993,7 +52948,7 @@
         "setCode": "UNB",
         "number": "056/214",
         "jpSetCode": "SM10",
-        "jpNumber": "028//095",
+        "jpNumber": "028/095",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -53244,7 +54199,7 @@
         "cardName": "Pokémon Breeder",
         "setCode": "SLG",
         "number": "063/073",
-        "jpSetCode": "SM3+",
+        "jpSetCode": "SM3P",
         "jpNumber": "068/072",
         "cnSetCode": null,
         "cnNumber": null,
@@ -53508,6 +54463,31 @@
         ],
         "otherPokemon": [
           "Slaking"
+        ],
+        "pokemonId": 752,
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "cameo_fst_020-264",
+        "cardName": "Araquanid",
+        "setCode": "FST",
+        "number": "020/264",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "020/264",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Sandyghast"
         ],
         "pokemonId": 752,
         "isPrimary": true,
@@ -54101,7 +55081,7 @@
         "cardName": "Electric Memory",
         "setCode": "UPR",
         "number": "121/156",
-        "jpSetCode": "SM4+",
+        "jpSetCode": "SM4P",
         "jpNumber": "099/114",
         "cnSetCode": null,
         "cnNumber": null,
@@ -54128,7 +55108,7 @@
         "cardName": "Fire Memory",
         "setCode": "UPR",
         "number": "123/156",
-        "jpSetCode": "SM4+",
+        "jpSetCode": "SM4P",
         "jpNumber": "102/114",
         "cnSetCode": null,
         "cnNumber": null,
@@ -54568,6 +55548,31 @@
         "otherPokemon": [
           "Wishiwashi",
           "Pyukumuku"
+        ],
+        "pokemonId": 781,
+        "isPrimary": true,
+        "isSecondary": false
+      },
+      {
+        "id": "cameo_jtg_070-159",
+        "cardName": "Dhelmise",
+        "setCode": "JTG",
+        "number": "070/159",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "070/159",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Wailord"
         ],
         "pokemonId": 781,
         "isPrimary": true,
@@ -55835,7 +56840,34 @@
     "name": "Skwovet",
     "gen": 8,
     "region": "Galar",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_par_235-182",
+        "cardName": "Larry",
+        "setCode": "PAR",
+        "number": "235/182",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "235/182",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Skwovet"
+        ],
+        "pokemonId": 819,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Larry"
+      }
+    ]
   },
   {
     "id": 820,
@@ -56474,6 +57506,31 @@
         "isPrimary": false,
         "isSecondary": true,
         "primaryPokemon": "Quick Ball"
+      },
+      {
+        "id": "cameo_jtg_137-159",
+        "cardName": "Cramorant",
+        "setCode": "JTG",
+        "number": "137/159",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "137/159",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Arrokuda"
+        ],
+        "pokemonId": 845,
+        "isPrimary": true,
+        "isSecondary": false
       }
     ]
   },
@@ -56535,6 +57592,32 @@
         "pokemonId": 846,
         "isPrimary": true,
         "isSecondary": false
+      },
+      {
+        "id": "cameo_jtg_137-159",
+        "cardName": "Cramorant",
+        "setCode": "JTG",
+        "number": "137/159",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "137/159",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Arrokuda"
+        ],
+        "pokemonId": 846,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Cramorant"
       }
     ]
   },
@@ -57304,6 +58387,38 @@
         "isPrimary": false,
         "isSecondary": true,
         "primaryPokemon": "Dragapult"
+      },
+      {
+        "id": "cameo_mep_028",
+        "cardName": "Celebratory Fanfare",
+        "setCode": "MEP",
+        "number": "028",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "028",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Clefairy",
+          "Budew",
+          "Darumaka",
+          "Ho-Oh",
+          "Mewtwo",
+          "Drakloak",
+          "Dreepy"
+        ],
+        "pokemonId": 885,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Celebratory Fanfare"
       }
     ]
   },
@@ -57365,6 +58480,38 @@
         "pokemonId": 886,
         "isPrimary": true,
         "isSecondary": false
+      },
+      {
+        "id": "cameo_mep_028",
+        "cardName": "Celebratory Fanfare",
+        "setCode": "MEP",
+        "number": "028",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "028",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Clefairy",
+          "Budew",
+          "Darumaka",
+          "Ho-Oh",
+          "Mewtwo",
+          "Drakloak",
+          "Dreepy"
+        ],
+        "pokemonId": 886,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Celebratory Fanfare"
       }
     ]
   },
@@ -57654,11 +58801,11 @@
     "region": "Galar",
     "cards": [
       {
-        "id": "cameo_lp-p_",
+        "id": "cameo_l-p_",
         "cardName": "Illusion's Zorua",
         "setCode": null,
         "number": null,
-        "jpSetCode": "LP-P",
+        "jpSetCode": "L-P",
         "jpNumber": null,
         "cnSetCode": null,
         "cnNumber": null,
@@ -57797,6 +58944,34 @@
         "isPrimary": false,
         "isSecondary": true,
         "primaryPokemon": "Terapagos & Friends"
+      },
+      {
+        "id": "cameo_jtg_150-159",
+        "cardName": "Levincia",
+        "setCode": "JTG",
+        "number": "150/159",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "150/159",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Sprigatito",
+          "Crocalor",
+          "Quaxwell"
+        ],
+        "pokemonId": 906,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Levincia"
       }
     ]
   },
@@ -57890,7 +59065,36 @@
     "name": "Crocalor",
     "gen": 9,
     "region": "Paldea",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_jtg_150-159",
+        "cardName": "Levincia",
+        "setCode": "JTG",
+        "number": "150/159",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "150/159",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Sprigatito",
+          "Crocalor",
+          "Quaxwell"
+        ],
+        "pokemonId": 910,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Levincia"
+      }
+    ]
   },
   {
     "id": 911,
@@ -57975,7 +59179,36 @@
     "name": "Quaxwell",
     "gen": 9,
     "region": "Paldea",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_jtg_150-159",
+        "cardName": "Levincia",
+        "setCode": "JTG",
+        "number": "150/159",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "150/159",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Sprigatito",
+          "Crocalor",
+          "Quaxwell"
+        ],
+        "pokemonId": 913,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Levincia"
+      }
+    ]
   },
   {
     "id": 914,
@@ -58287,7 +59520,60 @@
     "name": "Maschiff",
     "gen": 9,
     "region": "Paldea",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_ssp_174-191",
+        "cardName": "Drayton",
+        "setCode": "SSP",
+        "number": "174/191",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "174/191",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Maschiff"
+        ],
+        "pokemonId": 942,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Drayton"
+      },
+      {
+        "id": "cameo_pre_172-131",
+        "cardName": "Drayton",
+        "setCode": "PRE",
+        "number": "172/131",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "172/131",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Maschiff"
+        ],
+        "pokemonId": 942,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Drayton"
+      }
+    ]
   },
   {
     "id": 943,
@@ -58884,14 +60170,68 @@
     "name": "Koraidon",
     "gen": 9,
     "region": "Paldea",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_pre_107-131",
+        "cardName": "Explorer's Guidance",
+        "setCode": "PRE",
+        "number": "107/131",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "107/131",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Koraidon"
+        ],
+        "pokemonId": 1007,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Explorer's Guidance"
+      }
+    ]
   },
   {
     "id": 1008,
     "name": "Miraidon",
     "gen": 9,
     "region": "Paldea",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_pre_104-131",
+        "cardName": "Ciphermaniac's Codebreaking",
+        "setCode": "PRE",
+        "number": "104/131",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "104/131",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Miraidon"
+        ],
+        "pokemonId": 1008,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Ciphermaniac's Codebreaking"
+      }
+    ]
   },
   {
     "id": 1009,
@@ -58933,21 +60273,111 @@
     "name": "Okidogi",
     "gen": 9,
     "region": "Paldea",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_pre_108-131",
+        "cardName": "Festival Grounds",
+        "setCode": "PRE",
+        "number": "108/131",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "108/131",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Pikachu. Ogerpon",
+          "Okidogi",
+          "Fezandipiti",
+          "Munkidori"
+        ],
+        "pokemonId": 1014,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Festival Grounds"
+      }
+    ]
   },
   {
     "id": 1015,
     "name": "Munkidori",
     "gen": 9,
     "region": "Paldea",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_pre_108-131",
+        "cardName": "Festival Grounds",
+        "setCode": "PRE",
+        "number": "108/131",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "108/131",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Pikachu. Ogerpon",
+          "Okidogi",
+          "Fezandipiti",
+          "Munkidori"
+        ],
+        "pokemonId": 1015,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Festival Grounds"
+      }
+    ]
   },
   {
     "id": 1016,
     "name": "Fezandipiti",
     "gen": 9,
     "region": "Paldea",
-    "cards": []
+    "cards": [
+      {
+        "id": "cameo_pre_108-131",
+        "cardName": "Festival Grounds",
+        "setCode": "PRE",
+        "number": "108/131",
+        "jpSetCode": null,
+        "jpNumber": null,
+        "cnSetCode": null,
+        "cnNumber": null,
+        "tcSetCode": null,
+        "tcNumber": null,
+        "krSetCode": null,
+        "krNumber": null,
+        "setNumber": "108/131",
+        "exclusive": null,
+        "availableLangs": [
+          "EN"
+        ],
+        "otherPokemon": [
+          "Pikachu. Ogerpon",
+          "Okidogi",
+          "Fezandipiti",
+          "Munkidori"
+        ],
+        "pokemonId": 1016,
+        "isPrimary": false,
+        "isSecondary": true,
+        "primaryPokemon": "Festival Grounds"
+      }
+    ]
   },
   {
     "id": 1017,
