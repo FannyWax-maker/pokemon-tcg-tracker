@@ -342,15 +342,15 @@ export default function App() {
 
   const setStats = useMemo(() => {
     const stats = {}, jpStats = {}, cnStats = {}, tcStats = {}, krStats = {};
+    const seen = new Set();
     pokemonData.forEach(p => {
       const cardFilter = appMode === 'cameos'
         ? p.cards.filter(c => c.setCode || c.jpSetCode || c.enSetCode || c.cnSetCode)
         : p.cards.filter(c => !c.isSecondary && c.isPrimary !== false);
-      // Deduplicate by card id in cameos (same card appears under multiple pokemon)
-      const seen = new Set();
+      // Deduplicate by card id — same card appears under multiple pokemon
       const cards = appMode === 'cameos'
         ? cardFilter.filter(c => { if (seen.has(c.id)) return false; seen.add(c.id); return true; })
-        : cardFilter;
+        : cardFilter.filter(c => { if (seen.has(c.id)) return false; seen.add(c.id); return true; });
       cards.forEach(c => {
         if (c.setCode) {
           if (!stats[c.setCode]) stats[c.setCode] = { total: 0, owned: 0, langs: new Set() };
