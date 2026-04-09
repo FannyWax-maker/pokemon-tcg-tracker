@@ -544,10 +544,10 @@ export default function App() {
     const cardFilterActive = filterChinese !== 'all' || filterLang !== 'all' || filterSet !== 'all' || filterCardType !== 'all' || filterSetLang !== 'all';
     if (cardFilterActive) {
       filtered = filtered.filter(pokemon => pokemon.cards.some(card => {
-        if (card.isSecondary || card.isPrimary === false) return false;
+        if (appMode !== 'cameos' && (card.isSecondary || card.isPrimary === false)) return false;
         if (filterChinese !== 'all') { const cnNever = cnNeverReleased.has(card.jpSetCode); const hasCN = !cnNever && !!card.cnSetCode; if (filterChinese === 'has_cn' && !hasCN) return false; if (filterChinese === 'no_cn' && (hasCN || cnNever)) return false; }
         if (filterSet !== 'all') { const matchesSet = card.setCode === filterSet || card.enSetCode === filterSet || card.jpSetCode === filterSet || card.cnSetCode === filterSet; if (!matchesSet) return false; }
-        if (filterSetLang !== 'all' && filterSet === 'all') { const langs = card.availableLangs || []; if (filterSetLang === 'JP' && !card.jpSetCode) return false; if (filterSetLang === 'CN' && !card.cnSetCode) return false; if (filterSetLang === 'TC' && !card.tcSetCode) return false; if (filterSetLang === 'KR' && !card.krSetCode) return false; if (filterSetLang === 'EN' && !card.setCode) return false; }
+        if (filterSetLang !== 'all' && filterSet === 'all') { const langs = card.availableLangs || []; if (filterSetLang === 'JP' && !card.jpSetCode) return false; if (filterSetLang === 'CN' && !card.cnSetCode) return false; if (filterSetLang === 'TC' && !card.tcSetCode) return false; if (filterSetLang === 'KR' && !card.krSetCode) return false; if (filterSetLang === 'EN' && !card.setCode && !card.enSetCode) return false; }
         if (filterLang !== 'all') { const al = card.availableLangs || []; if (al.length !== 1 || al[0] !== filterLang) return false; }
         if (filterCardType !== 'all') {
           const cn = String(card.cardName || '').trim(); const cu = cn.toUpperCase();
@@ -602,7 +602,7 @@ export default function App() {
           });
           if (!matchesCode && !matchesName) return;
         }
-        if (filterSetLang !== 'all' && filterSet === 'all') { if (filterSetLang === 'JP' && !card.jpSetCode) return; if (filterSetLang === 'CN' && !card.cnSetCode) return; if (filterSetLang === 'TC' && !card.tcSetCode) return; if (filterSetLang === 'KR' && !card.krSetCode) return; if (filterSetLang === 'EN' && !card.setCode) return; }
+        if (filterSetLang !== 'all' && filterSet === 'all') { if (filterSetLang === 'JP' && !card.jpSetCode) return; if (filterSetLang === 'CN' && !card.cnSetCode) return; if (filterSetLang === 'TC' && !card.tcSetCode) return; if (filterSetLang === 'KR' && !card.krSetCode) return; if (filterSetLang === 'EN' && !card.setCode && !card.enSetCode) return; }
         if (filterLang !== 'all') { const al = card.availableLangs || []; if (al.length !== 1 || al[0] !== filterLang) return; }
         if (filterCardType !== 'all') {
           const cn = String(card.cardName || '').trim(); const cu = cn.toUpperCase(); let matches = false;
