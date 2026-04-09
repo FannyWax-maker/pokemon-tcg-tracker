@@ -237,7 +237,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
   };
 
   const imagePaths = generateImagePaths(card, pokemonName, appMode);
-  const cacheKey = `${card.id}__${displayLang}`;
+  const cacheKey = `${card.id}__${displayLang}__${appMode}`;
   const cached = imageCache[cacheKey];
   const [imageLoaded, setImageLoaded] = React.useState(!!cached?.src);
   const [imageSrc, setImageSrc] = React.useState(cached?.src || null);
