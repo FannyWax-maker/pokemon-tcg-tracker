@@ -101,7 +101,7 @@
       },
       {
         "id": "cameo_xy-p_n-a",
-        "cardName": "M Sachiko-EX",
+        "cardName": "MSachiko EX",
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "XY-P",
@@ -125,7 +125,7 @@
         "pokemonId": 1,
         "isPrimary": false,
         "isSecondary": true,
-        "primaryPokemon": "M Sachiko-EX"
+        "primaryPokemon": "MSachiko EX"
       },
       {
         "id": "cameo_unp_n-a",
@@ -579,7 +579,7 @@
       },
       {
         "id": "cameo_xy-p_n-a",
-        "cardName": "M Sachiko-EX",
+        "cardName": "MSachiko EX",
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "XY-P",
@@ -603,7 +603,7 @@
         "pokemonId": 4,
         "isPrimary": false,
         "isSecondary": true,
-        "primaryPokemon": "M Sachiko-EX"
+        "primaryPokemon": "MSachiko EX"
       },
       {
         "id": "cameo_unp_n-a",
@@ -1227,7 +1227,7 @@
       },
       {
         "id": "cameo_xy-p_n-a",
-        "cardName": "M Sachiko-EX",
+        "cardName": "MSachiko EX",
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "XY-P",
@@ -1251,7 +1251,7 @@
         "pokemonId": 7,
         "isPrimary": false,
         "isSecondary": true,
-        "primaryPokemon": "M Sachiko-EX"
+        "primaryPokemon": "MSachiko EX"
       },
       {
         "id": "cameo_unp_n-a",
@@ -55778,7 +55778,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "SM-P",
-        "jpNumber": "#500/409",
+        "jpNumber": "500/409",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
@@ -55813,7 +55813,7 @@
         "setCode": null,
         "number": "N/A",
         "jpSetCode": "SM-P",
-        "jpNumber": "#500/409",
+        "jpNumber": "500/409",
         "cnSetCode": null,
         "cnNumber": null,
         "tcSetCode": null,
