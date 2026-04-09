@@ -268,7 +268,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
   // When lang image is missing, load EN image as background reference
   React.useEffect(() => {
-    if (imageLoaded !== false || imageSrc || (displayLang !== 'JP' && displayLang !== 'CN') || appMode === 'cameos') {
+    if (imageLoaded !== false || imageSrc || (displayLang !== 'JP' && displayLang !== 'CN')) {
       setEnFallbackSrc(null);
       return;
     }
@@ -688,34 +688,16 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
           {appMode === 'cameos' ? (
             // Cameos: always expanded, clickable boxes
             <div className={`border-t pt-1.5 flex flex-col gap-1 border-gray-100`}>
-              {(displayLang === 'JP'
-                ? [
-                    { label: 'JP', bgColor: 'bg-red-500',  code: card.jpSetCode,                 num: card.jpNumber },
-                    { label: 'EN', bgColor: 'bg-blue-500', code: card.enSetCode || card.setCode, num: card.number },
-                  ]
-                : [
-                    { label: 'EN', bgColor: 'bg-blue-500', code: card.enSetCode || card.setCode, num: card.number },
-                    { label: 'JP', bgColor: 'bg-red-500',  code: card.jpSetCode,                 num: card.jpNumber },
-                  ]
-              ).filter(({ code }) => !!code).map(({ label, bgColor, code, num }) => {
+              {[
+                { label: 'EN', bgColor: 'bg-blue-500',   code: card.enSetCode || card.setCode, num: card.number },
+                { label: 'JP', bgColor: 'bg-red-500',    code: card.jpSetCode,                 num: card.jpNumber },
+              ].filter(({ code }) => !!code).map(({ label, bgColor, code, num }) => {
                 const setName = getSetName(code);
                 return (
                   <button
                     key={label}
                     className={`w-full text-left px-2 py-1 rounded-lg text-[10px] transition-all cursor-pointer bg-gray-50 hover:bg-gray-100 border border-gray-200`}
-                    onClick={onSetFilter ? (e) => { e.stopPropagation(); onSetFilter(code); } : (e) => e.stopPropagation()}
-                    title={onSetFilter ? `Filter by ${setName || code}` : undefined}
-                  >
-                    <div className="flex items-center gap-1.5">
-                      <span className={`${bgColor} text-white text-[9px] font-bold px-1 py-0.5 rounded shrink-0`}>{label}</span>
-                      <span className={`font-medium truncate flex-1 text-gray-700`}>{setName || '—'}</span>
-                    </div>
-                    <div className={`text-[9px] mt-0.5 pl-0.5 font-mono text-gray-400`}>{code}{num ? ` ${num}` : ''}</div>
-                  </button>
-                );
-              })}
-            </div>
-          ) : (
+                    onClick={onSetFilter ? (e) => { e.stopPropagation(); onSetFilter(code, label); } : (e) => e.stopPropagation()}
             // Illustrations: collapsible sets section, collapsed by default showing primary set only
             <div className={`border-t border-gray-100`}>
               <button
@@ -743,7 +725,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                 return (
                   <button
                     className={`w-full text-left mb-1.5 px-2 py-1 rounded-lg text-[10px] transition-all cursor-pointer ${activeSetFilter === primary.code ? 'bg-blue-50 border-2 border-blue-400' : 'bg-gray-50 hover:bg-gray-100 border border-gray-200'}`}
-                    onClick={onSetFilter ? (e) => { e.stopPropagation(); onSetFilter(primary.code); } : (e) => e.stopPropagation()}
+                    onClick={onSetFilter ? (e) => { e.stopPropagation(); onSetFilter(primary.code, primary.label); } : (e) => e.stopPropagation()}
                     title={onSetFilter ? `Filter by ${setName || primary.code}` : undefined}
                   >
                     <div className="flex items-center gap-1.5">
@@ -770,7 +752,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                       <button
                         key={key}
                         className={`w-full text-left px-2 py-1 rounded-lg text-[10px] transition-all cursor-pointer ${activeSetFilter === code ? 'bg-blue-50 border-2 border-blue-400' : 'bg-gray-50 hover:bg-gray-100 border border-gray-200'}`}
-                        onClick={onSetFilter ? (e) => { e.stopPropagation(); onSetFilter(code); } : (e) => e.stopPropagation()}
+                        onClick={onSetFilter ? (e) => { e.stopPropagation(); onSetFilter(code, label); } : (e) => e.stopPropagation()}
                         title={onSetFilter ? `Filter by ${setName || code}` : undefined}
                       >
                         <div className="flex items-center gap-1.5">
@@ -1044,13 +1026,13 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             )}
 
             {/* Card image column */}
-            <div className="relative" style={{ height: 'min(90dvh, 90vw / 0.714)', width: 'auto', flexShrink: 0 }}>
+            <div className="relative" style={{ maxHeight: '90dvh', flexShrink: 0 }}>
               <img
                 ref={zoomImgRef}
                 src={imageSrc}
                 alt={`${pokemonName} ${card.cardName}`}
-                className="h-full w-auto object-contain rounded-lg"
-                style={{ cursor: pickerMode ? 'crosshair' : 'none', display: 'block', userSelect: 'none',
+                className="object-contain rounded-lg"
+                style={{ maxHeight: '90dvh', maxWidth: '90vw', width: 'auto', height: 'auto', display: 'block', cursor: pickerMode ? 'crosshair' : 'none', userSelect: 'none',
                   ...(appMode === 'cameos' ? { clipPath: 'inset(8% 3% 38% 3% round 4px)', marginBottom: '-38%', marginTop: '-8%' } : {}) }}
                 onMouseEnter={() => setOverImage(true)}
                 onMouseLeave={() => setOverImage(false)}
