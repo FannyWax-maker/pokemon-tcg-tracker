@@ -810,8 +810,8 @@
     "month": 8
   },
   "TR": {
-    "name": "Team Rocket Returns",
-    "series": "",
+    "name": "Team Rocket",
+    "series": "Base",
     "year": 2000,
     "month": 4
   },
@@ -2102,6 +2102,18 @@
   "CSIC": {
     "name": "Sword & Shield Trainer Collection Gift Box",
     "series": "Sword & Shield",
+    "year": null,
+    "month": null
+  },
+  "SEF": {
+    "name": "VMAX Starter Deck: Venusaur VMAX",
+    "series": "Sword & Shield JP",
+    "year": null,
+    "month": null
+  },
+  "SVG": {
+    "name": "Venusaur & Charizard & Blastoise Special Deck Set ex",
+    "series": "Scarlet & Violet JP",
     "year": null,
     "month": null
   },
