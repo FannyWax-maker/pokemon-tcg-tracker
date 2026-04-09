@@ -320,11 +320,6 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     clearImageCache();
   }, [appMode]);
 
-  React.useEffect(() => {
-    // Clear cache when lang changes so stale entries don't bleed across
-    clearImageCache();
-  }, [displayLang]);
-
   // Reset image state immediately when the target lang/card changes
   React.useEffect(() => {
     const cached = imageCache[cacheKey];
@@ -368,14 +363,39 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
       // Build lang-specific paths for JP/CN (uses cardName for cameos, pokemonName for illustrations)
       const buildLangPaths = (setCode, number, nameSlug) => {
         if (!setCode || !number) return [];
+        const sc = setCode.toLowerCase();
         const numParts = String(number).split('/');
-        const numerator = numParts[0] ? String(parseInt(numParts[0])).padStart(3, '0') : '';
+        const rawNum = numParts[0] || '';
         const rawDen = numParts[1] || '';
-        const denominator = rawDen ? (isNaN(parseInt(rawDen)) ? rawDen.replace(/[^a-z0-9]/gi,'') : String(parseInt(rawDen))) : '';
-        const path = denominator
-          ? `${setCode.toLowerCase()}.${numerator}-${denominator}.${nameSlug}_`
-          : `${setCode.toLowerCase()}.${numerator}.${nameSlug}_`;
-        return [path];
+        // Build numerator variants (unpadded, 2-pad, 3-pad)
+        const numInt = parseInt(rawNum);
+        const numVariants = new Set([rawNum.toLowerCase()]);
+        if (!isNaN(numInt)) {
+          numVariants.add(String(numInt));
+          numVariants.add(String(numInt).padStart(2, '0'));
+          numVariants.add(String(numInt).padStart(3, '0'));
+        }
+        // Build denominator variants
+        const denInt = parseInt(rawDen);
+        const denVariants = new Set(rawDen ? [rawDen.toLowerCase()] : ['']);
+        if (rawDen && !isNaN(denInt)) {
+          denVariants.add(String(denInt));
+          denVariants.add(String(denInt).padStart(2, '0'));
+          denVariants.add(String(denInt).padStart(3, '0'));
+        }
+        const paths = [];
+        for (const nv of numVariants) {
+          if (rawDen) {
+            for (const dv of denVariants) {
+              paths.push(`${sc}.${nv}-${dv}.${nameSlug}_`);
+              paths.push(`${sc}.${nv}-${dv}.${nameSlug}`);
+            }
+          } else {
+            paths.push(`${sc}.${nv}.${nameSlug}_`);
+            paths.push(`${sc}.${nv}.${nameSlug}`);
+          }
+        }
+        return [...new Set(paths)];
       };
 
       // Cameos mode
