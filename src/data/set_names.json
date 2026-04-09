@@ -431,11 +431,11 @@
     "year": 2000,
     "month": 12
   },
-  "N2": {
-    "name": "Crossing The Ruins",
-    "series": "",
-    "year": null,
-    "month": null
+  "NDI": {
+    "name": "Neo Discovery",
+    "series": "Neo",
+    "year": 2001,
+    "month": 6
   },
   "NR": {
     "name": "Neo Revelation",
@@ -851,6 +851,60 @@
     "year": null,
     "month": null
   },
+  "XY": {
+    "name": "The Best of XY",
+    "series": "XY JP",
+    "year": 2017,
+    "month": 4
+  },
+  "PF2": {
+    "name": "Neo Premium File 2",
+    "series": "",
+    "year": 2000,
+    "month": 7
+  },
+  "NW-P": {
+    "name": "Natta Wake Promo",
+    "series": "",
+    "year": 2000,
+    "month": 8
+  },
+  "PCGN": {
+    "name": "Holon Research Tower Water Quarter Deck",
+    "series": "Pokémon Card Game",
+    "year": 2005,
+    "month": 9
+  },
+  "MPS": {
+    "name": "Melee! Pokemon Scramble",
+    "series": "DPT",
+    "year": 2009,
+    "month": 7
+  },
+  "MED": {
+    "name": "Metagross Expert Deck",
+    "series": "Legend",
+    "year": 2009,
+    "month": 11
+  },
+  "LED": {
+    "name": "Leafeon Expert Deck",
+    "series": "Legend",
+    "year": 2009,
+    "month": 11
+  },
+  "BSDR": {
+    "name": "Raichu Battle Starter Deck",
+    "series": "Legend",
+    "year": 2009,
+    "month": 11
+  },
+  "L2": {
+    "name": "Reviving Legends",
+    "series": "Legend",
+    "year": 2010,
+    "month": 2
+  },
   "LL": {
     "name": "Lost Link",
     "series": "HeartGold & SoulSilver",
@@ -913,13 +967,19 @@
   },
   "XY8B": {
     "name": "Blue Shock",
-    "series": "",
+    "series": "XY JP",
     "year": null,
     "month": null
   },
   "XY8R": {
     "name": "Red Flash",
-    "series": "XY",
+    "series": "XY JP",
+    "year": 2015,
+    "month": 9
+  },
+  "SNPN": {
+    "name": "Noivern BREAK Evolution Pack",
+    "series": "XY JP",
     "year": 2015,
     "month": 9
   },
@@ -935,27 +995,33 @@
     "year": null,
     "month": null
   },
-  "CP6": {
-    "name": "Expansion Pack 20th Anniversary",
-    "series": "XY",
-    "year": null,
-    "month": null
-  },
   "XY10": {
     "name": "Awakening Psychic King",
     "series": "XY",
     "year": null,
     "month": null
   },
+  "XYH": {
+    "name": "M Audino-EX Mega Battle Deck",
+    "series": "XY JP",
+    "year": 2016,
+    "month": 3
+  },
+  "XYG": {
+    "name": "Zygarde-EX Perfect Battle Deck",
+    "series": "XY JP",
+    "year": 2016,
+    "month": 3
+  },
   "XY11F": {
     "name": "Fever-Burst Fighter",
-    "series": "XY",
+    "series": "XY JP",
     "year": 2016,
     "month": 6
   },
   "XY11C": {
     "name": "Cruel Traitor",
-    "series": "XY",
+    "series": "XY JP",
     "year": 2016,
     "month": 6
   },
@@ -965,11 +1031,11 @@
     "year": null,
     "month": null
   },
-  "SM1+": {
+  "SM1P": {
     "name": "Sun & Moon Plus",
-    "series": "Sun & Moon",
-    "year": null,
-    "month": null
+    "series": "Sun & Moon JP",
+    "year": 2017,
+    "month": 1
   },
   "SM2K": {
     "name": "Islands Await You",
@@ -983,11 +1049,17 @@
     "year": null,
     "month": null
   },
-  "SM3+": {
+  "SM3H": {
+    "name": "To Have Seen the Battle Rainbow",
+    "series": "Sun & Moon JP",
+    "year": 2017,
+    "month": 6
+  },
+  "SM3P": {
     "name": "Shining Legends",
-    "series": "Sun & Moon",
-    "year": null,
-    "month": null
+    "series": "Sun & Moon JP",
+    "year": 2017,
+    "month": 7
   },
   "SM5S": {
     "name": "Ultra Sun",
@@ -995,14 +1067,14 @@
     "year": null,
     "month": null
   },
+  "SMG": {
+    "name": "Ultra Sun & Ultra Moon Deck Build Boxes",
+    "series": "Sun & Moon JP",
+    "year": 2018,
+    "month": 2
+  },
   "SM7": {
     "name": "Sky-Splitting Charisma",
-    "series": "Sun & Moon",
-    "year": null,
-    "month": null
-  },
-  "SM7A": {
-    "name": "Thunderclap Spark",
     "series": "Sun & Moon",
     "year": null,
     "month": null
@@ -1027,7 +1099,7 @@
   },
   "SMK": {
     "name": "Tag Bolt - Brock & Misty Trainer Battle Decks",
-    "series": "Sun & Moon",
+    "series": "Sun & Moon JP",
     "year": 2019,
     "month": 1
   },
@@ -1051,7 +1123,7 @@
   },
   "SMM": {
     "name": "Tag Team GX Starter Sets",
-    "series": "Sun & Moon",
+    "series": "Sun & Moon JP",
     "year": 2019,
     "month": 5
   },
@@ -1104,14 +1176,14 @@
     "month": null
   },
   "SC": {
-    "name": "Shiny Collection",
-    "series": "",
+    "name": "VMAX Starter Decks",
+    "series": "Sword & Shield JP",
     "year": null,
     "month": null
   },
   "SCD": {
     "name": "Grimmsnarl VMAX Starter Set",
-    "series": "Sword & Shield",
+    "series": "Sword & Shield JP",
     "year": 2020,
     "month": 3
   },
@@ -1135,7 +1207,7 @@
   },
   "SD": {
     "name": "Infinity Zone - V Starter Decks",
-    "series": "Sword & Shield",
+    "series": "Sword & Shield JP",
     "year": 2020,
     "month": 7
   },
@@ -1189,19 +1261,19 @@
   },
   "SP4": {
     "name": "VMAX Special Set Eevee Heroes",
-    "series": "Sword & Shield",
+    "series": "Sword & Shield JP",
     "year": 2021,
     "month": 5
   },
   "SGG": {
     "name": "High-Class Deck Gengar VMAX",
-    "series": "Sword & Shield",
+    "series": "Sword & Shield JP",
     "year": 2021,
     "month": 5
   },
   "SGI": {
     "name": "High-Class Deck Inteleon VMAX",
-    "series": "Sword & Shield",
+    "series": "Sword & Shield JP",
     "year": 2021,
     "month": 5
   },
@@ -1313,6 +1385,12 @@
     "year": null,
     "month": null
   },
+  "SVB": {
+    "name": "Premium Trainer Box EX",
+    "series": "Scarlet & Violet JP",
+    "year": 2023,
+    "month": 1
+  },
   "SV1A": {
     "name": "Triplet Beat",
     "series": "Scarlet & Violet",
@@ -1345,7 +1423,7 @@
   },
   "WCS23": {
     "name": "Pokemon Japanese World Championships",
-    "series": "Scarlet & Violet",
+    "series": "Scarlet & Violet JP",
     "year": 2023,
     "month": 8
   },
@@ -1493,6 +1571,486 @@
     "year": null,
     "month": null
   },
+  "M4": {
+    "name": "Ninja Spinner",
+    "series": "Mega Evolution",
+    "year": null,
+    "month": null
+  },
+  "IFDS": {
+    "name": "Intense Fight in the Destroyed Sky",
+    "series": "DPT",
+    "year": null,
+    "month": null
+  },
+  "DPT-P": {
+    "name": "DPt Promos",
+    "series": "DPT",
+    "year": null,
+    "month": null
+  },
+  "PT1": {
+    "name": "Galactic Conquest",
+    "series": "DPT",
+    "year": null,
+    "month": null
+  },
+  "BW6F": {
+    "name": "Freeze Bolt",
+    "series": "Black & White JP",
+    "year": null,
+    "month": null
+  },
+  "BW8S": {
+    "name": "Spiral Force",
+    "series": "Black & White JP",
+    "year": null,
+    "month": null
+  },
+  "DP5T": {
+    "name": "Temple of Anger",
+    "series": "DP",
+    "year": null,
+    "month": null
+  },
+  "BW9": {
+    "name": "Megalo Cannon",
+    "series": "Black & White JP",
+    "year": null,
+    "month": null
+  },
+  "PCG3": {
+    "name": "Rocket Gang Strikes Back",
+    "series": "Pokémon Card Game",
+    "year": null,
+    "month": null
+  },
+  "SM4A": {
+    "name": "Ultradimensional Beasts",
+    "series": "Sun & Moon JP",
+    "year": null,
+    "month": null
+  },
+  "SM4S": {
+    "name": "Awakened Heroes",
+    "series": "Sun & Moon JP",
+    "year": null,
+    "month": null
+  },
+  "BW4": {
+    "name": "Dark Rush",
+    "series": "Black & White JP",
+    "year": null,
+    "month": null
+  },
+  "ADV4": {
+    "name": "Undone Seal",
+    "series": "ADV",
+    "year": null,
+    "month": null
+  },
+  "SM3N": {
+    "name": "Darkness that Consumes Light",
+    "series": "Sun & Moon JP",
+    "year": null,
+    "month": null
+  },
+  "BW5E": {
+    "name": "Dragon Blade",
+    "series": "Black & White JP",
+    "year": null,
+    "month": null
+  },
+  "CP6": {
+    "name": "Expansion Pack 20th Anniversary",
+    "series": "XY JP",
+    "year": null,
+    "month": null
+  },
+  "BW1B": {
+    "name": "Black Collection",
+    "series": "Black & White JP",
+    "year": null,
+    "month": null
+  },
+  "SI100": {
+    "name": "Start Deck 100",
+    "series": "Sword & Shield JP",
+    "year": null,
+    "month": null
+  },
+  "SI-JP": {
+    "name": "Southern Island JP",
+    "series": "GYM JP",
+    "year": null,
+    "month": null
+  },
+  "ADV2": {
+    "name": "Miracle Of The Desert",
+    "series": "ADV",
+    "year": null,
+    "month": null
+  },
+  "PTS": {
+    "name": "Shaymin LV.X Collection Pack",
+    "series": "DPT",
+    "year": null,
+    "month": null
+  },
+  "CP2": {
+    "name": "Legendary Shine Collection",
+    "series": "XY JP",
+    "year": null,
+    "month": null
+  },
+  "SN": {
+    "name": "Start Deck 100 CoroCoro Comic Version",
+    "series": "Sword & Shield JP",
+    "year": null,
+    "month": null
+  },
+  "L-P": {
+    "name": "Legend Promo",
+    "series": "Legend",
+    "year": null,
+    "month": null
+  },
+  "VS": {
+    "name": "Pokémon Card VS",
+    "series": "VS",
+    "year": null,
+    "month": null
+  },
+  "J-P": {
+    "name": "J Promos",
+    "series": "e-Card JP",
+    "year": null,
+    "month": null
+  },
+  "EC1": {
+    "name": "Base Expansion Pack",
+    "series": "e-Card JP",
+    "year": null,
+    "month": null
+  },
+  "SHC": {
+    "name": "Shiny Collection",
+    "series": "Black & White JP",
+    "year": null,
+    "month": null
+  },
+  "SM9B": {
+    "name": "Full Metal Wall",
+    "series": "Sun & Moon JP",
+    "year": null,
+    "month": null
+  },
+  "T-P": {
+    "name": "T Promos",
+    "series": "e-Card JP",
+    "year": null,
+    "month": null
+  },
+  "PLAY": {
+    "name": "Play Promo",
+    "series": "ADV",
+    "year": null,
+    "month": null
+  },
+  "P-P": {
+    "name": "P Promos",
+    "series": "e-Card JP",
+    "year": null,
+    "month": null
+  },
+  "PCG2": {
+    "name": "Clash of the Blue Sky",
+    "series": "Pokémon Card Game",
+    "year": null,
+    "month": null
+  },
+  "N4": {
+    "name": "Darkness, and to Light",
+    "series": "NEO JP",
+    "year": null,
+    "month": null
+  },
+  "PTPK": {
+    "name": "Pikachu DPt Half Deck",
+    "series": "DPT",
+    "year": null,
+    "month": null
+  },
+  "EXP": {
+    "name": "Expansion Pack",
+    "series": "BASE JP",
+    "year": null,
+    "month": null
+  },
+  "SM4P": {
+    "name": "GX Battle Boost",
+    "series": "Sun & Moon JP",
+    "year": null,
+    "month": null
+  },
+  "SM2P": {
+    "name": "Let's Face New Trials",
+    "series": "Sun & Moon JP",
+    "year": null,
+    "month": null
+  },
+  "MFO": {
+    "name": "Mystery of the Fossils",
+    "series": "BASE JP",
+    "year": null,
+    "month": null
+  },
+  "ROG": {
+    "name": "Rocket Gang",
+    "series": "BASE JP",
+    "year": null,
+    "month": null
+  },
+  "SVM": {
+    "name": "Generations Start Decks",
+    "series": "Scarlet & Violet JP",
+    "year": null,
+    "month": null
+  },
+  "EC4": {
+    "name": "Split Earth",
+    "series": "e-Card JP",
+    "year": null,
+    "month": null
+  },
+  "N3": {
+    "name": "Awakening Legends",
+    "series": "NEO JP",
+    "year": null,
+    "month": null
+  },
+  "SMI": {
+    "name": "Eevee GX Starter Sets",
+    "series": "Sun & Moon JP",
+    "year": null,
+    "month": null
+  },
+  "EC3": {
+    "name": "Wind from the Sea",
+    "series": "e-Card JP",
+    "year": null,
+    "month": null
+  },
+  "G1": {
+    "name": "Leaders' Stadium",
+    "series": "GYM JP",
+    "year": null,
+    "month": null
+  },
+  "ADVEX1": {
+    "name": "Magma Vs Aqua : Two Ambitions",
+    "series": "ADV",
+    "year": null,
+    "month": null
+  },
+  "G2": {
+    "name": "Challenge from the Darkness",
+    "series": "GYM JP",
+    "year": null,
+    "month": null
+  },
+  "ADV3": {
+    "name": "Rulers Of The Heavens",
+    "series": "ADV",
+    "year": null,
+    "month": null
+  },
+  "SMP2": {
+    "name": "Great Detective Pikachu",
+    "series": "Sun & Moon JP",
+    "year": null,
+    "month": null
+  },
+  "PT2": {
+    "name": "Bonds to the End of Time",
+    "series": "DPT",
+    "year": null,
+    "month": null
+  },
+  "DP4M": {
+    "name": "Moonlit Pursuit",
+    "series": "Diamond & Pearl",
+    "year": null,
+    "month": null
+  },
+  "DP4D": {
+    "name": "Dawn Dash",
+    "series": "Diamond & Pearl",
+    "year": null,
+    "month": null
+  },
+  "20TH": {
+    "name": "BREAK Starter Pack",
+    "series": "XY JP",
+    "year": null,
+    "month": null
+  },
+  "PCG-P": {
+    "name": "PCG Promos",
+    "series": "Pokémon Card Game",
+    "year": null,
+    "month": null
+  },
+  "PCG6": {
+    "name": "Holon Research Tower",
+    "series": "Pokémon Card Game",
+    "year": null,
+    "month": null
+  },
+  "PCG9": {
+    "name": "Offense and Defense of the Furthest Ends",
+    "series": "Pokémon Card Game",
+    "year": null,
+    "month": null
+  },
+  "SM11B": {
+    "name": "Dream League",
+    "series": "Sun & Moon JP",
+    "year": null,
+    "month": null
+  },
+  "DP2": {
+    "name": "Secret of the Lakes",
+    "series": "DP",
+    "year": null,
+    "month": null
+  },
+  "SM6": {
+    "name": "Forbidden Light",
+    "series": "Sun & Moon JP",
+    "year": null,
+    "month": null
+  },
+  "PCG5": {
+    "name": "Mirage Forest",
+    "series": "Pokémon Card Game",
+    "year": null,
+    "month": null
+  },
+  "DP1": {
+    "name": "Space-Time Creation",
+    "series": "DP",
+    "year": null,
+    "month": null
+  },
+  "SM6B": {
+    "name": "Champion Road",
+    "series": "Sun & Moon JP",
+    "year": null,
+    "month": null
+  },
+  "N1": {
+    "name": "Gold, Silver, to a New World...",
+    "series": "NEO JP",
+    "year": null,
+    "month": null
+  },
+  "EC5": {
+    "name": "Mysterious Mountains",
+    "series": "e-Card JP",
+    "year": null,
+    "month": null
+  },
+  "SM11A": {
+    "name": "Remix Bout",
+    "series": "Sun & Moon JP",
+    "year": null,
+    "month": null
+  },
+  "WCP": {
+    "name": "World Championship Pack",
+    "series": "DP",
+    "year": null,
+    "month": null
+  },
+  "DP3": {
+    "name": "Shining Darkness",
+    "series": "DP",
+    "year": null,
+    "month": null
+  },
+  "SM7A": {
+    "name": "Thunderclap Spark",
+    "series": "Sun & Moon JP",
+    "year": null,
+    "month": null
+  },
+  "N2": {
+    "name": "Crossing The Ruins",
+    "series": "NEO JP",
+    "year": null,
+    "month": null
+  },
+  "PCGM": {
+    "name": "Holon Research Tower Fire Quarter Deck",
+    "series": "Pokémon Card Game",
+    "year": null,
+    "month": null
+  },
+  "PCGO": {
+    "name": "Holon Research Tower Electric Quarter Deck",
+    "series": "Pokémon Card Game",
+    "year": null,
+    "month": null
+  },
+  "PCG4": {
+    "name": "Golden Sky, Silvery Ocean",
+    "series": "Pokémon Card Game",
+    "year": null,
+    "month": null
+  },
+  "SM5M": {
+    "name": "Ultra Moon",
+    "series": "Sun & Moon JP",
+    "year": null,
+    "month": null
+  },
+  "PT4": {
+    "name": "Advent of Arceus",
+    "series": "DPT",
+    "year": null,
+    "month": null
+  },
+  "L3": {
+    "name": "Clash at the Summit",
+    "series": "Legend",
+    "year": null,
+    "month": null
+  },
+  "EC2": {
+    "name": "The Town On No Map",
+    "series": "e-Card JP",
+    "year": null,
+    "month": null
+  },
+  "PCG1": {
+    "name": "Flight of Legends",
+    "series": "Pokémon Card Game",
+    "year": null,
+    "month": null
+  },
+  "L1HG": {
+    "name": "HeartGold Collection",
+    "series": "Legend",
+    "year": null,
+    "month": null
+  },
+  "L1SS": {
+    "name": "SoulSilver Collection",
+    "series": "Legend",
+    "year": null,
+    "month": null
+  },
   "ME-P": {
     "name": "ME Promos",
     "series": "Mega Evolution",
@@ -1507,595 +2065,43 @@
   },
   "XY-P": {
     "name": "XY Promos",
-    "series": "XY",
+    "series": "XY JP",
     "year": null,
     "month": null
   },
   "BW-P": {
     "name": "BW Promos",
-    "series": "Black & White",
+    "series": "Black & White JP",
     "year": null,
     "month": null
   },
   "SML": {
     "name": "Family Pokémon Card Game",
-    "series": "Sun & Moon",
+    "series": "Sun & Moon JP",
     "year": null,
     "month": null
   },
   "SM-P": {
     "name": "SM Promos",
-    "series": "Sun & Moon",
+    "series": "Sun & Moon JP",
     "year": null,
     "month": null
   },
   "S-P": {
     "name": "Sword & Shield Promos",
-    "series": "Sword & Shield",
+    "series": "Sword & Shield JP",
     "year": null,
     "month": null
   },
   "SV-P": {
     "name": "SV Promos",
-    "series": "Scarlet & Violet",
-    "year": null,
-    "month": null
-  },
-  "M4": {
-    "name": "Ninja Spinner",
-    "series": "Mega Evolution",
-    "year": null,
-    "month": null
-  },
-  "SM9B": {
-    "name": "Full Metal Wall",
-    "series": "Sun & Moon",
-    "year": 2021,
-    "month": 2
-  },
-  "SN": {
-    "name": "",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "SMI": {
-    "name": "Starter Sets Flareon & Jolteon & Vaporeon",
-    "series": "Sun & Moon",
-    "year": null,
-    "month": null
-  },
-  "N3": {
-    "name": "Awakening Legends",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "SI-JP": {
-    "name": "Southern Island JP",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "N1": {
-    "name": "Gold, Silver, to a New World...",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "DP3": {
-    "name": "Shining Darkness",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "PTS": {
-    "name": "Shaymin LV.X Collection Pack",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "EC2": {
-    "name": "The Town On No Map",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "G2": {
-    "name": "Challenge from the Darkness",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "EXP": {
-    "name": "Expansion Pack",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "EC1": {
-    "name": "Base Expansion Pack",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "EC5": {
-    "name": "Mysterious Mountains",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "G1": {
-    "name": "Leaders' Stadium",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "N4": {
-    "name": "Darkness, and to Light",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "PCG2": {
-    "name": "Clash of the Blue Sky",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "DP1": {
-    "name": "Space-Time Creation",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "PCG-P": {
-    "name": "PCG Promos",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "PF2": {
-    "name": "Neo Premium File 2",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "PF3": {
-    "name": "Neo Premium File 3",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "PCG9": {
-    "name": "Offense and Defense of the Furthest Ends",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "DP5T": {
-    "name": "Temple of Anger",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "PTPK": {
-    "name": "Pikachu DPt Half Deck",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "EC4": {
-    "name": "Split Earth",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "EC3": {
-    "name": "Wind from the Sea",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "WCP": {
-    "name": "World Championship Pack",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "DP2": {
-    "name": "Secret of the Lakes",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "PCG3": {
-    "name": "Rocket Gang Strikes Back",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "VS": {
-    "name": "Pokémon Card VS",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "MFO": {
-    "name": "Mystery of the Fossils",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "ADV2": {
-    "name": "Miracle Of The Desert",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "ADV3": {
-    "name": "Rulers Of The Heavens",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "DP4M": {
-    "name": "Moonlit Pursuit",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "PCG4": {
-    "name": "Golden Sky, Silvery Ocean",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "PCG6": {
-    "name": "Holon Research Tower",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "CP2": {
-    "name": "Legendary Shine Collection",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "T-P": {
-    "name": "T Promos",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "P-P": {
-    "name": "P Promos",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "J-P": {
-    "name": "J Promos",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "LP-P": {
-    "name": "Legend Promo",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "DPT-P": {
-    "name": "Platinum Promo",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "NW-P": {
-    "name": "Natta Wake Promo",
-    "series": "",
-    "year": 2000,
-    "month": 8
-  },
-  "IFDS": {
-    "name": "Intense Fight in the Destroyed Sky",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "PT1": {
-    "name": "Galactic Conquest",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "PT2": {
-    "name": "Bonds to the End of Time",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "PT4": {
-    "name": "Advent of Arceus",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "L1HG": {
-    "name": "HeartGold Collection",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "L1SS": {
-    "name": "SoulSilver Collection",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "L2": {
-    "name": "Reviving Legends",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "L3": {
-    "name": "Clash at the Summit",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "BW1": {
-    "name": "Black Collection",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "BW4": {
-    "name": "Dark Rush",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "BW5T": {
-    "name": "Dragon Blade",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "BW6": {
-    "name": "Freeze Bolt",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "BW8": {
-    "name": "Spiral Force",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "BW9": {
-    "name": "Megalo Cannon",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "ROG": {
-    "name": "Rocket Gang",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "SM6B": {
-    "name": "Champion Road",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "ADV4": {
-    "name": "Magma Vs Aqua : Two Ambitions",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "ADV5": {
-    "name": "Undone Seal",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "PCG1": {
-    "name": "Flight of Legends",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "PCG-M": {
-    "name": "Holon Research Tower Fire Quarter Deck",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "PCG-O": {
-    "name": "Holon Research Tower Electric Quarter Deck",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "PCG-N": {
-    "name": "Holon Research Tower Water Quarter Deck",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "PCG5": {
-    "name": "Mirage Forest",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "PLAY": {
-    "name": "Play Promo",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "DP4": {
-    "name": "Dawn Dash",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "MPS": {
-    "name": "Melee! Pokemon Scramble",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "LMEM": {
-    "name": "Leafeon vs Metagross Expert Deck (Metagross)",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "LMEL": {
-    "name": "Leafeon vs Metagross Expert Deck (Leafeon)",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "BSDR": {
-    "name": "Battle Starter Deck Raichu",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "SNPN": {
-    "name": "Noivern BREAK Evolution Pack",
-    "series": "",
-    "year": 2015,
-    "month": 9
-  },
-  "SMG": {
-    "name": "Ultra Sun & Ultra Moon Deck Build Boxes",
-    "series": "",
-    "year": 2018,
-    "month": 2
-  },
-  "KSS": {
-    "name": "XY Kalos Starter Set",
-    "series": "",
-    "year": null,
-    "month": null
-  },
-  "20TH": {
-    "name": "BREAK Starter Pack",
-    "series": "XY",
-    "year": null,
-    "month": null
-  },
-  "XYH": {
-    "name": "M Audino-EX Mega Battle Deck",
-    "series": "XY",
-    "year": 2016,
-    "month": 3
-  },
-  "XYG": {
-    "name": "Zygarde-EX Perfect Battle Deck",
-    "series": "XY",
-    "year": 2016,
-    "month": 3
-  },
-  "XY": {
-    "name": "The Best of XY",
-    "series": "XY",
-    "year": 2017,
-    "month": 4
-  },
-  "SM3H": {
-    "name": "To Have Seen the Battle Rainbow",
-    "series": "Sun & Moon",
-    "year": 2017,
-    "month": 6
-  },
-  "SM3N": {
-    "name": "Darkness that Consumes Light",
-    "series": "Sun & Moon",
-    "year": null,
-    "month": null
-  },
-  "SM4A": {
-    "name": "Ultradimensional Beasts",
-    "series": "Sun & Moon",
-    "year": null,
-    "month": null
-  },
-  "SM4S": {
-    "name": "Awakened Heroes",
-    "series": "Sun & Moon",
-    "year": null,
-    "month": null
-  },
-  "SM5M": {
-    "name": "Ultra Moon",
-    "series": "Sun & Moon",
-    "year": null,
-    "month": null
-  },
-  "SM4+": {
-    "name": "GX Battle Boost",
-    "series": "Sun & Moon",
-    "year": null,
-    "month": null
-  },
-  "SM6": {
-    "name": "Forbidden Light",
-    "series": "Sun & Moon",
-    "year": null,
-    "month": null
-  },
-  "SMP2": {
-    "name": "Great Detective",
-    "series": "Sun & Moon",
-    "year": null,
-    "month": null
-  },
-  "SM-P/CS ": {
-    "name": "Sun & Moon Simplified Chinese Promos",
-    "series": "Sun & Moon",
-    "year": null,
-    "month": null
-  },
-  "SM11A": {
-    "name": "Remix Bout",
-    "series": "Sun & Moon",
+    "series": "Scarlet & Violet JP",
     "year": null,
     "month": null
   },
   "CSIC": {
     "name": "Sword & Shield Trainer Collection Gift Box",
     "series": "Sword & Shield",
-    "year": null,
-    "month": null
-  },
-  "SVB": {
-    "name": "Premium Trainer Box EX",
-    "series": "Sword And Shield",
-    "year": null,
-    "month": null
-  },
-  "SI100": {
-    "name": "Start Deck 100",
-    "series": "Sword And Shield",
-    "year": null,
-    "month": null
-  },
-  "SVM": {
-    "name": "Generations Start Decks",
-    "series": "Scarlet & Violet",
     "year": null,
     "month": null
   },
@@ -2531,6 +2537,12 @@
     "year": null,
     "month": null
   },
+  "SM-P/CS ": {
+    "name": "Sun & Moon Simplified Chinese Promos",
+    "series": "Sun & Moon",
+    "year": null,
+    "month": null
+  },
   "AC1A": {
     "name": "Crossing the Sky - Set A",
     "series": "Sun & Moon",
@@ -2911,6 +2923,18 @@
   },
   "SM1S": {
     "name": "Sun Collection",
+    "series": "Sun & Moon",
+    "year": null,
+    "month": null
+  },
+  "SM1+": {
+    "name": "Sun & Moon Plus",
+    "series": "Sun & Moon",
+    "year": null,
+    "month": null
+  },
+  "SM3+": {
+    "name": "Shining Legends",
     "series": "Sun & Moon",
     "year": null,
     "month": null
