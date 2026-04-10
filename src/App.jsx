@@ -1290,31 +1290,21 @@ export default function App() {
             <List className="w-5 h-5" />
             <span>Cards</span>
           </button>
-          {/* Ownership toggle (cards mode only) */}
-          {viewMode === 'cards' && (
-            <button
-              onClick={() => setShowOwnershipButtons(v => !v)}
-              className={`flex-1 flex flex-col items-center justify-center gap-0.5 text-[10px] font-bold transition-colors ${showOwnershipButtons ? 'text-emerald-600' : darkMode ? 'text-gray-400' : 'text-gray-500'}`}
-            >
-              {isUnlocked ? <Unlock className="w-5 h-5" /> : <Lock className="w-5 h-5" />}
-              <span>Mark</span>
-            </button>
-          )}
-          {/* Dark mode */}
+          {/* Mark/Unlock — single merged button */}
           <button
-            onClick={() => setDarkMode(!darkMode)}
-            className={`flex-1 flex flex-col items-center justify-center gap-0.5 text-[10px] font-bold transition-colors ${darkMode ? 'text-yellow-400' : 'text-gray-500'}`}
-          >
-            {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            <span>{darkMode ? 'Light' : 'Dark'}</span>
-          </button>
-          {/* Lock */}
-          <button
-            onClick={() => isUnlocked ? setIsUnlocked(false) : setShowLockModal(true)}
-            className={`flex-1 flex flex-col items-center justify-center gap-0.5 text-[10px] font-bold transition-colors ${isUnlocked ? 'text-emerald-600' : darkMode ? 'text-gray-400' : 'text-gray-500'}`}
+            onClick={() => {
+              if (!isUnlocked) { setShowLockModal(true); return; }
+              if (viewMode === 'cards') setShowOwnershipButtons(v => !v);
+              else setIsUnlocked(false);
+            }}
+            className={`flex-1 flex flex-col items-center justify-center gap-0.5 text-[10px] font-bold transition-colors ${
+              isUnlocked && showOwnershipButtons && viewMode === 'cards' ? 'text-emerald-600' :
+              isUnlocked ? 'text-emerald-500' :
+              darkMode ? 'text-gray-400' : 'text-gray-500'
+            }`}
           >
             {isUnlocked ? <Unlock className="w-5 h-5" /> : <Lock className="w-5 h-5" />}
-            <span>{isUnlocked ? 'Lock' : 'Unlock'}</span>
+            <span>{!isUnlocked ? 'Unlock' : viewMode === 'cards' ? (showOwnershipButtons ? 'Marking' : 'Mark') : 'Lock'}</span>
           </button>
         </div>
       </div>

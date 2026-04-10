@@ -598,13 +598,16 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                   ].filter(l => !!l.code);
                   return langs.map(l => (
                     <div key={l.label} className="flex items-center gap-2">
-                      <span className="text-white text-[10px] font-bold px-1.5 py-0.5 rounded" style={{background: l.bgColor}}>{l.label}</span>
-                      <span className="text-white/80 text-xs font-mono">{l.code} {l.num ? `· ${l.num}` : ''}</span>
+                      <span className="text-white text-[10px] font-bold px-1.5 py-0.5 rounded flex-shrink-0" style={{background: l.bgColor}}>{l.label}</span>
+                      <div className="flex flex-col">
+                        <span className="text-white/90 text-[11px] font-medium leading-tight">{getSetName(l.code) || l.code}</span>
+                        <span className="text-white/40 text-[9px] font-mono leading-tight">{l.code}{l.num ? ` · ${l.num}` : ''}</span>
+                      </div>
                     </div>
                   ));
                 })()}
               </div>
-              <button onClick={() => setShowZoom(false)} className="text-white/60 hover:text-white text-2xl font-bold leading-none">✕</button>
+              <button onClick={() => setShowZoom(false)} className="text-white/60 hover:text-white text-2xl font-bold leading-none ml-4 flex-shrink-0">✕</button>
             </div>
 
             {/* Card image — centre with coord circles overlay */}
@@ -619,26 +622,30 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
                   onLoad={() => { if (zoomImgRef.current) setImgRect(zoomImgRef.current.getBoundingClientRect()); }}
                 />
                 {/* Coord circles overlay */}
-                {showHighlight && highlightName && imgRect && (() => {
-                  const coordEntry = (pokemonCoordsImport[card.id] || []).find(c => c.name.toLowerCase() === highlightName.toLowerCase());
-                  if (!coordEntry) return null;
-                  const positions = coordEntry.positions || [{ x: coordEntry.x, y: coordEntry.y, r: coordEntry.r }];
-                  return positions.map((pos, i) => {
-                    const r = pos.r || 0.08;
-                    const cx = pos.x * imgRect.width;
-                    const cy = pos.y * imgRect.height;
-                    const rPx = r * imgRect.width;
-                    return (
-                      <div key={i} style={{
-                        position: 'absolute',
-                        left: cx - rPx, top: cy - rPx,
-                        width: rPx * 2, height: rPx * 2,
-                        borderRadius: '50%',
-                        border: '3px solid #ef4444',
-                        boxShadow: '0 0 0 2px rgba(0,0,0,0.5), 0 0 12px rgba(239,68,68,0.6)',
-                        pointerEvents: 'none',
-                      }} />
-                    );
+                {showHighlight && imgRect && (() => {
+                  const allCoords = pokemonCoordsImport[card.id] || [];
+                  const entries = highlightName
+                    ? allCoords.filter(c => c.name.toLowerCase() === highlightName.toLowerCase())
+                    : allCoords;
+                  return entries.flatMap((coordEntry, ei) => {
+                    const positions = coordEntry.positions || [{ x: coordEntry.x, y: coordEntry.y, r: coordEntry.r }];
+                    return positions.map((pos, i) => {
+                      const r = pos.r || 0.08;
+                      const cx = pos.x * imgRect.width;
+                      const cy = pos.y * imgRect.height;
+                      const rPx = r * imgRect.width;
+                      return (
+                        <div key={`${ei}-${i}`} style={{
+                          position: 'absolute',
+                          left: cx - rPx, top: cy - rPx,
+                          width: rPx * 2, height: rPx * 2,
+                          borderRadius: '50%',
+                          border: '3px solid #ef4444',
+                          boxShadow: '0 0 0 2px rgba(0,0,0,0.5), 0 0 12px rgba(239,68,68,0.6)',
+                          pointerEvents: 'none',
+                        }} />
+                      );
+                    });
                   });
                 })()}
               </div>
@@ -647,7 +654,17 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
             {/* Featured Pokémon — bottom */}
             {card.otherPokemon && card.otherPokemon.length > 0 && (
               <div className="flex-shrink-0 px-4 pt-2 pb-6" onClick={e => e.stopPropagation()}>
-                <div className="text-white/40 text-[10px] uppercase tracking-wider mb-1.5">Featured — tap to highlight</div>
+                <div className="flex items-center justify-between mb-1.5">
+                  <div className="text-white/40 text-[10px] uppercase tracking-wider">Featured — tap to highlight</div>
+                  <button
+                    onClick={() => {
+                      if (showHighlight && !highlightName) { setShowHighlight(false); }
+                      else { setHighlightName(null); setShowHighlight(true); if (zoomImgRef.current) setImgRect(zoomImgRef.current.getBoundingClientRect()); }
+                    }}
+                    className="text-[10px] font-bold px-2 py-0.5 rounded-full transition-all"
+                    style={{ background: (showHighlight && !highlightName) ? '#ef4444' : 'rgba(255,255,255,0.1)', color: 'white' }}
+                  >Show all</button>
+                </div>
                 <div className="flex flex-wrap gap-1.5">
                   {card.otherPokemon.map(name => {
                     const isActive = highlightName === name && showHighlight;
