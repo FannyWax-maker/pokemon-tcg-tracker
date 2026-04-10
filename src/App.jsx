@@ -75,7 +75,7 @@ export default function App() {
   const [setListSort, setSetListSort] = useState('release');
   const [filterSetLang, setFilterSetLang] = useState('all');
   const [filterLang, setFilterLang] = useState('all');
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => window.innerWidth < 640);
   const [appMode, setAppMode] = useState(() => localStorage.getItem('appMode') || 'fullart');
   const [stephData, setStephData] = useState(null);
 
@@ -1175,12 +1175,12 @@ export default function App() {
               <div className="flex items-center gap-2 flex-wrap"><List className="w-3.5 h-3.5" /><span>All Cards ({allCardsFlat.length})</span></div>
               <div>{allCardsFlat.filter(c => c.ownedLang).length} owned</div>
             </div>
-            <div className={`grid ${tileGridClass[tileSize]}`}>
+            <div className={`grid ${tileGridClass[tileSize]} sm:grid`} style={{gridTemplateColumns: window.innerWidth < 640 ? 'repeat(3, 1fr)' : ''}}>
               {allCardsFlat.map((card, idx) => (
                 <CardTile key={`${card.pokemonId}-${card.id}-${idx}`} card={card} pokemonName={card.pokemonName}
                   onOwnershipClick={handleCardOwnershipClick} onToggleNonConforming={handleToggleNonConforming}
                   onToggleFavorite={handleToggleFavorite} onToggleUnobtainable={handleToggleUnobtainable}
-                 
+                  mobileGrid={window.innerWidth < 640}
                   onUpdateCard={handleInlineUpdateCard} showOwnershipButtons={showOwnershipButtons} getPriceForCard={getPriceForCard} appMode={appMode} onSetFilter={(code, lang) => { setFilterSet(prev => prev === code ? 'all' : code); if (lang) setFilterSetLang(lang); setSearchInput(""); setSearchQuery(""); }} activeSetFilter={filterSet} displayLang={filterSetLang !== 'all' ? filterSetLang : 'EN'} />
               ))}
             </div>

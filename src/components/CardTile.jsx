@@ -63,7 +63,7 @@ const buildEbayUrl = (card, pokemonName, lang) => {
 };
 
 
-export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onToggleExpensive, onToggleVeryExpensive, onNavigateToPokemon, showOwnershipButtons = false , scrollRoot, getPriceForCard, showSetNames = false, appMode = 'fullart', onSetFilter, activeSetFilter, displayLang = 'EN' }) {
+export default function CardTile({ card, pokemonName, onOwnershipClick, onToggleNonConforming, onToggleFavorite, onToggleUnobtainable, onToggleExpensive, onToggleVeryExpensive, onNavigateToPokemon, showOwnershipButtons = false , scrollRoot, getPriceForCard, showSetNames = false, appMode = 'fullart', onSetFilter, activeSetFilter, displayLang = 'EN', mobileGrid = false }) {
   const isOwned = !!card.ownedLang;
   const hasOtherPokemon = card.otherPokemon && card.otherPokemon.length > 0;
   const isSecondary = card.isSecondary || !card.isPrimary;
@@ -528,16 +528,76 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
 
   // Hide cards that have a price when filtering for missing prices
   if (card._filterMissingPrice) {
-    if (!card.setCode) return null; // JP/CN-only — no EN price possible, hide too
+    if (!card.setCode) return null;
     const p = getPriceForCard ? getPriceForCard(card) : null;
-    if (p !== null) return null; // has a price — hide it
+    if (p !== null) return null;
   }
 
   // Hide cards that have all featured Pokémon coords tagged (or have no featured Pokémon)
   if (card._filterMissingCoords) {
     const hasOtherPok = card.otherPokemon && card.otherPokemon.length > 0;
-    if (!hasOtherPok) return null; // no featured pokemon — hide
-    if (pokemonCoordsImport[card.id]) return null; // already has coords — hide
+    if (!hasOtherPok) return null;
+    if (pokemonCoordsImport[card.id]) return null;
+  }
+
+  // Mobile grid: compact image-only tile
+  if (mobileGrid) {
+    return (
+      <>
+        <div
+          className={`relative rounded-lg overflow-hidden cursor-pointer ${isOwned ? 'ring-2 ring-emerald-400' : ''}`}
+          style={{ aspectRatio: '2.5/3.5', background: '#1a1a2e' }}
+          onClick={() => imageSrc && setShowZoom(true)}
+        >
+          {!imageSrc && !inView && (
+            <img src="/pokemon-tcg-tracker/card-back.jpg" alt="Loading..." className="w-full h-full object-cover" />
+          )}
+          {imageSrc && (
+            <img src={imageSrc} alt={`${pokemonName}`} className="w-full h-full object-contain" />
+          )}
+          {inView && imageLoaded === false && !imageSrc && (
+            <div className="absolute inset-0 flex items-center justify-center bg-gray-800">
+              <span className="text-gray-500 text-[8px] text-center px-1">NO IMAGE</span>
+            </div>
+          )}
+          {isOwned && (
+            <div className="absolute bottom-1 right-1 w-4 h-4 bg-emerald-500 rounded-full flex items-center justify-center">
+              <span className="text-white text-[8px] font-bold">✓</span>
+            </div>
+          )}
+          {isFavorite && (
+            <div className="absolute top-1 right-1 text-pink-400 text-xs leading-none">♥</div>
+          )}
+          {showOwnershipButtons && !isOwned && (
+            <button
+              onClick={(e) => { e.stopPropagation(); onOwnershipClick && onOwnershipClick(card); }}
+              className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 hover:opacity-100 active:opacity-100 transition-opacity"
+            >
+              <span className="text-white text-xs font-bold bg-emerald-500 rounded-full px-2 py-0.5">Own</span>
+            </button>
+          )}
+        </div>
+        {/* Zoom modal still needed for mobile grid tap */}
+        {showZoom && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center"
+            style={{ background: 'rgba(0,0,0,0.92)' }}
+            onClick={() => setShowZoom(false)}
+          >
+            <img
+              src={imageSrc}
+              alt={pokemonName}
+              className="max-w-[90vw] max-h-[90vh] object-contain rounded-xl shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <button
+              onClick={() => setShowZoom(false)}
+              className="absolute top-4 right-4 text-white/70 hover:text-white text-2xl font-bold"
+            >✕</button>
+          </div>
+        )}
+      </>
+    );
   }
 
   return (
