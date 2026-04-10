@@ -581,20 +581,54 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
         {/* Zoom modal still needed for mobile grid tap */}
         {showZoom && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center"
-            style={{ background: 'rgba(0,0,0,0.92)' }}
+            className="fixed inset-0 z-50 flex flex-col"
+            style={{ background: 'rgba(0,0,0,0.95)' }}
             onClick={() => setShowZoom(false)}
           >
-            <img
-              src={imageSrc}
-              alt={pokemonName}
-              className="max-w-[90vw] max-h-[90vh] object-contain rounded-xl shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            />
-            <button
-              onClick={() => setShowZoom(false)}
-              className="absolute top-4 right-4 text-white/70 hover:text-white text-2xl font-bold"
-            >✕</button>
+            {/* Set info — top */}
+            <div className="flex-shrink-0 px-4 pt-4 pb-2 flex items-center justify-between" onClick={e => e.stopPropagation()}>
+              <div className="flex flex-col gap-1">
+                {(() => {
+                  const langs = [
+                    { label: 'EN', bgColor: '#3b82f6', code: card.enSetCode || card.setCode, num: card.number },
+                    { label: 'JP', bgColor: '#ef4444', code: card.jpSetCode, num: card.jpNumber },
+                    { label: 'CN', bgColor: '#f59e0b', code: card.cnSetCode, num: card.cnNumber },
+                    { label: 'TC', bgColor: '#10b981', code: card.tcSetCode, num: card.tcNumber },
+                    { label: 'KR', bgColor: '#8b5cf6', code: card.krSetCode, num: card.krNumber },
+                  ].filter(l => !!l.code);
+                  return langs.map(l => (
+                    <div key={l.label} className="flex items-center gap-2">
+                      <span className="text-white text-[10px] font-bold px-1.5 py-0.5 rounded" style={{background: l.bgColor}}>{l.label}</span>
+                      <span className="text-white/80 text-xs font-mono">{l.code} {l.num ? `· ${l.num}` : ''}</span>
+                    </div>
+                  ));
+                })()}
+              </div>
+              <button onClick={() => setShowZoom(false)} className="text-white/60 hover:text-white text-2xl font-bold leading-none">✕</button>
+            </div>
+
+            {/* Card image — centre */}
+            <div className="flex-1 flex items-center justify-center px-4" onClick={e => e.stopPropagation()}>
+              <img
+                src={imageSrc}
+                alt={pokemonName}
+                className="max-w-full max-h-full object-contain rounded-xl shadow-2xl"
+                style={{ maxHeight: 'calc(100vh - 180px)' }}
+              />
+            </div>
+
+            {/* Featured Pokémon — bottom */}
+            {card.otherPokemon && card.otherPokemon.length > 0 && (
+              <div className="flex-shrink-0 px-4 pt-2 pb-6" onClick={e => e.stopPropagation()}>
+                <div className="text-white/40 text-[10px] uppercase tracking-wider mb-1.5">Featured</div>
+                <div className="flex flex-wrap gap-1.5">
+                  {card.otherPokemon.map(name => (
+                    <span key={name} className="text-white text-xs font-semibold bg-white/10 rounded-full px-2.5 py-1">{name}</span>
+                  ))}
+                </div>
+              </div>
+            )}
+            {(!card.otherPokemon || card.otherPokemon.length === 0) && <div className="pb-6" />}
           </div>
         )}
       </>
