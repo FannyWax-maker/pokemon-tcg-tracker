@@ -86,10 +86,23 @@ export default function App() {
     } else {
       setPokemonData(enrichPokemonData(pokemonDataImport));
     }
-    // Reset filters and selection when switching modes
+    // Reset all filters and selection when switching modes
     setSelectedPokemon(null);
     setSearchQuery('');
     setSearchInput('');
+    setFilterSet('all');
+    setFilterSetLang('all');
+    setFilterLang('all');
+    setFilterCardType('all');
+    setFilterChinese('all');
+    setFilterArtist('all');
+    setFilterHideNoCards('all');
+    setFilterHideNonConforming('all');
+    setFilterOwned('all');
+    setFilterGeneration('all');
+    setFilterFavorites('all');
+    setFilterUnobtainable('all');
+    setSortBy('default');
   }, [appMode]);
   const [syncStatus, setSyncStatus] = useState('');
   const [tileSize, setTileSize] = useState('M');
