@@ -607,24 +607,67 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
               <button onClick={() => setShowZoom(false)} className="text-white/60 hover:text-white text-2xl font-bold leading-none">✕</button>
             </div>
 
-            {/* Card image — centre */}
-            <div className="flex-1 flex items-center justify-center px-4" onClick={e => e.stopPropagation()}>
-              <img
-                src={imageSrc}
-                alt={pokemonName}
-                className="max-w-full max-h-full object-contain rounded-xl shadow-2xl"
-                style={{ maxHeight: 'calc(100vh - 180px)' }}
-              />
+            {/* Card image — centre with coord circles overlay */}
+            <div className="flex-1 flex items-center justify-center px-4 relative" onClick={e => e.stopPropagation()}>
+              <div className="relative inline-block">
+                <img
+                  ref={zoomImgRef}
+                  src={imageSrc}
+                  alt={pokemonName}
+                  className="max-w-full object-contain rounded-xl shadow-2xl"
+                  style={{ maxHeight: 'calc(100vh - 220px)', display: 'block' }}
+                  onLoad={() => { if (zoomImgRef.current) setImgRect(zoomImgRef.current.getBoundingClientRect()); }}
+                />
+                {/* Coord circles overlay */}
+                {showHighlight && highlightName && imgRect && (() => {
+                  const coordEntry = (pokemonCoordsImport[card.id] || []).find(c => c.name.toLowerCase() === highlightName.toLowerCase());
+                  if (!coordEntry) return null;
+                  const positions = coordEntry.positions || [{ x: coordEntry.x, y: coordEntry.y, r: coordEntry.r }];
+                  return positions.map((pos, i) => {
+                    const r = pos.r || 0.08;
+                    const cx = pos.x * imgRect.width;
+                    const cy = pos.y * imgRect.height;
+                    const rPx = r * imgRect.width;
+                    return (
+                      <div key={i} style={{
+                        position: 'absolute',
+                        left: cx - rPx, top: cy - rPx,
+                        width: rPx * 2, height: rPx * 2,
+                        borderRadius: '50%',
+                        border: '3px solid #ef4444',
+                        boxShadow: '0 0 0 2px rgba(0,0,0,0.5), 0 0 12px rgba(239,68,68,0.6)',
+                        pointerEvents: 'none',
+                      }} />
+                    );
+                  });
+                })()}
+              </div>
             </div>
 
             {/* Featured Pokémon — bottom */}
             {card.otherPokemon && card.otherPokemon.length > 0 && (
               <div className="flex-shrink-0 px-4 pt-2 pb-6" onClick={e => e.stopPropagation()}>
-                <div className="text-white/40 text-[10px] uppercase tracking-wider mb-1.5">Featured</div>
+                <div className="text-white/40 text-[10px] uppercase tracking-wider mb-1.5">Featured — tap to highlight</div>
                 <div className="flex flex-wrap gap-1.5">
-                  {card.otherPokemon.map(name => (
-                    <span key={name} className="text-white text-xs font-semibold bg-white/10 rounded-full px-2.5 py-1">{name}</span>
-                  ))}
+                  {card.otherPokemon.map(name => {
+                    const isActive = highlightName === name && showHighlight;
+                    const hasCoords = (pokemonCoordsImport[card.id] || []).some(c => c.name.toLowerCase() === name.toLowerCase());
+                    return (
+                      <button
+                        key={name}
+                        onClick={() => {
+                          if (isActive) { setHighlightName(null); setShowHighlight(false); }
+                          else { setHighlightName(name); setShowHighlight(true); if (zoomImgRef.current) setImgRect(zoomImgRef.current.getBoundingClientRect()); }
+                        }}
+                        className="text-xs font-semibold rounded-full px-2.5 py-1 transition-all"
+                        style={{
+                          background: isActive ? '#ef4444' : hasCoords ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.06)',
+                          color: isActive ? 'white' : hasCoords ? 'white' : 'rgba(255,255,255,0.4)',
+                          border: isActive ? '1px solid #ef4444' : '1px solid rgba(255,255,255,0.15)',
+                        }}
+                      >{name}</button>
+                    );
+                  })}
                 </div>
               </div>
             )}
