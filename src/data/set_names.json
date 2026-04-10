@@ -2118,10 +2118,10 @@
     "month": null
   },
   "CSGC": {
-    "name": "Eevee Display Frame Box",
+    "name": "Pokémon Card Display Sets",
     "series": "Sword & Shield",
-    "year": null,
-    "month": null
+    "year": 2024,
+    "month": 3
   },
   "CSM1AC": {
     "name": "Storming Emergence - Set A",
@@ -2554,6 +2554,12 @@
     "series": "Sun & Moon",
     "year": null,
     "month": null
+  },
+  "SPP": {
+    "name": "Sword & Shield Promotional Chinese",
+    "series": "Sword & Shield",
+    "year": 2023,
+    "month": 5
   },
   "AC1A": {
     "name": "Crossing the Sky - Set A",
