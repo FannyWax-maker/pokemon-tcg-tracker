@@ -704,8 +704,8 @@ export default function App() {
     setFilterLang('all'); setFilterOwned('all'); setFilterSetLang('all'); setFilterGeneration('all'); setFilterFavorites('all'); setFilterUnobtainable('all');
   };
 
-  const tileGridClass = { S: 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-2', M: 'grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-3', L: 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4' };
-  const pokemonGridClass = { S: 'grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2', M: 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4', L: 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-5' };
+  const tileGridClass = { S: 'grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-2', M: 'grid-cols-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-2 sm:gap-3', L: 'grid-cols-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4' };
+  const pokemonGridClass = { S: 'grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2', M: 'grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-4', L: 'grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-2 sm:gap-5' };
 
   return (
     <div className={`min-h-screen font-sans ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`} style={{fontFamily: "'Segoe UI', system-ui, sans-serif"}}>
@@ -1175,7 +1175,7 @@ export default function App() {
               <div className="flex items-center gap-2 flex-wrap"><List className="w-3.5 h-3.5" /><span>All Cards ({allCardsFlat.length})</span></div>
               <div>{allCardsFlat.filter(c => c.ownedLang).length} owned</div>
             </div>
-            <div className={`grid ${tileGridClass[tileSize]} sm:grid`} style={{gridTemplateColumns: window.innerWidth < 640 ? 'repeat(3, 1fr)' : ''}}>
+            <div className={`grid ${tileGridClass[tileSize]}`}>
               {allCardsFlat.map((card, idx) => (
                 <CardTile key={`${card.pokemonId}-${card.id}-${idx}`} card={card} pokemonName={card.pokemonName}
                   onOwnershipClick={handleCardOwnershipClick} onToggleNonConforming={handleToggleNonConforming}

@@ -545,6 +545,7 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
     return (
       <>
         <div
+          ref={containerRef}
           className={`relative rounded-lg overflow-hidden cursor-pointer ${isOwned ? 'ring-2 ring-emerald-400' : ''}`}
           style={{ aspectRatio: '2.5/3.5', background: '#1a1a2e' }}
           onClick={() => imageSrc && setShowZoom(true)}
