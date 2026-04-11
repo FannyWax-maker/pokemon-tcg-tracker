@@ -452,6 +452,30 @@ export default function CardTile({ card, pokemonName, onOwnershipClick, onToggle
         return;
       }
 
+      // JP-exclusive cards: load from card-images-jp even when displayLang is EN
+      if (card.exclusive === 'JP' && (displayLang === 'EN' || displayLang === 'all')) {
+        const manifest = await getJpManifest();
+        const slug = pokemonName.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const found = await findInManifest(manifest, 'card-images-jp', buildLangPaths(card.jpSetCode, card.jpNumber, slug));
+        if (!mounted) return;
+        imageCache[cacheKey] = { src: found };
+        setImageSrc(found);
+        setImageLoaded(!!found);
+        return;
+      }
+
+      // CN-exclusive cards: load from card-images-cn even when displayLang is EN
+      if (card.exclusive === 'CN' && (displayLang === 'EN' || displayLang === 'all')) {
+        const manifest = await getCnManifest();
+        const slug = pokemonName.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const found = await findInManifest(manifest, 'card-images-cn', buildLangPaths(card.cnSetCode, card.cnNumber, slug));
+        if (!mounted) return;
+        imageCache[cacheKey] = { src: found };
+        setImageSrc(found);
+        setImageLoaded(!!found);
+        return;
+      }
+
       // Fullart mode: use main manifest and image folder
       const manifest = await getManifest();
       const base = '/pokemon-tcg-tracker/card-images/';
